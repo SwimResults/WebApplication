@@ -33,6 +33,8 @@ jobs:
     strategy:
       matrix:
         Test: [Test,Lint]
+    
+    needs: install
 
     steps:
     - uses: actions/checkout@v3
