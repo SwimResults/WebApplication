@@ -72,7 +72,7 @@ jobs:
         cache-name: cache-dist
       with:
         path: dist/
-        key: ${{ runner.os }}-${{ hashFiles('dist/*') }}
+        key: ${{ runner.os }}-${{ github.run_id }}
     - run: npm link @angular/cli@${{ env.CLI_VERSION }}
     - run: npm run build:${GITHUB_REF##*/}
 
@@ -119,7 +119,7 @@ jobs:
         cache-name: cache-dist
       with:
         path: dist/
-        key: ${{ runner.os }}-${{ hashFiles('dist/*') }}
+        key: ${{ runner.os }}-${{ github.run_id }}
 
      # Build and push Docker image with Buildx (don't push on PR)
     # https://github.com/docker/build-push-action
