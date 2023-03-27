@@ -45,6 +45,6 @@ jobs:
         cache: 'npm'
     - run: npm link @angular/cli@${{ env.CLI_VERSION }}
     - if: ${{ matrix.Test == 'Lint' }}
-      run: npm test:lint
+      run: npm run test:lint
     - if: ${{ matrix.Test == 'Test' }}
-      run: npm test:test
+      run: npm run test:test
