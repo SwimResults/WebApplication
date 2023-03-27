@@ -8,9 +8,11 @@ on:
     branches: [ "master", "develop" ]
   pull_request:
     branches: [ "master", "develop" ]
+  workflow_dispatch:
 
 env:
   NODE_VERSION: 18.x
+  CLI_VERSION: 14.2.1
 
 jobs:
   install:
@@ -25,3 +27,22 @@ jobs:
         cache: 'npm'
     - run: npm install
 
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        Test: [Test,Lint]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Test (${{ matrix.Test }})
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+    - run: npm link @angular/cli@${{ env.CLI_VERSION }}
+    - if: ${{ matrix.Test == 'Lint' }}
+      run: ng lint
+    - if: ${{ matrix.Test == 'Test' }}
+      run: ng test --watch=false
