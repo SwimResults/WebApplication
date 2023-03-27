@@ -7,7 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "build:master": "ng build",
+    "build:develop": "ng build --configuration test",
+    "test:test": "ng test --browsers=ChromeHeadless --watch=false --code-coverage",
+    "test:lint": "ng lint"
   },
   "private": true,
   "dependencies": {
