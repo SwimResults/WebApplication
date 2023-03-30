@@ -5,7 +5,7 @@ import {Athlete} from "../../../../core/model";
 @Component({
   selector: 'sr-example1',
   templateUrl: './example1.component.html',
-  styleUrls: ['./example1.component.css']
+  styleUrls: ['./example1.component.scss']
 })
 export class Example1Component implements OnInit {
   athletes: Athlete[] = [];

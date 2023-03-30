@@ -1,0 +1,25 @@
+main {
+  display: grid;
+  grid-column-gap: 0;
+  grid-template-columns: 260px 40px minmax(1px,1440px) 40px;
+  grid-template-areas:
+    "sidebar . header ."
+    "sidebar . page-content .";
+  margin-top: 0;
+  width: 100%;
+
+  .content {
+    display: grid;
+    grid-area: page-content;
+  }
+
+  sr-header {
+    display: grid;
+    grid-area: header;
+  }
+
+  sr-sidebar {
+    grid-area: sidebar;
+    position: fixed;
+  }
+}

@@ -1,0 +1,10 @@
+@import '../../../../colors';
+
+:host {
+  width: auto;
+  display: inline-block;
+  padding: 14px;
+  background-color: $color-bg-first;
+  border-radius: 12px;
+  box-shadow: 0 0 20px -10px black;
+}

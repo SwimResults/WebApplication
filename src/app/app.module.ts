@@ -6,18 +6,20 @@ import {CoreModule} from "./core/core.module";
 import {ContentModule} from "./content/content.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {LayoutModule} from "./shared/layout/layout.module";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    ContentModule,
-    CoreModule,
-    AppRoutingModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        ContentModule,
+        CoreModule,
+        AppRoutingModule,
+        LayoutModule,
+    ],
   exports: [
     AppComponent
   ],

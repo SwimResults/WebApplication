@@ -1,0 +1,17 @@
+@import "../../../../colors";
+
+:host {
+  padding: 6px;
+  height: 28px;
+  width: 28px;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  background: linear-gradient(#6e9add, $color-sr-first);
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.mat-icon {
+  margin-top: 2px;
+}

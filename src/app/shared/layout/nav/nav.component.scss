@@ -1,0 +1,42 @@
+@import "../../../../colors";
+
+nav {
+  margin-top: 20px;
+  font-size: 13px;
+  color: $color-nav-link;
+
+  .group {
+    padding: 16px;
+  }
+
+  .group-title {
+    color: $color-nav-group-title;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 180px;
+    display: inline-block;
+  }
+
+  .link {
+    cursor: pointer;
+    margin-left: 8px;
+    margin-top: 10px;
+  }
+
+  .link-name {
+    vertical-align: top;
+    margin-left: 16px;
+    display: inline-block;
+    margin-top: 3px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 150px;
+  }
+
+  .link.active {
+    color: $color-nav-link-active;
+  }
+}

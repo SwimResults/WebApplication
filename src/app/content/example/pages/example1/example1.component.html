@@ -1,13 +1,15 @@
 <h2>Sportler</h2>
-<ul>
-  <li *ngFor="let athlete of athletes">
-    <span><b>ID: </b> {{athlete._id}}</span><br>
-    <span><b>Name: </b> {{athlete.name}}</span><br>
-    <span><b>Jahr: </b> {{athlete.year}}</span><br>
-    <span>
-      <b>Verein: </b>
-      {{athlete.team.name}}
-      ({{athlete.team.alias}})
-    </span><br>
-  </li>
-</ul>
+<sr-panel>
+  <ul>
+    <li *ngFor="let athlete of athletes">
+      <span><b>ID: </b> {{athlete._id}}</span><br>
+      <span><b>Name: </b> {{athlete.name}}</span><br>
+      <span><b>Jahr: </b> {{athlete.year}}</span><br>
+      <span>
+        <b>Verein: </b>
+        {{athlete.team.name}}
+        ({{athlete.team.alias}})
+      </span><br>
+    </li>
+  </ul>
+</sr-panel>
