@@ -1,4 +1,4 @@
 <nav>
-  <sr-nav-default></sr-nav-default>
-  <!--sr-nav-event></sr-nav-event-->
+  <sr-nav-default *ngIf="event === null"></sr-nav-default>
+  <sr-nav-event *ngIf="event !== null"></sr-nav-event>
 </nav>
