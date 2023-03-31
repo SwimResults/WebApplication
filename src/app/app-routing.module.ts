@@ -10,6 +10,10 @@ const routes: Routes = [
     component: Example1Component,
     data: { title: 'web.dashboard.layout.nav.link.dashboard_label'}
   },
+  {
+    path: 'calendar',
+    component: Example1Component
+  }
 
 ]
 

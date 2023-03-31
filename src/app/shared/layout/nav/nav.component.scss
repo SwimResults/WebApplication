@@ -4,4 +4,7 @@ nav {
   margin-top: 20px;
   font-size: 13px;
   color: $color-nav-link;
+  height: 80vh;
+  overflow: auto;
+  display: inline-block;
 }

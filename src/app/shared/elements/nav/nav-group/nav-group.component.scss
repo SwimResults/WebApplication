@@ -1,5 +1,10 @@
 @import "../../../../../colors";
 
+:host {
+  margin-bottom: 30px;
+  display: block;
+  border-bottom: 0.1px solid #0075bb;
+}
 
 .group-title {
   color: $color-nav-group-title;

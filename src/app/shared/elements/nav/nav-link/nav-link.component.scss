@@ -2,20 +2,34 @@
 
 .link {
   cursor: pointer;
-  margin: 20px 16px;
-}
+  margin: 12px 8px;
+  border-radius: 4px;
+  padding: 8px;
+  transition: 0.2s;
 
-.link-name {
-  vertical-align: top;
-  margin-left: 16px;
-  display: inline-block;
-  margin-top: 3px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  width: 150px;
-}
+  .link-name {
+    margin-left: 26px;
+    display: inline-block;
+    margin-top: 3px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 150px;
+    vertical-align: middle;
+  }
 
-.link.active {
-  color: $color-nav-link-active;
+  .mat-icon {
+    border-radius: 4px;
+    padding: 4px;
+    vertical-align: middle;
+  }
+
+  &.active {
+    color: $color-nav-link-active;
+    background-color: $color-nav-bg-active;
+  }
+
+  &:hover {
+    color: $color-nav-link-active;
+  }
 }
