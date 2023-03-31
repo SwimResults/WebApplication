@@ -6,6 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import {ElementsModule} from "../elements/elements.module";
 import {MatIconModule} from "@angular/material/icon";
 import {RouterLink, RouterLinkActive, RouterModule} from "@angular/router";
+import { NavEventComponent } from './nav/nav-event/nav-event.component';
+import { NavDefaultComponent } from './nav/nav-default/nav-default.component';
 
 
 
@@ -13,7 +15,9 @@ import {RouterLink, RouterLinkActive, RouterModule} from "@angular/router";
   declarations: [
     SidebarComponent,
     NavComponent,
-    HeaderComponent
+    HeaderComponent,
+    NavEventComponent,
+    NavDefaultComponent
   ],
   exports: [
     SidebarComponent,

@@ -1,0 +1,21 @@
+@import "../../../../../colors";
+
+.link {
+  cursor: pointer;
+  margin: 20px 16px;
+}
+
+.link-name {
+  vertical-align: top;
+  margin-left: 16px;
+  display: inline-block;
+  margin-top: 3px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 150px;
+}
+
+.link.active {
+  color: $color-nav-link-active;
+}

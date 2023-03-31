@@ -1,0 +1,12 @@
+@import "../../../../../colors";
+
+
+.group-title {
+  color: $color-nav-group-title;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 180px;
+  display: inline-block;
+}

@@ -1,28 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavComponent } from './nav.component';
-import {MatIconModule} from "@angular/material/icon";
-import {ElementsModule} from "../../elements/elements.module";
-import {LayoutModule} from "../layout.module";
+import { NavDefaultComponent } from './nav-default.component';
+import {ElementsModule} from "../../../elements/elements.module";
 import {RouterTestingModule} from "@angular/router/testing";
 
-describe('NavComponent', () => {
-  let component: NavComponent;
-  let fixture: ComponentFixture<NavComponent>;
+describe('NavDefaultComponent', () => {
+  let component: NavDefaultComponent;
+  let fixture: ComponentFixture<NavDefaultComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavComponent ],
+      declarations: [ NavDefaultComponent ],
       imports: [
-        MatIconModule,
         ElementsModule,
-        LayoutModule,
         RouterTestingModule
       ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NavComponent);
+    fixture = TestBed.createComponent(NavDefaultComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
