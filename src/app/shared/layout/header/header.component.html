@@ -1,5 +1,10 @@
 <sr-panel>
   <sr-icon-panel [icon]="event ? 'event' : 'public'"></sr-icon-panel>
-  <span class="title" *ngIf="event">{{event === 'iesc' ? "25. Internationaler Erzgebirgsschwimmcup 2023" : event}}</span>
+  <span class="title" *ngIf="event">
+    {{
+    event === 'iesc23' ? "25. Internationaler Erzgebirgsschwimmcup 2023" :
+    event === 'iesc24' ? "26. Internationaler Erzgebirgsschwimmcup 2024" : event
+    }}
+  </span>
   <span class="title" *ngIf="!event">SwimResults</span>
 </sr-panel>
