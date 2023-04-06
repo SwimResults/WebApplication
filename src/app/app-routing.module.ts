@@ -2,14 +2,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {Example1Component} from "./content/example";
 import {CalendarComponent} from "./content/calendar/calendar.component";
+import {PageLiveComponent} from "./content/live";
+import {PageFilesComponent} from "./content/files";
+import {PageDashboardEventComponent, PageDashboardGeneralComponent} from "./content/dashboard";
+import {PageAthletesEventComponent, PageAthletesGeneralComponent} from "./content/athletes";
+import {PageTeamsEventComponent, PageTeamsGeneralComponent} from "./content/teams";
+import {PageStatsEventComponent, PageStatsGeneralComponent} from "./content/stats";
+import {PageEventsComponent} from "./content/events";
 
 
 const routes: Routes = [
   { path: '', component: Example1Component, data: { title: 'SwimResults'} },
   {
     path: 'dashboard',
-    component: Example1Component,
-    data: { title: 'web.dashboard.layout.nav.link.dashboard_label'}
+    component: PageDashboardGeneralComponent,
   },
   {
     path: 'calendar',
@@ -17,29 +23,28 @@ const routes: Routes = [
   },
   {
     path: 'athletes',
-    component: Example1Component
+    component: PageAthletesGeneralComponent
   },
   {
     path: 'teams',
-    component: Example1Component
+    component: PageTeamsGeneralComponent
   },
   {
     path: 'stats',
-    component: Example1Component
+    component: PageStatsGeneralComponent
   },
 
 
   {
     path: 'event/:event',
-    component: Example1Component,
     children: [
-      { path: "dashboard", component: Example1Component },
-      { path: "live", component: Example1Component },
-      { path: "events", component: Example1Component },
-      { path: "athletes", component: Example1Component },
-      { path: "teams", component: Example1Component },
-      { path: "files", component: Example1Component },
-      { path: "stats", component: Example1Component },
+      { path: "dashboard",  component: PageDashboardEventComponent },
+      { path: "live",       component: PageLiveComponent },
+      { path: "events",     component: PageEventsComponent },
+      { path: "athletes",   component: PageAthletesEventComponent },
+      { path: "teams",      component: PageTeamsEventComponent },
+      { path: "files",      component: PageFilesComponent },
+      { path: "stats",      component: PageStatsEventComponent },
     ]
   }
 
