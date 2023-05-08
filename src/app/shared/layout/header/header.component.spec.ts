@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
 import {ElementsModule} from "../../elements/elements.module";
 import {RouterTestingModule} from "@angular/router/testing";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -13,7 +14,8 @@ describe('HeaderComponent', () => {
       declarations: [ HeaderComponent ],
       imports: [
         ElementsModule,
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ]
     })
     .compileComponents();

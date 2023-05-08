@@ -5,6 +5,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {ElementsModule} from "../../elements/elements.module";
 import {LayoutModule} from "../layout.module";
 import {RouterTestingModule} from "@angular/router/testing";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('NavComponent', () => {
   let component: NavComponent;
@@ -17,7 +18,8 @@ describe('NavComponent', () => {
         MatIconModule,
         ElementsModule,
         LayoutModule,
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ]
     })
     .compileComponents();

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageDashboardEventComponent, PageDashboardGeneralComponent } from './pages';
+import {ElementsModule} from "../../shared/elements/elements.module";
 
 
 @NgModule({
@@ -8,8 +9,9 @@ import { PageDashboardEventComponent, PageDashboardGeneralComponent } from './pa
     PageDashboardEventComponent,
     PageDashboardGeneralComponent
   ],
-  imports: [
-    CommonModule
-  ]
+    imports: [
+        CommonModule,
+        ElementsModule
+    ]
 })
 export class DashboardModule { }

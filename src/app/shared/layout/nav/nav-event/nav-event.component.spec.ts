@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavEventComponent } from './nav-event.component';
 import {ElementsModule} from "../../../elements/elements.module";
 import {RouterTestingModule} from "@angular/router/testing";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('NavEventComponent', () => {
   let component: NavEventComponent;
@@ -13,7 +14,8 @@ describe('NavEventComponent', () => {
       declarations: [ NavEventComponent ],
       imports: [
         ElementsModule,
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ]
     })
     .compileComponents();

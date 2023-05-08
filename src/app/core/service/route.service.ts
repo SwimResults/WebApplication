@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject, distinctUntilChanged, filter, map, mergeMap} from "rxjs";
 import {RouteEvent} from "../model";
+import {MeetingService} from "./api/meeting/meeting.service";
+import {Meeting} from "../model/meeting/meeting.model";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,8 @@ export class RouteService {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private meetingService: MeetingService
   ) {
     this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
@@ -27,11 +30,26 @@ export class RouteService {
             break;
           }
         }
-        this.currentEventSubject.next(
-          new class implements RouteEvent {
-            event: string | null = ev;
-          }
-        );
+        let meeting: RouteEvent = new class implements RouteEvent {
+            meeting: Meeting = {} as Meeting;
+            has_meeting: boolean = false;
+        }
+
+        if (ev) {
+          this.meetingService.getMeetingByMeetId(ev).subscribe(data => {
+            meeting.meeting = data;
+            meeting.meeting.date_start_date = new Date(meeting.meeting.date_start);
+            meeting.meeting.date_end_date = new Date(meeting.meeting.date_end);
+            meeting.has_meeting = true;
+            this.currentEventSubject.next(
+              meeting
+            );
+          })
+        } else {
+          this.currentEventSubject.next(
+            meeting
+          );
+        }
         return route;
       }),
       mergeMap((route) => {

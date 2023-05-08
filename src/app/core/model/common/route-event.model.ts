@@ -1,3 +1,6 @@
+import {Meeting} from "../meeting/meeting.model";
+
 export interface RouteEvent {
-  event: string | null;
+  meeting: Meeting;
+  has_meeting: boolean;
 }

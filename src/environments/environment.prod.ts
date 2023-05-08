@@ -4,6 +4,7 @@
 
 export const environment = {
   api_urls: {
-    athlete_service: "https://api.swimresults.de/athlete/v1/"
+    athlete_service: "https://api.swimresults.de/athlete/v1/",
+    meeting_service: "https://api.swimresults.de/meeting/v1/"
   }
 }

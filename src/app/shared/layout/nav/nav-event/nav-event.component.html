@@ -1,42 +1,43 @@
+<div *ngIf="meeting">
 <sr-nav-group>
   <sr-nav-link
     icon="dashboard"
-    link="/event/{{event}}/dashboard"
+    link="/event/{{meeting.meet_id}}/dashboard"
     title="Dashboard"
   ></sr-nav-link>
   <sr-nav-link
     icon="live_tv"
-    link="/event/{{event}}/live"
+    link="/event/{{meeting.meet_id}}/live"
     title="Live"
   ></sr-nav-link>
 </sr-nav-group>
 <sr-nav-group>
   <sr-nav-link
     icon="flag"
-    link="/event/{{event}}/events"
+    link="/event/{{meeting.meet_id}}/events"
     title="Wettkämpfe"
   ></sr-nav-link>
   <sr-nav-link
     icon="pool"
-    link="/event/{{event}}/athletes"
+    link="/event/{{meeting.meet_id}}/athletes"
     title="Sportler"
   ></sr-nav-link>
   <sr-nav-link
     icon="shield"
-    link="/event/{{event}}/teams"
+    link="/event/{{meeting.meet_id}}/teams"
     title="Vereine"
   ></sr-nav-link>
 </sr-nav-group>
 <sr-nav-group>
   <sr-nav-link
     icon="description"
-    link="/event/{{event}}/files"
+    link="/event/{{meeting.meet_id}}/files"
     title="Dateien"
   ></sr-nav-link>
   <sr-nav-link
     icon="bar_chart"
-    link="/event/{{event}}/stats"
+    link="/event/{{meeting.meet_id}}/stats"
     title="Statistiken"
   ></sr-nav-link>
 </sr-nav-group>
-
+</div>

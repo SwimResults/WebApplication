@@ -7,3 +7,12 @@
     <li><a routerLink="/event/test/dashboard">Test</a></li>
   </ul>
 </sr-panel>
+
+<h2>Veranstaltungen via API</h2>
+<sr-panel>
+  <ul>
+    <li *ngFor="let meeting of meetings">
+      <a [routerLink]="'/event/' + meeting.meet_id + '/dashboard'">{{meeting.iteration + ". " + meeting.series.name_short}}</a>
+    </li>
+  </ul>
+</sr-panel>

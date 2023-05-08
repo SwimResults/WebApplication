@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalendarComponent } from './calendar.component';
 import {ElementsModule} from "../../shared/elements/elements.module";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('CalendarComponent', () => {
   let component: CalendarComponent;
@@ -11,7 +12,8 @@ describe('CalendarComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ CalendarComponent ],
       imports: [
-        ElementsModule
+        ElementsModule,
+        HttpClientTestingModule
       ]
     })
     .compileComponents();
