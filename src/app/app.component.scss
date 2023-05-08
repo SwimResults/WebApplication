@@ -22,4 +22,12 @@ main {
     grid-area: sidebar;
     position: fixed;
   }
+
+  .build-info {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 4px 8px;
+  }
 }

@@ -3,5 +3,8 @@
   <sr-header></sr-header>
   <div class="content">
     <router-outlet></router-outlet>
+    <div class="build-info" *ngIf="showBuild" (click)="toggleBuild()">
+      <b>BUILD: </b> {{build}}
+    </div>
   </div>
 </main>
