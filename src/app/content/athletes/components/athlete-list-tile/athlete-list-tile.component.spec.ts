@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AthleteListTileComponent } from './athlete-list-tile.component';
+import {AthletesModule} from "../../athletes.module";
 
 describe('AthleteListTileComponent', () => {
   let component: AthleteListTileComponent;
@@ -8,7 +9,10 @@ describe('AthleteListTileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AthleteListTileComponent ]
+      declarations: [ AthleteListTileComponent ],
+      imports: [
+        AthletesModule
+      ]
     })
     .compileComponents();
 
