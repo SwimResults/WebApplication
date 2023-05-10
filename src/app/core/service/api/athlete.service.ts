@@ -20,4 +20,8 @@ export class AthleteService extends BaseService{
   public getAthletes(): Observable<Athlete[]> {
     return this.apiService.get(this.API_URL, "athlete");
   }
+
+  public getAthleteById(id: string): Observable<Athlete> {
+    return this.apiService.get(this.API_URL, "athlete/" + id);
+  }
 }
