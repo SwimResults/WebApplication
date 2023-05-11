@@ -1,1 +1,9 @@
-{}
+{
+    "NAV": {
+        "LINK": {
+            "TITLE": {
+                "DASHBOARD": "Dashboard"
+            }
+        }
+    }
+}
