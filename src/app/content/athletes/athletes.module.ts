@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageAthletesEventComponent, PageAthletesGeneralComponent } from './pages';
 import { AthleteListComponent, AthleteListTileComponent } from './components';
+import { AthleteListViewComponent } from './components/athlete-list-view/athlete-list-view.component';
+import {ElementsModule} from "../../shared/elements/elements.module";
 
 
 @NgModule({
@@ -9,10 +11,12 @@ import { AthleteListComponent, AthleteListTileComponent } from './components';
     PageAthletesEventComponent,
     PageAthletesGeneralComponent,
     AthleteListComponent,
-    AthleteListTileComponent
+    AthleteListTileComponent,
+    AthleteListViewComponent
   ],
-  imports: [
-    CommonModule
-  ]
+    imports: [
+        CommonModule,
+        ElementsModule
+    ]
 })
 export class AthletesModule { }
