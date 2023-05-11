@@ -3,7 +3,8 @@
 :host {
   background-color: $color-sidebar-bg;
   height: 100vh;
-  border-right: 4px solid $color-sidebar-border;
+  //border-right: 4px solid $color-sidebar-border;
+  box-shadow: 0px -10px 10px 5px $color-sidebar-border;
   padding: 12px;
 }
 
