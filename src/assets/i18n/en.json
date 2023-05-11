@@ -5,5 +5,13 @@
                 "DASHBOARD": "Dashboard"
             }
         }
+    },
+    "TEST": {
+        "EXAMPLE": "This is an example text that has been translated."
+    },
+    "EVENT": {
+        "DASHBOARD": {
+            "CURRENT_MEETING_INFO": "Current Event: {{name_full}}"
+        }
     }
 }
