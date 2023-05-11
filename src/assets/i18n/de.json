@@ -1,0 +1,10 @@
+{
+  "TEST": {
+    "EXAMPLE": "Das ist ein Beispieltext, der übersetzt wurde."
+  },
+  "EVENT": {
+    "DASHBOARD": {
+      "CURRENT_MEETING_INFO": "Aktuelle Veranstaltung: {{name_full}}"
+    }
+  }
+}

@@ -5,3 +5,4 @@
   <br>
   <b>Ort: </b> {{meeting.location.name}}
 </sr-panel>
+<p *ngIf="meeting">{{'EVENT.DASHBOARD.CURRENT_MEETING_INFO' | translate:meeting.series}}</p>

@@ -4,7 +4,7 @@ import {ExampleModule} from "./example";
 import { CalendarComponent } from './calendar/calendar.component';
 import {RouterLink} from "@angular/router";
 import {ElementsModule} from "../shared/elements/elements.module";
-
+import {CoreModule} from "../core/core.module";
 
 
 @NgModule({
@@ -15,6 +15,7 @@ import {ElementsModule} from "../shared/elements/elements.module";
     CommonModule,
     RouterLink,
     ElementsModule,
+    CoreModule
   ],
   exports: [
     ExampleModule

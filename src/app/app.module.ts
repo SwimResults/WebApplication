@@ -7,6 +7,13 @@ import {ContentModule} from "./content/content.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {LayoutModule} from "./shared/layout/layout.module";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {HttpClient} from "@angular/common/http";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -19,6 +26,14 @@ import {LayoutModule} from "./shared/layout/layout.module";
         CoreModule,
         AppRoutingModule,
         LayoutModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+          },
+          defaultLanguage: 'de'
+        })
     ],
   exports: [
     AppComponent

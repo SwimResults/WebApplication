@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageDashboardGeneralComponent } from './page-dashboard-general.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('PageDashboardGeneralComponent', () => {
   let component: PageDashboardGeneralComponent;
@@ -8,7 +9,10 @@ describe('PageDashboardGeneralComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageDashboardGeneralComponent ]
+      declarations: [ PageDashboardGeneralComponent ],
+      imports: [
+        TranslateModule.forRoot()
+      ]
     })
     .compileComponents();
 
