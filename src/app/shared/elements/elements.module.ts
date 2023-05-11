@@ -7,6 +7,7 @@ import { NavGroupComponent } from './nav/nav-group/nav-group.component';
 import { NavLinkComponent } from './nav/nav-link/nav-link.component';
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import { PageTitleComponent } from './page-title/page-title.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 
 
@@ -29,7 +30,8 @@ import { PageTitleComponent } from './page-title/page-title.component';
     CommonModule,
     MatIconModule,
     RouterLinkActive,
-    RouterLink
+    RouterLink,
+    TranslateModule
   ]
 })
 export class ElementsModule { }

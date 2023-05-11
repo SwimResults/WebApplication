@@ -6,5 +6,18 @@
     "DASHBOARD": {
       "CURRENT_MEETING_INFO": "Aktuelle Veranstaltung: {{name_full}}"
     }
+  },
+  "NAV": {
+    "LINK": {
+      "TITLE": {
+        "DASHBOARD": "Dashboard",
+        "LIVE": "Live",
+        "EVENTS": "Wettkämpfe",
+        "ATHLETES": "Sportler",
+        "TEAMS": "Vereine",
+        "FILES": "Dateien",
+        "STATS": "Statistiken"
+      }
+    }
   }
 }
