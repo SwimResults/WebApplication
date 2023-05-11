@@ -4,6 +4,7 @@ import { SidebarComponent } from './sidebar.component';
 import {LayoutModule} from "../layout.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -15,7 +16,8 @@ describe('SidebarComponent', () => {
       imports: [
         LayoutModule,
         RouterTestingModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();

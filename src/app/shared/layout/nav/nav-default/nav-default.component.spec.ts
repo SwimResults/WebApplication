@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavDefaultComponent } from './nav-default.component';
 import {ElementsModule} from "../../../elements/elements.module";
 import {RouterTestingModule} from "@angular/router/testing";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('NavDefaultComponent', () => {
   let component: NavDefaultComponent;
@@ -13,7 +14,8 @@ describe('NavDefaultComponent', () => {
       declarations: [ NavDefaultComponent ],
       imports: [
         ElementsModule,
-        RouterTestingModule
+        RouterTestingModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();

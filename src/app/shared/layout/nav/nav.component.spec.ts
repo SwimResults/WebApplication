@@ -6,6 +6,7 @@ import {ElementsModule} from "../../elements/elements.module";
 import {LayoutModule} from "../layout.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('NavComponent', () => {
   let component: NavComponent;
@@ -19,7 +20,8 @@ describe('NavComponent', () => {
         ElementsModule,
         LayoutModule,
         RouterTestingModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();

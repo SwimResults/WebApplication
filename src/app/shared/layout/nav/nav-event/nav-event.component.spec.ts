@@ -4,6 +4,7 @@ import { NavEventComponent } from './nav-event.component';
 import {ElementsModule} from "../../../elements/elements.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('NavEventComponent', () => {
   let component: NavEventComponent;
@@ -15,7 +16,8 @@ describe('NavEventComponent', () => {
       imports: [
         ElementsModule,
         RouterTestingModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();

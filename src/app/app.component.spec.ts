@@ -4,6 +4,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {ElementsModule} from "./shared/elements/elements.module";
 import {LayoutModule} from "./shared/layout/layout.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -15,7 +16,8 @@ describe('AppComponent', () => {
         HttpClientTestingModule,
         RouterTestingModule,
         ElementsModule,
-        LayoutModule
+        LayoutModule,
+        TranslateModule.forRoot()
       ]
     }).compileComponents();
   });

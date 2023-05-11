@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AthleteListViewComponent } from './athlete-list-view.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {AthletesModule} from "../../athletes.module";
 
 describe('AthleteListViewComponent', () => {
   let component: AthleteListViewComponent;
@@ -8,7 +10,11 @@ describe('AthleteListViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AthleteListViewComponent ]
+      declarations: [ AthleteListViewComponent ],
+      imports: [
+        HttpClientTestingModule,
+        AthletesModule
+      ]
     })
     .compileComponents();
 
