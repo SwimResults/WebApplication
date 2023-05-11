@@ -1,10 +1,10 @@
-<sr-page-title title="Veranstaltungen"></sr-page-title>
+<sr-page-title title_name="Veranstaltungen"></sr-page-title>
 <sr-panel>
   <h2>Dummies</h2>
   <ul>
-    <li><a routerLink="/event/iesc23/dashboard">25. IESC 2023</a></li>
-    <li><a routerLink="/event/iesc24/dashboard">26. IESC 2024</a></li>
-    <li><a routerLink="/event/test/dashboard">Test</a></li>
+    <li><a routerLink="/m/iesc23/dashboard">25. IESC 2023</a></li>
+    <li><a routerLink="/m/iesc24/dashboard">26. IESC 2024</a></li>
+    <li><a routerLink="/m/test/dashboard">Test</a></li>
   </ul>
 </sr-panel>
 
@@ -12,7 +12,7 @@
 <sr-panel>
   <ul>
     <li *ngFor="let meeting of meetings">
-      <a [routerLink]="'/event/' + meeting.meet_id + '/dashboard'">{{meeting.iteration + ". " + meeting.series.name_short}}</a>
+      <a [routerLink]="'/m/' + meeting.meet_id + '/dashboard'">{{meeting.iteration + ". " + meeting.series.name_short}}</a>
     </li>
   </ul>
 </sr-panel>

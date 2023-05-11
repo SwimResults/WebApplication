@@ -7,6 +7,6 @@ import {Component, Input} from '@angular/core';
 })
 export class NavLinkComponent {
   @Input() icon: string = "link";
-  @Input() title!: string;
+  @Input() link_title!: string;
   @Input() link!: string;
 }

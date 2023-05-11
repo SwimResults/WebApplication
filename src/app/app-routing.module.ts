@@ -36,7 +36,7 @@ const routes: Routes = [
 
 
   {
-    path: 'event/:event',
+    path: 'm/:event',
     children: [
       { path: "dashboard",  component: PageDashboardEventComponent },
       { path: "live",       component: PageLiveComponent },
