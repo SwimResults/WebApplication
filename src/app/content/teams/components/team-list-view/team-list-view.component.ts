@@ -23,8 +23,7 @@ export class TeamListViewComponent implements OnInit{
 
   fetchTeams() {
     if (this.meeting) {
-      // TODO Teams by meeting
-      this.teamService.getTeams().subscribe(data => {
+      this.teamService.getTeamsByMeeting(this.meeting.meet_id).subscribe(data => {
         this.teams = data;
       })
     } else {
