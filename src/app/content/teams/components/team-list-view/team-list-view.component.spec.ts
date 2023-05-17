@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TeamListViewComponent } from './team-list-view.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {TeamsModule} from "../../teams.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('TeamListViewComponent', () => {
   let component: TeamListViewComponent;
@@ -13,7 +14,8 @@ describe('TeamListViewComponent', () => {
       declarations: [ TeamListViewComponent ],
       imports: [
         HttpClientTestingModule,
-        TeamsModule
+        TeamsModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();

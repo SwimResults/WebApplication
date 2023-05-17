@@ -1,0 +1,4 @@
+<form [formGroup]="searchForm" (ngSubmit)="submit()">
+  <input type="search" formControlName="query" placeholder="{{'COMMON.FORM.SEARCH.SEARCH_INPUT_LABEL' | translate}}">
+  <button type="submit">Suchen</button>
+</form>

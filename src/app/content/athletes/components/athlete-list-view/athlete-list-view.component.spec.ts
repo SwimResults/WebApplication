@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AthleteListViewComponent } from './athlete-list-view.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {AthletesModule} from "../../athletes.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('AthleteListViewComponent', () => {
   let component: AthleteListViewComponent;
@@ -13,7 +14,8 @@ describe('AthleteListViewComponent', () => {
       declarations: [ AthleteListViewComponent ],
       imports: [
         HttpClientTestingModule,
-        AthletesModule
+        AthletesModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();

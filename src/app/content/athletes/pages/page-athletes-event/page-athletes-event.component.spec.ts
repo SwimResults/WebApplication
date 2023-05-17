@@ -5,6 +5,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {AthletesModule} from "../../athletes.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('PageAthletesEventComponent', () => {
   let component: PageAthletesEventComponent;
@@ -17,7 +18,8 @@ describe('PageAthletesEventComponent', () => {
         ElementsModule,
         RouterTestingModule,
         HttpClientTestingModule,
-        AthletesModule
+        AthletesModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();

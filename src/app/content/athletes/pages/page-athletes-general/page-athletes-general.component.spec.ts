@@ -5,6 +5,7 @@ import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {AthletesModule} from "../../athletes.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('PageAthletesGeneralComponent', () => {
   let component: PageAthletesGeneralComponent;
@@ -17,7 +18,8 @@ describe('PageAthletesGeneralComponent', () => {
         ElementsModule,
         RouterTestingModule,
         HttpClientTestingModule,
-        AthletesModule
+        AthletesModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();
