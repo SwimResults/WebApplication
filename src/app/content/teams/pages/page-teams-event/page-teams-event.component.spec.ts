@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageTeamsEventComponent } from './page-teams-event.component';
+import {ElementsModule} from "../../../../shared/elements/elements.module";
+import {RouterTestingModule} from "@angular/router/testing";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {TeamsModule} from "../../teams.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('PageTeamsEventComponent', () => {
   let component: PageTeamsEventComponent;
@@ -8,7 +13,14 @@ describe('PageTeamsEventComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageTeamsEventComponent ]
+      declarations: [ PageTeamsEventComponent ],
+      imports: [
+        ElementsModule,
+        RouterTestingModule,
+        HttpClientTestingModule,
+        TeamsModule,
+        TranslateModule.forRoot()
+      ]
     })
     .compileComponents();
 

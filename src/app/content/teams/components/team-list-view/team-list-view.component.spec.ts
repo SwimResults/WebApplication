@@ -1,26 +1,26 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageTeamsGeneralComponent } from './page-teams-general.component';
-import {TeamsModule} from "../../teams.module";
+import { TeamListViewComponent } from './team-list-view.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {TeamsModule} from "../../teams.module";
 import {TranslateModule} from "@ngx-translate/core";
 
-describe('PageTeamsGeneralComponent', () => {
-  let component: PageTeamsGeneralComponent;
-  let fixture: ComponentFixture<PageTeamsGeneralComponent>;
+describe('TeamListViewComponent', () => {
+  let component: TeamListViewComponent;
+  let fixture: ComponentFixture<TeamListViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageTeamsGeneralComponent ],
+      declarations: [ TeamListViewComponent ],
       imports: [
-        TeamsModule,
         HttpClientTestingModule,
+        TeamsModule,
         TranslateModule.forRoot()
       ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PageTeamsGeneralComponent);
+    fixture = TestBed.createComponent(TeamListViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

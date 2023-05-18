@@ -8,6 +8,10 @@ import { NavLinkComponent } from './nav/nav-link/nav-link.component';
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import { PageTitleComponent } from './page-title/page-title.component';
 import {TranslateModule} from "@ngx-translate/core";
+import { ListFilterRowComponent } from './list/filter/list-filter-row/list-filter-row.component';
+import { ListViewComponent } from './list/list-view/list-view.component';
+import { SearchFormComponent } from './search-form/search-form.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -17,21 +21,26 @@ import {TranslateModule} from "@ngx-translate/core";
         IconPanelComponent,
         NavGroupComponent,
         NavLinkComponent,
-        PageTitleComponent
+        PageTitleComponent,
+        ListFilterRowComponent,
+        ListViewComponent,
+        SearchFormComponent
     ],
     exports: [
         PanelComponent,
         IconPanelComponent,
         NavGroupComponent,
         NavLinkComponent,
-        PageTitleComponent
+        PageTitleComponent,
+        ListViewComponent
     ],
-  imports: [
-    CommonModule,
-    MatIconModule,
-    RouterLinkActive,
-    RouterLink,
-    TranslateModule
-  ]
+    imports: [
+        CommonModule,
+        MatIconModule,
+        RouterLinkActive,
+        RouterLink,
+        TranslateModule,
+        ReactiveFormsModule
+    ]
 })
 export class ElementsModule { }

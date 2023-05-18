@@ -22,11 +22,11 @@ const routes: Routes = [
     component: CalendarComponent
   },
   {
-    path: 'athletes',
+    path: 'athlete',
     component: PageAthletesGeneralComponent
   },
   {
-    path: 'teams',
+    path: 'team',
     component: PageTeamsGeneralComponent
   },
   {
@@ -40,9 +40,9 @@ const routes: Routes = [
     children: [
       { path: "dashboard",  component: PageDashboardEventComponent },
       { path: "live",       component: PageLiveComponent },
-      { path: "events",     component: PageEventsComponent },
-      { path: "athletes",   component: PageAthletesEventComponent },
-      { path: "teams",      component: PageTeamsEventComponent },
+      { path: "event",     component: PageEventsComponent },
+      { path: "athlete",   component: PageAthletesEventComponent },
+      { path: "team",      component: PageTeamsEventComponent },
       { path: "files",      component: PageFilesComponent },
       { path: "stats",      component: PageStatsEventComponent },
     ]

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Athlete} from "../../../../core/model";
 import {AthleteService} from "../../../../core/service/api";
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
+import {IListTile} from "../../../../core/model/list/list-tile.model";
 
 @Component({
   selector: 'sr-athlete-list-view',
@@ -11,6 +12,7 @@ import {Meeting} from "../../../../core/model/meeting/meeting.model";
 export class AthleteListViewComponent implements OnInit{
   @Input() meeting?: Meeting;
   athletes: Athlete[] = [];
+  listAthletes: IListTile[] = [];
 
   constructor(
     private athleteService: AthleteService
@@ -24,12 +26,17 @@ export class AthleteListViewComponent implements OnInit{
   fetchAthletes() {
     if (this.meeting) {
       this.athleteService.getAthletesByMeeting(this.meeting.meet_id).subscribe(data => {
-        this.athletes = data;
+        this.setAthletes(data);
       })
     } else {
       this.athleteService.getAthletes().subscribe(data => {
-        this.athletes = data;
+        this.setAthletes(data);
       })
     }
+  }
+
+  setAthletes(athletes: Athlete[]) {
+    this.athletes = athletes;
+    this.listAthletes = (athletes as unknown as IListTile[]);
   }
 }

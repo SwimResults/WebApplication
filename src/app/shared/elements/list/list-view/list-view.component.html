@@ -1,0 +1,11 @@
+<div class="search-view">
+  <sr-list-filter-row (querySearch)="onSearch($event)"></sr-list-filter-row>
+  <div class="list" *ngIf="data">
+    <ul *ngIf="data.length > 0">
+      <li *ngFor="let entry of data">
+        {{entry.name}}
+      </li>
+    </ul>
+    <span *ngIf="data.length <= 0">{{'COMMON.LIST.NO_ENTRIES_MESSAGE' | translate}}</span>
+  </div>
+</div>
