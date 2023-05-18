@@ -1,24 +1,31 @@
 {
-  "TEST": {
-    "EXAMPLE": "Das ist ein Beispieltext, der übersetzt wurde."
-  },
-  "EVENT": {
-    "DASHBOARD": {
-      "CURRENT_MEETING_INFO": "Aktuelle Veranstaltung: {{name_full}}"
+    "TEST": {
+        "EXAMPLE": "Das ist ein Beispieltext, der übersetzt wurde."
+    },
+    "EVENT": {
+        "DASHBOARD": {
+            "CURRENT_MEETING_INFO": "Aktuelle Veranstaltung: {{name_full}}"
+        }
+    },
+    "NAV": {
+        "LINK": {
+            "TITLE": {
+                "DASHBOARD": "Dashboard",
+                "LIVE": "Live",
+                "EVENTS": "Wettkämpfe",
+                "MEETINGS": "Veranstaltungen",
+                "ATHLETES": "Sportler",
+                "TEAMS": "Vereine",
+                "FILES": "Dateien",
+                "STATS": "Statistiken"
+            }
+        }
+    },
+    "COMMON": {
+        "FORM": {
+            "SEARCH": {
+                "SEARCH_INPUT_LABEL": "Suchen..."
+            }
+        }
     }
-  },
-  "NAV": {
-    "LINK": {
-      "TITLE": {
-        "DASHBOARD": "Dashboard",
-        "LIVE": "Live",
-        "EVENTS": "Wettkämpfe",
-        "MEETINGS": "Veranstaltungen",
-        "ATHLETES": "Sportler",
-        "TEAMS": "Vereine",
-        "FILES": "Dateien",
-        "STATS": "Statistiken"
-      }
-    }
-  }
 }
