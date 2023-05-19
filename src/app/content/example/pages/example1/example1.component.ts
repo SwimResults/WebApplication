@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AthleteService} from "../../../../core/service/api";
 import {Athlete} from "../../../../core/model";
+import {PagingRequest} from "../../../../core/model/common/paging-request.model";
 
 @Component({
   selector: 'sr-example1',
@@ -16,7 +17,7 @@ export class Example1Component implements OnInit {
   }
 
   ngOnInit(): void {
-    this.athleteService.getAthletes().subscribe(data => {
+    this.athleteService.getAthletes(new PagingRequest()).subscribe(data => {
       this.athletes = data;
     })
   }

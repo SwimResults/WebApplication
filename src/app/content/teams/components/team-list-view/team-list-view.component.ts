@@ -4,6 +4,8 @@ import {TeamService} from "../../../../core/service/api/athlete/team.service";
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {TeamListTile} from "../../../../core/model/list/team-list-tile.model";
 import {IListTile} from "../../../../core/model/list/list-tile.model";
+import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
+import {PagingRequest} from "../../../../core/model/common/paging-request.model";
 
 @Component({
   selector: 'sr-team-list-view',
@@ -21,16 +23,16 @@ export class TeamListViewComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.fetchTeams();
+    this.fetchTeams({paging: new PagingRequest()});
   }
 
-  fetchTeams() {
+  fetchTeams(request: RefreshListRequest) {
     if (this.meeting) {
-      this.teamService.getTeamsByMeeting(this.meeting.meet_id).subscribe(data => {
+      this.teamService.getTeamsByMeeting(this.meeting.meet_id, request.paging).subscribe(data => {
         this.setTeams(data)
       })
     } else {
-      this.teamService.getTeams().subscribe(data => {
+      this.teamService.getTeams(request.paging).subscribe(data => {
         this.setTeams(data)
       })
     }
