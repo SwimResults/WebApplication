@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PageAthleteComponent } from './page-athlete.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
+import {ElementsModule} from "../../../../shared/elements/elements.module";
 
 describe('PageAthleteComponent', () => {
   let component: PageAthleteComponent;
@@ -13,7 +14,8 @@ describe('PageAthleteComponent', () => {
       declarations: [ PageAthleteComponent ],
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule
+        RouterTestingModule,
+        ElementsModule
       ]
     })
     .compileComponents();

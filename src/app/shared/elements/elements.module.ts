@@ -14,6 +14,8 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { ListTileComponent } from './list/list-tile/list-tile.component';
 import { BadgeComponent } from './badge/badge.component';
+import {CoreModule} from "../../core/core.module";
+import {MatButtonModule} from "@angular/material/button";
 
 
 
@@ -44,7 +46,9 @@ import { BadgeComponent } from './badge/badge.component';
         RouterLinkActive,
         RouterLink,
         TranslateModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        CoreModule,
+        MatButtonModule
     ]
 })
 export class ElementsModule { }
