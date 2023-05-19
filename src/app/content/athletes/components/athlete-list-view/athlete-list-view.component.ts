@@ -5,6 +5,7 @@ import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {IListTile} from "../../../../core/model/list/list-tile.model";
 import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
 import {PagingRequest} from "../../../../core/model/common/paging-request.model";
+import {AthleteListTile} from "../../../../core/model/list/athlete-list-tile.model";
 
 @Component({
   selector: 'sr-athlete-list-view',
@@ -39,6 +40,9 @@ export class AthleteListViewComponent implements OnInit{
 
   setAthletes(athletes: Athlete[]) {
     this.athletes = athletes;
-    this.listAthletes = (athletes as unknown as IListTile[]);
+    this.listAthletes = [];
+    athletes.forEach(athlete => {
+      this.listAthletes.push(new AthleteListTile(athlete));
+    })
   }
 }

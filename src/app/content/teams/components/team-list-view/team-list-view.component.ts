@@ -3,7 +3,6 @@ import {Team} from "../../../../core/model";
 import {TeamService} from "../../../../core/service/api/athlete/team.service";
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {TeamListTile} from "../../../../core/model/list/team-list-tile.model";
-import {IListTile} from "../../../../core/model/list/list-tile.model";
 import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
 import {PagingRequest} from "../../../../core/model/common/paging-request.model";
 
@@ -40,7 +39,10 @@ export class TeamListViewComponent implements OnInit{
 
   setTeams(teams: Team[]) {
     this.teams = teams;
-    this.listTeams = (teams as unknown as IListTile[]);
+    this.listTeams = [];
+    teams.forEach(team => {
+      this.listTeams.push(new TeamListTile(team));
+    })
   }
 
 }

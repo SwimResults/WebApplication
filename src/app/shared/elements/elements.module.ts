@@ -12,6 +12,8 @@ import { ListFilterRowComponent } from './list/filter/list-filter-row/list-filte
 import { ListViewComponent } from './list/list-view/list-view.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { ListTileComponent } from './list/list-tile/list-tile.component';
+import { BadgeComponent } from './badge/badge.component';
 
 
 
@@ -24,7 +26,9 @@ import {ReactiveFormsModule} from "@angular/forms";
         PageTitleComponent,
         ListFilterRowComponent,
         ListViewComponent,
-        SearchFormComponent
+        SearchFormComponent,
+        ListTileComponent,
+        BadgeComponent
     ],
     exports: [
         PanelComponent,

@@ -1,0 +1,18 @@
+@import "../../../../../colors";
+
+.text {
+  display: inline-block;
+  margin-left: 12px;
+}
+
+.name {
+  width: 220px;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

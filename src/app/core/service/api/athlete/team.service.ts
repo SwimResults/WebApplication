@@ -21,6 +21,10 @@ export class TeamService extends BaseService{
     return this.apiService.get(this.API_URL, "team", paging.toParams());
   }
 
+  public getTeamById(id: string): Observable<Team> {
+    return this.apiService.get(this.API_URL, "team/" + id);
+  }
+
   public getTeamsByMeeting(id: string, paging: PagingRequest): Observable<Team[]> {
     return this.apiService.get(this.API_URL, "team/meet/" + id, paging.toParams());
   }
