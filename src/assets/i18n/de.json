@@ -26,6 +26,9 @@
             "SEARCH": {
                 "SEARCH_INPUT_LABEL": "Suchen..."
             }
+        },
+        "LIST": {
+            "NO_ENTRIES_MESSAGE": "Es wurden keine Einträge gefunden!"
         }
     }
 }
