@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'sr-root',
@@ -11,10 +12,13 @@ export class AppComponent{
   build: string = "";
   showBuild: boolean = true;
 
-  constructor() {
+  constructor(
+    private translateService: TranslateService
+  ) {
     this.fetchBuild().then(r => {
       this.build = r;
     });
+    this.translateService.use(navigator.language);
   }
 
   async fetchBuild() {
