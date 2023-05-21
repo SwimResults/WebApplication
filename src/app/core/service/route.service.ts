@@ -11,6 +11,8 @@ import {Meeting} from "../model/meeting/meeting.model";
 export class RouteService {
   private currentEventSubject = new BehaviorSubject<RouteEvent>({} as RouteEvent);
   public currentEvent = this.currentEventSubject.asObservable().pipe(distinctUntilChanged());
+  private currentMeetingIdSubject= new BehaviorSubject<string | undefined>("");
+  public currentMeetingId = this.currentMeetingIdSubject.asObservable().pipe(distinctUntilChanged());
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,6 +32,10 @@ export class RouteService {
             break;
           }
         }
+
+        if (ev) this.currentMeetingIdSubject.next(ev);
+        else this.currentMeetingIdSubject.next(undefined);
+
         let meeting: RouteEvent = new class implements RouteEvent {
             meeting: Meeting = {} as Meeting;
             has_meeting: boolean = false;

@@ -2,9 +2,15 @@
 
 <h1>{{'TEAM.PAGE.CONTACT_TITLE' | translate}}</h1>
 <sr-panel *ngIf="team.address">
-  <h3>Adresse</h3>
+  <h2>Adresse</h2>
   {{team.address.street}} {{team.address.number}}<br>
   {{team.address.postal_code}} {{team.address.city}}
+</sr-panel>
+
+<sr-panel *ngIf="team.website">
+  <h2>Website</h2>
+  <img [src]="team.website + '/favicon.ico'">
+  <a [href]="team.website">{{team.website}}</a>
 </sr-panel>
 
 <h1>{{'TEAM.PAGE.ATHLETE_TITLE' | translate}}</h1>

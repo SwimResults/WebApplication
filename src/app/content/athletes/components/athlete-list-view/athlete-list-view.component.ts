@@ -13,6 +13,7 @@ import {AthleteListTile} from "../../../../core/model/list/athlete-list-tile.mod
 })
 export class AthleteListViewComponent {
   @Input() meeting?: Meeting;
+  @Input() meetingId: string | undefined;
   athletes: Athlete[] = [];
   listAthletes: IListTile[] = [];
 
@@ -26,12 +27,12 @@ export class AthleteListViewComponent {
       this.athletes = [];
       this.listAthletes = [];
     }
-    if (this.meeting) {
-      this.athleteService.getAthletesByMeeting(this.meeting.meet_id, request.paging).subscribe(data => {
+    if (this.meetingId == undefined) {
+      this.athleteService.getAthletes(request.paging).subscribe(data => {
         this.appendAthletes(data);
       })
     } else {
-      this.athleteService.getAthletes(request.paging).subscribe(data => {
+      this.athleteService.getAthletesByMeeting(this.meetingId, request.paging).subscribe(data => {
         this.appendAthletes(data);
       })
     }
