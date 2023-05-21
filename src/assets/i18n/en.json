@@ -2,7 +2,14 @@
     "NAV": {
         "LINK": {
             "TITLE": {
-                "DASHBOARD": "Dashboard"
+                "DASHBOARD": "Dashboard",
+                "LIVE": "Live",
+                "EVENTS": "Events",
+                "MEETINGS": "Meetings",
+                "ATHLETES": "Athletes",
+                "TEAMS": "Teams",
+                "FILES": "Files",
+                "STATS": "Statistics"
             }
         }
     },
@@ -17,8 +24,38 @@
     "COMMON": {
         "FORM": {
             "SEARCH": {
-                "SEARCH_INPUT_LABEL": "Search..."
+                "SEARCH_INPUT_LABEL": "Search…"
             }
+        },
+        "LIST": {
+            "NO_ENTRIES_MESSAGE": "No entries has been found!"
+        },
+        "LANGUAGE": {
+            "EN": "English",
+            "DE": "German"
+        }
+    },
+    "ATHLETE": {
+        "LIST": {
+            "MORE": {
+                "SHARE_BUTTON_TEXT": "Share",
+                "ATHLETE_BUTTON_TEXT": "Show Athlete",
+                "TEAM_BUTTON_TEXT": "Show Team"
+            }
+        }
+    },
+    "HEADER": {
+        "MENU": {
+            "ACCOUNT": {
+                "SETTINGS_BUTTON_TEXT": "Settings",
+                "PROFILE_BUTTON_TEXT": "Show Profile"
+            }
+        }
+    },
+    "TEAM": {
+        "PAGE": {
+            "CONTACT_TITLE": "Contact",
+            "ATHLETE_TITLE": "Athletes"
         }
     }
 }
