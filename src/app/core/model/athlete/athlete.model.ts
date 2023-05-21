@@ -5,4 +5,5 @@ export interface Athlete {
   name: string;
   year: string;
   team: Team;
+  dsv_id: number;
 }

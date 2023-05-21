@@ -6,6 +6,6 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./icon-panel.component.scss']
 })
 export class IconPanelComponent {
-  @Input()
-  icon!: string;
+  @Input() icon?: string;
+  @Input() initials?: string;
 }

@@ -1,4 +1,4 @@
-<sr-page-title title_name="Sportler"></sr-page-title>
-<sr-athlete-list [athletes]="athletes"></sr-athlete-list>
-<hr>
-<sr-list-view [data]="listAthletes"></sr-list-view>
+<sr-list-view
+  [data]="listAthletes"
+  (refreshData)="fetchAthletes($event)"
+></sr-list-view>

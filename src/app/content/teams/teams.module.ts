@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageTeamsEventComponent, PageTeamsGeneralComponent } from './pages';
+import { PageTeamsEventComponent, PageTeamsGeneralComponent, PageTeamComponent } from './pages';
 import { TeamListViewComponent, TeamListComponent, TeamListTileComponent } from './components';
 import {ElementsModule} from "../../shared/elements/elements.module";
 
@@ -11,7 +11,8 @@ import {ElementsModule} from "../../shared/elements/elements.module";
     PageTeamsGeneralComponent,
     TeamListViewComponent,
     TeamListComponent,
-    TeamListTileComponent
+    TeamListTileComponent,
+    PageTeamComponent
   ],
   imports: [
     CommonModule,

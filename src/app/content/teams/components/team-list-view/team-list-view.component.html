@@ -1,6 +1,4 @@
-<sr-page-title title_name="Vereine"></sr-page-title>
-<sr-team-list [teams]="teams"></sr-team-list>
-
-<hr>
-
-<sr-list-view [data]="listTeams"></sr-list-view>
+<sr-list-view
+  [data]="listTeams"
+  (refreshData)="fetchTeams($event)"
+></sr-list-view>

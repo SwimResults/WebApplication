@@ -1,8 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import "colors";
 
 html, body { height: 100%; }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #f2f2f2;
+}
+
+input:focus,
+input:active {
+  outline: 0;
+}
+
+input[type=search] {
+  border: none;
+  background-color: $color-search-bg;
+  padding: 4px;
+  border-radius: 6px;
+  color: $color-search-text;
 }

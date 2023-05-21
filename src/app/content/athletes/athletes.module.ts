@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageAthletesEventComponent, PageAthletesGeneralComponent } from './pages';
+import { PageAthletesEventComponent, PageAthletesGeneralComponent, PageAthleteComponent } from './pages';
 import { AthleteListComponent, AthleteListTileComponent, AthleteListViewComponent } from './components';
 import { ElementsModule } from "../../shared/elements/elements.module";
-
+import {RouterLink} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -11,11 +11,13 @@ import { ElementsModule } from "../../shared/elements/elements.module";
     PageAthletesGeneralComponent,
     AthleteListComponent,
     AthleteListTileComponent,
-    AthleteListViewComponent
+    AthleteListViewComponent,
+    PageAthleteComponent
   ],
   imports: [
     CommonModule,
-    ElementsModule
+    ElementsModule,
+    RouterLink
   ]
 })
 export class AthletesModule { }

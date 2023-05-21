@@ -1,0 +1,15 @@
+<ng-container *ngIf="entry">
+  <span class="icon">
+    <sr-icon-panel icon="pool"></sr-icon-panel>
+  </span>
+  <span class="text name link" [routerLink]="entry.nameLink">
+    {{entry.name}}
+  </span>
+  <sr-badge class="text badge" *ngIf="entry.badge">{{entry.badge}}</sr-badge>
+  <span
+    class="text team link"
+    *ngIf="entry.team"
+    [routerLink]="entry.teamLink">
+    {{entry.team}}
+  </span>
+</ng-container>

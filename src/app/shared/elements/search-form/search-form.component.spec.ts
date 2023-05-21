@@ -3,6 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchFormComponent } from './search-form.component';
 import {TranslateModule} from "@ngx-translate/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatIconTestingModule} from "@angular/material/icon/testing";
+import {MatIconModule} from "@angular/material/icon";
 
 describe('SearchFormComponent', () => {
   let component: SearchFormComponent;
@@ -14,7 +16,9 @@ describe('SearchFormComponent', () => {
       imports: [
         TranslateModule.forRoot(),
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatIconTestingModule,
+        MatIconModule
       ]
     })
     .compileComponents();

@@ -3,6 +3,8 @@ import {Athlete} from "../../../../core/model";
 import {AthleteService} from "../../../../core/service/api";
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {IListTile} from "../../../../core/model/list/list-tile.model";
+import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
+import {AthleteListTile} from "../../../../core/model/list/athlete-list-tile.model";
 
 @Component({
   selector: 'sr-athlete-list-view',
@@ -20,23 +22,37 @@ export class AthleteListViewComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.fetchAthletes();
+    //this.fetchAthletes({paging: new PagingRequest()});
   }
 
-  fetchAthletes() {
+  fetchAthletes(request: RefreshListRequest) {
+    if (request.paging.offset == 0) {
+      this.athletes = [];
+      this.listAthletes = [];
+    }
     if (this.meeting) {
-      this.athleteService.getAthletesByMeeting(this.meeting.meet_id).subscribe(data => {
-        this.setAthletes(data);
+      this.athleteService.getAthletesByMeeting(this.meeting.meet_id, request.paging).subscribe(data => {
+        this.appendAthletes(data);
       })
     } else {
-      this.athleteService.getAthletes().subscribe(data => {
-        this.setAthletes(data);
+      this.athleteService.getAthletes(request.paging).subscribe(data => {
+        this.appendAthletes(data);
       })
     }
   }
 
+  appendAthletes(athletes: Athlete[]) {
+    this.athletes.concat(athletes);
+    athletes.forEach(athlete => {
+      this.listAthletes.push(new AthleteListTile(athlete));
+    })
+  }
+
   setAthletes(athletes: Athlete[]) {
     this.athletes = athletes;
-    this.listAthletes = (athletes as unknown as IListTile[]);
+    this.listAthletes = [];
+    athletes.forEach(athlete => {
+      this.listAthletes.push(new AthleteListTile(athlete));
+    })
   }
 }
