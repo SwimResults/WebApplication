@@ -30,5 +30,14 @@
         "LIST": {
             "NO_ENTRIES_MESSAGE": "Es wurden keine Einträge gefunden!"
         }
+    },
+    "ATHLETE": {
+        "LIST": {
+            "MORE": {
+                "TEAM_BUTTON_TEXT": "Verein anzeigen",
+                "SHARE_BUTTON_TEXT": "Teilen",
+                "ATHLETE_BUTTON_TEXT": "Sportler anzeigen"
+            }
+        }
     }
 }
