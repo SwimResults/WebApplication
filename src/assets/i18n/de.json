@@ -52,5 +52,10 @@
 
             }
         }
+    },
+    "TEAM": {
+        "PAGE": {
+            "CONTACT_TITLE": "Kontakt"
+        }
     }
 }
