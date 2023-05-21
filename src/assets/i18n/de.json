@@ -55,7 +55,8 @@
     },
     "TEAM": {
         "PAGE": {
-            "CONTACT_TITLE": "Kontakt"
+            "CONTACT_TITLE": "Kontakt",
+            "ATHLETE_TITLE": "Sportler"
         }
     }
 }
