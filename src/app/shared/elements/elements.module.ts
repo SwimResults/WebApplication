@@ -16,6 +16,7 @@ import { ListTileComponent } from './list/list-tile/list-tile.component';
 import { BadgeComponent } from './badge/badge.component';
 import {CoreModule} from "../../core/core.module";
 import {MatButtonModule} from "@angular/material/button";
+import {MatMenuModule} from "@angular/material/menu";
 
 
 
@@ -48,7 +49,8 @@ import {MatButtonModule} from "@angular/material/button";
         TranslateModule,
         ReactiveFormsModule,
         CoreModule,
-        MatButtonModule
+        MatButtonModule,
+        MatMenuModule
     ]
 })
 export class ElementsModule { }

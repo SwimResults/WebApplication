@@ -3,6 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PageTeamComponent } from './page-team.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
+import {TeamsModule} from "../../teams.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('PageTeamComponent', () => {
   let component: PageTeamComponent;
@@ -13,7 +15,9 @@ describe('PageTeamComponent', () => {
       declarations: [ PageTeamComponent ],
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule
+        RouterTestingModule,
+        TeamsModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();

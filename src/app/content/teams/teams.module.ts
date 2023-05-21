@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageTeamsEventComponent, PageTeamsGeneralComponent, PageTeamComponent } from './pages';
-import { TeamListViewComponent, TeamListComponent, TeamListTileComponent } from './components';
+import { TeamListViewComponent, TeamListComponent, TeamListTileComponent, TeamProfileIntroComponent } from './components';
 import {ElementsModule} from "../../shared/elements/elements.module";
+import {CoreModule} from "../../core/core.module";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -12,11 +14,14 @@ import {ElementsModule} from "../../shared/elements/elements.module";
     TeamListViewComponent,
     TeamListComponent,
     TeamListTileComponent,
-    PageTeamComponent
+    PageTeamComponent,
+    TeamProfileIntroComponent
   ],
   imports: [
     CommonModule,
-    ElementsModule
+    ElementsModule,
+    CoreModule,
+    MatIconModule
   ]
 })
 export class TeamsModule { }

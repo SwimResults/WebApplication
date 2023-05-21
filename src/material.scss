@@ -1,5 +1,16 @@
+@import "colors";
+
 body {
   .material-icons {
     font-family: 'Material Icons Round', 'Material Icons', serif !important;
+  }
+
+  .mdc-menu-surface {
+    border-radius: 8px;
+    background-color: $color-bg-first;
+    box-shadow: 0 0 22px -16px black !important;
+  }
+  .mat-mdc-menu-content {
+    padding: 8px;
   }
 }

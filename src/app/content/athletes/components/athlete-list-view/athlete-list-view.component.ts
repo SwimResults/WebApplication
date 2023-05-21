@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Athlete} from "../../../../core/model";
 import {AthleteService} from "../../../../core/service/api";
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
@@ -11,7 +11,7 @@ import {AthleteListTile} from "../../../../core/model/list/athlete-list-tile.mod
   templateUrl: './athlete-list-view.component.html',
   styleUrls: ['./athlete-list-view.component.scss']
 })
-export class AthleteListViewComponent implements OnInit{
+export class AthleteListViewComponent {
   @Input() meeting?: Meeting;
   athletes: Athlete[] = [];
   listAthletes: IListTile[] = [];
@@ -19,10 +19,6 @@ export class AthleteListViewComponent implements OnInit{
   constructor(
     private athleteService: AthleteService
   ) {
-  }
-
-  ngOnInit(): void {
-    //this.fetchAthletes({paging: new PagingRequest()});
   }
 
   fetchAthletes(request: RefreshListRequest) {
@@ -43,14 +39,6 @@ export class AthleteListViewComponent implements OnInit{
 
   appendAthletes(athletes: Athlete[]) {
     this.athletes.concat(athletes);
-    athletes.forEach(athlete => {
-      this.listAthletes.push(new AthleteListTile(athlete));
-    })
-  }
-
-  setAthletes(athletes: Athlete[]) {
-    this.athletes = athletes;
-    this.listAthletes = [];
     athletes.forEach(athlete => {
       this.listAthletes.push(new AthleteListTile(athlete));
     })

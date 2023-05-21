@@ -8,6 +8,10 @@ import {MatIconModule} from "@angular/material/icon";
 import {RouterLink, RouterLinkActive, RouterModule} from "@angular/router";
 import { NavEventComponent } from './nav/nav-event/nav-event.component';
 import { NavDefaultComponent } from './nav/nav-default/nav-default.component';
+import { HeaderButtonsComponent } from './header/header-buttons/header-buttons.component';
+import {MatMenuModule} from "@angular/material/menu";
+import {CoreModule} from "../../core/core.module";
+import {MatButtonModule} from "@angular/material/button";
 
 
 
@@ -17,7 +21,8 @@ import { NavDefaultComponent } from './nav/nav-default/nav-default.component';
     NavComponent,
     HeaderComponent,
     NavEventComponent,
-    NavDefaultComponent
+    NavDefaultComponent,
+    HeaderButtonsComponent
   ],
   exports: [
     SidebarComponent,
@@ -29,7 +34,10 @@ import { NavDefaultComponent } from './nav/nav-default/nav-default.component';
     MatIconModule,
     RouterLink,
     RouterLinkActive,
-    RouterModule
+    RouterModule,
+    MatMenuModule,
+    CoreModule,
+    MatButtonModule
   ]
 })
 export class LayoutModule { }

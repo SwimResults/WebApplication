@@ -8,6 +8,11 @@ body {
   background-color: #f2f2f2;
 }
 
+h1,
+h2 {
+  margin: 22px 0 16px 0 !important;
+}
+
 input:focus,
 input:active {
   outline: 0;
@@ -19,4 +24,72 @@ input[type=search] {
   padding: 4px;
   border-radius: 6px;
   color: $color-search-text;
+  vertical-align: middle;
+}
+
+.sr-inactive {
+  filter: contrast(0) !important;
+  cursor: unset !important;
+
+  &:hover {
+    background-color: transparent !important;
+  }
+}
+
+.sr-btn {
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sr-btn-icon {
+  background-color: transparent;
+  color: $color-sr-first;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.sr-btn-icon:hover {
+  color: $color-sr-dark;
+}
+
+.sr-btn-bar {
+  vertical-align: middle;
+  margin: 0 12px;
+}
+
+.sr-right {
+  float: right;
+  margin-top: 6px;
+}
+
+.sr-btn-menu {
+  width: calc(100%);
+  margin: 0;
+  line-height: 22px;
+  padding: 8px 12px 8px 8px;
+  height: 34px;
+  background-color: transparent;
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  border-radius: 6px;
+
+  &:hover {
+    background-color: $color-bg-gray;
+  }
+
+  mat-icon {
+    color: $color-sr-first;
+    vertical-align: middle;
+  }
+
+  span {
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 14px;
+  }
 }

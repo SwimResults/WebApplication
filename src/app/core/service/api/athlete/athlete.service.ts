@@ -29,4 +29,8 @@ export class AthleteService extends BaseService{
   public getAthletesByMeeting(id: string, paging: PagingRequest): Observable<Athlete[]> {
     return this.apiService.get(this.API_URL, "athlete/meet/" + id, paging.toParams());
   }
+
+  public getAthletesByTeam(id: string, paging: PagingRequest): Observable<Athlete[]> {
+    return this.apiService.get(this.API_URL, "athlete/team/" + id, paging.toParams());
+  }
 }

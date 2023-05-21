@@ -4,6 +4,7 @@ import { PageAthleteComponent } from './page-athlete.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {ElementsModule} from "../../../../shared/elements/elements.module";
+import {AthletesModule} from "../../athletes.module";
 
 describe('PageAthleteComponent', () => {
   let component: PageAthleteComponent;
@@ -15,7 +16,8 @@ describe('PageAthleteComponent', () => {
       imports: [
         HttpClientTestingModule,
         RouterTestingModule,
-        ElementsModule
+        ElementsModule,
+        AthletesModule
       ]
     })
     .compileComponents();
