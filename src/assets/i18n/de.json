@@ -31,7 +31,8 @@
             "NO_ENTRIES_MESSAGE": "Es wurden keine Einträge gefunden!"
         },
         "LANGUAGE": {
-            "EN": "Englisch"
+            "EN": "Englisch",
+            "DE": "Deutsch"
         }
     },
     "ATHLETE": {
