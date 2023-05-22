@@ -19,4 +19,8 @@ export class StartService extends BaseService {
   getStartsByMeeting(id: string): Observable<Start[]> {
     return this.apiService.get(this.API_URL, "start/meet/" + id);
   }
+
+  getStartsByAthlete(id: string): Observable<Start[]> {
+    return this.apiService.get(this.API_URL, "start/athlete/" + id);
+  }
 }

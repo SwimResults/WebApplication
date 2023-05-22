@@ -1,3 +1,4 @@
 export let countryFlags = new Map<string, string>([
-  ["GER", "DE"]
+  ["GER", "DE"],
+  ["CZE", "CZ"]
 ]);
