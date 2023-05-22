@@ -1,6 +1,7 @@
 <div *ngIf="entry" (contextmenu)="onRightClick($event)">
   <span class="icon">
-    <sr-icon-panel icon="pool"></sr-icon-panel>
+    <sr-icon-panel *ngIf="entry.entryType === 'athlete'" icon="pool"></sr-icon-panel>
+    <sr-icon-panel *ngIf="entry.entryType === 'team'" icon="shield"></sr-icon-panel>
   </span>
   <span class="text name link" [routerLink]="entry.nameLink">
     {{entry.name}}

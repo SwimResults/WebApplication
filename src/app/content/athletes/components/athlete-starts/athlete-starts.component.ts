@@ -24,6 +24,8 @@ export class AthleteStartsComponent implements OnInit{
     this.startService.getStartsByAthlete(this.athleteId).subscribe(data => {
       this.starts = data;
     })
+
+    this.starts = this.startService.getDummyStarts();
   }
 
 }
