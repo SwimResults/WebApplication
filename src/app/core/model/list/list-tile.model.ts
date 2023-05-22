@@ -5,5 +5,6 @@ export interface IListTile {
   badge?: string;
   team?: string;
   teamLink?: string;
+  entryType: "athlete" | "team" | undefined;
 
 }

@@ -1,4 +1,4 @@
-<ng-container *ngIf="entry">
+<div *ngIf="entry" (contextmenu)="onRightClick($event)">
   <span class="icon">
     <sr-icon-panel icon="pool"></sr-icon-panel>
   </span>
@@ -12,20 +12,38 @@
     [routerLink]="entry.teamLink">
     {{entry.team}}
   </span>
-  <button class="sr-btn-bar sr-btn-icon sr-btn sr-right" [matMenuTriggerFor]="athleteMenu"><mat-icon>more_horiz</mat-icon></button>
+  <button class="sr-btn-bar sr-btn-icon sr-btn sr-right" [matMenuTriggerFor]="contextMenu"><mat-icon>more_horiz</mat-icon></button>
 
-  <mat-menu #athleteMenu="matMenu">
+
+  <!-- an hidden div is created to set the position of appearance of the menu-->
+  <div style="visibility: hidden; position: fixed;"
+       [style.left.px]="menuTopLeftPosition.x"
+       [style.top.px]="menuTopLeftPosition.y"
+       #contextMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="contextMenu"></div>
+
+
+  <mat-menu #contextMenu="matMenu">
     <button class="sr-btn sr-btn-menu sr-inactive">
       <mat-icon>share</mat-icon>
       <span>{{'ATHLETE.LIST.MORE.SHARE_BUTTON_TEXT' | translate}}</span>
     </button>
-    <button class="sr-btn sr-btn-menu" *ngIf="entry.nameLink" [routerLink]="entry.nameLink">
-      <mat-icon>person</mat-icon>
-      <span>{{'ATHLETE.LIST.MORE.ATHLETE_BUTTON_TEXT' | translate}}</span>
-    </button>
-    <button class="sr-btn sr-btn-menu" *ngIf="entry.teamLink" [routerLink]="entry.teamLink">
-      <mat-icon>shield</mat-icon>
-      <span>{{'ATHLETE.LIST.MORE.TEAM_BUTTON_TEXT' | translate}}</span>
-    </button>
+
+    <ng-container *ngIf="entry.entryType === 'athlete'">
+      <button class="sr-btn sr-btn-menu" *ngIf="entry.nameLink" [routerLink]="entry.nameLink">
+        <mat-icon>person</mat-icon>
+        <span>{{'ATHLETE.LIST.MORE.ATHLETE_BUTTON_TEXT' | translate}}</span>
+      </button>
+      <button class="sr-btn sr-btn-menu" *ngIf="entry.teamLink" [routerLink]="entry.teamLink">
+        <mat-icon>shield</mat-icon>
+        <span>{{'ATHLETE.LIST.MORE.TEAM_BUTTON_TEXT' | translate}}</span>
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="entry.entryType === 'team'">
+      <button class="sr-btn sr-btn-menu" *ngIf="entry.nameLink" [routerLink]="entry.nameLink">
+        <mat-icon>shield</mat-icon>
+        <span>{{'ATHLETE.LIST.MORE.TEAM_BUTTON_TEXT' | translate}}</span>
+      </button>
+    </ng-container>
   </mat-menu>
-</ng-container>
+</div>
