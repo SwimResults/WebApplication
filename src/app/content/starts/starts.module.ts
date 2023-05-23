@@ -5,11 +5,14 @@ import { StartListTileComponent } from './components';
 
 
 @NgModule({
-  declarations: [
-    StartListTileComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+    declarations: [
+        StartListTileComponent
+    ],
+    exports: [
+        StartListTileComponent
+    ],
+    imports: [
+        CommonModule
+    ]
 })
 export class StartsModule { }

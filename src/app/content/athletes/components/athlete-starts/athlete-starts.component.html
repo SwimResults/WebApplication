@@ -1,6 +1,2 @@
 <h2>Starts:</h2>
-<ul>
-  <li *ngFor="let start of starts">
-    Wettkampf {{start.event}}, Lauf {{start.heat.number}}, Bahn {{start.lane}}
-  </li>
-</ul>
+<sr-start-list-tile *ngFor="let start of starts" [start]="start"></sr-start-list-tile>

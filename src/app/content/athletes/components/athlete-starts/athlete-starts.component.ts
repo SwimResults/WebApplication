@@ -9,6 +9,7 @@ import {Start} from "../../../../core/model/start/start.model";
 })
 export class AthleteStartsComponent implements OnInit{
   @Input() athleteId!: string;
+  @Input() meetingId?: string;
   starts: Start[] = [];
 
   constructor(
@@ -21,11 +22,15 @@ export class AthleteStartsComponent implements OnInit{
   }
 
   fetchStarts() {
-    this.startService.getStartsByAthlete(this.athleteId).subscribe(data => {
-      this.starts = data;
-    })
-
-    this.starts = this.startService.getDummyStarts();
+    if (this.meetingId === undefined) {
+      this.startService.getStartsByAthlete(this.athleteId).subscribe(data => {
+        this.starts = data;
+      })
+    } else {
+      this.startService.getStartsByMeetingAndAthlete(this.meetingId, this.athleteId).subscribe(data => {
+        this.starts = data;
+      })
+    }
   }
 
 }

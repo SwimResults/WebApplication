@@ -1,1 +1,3 @@
-<p>start-list-tile works!</p>
+<div *ngIf="data && data.heat">
+  Wettkampf {{data.event}}, Lauf {{data.heat.number}}, Bahn {{data.lane}} | starting at: {{data.heat.start_estimation}}
+</div>

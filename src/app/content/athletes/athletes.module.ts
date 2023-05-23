@@ -4,6 +4,7 @@ import { PageAthletesEventComponent, PageAthletesGeneralComponent, PageAthleteCo
 import { AthleteListComponent, AthleteListTileComponent, AthleteListViewComponent, AthleteProfileIntroComponent, AthleteStartsComponent } from './components';
 import { ElementsModule } from "../../shared/elements/elements.module";
 import {RouterLink} from "@angular/router";
+import {StartsModule} from "../starts";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {RouterLink} from "@angular/router";
   imports: [
     CommonModule,
     ElementsModule,
-    RouterLink
+    RouterLink,
+    StartsModule
   ]
 })
 export class AthletesModule { }
