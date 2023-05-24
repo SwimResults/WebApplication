@@ -57,6 +57,9 @@
         "PAGE": {
             "CONTACT_TITLE": "Kontakt",
             "ATHLETE_TITLE": "Sportler"
+        },
+        "LIST": {
+            "PAGE_TITLE": "Vereine"
         }
     }
 }
