@@ -41,7 +41,8 @@
                 "TEAM_BUTTON_TEXT": "Verein anzeigen",
                 "SHARE_BUTTON_TEXT": "Teilen",
                 "ATHLETE_BUTTON_TEXT": "Sportler anzeigen"
-            }
+            },
+            "PAGE_TITLE": "Sportler"
         }
     },
     "HEADER": {
@@ -56,6 +57,9 @@
         "PAGE": {
             "CONTACT_TITLE": "Kontakt",
             "ATHLETE_TITLE": "Sportler"
+
+        "LIST": {
+            "PAGE_TITLE": "Vereine"
         }
     }
 }
