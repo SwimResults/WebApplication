@@ -1,16 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 @import "colors";
 
+@font-face {
+  font-family: 'SwimResults';
+  src: url("/assets/fonts/SwimResults.ttf");
+}
+
 html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: SwimResults, Roboto, "Helvetica Neue", sans-serif;
   background-color: #f2f2f2;
 }
 
 h1,
 h2 {
   margin: 22px 0 16px 0 !important;
+}
+
+input,
+.sr-btn{
+  font-family: SwimResults, sans-serif;
+  font-weight: 500;
 }
 
 input:focus,
