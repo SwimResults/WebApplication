@@ -13,10 +13,7 @@ export class AthleteStartsComponent implements OnInit{
   @Input() meetingId?: string;
   starts: Start[] = [];
 
-  config: StartListTileConfig = new class implements StartListTileConfig {
-    showAthlete: boolean = true;
-    showMeeting: boolean = true;
-  }
+  config: StartListTileConfig = {showEvent: true} as StartListTileConfig;
 
   constructor(
     private startService: StartService
@@ -25,6 +22,7 @@ export class AthleteStartsComponent implements OnInit{
 
   ngOnInit() {
     this.fetchStarts();
+    this.config = {showMeeting: (this.meetingId === undefined), showEvent: true} as StartListTileConfig;
   }
 
   fetchStarts() {

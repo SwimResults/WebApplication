@@ -39,7 +39,8 @@ import {MatMenuModule} from "@angular/material/menu";
         NavGroupComponent,
         NavLinkComponent,
         PageTitleComponent,
-        ListViewComponent
+        ListViewComponent,
+        BadgeComponent
     ],
     imports: [
         CommonModule,

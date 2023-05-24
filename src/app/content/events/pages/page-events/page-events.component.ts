@@ -15,10 +15,8 @@ export class PageEventsComponent implements OnDestroy {
   meeting?: MeetingImpl;
   meetingSubscription: Subscription;
   starts: Start[] = [];
-  config: StartListTileConfig =  {
-    showAthlete: true,
-    showMeeting: false
-  }
+  testStarts: Start[] = [];
+  config: StartListTileConfig = {showAthlete: true, laneAsIcon: true} as StartListTileConfig;
 
   constructor(
     private routeService: RouteService,
@@ -28,6 +26,9 @@ export class PageEventsComponent implements OnDestroy {
       this.meeting = new MeetingImpl(data.meeting);
       this.startService.getStartsByMeeting(this.meeting.meet_id).subscribe(data => {
         this.starts = data;
+      });
+      this.startService.getStartsByMeetingAndEventAndHeat(this.meeting.meet_id, "30", 11).subscribe(data => {
+        this.testStarts = data;
       });
     })
   }

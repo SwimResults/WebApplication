@@ -18,7 +18,7 @@ export class StartListTileComponent implements OnInit {
   @Input() startIdentifier?: string;
   data: StartImpl = {} as StartImpl;
   meeting?: MeetingImpl
-  athlete: Athlete = {} as Athlete;
+  athlete?: Athlete;
 
   constructor(
     private startService: StartService,
@@ -71,6 +71,7 @@ export class StartListTileComponent implements OnInit {
   }
 
   getIconClass(): string {
+    if (this.config.laneAsIcon) return "";
     if (!this.data.certified) return "";
     if (this.data.rank) {
       switch (this.data.rank) {
@@ -82,6 +83,12 @@ export class StartListTileComponent implements OnInit {
     }
     if (this.data.disqualification) return "disqualified";
     return "";
+  }
+
+  getIconTextContent(): string | undefined {
+    if (this.config.laneAsIcon) return this.data.lane + "";
+    if (this.data.certified && this.data.rank) return this.data.rank + ".";
+    return undefined;
   }
 
 

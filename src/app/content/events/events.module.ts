@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageEventsComponent } from './pages';
 import {StartsModule} from "../starts";
+import {ElementsModule} from "../../shared/elements/elements.module";
 
 
 
@@ -11,7 +12,8 @@ import {StartsModule} from "../starts";
   ],
     imports: [
         CommonModule,
-        StartsModule
+        StartsModule,
+        ElementsModule
     ]
 })
 export class EventsModule { }
