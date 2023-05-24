@@ -1,4 +1,9 @@
 <nav>
+  <sr-nav-link
+    icon="close"
+    class="btn-menu"
+    (click)="hideSidebar()"
+  ></sr-nav-link>
   <sr-nav-default *ngIf="!has_meeting"></sr-nav-default>
   <sr-nav-event *ngIf="has_meeting"></sr-nav-event>
 </nav>

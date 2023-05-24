@@ -1,5 +1,6 @@
-<main>
-  <sr-sidebar></sr-sidebar>
+<main [class]="'sidebar-' + sidebarState">
+  <sr-sidebar [class]="sidebarState"></sr-sidebar>
+  <div class="sidebar-hider" (click)="hideSidebar()"></div>
   <sr-header></sr-header>
   <div class="content">
     <router-outlet></router-outlet>

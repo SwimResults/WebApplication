@@ -14,3 +14,29 @@
 .buttons {
   display: inline-block;
 }
+
+.icon-btn-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.icon {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 1050px) {
+  .title {
+    display: block;
+    margin-top: 12px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .icon-btn-menu {
+    display: inline-block;
+  }
+
+  .icon {
+    display: none;
+  }
+}
