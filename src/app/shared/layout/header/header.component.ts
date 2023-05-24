@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {RouteService} from "../../../core/service/route.service";
-import {Meeting} from "../../../core/model/meeting/meeting.model";
+import {MeetingImpl} from "../../../core/model/meeting/meeting.model";
+import {SidebarMenuService} from "../../../core/service/sidebar-menu.service";
 
 @Component({
   selector: 'sr-header',
@@ -9,15 +10,20 @@ import {Meeting} from "../../../core/model/meeting/meeting.model";
 })
 export class HeaderComponent {
 
-  meeting: Meeting = {} as Meeting;
+  meeting?: MeetingImpl;
   has_meeting: boolean = false;
 
   constructor(
-    private routeService: RouteService
+    private routeService: RouteService,
+    private menuService: SidebarMenuService
   ) {
     this.routeService.currentEvent.subscribe(data => {
-      this.meeting = data.meeting;
+      this.meeting = new MeetingImpl(data.meeting);
       this.has_meeting = data.has_meeting;
     })
+  }
+
+  showMenu() {
+    this.menuService.setViewType("full");
   }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject, distinctUntilChanged, filter, map, mergeMap} from "rxjs";
 import {RouteEvent} from "../model";
-import {MeetingService} from "./api/meeting/meeting.service";
+import {MeetingService} from "./api";
 import {Meeting} from "../model/meeting/meeting.model";
 
 @Injectable({
@@ -11,6 +11,8 @@ import {Meeting} from "../model/meeting/meeting.model";
 export class RouteService {
   private currentEventSubject = new BehaviorSubject<RouteEvent>({} as RouteEvent);
   public currentEvent = this.currentEventSubject.asObservable().pipe(distinctUntilChanged());
+  private currentMeetingIdSubject= new BehaviorSubject<string | undefined>("");
+  public currentMeetingId = this.currentMeetingIdSubject.asObservable().pipe(distinctUntilChanged());
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,16 +32,18 @@ export class RouteService {
             break;
           }
         }
+
+        if (ev) this.currentMeetingIdSubject.next(ev);
+        else this.currentMeetingIdSubject.next(undefined);
+
         let meeting: RouteEvent = new class implements RouteEvent {
             meeting: Meeting = {} as Meeting;
             has_meeting: boolean = false;
         }
 
         if (ev) {
-          this.meetingService.getMeetingByMeetId(ev).subscribe(data => {
+          this.meetingService.getCachedMeetingByMeetId(ev).subscribe(data => {
             meeting.meeting = data;
-            meeting.meeting.date_start_date = new Date(meeting.meeting.date_start);
-            meeting.meeting.date_end_date = new Date(meeting.meeting.date_end);
             meeting.has_meeting = true;
             this.currentEventSubject.next(
               meeting

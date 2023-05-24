@@ -4,6 +4,8 @@ import { HeaderComponent } from './header.component';
 import {ElementsModule} from "../../elements/elements.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {LayoutModule} from "../layout.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -15,7 +17,9 @@ describe('HeaderComponent', () => {
       imports: [
         ElementsModule,
         RouterTestingModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        LayoutModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();

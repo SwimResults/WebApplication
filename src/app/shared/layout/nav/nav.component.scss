@@ -8,3 +8,14 @@ nav {
   overflow: auto;
   display: inline-block;
 }
+
+.btn-menu {
+  display: none;
+}
+
+@media only screen and (max-width: 1050px) {
+  .btn-menu {
+    display: inline-block;
+  }
+}
+

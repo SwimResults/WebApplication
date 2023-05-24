@@ -1,0 +1,67 @@
+.link {
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.left-container {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 14px;
+
+  .time {
+    display: inline-block;
+    width: 45px;
+    text-align: left;
+  }
+}
+
+.right-container {
+  display: inline-block;
+  vertical-align: middle;
+
+  .header-row {
+    font-weight: bold;
+    display: block;
+
+    .athlete {
+      span {
+        display: inline-block;
+      }
+
+      .athlete-name {
+        width: 220px;
+      }
+
+      .athlete-team {
+        margin-left: 12px;
+      }
+    }
+  }
+
+  .content-row {
+    span {
+      display: inline-block;
+
+    }
+
+    .heat {
+      width: 30px;
+    }
+
+    .lane {
+      width: 60px;
+    }
+
+    .duration {
+      width: 90px;
+    }
+
+    .result-time {
+      font-weight: bold;
+    }
+  }
+}
+

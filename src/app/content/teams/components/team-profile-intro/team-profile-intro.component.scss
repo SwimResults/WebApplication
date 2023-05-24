@@ -1,0 +1,35 @@
+@import "../../../../../colors";
+
+.logo-container,
+.info {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.logo {
+  display: block;
+  width: 70px;
+}
+
+.info {
+  margin-left: 24px;
+}
+
+.name {
+  font-size: 34px;
+  font-weight: 900;
+  display: block;
+  height: 24px;
+  padding-top: 10px;
+}
+
+.country-container {
+  color: $color-text-gray;
+  display: block;
+  margin-top: 4px;
+}
+.flag,
+.country {
+  vertical-align: middle;
+}

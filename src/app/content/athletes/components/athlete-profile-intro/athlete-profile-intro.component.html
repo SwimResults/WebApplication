@@ -1,0 +1,15 @@
+<ng-container *ngIf="athlete">
+  <div class="logo-container">
+    <img class="logo" src="/assets/images/logo/athlete_logo_small.png" [alt]="athlete.name">
+  </div>
+  <div class="info">
+    <span class="name">
+      {{athlete.name}}
+    </span>
+    <span class="sub-info">
+      <span class="year"> {{athlete.year}}</span>
+      •
+      <span class="team"><a *ngIf="athlete.team" [routerLink]="'../../team/' + athlete.team._id">{{athlete.team.name}}</a> <span *ngIf="!athlete.team">-</span></span>
+    </span>
+  </div>
+</ng-container>

@@ -12,6 +12,7 @@ import {RefreshListRequest} from "../../../../core/model/list/refresh-list-reque
 })
 export class TeamListViewComponent implements OnInit{
   @Input() meeting?: Meeting;
+  @Input() meetingId: string | undefined;
   teams: Team[] = [];
   listTeams: TeamListTile[] = [];
 
@@ -29,8 +30,8 @@ export class TeamListViewComponent implements OnInit{
       this.teams = [];
       this.listTeams = [];
     }
-    if (this.meeting) {
-      this.teamService.getTeamsByMeeting(this.meeting.meet_id, request.paging).subscribe(data => {
+    if (this.meetingId !== undefined) {
+      this.teamService.getTeamsByMeeting(this.meetingId, request.paging).subscribe(data => {
         this.appendTeams(data)
       })
     } else {

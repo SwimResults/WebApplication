@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {RouteService} from "../../../../core/service/route.service";
-import {Meeting} from "../../../../core/model/meeting/meeting.model";
+import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 
 @Component({
   selector: 'sr-page-dashboard-event',
@@ -8,13 +8,13 @@ import {Meeting} from "../../../../core/model/meeting/meeting.model";
   styleUrls: ['./page-dashboard-event.component.scss']
 })
 export class PageDashboardEventComponent {
-  meeting: Meeting = {} as Meeting;
+  meeting?: MeetingImpl;
 
   constructor(
     private routeService: RouteService
   ) {
     this.routeService.currentEvent.subscribe(data => {
-      this.meeting = data.meeting;
+      this.meeting = new MeetingImpl(data.meeting);
     })
   }
 

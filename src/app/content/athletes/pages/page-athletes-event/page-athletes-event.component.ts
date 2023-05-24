@@ -10,16 +10,22 @@ import {Subscription} from "rxjs";
 })
 export class PageAthletesEventComponent implements OnDestroy {
   meeting: Meeting = {} as Meeting;
+  meetingId: string | undefined;
   private meetingSubscription: Subscription;
+  private meetingIdSubscription: Subscription;
 
   constructor(
     private routeService: RouteService
   ) {
+    this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
+      this.meetingId = data;
+    })
     this.meetingSubscription = this.routeService.currentEvent.subscribe(data => {
       this.meeting = data.meeting;
     })
   }
   ngOnDestroy() {
+    this.meetingIdSubscription.unsubscribe();
     this.meetingSubscription.unsubscribe();
   }
 

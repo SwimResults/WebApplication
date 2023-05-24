@@ -1,5 +1,38 @@
+@import "colors";
+
+@font-face {
+  font-family: 'SwimResults';
+  src: url("/assets/fonts/SwimResults.ttf");
+}
+
+.mat-body, .mat-body-2, .mat-typography .mat-body, .mat-typography .mat-body-2, .mat-typography {
+  //font: 560 14px/20px SwimResults, Roboto, sans-serif !important;
+  font-family: SwimResults, Roboto, sans-serif;
+  font-weight: 560;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0 !important;
+}
+
+.mat-mdc-menu-content, .mat-mdc-menu-content .mat-mdc-menu-item .mdc-list-item__primary-text {
+  font-family: SwimResults, Roboto, sans-serif !important;
+  font-weight: 560 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  letter-spacing: 0 !important;
+}
+
 body {
   .material-icons {
     font-family: 'Material Icons Round', 'Material Icons', serif !important;
+  }
+
+  .mdc-menu-surface {
+    border-radius: 8px;
+    background-color: $color-bg-first;
+    box-shadow: 0 0 22px -16px black !important;
+  }
+  .mat-mdc-menu-content {
+    padding: 8px;
   }
 }

@@ -1,10 +1,5 @@
-<h1>{{athlete.name}}</h1>
+<sr-athlete-profile-intro [athlete]="athlete"></sr-athlete-profile-intro>
+
 <sr-panel>
-  <div>
-    <b>Jahrgang: </b> {{athlete.year}}
-    <br>
-    <b>DSV-ID: </b> {{athlete.dsv_id}}
-    <br>
-    <b>Verein: </b> <a *ngIf="athlete.team" [routerLink]="'../../team/' + athlete.team._id">{{athlete.team.name}}</a> <span *ngIf="!athlete.team">-</span>
-  </div>
+  <sr-athlete-starts [athleteId]="athleteId" [meetingId]="meetingId"></sr-athlete-starts>
 </sr-panel>

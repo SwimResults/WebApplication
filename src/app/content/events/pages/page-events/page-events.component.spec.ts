@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageEventsComponent } from './page-events.component';
+import {RouterTestingModule} from "@angular/router/testing";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {ElementsModule} from "../../../../shared/elements/elements.module";
 
 describe('PageEventsComponent', () => {
   let component: PageEventsComponent;
@@ -8,7 +11,12 @@ describe('PageEventsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageEventsComponent ]
+      declarations: [ PageEventsComponent ],
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule,
+        ElementsModule
+      ]
     })
     .compileComponents();
 
