@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {Start} from "../../../model/start/start.model";
 import {ApiService} from "../api.service";
 import {StartId} from "../../../model/start/start-id.model";
+import {Disqualification} from "../../../model/start/disqualification.model";
 
 @Injectable({
   providedIn: 'root'
@@ -71,7 +72,8 @@ export class StartService extends BaseService {
         "athlete": "6442587623a3e4b7f8ee0260",
         certified: false,
         rank: 0,
-        delay: 0
+        delay: 0,
+        disqualification: {} as Disqualification
       }
     )
 

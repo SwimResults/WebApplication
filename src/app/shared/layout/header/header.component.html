@@ -1,9 +1,7 @@
 <sr-panel>
   <sr-icon-panel [icon]="has_meeting ? 'event' : 'public'"></sr-icon-panel>
-  <span class="title" *ngIf="has_meeting">
-    {{
-      meeting.iteration + ". " + meeting.series.name_full + " " + meeting.date_start_date.getFullYear()
-    }}
+  <span class="title" *ngIf="has_meeting && meeting">
+    {{meeting.getFullSeriesName()}}
   </span>
   <span class="title" *ngIf="!has_meeting">SwimResults</span>
   <sr-header-buttons class="buttons sr-right"></sr-header-buttons>

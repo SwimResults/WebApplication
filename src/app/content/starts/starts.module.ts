@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StartListTileComponent } from './components';
+import {ElementsModule} from "../../shared/elements/elements.module";
+import {RouterLink} from "@angular/router";
 
 
 
@@ -12,7 +14,9 @@ import { StartListTileComponent } from './components';
         StartListTileComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        ElementsModule,
+        RouterLink
     ]
 })
 export class StartsModule { }

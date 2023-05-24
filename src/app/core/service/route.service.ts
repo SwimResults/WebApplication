@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject, distinctUntilChanged, filter, map, mergeMap} from "rxjs";
 import {RouteEvent} from "../model";
-import {MeetingService} from "./api/meeting/meeting.service";
+import {MeetingService} from "./api";
 import {Meeting} from "../model/meeting/meeting.model";
 
 @Injectable({
@@ -42,10 +42,8 @@ export class RouteService {
         }
 
         if (ev) {
-          this.meetingService.getMeetingByMeetId(ev).subscribe(data => {
+          this.meetingService.getCachedMeetingByMeetId(ev).subscribe(data => {
             meeting.meeting = data;
-            meeting.meeting.date_start_date = new Date(meeting.meeting.date_start);
-            meeting.meeting.date_end_date = new Date(meeting.meeting.date_end);
             meeting.has_meeting = true;
             this.currentEventSubject.next(
               meeting

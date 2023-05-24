@@ -1,3 +1,23 @@
 <div *ngIf="data && data.heat">
-  Wettkampf {{data.event}}, Lauf {{data.heat.number}}, Bahn {{data.lane}} | starting at: {{data.heat.start_estimation}}
+  <div class="left-container">
+    <div class="time">
+      <span class="estimated time-entry">{{data.heat.getEstimatedStartTime()}}</span>
+    </div>
+    <sr-icon-panel [class]="getIconClass()" [icon]="getIcon()" [textContent]="data.certified && data.rank ? data.rank + '.' : undefined"></sr-icon-panel>
+  </div>
+
+  <div class="right-container">
+    <div class="header-row">
+      <span class="event link" [routerLink]="'/m/' + data.meeting + '/'">Wettkampf {{data.event}} - 50m Schmetterling weiblich</span>
+      <span class="meeting row-right link" *ngIf="meeting" [routerLink]="'/m/' + data.meeting + '/'">{{meeting.getShortSeriesName()}} <span *ngIf="meeting.location?.city">({{meeting.location.city}})</span></span>
+      <span class="athlete row-right link" *ngIf="athlete" [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{athlete.name}}</span>
+    </div>
+    <div class="content-row">
+      <span class="heat">{{data.heat_number}}</span>
+      <span class="lane">{{data.lane}}</span>
+      <span class="duration registration-time">0:30,14</span>
+      <span class="duration result-time ">0:32,14</span>
+      <span class="delay">0,12s</span>
+    </div>
+  </div>
 </div>

@@ -12,6 +12,30 @@
   vertical-align: middle;
 }
 
+:host.rank1 {
+  background: linear-gradient(#ffe38e, #e8af00);
+}
+
+:host.rank2 {
+  background: linear-gradient(#dedede, #7a7a7a);
+}
+
+:host.rank3 {
+  background: linear-gradient(#ffca82, #d27900);
+}
+
+:host.disqualified {
+  background: linear-gradient(#ff8e8e, #d02121);
+}
+
 .mat-icon {
   margin-top: 2px;
+}
+
+span {
+  font-size: 14px;
+  font-weight: bolder;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 4px;
 }

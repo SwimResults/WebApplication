@@ -7,5 +7,5 @@ import {Component, Input} from '@angular/core';
 })
 export class IconPanelComponent {
   @Input() icon?: string;
-  @Input() initials?: string;
+  @Input() textContent?: string;
 }
