@@ -29,6 +29,7 @@ export class StartListTileComponent implements OnInit {
 
   ngOnInit() {
     this.fetchStart();
+    console.log(this.config)
   }
 
   fetchStart() {

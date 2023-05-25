@@ -3,8 +3,22 @@
 :host {
   width: auto;
   display: inline-block;
+}
+
+.panel-container {
+  width: auto;
   padding: 14px;
   background-color: $color-bg-first;
-  border-radius: 12px;
   box-shadow: 0 0 20px -16px black;
+  border-radius: 12px;
+}
+
+.panel-title {
+  background-color: $color-bg-first;
+  position: relative;
+  padding: 14px;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  font-weight: 700;
+  font-size: 16px;
 }

@@ -1,1 +1,6 @@
-<ng-content></ng-content>
+<div class="title-box" *ngIf="panelTitle">
+  <span class="panel-title">{{panelTitle}}</span>
+</div>
+<div class="panel-container">
+  <ng-content></ng-content>
+</div>

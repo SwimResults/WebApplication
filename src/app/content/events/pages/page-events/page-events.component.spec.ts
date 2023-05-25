@@ -4,6 +4,7 @@ import { PageEventsComponent } from './page-events.component';
 import {RouterTestingModule} from "@angular/router/testing";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {ElementsModule} from "../../../../shared/elements/elements.module";
+import {StartsModule} from "../../../starts";
 
 describe('PageEventsComponent', () => {
   let component: PageEventsComponent;
@@ -15,7 +16,8 @@ describe('PageEventsComponent', () => {
       imports: [
         RouterTestingModule,
         HttpClientTestingModule,
-        ElementsModule
+        ElementsModule,
+        StartsModule
       ]
     })
     .compileComponents();

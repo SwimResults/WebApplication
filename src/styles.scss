@@ -11,11 +11,27 @@ body {
   margin: 0;
   font-family: SwimResults, Roboto, "Helvetica Neue", sans-serif;
   background-color: #f2f2f2;
+  color: $color-text-main;
 }
 
 h1,
-h2 {
+.mat-typography h1,
+h2,
+.mat-typography h2 {
   margin: 22px 0 16px 0 !important;
+  font-family: SwimResults, Roboto, sans-serif;
+}
+
+h1,
+.mat-typography h1 {
+  font-size: 34px;
+  font-weight: 900;
+}
+
+h2,
+.mat-typography h2 {
+  font-size: 28px;
+  font-weight: 800;
 }
 
 input,

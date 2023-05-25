@@ -1,7 +1,14 @@
-<sr-panel>
+<sr-panel class="header">
   <sr-icon-panel class="icon" [icon]="has_meeting ? 'event' : 'public'"></sr-icon-panel>
   <sr-icon-panel class="icon-btn-menu" icon="menu" (click)="showMenu()"></sr-icon-panel>
   <sr-header-buttons class="buttons sr-right"></sr-header-buttons>
+  <span class="title" *ngIf="has_meeting && meeting">
+    {{meeting.getFullSeriesName()}}
+  </span>
+  <span class="title" *ngIf="!has_meeting">SwimResults</span>
+</sr-panel>
+
+<sr-panel class="title-mobile">
   <span class="title" *ngIf="has_meeting && meeting">
     {{meeting.getFullSeriesName()}}
   </span>

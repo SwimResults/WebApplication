@@ -8,7 +8,18 @@
   font-weight: 700;
   font-size: 22px;
   vertical-align: middle;
-  margin: 0 18px;
+  height: 24px;
+}
+
+.header {
+  .title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    width: calc(100% - 190px);
+    overflow-x: hidden;
+    margin: 0 18px;
+  }
 }
 
 .buttons {
@@ -24,12 +35,25 @@
   display: inline-block;
 }
 
-@media only screen and (max-width: 1050px) {
+.title-mobile {
+  display: none;
+  text-align: center;
+  margin-top: 12px;
   .title {
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .header .title {
+    display: none;
+  }
+
+  .title-mobile {
     display: block;
-    margin-top: 12px;
-    margin-left: 0;
-    text-align: center;
+    .title {
+      display: block;
+    }
   }
 
   .icon-btn-menu {

@@ -1,24 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AthleteStartsComponent } from './athlete-starts.component';
+import { PageEventComponent } from './page-event.component';
+import {RouterTestingModule} from "@angular/router/testing";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {StartsModule} from "../../../starts";
 
-describe('AthleteStartsComponent', () => {
-  let component: AthleteStartsComponent;
-  let fixture: ComponentFixture<AthleteStartsComponent>;
+describe('PageEventComponent', () => {
+  let component: PageEventComponent;
+  let fixture: ComponentFixture<PageEventComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AthleteStartsComponent ],
+      declarations: [ PageEventComponent ],
       imports: [
-        HttpClientTestingModule,
-        StartsModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AthleteStartsComponent);
+    fixture = TestBed.createComponent(PageEventComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

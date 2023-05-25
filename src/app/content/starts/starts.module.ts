@@ -3,15 +3,18 @@ import { CommonModule } from '@angular/common';
 import { StartListTileComponent } from './components';
 import {ElementsModule} from "../../shared/elements/elements.module";
 import {RouterLink} from "@angular/router";
+import { StartListComponent } from './components/start-list/start-list.component';
 
 
 
 @NgModule({
     declarations: [
-        StartListTileComponent
+        StartListTileComponent,
+        StartListComponent
     ],
     exports: [
-        StartListTileComponent
+        StartListTileComponent,
+        StartListComponent
     ],
     imports: [
         CommonModule,
