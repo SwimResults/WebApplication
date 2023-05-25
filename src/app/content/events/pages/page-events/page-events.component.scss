@@ -1,16 +1,24 @@
 @import "../../../../../colors";
 
-sr-start-list-tile {
+.event {
   display: block;
   padding: 8px 0;
   border-bottom: 1px solid $color-hr-border;
 }
 
-sr-start-list-tile:first-child {
+.event:first-child {
   padding-top: 0
 }
 
-sr-start-list-tile:last-child {
+.event:last-child {
   padding-bottom: 0;
   border-bottom: none;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
 }

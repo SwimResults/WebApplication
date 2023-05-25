@@ -1,11 +1,1 @@
-<h1>Wettkampf {{eventNumber}} - 100m Rücken weiblich</h1>
-
-<sr-panel class="heat-starts"
-  *ngFor="let heat of heats.keys()"
-  [panelTitle]="'Lauf ' + heat + '/' + heats.size"
->
-  <sr-start-list
-    [starts]="heats.get(heat)"
-    [config]="config"
-  ></sr-start-list>
-</sr-panel>
+<sr-event-view></sr-event-view>

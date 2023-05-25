@@ -5,6 +5,8 @@ import {AthleteService, MeetingService, StartService} from "../../../../core/ser
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {Athlete} from "../../../../core/model";
+import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
+import {EventService} from "../../../../core/service/api/meeting/event.service";
 
 @Component({
   selector: 'sr-start-list-tile',
@@ -19,11 +21,13 @@ export class StartListTileComponent implements OnInit {
   data: StartImpl = {} as StartImpl;
   meeting?: MeetingImpl
   athlete?: Athlete;
+  event?: MeetingEvent;
 
   constructor(
     private startService: StartService,
     private meetingService: MeetingService,
-    private athleteService: AthleteService
+    private athleteService: AthleteService,
+    private eventService: EventService
   ) {
   }
 
@@ -60,6 +64,11 @@ export class StartListTileComponent implements OnInit {
     if (this.config.showAthlete) {
       this.athleteService.getCachedAthleteById(this.data.athlete).subscribe(data => {
         this.athlete = data;
+      })
+    }
+    if (this.config.showStyle) {
+      this.eventService.getCachedEventByMeetingAndNumber(this.data.meeting, this.data.event).subscribe(data => {
+        this.event = data;
       })
     }
   }

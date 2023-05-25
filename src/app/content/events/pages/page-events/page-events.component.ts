@@ -2,9 +2,8 @@ import {Component, OnDestroy} from '@angular/core';
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {RouteService} from "../../../../core/service/route.service";
 import {Subscription} from "rxjs";
-import {Start} from "../../../../core/model/start/start.model";
-import {StartService} from "../../../../core/service/api";
-import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
+import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
+import {EventService} from "../../../../core/service/api/meeting/event.service";
 
 @Component({
   selector: 'sr-page-events',
@@ -14,17 +13,16 @@ import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-
 export class PageEventsComponent implements OnDestroy {
   meeting?: MeetingImpl;
   meetingSubscription: Subscription;
-  starts: Start[] = [];
-  config: StartListTileConfig = {showAthlete: true, laneAsIcon: true, showTimes: false} as StartListTileConfig;
+  events: MeetingEvent[] = [];
 
   constructor(
     private routeService: RouteService,
-    private startService: StartService
+    private eventService: EventService
   ) {
     this.meetingSubscription = this.routeService.currentEvent.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
-      this.startService.getStartsByMeeting(this.meeting.meet_id).subscribe(data => {
-        this.starts = data;
+      this.eventService.getEventsByMeeting(this.meeting.meet_id).subscribe(data => {
+        this.events = data;
       });
     })
   }

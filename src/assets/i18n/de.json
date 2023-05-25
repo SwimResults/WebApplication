@@ -5,6 +5,9 @@
     "EVENT": {
         "DASHBOARD": {
             "CURRENT_MEETING_INFO": "Aktuelle Veranstaltung: {{name_full}}"
+        },
+        "PAGE": {
+            "EVENT_TITLE_EVENT": "Wettkampf"
         }
     },
     "NAV": {
@@ -33,6 +36,34 @@
         "LANGUAGE": {
             "EN": "Englisch",
             "DE": "Deutsch"
+        },
+        "STYLE": {
+            "MEDLEY": {
+                "NAME": "Lagen"
+            },
+            "BUTTERFLY": {
+                "NAME": "Schmetterling"
+            },
+            "BREASTSTROKE": {
+                "NAME": "Brust"
+            },
+            "FREESTYLE": {
+                "NAME": "Freistil"
+            },
+            "BACKSTROKE": {
+                "NAME": "Rücken"
+            }
+        },
+        "GENDER": {
+            "MALE": {
+                "NAME": "männlich"
+            },
+            "FEMALE": {
+                "NAME": "weiblich"
+            },
+            "MIXED": {
+                "NAME": "mixed"
+            }
         }
     },
     "ATHLETE": {

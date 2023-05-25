@@ -22,7 +22,8 @@
 <!--    </div>-->
     <div class="content-row">
       <span class="event link" *ngIf="config.showEvent" [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">WK {{data.event}}</span>
-      <span class="style link" *ngIf="config.showStyle" [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">50m Schmetterling</span>
+      <span class="style link" *ngIf="config.showStyle && event && event.style" [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}}</span>
+      <span class="style" *ngIf="config.showStyle && (!event || !event.style)"></span>
 
       <span class="meeting link" *ngIf="config.showMeeting && meeting" [routerLink]="'/m/' + data.meeting + '/'">
         <span class="meeting-date">{{meeting.getStartDate().getMonth()}}/{{meeting.getStartDate().getFullYear()}}</span>
