@@ -23,7 +23,7 @@ export class MeetingService extends BaseService {
   }
 
   public getMeetingByMeetId(id: string): Observable<Meeting> {
-    return this.apiService.get(this.API_URL, "meeting/meet_id/" + id);
+    return this.apiService.get(this.API_URL, "meeting/meet/" + id);
   }
 
   public getCachedMeetingByMeetId(id: string): Observable<Meeting> {
