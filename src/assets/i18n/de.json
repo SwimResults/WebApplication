@@ -8,6 +8,9 @@
         },
         "PAGE": {
             "EVENT_TITLE_EVENT": "Wettkampf"
+        },
+        "LIST": {
+            "PART_TITLE": "Abschnitt"
         }
     },
     "NAV": {

@@ -6,6 +6,8 @@ import {ElementsModule} from "../../shared/elements/elements.module";
 import { EventViewComponent } from './components';
 import {CoreModule} from "../../core/core.module";
 import {RouterLink} from "@angular/router";
+import { EventListComponent } from './components/event-list/event-list.component';
+import { EventListTileComponent } from './components/event-list-tile/event-list-tile.component';
 
 
 
@@ -13,7 +15,9 @@ import {RouterLink} from "@angular/router";
   declarations: [
     PageEventsComponent,
     PageEventComponent,
-    EventViewComponent
+    EventViewComponent,
+    EventListComponent,
+    EventListTileComponent
   ],
     imports: [
         CommonModule,

@@ -1,4 +1,5 @@
 import {Style} from "./style.model";
+import {EventFinal} from "./event-final.model";
 
 export interface MeetingEvent {
   _id: string;
@@ -7,7 +8,8 @@ export interface MeetingEvent {
   relay_distance: string;
   meeting: string;
   gender: string;
-  style: Style
+  style: Style;
+  final: EventFinal
 
 }
 
@@ -19,6 +21,7 @@ export class MeetingEventImpl implements MeetingEvent {
   number: number;
   relay_distance: string;
   style: Style;
+  final: EventFinal
 
 
   constructor(event: MeetingEvent) {
@@ -29,6 +32,7 @@ export class MeetingEventImpl implements MeetingEvent {
     this.number = event.number;
     this.relay_distance = event.relay_distance;
     this.style = event.style;
+    this.final = event.final;
   }
 
   getFullDistanceName() {

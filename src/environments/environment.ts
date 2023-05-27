@@ -8,6 +8,7 @@ export const environment = {
     start_service: "https://api.swimresults.de/start/v1/",
     import_service: "https://api.swimresults.de/import/v1/",
     user_service: "https://api.swimresults.de/user/v1/",
-    meeting_service: "https://api.swimresults.de/meeting/v1/"
+    meeting_service: "https://api.swimresults.de/meeting/v1/",
+    //meeting_service: "http://localhost:8089/",
   }
 }
