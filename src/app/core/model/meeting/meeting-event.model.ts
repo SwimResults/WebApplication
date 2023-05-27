@@ -2,7 +2,7 @@ import {Style} from "./style.model";
 
 export interface MeetingEvent {
   _id: string;
-  number: string;
+  number: number;
   distance: number;
   relay_distance: string;
   meeting: string;
@@ -16,7 +16,7 @@ export class MeetingEventImpl implements MeetingEvent {
   distance: number;
   gender: string;
   meeting: string;
-  number: string;
+  number: number;
   relay_distance: string;
   style: Style;
 
