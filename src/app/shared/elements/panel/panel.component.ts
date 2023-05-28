@@ -7,4 +7,5 @@ import {Component, Input} from '@angular/core';
 })
 export class PanelComponent {
   @Input() panelTitle?: string;
+  @Input() panelSubtitle?: string;
 }

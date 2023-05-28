@@ -2,7 +2,8 @@
 
 <sr-panel class="heat-starts"
           *ngFor="let heat of heats.keys()"
-          [panelTitle]="'Lauf ' + heat + '/' + heats.size"
+          panelTitle="{{'EVENT.PAGE.HEAT' | translate}}{{' ' + heat + '/' + heats.size}}"
+          [panelSubtitle]="heatData.get(heat)?.getEstimatedStartTime()"
 >
   <sr-start-list *ngIf="starts.length > 0"
     [starts]="heats.get(heat)"

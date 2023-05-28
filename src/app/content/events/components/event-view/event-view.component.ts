@@ -7,6 +7,7 @@ import {StartService} from "../../../../core/service/api";
 import {RouteService} from "../../../../core/service/route.service";
 import {EventService} from "../../../../core/service/api/meeting/event.service";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
+import {HeatImpl} from "../../../../core/model/start/heat.model";
 
 @Component({
   selector: 'sr-event-view',
@@ -22,6 +23,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
 
   starts: Start[] = [];
   heats: Map<number, Start[]> = new Map<number, Start[]>();
+  heatData: Map<number, HeatImpl> = new Map<number, HeatImpl>();
   config: StartListTileConfig = {showAthlete: true, laneAsIcon: true} as StartListTileConfig;
 
   constructor(
@@ -59,11 +61,13 @@ export class EventViewComponent implements OnInit, OnDestroy {
           for (let start of this.starts) {
             if (!this.heats.has(start.heat_number)) {
               this.heats.set(start.heat_number, [])
+              this.heatData.set(start.heat_number, new HeatImpl(start.heat));
             }
             this.heats.get(start.heat_number)?.push(start);
           }
 
           this.heats = new Map([...this.heats.entries()].sort());
+
         }
 
       })

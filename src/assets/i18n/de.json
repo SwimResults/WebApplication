@@ -7,7 +7,8 @@
             "CURRENT_MEETING_INFO": "Aktuelle Veranstaltung: {{name_full}}"
         },
         "PAGE": {
-            "EVENT_TITLE_EVENT": "Wettkampf"
+            "EVENT_TITLE_EVENT": "Wettkampf",
+            "HEAT": "Lauf"
         },
         "LIST": {
             "PART_TITLE": "Abschnitt"
