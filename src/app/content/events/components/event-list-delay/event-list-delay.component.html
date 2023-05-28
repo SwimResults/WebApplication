@@ -1,0 +1,4 @@
+<ng-container *ngIf="heat">
+  <span class="time estimation">{{heat.getEstimatedStartTime()}}</span>
+  <span class="time live" *ngIf="heat.getStartAt().getTime() > 0">{{heat.getStartAtTime()}}</span>
+</ng-container>

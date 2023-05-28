@@ -17,6 +17,9 @@ import { BadgeComponent } from './badge/badge.component';
 import {CoreModule} from "../../core/core.module";
 import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
+import { FlatBtnComponent } from './buttons/flat-btn/flat-btn.component';
+import { BtnComponent } from './buttons/btn/btn.component';
+import { TextBtnComponent } from './buttons/text-btn/text-btn.component';
 
 
 
@@ -31,7 +34,10 @@ import {MatMenuModule} from "@angular/material/menu";
         ListViewComponent,
         SearchFormComponent,
         ListTileComponent,
-        BadgeComponent
+        BadgeComponent,
+        FlatBtnComponent,
+        BtnComponent,
+        TextBtnComponent
     ],
     exports: [
         PanelComponent,
@@ -40,7 +46,9 @@ import {MatMenuModule} from "@angular/material/menu";
         NavLinkComponent,
         PageTitleComponent,
         ListViewComponent,
-        BadgeComponent
+        BadgeComponent,
+        FlatBtnComponent,
+        TextBtnComponent
     ],
     imports: [
         CommonModule,

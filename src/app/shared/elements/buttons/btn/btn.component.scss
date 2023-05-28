@@ -1,0 +1,44 @@
+@import "../../../../../colors";
+
+.btn {
+  background-color: $color-sr-first;
+  border: none;
+  display: inline-block;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  padding: 6px;
+  vertical-align: middle;
+  cursor: pointer;
+  font-family: SwimResults, Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+
+  &.btn-inactive {
+    filter: grayscale(1);
+    cursor: initial;
+    color: $color-text-gray !important;
+    pointer-events: none;
+
+    ::ng-deep mat-icon {
+      color: $color-text-gray !important;
+    }
+  }
+
+  &.btn-pdf {
+    background-color: #aa0a00;
+  }
+
+  &.btn-info {
+    background-color: #3bd000;
+  }
+
+  ::ng-deep {
+    mat-icon,
+    span {
+      vertical-align: middle;
+    }
+    mat-icon {
+      margin-right: 6px;
+    }
+  }
+}

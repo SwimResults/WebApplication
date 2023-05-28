@@ -1,0 +1,28 @@
+@import "../../../../../colors";
+
+.btn {
+  background-color: $color-btn-second !important;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  color: $color-text-main;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+
+  &.btn-pdf {
+    ::ng-deep mat-icon {
+      color: #aa0a00;
+    }
+  }
+
+  &.btn-info {
+    ::ng-deep mat-icon {
+      color: #2d8f07;
+    }
+  }
+}
