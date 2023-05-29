@@ -13,4 +13,5 @@ export class EventListDelayComponent {
             // delay
     return (this.heat.getStartAt().getTime() - this.heat.getEstimatedStart().getTime()) <= 4*60*1000 ? 'on-time' : 'late';
   }
+
 }
