@@ -15,19 +15,19 @@
 }
 
 :host.rank1 {
-  background: linear-gradient(#ffe38e, #e8af00);
+  background-color: #ffc000;
 }
 
 :host.rank2 {
-  background: linear-gradient(#dedede, #7a7a7a);
+  background-color: #acacac;
 }
 
 :host.rank3 {
-  background: linear-gradient(#ffca82, #d27900);
+  background-color: #d57b00;
 }
 
 :host.disqualified {
-  background: linear-gradient(#ff8e8e, #d02121);
+  background-color: #d72c2c;
 }
 
 .mat-icon {
