@@ -75,3 +75,13 @@ main {
     }
   }
 }
+
+@media only screen and (max-width: 800px) {
+  main {
+    grid-template-columns: 0 16px minmax(1px,1440px) 16px;
+
+    &.sidebar-hidden {
+      grid-template-columns: 0 16px minmax(1px,1440px) 16px;
+    }
+  }
+}

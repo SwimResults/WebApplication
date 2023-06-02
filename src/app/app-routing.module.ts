@@ -8,7 +8,7 @@ import {PageDashboardEventComponent, PageDashboardGeneralComponent} from "./cont
 import {PageAthleteComponent, PageAthletesEventComponent, PageAthletesGeneralComponent} from "./content/athletes";
 import {PageTeamComponent, PageTeamsEventComponent, PageTeamsGeneralComponent} from "./content/teams";
 import {PageStatsEventComponent, PageStatsGeneralComponent} from "./content/stats";
-import {PageEventsComponent} from "./content/events";
+import {PageEventComponent, PageEventsComponent} from "./content/events";
 
 
 const routes: Routes = [
@@ -23,15 +23,16 @@ const routes: Routes = [
   {
     path: 'm/:event',
     children: [
-      { path: "dashboard",  component: PageDashboardEventComponent },
-      { path: "live",       component: PageLiveComponent },
-      { path: "event",      component: PageEventsComponent },
-      { path: "athlete",    component: PageAthletesEventComponent },
-      { path: 'athlete/:entity_id',component: PageAthleteComponent },
-      { path: "team",       component: PageTeamsEventComponent },
-      { path: 'team/:entity_id',   component: PageTeamComponent },
-      { path: "files",      component: PageFilesComponent },
-      { path: "stats",      component: PageStatsEventComponent },
+      { path: "dashboard",            component: PageDashboardEventComponent },
+      { path: "live",                 component: PageLiveComponent },
+      { path: "event",                component: PageEventsComponent },
+      { path: "event/:event_number",  component: PageEventComponent },
+      { path: "athlete",              component: PageAthletesEventComponent },
+      { path: 'athlete/:entity_id',   component: PageAthleteComponent },
+      { path: "team",                 component: PageTeamsEventComponent },
+      { path: 'team/:entity_id',      component: PageTeamComponent },
+      { path: "files",                component: PageFilesComponent },
+      { path: "stats",                component: PageStatsEventComponent },
     ]
   }
 

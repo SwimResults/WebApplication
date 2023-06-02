@@ -1,0 +1,39 @@
+<div *ngIf="event">
+  <sr-event-list-delay class="time-info" *ngIf="heat" [heat]="heat"></sr-event-list-delay>
+  <div class="time-info" *ngIf="!heat"></div>
+  <sr-icon-panel [textContent]="event.number + ''"></sr-icon-panel>
+  <div class="event-info-content">
+    <span (click)="toggleExpand()" class="event-name link">
+      <span class="event-name-text">
+        {{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{event.number}}<ng-container *ngIf="event && event.style"> - {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</ng-container>
+      </span>
+      <mat-icon>{{expanded ? 'expand_less' : 'expand_more'}}</mat-icon>
+    </span>
+    <br>
+    <ng-container *ngIf="expanded">
+      <br>
+      <sr-text-btn color="info" (click)="openEvent()">
+        <mat-icon>view_list</mat-icon>
+        <span>Startliste</span>
+      </sr-text-btn>
+      <sr-text-btn color="pdf">
+        <mat-icon>description</mat-icon>
+        <span>Meldungen</span>
+      </sr-text-btn>
+      <sr-text-btn color="pdf" [active]="false">
+        <mat-icon>description</mat-icon>
+        <span>Ergebnisse</span>
+      </sr-text-btn>
+      <br>
+<!--      <br>-->
+<!--      <p>Lorem ipsum</p>-->
+<!--      <br><br>-->
+<!--      <div class="heats">-->
+<!--        <div class="heat" *ngFor="let heatEntry of heats.get(event.number)">-->
+<!--          <sr-event-list-delay [heat]="heatEntry"></sr-event-list-delay>-->
+<!--          Lauf {{heatEntry.number}}-->
+<!--        </div>-->
+<!--      </div>-->
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+@import "../../../../../colors";
+
+sr-start-list-tile {
+  display: block;
+  padding: 8px 0;
+  border-bottom: 1px solid $color-hr-border;
+}
+
+sr-start-list-tile:first-child {
+  padding-top: 0
+}
+
+sr-start-list-tile:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}

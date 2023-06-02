@@ -5,6 +5,7 @@ import { AthleteListComponent, AthleteListTileComponent, AthleteListViewComponen
 import { ElementsModule } from "../../shared/elements/elements.module";
 import {RouterLink} from "@angular/router";
 import {StartsModule} from "../starts";
+import {CoreModule} from "../../core/core.module";
 
 @NgModule({
   declarations: [
@@ -17,11 +18,12 @@ import {StartsModule} from "../starts";
     AthleteProfileIntroComponent,
     AthleteStartsComponent
   ],
-  imports: [
-    CommonModule,
-    ElementsModule,
-    RouterLink,
-    StartsModule
-  ]
+    imports: [
+        CommonModule,
+        ElementsModule,
+        RouterLink,
+        StartsModule,
+        CoreModule
+    ]
 })
 export class AthletesModule { }

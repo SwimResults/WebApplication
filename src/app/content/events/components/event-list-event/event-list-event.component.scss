@@ -1,0 +1,39 @@
+@import "../../../../../colors";
+
+.time-info {
+  display: inline-block;
+  vertical-align: top;
+  width: 45px;
+}
+
+sr-icon-panel {
+  vertical-align: top;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 0 4px $color-bg-first;
+}
+
+.event-info-content {
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px 14px 32px 34px;
+  margin-left: -22px;
+  border-left: 4px solid $color-hr-border;
+  position: relative;
+  z-index: 0;
+
+  .event-name {
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+
+    mat-icon,
+    .event-name-text {
+      vertical-align: middle;
+    }
+  }
+
+  sr-text-btn {
+    margin: 8px;
+  }
+}

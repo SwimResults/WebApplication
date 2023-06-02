@@ -1,6 +1,6 @@
 export interface StartId {
   meeting: string;
-  event: string;
+  event: number;
   heat: number;
   lane?: number;
 }

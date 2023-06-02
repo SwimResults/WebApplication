@@ -25,6 +25,44 @@
   .header-row {
     font-weight: bold;
     display: block;
+  }
+
+  .content-row {
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .meeting {
+      width: 180px;
+    }
+
+    .meeting-date {
+      width: 70px
+    }
+
+    .meeting-city {
+      width: 80px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+    }
+
+    .event {
+      width: 70px;
+    }
+
+    .style {
+      width: 220px;
+    }
+
+    .heat {
+      width: 50px;
+    }
+
+    .lane {
+      width: 70px;
+    }
 
     .athlete {
       span {
@@ -32,27 +70,24 @@
       }
 
       .athlete-name {
-        width: 220px;
+        width: 180px;
+        font-weight: 700;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+      }
+
+      .athlete-year {
+        width: 40px;
       }
 
       .athlete-team {
         margin-left: 12px;
+        width: 180px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
       }
-    }
-  }
-
-  .content-row {
-    span {
-      display: inline-block;
-
-    }
-
-    .heat {
-      width: 30px;
-    }
-
-    .lane {
-      width: 60px;
     }
 
     .duration {

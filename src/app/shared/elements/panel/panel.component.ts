@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'sr-panel',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./panel.component.scss']
 })
 export class PanelComponent {
-
+  @Input() panelTitle?: string;
+  @Input() panelSubtitle?: string;
 }

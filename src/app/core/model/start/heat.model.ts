@@ -1,7 +1,7 @@
 export interface Heat {
   _id: string;
   meeting: string;
-  event: string;
+  event: number;
   number: number;
   start_estimation: string;
   start_at: string;
@@ -10,7 +10,7 @@ export interface Heat {
 
 export class HeatImpl implements Heat {
   _id: string;
-  event: string;
+  event: number;
   finished_at: string;
   meeting: string;
   number: number;
@@ -34,6 +34,15 @@ export class HeatImpl implements Heat {
 
   getEstimatedStartTime(): string {
     const d = this.getEstimatedStart();
+    return d.getHours() + ":" + d.getMinutes();
+  }
+
+  getStartAt(): Date {
+    return new Date(this.start_at);
+  }
+
+  getStartAtTime(): string {
+    const d = this.getStartAt();
     return d.getHours() + ":" + d.getMinutes();
   }
 }

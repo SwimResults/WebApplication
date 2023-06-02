@@ -5,6 +5,13 @@
     "EVENT": {
         "DASHBOARD": {
             "CURRENT_MEETING_INFO": "Aktuelle Veranstaltung: {{name_full}}"
+        },
+        "PAGE": {
+            "EVENT_TITLE_EVENT": "Wettkampf",
+            "HEAT": "Lauf"
+        },
+        "LIST": {
+            "PART_TITLE": "Abschnitt"
         }
     },
     "NAV": {
@@ -33,6 +40,34 @@
         "LANGUAGE": {
             "EN": "Englisch",
             "DE": "Deutsch"
+        },
+        "STYLE": {
+            "MEDLEY": {
+                "NAME": "Lagen"
+            },
+            "BUTTERFLY": {
+                "NAME": "Schmetterling"
+            },
+            "BREASTSTROKE": {
+                "NAME": "Brust"
+            },
+            "FREESTYLE": {
+                "NAME": "Freistil"
+            },
+            "BACKSTROKE": {
+                "NAME": "Rücken"
+            }
+        },
+        "GENDER": {
+            "MALE": {
+                "NAME": "männlich"
+            },
+            "FEMALE": {
+                "NAME": "weiblich"
+            },
+            "MIXED": {
+                "NAME": "mixed"
+            }
         }
     },
     "ATHLETE": {
@@ -57,7 +92,7 @@
         "PAGE": {
             "CONTACT_TITLE": "Kontakt",
             "ATHLETE_TITLE": "Sportler"
-
+        },
         "LIST": {
             "PAGE_TITLE": "Vereine"
         }

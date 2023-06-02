@@ -1,5 +1,4 @@
-import {Component} from '@angular/core';
-import {RouteService} from "../../../../core/service/route.service";
+import {Component, Input} from '@angular/core';
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
 
 @Component({
@@ -8,15 +7,7 @@ import {Meeting} from "../../../../core/model/meeting/meeting.model";
   styleUrls: ['./nav-event.component.scss']
 })
 export class NavEventComponent {
-  meeting: Meeting = {} as Meeting;
-  has_meeting: boolean = false;
+  @Input() meeting?: Meeting;
+  @Input() meetingId?: string;
 
-  constructor(
-    private routeService: RouteService
-  ) {
-    this.routeService.currentEvent.subscribe(data => {
-      this.meeting = data.meeting;
-      this.has_meeting = data.has_meeting;
-    })
-  }
 }

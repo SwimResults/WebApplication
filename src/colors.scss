@@ -4,6 +4,7 @@ $color-sr-dark: #052a62;
 $color-bg-gray: #f5f5f5;
 $color-bg-first: #ffffff;
 $color-shadow-first: #999999;
+$color-shadow-second: black;
 
 $color-search-bg: #e6e6e6;
 $color-search-text: #6b6b6b;
@@ -17,10 +18,15 @@ $color-nav-link-active: #00dbff;
 $color-nav-group-title: $color-nav-link;
 $color-nav-bg-active: #111246;
 
-$color-text-main: #000000;
+$color-text-main: #222222;
 $color-text-gray: #727272;
 
-$color-hr-border: #e6e6e6;
+$color-icon-first: $color-sr-dark;
+
+$color-btn-first: $color-sr-first;
+$color-btn-second: #eaeaea;
+
+$color-hr-border: #d9d9d9;
 
 $random-colors: [
   #ff5151,

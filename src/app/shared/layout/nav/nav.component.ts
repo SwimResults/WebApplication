@@ -1,33 +1,42 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {RouteService} from "../../../core/service/route.service";
 import {Meeting} from "../../../core/model/meeting/meeting.model";
 import {SidebarMenuService} from "../../../core/service/sidebar-menu.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'sr-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, OnDestroy {
   meeting: Meeting = {} as Meeting;
-  has_meeting: boolean = false;
+  meetingId: string | undefined;
+  private meetingSubscription: Subscription;
+  private meetingIdSubscription: Subscription;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private routeService: RouteService,
     private menuService: SidebarMenuService
   ) {
-  }
-
-  ngOnInit(): void {
-    this.routeService.currentEvent.subscribe(data => {
+    this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
+      this.meetingId = data;
+    })
+    this.meetingSubscription = this.routeService.currentEvent.subscribe(data => {
       this.meeting = data.meeting;
-      this.has_meeting = data.has_meeting;
-      console.log("nav fetched: " + this.meeting?.meet_id);
     })
   }
 
+  ngOnInit(): void {
+  }
+
+  ngOnDestroy() {
+    this.meetingIdSubscription.unsubscribe();
+    this.meetingSubscription.unsubscribe();
+  }
 
   hideSidebar() {
     this.menuService.setViewType("hidden");

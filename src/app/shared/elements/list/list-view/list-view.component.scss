@@ -2,6 +2,11 @@
 
 sr-panel {
   display: block;
+
+  &.search-panel {
+    display: inline-block;
+    margin-bottom: 24px;
+  }
 }
 
 sr-list-tile {
