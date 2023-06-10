@@ -19,6 +19,13 @@
     "EVENT": {
         "DASHBOARD": {
             "CURRENT_MEETING_INFO": "Current Event: {{name_full}}"
+        },
+        "PAGE": {
+            "EVENT_TITLE_EVENT": "Event",
+            "HEAT": "Heat"
+        },
+        "LIST": {
+            "PART_TITLE": "Session"
         }
     },
     "COMMON": {
@@ -33,6 +40,34 @@
         "LANGUAGE": {
             "EN": "English",
             "DE": "German"
+        },
+        "STYLE": {
+            "MEDLEY": {
+                "NAME": "IM"
+            },
+            "BUTTERFLY": {
+                "NAME": "Butterfly"
+            },
+            "BREASTSTROKE": {
+                "NAME": "Breaststroke"
+            },
+            "FREESTYLE": {
+                "NAME": "Freestyle"
+            },
+            "BACKSTROKE": {
+                "NAME": "Backstroke"
+            }
+        },
+        "GENDER": {
+            "MALE": {
+                "NAME": "Boys"
+            },
+            "FEMALE": {
+                "NAME": "Girls"
+            },
+            "MIXED": {
+                "NAME": "Mixed"
+            }
         }
     },
     "ATHLETE": {
@@ -41,7 +76,8 @@
                 "SHARE_BUTTON_TEXT": "Share",
                 "ATHLETE_BUTTON_TEXT": "Show Athlete",
                 "TEAM_BUTTON_TEXT": "Show Team"
-            }
+            },
+            "PAGE_TITLE": "Athlete"
         }
     },
     "HEADER": {
@@ -56,6 +92,9 @@
         "PAGE": {
             "CONTACT_TITLE": "Contact",
             "ATHLETE_TITLE": "Athletes"
+        },
+        "LIST": {
+            "PAGE_TITLE": "Teams"
         }
     }
 }
