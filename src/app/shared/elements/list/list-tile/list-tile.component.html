@@ -1,5 +1,5 @@
 <div *ngIf="entry" (contextmenu)="onRightClick($event)">
-  <span class="icon">
+  <span class="icon main-icon">
     <sr-icon-panel *ngIf="entry.entryType === 'athlete'" icon="pool"></sr-icon-panel>
     <sr-icon-panel *ngIf="entry.entryType === 'team'" icon="shield"></sr-icon-panel>
   </span>

@@ -21,6 +21,7 @@
 .right-container {
   display: inline-block;
   vertical-align: middle;
+  width: calc(100% - 54px);
 
   .header-row {
     font-weight: bold;
@@ -46,6 +47,10 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow-x: hidden;
+    }
+
+    .event, .style {
+      font-weight: 700;
     }
 
     .event {
@@ -79,10 +84,10 @@
 
       .athlete-year {
         width: 40px;
+        margin-right: 12px;
       }
 
       .athlete-team {
-        margin-left: 12px;
         width: 180px;
         white-space: nowrap;
         text-overflow: ellipsis;
