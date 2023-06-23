@@ -70,6 +70,10 @@
             }
         }
     },
+    "START": {
+        "LANE": "Lane",
+        "EVENT_SHORT": "Evt."
+    },
     "ATHLETE": {
         "LIST": {
             "MORE": {

@@ -21,7 +21,7 @@
 <!--      <span class="meeting row-right link" *ngIf="config.showMeeting && meeting" [routerLink]="'/m/' + data.meeting + '/'">{{meeting.getShortSeriesName()}} <span *ngIf="meeting.location?.city">({{meeting.location.city}})</span></span>-->
 <!--    </div>-->
     <div class="content-row">
-      <span class="event link" *ngIf="config.showEvent" [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">WK {{data.event}}</span>
+      <span class="event link" *ngIf="config.showEvent" [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{'START.EVENT_SHORT' | translate}} {{data.event}}</span>
       <span class="style link" *ngIf="config.showStyle && event && event.style" [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}}</span>
       <span class="style" *ngIf="config.showStyle && (!event || !event.style)"></span>
 
@@ -31,7 +31,7 @@
       </span>
 
       <span class="heat" *ngIf="config.showHeat">{{data.heat_number}}</span>
-      <span class="lane" *ngIf="config.showLane">Bahn {{data.lane}}</span>
+      <span class="lane" *ngIf="config.showLane">{{'START.LANE' | translate}} {{data.lane}}</span>
       <span class="athlete" *ngIf="config.showAthlete && athlete">
         <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{athlete.name}}</span>
         <span class="athlete-year">{{athlete.year}}</span>
