@@ -1,3 +1,5 @@
+import {createDate} from "../../function/date.functions";
+
 export interface Heat {
   _id: string;
   meeting: string;
@@ -29,16 +31,17 @@ export class HeatImpl implements Heat {
   }
 
   getEstimatedStart(): Date {
-    return new Date(this.start_estimation);
+    return createDate(this.start_estimation);
   }
 
   getEstimatedStartTime(): string {
     const d = this.getEstimatedStart();
-    return d.getHours() + ":" + d.getMinutes();
+    let minutes = "0" + d.getMinutes();
+    return d.getHours() + ":" + minutes.substr(-2);
   }
 
   getStartAt(): Date {
-    return new Date(this.start_at);
+    return createDate(this.start_at);
   }
 
   getStartAtTime(): string {
