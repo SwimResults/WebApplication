@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Start, StartImpl} from "../../../../core/model/start/start.model";
+import {ResultTypes, Start, StartImpl} from "../../../../core/model/start/start.model";
 import {StartId} from "../../../../core/model/start/start-id.model";
 import {AthleteService, MeetingService, StartService} from "../../../../core/service/api";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
@@ -22,6 +22,8 @@ export class StartListTileComponent implements OnInit {
   meeting?: MeetingImpl
   athlete?: Athlete;
   event?: MeetingEvent;
+
+  resultTypes = ResultTypes
 
   constructor(
     private startService: StartService,
@@ -99,6 +101,20 @@ export class StartListTileComponent implements OnInit {
     if (this.config.laneAsIcon) return this.data.lane + "";
     if (this.data.certified && this.data.rank) return this.data.rank + ".";
     return undefined;
+  }
+
+  getTimeString(time: number): string {
+    let d = new Date((time / 1000) / 1000)
+    let minutes = "0" + d.getMinutes()
+    let seconds = "0" + d.getSeconds()
+    let millis = "0" + (d.getMilliseconds() / 10)
+    return minutes.substr(-2) + ":" + seconds.substr(-2) + "," + millis.substr(-2)
+  }
+
+  getReactionString(time: number): string {
+    let d = new Date(time)
+    let millis = "0" + (d.getMilliseconds() / 10)
+    return d.getSeconds() + "," + millis.substr(-2)
   }
 
 

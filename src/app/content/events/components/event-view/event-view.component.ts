@@ -66,7 +66,8 @@ export class EventViewComponent implements OnInit, OnDestroy {
             this.heats.get(start.heat_number)?.push(start);
           }
 
-          this.heats = new Map([...this.heats.entries()].sort());
+          // sort heats map by heat number
+          this.heats = new Map([...this.heats.entries()].sort((a,b) => a[0] - b[0]));
 
         }
 

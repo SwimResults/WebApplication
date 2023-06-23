@@ -30,7 +30,7 @@
         <span *ngIf="meeting.location?.city" class="meeting-city">{{meeting.location.city}}</span>
       </span>
 
-      <span class="heat" *ngIf="config.showHeat">{{data.heat_number}}/22</span>
+      <span class="heat" *ngIf="config.showHeat">{{data.heat_number}}</span>
       <span class="lane" *ngIf="config.showLane">Bahn {{data.lane}}</span>
       <span class="athlete" *ngIf="config.showAthlete && athlete">
         <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{athlete.name}}</span>
@@ -38,9 +38,9 @@
         <span class="link athlete-team"  [routerLink]="'/m/' + data.meeting + '/team/' + athlete.team._id">{{athlete.team.name}}</span>
       </span>
 
-      <span class="duration registration-time">0:30,14</span>
-      <span class="duration result-time "><sr-badge>0:32,14</sr-badge></span>
-      <span class="delay">0,12s</span>
+      <span class="duration registration-time" *ngIf="data.hasResultType(resultTypes.REGISTRATION)">{{getTimeString(data.getTimeMilliseconds(resultTypes.REGISTRATION))}}</span>
+      <span class="duration result-time" *ngIf="data.hasResult()"><sr-badge>{{getTimeString(data.getResultMilliseconds())}}</sr-badge></span>
+      <span class="reaction" *ngIf="data.hasResultType(resultTypes.REACTION)">{{getReactionString(data.getTimeMilliseconds(resultTypes.REACTION))}}</span>
     </div>
   </div>
 </div>
