@@ -1,7 +1,7 @@
 <sr-team-profile-intro [team]="team"></sr-team-profile-intro>
 
-<h1>{{'TEAM.PAGE.CONTACT_TITLE' | translate}}</h1>
-<sr-panel *ngIf="team.address">
+<h1 *ngIf="team.address.city || team.website">{{'TEAM.PAGE.CONTACT_TITLE' | translate}}</h1>
+<sr-panel *ngIf="team.address.city">
   <h2>Adresse</h2>
   {{team.address.street}} {{team.address.number}}<br>
   {{team.address.postal_code}} {{team.address.city}}
