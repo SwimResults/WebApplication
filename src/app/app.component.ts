@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
+import { environment } from 'src/environments/environment';
 import {SidebarMenuService} from "./core/service/sidebar-menu.service";
 
 @Component({
@@ -14,10 +15,14 @@ export class AppComponent{
   showBuild: boolean = true;
   sidebarState = "";
 
+  environment = environment.environment;
+
   constructor(
     private translateService: TranslateService,
     private menuService: SidebarMenuService
   ) {
+    this.showBuild = this.environment != 'productive'
+
     this.fetchBuild().then(r => {
       this.build = r;
     });
