@@ -22,7 +22,7 @@ export class AthleteStartsComponent implements OnInit{
 
   ngOnInit() {
     this.fetchStarts();
-    this.config = {showMeeting: (this.meetingId === undefined), showEvent: (this.meetingId !== undefined), showHeat: (this.meetingId !== undefined), showLane: (this.meetingId !== undefined), showStyle: true} as StartListTileConfig;
+    this.config = {showMeeting: (this.meetingId === undefined), showEvent: (this.meetingId !== undefined), showHeat: (this.meetingId !== undefined), showLane: (this.meetingId !== undefined), showStyle: true, showTimes: true} as StartListTileConfig;
   }
 
   fetchStarts() {

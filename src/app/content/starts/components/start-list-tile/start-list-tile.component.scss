@@ -21,7 +21,8 @@
 .right-container {
   display: inline-block;
   vertical-align: middle;
-  width: calc(100% - 54px);
+  //width: calc(100% - 54px);
+  width: auto;
 
   .header-row {
     font-weight: bold;

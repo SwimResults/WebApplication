@@ -20,6 +20,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import { FlatBtnComponent } from './buttons/flat-btn/flat-btn.component';
 import { BtnComponent } from './buttons/btn/btn.component';
 import { TextBtnComponent } from './buttons/text-btn/text-btn.component';
+import { HeatTimesComponent } from './heat-times/heat-times.component';
 
 
 
@@ -37,7 +38,8 @@ import { TextBtnComponent } from './buttons/text-btn/text-btn.component';
         BadgeComponent,
         FlatBtnComponent,
         BtnComponent,
-        TextBtnComponent
+        TextBtnComponent,
+        HeatTimesComponent
     ],
     exports: [
         PanelComponent,
@@ -48,7 +50,8 @@ import { TextBtnComponent } from './buttons/text-btn/text-btn.component';
         ListViewComponent,
         BadgeComponent,
         FlatBtnComponent,
-        TextBtnComponent
+        TextBtnComponent,
+        HeatTimesComponent
     ],
     imports: [
         CommonModule,

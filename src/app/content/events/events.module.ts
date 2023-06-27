@@ -16,23 +16,23 @@ import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
-  declarations: [
-    PageEventsComponent,
-    PageEventComponent,
-    EventViewComponent,
-    EventListComponent,
-    EventListTileComponent,
-    EventListHeatComponent,
-    EventListEventComponent,
-    EventListDelayComponent
-  ],
-    imports: [
-        CommonModule,
-        StartsModule,
-        ElementsModule,
-        CoreModule,
-        RouterLink,
-        MatIconModule
-    ]
+    declarations: [
+        PageEventsComponent,
+        PageEventComponent,
+        EventViewComponent,
+        EventListComponent,
+        EventListTileComponent,
+        EventListHeatComponent,
+        EventListEventComponent,
+        EventListDelayComponent
+    ],
+  imports: [
+    CommonModule,
+    ElementsModule,
+    CoreModule,
+    RouterLink,
+    MatIconModule,
+    StartsModule
+  ]
 })
 export class EventsModule { }

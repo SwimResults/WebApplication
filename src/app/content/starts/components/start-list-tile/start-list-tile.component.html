@@ -1,7 +1,8 @@
 <div *ngIf="data && data.heat">
   <div class="left-container">
-    <div class="time" *ngIf="config.showTimes">
-      <span class="estimated time-entry">{{data.heat.getEstimatedStartTime()}}</span>
+    <div class="time" *ngIf="config.showTimes && data.heat">
+      <sr-heat-times [heat]="data.heat"></sr-heat-times>
+      <!--span class="estimated time-entry">{{data.heat.getEstimatedStartTime()}}</span-->
     </div>
     <sr-icon-panel
       [class]="getIconClass()"
