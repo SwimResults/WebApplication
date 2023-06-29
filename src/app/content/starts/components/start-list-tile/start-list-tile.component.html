@@ -1,5 +1,5 @@
 <div *ngIf="data && data.heat">
-  <div class="left-container">
+  <div class="left-container icon-style-{{getStyleType()}} {{config.showTimes && data.heat ? 'left-container-with-times' : ''}}">
     <div class="time" *ngIf="config.showTimes && data.heat">
       <sr-heat-times [heat]="data.heat"></sr-heat-times>
       <!--span class="estimated time-entry">{{data.heat.getEstimatedStartTime()}}</span-->
@@ -7,6 +7,7 @@
     <sr-icon-panel
       [class]="getIconClass()"
       [icon]="getIcon()"
+      [style]="getStyleType()"
       [textContent]="getIconTextContent()"
     ></sr-icon-panel>
   </div>
@@ -33,15 +34,18 @@
 
       <span class="heat" *ngIf="config.showHeat">{{data.heat_number}}</span>
       <span class="lane" *ngIf="config.showLane">{{'START.LANE' | translate}} {{data.lane}}</span>
-      <span class="athlete" *ngIf="config.showAthlete && athlete">
-        <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{athlete.name}}</span>
-        <span class="athlete-year">{{athlete.year}}</span>
-        <span class="link athlete-team"  [routerLink]="'/m/' + data.meeting + '/team/' + athlete.team._id">{{athlete.team.name}}</span>
+      <span class="athlete" *ngIf="config.showAthlete">
+        <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{data.athlete_name}}</span>
+        <span class="athlete-year">{{data.athlete_year}}</span>
+        <span class="link athlete-team"  [routerLink]="'/m/' + data.meeting + '/team/' + data.athlete_team">{{data.athlete_team_name}}</span>
       </span>
 
       <span class="duration registration-time" *ngIf="data.hasResultType(resultTypes.REGISTRATION)">{{getTimeString(data.getTimeMilliseconds(resultTypes.REGISTRATION))}}</span>
       <span class="duration result-time" *ngIf="data.hasResult()"><sr-badge>{{getTimeString(data.getResultMilliseconds())}}</sr-badge></span>
       <span class="reaction" *ngIf="data.hasResultType(resultTypes.REACTION)">{{getReactionString(data.getTimeMilliseconds(resultTypes.REACTION))}}</span>
+      <div class="disqualification" *ngIf="data.disqualification.type && !config.laneAsIcon">
+        <span class="reason">{{getReason()}}</span>
+      </div>
     </div>
   </div>
 </div>

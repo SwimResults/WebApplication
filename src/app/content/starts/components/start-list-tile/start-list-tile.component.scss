@@ -10,11 +10,21 @@
   display: inline-block;
   vertical-align: middle;
   margin-right: 14px;
+  width: 40px;
+
+  &.left-container-with-times {
+    width: 85px;
+  }
+
+  &.icon-style-flat {
+    vertical-align: top;
+  }
 
   .time {
     display: inline-block;
     width: 45px;
     text-align: left;
+    vertical-align: middle;
   }
 }
 

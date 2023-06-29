@@ -1,6 +1,10 @@
 @import "../../../../colors";
 
 :host {
+  display: inline-block;
+}
+
+.icon-panel {
   padding: 6px;
   height: 28px;
   width: 28px;
@@ -12,21 +16,26 @@
   border-radius: 10px;
   vertical-align: middle;
   //box-shadow: 0 0 10px -4px $color-shadow-second;
+
+  &.style-flat {
+    height: 10px;
+    line-height: 0.3;
+  }
 }
 
-:host.rank1 {
+:host.rank1 .icon-panel {
   background-color: #ffc000;
 }
 
-:host.rank2 {
+:host.rank2 .icon-panel {
   background-color: #acacac;
 }
 
-:host.rank3 {
+:host.rank3 .icon-panel {
   background-color: #d57b00;
 }
 
-:host.disqualified {
+:host.disqualified .icon-panel {
   background-color: #d72c2c;
 }
 

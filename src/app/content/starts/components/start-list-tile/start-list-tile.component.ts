@@ -1,10 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ResultTypes, Start, StartImpl} from "../../../../core/model/start/start.model";
 import {StartId} from "../../../../core/model/start/start-id.model";
-import {AthleteService, MeetingService, StartService} from "../../../../core/service/api";
+import {MeetingService, StartService} from "../../../../core/service/api";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
-import {Athlete} from "../../../../core/model";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {EventService} from "../../../../core/service/api/meeting/event.service";
 
@@ -20,7 +19,7 @@ export class StartListTileComponent implements OnInit {
   @Input() startIdentifier?: string;
   data: StartImpl = {} as StartImpl;
   meeting?: MeetingImpl
-  athlete?: Athlete;
+  //athlete?: Athlete;
   event?: MeetingEvent;
 
   resultTypes = ResultTypes
@@ -28,7 +27,7 @@ export class StartListTileComponent implements OnInit {
   constructor(
     private startService: StartService,
     private meetingService: MeetingService,
-    private athleteService: AthleteService,
+    //private athleteService: AthleteService,
     private eventService: EventService
   ) {
   }
@@ -63,11 +62,11 @@ export class StartListTileComponent implements OnInit {
         this.meeting = new MeetingImpl(data);
       });
     }
-    if (this.config.showAthlete) {
-      this.athleteService.getCachedAthleteById(this.data.athlete).subscribe(data => {
-        this.athlete = data;
-      })
-    }
+    // if (this.config.showAthlete) {
+    //   this.athleteService.getCachedAthleteById(this.data.athlete).subscribe(data => {
+    //     this.athlete = data;
+    //   })
+    // }
     if (this.config.showStyle) {
       this.eventService.getCachedEventByMeetingAndNumber(this.data.meeting, this.data.event).subscribe(data => {
         this.event = data;
@@ -93,7 +92,7 @@ export class StartListTileComponent implements OnInit {
         default: return ""
       }
     }
-    if (this.data.disqualification) return "disqualified";
+    if (this.data.disqualification.type) return "disqualified";
     return "";
   }
 
@@ -101,6 +100,11 @@ export class StartListTileComponent implements OnInit {
     if (this.config.laneAsIcon) return this.data.lane + "";
     if (this.data.certified && this.data.rank) return this.data.rank + ".";
     return undefined;
+  }
+
+  getStyleType(): string {
+    if (this.config.laneAsIcon) return "flat";
+    return "default";
   }
 
   getTimeString(time: number): string {
@@ -118,4 +122,18 @@ export class StartListTileComponent implements OnInit {
   }
 
 
+  getReason() {
+    if (this.data.disqualification.type == "dns") {
+      return "Nicht am Start!"
+    }
+    if (this.data.disqualification.type == "dnf") {
+      return "Schwimmstrecke nicht beendet"
+    }
+
+    if (this.data.disqualification.reason) {
+      return this.data.disqualification.reason
+    }
+
+    return "Disqualifiziert!";
+  }
 }

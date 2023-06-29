@@ -18,6 +18,7 @@ export interface Start {
   lane: number;
   athlete: string;
   athlete_name: string;
+  athlete_year: number;
   athlete_team: string;
   athlete_team_name: string;
   rank: number;
@@ -31,6 +32,7 @@ export class StartImpl implements Start {
   _id: string;
   athlete: string;
   athlete_name: string;
+  athlete_year: number;
   athlete_team: string;
   athlete_team_name: string;
   certified: boolean;
@@ -48,6 +50,7 @@ export class StartImpl implements Start {
     this._id = start._id;
     this.athlete = start.athlete;
     this.athlete_name = start.athlete_name;
+    this.athlete_year = start.athlete_year
     this.athlete_team = start.athlete_team;
     this.athlete_team_name = start.athlete_team_name;
     this.certified = start.certified;

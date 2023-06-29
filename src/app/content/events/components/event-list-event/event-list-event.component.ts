@@ -22,8 +22,9 @@ export class EventListEventComponent implements OnInit {
 
   ngOnInit() {
     let h: HeatImpl[] | undefined = this.heats?.get(this.event.number);
-    if (h && h.length > 0)
+    if (h && h.length > 0) {
       this.heat = h[0];
+    }
   }
 
   toggleExpand() {

@@ -1,4 +1,4 @@
 <ng-container *ngIf="heat">
   <span class="time estimation {{getEstimationTimeClass()}}">{{heat.getEstimatedStartTime()}}</span>
-  <span class="time live live-{{getLiveTimeClass()}}" *ngIf="heat.getStartAt().getTime() > 0">{{heat.getStartAtTime()}}</span>
+  <span class="time live live-{{getLiveTimeClass()}}" *ngIf="heat.hasStartTime()">{{heat.getStartAtTime()}}</span>
 </ng-container>

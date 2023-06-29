@@ -46,6 +46,12 @@ export class HeatImpl implements Heat {
 
   getStartAtTime(): string {
     const d = this.getStartAt();
-    return d.getHours() + ":" + d.getMinutes();
+    let minutes = "0" + d.getMinutes();
+    return d.getHours() + ":" + minutes.substr(-2);
+  }
+
+  hasStartTime(): boolean {
+    let s = this.getStartAt()
+    return !(s.getMinutes() == 0 && s.getHours() == 0)
   }
 }

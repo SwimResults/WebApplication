@@ -59,6 +59,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
         if (this.starts && this.starts.length > 0) {
 
           for (let start of this.starts) {
+            if (start.heat_number <= 0) continue;
             if (!this.heats.has(start.heat_number)) {
               this.heats.set(start.heat_number, [])
               this.heatData.set(start.heat_number, new HeatImpl(start.heat));

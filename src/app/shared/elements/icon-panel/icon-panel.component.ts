@@ -8,4 +8,5 @@ import {Component, Input} from '@angular/core';
 export class IconPanelComponent {
   @Input() icon?: string;
   @Input() textContent?: string;
+  @Input() style: string = "default";
 }

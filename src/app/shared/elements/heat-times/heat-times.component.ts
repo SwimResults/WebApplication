@@ -15,7 +15,7 @@ export class HeatTimesComponent {
   }
 
   getEstimationTimeClass() {
-    console.log(this.heat.getStartAtTime())
-    return this.heat.getStartAt().getTime() > 0 ? '' : 'estimation-no-start'
+    return this.heat.hasStartTime() ? '' : 'estimation-no-start'
   }
+
 }

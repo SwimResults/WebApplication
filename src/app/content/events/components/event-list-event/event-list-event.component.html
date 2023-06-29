@@ -1,5 +1,5 @@
 <div *ngIf="event">
-  <sr-event-list-delay class="time-info" *ngIf="heat" [heat]="heat"></sr-event-list-delay>
+  <sr-heat-times class="time-info" *ngIf="heat" [heat]="heat"></sr-heat-times>
   <div class="time-info" *ngIf="!heat"></div>
   <sr-icon-panel [textContent]="event.number + ''"></sr-icon-panel>
   <div class="event-info-content">

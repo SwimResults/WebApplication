@@ -10,7 +10,6 @@ import { EventListComponent } from './components/event-list/event-list.component
 import { EventListTileComponent } from './components/event-list-tile/event-list-tile.component';
 import { EventListHeatComponent } from './components/event-list-heat/event-list-heat.component';
 import { EventListEventComponent } from './components/event-list-event/event-list-event.component';
-import { EventListDelayComponent } from './components/event-list-delay/event-list-delay.component';
 import {MatIconModule} from "@angular/material/icon";
 
 
@@ -23,8 +22,7 @@ import {MatIconModule} from "@angular/material/icon";
         EventListComponent,
         EventListTileComponent,
         EventListHeatComponent,
-        EventListEventComponent,
-        EventListDelayComponent
+        EventListEventComponent
     ],
   imports: [
     CommonModule,
