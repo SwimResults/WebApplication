@@ -1,3 +1,5 @@
+@import "../../../../../colors";
+
 .link {
   cursor: pointer;
 }
@@ -31,8 +33,11 @@
 .right-container {
   display: inline-block;
   vertical-align: middle;
-  //width: calc(100% - 54px);
-  width: auto;
+  width: calc(100% - 54px);
+
+  &.right-container-with-times {
+    width: calc(100% - 99px);
+  }
 
   .header-row {
     font-weight: bold;
@@ -112,6 +117,10 @@
 
     .result-time {
       font-weight: bold;
+    }
+
+    .reason {
+      color: $color-disqualification;
     }
   }
 }

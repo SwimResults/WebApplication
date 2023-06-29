@@ -24,19 +24,19 @@
 }
 
 :host.rank1 .icon-panel {
-  background-color: #ffc000;
+  background-color: $color-gold;
 }
 
 :host.rank2 .icon-panel {
-  background-color: #acacac;
+  background-color: $color-silver;
 }
 
 :host.rank3 .icon-panel {
-  background-color: #d57b00;
+  background-color: $color-bronze;
 }
 
 :host.disqualified .icon-panel {
-  background-color: #d72c2c;
+  background-color: $color-disqualification;
 }
 
 .mat-icon {

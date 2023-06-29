@@ -12,7 +12,7 @@
     ></sr-icon-panel>
   </div>
 
-  <div class="right-container">
+  <div class="right-container {{config.showTimes && data.heat ? 'right-container-with-times' : ''}}">
 <!--    <div class="header-row">-->
 <!--      <span class="athlete" *ngIf="config.showAthlete && athlete">-->
 <!--        <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{athlete.name}}</span>-->
