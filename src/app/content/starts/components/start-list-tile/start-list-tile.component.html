@@ -41,7 +41,11 @@
       </span>
 
       <span class="duration registration-time" *ngIf="data.hasResultType(resultTypes.REGISTRATION)">{{getTimeString(data.getTimeMilliseconds(resultTypes.REGISTRATION))}}</span>
-      <span class="duration result-time" *ngIf="data.hasResult()"><sr-badge>{{getTimeString(data.getResultMilliseconds())}}</sr-badge></span>
+      <!--span class="duration result-time" *ngIf="data.hasResult()"><sr-badge>{{getTimeString(data.getResultMilliseconds())}}</sr-badge></span-->
+      <span class="duration result-time {{getGotBetter() ? 'result-better' : 'result-worse'}}" *ngIf="data.hasResult()">
+        <mat-icon>{{getGotBetter() ? 'north_east' : 'south_east'}}</mat-icon>
+        <span class="result-time-string">{{getTimeString(data.getResultMilliseconds())}}</span>
+      </span>
       <span class="reaction" *ngIf="data.hasResultType(resultTypes.REACTION)">{{getReactionString(data.getTimeMilliseconds(resultTypes.REACTION))}}</span>
       <div class="disqualification" *ngIf="data.disqualification.type && !config.laneAsIcon">
         <span class="reason">{{getReason()}}</span>

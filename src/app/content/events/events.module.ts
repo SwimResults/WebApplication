@@ -11,6 +11,7 @@ import { EventListTileComponent } from './components/event-list-tile/event-list-
 import { EventListHeatComponent } from './components/event-list-heat/event-list-heat.component';
 import { EventListEventComponent } from './components/event-list-event/event-list-event.component';
 import {MatIconModule} from "@angular/material/icon";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 
 
@@ -24,13 +25,14 @@ import {MatIconModule} from "@angular/material/icon";
         EventListHeatComponent,
         EventListEventComponent
     ],
-  imports: [
-    CommonModule,
-    ElementsModule,
-    CoreModule,
-    RouterLink,
-    MatIconModule,
-    StartsModule
-  ]
+    imports: [
+        CommonModule,
+        ElementsModule,
+        CoreModule,
+        RouterLink,
+        MatIconModule,
+        StartsModule,
+        MatButtonToggleModule
+    ]
 })
 export class EventsModule { }

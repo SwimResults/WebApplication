@@ -20,6 +20,10 @@
   &.style-flat {
     height: 10px;
     line-height: 0.3;
+
+    .mat-icon {
+      margin-top: -6px;
+    }
   }
 }
 

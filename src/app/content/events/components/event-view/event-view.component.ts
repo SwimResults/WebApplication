@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
-import {Start} from "../../../../core/model/start/start.model";
+import {Start, StartImpl} from "../../../../core/model/start/start.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {ActivatedRoute} from "@angular/router";
 import {StartService} from "../../../../core/service/api";
@@ -22,9 +22,11 @@ export class EventViewComponent implements OnInit, OnDestroy {
   event: MeetingEvent = {} as MeetingEvent;
 
   starts: Start[] = [];
-  heats: Map<number, Start[]> = new Map<number, Start[]>();
+  heats: Map<number, StartImpl[]> = new Map<number, StartImpl[]>();
   heatData: Map<number, HeatImpl> = new Map<number, HeatImpl>();
-  config: StartListTileConfig = {showAthlete: true, laneAsIcon: true} as StartListTileConfig;
+  config: StartListTileConfig = {showAthlete: true, laneAsIcon: true, flatStyle: true} as StartListTileConfig;
+
+  listMode: string = "lanes";
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -49,6 +51,19 @@ export class EventViewComponent implements OnInit, OnDestroy {
     });
   }
 
+  changeListMode(t: string) {
+    this.listMode = t
+
+    if (this.listMode == "lanes") {
+      this.config.laneAsIcon = true
+    }
+    if (this.listMode == "results") {
+      this.config.laneAsIcon = false
+    }
+
+    this.fetchStarts()
+  }
+
   fetchStarts() {
     if (this.meetingId) {
       this.startService.getStartsByMeetingAndEvent(this.meetingId, this.eventNumber).subscribe(data => {
@@ -64,7 +79,30 @@ export class EventViewComponent implements OnInit, OnDestroy {
               this.heats.set(start.heat_number, [])
               this.heatData.set(start.heat_number, new HeatImpl(start.heat));
             }
-            this.heats.get(start.heat_number)?.push(start);
+            this.heats.get(start.heat_number)?.push(new StartImpl(start));
+          }
+
+          if (this.listMode == "lanes") {
+            for (let heat of this.heats.keys()) {
+              this.heats.get(heat)?.sort((a,b) => a.lane - b.lane)
+            }
+          }
+
+          if (this.listMode == "results") {
+            for (let heat of this.heats.keys()) {
+              this.heats.get(heat)?.sort((a,b) => a.disqualification.type ? 1 : (b.disqualification.type ? -1 : a.getResultMilliseconds() - b.getResultMilliseconds()))
+              let starts = this.heats.get(heat);
+              if (starts != undefined) {
+                let j = 1
+                for (let i = 0; i < starts.length; i++) {
+                  if (starts[i].disqualification.type) {
+                    starts[i].rank = 0
+                    continue
+                  }
+                  starts[i].rank = j++;
+                }
+              }
+            }
           }
 
           // sort heats map by heat number

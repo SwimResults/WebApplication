@@ -7,4 +7,5 @@ export class StartListTileConfig {
   showLane: boolean = true;
   showTimes: boolean = true;
   laneAsIcon: boolean = false;
+  flatStyle: boolean = false;
 }

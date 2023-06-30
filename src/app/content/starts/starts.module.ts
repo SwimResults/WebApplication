@@ -5,6 +5,7 @@ import {ElementsModule} from "../../shared/elements/elements.module";
 import {RouterLink} from "@angular/router";
 import { PageStartComponent } from './pages';
 import {CoreModule} from "../../core/core.module";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -17,11 +18,12 @@ import {CoreModule} from "../../core/core.module";
         StartListTileComponent,
         StartListComponent
     ],
-    imports: [
-        CommonModule,
-        ElementsModule,
-        RouterLink,
-        CoreModule
-    ]
+  imports: [
+    CommonModule,
+    ElementsModule,
+    RouterLink,
+    CoreModule,
+    MatIconModule
+  ]
 })
 export class StartsModule { }

@@ -103,7 +103,7 @@ export class StartListTileComponent implements OnInit {
   }
 
   getStyleType(): string {
-    if (this.config.laneAsIcon) return "flat";
+    if (this.config.flatStyle) return "flat";
     return "default";
   }
 
@@ -135,5 +135,9 @@ export class StartListTileComponent implements OnInit {
     }
 
     return "Disqualifiziert!";
+  }
+
+  getGotBetter(): boolean {
+    return this.data.getResultMilliseconds() < this.data.getTimeMilliseconds(ResultTypes.REGISTRATION)
   }
 }

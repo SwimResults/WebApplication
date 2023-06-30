@@ -22,6 +22,14 @@
   letter-spacing: 0 !important;
 }
 
+.mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
+  border: none !important;
+}
+
+.mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
+  border-radius: 12px !important;
+}
+
 body {
   .material-icons {
     font-family: 'Material Icons Round', 'Material Icons', serif !important;
