@@ -51,7 +51,8 @@ import { HeatTimesComponent } from './heat-times/heat-times.component';
         BadgeComponent,
         FlatBtnComponent,
         TextBtnComponent,
-        HeatTimesComponent
+        HeatTimesComponent,
+        BtnComponent
     ],
     imports: [
         CommonModule,

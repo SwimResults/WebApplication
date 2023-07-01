@@ -67,6 +67,7 @@ input[type=search] {
   border: none;
   cursor: pointer;
   transition: 0.2s;
+  border-radius: 6px;
 }
 
 .sr-btn-icon {
@@ -103,7 +104,6 @@ input[type=search] {
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
-  border-radius: 6px;
 
   &:hover {
     background-color: $color-bg-gray;
