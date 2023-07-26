@@ -1,0 +1,15 @@
+sr-file-list-tile {
+  cursor: pointer;
+  display: block;
+  padding: 8px 0;
+  border-bottom: 1px solid #d9d9d9;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}

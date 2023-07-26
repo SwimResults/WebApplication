@@ -1,0 +1,12 @@
+<a [href]="getUrl()" class="file-tile file-tile-{{file.existing ? 'existing' : 'missing'}}" *ngIf="file && file.in_file_list && !file.hidden">
+  <sr-file-icon [extension]="file.extension"></sr-file-icon>
+
+  <span class="file-name">
+    {{name}}
+  </span>
+
+  <sr-badge>
+    .{{file.extension}}
+  </sr-badge>
+
+</a>

@@ -1,0 +1,30 @@
+@import "../../../../../colors";
+
+.file-tile {
+  color: $color-text-main;
+
+  .file-name {
+    margin-left: 16px;
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .file-name,
+  sr-file-icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  sr-badge {
+    display: inline-block;
+  }
+
+  &:hover {
+    .file-name {
+      text-decoration: underline;
+    }
+  }
+}
+

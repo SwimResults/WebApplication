@@ -27,6 +27,23 @@
   }
 }
 
+
+.mat-icon {
+  margin-top: 2px;
+}
+
+span {
+  font-size: 14px;
+  font-weight: bolder;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 4px;
+}
+
+
+// DIFFERENT COLOR DEFINITIONS
+
+
 :host.rank1 .icon-panel {
   background-color: $color-gold;
 }
@@ -43,14 +60,18 @@
   background-color: $color-disqualification;
 }
 
-.mat-icon {
-  margin-top: 2px;
+:host.pdf .icon-panel {
+  background-color: $color-pdf;
 }
 
-span {
-  font-size: 14px;
-  font-weight: bolder;
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: 4px;
+:host.dsv .icon-panel {
+  background-color: $color-dsv;
+}
+
+:host.lnx .icon-panel {
+  background-color: $color-lnx;
+}
+
+:host.zip .icon-panel {
+  background-color: $color-zip;
 }

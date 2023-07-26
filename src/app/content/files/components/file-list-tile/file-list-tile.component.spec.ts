@@ -1,26 +1,26 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageFilesComponent } from './page-files.component';
+import { FileListTileComponent } from './file-list-tile.component';
+import {TranslateModule} from "@ngx-translate/core";
 import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {FilesModule} from "../../files.module";
-import {RouterTestingModule} from "@angular/router/testing";
 
-describe('PageFilesComponent', () => {
-  let component: PageFilesComponent;
-  let fixture: ComponentFixture<PageFilesComponent>;
+describe('FileListTileComponent', () => {
+  let component: FileListTileComponent;
+  let fixture: ComponentFixture<FileListTileComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageFilesComponent ],
+      declarations: [ FileListTileComponent ],
       imports: [
+        TranslateModule.forRoot(),
         ElementsModule,
-        FilesModule,
-        RouterTestingModule
+        FilesModule
       ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PageFilesComponent);
+    fixture = TestBed.createComponent(FileListTileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
