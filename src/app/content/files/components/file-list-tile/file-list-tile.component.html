@@ -1,12 +1,31 @@
-<a [href]="getUrl()" class="file-tile file-tile-{{file.existing ? 'existing' : 'missing'}}" *ngIf="file && file.in_file_list && !file.hidden">
+<div><a
+  [href]="getUrl()"
+  [target]="file.url ? 'blank' : ''"
+  class="file-tile file-tile-{{file.existing ? 'existing' : 'missing'}}"
+  *ngIf="file && file.in_file_list && !file.hidden"
+  (click)="clickDownload()"
+>
   <sr-file-icon [extension]="file.extension"></sr-file-icon>
 
   <span class="file-name">
     {{name}}
   </span>
 
-  <sr-badge>
-    .{{file.extension}}
-  </sr-badge>
+  <span class="file-type">
+    <sr-badge>
+      .{{file.extension}}
+    </sr-badge>
+  </span>
+
+  <span class="file-info">
+    <div *ngIf="file.url">
+      <mat-icon title="external page">link</mat-icon>
+    </div>
+    <div *ngIf="!file.url && file.downloads">
+      <mat-icon title="download">download</mat-icon>
+      <span title="number of downloads">{{file.downloads}}</span>
+    </div>
+  </span>
 
 </a>
+</div>

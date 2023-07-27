@@ -14,6 +14,7 @@ export class FileListTileComponent implements OnInit {
   name: string = "";
 
   getUrl() {
+    if (!this.file.existing) return "";
     let url = this.file.url;
     if (!this.file.url) url = "https://download.swimresults.de" + this.file.path;
     return url;
@@ -34,5 +35,10 @@ export class FileListTileComponent implements OnInit {
         }
       })
     }
+  }
+
+  clickDownload() {
+    if (this.file.url) return;
+    this.file.downloads++;
   }
 }

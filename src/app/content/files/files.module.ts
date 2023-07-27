@@ -4,6 +4,8 @@ import { PageFilesComponent } from './pages';
 import { FileListComponent, FileListTileComponent } from './components';
 import {ElementsModule} from "../../shared/elements/elements.module";
 import {MatIconModule} from "@angular/material/icon";
+import { FileListViewComponent } from './components/file-list-view/file-list-view.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 
 
@@ -11,12 +13,14 @@ import {MatIconModule} from "@angular/material/icon";
   declarations: [
     PageFilesComponent,
     FileListComponent,
-    FileListTileComponent
+    FileListTileComponent,
+    FileListViewComponent
   ],
   imports: [
     CommonModule,
     ElementsModule,
-    MatIconModule
+    MatIconModule,
+    TranslateModule
   ]
 })
 export class FilesModule { }

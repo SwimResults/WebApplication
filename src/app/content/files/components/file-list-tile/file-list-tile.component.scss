@@ -2,10 +2,24 @@
 
 .file-tile {
   color: $color-text-main;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+
+  &.file-tile-missing {
+    cursor: unset;
+    filter: grayscale(1) brightness(1.8);
+    pointer-events: none;
+
+    &:hover .file-name {
+      text-decoration: none;
+    }
+  }
 
   .file-name {
     margin-left: 16px;
-    width: 250px;
+    width: calc(100% - 160px);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -17,8 +31,27 @@
     vertical-align: middle;
   }
 
+  .file-type {
+    width: 40px;
+    display: inline-block;
+  }
   sr-badge {
     display: inline-block;
+  }
+
+  .file-info {
+    margin-left: 12px;
+    display: inline-block;
+    color: $color-text-gray;
+
+    mat-icon {
+      vertical-align: middle;
+    }
+
+    span {
+      width: 26px;
+      display: inline-block;
+    }
   }
 
   &:hover {

@@ -101,16 +101,19 @@
             "PAGE_TITLE": "Vereine"
         }
     },
-  "FILES": {
-    "FILE_NAMES": {
-      "MEETING_INFO": "Ausschreibung",
-      "REGISTRATION_LIST": "Meldeliste",
-      "START_LIST": "Meldeergebnis",
-      "RESULTS_LIST": "Protokoll",
-      "DSV_DEFINITION": "Wettkampfdefinition",
-      "DSV_RESULTS": "Wettkampfergebnisliste"
-    }
-  },
+    "FILES": {
+      "LIST": {
+        "PAGE_TITLE": "Dateien"
+      },
+      "FILE_NAMES": {
+        "MEETING_INFO": "Ausschreibung",
+        "REGISTRATION_LIST": "Meldeliste",
+        "START_LIST": "Meldeergebnis",
+        "RESULTS_LIST": "Protokoll",
+        "DSV_DEFINITION": "Wettkampfdefinition",
+        "DSV_RESULTS": "Wettkampfergebnisliste"
+      }
+    },
     "ENTRY_PAGE": {
         "ABOUT_TEXT": "SwimResults bietet Sportlern, Trainern und Angehörigen die Möglichkeit Meldungen, Ergebnisse, Platzierungen, Livetimings und mehr bei Schwimmwettkämpfen aufbereitet anzuzeigen.",
         "INFO_LINKS_TITLE": "Informative Links"
