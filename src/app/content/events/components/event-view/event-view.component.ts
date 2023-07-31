@@ -8,6 +8,7 @@ import {RouteService} from "../../../../core/service/route.service";
 import {EventService} from "../../../../core/service/api/meeting/event.service";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
+import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 
 @Component({
   selector: 'sr-event-view',
@@ -15,8 +16,10 @@ import {HeatImpl} from "../../../../core/model/start/heat.model";
   styleUrls: ['./event-view.component.scss']
 })
 export class EventViewComponent implements OnInit, OnDestroy {
-  meetingId: string | undefined;
-  private meetingIdSubscription: Subscription;
+  meeting?: MeetingImpl;
+  meetingId?: string;
+  meetingSubscription: Subscription;
+  meetingIdSubscription: Subscription;
   eventNumber: string = "";
 
   event: MeetingEvent = {} as MeetingEvent;
@@ -34,12 +37,18 @@ export class EventViewComponent implements OnInit, OnDestroy {
     private routeService: RouteService,
     private eventService: EventService
   ) {
+    this.meetingSubscription = this.routeService.currentEvent.subscribe(data => {
+      this.meeting = new MeetingImpl(data.meeting);
+      console.log("fetched meeting:")
+      console.log(this.meeting)
+    })
     this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
       this.meetingId = data;
     })
   }
 
   ngOnDestroy() {
+    this.meetingSubscription.unsubscribe();
     this.meetingIdSubscription.unsubscribe();
   }
 
@@ -120,5 +129,19 @@ export class EventViewComponent implements OnInit, OnDestroy {
         this.event = data;
       })
     }
+  }
+
+  getUrlFromMask(mask: string) {
+    let n = (mask.match(/#/g) || []).length;
+    mask = mask.replace("#", "$");
+    mask = mask.replaceAll("#", "");
+
+    let s = "";
+    for (let i = 0; i < n; i++) {
+      s += "0";
+    }
+    s += this.eventNumber;
+    mask = mask.replace("$", s.slice(-n));
+    return "https://download.swimresults.de" + mask;
   }
 }

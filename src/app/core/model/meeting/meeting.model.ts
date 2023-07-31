@@ -1,5 +1,6 @@
 import {Location} from "./location.model";
 import {MeetingSeries} from "./meeting-series.model";
+import {MeetingData} from "./meeting-data.model";
 
 export interface Meeting {
   _id: string;
@@ -10,6 +11,8 @@ export interface Meeting {
   series: MeetingSeries;
   iteration: number;
   meet_id: string;
+
+  data: MeetingData
 }
 
 export class MeetingImpl implements Meeting {
@@ -21,6 +24,7 @@ export class MeetingImpl implements Meeting {
   series: MeetingSeries = {} as MeetingSeries;
   iteration: number = 1;
   meet_id: string = "";
+  data: MeetingData = {} as MeetingData;
 
 
   constructor(meeting: Meeting) {
@@ -33,6 +37,7 @@ export class MeetingImpl implements Meeting {
       this.series = meeting.series;
       this.iteration = meeting.iteration;
       this.meet_id = meeting.meet_id;
+      this.data = meeting.data
     }
   }
 
