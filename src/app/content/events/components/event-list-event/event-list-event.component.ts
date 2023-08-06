@@ -13,6 +13,7 @@ export class EventListEventComponent implements OnInit {
   @Input() event!: MeetingEvent;
   @Input() heats!: Map<number, HeatImpl[]>;
   heat?: HeatImpl;
+  eventHeats: HeatImpl[] = [];
 
   heatString: string = "";
   heatsString: string = "";
@@ -31,7 +32,7 @@ export class EventListEventComponent implements OnInit {
     let h: HeatImpl[] | undefined = this.heats?.get(this.event.number);
     if (h && h.length > 0) {
       this.heat = h[0];
-      this.event.heats = h.length;
+      this.eventHeats = h;
     }
   }
 
