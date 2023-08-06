@@ -14,26 +14,44 @@ sr-icon-panel {
 }
 
 .event-info-content {
-  display: inline-block;
+  display: inline-grid;
   vertical-align: top;
-  padding: 10px 14px 32px 34px;
-  margin-left: -22px;
+  padding: 0 14px 32px 34px;
   border-left: 4px solid $color-hr-border;
   position: relative;
   z-index: 0;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  align-content: center;
+  width: calc(100% - 95px);
+  margin-left: 63px;
+  margin-top: -40px;
 
-  .event-name {
+  .event-name-text {
     font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
+  }
 
-    mat-icon,
-    .event-name-text {
-      vertical-align: middle;
-    }
+  &:hover .event-name-text {
+    text-decoration: underline;
+  }
+
+  .event-heats {
+    display: block;
+    color: $color-text-gray;
+  }
+
+  mat-icon,
+  .event-name-text {
+    vertical-align: middle;
   }
 
   sr-text-btn {
     margin: 8px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .event-info-content {
+    height: 55px;
   }
 }

@@ -68,6 +68,10 @@
             "MIXED": {
                 "NAME": "mixed"
             }
+        },
+        "HEAT": {
+            "SINGULAR": "Lauf",
+            "PLURAL": "Läufe"
         }
     },
     "START": {

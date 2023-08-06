@@ -12,7 +12,7 @@ export interface MeetingEvent {
   final: EventFinal;
   finished: boolean;
   certified: boolean;
-
+  heats: number;
 }
 
 export class MeetingEventImpl implements MeetingEvent {
@@ -26,6 +26,7 @@ export class MeetingEventImpl implements MeetingEvent {
   final: EventFinal
   finished: boolean;
   certified: boolean;
+  heats: number;
 
 
   constructor(event: MeetingEvent) {
@@ -39,6 +40,7 @@ export class MeetingEventImpl implements MeetingEvent {
     this.final = event.final;
     this.finished = event.finished;
     this.certified = event.certified;
+    this.heats = event.heats;
   }
 
   getFullDistanceName() {
