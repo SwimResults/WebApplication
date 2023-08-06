@@ -12,14 +12,14 @@ import {PageEventComponent, PageEventsComponent} from "./content/events";
 
 
 const routes: Routes = [
-  { path: '',               component: Example1Component, data: { title: 'SwimResults'} },
-  { path: 'dashboard',      component: PageDashboardGeneralComponent },
-  { path: 'calendar',       component: CalendarComponent },
-  { path: 'athlete',        component: PageAthletesGeneralComponent },
-  { path: 'athlete/:entity_id',    component: PageAthleteComponent },
-  { path: 'team',           component: PageTeamsGeneralComponent },
-  { path: 'team/:entity_id',       component: PageTeamComponent },
-  { path: 'stats',          component: PageStatsGeneralComponent },
+  { path: '',                         component: Example1Component },
+  { path: 'dashboard',                component: PageDashboardGeneralComponent },
+  { path: 'calendar',                 component: CalendarComponent },
+  { path: 'athlete',                  component: PageAthletesGeneralComponent },
+  { path: 'athlete/:entity_id',       component: PageAthleteComponent },
+  { path: 'team',                     component: PageTeamsGeneralComponent },
+  { path: 'team/:entity_id',          component: PageTeamComponent },
+  { path: 'stats',                    component: PageStatsGeneralComponent },
   {
     path: 'm/:event',
     children: [
