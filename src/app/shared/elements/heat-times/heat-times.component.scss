@@ -8,6 +8,17 @@
   color: red;
 }
 
-.estimation-no-start {
-  margin-top: 10px;
+.vertical {
+  .estimation-no-start {
+    margin-top: 10px;
+  }
+}
+
+.horizontal {
+  .time {
+    display: inline-block;
+    &.live {
+      margin-left: 8px;
+    }
+  }
 }

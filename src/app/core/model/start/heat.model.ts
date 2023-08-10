@@ -6,6 +6,7 @@ export interface Heat {
   event: number;
   number: number;
   start_estimation: string;
+  start_delay_estimation: string;
   start_at: string;
   finished_at: string;
 }
@@ -13,11 +14,12 @@ export interface Heat {
 export class HeatImpl implements Heat {
   _id: string;
   event: number;
-  finished_at: string;
   meeting: string;
   number: number;
-  start_at: string;
   start_estimation: string;
+  start_delay_estimation: string;
+  start_at: string;
+  finished_at: string;
 
 
   constructor(heat: Heat) {
@@ -28,6 +30,7 @@ export class HeatImpl implements Heat {
     this.number = heat.number;
     this.start_at = heat.start_at;
     this.start_estimation = heat.start_estimation;
+    this.start_delay_estimation = heat.start_delay_estimation;
   }
 
   getEstimatedStart(): Date {
@@ -38,6 +41,22 @@ export class HeatImpl implements Heat {
     const d = this.getEstimatedStart();
     let minutes = "0" + d.getMinutes();
     return d.getHours() + ":" + minutes.substr(-2);
+  }
+
+  getStartDelayEstimation(): Date {
+    return createDate(this.start_delay_estimation);
+  }
+
+  getStartDelayEstimationTime(): string {
+    const d = this.getStartDelayEstimation();
+    let minutes = "0" + d.getMinutes();
+    return d.getHours() + ":" + minutes.substr(-2);
+  }
+
+  hasStartDelayEstimationTime(): boolean {
+    if (!this.start_delay_estimation) return false;
+    let s = this.getStartDelayEstimation()
+    return !(s.getMinutes() == 0 && s.getHours() == 0)
   }
 
   getStartAt(): Date {

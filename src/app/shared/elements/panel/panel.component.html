@@ -1,7 +1,9 @@
 <div class="title-box" *ngIf="panelTitle">
   <span class="panel-title">{{panelTitle}}</span>
-  •
-  <span class="panel-subtitle">{{panelSubtitle}}</span>
+  <span *ngIf="panelSubtitle"> • </span>
+  <span *ngIf="panelSubtitle" class="panel-subtitle">{{panelSubtitle}}</span>
+  <span *ngIf="heatForTimes"> • </span>
+  <sr-heat-times *ngIf="heatForTimes" [heat]="heatForTimes" orientation="horizontal"></sr-heat-times>
 </div>
 <div class="panel-container">
   <ng-content></ng-content>
