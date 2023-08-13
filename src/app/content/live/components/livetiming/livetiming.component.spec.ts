@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LivetimingComponent } from './livetiming.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {LiveModule} from "../../live.module";
 
 describe('LivetimingComponent', () => {
   let component: LivetimingComponent;
@@ -8,7 +10,11 @@ describe('LivetimingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LivetimingComponent ]
+      declarations: [ LivetimingComponent ],
+      imports: [
+        HttpClientTestingModule,
+        LiveModule
+      ]
     })
     .compileComponents();
 
