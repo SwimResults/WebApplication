@@ -20,7 +20,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
   meetingId?: string;
   meetingSubscription: Subscription;
   meetingIdSubscription: Subscription;
-  eventNumber: string = "";
+  eventNumber: number = 1;
 
   event: MeetingEvent = {} as MeetingEvent;
 

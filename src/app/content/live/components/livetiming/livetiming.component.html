@@ -1,0 +1,14 @@
+<sr-livetiming-header
+  [event]="event.event"
+></sr-livetiming-header>
+
+<sr-livetiming-table [starts]="starts"></sr-livetiming-table>
+
+<sr-livetiming-controls
+  (changeHeat)="onChangeHeat($event)"
+  [currentEvent]="currentEvent"
+  [currentHeat]="currentHeat"
+  [hasPrevEvent]="event.prev_event && event.prev_event.number != undefined"
+  [hasNextEvent]="event.next_event && event.next_event.number != undefined"
+  [heatAmount]="heatAmount"
+></sr-livetiming-controls>

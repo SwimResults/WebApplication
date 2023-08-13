@@ -29,7 +29,7 @@ export class StartService extends BaseService {
     return this.apiService.get(this.API_URL, "start/meet/" + meeting + "/athlete/" + athlete);
   }
 
-  getStartsByMeetingAndEvent(meeting: string, event: string): Observable<Start[]> {
+  getStartsByMeetingAndEvent(meeting: string, event: number): Observable<Start[]> {
     return this.apiService.get(this.API_URL, "start/meet/" + meeting + "/event/" + event);
   }
 

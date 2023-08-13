@@ -12,7 +12,7 @@ export enum ResultTypes {
 export interface Start {
   _id: string;
   meeting: string;
-  event: string;
+  event: number;
   heat_number: number;
   heat: Heat;
   lane: number;
@@ -38,7 +38,7 @@ export class StartImpl implements Start {
   certified: boolean;
   disqualification: DisqualificationImpl;
   results: ResultImpl[];
-  event: string;
+  event: number;
   heat: HeatImpl;
   heat_number: number;
   lane: number;

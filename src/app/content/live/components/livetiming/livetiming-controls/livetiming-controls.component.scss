@@ -1,0 +1,6 @@
+sr-btn {
+  &.disabled {
+    filter: grayscale(1) brightness(2);
+    pointer-events: none;
+  }
+}
