@@ -1,8 +1,4 @@
-<div class="livetiming-start" *ngFor="let start of starts">
-  <span class="lane">{{start.lane}}</span>
-  <ng-container *ngIf="!start.free">
-    <span class="name">{{start.start.athlete_name}}</span>
-    <span class="year">{{start.start.athlete_year}}</span>
-    <span class="team">{{start.start.athlete_team_name}}</span>
-  </ng-container>
-</div>
+<sr-start-list *ngIf="starts.length > 0"
+               [starts]="starts"
+               [config]="config"
+></sr-start-list>

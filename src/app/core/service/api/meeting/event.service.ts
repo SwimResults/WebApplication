@@ -48,7 +48,7 @@ export class EventService extends BaseService {
       this.log("load meeting " + meet_id + "." + number + " from cache", "info");
       return event;
     } else {
-      event = this.getCachedEventByMeetingAndNumber(meet_id, number).pipe(shareReplay(1));
+      event = this.getEventByMeetingAndNumber(meet_id, number).pipe(shareReplay(1));
       this.eventCache.set(meet_id + "." + number, event);
       return event;
     }

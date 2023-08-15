@@ -25,6 +25,7 @@ export interface Start {
   certified: boolean;
   results: Result[];
   disqualification: Disqualification;
+  emptyLane: boolean;
 
 }
 
@@ -36,14 +37,15 @@ export class StartImpl implements Start {
   athlete_team: string;
   athlete_team_name: string;
   certified: boolean;
-  disqualification: DisqualificationImpl;
+  disqualification: DisqualificationImpl = {} as DisqualificationImpl;
   results: ResultImpl[];
   event: number;
-  heat: HeatImpl;
+  heat: HeatImpl = {} as HeatImpl;
   heat_number: number;
   lane: number;
   meeting: string;
   rank: number;
+  emptyLane: boolean;
 
 
   constructor(start: Start) {
@@ -54,17 +56,22 @@ export class StartImpl implements Start {
     this.athlete_team = start.athlete_team;
     this.athlete_team_name = start.athlete_team_name;
     this.certified = start.certified;
-    this.disqualification = new DisqualificationImpl(start.disqualification);
+    if (start.disqualification)
+      this.disqualification = new DisqualificationImpl(start.disqualification);
     this.event = start.event;
-    this.heat = new HeatImpl(start.heat);
+    if (start.heat)
+      this.heat = new HeatImpl(start.heat);
     this.heat_number = start.heat_number;
     this.lane = start.lane;
     this.meeting = start.meeting;
     this.rank = start.rank;
+    this.emptyLane = start.emptyLane
 
     this.results = []
-    for (let result of start.results) {
-      this.results.push(new ResultImpl(result))
+    if (start.results) {
+      for (let result of start.results) {
+        this.results.push(new ResultImpl(result))
+      }
     }
   }
 

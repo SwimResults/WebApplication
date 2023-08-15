@@ -8,4 +8,5 @@ export class StartListTileConfig {
   showTimes: boolean = true;
   laneAsIcon: boolean = false;
   flatStyle: boolean = false;
+  allLanes: boolean = false;
 }

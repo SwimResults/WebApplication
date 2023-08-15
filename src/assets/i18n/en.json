@@ -68,11 +68,22 @@
             "MIXED": {
                 "NAME": "Mixed"
             }
+        },
+        "HEAT": {
+            "SINGULAR": "Heat",
+            "PLURAL": "Heats"
+        },
+        "EVENT": {
+            "SINGULAR": "Event"
+        },
+        "LANE": {
+            "SINGULAR": "Lane"
         }
     },
     "START": {
         "LANE": "Lane",
-        "EVENT_SHORT": "Evt."
+        "EVENT_SHORT": "Evt.",
+        "LANE_STAYS_EMPTY": "Lane stays empty"
     },
     "ATHLETE": {
         "LIST": {

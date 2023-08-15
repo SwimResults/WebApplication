@@ -54,6 +54,15 @@ input[type=search] {
   vertical-align: middle;
 }
 
+.link {
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+
 .sr-inactive {
   filter: contrast(0) !important;
   cursor: unset !important;

@@ -92,7 +92,7 @@ export class StartListTileComponent implements OnInit {
         default: return ""
       }
     }
-    if (this.data.disqualification.type) return "disqualified";
+    if (this.data && this.data.disqualification && this.data.disqualification.type) return "disqualified";
     return "";
   }
 

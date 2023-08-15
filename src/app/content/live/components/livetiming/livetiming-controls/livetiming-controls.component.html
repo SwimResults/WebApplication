@@ -1,5 +1,5 @@
 <sr-icon-btn (click)="decEvent()" [active]="hasPrevEvent"><mat-icon>first_page</mat-icon></sr-icon-btn>
 <sr-icon-btn (click)="decHeat()" [active]="currentHeat > 1 || hasPrevEvent"><mat-icon>navigate_before</mat-icon></sr-icon-btn>
-<span>Wettkampf {{currentEvent}} – Lauf {{currentHeat}}</span>
+<span class="info-text">{{'COMMON.EVENT.SINGULAR' | translate}} – {{'COMMON.HEAT.SINGULAR' | translate}} {{currentHeat}} / {{heatAmount}}</span>
 <sr-icon-btn (click)="incHeat()" [active]="currentHeat < heatAmount || hasNextEvent"><mat-icon>navigate_next</mat-icon></sr-icon-btn>
 <sr-icon-btn (click)="incEvent()" [active]="hasNextEvent"><mat-icon>last_page</mat-icon></sr-icon-btn>

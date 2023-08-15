@@ -6,6 +6,8 @@ import { LivetimingHeaderComponent } from './components/livetiming/livetiming-he
 import {ElementsModule} from "../../shared/elements/elements.module";
 import {CoreModule} from "../../core/core.module";
 import {MatIconModule} from "@angular/material/icon";
+import {RouterLink} from "@angular/router";
+import {StartsModule} from "../starts";
 
 
 
@@ -21,7 +23,9 @@ import {MatIconModule} from "@angular/material/icon";
     CommonModule,
     ElementsModule,
     CoreModule,
-    MatIconModule
+    MatIconModule,
+    RouterLink,
+    StartsModule
   ]
 })
 export class LiveModule { }

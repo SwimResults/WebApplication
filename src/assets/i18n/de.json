@@ -72,11 +72,18 @@
         "HEAT": {
             "SINGULAR": "Lauf",
             "PLURAL": "Läufe"
+        },
+        "EVENT": {
+          "SINGULAR": "Wettkampf"
+        },
+        "LANE": {
+          "SINGULAR": "Bahn"
         }
     },
     "START": {
         "LANE": "Bahn",
-        "EVENT_SHORT": "WK"
+        "EVENT_SHORT": "WK",
+        "LANE_STAYS_EMPTY": "Bahn bleibt frei"
     },
     "ATHLETE": {
         "LIST": {

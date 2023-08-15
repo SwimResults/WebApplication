@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {StartService} from "../../../../core/service/api";
-import {StartImpl} from "../../../../core/model/start/start.model";
+import {Start, StartImpl} from "../../../../core/model/start/start.model";
 import {EventService} from "../../../../core/service/api/meeting/event.service";
 import {MeetingEventLivetiming} from "../../../../core/model/meeting/meeting-event-livetiming.model";
 import {HeatService} from "../../../../core/service/api/start/heat.service";
@@ -28,8 +28,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
   currentEvent: number = 101;
   currentHeat: number = 1;
 
-  starts: StartImpl[] = [];
-  livetimingStarts: LivetimingStartLane[] = [];
+  starts: Start[] = [];
   event: MeetingEventLivetiming = {} as MeetingEventLivetiming;
   heatAmount: number = 1;
 
@@ -76,30 +75,28 @@ export class LivetimingComponent implements OnInit, OnDestroy {
       this.startService.getStartsByMeetingAndEventAndHeat(this.meetingId, this.currentEvent, this.currentHeat).subscribe(data => {
         if (data) {
           this.starts = [];
-          this.livetimingStarts = [];
+          let st: Start[] = []
+          let ls: Start[] = [];
           for (let start of data) {
-            this.starts.push(new StartImpl(start));
+            st.push(start);
           }
-          if (this.starts.length > this.lanes) {
-            this.lanes = this.starts.length;
+          if (st.length > this.lanes) {
+            this.lanes = st.length;
           }
-          if (this.starts[0].lane < this.firstLane) {
-            this.firstLane = this.starts[0].lane;
+          if (st[0].lane < this.firstLane) {
+            this.firstLane = st[0].lane;
           }
 
           // create all lanes with empty data
           for (let i = this.firstLane; i < this.lanes + this.firstLane; i++) {
-            this.livetimingStarts.push({
-              start: {} as StartImpl,
-              free: true,
-              lane: i
-            })
+            ls.push({lane: i, emptyLane: true} as Start)
           }
 
-          for (let start of this.starts) {
-            this.livetimingStarts[start.lane - this.firstLane].free = false;
-            this.livetimingStarts[start.lane - this.firstLane].start = start
+          for (let start of st) {
+            ls[start.lane - this.firstLane] = start
+            ls[start.lane - this.firstLane].emptyLane = false;
           }
+          this.starts = ls
         }
       })
       this.heatService.getEventHeatInfo(this.meetingId, this.currentEvent).subscribe(data => {
