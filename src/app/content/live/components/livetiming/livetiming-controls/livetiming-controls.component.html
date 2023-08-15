@@ -1,5 +1,5 @@
-<sr-btn (click)="decEvent()" class="{{hasPrevEvent ? 'enabled' : 'disabled'}}"><mat-icon>first_page</mat-icon></sr-btn>
-<sr-btn (click)="decHeat()" class="{{currentHeat > 1 || hasPrevEvent ? 'enabled' : 'disabled'}}"><mat-icon>navigate_before</mat-icon></sr-btn>
+<sr-icon-btn (click)="decEvent()" [active]="hasPrevEvent"><mat-icon>first_page</mat-icon></sr-icon-btn>
+<sr-icon-btn (click)="decHeat()" [active]="currentHeat > 1 || hasPrevEvent"><mat-icon>navigate_before</mat-icon></sr-icon-btn>
 <span>Wettkampf {{currentEvent}} – Lauf {{currentHeat}}</span>
-<sr-btn (click)="incHeat()" class="{{currentHeat < heatAmount || hasNextEvent ? 'enabled' : 'disabled'}}"><mat-icon>navigate_next</mat-icon></sr-btn>
-<sr-btn (click)="incEvent()" class="{{hasNextEvent ? 'enabled' : 'disabled'}}"><mat-icon>last_page</mat-icon></sr-btn>
+<sr-icon-btn (click)="incHeat()" [active]="currentHeat < heatAmount || hasNextEvent"><mat-icon>navigate_next</mat-icon></sr-icon-btn>
+<sr-icon-btn (click)="incEvent()" [active]="hasNextEvent"><mat-icon>last_page</mat-icon></sr-icon-btn>

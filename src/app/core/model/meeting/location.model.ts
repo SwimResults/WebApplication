@@ -4,5 +4,7 @@ export interface Location {
   city: string;
   postal_code: string;
   name: string;
+  first_lane: number;
+  lanes: number;
   _id: string;
 }

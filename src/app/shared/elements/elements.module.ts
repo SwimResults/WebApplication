@@ -22,6 +22,7 @@ import { BtnComponent } from './buttons/btn/btn.component';
 import { TextBtnComponent } from './buttons/text-btn/text-btn.component';
 import { HeatTimesComponent } from './heat-times/heat-times.component';
 import { FileIconComponent } from './file-icon/file-icon.component';
+import { IconBtnComponent } from './buttons/icon-btn/icon-btn.component';
 
 
 
@@ -41,21 +42,23 @@ import { FileIconComponent } from './file-icon/file-icon.component';
         BtnComponent,
         TextBtnComponent,
         HeatTimesComponent,
-        FileIconComponent
+        FileIconComponent,
+        IconBtnComponent
     ],
     exports: [
-        PanelComponent,
-        IconPanelComponent,
-        NavGroupComponent,
-        NavLinkComponent,
-        PageTitleComponent,
-        ListViewComponent,
-        BadgeComponent,
-        FlatBtnComponent,
-        TextBtnComponent,
-        HeatTimesComponent,
-        BtnComponent,
-        FileIconComponent
+      PanelComponent,
+      IconPanelComponent,
+      NavGroupComponent,
+      NavLinkComponent,
+      PageTitleComponent,
+      ListViewComponent,
+      BadgeComponent,
+      FlatBtnComponent,
+      TextBtnComponent,
+      HeatTimesComponent,
+      BtnComponent,
+      FileIconComponent,
+      IconBtnComponent
     ],
     imports: [
         CommonModule,

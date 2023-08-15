@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {StartImpl} from "../../../../../core/model/start/start.model";
+import {LivetimingStartLane} from "../../../../../core/model/start/livetiming-start-lane.model";
 
 @Component({
   selector: 'sr-livetiming-table',
@@ -8,5 +8,5 @@ import {StartImpl} from "../../../../../core/model/start/start.model";
 })
 export class LivetimingTableComponent {
   @Input()
-  starts!: StartImpl[];
+  starts!: LivetimingStartLane[];
 }

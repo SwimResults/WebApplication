@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import {BtnComponent} from "../btn/btn.component";
 
 @Component({
-  selector: 'sr-text-btn',
+  selector: 'sr-icon-btn',
   templateUrl: '../btn/btn.component.html',
-  styleUrls: ['./../btn/btn.component.scss', './text-btn.component.scss']
+  styleUrls: ['./../btn/btn.component.scss', './icon-btn.component.scss']
 })
-export class TextBtnComponent extends BtnComponent {
+export class IconBtnComponent extends BtnComponent {
 
 }

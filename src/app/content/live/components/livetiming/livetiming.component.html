@@ -2,7 +2,9 @@
   [event]="event.event"
 ></sr-livetiming-header>
 
-<sr-livetiming-table [starts]="starts"></sr-livetiming-table>
+<sr-livetiming-table
+  [starts]="livetimingStarts"
+></sr-livetiming-table>
 
 <sr-livetiming-controls
   (changeHeat)="onChangeHeat($event)"
@@ -12,3 +14,6 @@
   [hasNextEvent]="event.next_event && event.next_event.number !== undefined"
   [heatAmount]="heatAmount"
 ></sr-livetiming-controls>
+<br>
+<b>LANES: {{lanes}}</b><br>
+<b>FIRST: {{firstLane}}</b>
