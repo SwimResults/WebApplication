@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageLiveComponent } from './page-live.component';
 import {LiveModule} from "../../live.module";
+import {RouterTestingModule} from "@angular/router/testing";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('PageLiveComponent', () => {
   let component: PageLiveComponent;
@@ -11,7 +13,9 @@ describe('PageLiveComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ PageLiveComponent ],
       imports: [
-        LiveModule
+        LiveModule,
+        RouterTestingModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();

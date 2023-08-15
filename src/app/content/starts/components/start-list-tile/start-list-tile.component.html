@@ -1,6 +1,6 @@
 <div *ngIf="data">
-  <div class="left-container icon-style-{{getStyleType()}} {{config.showTimes && data.heat ? 'left-container-with-times' : ''}}">
-    <div class="time" *ngIf="config.showTimes && data.heat">
+  <div class="left-container icon-style-{{getStyleType()}} {{config && config.showTimes && data.heat ? 'left-container-with-times' : ''}}">
+    <div class="time" *ngIf="config && config.showTimes && data.heat">
       <sr-heat-times [heat]="data.heat"></sr-heat-times>
       <!--span class="estimated time-entry">{{data.heat.getEstimatedStartTime()}}</span-->
     </div>
@@ -12,7 +12,7 @@
     ></sr-icon-panel>
   </div>
 
-  <div class="right-container {{config.showTimes && data.heat ? 'right-container-with-times' : ''}}">
+  <div class="right-container {{config && config.showTimes && data.heat ? 'right-container-with-times' : ''}}">
 <!--    <div class="header-row">-->
 <!--      <span class="athlete" *ngIf="config.showAthlete && athlete">-->
 <!--        <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{athlete.name}}</span>-->
@@ -23,7 +23,7 @@
 <!--      <span class="meeting row-right link" *ngIf="config.showMeeting && meeting" [routerLink]="'/m/' + data.meeting + '/'">{{meeting.getShortSeriesName()}} <span *ngIf="meeting.location?.city">({{meeting.location.city}})</span></span>-->
 <!--    </div>-->
     <div class="content-row">
-      <ng-container *ngIf="!data.emptyLane">
+      <ng-container *ngIf="config && !data.emptyLane">
         <span class="event link" *ngIf="config.showEvent" [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{'START.EVENT_SHORT' | translate}} {{data.event}}</span>
         <span class="style link" *ngIf="config.showStyle && event && event.style" [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}}</span>
         <span class="style" *ngIf="config.showStyle && (!event || !event.style)"></span>
@@ -48,7 +48,7 @@
           <span class="result-time-string">{{getTimeString(data.getResultMilliseconds())}}</span>
         </span>
         <span class="reaction" *ngIf="data.hasResultType(resultTypes.REACTION)">{{getReactionString(data.getTimeMilliseconds(resultTypes.REACTION))}}</span>
-        <div class="disqualification" *ngIf="data.disqualification.type && !config.laneAsIcon">
+        <div class="disqualification" *ngIf="data.disqualification.type && config && !config.laneAsIcon">
           <span class="reason">{{getReason()}}</span>
         </div>
       </ng-container>

@@ -3,6 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LivetimingComponent } from './livetiming.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {LiveModule} from "../../live.module";
+import {RouterTestingModule} from "@angular/router/testing";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('LivetimingComponent', () => {
   let component: LivetimingComponent;
@@ -13,7 +15,9 @@ describe('LivetimingComponent', () => {
       declarations: [ LivetimingComponent ],
       imports: [
         HttpClientTestingModule,
-        LiveModule
+        LiveModule,
+        RouterTestingModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();

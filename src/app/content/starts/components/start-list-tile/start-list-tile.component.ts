@@ -82,7 +82,7 @@ export class StartListTileComponent implements OnInit {
   }
 
   getIconClass(): string {
-    if (this.config.laneAsIcon) return "";
+    if (this.config && this.config.laneAsIcon) return "";
     if (!this.data.certified) return "";
     if (this.data.rank) {
       switch (this.data.rank) {
@@ -97,13 +97,13 @@ export class StartListTileComponent implements OnInit {
   }
 
   getIconTextContent(): string | undefined {
-    if (this.config.laneAsIcon) return this.data.lane + "";
+    if (this.config && this.config.laneAsIcon) return this.data.lane + "";
     if (this.data.certified && this.data.rank) return this.data.rank + ".";
     return undefined;
   }
 
   getStyleType(): string {
-    if (this.config.flatStyle) return "flat";
+    if (this.config && this.config.flatStyle) return "flat";
     return "default";
   }
 
