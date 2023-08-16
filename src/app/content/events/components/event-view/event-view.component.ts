@@ -27,7 +27,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
   starts: Start[] = [];
   heats: Map<number, StartImpl[]> = new Map<number, StartImpl[]>();
   heatData: Map<number, HeatImpl> = new Map<number, HeatImpl>();
-  config: StartListTileConfig = {showAthlete: true, laneAsIcon: true, flatStyle: true} as StartListTileConfig;
+  config: StartListTileConfig = {showAthlete: true, laneAsIcon: true, flatStyle: true, rankStylesIcon: false} as StartListTileConfig;
 
   listMode: string = "lanes";
 

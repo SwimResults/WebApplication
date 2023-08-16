@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-import {LivetimingStartLane} from "../../../../../core/model/start/livetiming-start-lane.model";
 import {StartListTileConfig} from "../../../../../core/model/start/start-list-tile-config.model";
 import {MeetingImpl} from "../../../../../core/model/meeting/meeting.model";
 import {Start} from "../../../../../core/model/start/start.model";

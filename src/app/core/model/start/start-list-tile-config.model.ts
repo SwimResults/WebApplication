@@ -9,4 +9,5 @@ export class StartListTileConfig {
   laneAsIcon: boolean = false;
   flatStyle: boolean = false;
   allLanes: boolean = false;
+  rankStylesIcon: boolean = true;
 }

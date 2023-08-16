@@ -84,12 +84,14 @@ export class StartListTileComponent implements OnInit {
   getIconClass(): string {
     if (this.config && this.config.laneAsIcon) return "";
     if (!this.data.certified) return "";
-    if (this.data.rank) {
-      switch (this.data.rank) {
-        case 1: return "rank1"
-        case 2: return "rank2"
-        case 3: return "rank3"
-        default: return ""
+    if (this.config && this.config.rankStylesIcon) {
+      if (this.data.rank) {
+        switch (this.data.rank) {
+          case 1: return "rank1"
+          case 2: return "rank2"
+          case 3: return "rank3"
+          default: return ""
+        }
       }
     }
     if (this.data && this.data.disqualification && this.data.disqualification.type) return "disqualified";

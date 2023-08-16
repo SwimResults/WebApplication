@@ -24,7 +24,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
   meetingSubscription: Subscription;
   meetingIdSubscription: Subscription;
 
-  currentEvent: number = 101;
+  currentEvent: number = 1;
   currentHeat: number = 1;
 
   starts: Start[] = [];
@@ -122,6 +122,12 @@ export class LivetimingComponent implements OnInit, OnDestroy {
         if (data) {
           this.event = data;
           console.log(this.event)
+          if (!this.event || !this.event.event || !this.event.event.number) {
+            if (this.event.next_event && this.event.next_event.number) {
+              this.currentEvent = this.event.next_event.number
+              this.fetchData()
+            }
+          }
         }
       })
     }
@@ -130,6 +136,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
   onChangeHeat(ev: ChangeHeatEvent) {
     if (ev.name == "heat") {
       this.currentHeat += (ev.next ? 1 : -1);
+      if (this.currentHeat > this.heatAmount) this.currentHeat--;
     } else {
       this.currentHeat = 1; // if event change, always go to heat 1
     }
