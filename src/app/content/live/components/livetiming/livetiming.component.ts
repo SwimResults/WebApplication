@@ -1,13 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {StartService} from "../../../../core/service/api";
-import {Start, StartImpl} from "../../../../core/model/start/start.model";
+import {Start} from "../../../../core/model/start/start.model";
 import {EventService} from "../../../../core/service/api/meeting/event.service";
 import {MeetingEventLivetiming} from "../../../../core/model/meeting/meeting-event-livetiming.model";
 import {HeatService} from "../../../../core/service/api/start/heat.service";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
-import {LivetimingStartLane} from "../../../../core/model/start/livetiming-start-lane.model";
 
 export interface ChangeHeatEvent {
   name: "event" | "heat";
@@ -41,6 +40,17 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     private heatService: HeatService,
     private eventService: EventService
   ) {
+
+    // get heat and event from session storage
+    let heat = window.sessionStorage.getItem("livetiming_heat");
+    let event = window.sessionStorage.getItem("livetiming_event");
+    if (heat) {
+      this.currentHeat = Number(heat);
+    }
+    if (event) {
+      this.currentEvent = Number(event);
+    }
+
     this.meetingSubscription = this.routeService.currentEvent.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
       if (this.meeting) {
@@ -130,6 +140,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
         this.heatService.getEventHeatInfo(this.meetingId, this.currentEvent).subscribe(data => {
           if (data)
             this.currentHeat = data.amount;
+          this.storeCurrentHeat();
           this.fetchData()
         })
         return;
@@ -146,7 +157,13 @@ export class LivetimingComponent implements OnInit, OnDestroy {
         this.prevEvent()
       }
     }
+    this.storeCurrentHeat();
     this.fetchData();
+  }
+
+  storeCurrentHeat() {
+    window.sessionStorage.setItem("livetiming_heat", "" + this.currentHeat);
+    window.sessionStorage.setItem("livetiming_event", "" + this.currentEvent);
   }
 
   nextEvent() {
