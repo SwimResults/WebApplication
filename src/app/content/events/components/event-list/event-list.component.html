@@ -1,3 +1,6 @@
+<sr-no-content *ngIf="!parts || parts.length <= 0">
+  Es wurden keine Wettkämpfe gefunden.
+</sr-no-content>
 <div *ngFor="let part of parts">
   <h1 *ngIf="part.number">{{'EVENT.LIST.PART_TITLE' | translate}} {{part.number}}</h1>
   <sr-panel *ngIf="!fetchingHeats">

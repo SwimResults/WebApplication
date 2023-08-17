@@ -11,6 +11,7 @@
             "HEAT": "Lauf"
         },
         "LIST": {
+            "PAGE_TITLE": "Ablaufplan",
             "PART_TITLE": "Abschnitt"
         }
     },
@@ -29,6 +30,16 @@
         }
     },
     "COMMON": {
+        "ERROR": {
+            "SERVICE_OFFLINE": {
+                "MESSAGE": "Der {{system}} ist momentan nicht erreichbar!",
+                "MEETING": "Veranstaltungsservice",
+                "START": "Startservice",
+                "ATHLETE": "Sportler- und Vereinsservice",
+                "USER": "Benutzerservice",
+                "IMPORT": "Importservice"
+            }
+        },
         "FORM": {
             "SEARCH": {
                 "SEARCH_INPUT_LABEL": "Suchen…"

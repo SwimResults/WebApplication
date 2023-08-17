@@ -2,25 +2,32 @@
   [event]="event.event"
 ></sr-livetiming-header-->
 
-<br><br>
+<ng-container *ngIf="meeting && meeting.data && meeting.data.has_livetiming">
 
-<sr-panel *ngIf="event && event.event"
-  panelTitle="{{'COMMON.EVENT.SINGULAR' | translate}} {{event.event.number}} - {{event.event.relay_distance ? event.event.relay_distance : event.event.distance}}m {{'COMMON.STYLE.' + event.event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.event.gender + '.NAME' | translate}}"
->
+  <sr-panel *ngIf="event && event.event"
+    panelTitle="{{'COMMON.EVENT.SINGULAR' | translate}} {{event.event.number}} - {{event.event.relay_distance ? event.event.relay_distance : event.event.distance}}m {{'COMMON.STYLE.' + event.event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.event.gender + '.NAME' | translate}}"
+  >
 
-  <sr-livetiming-table
-    *ngIf="meeting"
-    [starts]="starts"
-    [meeting]="meeting"
-    [config]="config"
-  ></sr-livetiming-table>
-</sr-panel>
-<br><br>
-<sr-livetiming-controls
-  (changeHeat)="onChangeHeat($event)"
-  [currentEvent]="currentEvent"
-  [currentHeat]="currentHeat"
-  [hasPrevEvent]="event.prev_event && event.prev_event.number !== undefined"
-  [hasNextEvent]="event.next_event && event.next_event.number !== undefined"
-  [heatAmount]="heatAmount"
-></sr-livetiming-controls>
+    <sr-livetiming-table
+      *ngIf="meeting"
+      [starts]="starts"
+      [meeting]="meeting"
+      [config]="config"
+    ></sr-livetiming-table>
+  </sr-panel>
+  <br><br>
+  <sr-livetiming-controls
+    (changeHeat)="onChangeHeat($event)"
+    [currentEvent]="currentEvent"
+    [currentHeat]="currentHeat"
+    [hasPrevEvent]="event.prev_event && event.prev_event.number !== undefined"
+    [hasNextEvent]="event.next_event && event.next_event.number !== undefined"
+    [heatAmount]="heatAmount"
+  ></sr-livetiming-controls>
+</ng-container>
+<sr-no-content *ngIf="meeting && (meeting.data && !meeting.data.has_livetiming || !meeting.data)">
+  Für diese Veranstaltung gibt es leider kein Livetiming.
+</sr-no-content>
+<sr-no-content *ngIf="!meeting">
+  Inhalt konnte nicht geladen werden.
+</sr-no-content>

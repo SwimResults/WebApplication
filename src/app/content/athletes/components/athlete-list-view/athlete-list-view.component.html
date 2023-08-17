@@ -1,6 +1,9 @@
 <h1>{{'ATHLETE.LIST.PAGE_TITLE' | translate}}</h1>
 
-<sr-list-view
+<sr-list-view *ngIf="listAthletes"
   [data]="listAthletes"
   (refreshData)="fetchAthletes($event)"
 ></sr-list-view>
+<ng-container *ngIf="listAthletes.length <= 0">
+  Keine Sportler gefunden.
+</ng-container>
