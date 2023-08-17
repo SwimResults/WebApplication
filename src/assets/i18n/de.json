@@ -83,7 +83,7 @@
     "START": {
         "LANE": "Bahn",
         "EVENT_SHORT": "WK",
-        "LANE_STAYS_EMPTY": "Bahn bleibt frei"
+        "LANE_STAYS_EMPTY": "Bahn {{lane}} bleibt frei"
     },
     "ATHLETE": {
         "LIST": {
@@ -106,7 +106,7 @@
     "TEAM": {
         "PAGE": {
             "CONTACT_TITLE": "Kontakt",
-            "ATHLETE_TITLE": "Sportler"
+            "ATHLETE_TITLE": "Teilnehmende"
         },
         "LIST": {
             "PAGE_TITLE": "Vereine"

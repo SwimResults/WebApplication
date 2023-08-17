@@ -1,15 +1,16 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {StartService} from "../../../../core/service/api";
-import {Start} from "../../../../core/model/start/start.model";
+import {Start, StartImpl} from "../../../../core/model/start/start.model";
 import {EventService} from "../../../../core/service/api/meeting/event.service";
 import {MeetingEventLivetiming} from "../../../../core/model/meeting/meeting-event-livetiming.model";
 import {HeatService} from "../../../../core/service/api/start/heat.service";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
+import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 
 export interface ChangeHeatEvent {
-  name: "event" | "heat";
+  name: "event" | "heat" | "all";
   next: boolean;
 }
 
@@ -30,9 +31,20 @@ export class LivetimingComponent implements OnInit, OnDestroy {
   starts: Start[] = [];
   event: MeetingEventLivetiming = {} as MeetingEventLivetiming;
   heatAmount: number = 1;
+  heatFinished: boolean = false;
 
   lanes: number = 1;
   firstLane: number = 1;
+
+  config: StartListTileConfig = {
+    showAthlete: true,
+    laneAsIcon: true,
+    flatStyle: true,
+    allLanes: true,
+    showResults: true,
+    showRegistrationTime: !this.heatFinished,
+    showResultTime: this.heatFinished
+  } as StartListTileConfig;
 
   constructor(
     private routeService: RouteService,
@@ -84,12 +96,19 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     if (this.meetingId) {
       this.startService.getStartsByMeetingAndEventAndHeat(this.meetingId, this.currentEvent, this.currentHeat).subscribe(data => {
         if (data) {
+          this.heatFinished = false;
           this.starts = [];
-          let st: Start[] = []
-          let ls: Start[] = [];
+          let st: StartImpl[] = []
+          let ls: StartImpl[] = [];
+
           for (let start of data) {
-            st.push(start);
+            let s = new StartImpl(start)
+            if (!this.heatFinished && s.hasResult()) {
+              this.heatFinished = true;
+            }
+            st.push(s);
           }
+
           if (st.length > this.lanes) {
             this.lanes = st.length;
           }
@@ -99,13 +118,31 @@ export class LivetimingComponent implements OnInit, OnDestroy {
 
           // create all lanes with empty data
           for (let i = this.firstLane; i < this.lanes + this.firstLane; i++) {
-            ls.push({lane: i, emptyLane: true} as Start)
+            ls.push({lane: i, emptyLane: true} as StartImpl)
           }
 
           for (let start of st) {
             ls[start.lane - this.firstLane] = start
             ls[start.lane - this.firstLane].emptyLane = false;
           }
+
+          if (this.heatFinished) {
+            ls.sort((a,b) => (a.emptyLane ? 1 : (b.emptyLane ? -1 : (a.getResultMilliseconds() <= 0 ? 1 : (b.getResultMilliseconds() <= 0 ? -1 : a.getResultMilliseconds() - b.getResultMilliseconds())))))
+            let j = 1;
+            for (let start of ls) {
+              start.rank = j++;
+            }
+          }
+
+          this.config = {
+            showAthlete: true,
+            laneAsIcon: !this.heatFinished,
+            flatStyle: true,
+            allLanes: !this.heatFinished,
+            showResults: true,
+            showRegistrationTime: !this.heatFinished,
+            showResultTime: this.heatFinished
+          } as StartListTileConfig;
           this.starts = ls
         }
       })
@@ -126,6 +163,9 @@ export class LivetimingComponent implements OnInit, OnDestroy {
             if (this.event.next_event && this.event.next_event.number) {
               this.currentEvent = this.event.next_event.number
               this.fetchData()
+            } else if (this.event.prev_event && this.event.prev_event.number) {
+              this.currentEvent = this.event.prev_event.number
+              this.fetchData()
             }
           }
         }
@@ -136,7 +176,6 @@ export class LivetimingComponent implements OnInit, OnDestroy {
   onChangeHeat(ev: ChangeHeatEvent) {
     if (ev.name == "heat") {
       this.currentHeat += (ev.next ? 1 : -1);
-      if (this.currentHeat > this.heatAmount) this.currentHeat--;
     } else {
       this.currentHeat = 1; // if event change, always go to heat 1
     }
@@ -163,6 +202,15 @@ export class LivetimingComponent implements OnInit, OnDestroy {
       } else {
         this.prevEvent()
       }
+    }
+
+    if (ev.name == "all") {
+      if (ev.next) {
+        this.currentEvent = 100000;
+      } else {
+        this.currentEvent = 1;
+      }
+      this.currentHeat = 1;
     }
     this.storeCurrentHeat();
     this.fetchData();

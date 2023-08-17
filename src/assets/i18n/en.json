@@ -83,7 +83,7 @@
     "START": {
         "LANE": "Lane",
         "EVENT_SHORT": "Evt.",
-        "LANE_STAYS_EMPTY": "Lane stays empty"
+        "LANE_STAYS_EMPTY": "Lane {{lane}} stays empty"
     },
     "ATHLETE": {
         "LIST": {
@@ -106,7 +106,7 @@
     "TEAM": {
         "PAGE": {
             "CONTACT_TITLE": "Contact",
-            "ATHLETE_TITLE": "Athletes"
+            "ATHLETE_TITLE": "Participants"
         },
         "LIST": {
             "PAGE_TITLE": "Teams"

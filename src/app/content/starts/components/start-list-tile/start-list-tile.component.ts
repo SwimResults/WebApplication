@@ -24,6 +24,8 @@ export class StartListTileComponent implements OnInit {
 
   resultTypes = ResultTypes
 
+  laneParam = {lane: ""}
+
   constructor(
     private startService: StartService,
     private meetingService: MeetingService,
@@ -36,6 +38,7 @@ export class StartListTileComponent implements OnInit {
     this.fetchStart();
     console.log(this.config)
   }
+
 
   fetchStart() {
     if (this.start !== undefined) {
@@ -54,6 +57,7 @@ export class StartListTileComponent implements OnInit {
         this.continueFetching()
       })
     }
+    this.laneParam = {lane: String(this.data.lane)}
   }
 
   continueFetching() {

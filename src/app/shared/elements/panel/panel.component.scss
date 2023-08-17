@@ -11,16 +11,20 @@
   background-color: $color-bg-first;
   box-shadow: 0 0 20px -16px $color-shadow-second;
   border-radius: 12px;
+
+  &.panel-container-with-header {
+    border-top-left-radius: 0;
+  }
 }
 
 .title-box {
-  position: relative;
-  padding: 14px;
+  padding: 14px 14px 6px;
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
   font-size: 16px;
   background-color: $color-bg-first;
-  display: inline;
+  display: inline-block;
+  max-width: calc(100% - 28px - 24px);
 }
 
 .panel-title {

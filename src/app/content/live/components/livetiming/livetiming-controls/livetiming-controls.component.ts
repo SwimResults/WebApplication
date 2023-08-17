@@ -30,4 +30,12 @@ export class LivetimingControlsComponent {
   incHeat() {
     this.changeHeat.emit({name: "heat", next: true});
   }
+
+  firstEvent() {
+    this.changeHeat.emit({name: "all", next: false});
+  }
+
+  lastEvent() {
+    this.changeHeat.emit({name: "all", next: true});
+  }
 }

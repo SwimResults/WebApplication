@@ -5,6 +5,6 @@
   <span *ngIf="heatForTimes"> • </span>
   <sr-heat-times *ngIf="heatForTimes" [heat]="heatForTimes" orientation="horizontal"></sr-heat-times>
 </div>
-<div class="panel-container">
+<div class="panel-container {{panelTitle ? 'panel-container-with-header' : ''}}">
   <ng-content></ng-content>
 </div>

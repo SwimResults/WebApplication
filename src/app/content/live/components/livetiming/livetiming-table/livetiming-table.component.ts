@@ -12,7 +12,6 @@ export class LivetimingTableComponent {
   @Input() starts!: Start[];
 
   @Input() meeting!: MeetingImpl
-
-  config: StartListTileConfig = {showAthlete: true, laneAsIcon: true, flatStyle: true, allLanes: true} as StartListTileConfig;
+  @Input() config!: StartListTileConfig;
 
 }
