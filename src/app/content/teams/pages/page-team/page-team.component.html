@@ -13,7 +13,8 @@
   <a [href]="team.website">{{team.website}}</a>
 </sr-panel>
 
-<h1>{{'TEAM.PAGE.ATHLETE_TITLE' | translate}}</h1>
+<h1 *ngIf="meetingId">{{'TEAM.PAGE.PARTICIPANTS_TITLE' | translate}}</h1>
+<h1 *ngIf="!meetingId">{{'TEAM.PAGE.ATHLETE_TITLE' | translate}}</h1>
 <sr-list-view
   [data]="listAthletes"
   (refreshData)="fetchAthletes($event)"

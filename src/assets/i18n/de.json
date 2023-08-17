@@ -106,7 +106,8 @@
     "TEAM": {
         "PAGE": {
             "CONTACT_TITLE": "Kontakt",
-            "ATHLETE_TITLE": "Teilnehmende"
+            "ATHLETE_TITLE": "Sportler",
+            "PARTICIPANTS_TITLE": "Teilnehmende"
         },
         "LIST": {
             "PAGE_TITLE": "Vereine"

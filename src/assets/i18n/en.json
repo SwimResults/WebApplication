@@ -106,7 +106,8 @@
     "TEAM": {
         "PAGE": {
             "CONTACT_TITLE": "Contact",
-            "ATHLETE_TITLE": "Participants"
+            "ATHLETE_TITLE": "Athletes",
+            "PARTICIPANTS_TITLE": "Participants"
         },
         "LIST": {
             "PAGE_TITLE": "Teams"
