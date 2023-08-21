@@ -1,0 +1,12 @@
+<div>
+  <sr-panel *ngIf="files && files.length > 0">
+    <sr-file-list-tile
+      *ngFor="let file of files"
+      [file]="file"
+    >
+    </sr-file-list-tile>
+  </sr-panel>
+  <sr-no-content *ngIf="!files || files.length <= 0">
+    Für diese Veranstaltung sind keine Dateien hinterlegt.
+  </sr-no-content>
+</div>

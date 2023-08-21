@@ -1,0 +1,13 @@
+<div *ngIf="event">
+  <sr-heat-times class="time-info" *ngIf="heat" [heat]="heat"></sr-heat-times>
+  <div class="time-info" *ngIf="!heat"></div>
+  <sr-icon-panel [textContent]="event.number + ''"></sr-icon-panel>
+  <div (click)="openEvent()" class="event-info-content">
+    <span class="event-name-text">
+      {{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{event.number}}<ng-container *ngIf="event && event.style"> - {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</ng-container>
+    </span>
+    <span class="event-heats" *ngIf="eventHeats.length">
+      {{eventHeats.length === 1 ? "1 " + heatString : eventHeats.length + " " + heatsString}}
+    </span>
+  </div>
+</div>

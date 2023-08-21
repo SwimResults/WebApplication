@@ -1,0 +1,116 @@
+{
+    "NAV": {
+        "LINK": {
+            "TITLE": {
+                "DASHBOARD": "Dashboard",
+                "LIVE": "Live",
+                "EVENTS": "Events",
+                "MEETINGS": "Meetings",
+                "ATHLETES": "Athletes",
+                "TEAMS": "Teams",
+                "FILES": "Files",
+                "STATS": "Statistics"
+            }
+        }
+    },
+    "TEST": {
+        "EXAMPLE": "This is an example text that has been translated."
+    },
+    "EVENT": {
+        "DASHBOARD": {
+            "CURRENT_MEETING_INFO": "Current Event: {{name_full}}"
+        },
+        "PAGE": {
+            "EVENT_TITLE_EVENT": "Event",
+            "HEAT": "Heat"
+        },
+        "LIST": {
+            "PART_TITLE": "Session"
+        }
+    },
+    "COMMON": {
+        "FORM": {
+            "SEARCH": {
+                "SEARCH_INPUT_LABEL": "Search…"
+            }
+        },
+        "LIST": {
+            "NO_ENTRIES_MESSAGE": "No entries has been found!"
+        },
+        "LANGUAGE": {
+            "EN": "English",
+            "DE": "German"
+        },
+        "STYLE": {
+            "MEDLEY": {
+                "NAME": "IM"
+            },
+            "BUTTERFLY": {
+                "NAME": "Butterfly"
+            },
+            "BREASTSTROKE": {
+                "NAME": "Breaststroke"
+            },
+            "FREESTYLE": {
+                "NAME": "Freestyle"
+            },
+            "BACKSTROKE": {
+                "NAME": "Backstroke"
+            }
+        },
+        "GENDER": {
+            "MALE": {
+                "NAME": "Boys"
+            },
+            "FEMALE": {
+                "NAME": "Girls"
+            },
+            "MIXED": {
+                "NAME": "Mixed"
+            }
+        },
+        "HEAT": {
+            "SINGULAR": "Heat",
+            "PLURAL": "Heats"
+        },
+        "EVENT": {
+            "SINGULAR": "Event"
+        },
+        "LANE": {
+            "SINGULAR": "Lane"
+        }
+    },
+    "START": {
+        "LANE": "Lane",
+        "EVENT_SHORT": "Evt.",
+        "LANE_STAYS_EMPTY": "Lane {{lane}} stays empty"
+    },
+    "ATHLETE": {
+        "LIST": {
+            "MORE": {
+                "SHARE_BUTTON_TEXT": "Share",
+                "ATHLETE_BUTTON_TEXT": "Show Athlete",
+                "TEAM_BUTTON_TEXT": "Show Team"
+            },
+            "PAGE_TITLE": "Athlete"
+        }
+    },
+    "HEADER": {
+        "MENU": {
+            "ACCOUNT": {
+                "SETTINGS_BUTTON_TEXT": "Settings",
+                "PROFILE_BUTTON_TEXT": "Show Profile"
+            }
+        }
+    },
+    "TEAM": {
+        "PAGE": {
+            "CONTACT_TITLE": "Contact",
+            "ATHLETE_TITLE": "Athletes",
+            "PARTICIPANTS_TITLE": "Participants"
+        },
+        "LIST": {
+            "PAGE_TITLE": "Teams"
+        }
+    }
+}

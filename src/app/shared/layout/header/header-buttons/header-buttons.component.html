@@ -1,0 +1,33 @@
+<!--<button class="sr-btn-bar sr-btn-icon sr-btn btn-menu" (click)="showMenu()">-->
+<!--  <mat-icon>menu</mat-icon>-->
+<!--</button>-->
+
+<button class="sr-btn-bar sr-btn-icon sr-btn" [matMenuTriggerFor]="languageMenu">
+  <mat-icon>language</mat-icon>
+</button>
+
+<mat-menu #languageMenu="matMenu">
+  <button class="sr-btn sr-btn-menu" (click)="changeLocale('de')">
+    <mat-icon>translate</mat-icon>
+    <span>{{'COMMON.LANGUAGE.DE' | translate}}</span>
+  </button>
+  <button class="sr-btn sr-btn-menu" (click)="changeLocale('en')">
+    <mat-icon>translate</mat-icon>
+    <span>{{'COMMON.LANGUAGE.EN' | translate}}</span>
+  </button>
+</mat-menu>
+
+<button class="sr-btn-bar sr-btn-icon sr-btn" [matMenuTriggerFor]="accountMenu">
+  <mat-icon>account_circle</mat-icon>
+</button>
+
+<mat-menu #accountMenu="matMenu">
+  <button class="sr-btn sr-btn-menu sr-inactive">
+    <mat-icon>settings</mat-icon>
+    <span>{{'HEADER.MENU.ACCOUNT.SETTINGS_BUTTON_TEXT' | translate}}</span>
+  </button>
+  <button class="sr-btn sr-btn-menu sr-inactive">
+    <mat-icon>person</mat-icon>
+    <span>{{'HEADER.MENU.ACCOUNT.PROFILE_BUTTON_TEXT' | translate}}</span>
+  </button>
+</mat-menu>

@@ -1,0 +1,30 @@
+@import "../../../../../colors";
+
+.text {
+  display: inline-block;
+  margin-left: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.name {
+  width: 220px;
+}
+
+.year {
+  width: 40px;
+}
+
+@media only screen and (max-width: 800px) {
+  .main-icon {
+    display: none;
+  }
+  .sr-right {
+    display: none;
+  }
+  .name {
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,21 @@
+@import "../../../../colors";
+
+nav {
+  margin-top: 20px;
+  font-size: 13px;
+  color: $color-nav-link;
+  height: 80vh;
+  overflow: auto;
+  display: inline-block;
+}
+
+.btn-menu {
+  display: none;
+}
+
+@media only screen and (max-width: 1050px) {
+  .btn-menu {
+    display: inline-block;
+  }
+}
+

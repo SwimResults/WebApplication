@@ -1,0 +1,144 @@
+{
+    "TEST": {
+        "EXAMPLE": "Das ist ein Beispieltext, der übersetzt wurde."
+    },
+    "EVENT": {
+        "DASHBOARD": {
+            "CURRENT_MEETING_INFO": "Aktuelle Veranstaltung: {{name_full}}"
+        },
+        "PAGE": {
+            "EVENT_TITLE_EVENT": "Wettkampf",
+            "HEAT": "Lauf"
+        },
+        "LIST": {
+            "PAGE_TITLE": "Ablaufplan",
+            "PART_TITLE": "Abschnitt"
+        }
+    },
+    "NAV": {
+        "LINK": {
+            "TITLE": {
+                "DASHBOARD": "Dashboard",
+                "LIVE": "Live",
+                "EVENTS": "Wettkämpfe",
+                "MEETINGS": "Veranstaltungen",
+                "ATHLETES": "Sportler",
+                "TEAMS": "Vereine",
+                "FILES": "Dateien",
+                "STATS": "Statistiken"
+            }
+        }
+    },
+    "COMMON": {
+        "ERROR": {
+            "SERVICE_OFFLINE": {
+                "MESSAGE": "Der {{system}} ist momentan nicht erreichbar!",
+                "MEETING": "Veranstaltungsservice",
+                "START": "Startservice",
+                "ATHLETE": "Sportler- und Vereinsservice",
+                "USER": "Benutzerservice",
+                "IMPORT": "Importservice"
+            }
+        },
+        "FORM": {
+            "SEARCH": {
+                "SEARCH_INPUT_LABEL": "Suchen…"
+            }
+        },
+        "LIST": {
+            "NO_ENTRIES_MESSAGE": "Es wurden keine Einträge gefunden!"
+        },
+        "LANGUAGE": {
+            "EN": "Englisch",
+            "DE": "Deutsch"
+        },
+        "STYLE": {
+            "MEDLEY": {
+                "NAME": "Lagen"
+            },
+            "BUTTERFLY": {
+                "NAME": "Schmetterling"
+            },
+            "BREASTSTROKE": {
+                "NAME": "Brust"
+            },
+            "FREESTYLE": {
+                "NAME": "Freistil"
+            },
+            "BACKSTROKE": {
+                "NAME": "Rücken"
+            }
+        },
+        "GENDER": {
+            "MALE": {
+                "NAME": "männlich"
+            },
+            "FEMALE": {
+                "NAME": "weiblich"
+            },
+            "MIXED": {
+                "NAME": "mixed"
+            }
+        },
+        "HEAT": {
+            "SINGULAR": "Lauf",
+            "PLURAL": "Läufe"
+        },
+        "EVENT": {
+          "SINGULAR": "Wettkampf"
+        },
+        "LANE": {
+          "SINGULAR": "Bahn"
+        }
+    },
+    "START": {
+        "LANE": "Bahn",
+        "EVENT_SHORT": "WK",
+        "LANE_STAYS_EMPTY": "Bahn {{lane}} bleibt frei"
+    },
+    "ATHLETE": {
+        "LIST": {
+            "MORE": {
+                "TEAM_BUTTON_TEXT": "Verein anzeigen",
+                "SHARE_BUTTON_TEXT": "Teilen",
+                "ATHLETE_BUTTON_TEXT": "Sportler anzeigen"
+            },
+            "PAGE_TITLE": "Sportler"
+        }
+    },
+    "HEADER": {
+        "MENU": {
+            "ACCOUNT": {
+                "SETTINGS_BUTTON_TEXT": "Einstellungen",
+                "PROFILE_BUTTON_TEXT": "Profil anzeigen"
+            }
+        }
+    },
+    "TEAM": {
+        "PAGE": {
+            "CONTACT_TITLE": "Kontakt",
+            "ATHLETE_TITLE": "Sportler",
+            "PARTICIPANTS_TITLE": "Teilnehmende"
+        },
+        "LIST": {
+            "PAGE_TITLE": "Vereine"
+        }
+    },
+    "FILES": {
+      "LIST": {
+        "PAGE_TITLE": "Dateien"
+      },
+      "FILE_NAMES": {
+        "MEETING_INFO": "Ausschreibung",
+        "REGISTRATION_LIST": "Meldeliste",
+        "START_LIST": "Meldeergebnis",
+        "RESULTS_LIST": "Protokoll",
+        "DSV_DEFINITION": "Wettkampfdefinition",
+        "DSV_RESULTS": "Wettkampfergebnisliste"
+      }
+    },
+    "ENTRY_PAGE": {
+        "ABOUT_TEXT": "SwimResults bietet Sportlern, Trainern und Angehörigen die Möglichkeit Meldungen, Ergebnisse, Platzierungen, Livetimings und mehr bei Schwimmwettkämpfen aufbereitet anzuzeigen.",
+        "INFO_LINKS_TITLE": "Informative Links"
+    }
+}

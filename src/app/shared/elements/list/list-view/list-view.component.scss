@@ -1,0 +1,25 @@
+@import "../../../../../colors";
+
+sr-panel {
+  display: block;
+
+  &.search-panel {
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+}
+
+sr-list-tile {
+  display: block;
+  padding: 8px 0;
+  border-bottom: 1px solid $color-hr-border;
+}
+
+sr-list-tile:first-child {
+  padding-top: 0
+}
+
+sr-list-tile:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}

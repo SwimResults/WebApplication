@@ -1,15 +1,24 @@
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {HttpClientModule} from "@angular/common/http";
+import {TranslateModule} from "@ngx-translate/core";
+import { IsVisibleDirective } from './directive/is-visible.directive';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    IsVisibleDirective
+  ],
   imports: [
     CommonModule,
-    HttpClientModule
-  ]
+    HttpClientModule,
+    TranslateModule
+  ],
+    exports: [
+        TranslateModule,
+        IsVisibleDirective
+    ]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() core:CoreModule ){

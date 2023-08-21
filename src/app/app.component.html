@@ -1,4 +1,11 @@
-<h1>SwimResults</h1>
-<main>
-  <router-outlet></router-outlet>
+<main [class]="'sidebar-' + sidebarState">
+  <sr-sidebar [class]="sidebarState"></sr-sidebar>
+  <div class="sidebar-hider" (click)="hideSidebar()"></div>
+  <sr-header></sr-header>
+  <div class="content">
+    <router-outlet></router-outlet>
+    <div class="build-info" *ngIf="showBuild" (click)="toggleBuild()">
+      <b>BUILD: </b> {{build}}
+    </div>
+  </div>
 </main>

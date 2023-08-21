@@ -1,0 +1,131 @@
+/* You can add global styles to this file, and also import other style files */
+@import "colors";
+
+@font-face {
+  font-family: 'SwimResults';
+  src: url("/assets/fonts/SwimResults.ttf");
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: SwimResults, Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f2f2f2;
+  color: $color-text-main;
+}
+
+h1,
+.mat-typography h1,
+h2,
+.mat-typography h2 {
+  margin: 22px 0 16px 0 !important;
+  font-family: SwimResults, Roboto, sans-serif;
+}
+
+h1,
+.mat-typography h1 {
+  font-size: 34px;
+  font-weight: 900;
+}
+
+h2,
+.mat-typography h2 {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+input,
+.sr-btn{
+  font-family: SwimResults, sans-serif;
+  font-weight: 500;
+}
+
+input:focus,
+input:active {
+  outline: 0;
+}
+
+input[type=search] {
+  border: none;
+  background-color: $color-search-bg;
+  padding: 4px;
+  border-radius: 6px;
+  color: $color-search-text;
+  vertical-align: middle;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+
+.sr-inactive {
+  filter: contrast(0) !important;
+  cursor: unset !important;
+
+  &:hover {
+    background-color: transparent !important;
+  }
+}
+
+.sr-btn {
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 6px;
+}
+
+.sr-btn-icon {
+  background-color: transparent;
+  color: $color-sr-first;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.sr-btn-icon:hover {
+  color: $color-sr-dark;
+}
+
+.sr-btn-bar {
+  vertical-align: middle;
+  margin: 0 12px;
+}
+
+.sr-right {
+  float: right;
+  margin-top: 6px;
+}
+
+.sr-btn-menu {
+  width: calc(100%);
+  margin: 0;
+  line-height: 22px;
+  padding: 8px 12px 8px 8px;
+  height: 34px;
+  background-color: transparent;
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+
+  &:hover {
+    background-color: $color-bg-gray;
+  }
+
+  mat-icon {
+    color: $color-sr-first;
+    vertical-align: middle;
+  }
+
+  span {
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 14px;
+  }
+}

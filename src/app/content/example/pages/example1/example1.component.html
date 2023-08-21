@@ -1,13 +1,12 @@
-<h2>Sportler</h2>
-<ul>
-  <li *ngFor="let athlete of athletes">
-    <span><b>ID: </b> {{athlete._id}}</span><br>
-    <span><b>Name: </b> {{athlete.name}}</span><br>
-    <span><b>Jahr: </b> {{athlete.year}}</span><br>
-    <span>
-      <b>Verein: </b>
-      {{athlete.team.name}}
-      ({{athlete.team.alias}})
-    </span><br>
-  </li>
-</ul>
+<h1>SwimResults</h1>
+<sr-panel>
+  {{'ENTRY_PAGE.ABOUT_TEXT' | translate}}
+</sr-panel>
+<br>
+<br>
+<h2>{{'ENTRY_PAGE.INFO_LINKS_TITLE' | translate}}</h2>
+<sr-panel>
+  <a href="https://swimresults.de"><sr-btn><mat-icon>website</mat-icon> <span>SwimResults Website</span></sr-btn></a>
+  <a href="https://www.instagram.com/swimresults/"><sr-btn><mat-icon>imagesmode</mat-icon> <span>Instagram</span></sr-btn></a>
+  <a href="https://github.com/swimresults/"><sr-btn><mat-icon>code</mat-icon> <span>GitHub</span></sr-btn></a>
+</sr-panel>
