@@ -1,6 +1,8 @@
-<!--sr-livetiming-header
-  [event]="event.event"
-></sr-livetiming-header-->
+<sr-livetiming-header
+  [isLive]="isLive"
+></sr-livetiming-header>
+
+<br><br>
 
 <ng-container *ngIf="meeting && meeting.data && meeting.data.has_livetiming">
 

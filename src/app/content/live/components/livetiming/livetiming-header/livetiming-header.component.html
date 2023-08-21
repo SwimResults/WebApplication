@@ -1,6 +1,3 @@
-
-
-<span class="distance" *ngIf="event && event.style">
-  {{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{event.number}}
-  -
-  {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</span>
+<mat-slide-toggle [checked]="isLive">
+  Live
+</mat-slide-toggle>

@@ -33,6 +33,8 @@ export class LivetimingComponent implements OnInit, OnDestroy {
   heatAmount: number = 1;
   heatFinished: boolean = false;
 
+  isLive: boolean = true;
+
   lanes: number = 1;
   firstLane: number = 1;
 

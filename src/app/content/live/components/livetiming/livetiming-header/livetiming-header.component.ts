@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-import {MeetingEvent} from "../../../../../core/model/meeting/meeting-event.model";
 
 @Component({
   selector: 'sr-livetiming-header',
@@ -7,5 +6,6 @@ import {MeetingEvent} from "../../../../../core/model/meeting/meeting-event.mode
   styleUrls: ['./livetiming-header.component.scss']
 })
 export class LivetimingHeaderComponent {
-  @Input() event!: MeetingEvent;
+  //@Input() event!: MeetingEvent;
+  @Input() isLive!: boolean;
 }

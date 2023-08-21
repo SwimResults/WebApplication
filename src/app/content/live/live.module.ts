@@ -8,6 +8,7 @@ import {CoreModule} from "../../core/core.module";
 import {MatIconModule} from "@angular/material/icon";
 import {RouterLink} from "@angular/router";
 import {StartsModule} from "../starts";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 
 
@@ -19,13 +20,14 @@ import {StartsModule} from "../starts";
     LivetimingControlsComponent,
     LivetimingHeaderComponent,
   ],
-  imports: [
-    CommonModule,
-    ElementsModule,
-    CoreModule,
-    MatIconModule,
-    RouterLink,
-    StartsModule
-  ]
+    imports: [
+        CommonModule,
+        ElementsModule,
+        CoreModule,
+        MatIconModule,
+        RouterLink,
+        StartsModule,
+        MatSlideToggleModule
+    ]
 })
 export class LiveModule { }
