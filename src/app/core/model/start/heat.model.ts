@@ -73,4 +73,15 @@ export class HeatImpl implements Heat {
     let s = this.getStartAt()
     return !(s.getMinutes() == 0 && s.getHours() == 0)
   }
+
+  // returns delay in seconds
+  getDelay(): number {
+    let delayEst = this.getStartDelayEstimation()
+    let est = this.getEstimatedStart()
+
+    delayEst.setFullYear(0, 0, 0);
+    est.setFullYear(0, 0, 0);
+
+    return delayEst.getTime() - est.getTime();
+  }
 }
