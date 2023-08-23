@@ -24,4 +24,9 @@ export class HeatService extends BaseService{
   getEventHeatInfo(meeting: string, event: number): Observable<EventHeatInfo> {
     return this.apiService.get(this.API_URL, "heat/meet/" + meeting + "/event/" + event + "/info")
   }
+
+
+  getCurrentHeat(meeting: string): Observable<Heat> {
+    return this.apiService.get(this.API_URL, "heat/meet/" + meeting + "/current");
+  }
 }

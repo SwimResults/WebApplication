@@ -1,3 +1,6 @@
-<mat-slide-toggle [checked]="isLive">
-  Live
-</mat-slide-toggle>
+
+<ng-container *ngIf="liveSettingsData">
+  <div class="live-indicator" *ngIf="liveSettingsData.isLive"></div>
+  <span class="live-text">Live</span>
+  <mat-slide-toggle [checked]="liveSettingsData.isLive" (click)="onLiveButtonClick()"></mat-slide-toggle>
+</ng-container>
