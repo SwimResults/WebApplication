@@ -12,6 +12,7 @@ import { HeaderButtonsComponent } from './header/header-buttons/header-buttons.c
 import {MatMenuModule} from "@angular/material/menu";
 import {CoreModule} from "../../core/core.module";
 import {MatButtonModule} from "@angular/material/button";
+import {MatDividerModule} from "@angular/material/divider";
 
 
 
@@ -28,16 +29,17 @@ import {MatButtonModule} from "@angular/material/button";
     SidebarComponent,
     HeaderComponent
   ],
-  imports: [
-    CommonModule,
-    ElementsModule,
-    MatIconModule,
-    RouterLink,
-    RouterLinkActive,
-    RouterModule,
-    MatMenuModule,
-    CoreModule,
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        ElementsModule,
+        MatIconModule,
+        RouterLink,
+        RouterLinkActive,
+        RouterModule,
+        MatMenuModule,
+        CoreModule,
+        MatButtonModule,
+        MatDividerModule
+    ]
 })
 export class LayoutModule { }

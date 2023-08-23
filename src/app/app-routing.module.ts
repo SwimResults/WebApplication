@@ -9,10 +9,14 @@ import {PageAthleteComponent, PageAthletesEventComponent, PageAthletesGeneralCom
 import {PageTeamComponent, PageTeamsEventComponent, PageTeamsGeneralComponent} from "./content/teams";
 import {PageStatsEventComponent, PageStatsGeneralComponent} from "./content/stats";
 import {PageEventComponent, PageEventsComponent} from "./content/events";
+import {AuthComponent} from "./content/auth/auth.component";
+import {UserProfileComponent} from "./content/account";
 
 
 const routes: Routes = [
   { path: '',                         component: Example1Component },
+  { path: 'auth',                     component: AuthComponent },
+  { path: 'account/profile',          component: UserProfileComponent },
   { path: 'dashboard',                component: PageDashboardGeneralComponent },
   { path: 'calendar',                 component: CalendarComponent },
   { path: 'athlete',                  component: PageAthletesGeneralComponent },

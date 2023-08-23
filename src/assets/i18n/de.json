@@ -110,7 +110,9 @@
         "MENU": {
             "ACCOUNT": {
                 "SETTINGS_BUTTON_TEXT": "Einstellungen",
-                "PROFILE_BUTTON_TEXT": "Profil anzeigen"
+                "PROFILE_BUTTON_TEXT": "Profil anzeigen",
+                "LOGIN": "Login",
+                "LOGOUT": "Logout"
             }
         }
     },

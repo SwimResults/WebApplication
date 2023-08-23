@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {SidebarMenuService} from "../../../../core/service/sidebar-menu.service";
+import {AuthService} from "../../../../core/service/auth.service";
 
 @Component({
   selector: 'sr-header-buttons',
@@ -9,10 +10,16 @@ import {SidebarMenuService} from "../../../../core/service/sidebar-menu.service"
 })
 export class HeaderButtonsComponent {
 
+  isAuthed: boolean = false;
+
   constructor(
     private translateService: TranslateService,
-    private menuService: SidebarMenuService
+    private menuService: SidebarMenuService,
+    private authService: AuthService
   ) {
+    this.authService.isAuthenticated.subscribe(isAuthed => {
+      this.isAuthed = isAuthed
+    })
   }
 
   changeLocale(lang: string) {
@@ -25,5 +32,13 @@ export class HeaderButtonsComponent {
 
   hideMenu() {
     this.menuService.setViewType("hidden");
+  }
+
+  login() {
+    this.authService.login();
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

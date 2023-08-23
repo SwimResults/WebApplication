@@ -1,0 +1,35 @@
+<ng-container *ngIf="isAuthed">
+  <h1 *ngIf="!user">Benutzerprofil</h1>
+  <h1 *ngIf="user">
+    <span *ngIf="user['given_name'] && user['family_name']">
+      {{user["given_name"] + " " + user["family_name"]}}
+    </span>
+    <span *ngIf="!user['given_name'] || !user['family_name']">
+      {{user["preferred_username"]}}
+    </span>
+  </h1>
+
+  <table *ngIf="user">
+    <tr>
+      <td>Nutzername</td>
+      <td>{{user["preferred_username"]}}</td>
+    </tr>
+    <tr>
+      <td>E-Mail</td>
+      <td>{{user["email"]}}</td>
+    </tr>
+    <tr>
+      <td>Vorname</td>
+      <td>{{user["given_name"]}}</td>
+    </tr>
+    <tr>
+      <td>Nachname</td>
+      <td>{{user["family_name"]}}</td>
+    </tr>
+  </table>
+</ng-container>
+
+<ng-container *ngIf="!isAuthed">
+  <h1>Benutzerprofil</h1>
+  <sr-no-content>Du bist nicht angemeldet!</sr-no-content>
+</ng-container>

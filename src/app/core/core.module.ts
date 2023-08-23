@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {HttpClientModule} from "@angular/common/http";
 import {TranslateModule} from "@ngx-translate/core";
 import { IsVisibleDirective } from './directive/is-visible.directive';
+import {OAuthModule} from "angular-oauth2-oidc";
 
 
 
@@ -13,7 +14,13 @@ import { IsVisibleDirective } from './directive/is-visible.directive';
   imports: [
     CommonModule,
     HttpClientModule,
-    TranslateModule
+    TranslateModule,
+    OAuthModule.forRoot({
+      resourceServer: {
+        allowedUrls: [],
+        sendAccessToken: true
+      }
+    })
   ],
     exports: [
         TranslateModule,
