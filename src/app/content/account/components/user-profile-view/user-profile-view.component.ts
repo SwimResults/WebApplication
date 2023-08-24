@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../../core/service/auth.service";
 import {OAuthService} from "angular-oauth2-oidc";
+import {User} from "../../../../core/model/user/user.model";
+import {UserService} from "../../../../core/service/api/user/user.service";
 
 @Component({
   selector: 'sr-user-profile-view',
@@ -9,12 +11,14 @@ import {OAuthService} from "angular-oauth2-oidc";
 })
 export class UserProfileViewComponent implements OnInit {
 
-  user: any;
+  kcUser: any;
+  user: User = {} as User;
   isAuthed: boolean = false;
 
   constructor(
     private authService: AuthService,
-    private oAuthService: OAuthService
+    private oAuthService: OAuthService,
+    private userService: UserService
   ) {
     this.authService.isAuthenticated.subscribe(isAuthed => {
       this.isAuthed = isAuthed;
@@ -22,8 +26,12 @@ export class UserProfileViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.oAuthService.getIdentityClaims();
-    console.log(this.user);
+    this.kcUser = this.oAuthService.getIdentityClaims();
+    console.log(this.kcUser);
+
+    this.userService.getUser().subscribe(data => {
+      this.user = data
+    })
   }
 
 }
