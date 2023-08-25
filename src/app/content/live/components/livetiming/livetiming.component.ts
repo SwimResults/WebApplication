@@ -52,7 +52,8 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     allLanes: true,
     showResults: true,
     showRegistrationTime: !this.heatFinished,
-    showResultTime: this.heatFinished
+    showResultTime: this.heatFinished,
+    showMostSignificantTime: this.liveSettingsData.isLive
   } as StartListTileConfig;
   private interval: any;
 
@@ -173,6 +174,11 @@ export class LivetimingComponent implements OnInit, OnDestroy {
         }
       }
 
+      if (this.liveSettingsData.isLive) { // in live mode, set to finished when finished_at is set
+        console.log(st[0].heat.getFinishedAt())
+        this.heatFinished = (st.length > 0 && st[0].heat.getFinishedAtTime() != "0:00");
+      }
+
       if (this.liveSettingsData.isLive) {
         this.fetchEvent();
         this.fetchHeatAmount();
@@ -210,7 +216,8 @@ export class LivetimingComponent implements OnInit, OnDestroy {
         allLanes: !this.heatFinished,
         showResults: true,
         showRegistrationTime: !this.heatFinished,
-        showResultTime: this.heatFinished
+        showResultTime: this.heatFinished,
+        showMostSignificantTime: this.liveSettingsData.isLive
       } as StartListTileConfig;
       this.starts = ls
   }

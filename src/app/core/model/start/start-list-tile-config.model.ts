@@ -11,6 +11,7 @@ export class StartListTileConfig {
   showResultTime: boolean = true;
   showDisqualification: boolean = true;
   showReactionTime: boolean = true;
+  showMostSignificantTime: boolean = false;
   laneAsIcon: boolean = false;
   flatStyle: boolean = false;
   allLanes: boolean = false;

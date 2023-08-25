@@ -107,6 +107,12 @@
       width: 90px;
     }
 
+    .registration-time {
+      width: calc(90px - 24px);
+      padding-left: 24px;
+      color: $color-text-gray;
+    }
+
     .result-time {
       font-weight: bold;
       width: 100px;

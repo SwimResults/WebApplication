@@ -104,7 +104,8 @@ export class StartListTileComponent implements OnInit {
 
   getIconTextContent(): string | undefined {
     if (this.config && this.config.laneAsIcon) return this.data.lane + "";
-    if (this.data.certified && this.data.rank) return this.data.rank + ".";
+    //if (this.data.certified && this.data.rank) return this.data.rank + ".";
+    if (this.data.rank) return this.data.rank + ".";
     return undefined;
   }
 

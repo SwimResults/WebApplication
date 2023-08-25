@@ -47,6 +47,16 @@ export class HeatImpl implements Heat {
     return createDate(this.start_delay_estimation);
   }
 
+  getFinishedAt(): Date {
+    return createDate(this.finished_at);
+  }
+
+  getFinishedAtTime(): string {
+    const d = this.getFinishedAt();
+    let minutes = "0" + d.getMinutes();
+    return d.getHours() + ":" + minutes.substr(-2);
+  }
+
   getStartDelayEstimationTime(): string {
     const d = this.getStartDelayEstimation();
     let minutes = "0" + d.getMinutes();
