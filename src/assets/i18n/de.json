@@ -118,9 +118,21 @@
     },
     "TEAM": {
         "PAGE": {
-            "CONTACT_TITLE": "Kontakt",
+            "INFO_TITLE": "Infos",
+            "ADDRESS_TITLE": "Adresse",
             "ATHLETE_TITLE": "Sportler",
-            "PARTICIPANTS_TITLE": "Teilnehmende"
+            "PARTICIPANTS_TITLE": "Teilnehmende",
+            "WEBSITE": {
+                "TITLE": "Webseite",
+                "OPEN_BTN_TEXT": "Webseite aufrufen"
+            },
+            "CONTACT": {
+                "TITLE": "Kontakt",
+                "NAME": "Ansprechpartner",
+                "EMAIL": "E-Mail-Adresse",
+                "FAX": "Fax",
+                "PHONE": "Telefon"
+            }
         },
         "LIST": {
             "PAGE_TITLE": "Vereine"
