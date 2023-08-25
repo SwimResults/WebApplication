@@ -8,6 +8,7 @@ import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
+import {HeatImpl} from "../../../../core/model/start/heat.model";
 
 export interface ChangeHeatEvent {
   name: "event" | "heat" | "all" | "nothing";
@@ -36,6 +37,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
   currentHeat: number = 1;
 
   starts: Start[] = [];
+  heat?: HeatImpl;
   event: MeetingEventLivetiming = {} as MeetingEventLivetiming;
   heatAmount: number = 1;
   heatFinished: boolean = false;
@@ -172,6 +174,10 @@ export class LivetimingComponent implements OnInit, OnDestroy {
           this.currentEvent = s.event;
           this.currentHeat = s.heat_number;
         }
+      }
+
+      if (st.length > 0) {
+        this.heat = st[0].heat;
       }
 
       if (this.liveSettingsData.isLive) { // in live mode, set to finished when finished_at is set
