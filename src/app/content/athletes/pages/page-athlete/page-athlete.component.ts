@@ -18,7 +18,9 @@ export class PageAthleteComponent implements OnInit, OnDestroy {
   private meetingIdSubscription: Subscription;
 
   athlete: Athlete = {} as Athlete;
-  athleteId: string = "";
+  athleteId?: string;
+  athleteAlias?: string;
+  athleteYear?: number;
 
 
   constructor(
@@ -42,14 +44,28 @@ export class PageAthleteComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(s => {
       this.athleteId = s["entity_id"];
+      if (!this.athleteId) {
+        let s1 = s["entity_alias"]
+        let s2s = s1.split("-", 2)
+        this.athleteAlias = s2s[0];
+        this.athleteYear = s2s[1];
+        console.log("extracted alias: '" + this.athleteAlias + "' and year: '" + this.athleteYear + "'");
+      }
       this.fetchAthlete();
     });
   }
 
   fetchAthlete() {
-    this.athleteService.getAthleteById(this.athleteId).subscribe(data => {
-      this.athlete = data;
-    })
+    if (this.athleteId) {
+      this.athleteService.getAthleteById(this.athleteId).subscribe(data => {
+        this.athlete = data;
+      })
+    } else if (this.athleteAlias && this.athleteYear) {
+      this.athleteService.getAthleteByAliasAndYear(this.athleteAlias, this.athleteYear).subscribe(data => {
+        this.athlete = data;
+        this.athleteId = this.athlete._id
+      })
+    }
   }
 
 }

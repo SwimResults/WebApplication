@@ -1,6 +1,6 @@
 <sr-athlete-profile-intro [athlete]="athlete"></sr-athlete-profile-intro>
 
 <h2>Starts</h2>
-<sr-panel>
+<sr-panel *ngIf="athleteId">
   <sr-athlete-starts [athleteId]="athleteId" [meetingId]="meetingId"></sr-athlete-starts>
 </sr-panel>

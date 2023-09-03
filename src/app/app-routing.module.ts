@@ -27,12 +27,14 @@ const routes: Routes = [
   {
     path: 'm/:event',
     children: [
+      { path: "",                     component: PageDashboardEventComponent },
       { path: "dashboard",            component: PageDashboardEventComponent },
       { path: "live",                 component: PageLiveComponent },
       { path: "event",                component: PageEventsComponent },
       { path: "event/:event_number",  component: PageEventComponent },
       { path: "athlete",              component: PageAthletesEventComponent },
-      { path: 'athlete/:entity_id',   component: PageAthleteComponent },
+      { path: 'athlete/id/:entity_id',component: PageAthleteComponent },
+      { path: 'athlete/:entity_alias',component: PageAthleteComponent },
       { path: "team",                 component: PageTeamsEventComponent },
       { path: 'team/:entity_id',      component: PageTeamComponent },
       { path: "files",                component: PageFilesComponent },
