@@ -11,7 +11,7 @@ import { AuthComponent } from './auth/auth.component';
 @NgModule({
   declarations: [
     CalendarComponent,
-    AuthComponent
+    AuthComponent,
   ],
   imports: [
     CommonModule,

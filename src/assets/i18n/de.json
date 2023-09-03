@@ -151,6 +151,11 @@
         "DSV_RESULTS": "Wettkampfergebnisliste"
       }
     },
+    "MEETINGS": {
+        "LIST": {
+            "PAGE_TITLE": "Veranstaltungen"
+        }
+    },
     "ENTRY_PAGE": {
         "ABOUT_TEXT": "SwimResults bietet Sportlern, Trainern und Angehörigen die Möglichkeit Meldungen, Ergebnisse, Platzierungen, Livetimings und mehr bei Schwimmwettkämpfen aufbereitet anzuzeigen.",
         "INFO_LINKS_TITLE": "Informative Links"

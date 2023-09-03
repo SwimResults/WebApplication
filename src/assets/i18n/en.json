@@ -112,5 +112,10 @@
         "LIST": {
             "PAGE_TITLE": "Teams"
         }
+    },
+    "MEETINGS": {
+        "LIST": {
+            "PAGE_TITLE": "Meetings"
+        }
     }
 }

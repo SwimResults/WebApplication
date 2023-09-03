@@ -3,14 +3,14 @@
   <sr-icon-panel class="icon-btn-menu" icon="menu" (click)="showMenu()"></sr-icon-panel>
   <sr-header-buttons class="buttons sr-right"></sr-header-buttons>
   <span class="title" *ngIf="has_meeting && meeting">
-    {{meeting.getFullSeriesName()}}
+    {{meeting.getFullSeriesNameWithYear()}}
   </span>
   <span class="title" *ngIf="!has_meeting">SwimResults</span>
 </sr-panel>
 
 <sr-panel class="title-mobile">
   <span class="title" *ngIf="has_meeting && meeting">
-    {{meeting.getFullSeriesName()}}
+    {{meeting.getFullSeriesNameWithYear()}}
   </span>
   <span class="title" *ngIf="!has_meeting">SwimResults</span>
 </sr-panel>

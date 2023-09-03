@@ -1,5 +1,5 @@
 <sr-panel *ngIf="meeting">
-  <b>Veranstaltung: </b> {{meeting.getFullSeriesName()}}
+  <b>Veranstaltung: </b> {{meeting.getFullSeriesNameWithYear()}}
   <br>
   <b>Datum: </b> von {{meeting.getStartDate().getTime() | date}} bis {{meeting.getEndDate().getTime() | date}}
   <br>

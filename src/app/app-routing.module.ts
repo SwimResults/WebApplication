@@ -11,6 +11,7 @@ import {PageStatsEventComponent, PageStatsGeneralComponent} from "./content/stat
 import {PageEventComponent, PageEventsComponent} from "./content/events";
 import {AuthComponent} from "./content/auth/auth.component";
 import {UserProfileComponent} from "./content/account";
+import {PageMeetingsComponent} from "./content/meetings";
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'account/profile',          component: UserProfileComponent },
   { path: 'dashboard',                component: PageDashboardGeneralComponent },
   { path: 'calendar',                 component: CalendarComponent },
+  { path: 'meetings',                 component: PageMeetingsComponent },
   { path: 'athlete',                  component: PageAthletesGeneralComponent },
   { path: 'athlete/:entity_id',       component: PageAthleteComponent },
   { path: 'team',                     component: PageTeamsGeneralComponent },
