@@ -2,6 +2,7 @@ import {Location} from "./location.model";
 import {MeetingSeries} from "./meeting-series.model";
 import {MeetingData} from "./meeting-data.model";
 import {MeetingLayout} from "./meeting-layout.model";
+import {months} from "../../constant/months.constant";
 
 export interface Meeting {
   _id: string;
@@ -73,7 +74,11 @@ export class MeetingImpl implements Meeting {
     return new Date(this.date_end);
   }
 
-  public getDateString(): string {
+  public getDateStringWithYear(monthReplaceable: boolean = false): string {
+    return this.getDateString(monthReplaceable) + " " +  this.getEndDate().getFullYear()
+  }
+
+  public getDateString(monthReplaceable: boolean = false): string {
     const t1 = this.getStartDate();
     const t2 = this.getEndDate();
 
@@ -83,25 +88,19 @@ export class MeetingImpl implements Meeting {
     const m1 = t1.getMonth()+1;
     const m2 = t2.getMonth()+1;
 
-    const y1 = t1.getFullYear();
-    const y2 = t2.getFullYear();
+    const mo1 = monthReplaceable ? " #" + months.get(m1) + "# " : m1 + ".";
+    const mo2 = monthReplaceable ? " #" + months.get(m1) + "# " : m2 + ".";
 
-    if (y1 == y2) {
+    if (m1 == m2) {
 
-      if (m1 == m2) {
-
-        if (d1 == d2)
-          return d1 + "." + m1 + "." + y1;
-        if (Math.abs((d1 - d2)) == 1)
-          return d1 + ". & " + d2 + "." + m1 + "." + y1;
-        else
-          return d1 + ". - " + d2 + "." + m1 + "." + y1;
-      } else {
-        return d1 + "." + m1 + ". - " + d2 + "." + m2 + "." + y1;
-      }
-
+      if (d1 == d2)
+        return d1 + "." + mo1;
+      if (Math.abs((d1 - d2)) == 1)
+        return d1 + ". & " + d2 + "." + mo1;
+      else
+        return d1 + ". - " + d2 + "." + mo1;
     } else {
-      return d1 + "." + m1 + "." + y1 + " - " + d2 + "." + m2 + "." + y1;
+      return d1 + "." + mo1 + " - " + d2 + "." + mo2;
     }
 
   }

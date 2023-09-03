@@ -1,10 +1,10 @@
-<sr-panel *ngIf="meeting" [panelTitle]="meeting.getDateString()">
+<sr-panel *ngIf="meeting && dateString" [panelTitle]="dateString">
   <div class="meeting">
     <div class="meeting-logo">
       <mat-icon *ngIf="(meeting.layout && !meeting.layout.logo_url) || !meeting.layout">event</mat-icon>
       <img *ngIf="meeting.layout && meeting.layout.logo_url" [src]="meeting.layout.logo_url" alt="Logo {{meeting.getFullSeriesName()}}">
     </div>
-    <span class="title">{{meeting.getFullSeriesName()}}</span>
+    <span class="title link" [routerLink]="'/m/' + meeting.meet_id + '/dashboard'">{{meeting.getFullSeriesName()}}</span>
     <span class="location" *ngIf="meeting.location && meeting.location.city"><mat-icon>place</mat-icon><span>{{meeting.location.city}}</span></span>
     <sr-icon-btn [routerLink]="'/m/' + meeting.meet_id + '/dashboard'"><mat-icon>arrow_forward</mat-icon></sr-icon-btn>
   </div>
