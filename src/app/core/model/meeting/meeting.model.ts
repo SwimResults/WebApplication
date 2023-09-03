@@ -89,7 +89,7 @@ export class MeetingImpl implements Meeting {
     const m2 = t2.getMonth()+1;
 
     const mo1 = monthReplaceable ? " #" + months.get(m1) + "# " : m1 + ".";
-    const mo2 = monthReplaceable ? " #" + months.get(m1) + "# " : m2 + ".";
+    const mo2 = monthReplaceable ? " #" + months.get(m2) + "# " : m2 + ".";
 
     if (m1 == m2) {
 
