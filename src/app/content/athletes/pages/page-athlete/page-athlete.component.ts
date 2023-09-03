@@ -43,13 +43,14 @@ export class PageAthleteComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(s => {
-      this.athleteId = s["entity_id"];
-      if (!this.athleteId) {
-        let s1 = s["entity_alias"]
-        let s2s = s1.split("-", 2)
+      let s0: string = s["entity_id"];
+      if (s0.includes("-")) {
+        let s2s = s0.split("-", 2)
         this.athleteAlias = s2s[0];
-        this.athleteYear = s2s[1];
+        this.athleteYear = +s2s[1];
         console.log("extracted alias: '" + this.athleteAlias + "' and year: '" + this.athleteYear + "'");
+      } else {
+        this.athleteId = s0;
       }
       this.fetchAthlete();
     });

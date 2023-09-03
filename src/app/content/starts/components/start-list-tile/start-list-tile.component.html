@@ -36,7 +36,7 @@
         <span class="heat" *ngIf="config.showHeat">{{data.heat_number}}</span>
         <span class="lane" *ngIf="config.showLane">{{'START.LANE' | translate}} {{data.lane}}</span>
         <span class="athlete" *ngIf="config.showAthlete">
-          <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/id/' + data.athlete">{{data.athlete_name}}</span>
+          <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{data.athlete_name}}</span>
           <span class="athlete-year">{{data.athlete_year}}</span>
           <span class="link athlete-team"  [routerLink]="'/m/' + data.meeting + '/team/' + data.athlete_team">{{data.athlete_team_name}}</span>
         </span>

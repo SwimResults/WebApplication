@@ -9,7 +9,7 @@
     <span class="sub-info">
       <span class="year"> {{athlete.year}}</span>
       •
-      <span class="team"><a *ngIf="athlete.team" [routerLink]="'../../team/' + athlete.team._id">{{athlete.team.name}}</a> <span *ngIf="!athlete.team">-</span></span>
+      <span class="team"><a *ngIf="athlete.team" [routerLink]="'../../team/@' + athlete.team.alias[0]">{{athlete.team.name}}</a> <span *ngIf="!athlete.team">-</span></span>
     </span>
   </div>
 </ng-container>
