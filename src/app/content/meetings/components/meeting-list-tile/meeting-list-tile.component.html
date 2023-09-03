@@ -5,7 +5,7 @@
       <img *ngIf="meeting.layout && meeting.layout.logo_url" [src]="meeting.layout.logo_url" alt="Logo {{meeting.getFullSeriesName()}}">
     </div>
     <span class="title">{{meeting.getFullSeriesName()}}</span>
-    <span class="date">{{meeting.getDateString()}}</span>
+    <span class="location" *ngIf="meeting.location && meeting.location.city"><mat-icon>place</mat-icon><span>{{meeting.location.city}}</span></span>
     <sr-icon-btn [routerLink]="'/m/' + meeting.meet_id + '/dashboard'"><mat-icon>arrow_forward</mat-icon></sr-icon-btn>
   </div>
 </sr-panel>
