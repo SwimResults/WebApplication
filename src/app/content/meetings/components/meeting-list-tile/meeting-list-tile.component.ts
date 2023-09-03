@@ -22,6 +22,7 @@ export class MeetingListTileComponent implements OnInit{
   }
 
   fetchTranslations() {
+    if (!this.meeting) return;
     let sf = this.meeting.getDateString(true);
     let s1 = sf.split("#");
     console.log(sf);
