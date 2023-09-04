@@ -121,12 +121,37 @@
     },
     "TEAM": {
         "PAGE": {
-            "CONTACT_TITLE": "Contact",
+            "INFO_TITLE": "Info",
+            "ADDRESS_TITLE": "Address",
             "ATHLETE_TITLE": "Athletes",
-            "PARTICIPANTS_TITLE": "Participants"
+            "PARTICIPANTS_TITLE": "Participants",
+            "WEBSITE": {
+                "TITLE": "Homepage",
+                "OPEN_BTN_TEXT": "Open Homepage"
+            },
+            "CONTACT": {
+                "TITLE": "Contact",
+                "NAME": "Contact Person",
+                "EMAIL": "E-Mail Address",
+                "FAX": "Fax",
+                "PHONE": "Phone"
+            }
         },
         "LIST": {
             "PAGE_TITLE": "Teams"
+        }
+    },
+    "FILES": {
+        "LIST": {
+            "PAGE_TITLE": "Files"
+        },
+        "FILE_NAMES": {
+            "MEETING_INFO": "Announcement",
+            "REGISTRATION_LIST": "Registration List",
+            "START_LIST": "Start List",
+            "RESULTS_LIST": "Results",
+            "DSV_DEFINITION": "DSV File",
+            "DSV_RESULTS": "DSV Results File"
         }
     },
     "MEETINGS": {
