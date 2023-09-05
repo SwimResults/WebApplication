@@ -151,7 +151,13 @@
             "START_LIST": "Start List",
             "RESULTS_LIST": "Results",
             "DSV_DEFINITION": "DSV File",
-            "DSV_RESULTS": "DSV Results File"
+            "DSV_RESULTS": "DSV Results File",
+            "LENEX_DEFINITION": "LENEX File",
+            "LENEX_RESULTS": "LENEX Results File",
+            "REGISTRATION_SOFTWARE": "Registration Software For International Clubs",
+            "DATA_PROTECTION": "Data Protection",
+            "PRIVACY_INFORMATION": "Privacy Information (DSV)",
+            "OVERNIGHT_STAY_TICKETS": "Order Overnight Stay/Catering/Extra Tickets "
         }
     },
     "MEETINGS": {

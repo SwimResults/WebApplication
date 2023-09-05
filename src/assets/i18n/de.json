@@ -164,7 +164,13 @@
         "START_LIST": "Meldeergebnis",
         "RESULTS_LIST": "Protokoll",
         "DSV_DEFINITION": "Wettkampfdefinition",
-        "DSV_RESULTS": "Wettkampfergebnisliste"
+        "DSV_RESULTS": "Wettkampfergebnisliste",
+        "LENEX_DEFINITION": "LENEX Dateien",
+        "LENEX_RESULTS": "LENEX Ergebnisdatei",
+        "REGISTRATION_SOFTWARE": "Meldeprogramm für internationale Vereine",
+        "DATA_PROTECTION": "Datenschutzerklärung",
+        "PRIVACY_INFORMATION": "Informationen zum Datenschutz (DSV)",
+        "OVERNIGHT_STAY_TICKETS": "Bestellung Übernachtung"
       }
     },
     "MEETINGS": {

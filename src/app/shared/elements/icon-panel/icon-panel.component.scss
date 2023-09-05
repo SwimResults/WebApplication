@@ -68,10 +68,14 @@ span {
   background-color: $color-dsv;
 }
 
-:host.lnx .icon-panel {
-  background-color: $color-lnx;
+:host.lef .icon-panel {
+  background-color: $color-lex;
 }
 
 :host.zip .icon-panel {
   background-color: $color-zip;
+}
+
+:host.inactive .icon-panel {
+  background-color: #0176bb;
 }
