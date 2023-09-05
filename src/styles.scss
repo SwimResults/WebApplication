@@ -6,12 +6,18 @@
   src: url("/assets/fonts/SwimResults.ttf");
 }
 
+:root {
+  --bg-gradient-1: #acffff;
+  --bg-gradient-2: #ceb3ff;
+}
+
 html, body { height: 100%; }
 body {
   margin: 0;
   font-family: SwimResults, Roboto, "Helvetica Neue", sans-serif;
-  background-color: $color-bg-page;
+  //background-color: $color-bg-page;
   color: $color-text-main;
+  background: linear-gradient(to bottom right, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%) fixed;
 }
 
 h1,

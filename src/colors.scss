@@ -1,25 +1,27 @@
 $color-sr-first: #204988;
 //$color-sr-first: #3fcd10;
 $color-sr-dark: #052a62;
+$color-sr-second: #0099f8;
 //$color-sr-dark: #0e8d00;
 
 $color-bg-page: #f2f2f2;
 $color-bg-gray: #f5f5f5;
-$color-bg-first: #ffffff;
+$color-bg-first: #ffffffaa;
 $color-shadow-first: #999999;
 $color-shadow-second: #000000;
 
 $color-search-bg: #e6e6e6;
 $color-search-text: #6b6b6b;
 
-$color-sidebar-header: #ffffff;
-$color-sidebar-bg: $color-sr-dark;
-$color-sidebar-border: #aaaaaa;
+$color-sidebar-header: $color-sr-first;
+$color-sidebar-bg: #ffffffaa;
+$color-sidebar-border: #aaaaaa00;
 
-$color-nav-link: #68a2c6;
-$color-nav-link-active: #00dbff;
+$color-nav-link: $color-sr-first;
+$color-nav-link-active: #fff;
+$color-nav-link-hover: $color-sr-second;
 $color-nav-group-title: $color-nav-link;
-$color-nav-bg-active: #111246;
+$color-nav-bg-active: $color-sr-dark;
 
 $color-text-main: #222222;
 $color-text-gray: #727272;
