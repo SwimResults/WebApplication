@@ -6,6 +6,7 @@ import { WidgetTileComponent } from './widget-tile/widget-tile.component';
 import {CoreModule} from "../../core/core.module";
 import { WidgetMeetingLargeComponent } from './widgets/meeting/widget-meeting-large/widget-meeting-large.component';
 import {ElementsModule} from "../elements/elements.module";
+import { WidgetUserSmallComponent } from './widgets/user/widget-user-small/widget-user-small.component';
 
 
 
@@ -14,7 +15,8 @@ import {ElementsModule} from "../elements/elements.module";
     WidgetViewerComponent,
     WidgetContainerComponent,
     WidgetTileComponent,
-    WidgetMeetingLargeComponent
+    WidgetMeetingLargeComponent,
+    WidgetUserSmallComponent
   ],
   exports: [
     WidgetViewerComponent

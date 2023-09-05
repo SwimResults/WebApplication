@@ -25,6 +25,44 @@ export class PageDashboardEventComponent {
           container: undefined
         }
       ]
+    },
+    {
+      id: 2,
+      orderPosition: 2,
+      widgets: [
+        {
+          id: 1,
+          size: "SMALL",
+          user: "default",
+          content: "user",
+          orderPosition: 1,
+          container: undefined
+        },
+        {
+          id: 2,
+          size: "SMALL",
+          user: "default",
+          content: "user",
+          orderPosition: 2,
+          container: undefined
+        },
+        {
+          id: 3,
+          size: "SMALL",
+          user: "default",
+          content: "user",
+          orderPosition: 3,
+          container: undefined
+        },
+        {
+          id: 4,
+          size: "SMALL",
+          user: "default",
+          content: "user",
+          orderPosition: 4,
+          container: undefined
+        }
+      ]
     }
   ]
 
