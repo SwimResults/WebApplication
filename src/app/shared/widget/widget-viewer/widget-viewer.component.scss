@@ -1,0 +1,10 @@
+.widget-containers {
+  display: grid;
+  grid-gap: 8px;
+  grid-template-columns: repeat(auto-fill,minmax(346px,346px));
+}
+
+sr-widget-container {
+  display: inline-block;
+  width: auto;
+}

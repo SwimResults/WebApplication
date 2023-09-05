@@ -4,12 +4,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {TranslateModule} from "@ngx-translate/core";
 import { IsVisibleDirective } from './directive/is-visible.directive';
 import {OAuthModule} from "angular-oauth2-oidc";
+import { WidgetDirective } from './directive/widget.directive';
 
 
 
 @NgModule({
   declarations: [
-    IsVisibleDirective
+    IsVisibleDirective,
+    WidgetDirective
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import {OAuthModule} from "angular-oauth2-oidc";
   ],
     exports: [
         TranslateModule,
-        IsVisibleDirective
+        IsVisibleDirective,
+        WidgetDirective
     ]
 })
 export class CoreModule {

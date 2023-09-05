@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PageDashboardEventComponent, PageDashboardGeneralComponent } from './pages';
 import {ElementsModule} from "../../shared/elements/elements.module";
 import {CoreModule} from "../../core/core.module";
+import {WidgetModule} from "../../shared/widget/widget.module";
 
 
 @NgModule({
@@ -10,10 +11,11 @@ import {CoreModule} from "../../core/core.module";
     PageDashboardEventComponent,
     PageDashboardGeneralComponent
   ],
-  imports: [
-      CommonModule,
-      ElementsModule,
-      CoreModule
-  ]
+    imports: [
+        CommonModule,
+        ElementsModule,
+        CoreModule,
+        WidgetModule
+    ]
 })
 export class DashboardModule { }

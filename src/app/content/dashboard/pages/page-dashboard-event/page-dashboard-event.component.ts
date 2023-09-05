@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {RouteService} from "../../../../core/service/route.service";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
+import {WidgetContainer} from "../../../../core/model/user/widget-container.model";
 
 @Component({
   selector: 'sr-page-dashboard-event',
@@ -9,6 +10,23 @@ import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 })
 export class PageDashboardEventComponent {
   meeting?: MeetingImpl;
+
+  widgets: WidgetContainer[] = [
+    {
+      id: 1,
+      orderPosition: 1,
+      widgets: [
+        {
+          id: 1,
+          size: "LARGE",
+          user: "default",
+          content: "meeting",
+          orderPosition: 1,
+          container: undefined
+        }
+      ]
+    }
+  ]
 
   constructor(
     private routeService: RouteService

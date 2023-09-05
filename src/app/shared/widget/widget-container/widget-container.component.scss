@@ -1,0 +1,23 @@
+
+sr-panel {
+  //border: 1px dotted lightskyblue;
+  margin: 8px;
+  display: inline-block;
+
+
+  &.small {
+    width: 140px;
+    height: 140px;
+  }
+
+  &.medium {
+    width: 298px;
+    height: 140px;
+  }
+
+  &.large {
+    width: 298px;
+    height: 298px;
+  }
+
+}
