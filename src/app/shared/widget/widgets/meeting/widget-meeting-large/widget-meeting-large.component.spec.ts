@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WidgetMeetingLargeComponent } from './widget-meeting-large.component';
+import {RouterTestingModule} from "@angular/router/testing";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('WidgetMeetingLargeComponent', () => {
   let component: WidgetMeetingLargeComponent;
@@ -8,7 +10,11 @@ describe('WidgetMeetingLargeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetMeetingLargeComponent ]
+      declarations: [ WidgetMeetingLargeComponent ],
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
 

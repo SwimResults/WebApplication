@@ -4,7 +4,7 @@ import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
 
 @Component({
-  selector: 'app-widget-meeting-large',
+  selector: 'sr-widget-meeting-large',
   templateUrl: './widget-meeting-large.component.html',
   styleUrls: ['./widget-meeting-large.component.scss']
 })

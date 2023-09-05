@@ -23,6 +23,7 @@ export class WidgetTileComponent implements OnInit {
   }
 
   loadComponents(): void {
+    if (!this.srWidget) return;
     const viewContainerRef = this.srWidget.viewContainerRef;
     viewContainerRef.clear();
 

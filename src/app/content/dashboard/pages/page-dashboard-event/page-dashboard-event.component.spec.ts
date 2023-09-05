@@ -5,6 +5,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {TranslateModule} from "@ngx-translate/core";
+import {WidgetModule} from "../../../../shared/widget/widget.module";
 
 describe('PageDashboardEventComponent', () => {
   let component: PageDashboardEventComponent;
@@ -17,7 +18,8 @@ describe('PageDashboardEventComponent', () => {
         ElementsModule,
         RouterTestingModule,
         HttpClientTestingModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        WidgetModule
       ]
     })
     .compileComponents();
