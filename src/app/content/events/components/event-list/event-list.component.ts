@@ -3,9 +3,9 @@ import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {MeetingPart} from "../../../../core/model/meeting/meeting-part.model";
 import {RouteService} from "../../../../core/service/route.service";
-import {EventService} from "../../../../core/service/api/meeting/event.service";
+import {EventService} from "../../../../core/service/api";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
-import {HeatService} from "../../../../core/service/api/start/heat.service";
+import {HeatService} from "../../../../core/service/api";
 
 @Component({
   selector: 'sr-event-list',
@@ -26,7 +26,7 @@ export class EventListComponent implements OnDestroy {
     private eventService: EventService,
     private heatService: HeatService
   ) {
-    this.meetingSubscription = this.routeService.currentEvent.subscribe(data => {
+    this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
     })
     this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {

@@ -17,7 +17,7 @@ export class HeaderComponent {
     private routeService: RouteService,
     private menuService: SidebarMenuService
   ) {
-    this.routeService.currentEvent.subscribe(data => {
+    this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
       this.has_meeting = data.has_meeting;
     })

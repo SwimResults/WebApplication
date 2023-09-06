@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {StartService} from "../../../../core/service/api";
 import {Start, StartImpl} from "../../../../core/model/start/start.model";
-import {EventService} from "../../../../core/service/api/meeting/event.service";
+import {EventService} from "../../../../core/service/api";
 import {MeetingEventLivetiming} from "../../../../core/model/meeting/meeting-event-livetiming.model";
-import {HeatService} from "../../../../core/service/api/start/heat.service";
+import {HeatService} from "../../../../core/service/api";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
@@ -80,7 +80,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     console.log(isLive);
     this.liveSettingsData.isLive = isLive;
 
-    this.meetingSubscription = this.routeService.currentEvent.subscribe(data => {
+    this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
       if (this.meeting) {
         if (this.meeting.location && this.meeting.location.lanes && this.meeting.location.first_lane) {

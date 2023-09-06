@@ -31,7 +31,7 @@ export class PageAthleteComponent implements OnInit, OnDestroy {
     this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
       this.meetingId = data;
     })
-    this.meetingSubscription = this.routeService.currentEvent.subscribe(data => {
+    this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = data.meeting;
     })
   }

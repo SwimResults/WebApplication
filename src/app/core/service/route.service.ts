@@ -9,8 +9,8 @@ import {Meeting} from "../model/meeting/meeting.model";
   providedIn: 'root'
 })
 export class RouteService {
-  private currentEventSubject = new BehaviorSubject<RouteEvent>({} as RouteEvent);
-  public currentEvent = this.currentEventSubject.asObservable().pipe(distinctUntilChanged());
+  private currentMeetingSubject = new BehaviorSubject<RouteEvent>({} as RouteEvent);
+  public currentMeeting = this.currentMeetingSubject.asObservable().pipe(distinctUntilChanged());
   private currentMeetingIdSubject= new BehaviorSubject<string | undefined>("");
   public currentMeetingId = this.currentMeetingIdSubject.asObservable().pipe(distinctUntilChanged());
 
@@ -45,12 +45,12 @@ export class RouteService {
           this.meetingService.getCachedMeetingByMeetId(ev).subscribe(data => {
             meeting.meeting = data;
             meeting.has_meeting = true;
-            this.currentEventSubject.next(
+            this.currentMeetingSubject.next(
               meeting
             );
           })
         } else {
-          this.currentEventSubject.next(
+          this.currentMeetingSubject.next(
             meeting
           );
         }

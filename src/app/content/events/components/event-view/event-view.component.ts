@@ -45,7 +45,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
     private routeService: RouteService,
     private eventService: EventService
   ) {
-    this.meetingSubscription = this.routeService.currentEvent.subscribe(data => {
+    this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
       console.log("fetched meeting:")
       console.log(this.meeting)

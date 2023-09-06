@@ -69,7 +69,7 @@ export class PageDashboardEventComponent {
   constructor(
     private routeService: RouteService
   ) {
-    this.routeService.currentEvent.subscribe(data => {
+    this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
     })
   }
