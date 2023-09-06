@@ -121,7 +121,7 @@ input[type=search] {
   overflow: hidden;
 
   &:hover {
-    background-color: $color-bg-gray;
+    color: $color-sr-second;
   }
 
   mat-icon {
