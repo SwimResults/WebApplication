@@ -7,6 +7,7 @@ import {CoreModule} from "../../core/core.module";
 import { WidgetMeetingLargeComponent } from './widgets/meeting/widget-meeting-large/widget-meeting-large.component';
 import {ElementsModule} from "../elements/elements.module";
 import { WidgetUserSmallComponent } from './widgets/user/widget-user-small/widget-user-small.component';
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -21,10 +22,11 @@ import { WidgetUserSmallComponent } from './widgets/user/widget-user-small/widge
   exports: [
     WidgetViewerComponent
   ],
-  imports: [
-    CommonModule,
-    CoreModule,
-    ElementsModule
-  ]
+    imports: [
+        CommonModule,
+        CoreModule,
+        ElementsModule,
+        MatIconModule
+    ]
 })
 export class WidgetModule { }

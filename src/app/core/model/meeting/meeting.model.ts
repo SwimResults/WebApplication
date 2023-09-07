@@ -75,7 +75,7 @@ export class MeetingImpl implements Meeting {
   }
 
   public getDateStringWithYear(monthReplaceable: boolean = false): string {
-    return this.getDateString(monthReplaceable) + " " +  this.getEndDate().getFullYear()
+    return this.getDateString(monthReplaceable) + (monthReplaceable ? " " : "") +  this.getEndDate().getFullYear()
   }
 
   public getDateString(monthReplaceable: boolean = false): string {

@@ -1,0 +1,22 @@
+.title {
+  display: block;
+  font-weight: 700;
+}
+
+.info {
+  mat-icon,
+  .info-content {
+    display: inline-block;
+  }
+
+  mat-icon {
+    width: 24px;
+    vertical-align: top;
+  }
+
+  .info-content {
+    vertical-align: middle;
+    width: calc(100% - 36px);
+    padding-left: 12px;
+  }
+}
