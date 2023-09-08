@@ -60,6 +60,28 @@ export class PageDashboardEventComponent {
           container: undefined
         }
       ]
+    },
+    {
+      id: 2,
+      orderPosition: 2,
+      widgets: [
+        {
+          id: 1,
+          size: "MEDIUM",
+          user: "default",
+          content: "clock",
+          orderPosition: 1,
+          container: undefined
+        },
+        {
+          id: 2,
+          size: "MEDIUM",
+          user: "default",
+          content: "meeting",
+          orderPosition: 2,
+          container: undefined
+        }
+      ]
     }
   ]
 }

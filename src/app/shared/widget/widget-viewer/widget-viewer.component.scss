@@ -1,7 +1,7 @@
 .widget-containers {
   display: grid;
-  grid-gap: 8px;
-  grid-template-columns: repeat(auto-fill,minmax(346px,346px));
+  grid-gap: 0 10px;
+  grid-template-columns: repeat(auto-fill, minmax(312px, 312px));
 }
 
 sr-widget-container {
