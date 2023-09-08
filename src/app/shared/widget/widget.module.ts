@@ -10,6 +10,9 @@ import { WidgetUserSmallComponent } from './widgets/user/widget-user-small/widge
 import {MatIconModule} from "@angular/material/icon";
 import { WidgetMeetingMediumComponent } from './widgets/meeting/widget-meeting-medium/widget-meeting-medium.component';
 import {RouterLink} from "@angular/router";
+import {WidgetClockLargeComponent} from "./widgets/clock/widget-clock-large/widget-clock-large.component";
+import {WidgetClockMediumComponent} from "./widgets/clock/widget-clock-medium/widget-clock-medium.component";
+import {WidgetClockSmallComponent} from "./widgets/clock/widget-clock-small/widget-clock-small.component";
 
 
 
@@ -19,8 +22,11 @@ import {RouterLink} from "@angular/router";
     WidgetContainerComponent,
     WidgetTileComponent,
     WidgetMeetingLargeComponent,
+    WidgetMeetingMediumComponent,
     WidgetUserSmallComponent,
-    WidgetMeetingMediumComponent
+    WidgetClockLargeComponent,
+    WidgetClockMediumComponent,
+    WidgetClockSmallComponent
   ],
   exports: [
     WidgetViewerComponent

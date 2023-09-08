@@ -55,7 +55,7 @@ export class PageDashboardEventComponent {
           id: 4,
           size: "SMALL",
           user: "default",
-          content: "user",
+          content: "clock",
           orderPosition: 4,
           container: undefined
         }
