@@ -3,6 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { WidgetMeetingLargeComponent } from './widget-meeting-large.component';
 import {RouterTestingModule} from "@angular/router/testing";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {MatIconModule} from "@angular/material/icon";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('WidgetMeetingLargeComponent', () => {
   let component: WidgetMeetingLargeComponent;
@@ -13,7 +15,9 @@ describe('WidgetMeetingLargeComponent', () => {
       declarations: [ WidgetMeetingLargeComponent ],
       imports: [
         RouterTestingModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        MatIconModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();

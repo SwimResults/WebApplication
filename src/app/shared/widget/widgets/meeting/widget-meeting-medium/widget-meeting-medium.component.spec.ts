@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WidgetMeetingMediumComponent } from './widget-meeting-medium.component';
+import {MatIconModule} from "@angular/material/icon";
+import {RouterTestingModule} from "@angular/router/testing";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('WidgetMeetingMediumComponent', () => {
   let component: WidgetMeetingMediumComponent;
@@ -8,7 +11,12 @@ describe('WidgetMeetingMediumComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetMeetingMediumComponent ]
+      declarations: [ WidgetMeetingMediumComponent ],
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule,
+        MatIconModule
+      ]
     })
     .compileComponents();
 
