@@ -1,10 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageDashboardEventComponent } from './page-dashboard-event.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {RouterTestingModule} from "@angular/router/testing";
-import {ElementsModule} from "../../../../shared/elements/elements.module";
-import {TranslateModule} from "@ngx-translate/core";
 import {WidgetModule} from "../../../../shared/widget/widget.module";
 
 describe('PageDashboardEventComponent', () => {
@@ -15,10 +11,6 @@ describe('PageDashboardEventComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ PageDashboardEventComponent ],
       imports: [
-        ElementsModule,
-        RouterTestingModule,
-        HttpClientTestingModule,
-        TranslateModule.forRoot(),
         WidgetModule
       ]
     })

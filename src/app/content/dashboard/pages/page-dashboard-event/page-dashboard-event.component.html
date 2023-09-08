@@ -1,14 +1,3 @@
-<sr-panel *ngIf="meeting">
-  <b>Veranstaltung: </b> {{meeting.getFullSeriesNameWithYear()}}
-  <br>
-  <b>Datum: </b> von {{meeting.getStartDate().getTime() | date}} bis {{meeting.getEndDate().getTime() | date}}
-  <br>
-  <b>Ort: </b> {{meeting.location.name}}
-</sr-panel>
-<p *ngIf="meeting">{{'EVENT.DASHBOARD.CURRENT_MEETING_INFO' | translate:meeting.series}}</p>
-
-<hr>
-
 <sr-widget-viewer
   [widgets]="widgets"
 ></sr-widget-viewer>

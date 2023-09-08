@@ -8,6 +8,7 @@ import { WidgetMeetingLargeComponent } from './widgets/meeting/widget-meeting-la
 import {ElementsModule} from "../elements/elements.module";
 import { WidgetUserSmallComponent } from './widgets/user/widget-user-small/widget-user-small.component';
 import {MatIconModule} from "@angular/material/icon";
+import { WidgetMeetingMediumComponent } from './widgets/meeting/widget-meeting-medium/widget-meeting-medium.component';
 
 
 
@@ -17,7 +18,8 @@ import {MatIconModule} from "@angular/material/icon";
     WidgetContainerComponent,
     WidgetTileComponent,
     WidgetMeetingLargeComponent,
-    WidgetUserSmallComponent
+    WidgetUserSmallComponent,
+    WidgetMeetingMediumComponent
   ],
   exports: [
     WidgetViewerComponent

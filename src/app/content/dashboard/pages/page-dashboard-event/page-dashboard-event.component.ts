@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import {RouteService} from "../../../../core/service/route.service";
-import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {WidgetContainer} from "../../../../core/model/user/widget-container.model";
 
 @Component({
@@ -9,7 +7,6 @@ import {WidgetContainer} from "../../../../core/model/user/widget-container.mode
   styleUrls: ['./page-dashboard-event.component.scss']
 })
 export class PageDashboardEventComponent {
-  meeting?: MeetingImpl;
 
   widgets: WidgetContainer[] = [
     {
@@ -65,13 +62,4 @@ export class PageDashboardEventComponent {
       ]
     }
   ]
-
-  constructor(
-    private routeService: RouteService
-  ) {
-    this.routeService.currentMeeting.subscribe(data => {
-      this.meeting = new MeetingImpl(data.meeting);
-    })
-  }
-
 }
