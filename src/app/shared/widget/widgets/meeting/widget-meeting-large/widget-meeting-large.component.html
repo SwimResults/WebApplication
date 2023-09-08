@@ -14,10 +14,10 @@
   </div>
   <div class="info" *ngIf="meeting.location && meeting.location.lanes > 0">
     <mat-icon>lane</mat-icon>
-    <span class="info-content date">{{meeting.location.lanes}} {{"COMMON.LANE.PLURAL" | translate}}</span>
+    <span class="info-content">{{meeting.location.lanes}} {{"COMMON.LANE.PLURAL" | translate}}</span>
   </div>
   <div class="info" *ngIf="organizer">
     <mat-icon>group</mat-icon>
-    <span class="info-content date">{{organizer.name}}</span>
+    <span class="info-content link"  [routerLink]="'../team/@' + organizer.alias[0]">{{organizer.name}}</span>
   </div>
 </ng-container>

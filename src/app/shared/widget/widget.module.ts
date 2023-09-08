@@ -9,6 +9,7 @@ import {ElementsModule} from "../elements/elements.module";
 import { WidgetUserSmallComponent } from './widgets/user/widget-user-small/widget-user-small.component';
 import {MatIconModule} from "@angular/material/icon";
 import { WidgetMeetingMediumComponent } from './widgets/meeting/widget-meeting-medium/widget-meeting-medium.component';
+import {RouterLink} from "@angular/router";
 
 
 
@@ -24,11 +25,12 @@ import { WidgetMeetingMediumComponent } from './widgets/meeting/widget-meeting-m
   exports: [
     WidgetViewerComponent
   ],
-    imports: [
-        CommonModule,
-        CoreModule,
-        ElementsModule,
-        MatIconModule
-    ]
+  imports: [
+    CommonModule,
+    CoreModule,
+    ElementsModule,
+    MatIconModule,
+    RouterLink
+  ]
 })
 export class WidgetModule { }
