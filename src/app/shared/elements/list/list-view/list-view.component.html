@@ -1,5 +1,5 @@
 <div class="search-view">
-  <sr-panel class="search-panel">
+  <sr-panel class="search-panel" *ngIf="useSearch">
     <sr-list-filter-row (querySearch)="onSearch($event)"></sr-list-filter-row>
   </sr-panel>
   <br>

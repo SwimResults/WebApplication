@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Athlete} from "../../../../core/model";
-import {AthleteService} from "../../../../core/service/api";
+import {AthleteService, UserService} from "../../../../core/service/api";
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {IListTile} from "../../../../core/model/list/list-tile.model";
 import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
@@ -16,10 +16,42 @@ export class AthleteListViewComponent {
   @Input() meetingId: string | undefined;
   athletes: Athlete[] = [];
   listAthletes: IListTile[] = [];
+  following: Athlete[] = [];
+  listFollowing: IListTile[] = [];
 
   constructor(
-    private athleteService: AthleteService
+    private athleteService: AthleteService,
+    private userService: UserService
   ) {
+  }
+
+  fetchFollowing(request?: RefreshListRequest) {
+    if (request && request.paging.offset != 0) return;
+    this.userService.getUser().subscribe(data => {
+      this.following = [];
+      if (data.following) {
+        for (let follower of data.following) {
+          this.athleteService.getAthleteById(follower.athlete_id).subscribe(ath => {
+            if (!this.meetingId) {
+              this.following.push(ath);
+              this.appendFollowing(ath);
+            } else
+            if (ath.participation) {
+              for (let string of ath.participation) {
+                if (string == this.meetingId) {
+                  this.following.push(ath);
+                  this.appendFollowing(ath);
+                }
+              }
+            }
+          })
+        }
+      }
+    })
+  }
+
+  appendFollowing(athlete: Athlete) {
+    this.listFollowing.push(new AthleteListTile(athlete));
   }
 
   fetchAthletes(request: RefreshListRequest) {

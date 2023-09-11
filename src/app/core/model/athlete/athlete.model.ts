@@ -7,4 +7,5 @@ export interface Athlete {
   team: Team;
   dsv_id: number;
   alias: string[];
+  participation: string[];
 }

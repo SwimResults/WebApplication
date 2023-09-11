@@ -7,3 +7,4 @@ export * from './meeting/file.service';
 export * from './meeting/meeting.service';
 export * from './start/start.service';
 export * from './start/heat.service';
+export * from './user/user.service';

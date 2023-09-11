@@ -1,5 +1,13 @@
 <h1>{{'ATHLETE.LIST.PAGE_TITLE' | translate}}</h1>
+<h2>Favoriten</h2>
+<sr-list-view *ngIf="listFollowing"
+  [data]="listFollowing"
+  [useSearch]="false"
+  (refreshData)="fetchFollowing($event)"
+></sr-list-view>
 
+<br>
+<h2>Sportler</h2>
 <sr-list-view *ngIf="listAthletes"
   [data]="listAthletes"
   (refreshData)="fetchAthletes($event)"

@@ -1,4 +1,4 @@
-<sr-athlete-profile-intro [athlete]="athlete"></sr-athlete-profile-intro>
+<sr-athlete-profile-intro *ngIf="athlete._id" [athlete]="athlete"></sr-athlete-profile-intro>
 
 <h2>Starts</h2>
 <sr-panel *ngIf="athleteId">
