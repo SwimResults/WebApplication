@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AthleteProfileIntroComponent } from './athlete-profile-intro.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('AthleteProfileIntroComponent', () => {
   let component: AthleteProfileIntroComponent;
@@ -8,7 +9,10 @@ describe('AthleteProfileIntroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AthleteProfileIntroComponent ]
+      declarations: [ AthleteProfileIntroComponent ],
+      imports: [
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
 
