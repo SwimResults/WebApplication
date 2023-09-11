@@ -1,7 +1,8 @@
 import {AuthConfig} from "angular-oauth2-oidc";
+import {environment} from "../../environments/environment";
 
 export const authConfig: AuthConfig = {
-  issuer: "https://auth.swimresults.de/realms/swimresults",
+  issuer: environment.o_auth_issuer,
   redirectUri: window.location.origin + "/auth",
   clientId: 'swimresults-pkce-client',
   responseType: 'code',
