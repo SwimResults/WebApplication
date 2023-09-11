@@ -1,5 +1,5 @@
 <sr-no-content *ngIf="!parts || parts.length <= 0">
-  Es wurden keine Wettkämpfe gefunden.
+  {{'EVENT.LIST.NO_EVENTS_MESSAGE' | translate}}
 </sr-no-content>
 <div *ngFor="let part of parts">
   <h2 *ngIf="part.number">{{'EVENT.LIST.PART_TITLE' | translate}} {{part.number}}</h2>

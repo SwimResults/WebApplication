@@ -12,7 +12,8 @@
         },
         "LIST": {
             "PAGE_TITLE": "Ablaufplan",
-            "PART_TITLE": "Abschnitt"
+            "PART_TITLE": "Abschnitt",
+            "NO_EVENTS_MESSAGE": "Es wurden keine Wettkämpfe gefunden."
         }
     },
     "NAV": {
@@ -172,7 +173,8 @@
         "DATA_PROTECTION": "Datenschutzerklärung",
         "PRIVACY_INFORMATION": "Informationen zum Datenschutz (DSV)",
         "OVERNIGHT_STAY_TICKETS": "Bestellung Übernachtung"
-      }
+      },
+      "NO_FILES_MESSAGE": "Für diese Veranstaltung sind keine Dateien hinterlegt."
     },
     "MEETINGS": {
         "LIST": {
@@ -182,5 +184,10 @@
     "ENTRY_PAGE": {
         "ABOUT_TEXT": "SwimResults bietet Sportlern, Trainern und Angehörigen die Möglichkeit Meldungen, Ergebnisse, Platzierungen, Livetimings und mehr bei Schwimmwettkämpfen aufbereitet anzuzeigen.",
         "INFO_LINKS_TITLE": "Informative Links"
+    },
+    "LIVE": {
+        "NO_STARTS_MESSAGE": "Es sind aktuell keine Starts für das Livetiming verfügbar.",
+        "NO_LIVETIMING_MESSAGE": "Für diese Veranstaltung gibt es leider kein Livetiming.",
+        "NO_CONTENT_MESSAGE": "Inhalt konnte nicht geladen werden."
     }
 }

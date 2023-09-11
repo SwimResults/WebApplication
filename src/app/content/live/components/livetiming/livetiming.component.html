@@ -19,6 +19,11 @@
     ></sr-livetiming-table>
   </sr-panel>
 
+  <sr-no-content *ngIf="starts.length < 1">
+    {{'LIVE.NO_STARTS_MESSAGE' | translate}}
+  </sr-no-content>
+
+
   <sr-livetiming-controls
     class="livetiming-grid-element"
     (changeHeat)="onChangeHeat($event)"
@@ -30,8 +35,8 @@
   ></sr-livetiming-controls>
 </div>
 <sr-no-content *ngIf="meeting && (meeting.data && !meeting.data.has_livetiming || !meeting.data)">
-  Für diese Veranstaltung gibt es leider kein Livetiming.
+  {{'LIVE.NO_LIVETIMING_MESSAGE' | translate}}
 </sr-no-content>
 <sr-no-content *ngIf="!meeting">
-  Inhalt konnte nicht geladen werden.
+  {{'LIVE.NO_CONTENT_MESSAGE' | translate}}
 </sr-no-content>

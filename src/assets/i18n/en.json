@@ -77,7 +77,8 @@
             "SINGULAR": "Event"
         },
         "LANE": {
-            "SINGULAR": "Lane"
+            "SINGULAR": "Lane",
+            "PLURAL": "Lanes"
         },
         "DATE": {
             "MONTH": {
@@ -158,11 +159,17 @@
             "DATA_PROTECTION": "Data Protection",
             "PRIVACY_INFORMATION": "Privacy Information (DSV)",
             "OVERNIGHT_STAY_TICKETS": "Order Overnight Stay/Catering/Extra Tickets "
-        }
+        },
+        "NO_FILES_MESSAGE": "For this meeting no files could be found."
     },
     "MEETINGS": {
         "LIST": {
             "PAGE_TITLE": "Meetings"
         }
+    },
+    "LIVE": {
+        "NO_STARTS_MESSAGE": "There are currently no starts available for the livetiming.",
+        "NO_LIVETIMING_MESSAGE": "This meeting does not support the livetiming feature.",
+        "NO_CONTENT_MESSAGE": "Unable to load content."
     }
 }
