@@ -4,6 +4,3 @@
   [data]="listAthletes"
   (refreshData)="fetchAthletes($event)"
 ></sr-list-view>
-<ng-container *ngIf="listAthletes.length <= 0">
-  Keine Sportler gefunden.
-</ng-container>
