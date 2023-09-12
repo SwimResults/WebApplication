@@ -12,8 +12,8 @@
       <span class="team"><a *ngIf="athlete.team" [routerLink]="'../../team/@' + athlete.team.alias[0]">{{athlete.team.name}}</a> <span *ngIf="!athlete.team">-</span></span>
     </span>
     <ng-container *srIsAuthed="true">
-      <sr-btn *ngIf="!isFollowed" (btnClick)="follow()">Folgen</sr-btn>
-      <sr-btn *ngIf="isFollowed" (btnClick)="unfollow()">Entfolgen</sr-btn>
+      <sr-btn *ngIf="!isFollowed" (btnClick)="follow()">{{'ATHLETE.PROFILE.FOLLOW_BUTTON_TEXT' | translate}}</sr-btn>
+      <sr-btn *ngIf="isFollowed" (btnClick)="unfollow()">{{'ATHLETE.PROFILE.UNFOLLOW_BUTTON_TEXT' | translate}}</sr-btn>
     </ng-container>
   </div>
 </ng-container>

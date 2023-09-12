@@ -109,7 +109,13 @@
                 "ATHLETE_BUTTON_TEXT": "Show Athlete",
                 "TEAM_BUTTON_TEXT": "Show Team"
             },
-            "PAGE_TITLE": "Athlete"
+            "PAGE_TITLE": "Athletes",
+            "FAVORITES_TITLE": "Favorites",
+            "ATHLETES_TITLE": "Athletes"
+        },
+        "PROFILE": {
+            "FOLLOW_BUTTON_TEXT": "Follow",
+            "UNFOLLOW_BUTTON_TEXT": "Unfollow"
         }
     },
     "HEADER": {

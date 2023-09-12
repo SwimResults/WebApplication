@@ -2,7 +2,7 @@
   <sr-panel class="search-panel" *ngIf="useSearch">
     <sr-list-filter-row (querySearch)="onSearch($event)"></sr-list-filter-row>
   </sr-panel>
-  <br>
+  <br *ngIf="useSearch">
   <sr-panel>
     <div class="list" *ngIf="data">
       <div *ngIf="data.length > 0">

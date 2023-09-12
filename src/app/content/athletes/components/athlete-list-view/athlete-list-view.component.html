@@ -1,6 +1,6 @@
 <h1>{{'ATHLETE.LIST.PAGE_TITLE' | translate}}</h1>
 <ng-container *srIsAuthed="true">
-  <h2>Favoriten</h2>
+  <h2>{{'ATHLETE.LIST.FAVORITES_TITLE' | translate}}</h2>
   <sr-list-view *ngIf="listFollowing"
     [data]="listFollowing"
     [useSearch]="false"
@@ -8,7 +8,7 @@
   ></sr-list-view>
 
   <br>
-  <h2>Sportler</h2>
+  <h2>{{'ATHLETE.LIST.ATHLETES_TITLE' | translate}}</h2>
 </ng-container>
 <sr-list-view *ngIf="listAthletes"
   [data]="listAthletes"
