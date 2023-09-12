@@ -19,10 +19,13 @@ export class AuthService {
 
   setup() {
     this.oAuthService.configure(authConfig);
-    this.oAuthService.loadDiscoveryDocumentAndTryLogin()
-    if (this.oAuthService.hasValidIdToken()) {
-      this.isAuthenticatedSubject.next(true);
-    }
+    this.oAuthService.loadDiscoveryDocumentAndTryLogin().then(_ => {
+      if (this.oAuthService.hasValidIdToken()) {
+        this.isAuthenticatedSubject.next(true);
+      }
+
+      this.oAuthService.setupAutomaticSilentRefresh()
+    })
   }
 
   login() {
