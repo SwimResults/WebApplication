@@ -5,6 +5,7 @@ import {ActivatedRoute} from "@angular/router";
 import {RouteService} from "../../../../core/service/route.service";
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
+import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
   selector: 'sr-page-athlete',
@@ -21,6 +22,8 @@ export class PageAthleteComponent implements OnInit, OnDestroy {
   athleteId?: string;
   athleteAlias?: string;
   athleteYear?: number;
+
+  fetchingAthlete: FetchingModel = {fetching: false}
 
 
   constructor(
@@ -57,14 +60,17 @@ export class PageAthleteComponent implements OnInit, OnDestroy {
   }
 
   fetchAthlete() {
+    this.fetchingAthlete.fetching = true;
     if (this.athleteId) {
       this.athleteService.getAthleteById(this.athleteId).subscribe(data => {
         this.athlete = data;
+        this.fetchingAthlete.fetching = false;
       })
     } else if (this.athleteAlias && this.athleteYear) {
       this.athleteService.getAthleteByAliasAndYear(this.athleteAlias, this.athleteYear).subscribe(data => {
         this.athlete = data;
         this.athleteId = this.athlete._id
+        this.fetchingAthlete.fetching = false;
       })
     }
   }

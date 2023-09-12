@@ -1,4 +1,6 @@
-<div>
+
+<sr-spinner *ngIf="fetchingFiles.fetching"></sr-spinner>
+<div *ngIf="!fetchingFiles.fetching">
   <sr-panel *ngIf="files && files.length > 0">
     <sr-file-list-tile
       *ngFor="let file of files"

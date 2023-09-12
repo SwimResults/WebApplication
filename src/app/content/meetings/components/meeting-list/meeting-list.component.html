@@ -1,11 +1,14 @@
-<div class="meeting-year" *ngFor="let year of meetingYears.keys()">
-  <h2>{{year}}</h2>
-  <div class="meetings">
-    <sr-meeting-list-tile
-      *ngFor="let meeting of meetingYears.get(year)"
-      [meeting]="meeting"
-    >
-    </sr-meeting-list-tile>
+<sr-spinner *ngIf="fetching.fetching"></sr-spinner>
+<ng-container *ngIf="!fetching.fetching">
+  <div class="meeting-year" *ngFor="let year of meetingYears.keys()">
+    <h2>{{year}}</h2>
+    <div class="meetings">
+      <sr-meeting-list-tile
+        *ngFor="let meeting of meetingYears.get(year)"
+        [meeting]="meeting"
+      >
+      </sr-meeting-list-tile>
+    </div>
   </div>
-</div>
+</ng-container>
 

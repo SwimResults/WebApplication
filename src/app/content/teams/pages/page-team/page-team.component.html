@@ -1,40 +1,44 @@
-<sr-team-profile-intro [team]="team"></sr-team-profile-intro>
+<sr-spinner *ngIf="fetchingTeam.fetching"></sr-spinner>
+<ng-container *ngIf="!fetchingTeam.fetching">
+  <sr-team-profile-intro [team]="team"></sr-team-profile-intro>
 
-<div class="team-info" *ngIf="team.address && team.address.city || team.website">
-  <h1>{{'TEAM.PAGE.INFO_TITLE' | translate}}</h1>
+  <div class="team-info" *ngIf="team.address && team.address.city || team.website">
+    <h1>{{'TEAM.PAGE.INFO_TITLE' | translate}}</h1>
 
-  <div class="team-info-panels">
-    <sr-panel
-      *ngIf="team.contact && (team.contact.name || team.contact.email || team.contact.fax || team.contact.phone)"
-      panelTitle="{{'TEAM.PAGE.CONTACT.TITLE' | translate}}"
-    >
-      <!--    <div *ngIf="team.contact.name"><b>{{"TEAM.PAGE.CONTACT.NAME" | translate}}: </b>{{team.contact.name}}</div>-->
-      <!--    <div *ngIf="team.contact.email"><b>{{"TEAM.PAGE.CONTACT.EMAIL" | translate}}: </b>{{team.contact.email}}</div>-->
-      <!--    <div *ngIf="team.contact.phone"><b>{{"TEAM.PAGE.CONTACT.PHONE" | translate}}: </b>{{team.contact.phone}}</div>-->
-      <!--    <div *ngIf="team.contact.fax"><b>{{"TEAM.PAGE.CONTACT.FAX" | translate}}: </b>{{team.contact.fax}}</div>-->
-      <div class="team-contact-info" *ngIf="team.contact.name"><mat-icon>person</mat-icon><span>{{team.contact.name}}</span></div>
-      <div class="team-contact-info" *ngIf="team.contact.email"><mat-icon>email</mat-icon><span>{{team.contact.email}}</span></div>
-      <div class="team-contact-info" *ngIf="team.contact.phone"><mat-icon>phone</mat-icon><span>{{team.contact.phone}}</span></div>
-      <div class="team-contact-info" *ngIf="team.contact.fax"><mat-icon>fax</mat-icon><span>{{team.contact.fax}}</span></div>
-    </sr-panel>
+    <div class="team-info-panels">
+      <sr-panel
+        *ngIf="team.contact && (team.contact.name || team.contact.email || team.contact.fax || team.contact.phone)"
+        panelTitle="{{'TEAM.PAGE.CONTACT.TITLE' | translate}}"
+      >
+        <!--    <div *ngIf="team.contact.name"><b>{{"TEAM.PAGE.CONTACT.NAME" | translate}}: </b>{{team.contact.name}}</div>-->
+        <!--    <div *ngIf="team.contact.email"><b>{{"TEAM.PAGE.CONTACT.EMAIL" | translate}}: </b>{{team.contact.email}}</div>-->
+        <!--    <div *ngIf="team.contact.phone"><b>{{"TEAM.PAGE.CONTACT.PHONE" | translate}}: </b>{{team.contact.phone}}</div>-->
+        <!--    <div *ngIf="team.contact.fax"><b>{{"TEAM.PAGE.CONTACT.FAX" | translate}}: </b>{{team.contact.fax}}</div>-->
+        <div class="team-contact-info" *ngIf="team.contact.name"><mat-icon>person</mat-icon><span>{{team.contact.name}}</span></div>
+        <div class="team-contact-info" *ngIf="team.contact.email"><mat-icon>email</mat-icon><span>{{team.contact.email}}</span></div>
+        <div class="team-contact-info" *ngIf="team.contact.phone"><mat-icon>phone</mat-icon><span>{{team.contact.phone}}</span></div>
+        <div class="team-contact-info" *ngIf="team.contact.fax"><mat-icon>fax</mat-icon><span>{{team.contact.fax}}</span></div>
+      </sr-panel>
 
-    <sr-panel *ngIf="team.address && team.address.city" panelTitle="{{'TEAM.PAGE.ADDRESS_TITLE' | translate}}">
-      {{team.address.street}} {{team.address.number}}<br>
-      {{team.address.postal_code}} {{team.address.city}}
-    </sr-panel>
+      <sr-panel *ngIf="team.address && team.address.city" panelTitle="{{'TEAM.PAGE.ADDRESS_TITLE' | translate}}">
+        {{team.address.street}} {{team.address.number}}<br>
+        {{team.address.postal_code}} {{team.address.city}}
+      </sr-panel>
 
-    <sr-panel *ngIf="team.website" panelTitle="{{'TEAM.PAGE.WEBSITE.TITLE' | translate}}">
-      <a [href]="team.website" target="_blank"><sr-btn><mat-icon>public</mat-icon><span>{{'TEAM.PAGE.WEBSITE.OPEN_BTN_TEXT' | translate}}</span></sr-btn></a>
-    </sr-panel>
+      <sr-panel *ngIf="team.website" panelTitle="{{'TEAM.PAGE.WEBSITE.TITLE' | translate}}">
+        <a [href]="team.website" target="_blank"><sr-btn><mat-icon>public</mat-icon><span>{{'TEAM.PAGE.WEBSITE.OPEN_BTN_TEXT' | translate}}</span></sr-btn></a>
+      </sr-panel>
 
+    </div>
   </div>
-</div>
 
-<ng-container *ngIf="teamId">
-  <h1 *ngIf="meetingId">{{'TEAM.PAGE.PARTICIPANTS_TITLE' | translate}}</h1>
-  <h1 *ngIf="!meetingId">{{'TEAM.PAGE.ATHLETE_TITLE' | translate}}</h1>
-  <sr-list-view
-    [data]="listAthletes"
-    (refreshData)="fetchAthletes($event)"
-  ></sr-list-view>
+  <ng-container *ngIf="teamId">
+    <h1 *ngIf="meetingId">{{'TEAM.PAGE.PARTICIPANTS_TITLE' | translate}}</h1>
+    <h1 *ngIf="!meetingId">{{'TEAM.PAGE.ATHLETE_TITLE' | translate}}</h1>
+    <sr-list-view
+      [data]="listAthletes"
+      [fetching]="fetchingAthletes"
+      (refreshData)="fetchAthletes($event)"
+    ></sr-list-view>
+  </ng-container>
 </ng-container>

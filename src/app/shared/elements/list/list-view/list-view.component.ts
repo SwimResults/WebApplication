@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 import {IListTile} from "../../../../core/model/list/list-tile.model";
 import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
 import {PagingRequest} from "../../../../core/model/common/paging-request.model";
+import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
   selector: 'sr-list-view',
@@ -11,6 +12,7 @@ import {PagingRequest} from "../../../../core/model/common/paging-request.model"
 export class ListViewComponent implements OnInit, OnChanges {
   @Input() data!: IListTile[];
   @Input() useSearch: boolean = true;
+  @Input() fetching: FetchingModel = {fetching: false};
   @Output() refreshData: EventEmitter<RefreshListRequest> = new EventEmitter<RefreshListRequest>();
 
   limit: number = 10;

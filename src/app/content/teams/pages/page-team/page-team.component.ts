@@ -7,6 +7,7 @@ import {RefreshListRequest} from "../../../../core/model/list/refresh-list-reque
 import {TeamAthleteListTile} from "../../../../core/model/list/team-athlete-list-tile.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
+import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
   selector: 'sr-page-team',
@@ -21,6 +22,9 @@ export class PageTeamComponent implements OnInit, OnDestroy {
   teamAlias?: string;
   athletes: Athlete[] = [];
   listAthletes: IListTile[] = [];
+
+  fetchingTeam: FetchingModel = {fetching: false}
+  fetchingAthletes: FetchingModel = {fetching: false}
 
 
   constructor(
@@ -54,14 +58,17 @@ export class PageTeamComponent implements OnInit, OnDestroy {
   }
 
   fetchTeam() {
+    this.fetchingTeam.fetching = true;
     if (this.teamId) {
       this.teamService.getTeamById(this.teamId).subscribe(data => {
         this.team = data;
+        this.fetchingTeam.fetching = false;
       })
     } else if (this.teamAlias) {
       this.teamService.getTeamByAlias(this.teamAlias).subscribe(data => {
         this.team = data;
-        this.teamId = data._id
+        this.teamId = data._id;
+        this.fetchingTeam.fetching = false;
       })
     }
   }
@@ -70,6 +77,7 @@ export class PageTeamComponent implements OnInit, OnDestroy {
 
   fetchAthletes(request: RefreshListRequest) {
     if (!this.teamId) return;
+    this.fetchingAthletes.fetching = true;
     if (request.paging.offset == 0) {
       this.athletes = [];
       this.listAthletes = [];
@@ -77,10 +85,12 @@ export class PageTeamComponent implements OnInit, OnDestroy {
     if (this.meetingId === undefined) {
       this.athleteService.getAthletesByTeam(this.teamId, request.paging).subscribe(data => {
         this.appendAthletes(data);
+        this.fetchingAthletes.fetching = false;
       })
     } else {
       this.athleteService.getAthletesByTeamAndMeeting(this.teamId, this.meetingId, request.paging).subscribe(data => {
         this.appendAthletes(data);
+        this.fetchingAthletes.fetching = false;
       })
     }
   }

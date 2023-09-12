@@ -5,6 +5,7 @@ import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {IListTile} from "../../../../core/model/list/list-tile.model";
 import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
 import {AthleteListTile} from "../../../../core/model/list/athlete-list-tile.model";
+import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
   selector: 'sr-athlete-list-view',
@@ -19,6 +20,9 @@ export class AthleteListViewComponent {
   following: Athlete[] = [];
   listFollowing: IListTile[] = [];
 
+  fetchingAthletes: FetchingModel = {fetching: false};
+  fetchingFollowing: FetchingModel = {fetching: false};
+
   constructor(
     private athleteService: AthleteService,
     private userService: UserService
@@ -27,9 +31,11 @@ export class AthleteListViewComponent {
 
   fetchFollowing(request?: RefreshListRequest) {
     if (request && request.paging.offset != 0) return;
+    this.fetchingFollowing.fetching = true;
     this.userService.getUser().subscribe(data => {
       this.following = [];
       if (data.following) {
+        let loopDone = false;
         for (let follower of data.following) {
           this.athleteService.getAthleteById(follower.athlete_id).subscribe(ath => {
             if (!this.meetingId) {
@@ -44,8 +50,10 @@ export class AthleteListViewComponent {
                 }
               }
             }
+            if (loopDone) this.fetchingFollowing.fetching = false;
           })
         }
+        loopDone = true;
       }
     })
   }
@@ -55,6 +63,7 @@ export class AthleteListViewComponent {
   }
 
   fetchAthletes(request: RefreshListRequest) {
+    this.fetchingAthletes.fetching = true;
     if (request.paging.offset == 0) {
       this.athletes = [];
       this.listAthletes = [];
@@ -62,10 +71,12 @@ export class AthleteListViewComponent {
     if (this.meetingId == undefined) {
       this.athleteService.getAthletes(request.paging).subscribe(data => {
         this.appendAthletes(data);
+        this.fetchingAthletes.fetching = false;
       })
     } else {
       this.athleteService.getAthletesByMeeting(this.meetingId, request.paging).subscribe(data => {
         this.appendAthletes(data);
+        this.fetchingAthletes.fetching = false;
       })
     }
   }

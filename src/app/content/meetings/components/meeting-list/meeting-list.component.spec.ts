@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MeetingListComponent } from './meeting-list.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {ElementsModule} from "../../../../shared/elements/elements.module";
 
 describe('MeetingListComponent', () => {
   let component: MeetingListComponent;
@@ -11,7 +12,8 @@ describe('MeetingListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ MeetingListComponent ],
       imports: [
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        ElementsModule
       ]
     })
     .compileComponents();

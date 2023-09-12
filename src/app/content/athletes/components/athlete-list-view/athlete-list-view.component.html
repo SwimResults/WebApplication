@@ -4,6 +4,7 @@
   <sr-list-view *ngIf="listFollowing"
     [data]="listFollowing"
     [useSearch]="false"
+    [fetching]="fetchingFollowing"
     (refreshData)="fetchFollowing($event)"
   ></sr-list-view>
 
@@ -12,5 +13,6 @@
 </ng-container>
 <sr-list-view *ngIf="listAthletes"
   [data]="listAthletes"
+  [fetching]="fetchingAthletes"
   (refreshData)="fetchAthletes($event)"
 ></sr-list-view>
