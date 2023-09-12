@@ -14,12 +14,12 @@ import {PageMeetingsComponent} from "./content/meetings";
 
 
 const routes: Routes = [
-  { path: '',                         redirectTo: '/meetings', pathMatch: "full" },
+  { path: '',                         component: PageMeetingsComponent, pathMatch: "full" },
   { path: 'auth',                     component: AuthComponent },
   { path: 'account/profile',          component: UserProfileComponent },
   { path: 'dashboard',                component: PageDashboardGeneralComponent },
   { path: 'calendar',                 component: CalendarComponent },
-  { path: 'meetings',                 component: PageMeetingsComponent },
+  { path: 'meetings',                 redirectTo: '/meetings' },
   { path: 'athlete',                  component: PageAthletesGeneralComponent },
   { path: 'athlete/:entity_id',       component: PageAthleteComponent },
   { path: 'team',                     component: PageTeamsGeneralComponent },
