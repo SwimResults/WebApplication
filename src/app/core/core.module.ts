@@ -5,13 +5,15 @@ import {TranslateModule} from "@ngx-translate/core";
 import { IsVisibleDirective } from './directive/is-visible.directive';
 import {OAuthModule} from "angular-oauth2-oidc";
 import { WidgetDirective } from './directive/widget.directive';
+import { IsAuthedDirective } from './directive/is-authed.directive';
 
 
 
 @NgModule({
   declarations: [
     IsVisibleDirective,
-    WidgetDirective
+    WidgetDirective,
+    IsAuthedDirective
   ],
   imports: [
     CommonModule,
@@ -24,11 +26,12 @@ import { WidgetDirective } from './directive/widget.directive';
       }
     })
   ],
-    exports: [
-        TranslateModule,
-        IsVisibleDirective,
-        WidgetDirective
-    ]
+  exports: [
+      TranslateModule,
+      IsVisibleDirective,
+      WidgetDirective,
+      IsAuthedDirective
+  ]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() core:CoreModule ){

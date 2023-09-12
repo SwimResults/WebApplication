@@ -10,16 +10,11 @@ import {AuthService} from "../../../../core/service/auth.service";
 })
 export class HeaderButtonsComponent {
 
-  isAuthed: boolean = false;
-
   constructor(
     private translateService: TranslateService,
     private menuService: SidebarMenuService,
     private authService: AuthService
   ) {
-    this.authService.isAuthenticated.subscribe(isAuthed => {
-      this.isAuthed = isAuthed
-    })
   }
 
   changeLocale(lang: string) {

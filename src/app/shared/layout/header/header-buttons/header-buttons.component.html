@@ -22,7 +22,7 @@
 </button>
 
 <mat-menu #accountMenu="matMenu">
-  <button class="sr-btn sr-btn-menu" routerLink="/account/profile" *ngIf="isAuthed">
+  <button class="sr-btn sr-btn-menu" routerLink="/account/profile" *srIsAuthed="true">
     <mat-icon>person</mat-icon>
     <span>{{'HEADER.MENU.ACCOUNT.PROFILE_BUTTON_TEXT' | translate}}</span>
   </button>
@@ -33,11 +33,11 @@
 
   <mat-divider></mat-divider>
 
-  <button class="sr-btn sr-btn-menu" (click)="login()" *ngIf="!isAuthed">
+  <button class="sr-btn sr-btn-menu" (click)="login()" *srIsAuthed="false">
     <mat-icon>login</mat-icon>
     <span>{{'HEADER.MENU.ACCOUNT.LOGIN' | translate}}</span>
   </button>
-  <button class="sr-btn sr-btn-menu" (click)="logout()" *ngIf="isAuthed">
+  <button class="sr-btn sr-btn-menu" (click)="logout()" *srIsAuthed="true">
     <mat-icon>logout</mat-icon>
     <span>{{'HEADER.MENU.ACCOUNT.LOGOUT' | translate}}</span>
   </button>

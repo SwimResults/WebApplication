@@ -8,6 +8,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import {OAuthModule} from "angular-oauth2-oidc";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {MatDividerModule} from "@angular/material/divider";
+import {CoreModule} from "../../../../core/core.module";
 
 describe('HeaderButtonsComponent', () => {
   let component: HeaderButtonsComponent;
@@ -23,7 +24,8 @@ describe('HeaderButtonsComponent', () => {
         MatMenuModule,
         OAuthModule.forRoot(),
         HttpClientTestingModule,
-        MatDividerModule
+        MatDividerModule,
+        CoreModule
       ]
     })
     .compileComponents();
