@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {Example1Component} from "./content/example";
 import {CalendarComponent} from "./content/calendar/calendar.component";
 import {PageLiveComponent} from "./content/live";
 import {PageFilesComponent} from "./content/files";
@@ -15,7 +14,7 @@ import {PageMeetingsComponent} from "./content/meetings";
 
 
 const routes: Routes = [
-  { path: '',                         component: Example1Component },
+  { path: '',                         redirectTo: '/meetings', pathMatch: "full" },
   { path: 'auth',                     component: AuthComponent },
   { path: 'account/profile',          component: UserProfileComponent },
   { path: 'dashboard',                component: PageDashboardGeneralComponent },
