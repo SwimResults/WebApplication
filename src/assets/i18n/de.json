@@ -195,5 +195,26 @@
         "NO_STARTS_MESSAGE": "Es sind aktuell keine Starts für das Livetiming verfügbar.",
         "NO_LIVETIMING_MESSAGE": "Für diese Veranstaltung gibt es leider kein Livetiming.",
         "NO_CONTENT_MESSAGE": "Inhalt konnte nicht geladen werden."
+    },
+    "AUTH": {
+        "LOGOUT": {
+            "TITLE": "Abmelden",
+            "INFO_TEXT": "Du wurdest erfolgreich abgemeldet."
+        }
+    },
+    "USER": {
+        "PROFILE": {
+            "TITLE": "Benutzerprofil",
+            "NOT_AUTHED_MESSAGE": "Du bist nicht angemeldet!",
+            "USER_DATA_TITLE": "Gespeicherte Nutzerdaten",
+            "INTERNAL_ID": "Interne ID",
+            "USERNAME": "Benutzername",
+            "MAIL": "E-Mail",
+            "GIVEN_NAME": "Vorname",
+            "FAMILY_NAME": "Nachname",
+            "ACTION_BUTTON_TITLE": "Aktionen",
+            "DELETE_USER_BUTTON_TEXT": "Account löschen",
+            "CHANGE_DATA_BUTTON_TEXT": "Benutzerdaten ändern"
+        }
     }
 }

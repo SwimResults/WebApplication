@@ -11,11 +11,13 @@ import {PageEventComponent, PageEventsComponent} from "./content/events";
 import {AuthComponent} from "./content/auth/auth.component";
 import {UserProfileComponent} from "./content/account";
 import {PageMeetingsComponent} from "./content/meetings";
+import {LogoutComponent} from "./content/auth/logout/logout.component";
 
 
 const routes: Routes = [
   { path: '',                         component: PageMeetingsComponent, pathMatch: "full" },
   { path: 'auth',                     component: AuthComponent },
+  { path: 'auth/logout',              component: LogoutComponent },
   { path: 'account/profile',          component: UserProfileComponent },
   { path: 'dashboard',                component: PageDashboardGeneralComponent },
   { path: 'calendar',                 component: CalendarComponent },

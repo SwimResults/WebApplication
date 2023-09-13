@@ -177,5 +177,26 @@
         "NO_STARTS_MESSAGE": "There are currently no starts available for the livetiming.",
         "NO_LIVETIMING_MESSAGE": "This meeting does not support the livetiming feature.",
         "NO_CONTENT_MESSAGE": "Unable to load content."
+    },
+    "AUTH": {
+        "LOGOUT": {
+            "TITLE": "Logout",
+            "INFO_TEXT": "You have been logged out successfully."
+        }
+    },
+    "USER": {
+        "PROFILE": {
+            "TITLE": "User Profile",
+            "NOT_AUTHED_MESSAGE": "You are not logged in!",
+            "USER_DATA_TITLE": "Stored Information",
+            "INTERNAL_ID": "Internal ID",
+            "USERNAME": "Username",
+            "MAIL": "E-Mail",
+            "GIVEN_NAME": "Given Name",
+            "FAMILY_NAME": "Family Name",
+            "ACTION_BUTTON_TITLE": "Actions",
+            "DELETE_USER_BUTTON_TEXT": "Delete Account",
+            "CHANGE_DATA_BUTTON_TEXT": "Change User Data"
+        }
     }
 }

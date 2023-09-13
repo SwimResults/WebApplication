@@ -8,5 +8,6 @@ export const authConfig: AuthConfig = {
   responseType: 'code',
   strictDiscoveryDocumentValidation: true,
   scope: 'openid profile offline_access',
-  showDebugInformation: true
+  showDebugInformation: true,
+  postLogoutRedirectUri: window.location.origin + "/auth/logout"
 }

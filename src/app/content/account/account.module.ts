@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { UserProfileComponent } from './pages';
 import { UserProfileViewComponent } from './components/user-profile-view/user-profile-view.component';
 import {ElementsModule} from "../../shared/elements/elements.module";
+import {CoreModule} from "../../core/core.module";
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -13,7 +15,9 @@ import {ElementsModule} from "../../shared/elements/elements.module";
   ],
     imports: [
         CommonModule,
-        ElementsModule
+        ElementsModule,
+        CoreModule,
+        MatIconModule
     ]
 })
 export class AccountModule { }

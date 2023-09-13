@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../../core/service/auth.service";
 import {OAuthService} from "angular-oauth2-oidc";
 import {User} from "../../../../core/model/user/user.model";
-import {UserService} from "../../../../core/service/api/user/user.service";
+import {UserService} from "../../../../core/service/api";
 
 @Component({
   selector: 'sr-user-profile-view',
@@ -32,6 +32,14 @@ export class UserProfileViewComponent implements OnInit {
     this.userService.getUser().subscribe(data => {
       this.user = data
     })
+  }
+
+  deleteAccount() {
+    window.location.href = "mailto:kontakt@swimresults.de?subject=Antrag zur Löschung des SwimResults Accounts";
+  }
+
+  changeData() {
+    window.location.href = "mailto:kontakt@swimresults.de?subject=Antrag zur Änderung des SwimResults Accounts";
   }
 
 }
