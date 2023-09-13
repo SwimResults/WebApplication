@@ -8,6 +8,7 @@ import {RouteService} from "../../../../core/service/route.service";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
+import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
   selector: 'sr-event-view',
@@ -38,6 +39,8 @@ export class EventViewComponent implements OnInit, OnDestroy {
   } as StartListTileConfig;
 
   listMode: string = "lanes";
+
+  fetchingStarts: FetchingModel = {fetching: false};
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -83,6 +86,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
 
   fetchStarts() {
     if (this.meetingId) {
+      this.fetchingStarts.fetching = true;
       this.startService.getStartsByMeetingAndEvent(this.meetingId, this.eventNumber).subscribe(data => {
         this.starts = data;
 
@@ -125,6 +129,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
           // sort heats map by heat number
           this.heats = new Map([...this.heats.entries()].sort((a,b) => a[0] - b[0]));
 
+          this.fetchingStarts.fetching = false;
         }
 
       })

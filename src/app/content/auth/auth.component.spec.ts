@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AuthComponent } from './auth.component';
 import {OAuthModule} from "angular-oauth2-oidc";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {ElementsModule} from "../../shared/elements/elements.module";
 
 describe('AuthComponent', () => {
   let component: AuthComponent;
@@ -13,7 +14,8 @@ describe('AuthComponent', () => {
       declarations: [ AuthComponent ],
       imports: [
         OAuthModule.forRoot(),
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        ElementsModule
       ]
     })
     .compileComponents();
