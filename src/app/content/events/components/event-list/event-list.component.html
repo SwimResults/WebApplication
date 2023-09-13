@@ -1,18 +1,16 @@
-<sr-no-content *ngIf="!parts || parts.length <= 0">
-  {{'EVENT.LIST.NO_EVENTS_MESSAGE' | translate}}
-</sr-no-content>
-<div *ngFor="let part of parts">
-  <h2 *ngIf="part.number">{{'EVENT.LIST.PART_TITLE' | translate}} {{part.number}}</h2>
-  <sr-panel *ngIf="!fetchingHeats">
-    <sr-event-list-event
-      *ngFor="let event of part.events"
-      [event]="event"
-      [heats]="heats"
-    ></sr-event-list-event>
-  </sr-panel>
-<!--  <sr-panel>-->
-<!--    <div class="event link" *ngFor="let event of part.events" [routerLink]="'/m/' + event.meeting + '/event/' + event.number + '/'">-->
-<!--      <sr-event-list-tile [event]="event"></sr-event-list-tile>-->
-<!--    </div>-->
-<!--  </sr-panel>-->
-</div>
+<sr-spinner *ngIf="fetchingParts.fetching"></sr-spinner>
+<ng-container *ngIf="!fetchingParts.fetching">
+  <sr-no-content *ngIf="!parts || parts.length <= 0">
+    {{'EVENT.LIST.NO_EVENTS_MESSAGE' | translate}}
+  </sr-no-content>
+  <div *ngFor="let part of parts">
+    <h2 *ngIf="part.number">{{'EVENT.LIST.PART_TITLE' | translate}} {{part.number}}</h2>
+    <sr-panel *ngIf="!fetchingHeats">
+      <sr-event-list-event
+        *ngFor="let event of part.events"
+        [event]="event"
+        [heats]="heats"
+      ></sr-event-list-event>
+    </sr-panel>
+  </div>
+</ng-container>

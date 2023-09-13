@@ -6,6 +6,7 @@ import {RouteService} from "../../../../core/service/route.service";
 import {EventService} from "../../../../core/service/api";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
 import {HeatService} from "../../../../core/service/api";
+import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
   selector: 'sr-event-list',
@@ -20,6 +21,7 @@ export class EventListComponent implements OnDestroy {
   parts: MeetingPart[] = [];
   heats: Map<number, HeatImpl[]> = new Map<number, HeatImpl[]>()
   fetchingHeats: boolean = true;
+  fetchingParts: FetchingModel = {fetching: false};
 
   constructor(
     private routeService: RouteService,
@@ -31,10 +33,12 @@ export class EventListComponent implements OnDestroy {
     })
     this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
       this.meetingId = data;
+      this.fetchingParts.fetching = true;
       this.fetchHeats();
       if (this.meetingId) {
         this.eventService.getEventsAsPartsByMeeting(this.meetingId).subscribe(data => {
           this.parts = data;
+          this.fetchingParts.fetching = false;
         });
       }
     })
