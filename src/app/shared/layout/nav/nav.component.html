@@ -1,9 +1,9 @@
 <nav>
-  <sr-nav-link
+  <!--sr-nav-link
     icon="close"
     class="btn-menu"
     (click)="hideSidebar()"
-  ></sr-nav-link>
+  ></sr-nav-link-->
   <sr-nav-default *ngIf="!meetingId"></sr-nav-default>
   <sr-nav-event *ngIf="meetingId" [meeting]="meeting" [meetingId]="meetingId"></sr-nav-event>
 </nav>
