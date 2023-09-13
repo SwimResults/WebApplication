@@ -13,12 +13,14 @@ export class IsAuthedDirective implements OnInit {
   ) { }
 
   condition: boolean = true;
+  prevState?: boolean;
 
   ngOnInit() {
     console.log("SHOW AUTH DIRECTIVE: started");
     this.authService.isAuthenticated.subscribe(isAuthenticated => {
         console.log("SHOW AUTH DIRECTIVE:" + isAuthenticated);
         if (isAuthenticated && this.condition || !isAuthenticated && !this.condition) {
+          this.viewContainer.clear();
           this.viewContainer.createEmbeddedView(this.templateRef);
         } else {
           this.viewContainer.clear();
