@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {OAuthService} from "angular-oauth2-oidc";
 import {authConfig} from "../../config/auth.config";
 import {ReplaySubject} from "rxjs";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class AuthService {
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
   constructor(
-    private oAuthService: OAuthService
+    private oAuthService: OAuthService,
+    private router: Router
   ) {
     this.isAuthenticatedSubject.next(false);
     this.setup()
@@ -29,7 +31,7 @@ export class AuthService {
   }
 
   login() {
-    this.oAuthService.initCodeFlow()
+    this.oAuthService.initCodeFlow(this.router.url)
   }
 
   logout() {
