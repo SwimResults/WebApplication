@@ -9,7 +9,8 @@
                 "ATHLETES": "Athletes",
                 "TEAMS": "Teams",
                 "FILES": "Files",
-                "STATS": "Statistics"
+                "STATS": "Statistics",
+                "LEAVE_MEETING": "Leave {{short}}"
             }
         }
     },

@@ -16,6 +16,8 @@ export class NavComponent implements OnInit, OnDestroy {
   private meetingSubscription: Subscription;
   private meetingIdSubscription: Subscription;
 
+  meetingParam = {short: ""}
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -27,6 +29,7 @@ export class NavComponent implements OnInit, OnDestroy {
     })
     this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = data.meeting;
+      this.meetingParam.short = data.meeting.series.name_short;
     })
   }
 

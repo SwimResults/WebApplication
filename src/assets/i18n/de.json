@@ -26,7 +26,8 @@
                 "ATHLETES": "Sportler",
                 "TEAMS": "Vereine",
                 "FILES": "Dateien",
-                "STATS": "Statistiken"
+                "STATS": "Statistiken",
+                "LEAVE_MEETING": "{{short}} verlassen"
             }
         }
     },

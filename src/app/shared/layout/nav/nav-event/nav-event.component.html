@@ -1,43 +1,43 @@
-<div *ngIf="meetingId">
-<sr-nav-group>
-  <sr-nav-link
-    icon="dashboard"
-    link="/m/{{meetingId}}/dashboard"
-    link_title="NAV.LINK.TITLE.DASHBOARD"
-  ></sr-nav-link>
-  <sr-nav-link
-    icon="live_tv"
-    link="/m/{{meetingId}}/live"
-    link_title="NAV.LINK.TITLE.LIVE"
-  ></sr-nav-link>
-</sr-nav-group>
-<sr-nav-group>
-  <sr-nav-link
-    icon="flag"
-    link="/m/{{meetingId}}/event"
-    link_title="NAV.LINK.TITLE.EVENTS"
-  ></sr-nav-link>
-  <sr-nav-link
-    icon="pool"
-    link="/m/{{meetingId}}/athlete"
-    link_title="NAV.LINK.TITLE.ATHLETES"
-  ></sr-nav-link>
-  <sr-nav-link
-    icon="shield"
-    link="/m/{{meetingId}}/team"
-    link_title="NAV.LINK.TITLE.TEAMS"
-  ></sr-nav-link>
-</sr-nav-group>
-<sr-nav-group>
-  <sr-nav-link
-    icon="description"
-    link="/m/{{meetingId}}/files"
-    link_title="NAV.LINK.TITLE.FILES"
-  ></sr-nav-link>
-<!--  <sr-nav-link-->
-<!--    icon="bar_chart"-->
-<!--    link="/m/{{meetingId}}/stats"-->
-<!--    link_title="NAV.LINK.TITLE.STATS"-->
-<!--  ></sr-nav-link>-->
-</sr-nav-group>
-</div>
+<ng-container *ngIf="meetingId">
+  <sr-nav-group>
+    <sr-nav-link
+      icon="dashboard"
+      link="/m/{{meetingId}}/dashboard"
+      link_title="{{'NAV.LINK.TITLE.DASHBOARD' | translate}}"
+    ></sr-nav-link>
+    <sr-nav-link
+      icon="live_tv"
+      link="/m/{{meetingId}}/live"
+      link_title="{{'NAV.LINK.TITLE.LIVE' | translate}}"
+    ></sr-nav-link>
+  </sr-nav-group>
+  <sr-nav-group>
+    <sr-nav-link
+      icon="flag"
+      link="/m/{{meetingId}}/event"
+      link_title="{{'NAV.LINK.TITLE.EVENTS' | translate}}"
+    ></sr-nav-link>
+    <sr-nav-link
+      icon="pool"
+      link="/m/{{meetingId}}/athlete"
+      link_title="{{'NAV.LINK.TITLE.ATHLETES' | translate}}"
+    ></sr-nav-link>
+    <sr-nav-link
+      icon="shield"
+      link="/m/{{meetingId}}/team"
+      link_title="{{'NAV.LINK.TITLE.TEAMS' | translate}}"
+    ></sr-nav-link>
+  </sr-nav-group>
+  <sr-nav-group>
+    <sr-nav-link
+      icon="description"
+      link="/m/{{meetingId}}/files"
+      link_title="{{'NAV.LINK.TITLE.FILES' | translate}}"
+    ></sr-nav-link>
+  <!--  <sr-nav-link-->
+  <!--    icon="bar_chart"-->
+  <!--    link="/m/{{meetingId}}/stats"-->
+  <!--    link_title="{{'NAV.LINK.TITLE.STATS' | translate}}"-->
+  <!--  ></sr-nav-link>-->
+  </sr-nav-group>
+</ng-container>
