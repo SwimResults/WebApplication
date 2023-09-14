@@ -7,6 +7,9 @@
 </button>
 
 <mat-menu #languageMenu="matMenu">
+  <span class="menu-title"><b>{{'HEADER.MENU.LANGUAGE_TITLE' | translate}}</b></span>
+  <mat-divider></mat-divider>
+
   <button class="sr-btn sr-btn-menu" (click)="changeLocale('de')">
     <mat-icon>translate</mat-icon>
     <span>{{'COMMON.LANGUAGE.DE' | translate}}</span>
@@ -22,6 +25,9 @@
 </button>
 
 <mat-menu #accountMenu="matMenu">
+  <span class="menu-title"><b>{{kcUser["given_name"] + " " + kcUser["family_name"]}}</b></span>
+  <mat-divider></mat-divider>
+
   <button class="sr-btn sr-btn-menu" routerLink="/account/profile" *srIsAuthed="true">
     <mat-icon>person</mat-icon>
     <span>{{'HEADER.MENU.ACCOUNT.PROFILE_BUTTON_TEXT' | translate}}</span>

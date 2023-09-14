@@ -138,7 +138,8 @@
                 "PROFILE_BUTTON_TEXT": "Profil anzeigen",
                 "LOGIN": "Login",
                 "LOGOUT": "Logout"
-            }
+            },
+            "LANGUAGE_TITLE": "Sprache auswählen"
         }
     },
     "TEAM": {

@@ -1,20 +1,27 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {SidebarMenuService} from "../../../../core/service/sidebar-menu.service";
 import {AuthService} from "../../../../core/service/auth.service";
+import {OAuthService} from "angular-oauth2-oidc";
 
 @Component({
   selector: 'sr-header-buttons',
   templateUrl: './header-buttons.component.html',
   styleUrls: ['./header-buttons.component.scss']
 })
-export class HeaderButtonsComponent {
+export class HeaderButtonsComponent implements OnInit {
+  kcUser: any;
 
   constructor(
     private translateService: TranslateService,
     private menuService: SidebarMenuService,
-    private authService: AuthService
+    private authService: AuthService,
+    private oAuthService: OAuthService
   ) {
+  }
+
+  ngOnInit() {
+    this.kcUser = this.oAuthService.getIdentityClaims();
   }
 
   changeLocale(lang: string) {

@@ -2,6 +2,11 @@
   display: none;
 }
 
+.menu-title {
+  padding: 8px;
+  display: block;
+}
+
 @media only screen and (max-width: 1050px) {
   .btn-menu {
     display: inline-block;
