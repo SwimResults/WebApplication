@@ -52,7 +52,10 @@
         },
         "LANGUAGE": {
             "EN": "Englisch",
-            "DE": "Deutsch"
+            "DE": "Deutsch",
+            "CZ": "Tschechisch",
+            "UA": "Ukrainisch",
+            "RU": "Russisch"
         },
         "STYLE": {
             "MEDLEY": {
@@ -217,6 +220,11 @@
             "ACTION_BUTTON_TITLE": "Aktionen",
             "DELETE_USER_BUTTON_TEXT": "Account löschen",
             "CHANGE_DATA_BUTTON_TEXT": "Benutzerdaten ändern"
+        }
+    },
+    "WIDGET": {
+        "COMING_SOON": {
+            "MAIN_TEXT": "Dieses Dashboard wird fortlaufend um zusätzliche Widgets erweitert."
         }
     }
 }

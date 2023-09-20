@@ -26,7 +26,8 @@
             "HEAT": "Heat"
         },
         "LIST": {
-            "PART_TITLE": "Session"
+            "PAGE_TITLE": "Schedule",
+            "PART_TITLE": "Part"
         }
     },
     "COMMON": {
@@ -199,6 +200,11 @@
             "ACTION_BUTTON_TITLE": "Actions",
             "DELETE_USER_BUTTON_TEXT": "Delete Account",
             "CHANGE_DATA_BUTTON_TEXT": "Change User Data"
+        }
+    },
+    "WIDGET": {
+        "COMING_SOON": {
+            "MAIN_TEXT": "This dashboard will be extended in the future and new widgets will be added."
         }
     }
 }

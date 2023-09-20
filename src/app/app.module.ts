@@ -33,7 +33,7 @@ export function HttpLoaderFactory(http: HttpClient) {
             useFactory: HttpLoaderFactory,
             deps: [HttpClient]
           },
-          defaultLanguage: 'de'
+          defaultLanguage: 'en'
         })
     ],
   exports: [
@@ -44,4 +44,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
