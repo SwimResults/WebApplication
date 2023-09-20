@@ -3,7 +3,7 @@
 <!--</button>-->
 
 <button class="sr-btn-bar sr-btn-icon sr-btn" [matMenuTriggerFor]="languageMenu">
-  <mat-icon>language</mat-icon>
+  <mat-icon>translate</mat-icon>
 </button>
 
 <mat-menu #languageMenu="matMenu">
@@ -11,12 +11,24 @@
   <mat-divider></mat-divider>
 
   <button class="sr-btn sr-btn-menu" (click)="changeLocale('de')">
-    <mat-icon>translate</mat-icon>
+    <img src="https://flagsapi.com/DE/flat/24.png" alt="DE">
     <span>{{'COMMON.LANGUAGE.DE' | translate}}</span>
   </button>
+  <button class="sr-btn sr-btn-menu" (click)="changeLocale('cs')">
+    <img src="https://flagsapi.com/CZ/flat/24.png" alt="CZ">
+    <span>{{'COMMON.LANGUAGE.CZ' | translate}}</span>
+  </button>
   <button class="sr-btn sr-btn-menu" (click)="changeLocale('en')">
-    <mat-icon>translate</mat-icon>
+    <img src="https://flagsapi.com/GB/flat/24.png" alt="EN">
     <span>{{'COMMON.LANGUAGE.EN' | translate}}</span>
+  </button>
+  <button class="sr-btn sr-btn-menu" (click)="changeLocale('ua')">
+    <img src="https://flagsapi.com/UA/flat/24.png" alt="UA">
+    <span>{{'COMMON.LANGUAGE.UA' | translate}}</span>
+  </button>
+  <button class="sr-btn sr-btn-menu" (click)="changeLocale('ru')">
+    <img src="https://flagsapi.com/RU/flat/24.png" alt="RU">
+    <span>{{'COMMON.LANGUAGE.RU' | translate}}</span>
   </button>
 </mat-menu>
 
