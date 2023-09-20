@@ -31,7 +31,7 @@ export class PageDashboardEventComponent {
           id: 1,
           size: "SMALL",
           user: "default",
-          content: "user",
+          content: "clock",
           orderPosition: 1,
           container: undefined
         },
@@ -39,46 +39,16 @@ export class PageDashboardEventComponent {
           id: 2,
           size: "SMALL",
           user: "default",
-          content: "user",
+          content: "swimresults",
           orderPosition: 2,
           container: undefined
         },
         {
           id: 3,
-          size: "SMALL",
+          size: "MEDIUM",
           user: "default",
-          content: "user",
+          content: "coming-soon",
           orderPosition: 3,
-          container: undefined
-        },
-        {
-          id: 4,
-          size: "SMALL",
-          user: "default",
-          content: "clock",
-          orderPosition: 4,
-          container: undefined
-        }
-      ]
-    },
-    {
-      id: 2,
-      orderPosition: 2,
-      widgets: [
-        {
-          id: 1,
-          size: "MEDIUM",
-          user: "default",
-          content: "clock",
-          orderPosition: 1,
-          container: undefined
-        },
-        {
-          id: 2,
-          size: "MEDIUM",
-          user: "default",
-          content: "meeting",
-          orderPosition: 2,
           container: undefined
         }
       ]

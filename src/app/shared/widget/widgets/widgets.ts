@@ -5,6 +5,15 @@ import {WidgetMeetingMediumComponent} from "./meeting/widget-meeting-medium/widg
 import {WidgetClockSmallComponent} from "./clock/widget-clock-small/widget-clock-small.component";
 import {WidgetClockLargeComponent} from "./clock/widget-clock-large/widget-clock-large.component";
 import {WidgetClockMediumComponent} from "./clock/widget-clock-medium/widget-clock-medium.component";
+import {
+  WidgetSwimresultsSmallComponent
+} from "./swimresults/widget-swimresults-small/widget-swimresults-small.component";
+import {
+  WidgetComingSoonLargeComponent
+} from "./coming-soon/widget-coming-soon-large/widget-coming-soon-large.component";
+import {
+  WidgetComingSoonMediumComponent
+} from "./coming-soon/widget-coming-soon-medium/widget-coming-soon-medium.component";
 
 export type ComponentClass = { new (): Component };
 
@@ -15,3 +24,6 @@ widgetComponents.set('user-small', WidgetUserSmallComponent);
 widgetComponents.set('clock-large', WidgetClockLargeComponent);
 widgetComponents.set('clock-medium', WidgetClockMediumComponent);
 widgetComponents.set('clock-small', WidgetClockSmallComponent);
+widgetComponents.set('swimresults-small', WidgetSwimresultsSmallComponent);
+widgetComponents.set('coming-soon-large', WidgetComingSoonLargeComponent);
+widgetComponents.set('coming-soon-medium', WidgetComingSoonMediumComponent);

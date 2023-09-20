@@ -13,6 +13,9 @@ import {RouterLink} from "@angular/router";
 import {WidgetClockLargeComponent} from "./widgets/clock/widget-clock-large/widget-clock-large.component";
 import {WidgetClockMediumComponent} from "./widgets/clock/widget-clock-medium/widget-clock-medium.component";
 import {WidgetClockSmallComponent} from "./widgets/clock/widget-clock-small/widget-clock-small.component";
+import { WidgetSwimresultsSmallComponent } from './widgets/swimresults/widget-swimresults-small/widget-swimresults-small.component';
+import { WidgetComingSoonLargeComponent } from './widgets/coming-soon/widget-coming-soon-large/widget-coming-soon-large.component';
+import { WidgetComingSoonMediumComponent } from './widgets/coming-soon/widget-coming-soon-medium/widget-coming-soon-medium.component';
 
 
 
@@ -26,7 +29,10 @@ import {WidgetClockSmallComponent} from "./widgets/clock/widget-clock-small/widg
     WidgetUserSmallComponent,
     WidgetClockLargeComponent,
     WidgetClockMediumComponent,
-    WidgetClockSmallComponent
+    WidgetClockSmallComponent,
+    WidgetSwimresultsSmallComponent,
+    WidgetComingSoonLargeComponent,
+    WidgetComingSoonMediumComponent
   ],
   exports: [
     WidgetViewerComponent

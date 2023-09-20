@@ -1,0 +1,19 @@
+@import "../../../../../../colors";
+
+img {
+  width: 70px;
+  height: 70px;
+  margin: 4px calc(50% - 35px);
+}
+
+span {
+  text-align: center;
+  width: 100%;
+  display: block;
+  color: $color-text-main;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}

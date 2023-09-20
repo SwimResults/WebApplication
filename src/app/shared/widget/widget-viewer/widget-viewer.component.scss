@@ -8,3 +8,11 @@ sr-widget-container {
   display: inline-block;
   width: auto;
 }
+
+@media only screen and (max-width: 662px) {
+  .widget-containers {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
