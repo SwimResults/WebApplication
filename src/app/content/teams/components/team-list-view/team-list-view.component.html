@@ -2,5 +2,6 @@
 
 <sr-list-view
   [data]="listTeams"
+  [fetching]="fetchingTeams"
   (refreshData)="fetchTeams($event)"
 ></sr-list-view>

@@ -1,6 +1,6 @@
 import {Address} from "./address.model";
 import {Contact} from "./contact.model";
-import {ColorSet} from "./color-set.model";
+import {ColorSet} from "../common/color-set.model";
 
 export interface Team {
   _id: string;

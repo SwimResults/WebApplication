@@ -1,0 +1,24 @@
+.time {
+  display: block;
+}
+.live-on-time {
+  color: green;
+}
+.live-late {
+  color: red;
+}
+
+.vertical {
+  .estimation-no-start {
+    margin-top: 10px;
+  }
+}
+
+.horizontal {
+  .time {
+    display: inline-block;
+    &.live {
+      margin-left: 8px;
+    }
+  }
+}

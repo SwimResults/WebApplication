@@ -4,6 +4,8 @@ import { EventViewComponent } from './event-view.component';
 import {RouterTestingModule} from "@angular/router/testing";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
+import {ElementsModule} from "../../../../shared/elements/elements.module";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 describe('EventViewComponent', () => {
   let component: EventViewComponent;
@@ -15,6 +17,8 @@ describe('EventViewComponent', () => {
       imports: [
         RouterTestingModule,
         HttpClientTestingModule,
+        ElementsModule,
+        MatButtonToggleModule,
         TranslateModule.forRoot()
       ]
     })

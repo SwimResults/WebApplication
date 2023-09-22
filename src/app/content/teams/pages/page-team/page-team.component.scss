@@ -3,3 +3,39 @@ sr-team-profile-intro {
   margin: 44px auto;
   text-align: center;
 }
+
+.team-info {
+  margin-bottom: 32px;
+
+  sr-panel {
+    display: inline-block;
+    margin: 12px;
+  }
+}
+
+.team-info-panels {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.team-contact-info {
+  display: block;
+  padding: 4px 0;
+
+  mat-icon, span {
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  mat-icon {
+    margin-right: 6px;
+  }
+
+  span {
+    width: calc(100% - 30px);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

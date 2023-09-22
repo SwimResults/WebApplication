@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StartListTileComponent } from './start-list-tile.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {ElementsModule} from "../../../../shared/elements/elements.module";
 
 describe('StartListTileComponent', () => {
   let component: StartListTileComponent;
@@ -11,7 +12,8 @@ describe('StartListTileComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ StartListTileComponent ],
       imports: [
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        ElementsModule
       ]
     })
     .compileComponents();

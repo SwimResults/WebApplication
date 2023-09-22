@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {StartService} from "../../../../core/service/api";
 import {Start} from "../../../../core/model/start/start.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
+import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
   selector: 'sr-athlete-starts',
@@ -13,6 +14,8 @@ export class AthleteStartsComponent implements OnInit{
   @Input() meetingId?: string;
   starts: Start[] = [];
 
+  fetchingStarts: FetchingModel = {fetching: false};
+
   config: StartListTileConfig = {} as StartListTileConfig;
 
   constructor(
@@ -22,17 +25,32 @@ export class AthleteStartsComponent implements OnInit{
 
   ngOnInit() {
     this.fetchStarts();
-    this.config = {showMeeting: (this.meetingId === undefined), showEvent: (this.meetingId !== undefined), showHeat: (this.meetingId !== undefined), showLane: (this.meetingId !== undefined), showStyle: true} as StartListTileConfig;
+    this.config = {
+      showMeeting: (this.meetingId === undefined),
+      showEvent: (this.meetingId !== undefined),
+      showHeat: (this.meetingId !== undefined),
+      showLane: (this.meetingId !== undefined),
+      showStyle: true,
+      showTimes: true,
+      showRegistrationTime: true,
+      showResults: true,
+      showResultTime: true,
+      showDisqualification: true,
+      showReactionTime: true,
+      rankStylesIcon: true} as StartListTileConfig;
   }
 
   fetchStarts() {
+    this.fetchingStarts.fetching = true;
     if (this.meetingId === undefined) {
       this.startService.getStartsByAthlete(this.athleteId).subscribe(data => {
         this.starts = data;
+        this.fetchingStarts.fetching = false;
       })
     } else {
       this.startService.getStartsByMeetingAndAthlete(this.meetingId, this.athleteId).subscribe(data => {
         this.starts = data;
+        this.fetchingStarts.fetching = false;
       })
     }
   }

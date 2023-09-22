@@ -1,0 +1,15 @@
+<ng-container *ngIf="meeting">
+  <span class="title">{{meeting.getFullSeriesName()}}</span>
+  <div class="info">
+    <mat-icon>place</mat-icon>
+    <div class="info-content location">
+      <span>{{meeting.location.name}}</span><br>
+      <span>{{meeting.location.street}} {{meeting.location.number}}</span><br>
+      <span>{{meeting.location.postal_code}} {{meeting.location.city}}</span>
+    </div>
+  </div>
+  <div class="info">
+    <mat-icon>calendar_month</mat-icon>
+    <span class="info-content date">{{meeting.getDateStringWithYear()}}</span>
+  </div>
+</ng-container>

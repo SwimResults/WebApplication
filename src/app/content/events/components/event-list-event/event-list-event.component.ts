@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
 import {ActivatedRoute, Router} from "@angular/router";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'sr-event-list-event',
@@ -12,27 +13,32 @@ export class EventListEventComponent implements OnInit {
   @Input() event!: MeetingEvent;
   @Input() heats!: Map<number, HeatImpl[]>;
   heat?: HeatImpl;
-  expanded: boolean = false;
+  eventHeats: HeatImpl[] = [];
+
+  heatString: string = "";
+  heatsString: string = "";
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private translate: TranslateService
   ) {
   }
 
   ngOnInit() {
-    let h: HeatImpl[] | undefined = this.heats?.get(this.event.number);
-    if (h && h.length > 0)
-      this.heat = h[0];
-  }
+    this.translate.get("COMMON.HEAT.PLURAL").subscribe(data => this.heatsString = data);
+    this.translate.get("COMMON.HEAT.SINGULAR").subscribe(data => this.heatString = data);
 
-  toggleExpand() {
-    this.expanded = !this.expanded;
+    let h: HeatImpl[] | undefined = this.heats?.get(this.event.number);
+    if (h && h.length > 0) {
+      this.heat = h[0];
+      this.eventHeats = h;
+    }
   }
 
   openEvent() {
     this.router.navigate([this.event.number], {relativeTo: this.route}).then(_ => {
       console.log("failed to navigate to event: " + this.event.number)
     })
-   }
+  }
 }

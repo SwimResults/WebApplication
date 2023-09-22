@@ -4,6 +4,7 @@ import {environment} from "../../../../../environments/environment";
 import {Observable} from "rxjs";
 import {Heat} from "../../../model/start/heat.model";
 import {ApiService} from "../api.service";
+import {EventHeatInfo} from "../../../model/start/event-heat-info.model";
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,14 @@ export class HeatService extends BaseService{
 
   getHeatsByMeeting(meeting: string): Observable<Heat[]> {
     return this.apiService.get(this.API_URL, "heat/meet/" + meeting);
+  }
+
+  getEventHeatInfo(meeting: string, event: number): Observable<EventHeatInfo> {
+    return this.apiService.get(this.API_URL, "heat/meet/" + meeting + "/event/" + event + "/info")
+  }
+
+
+  getCurrentHeat(meeting: string): Observable<Heat> {
+    return this.apiService.get(this.API_URL, "heat/meet/" + meeting + "/current");
   }
 }

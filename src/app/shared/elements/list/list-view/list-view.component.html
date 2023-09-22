@@ -1,14 +1,15 @@
 <div class="search-view">
-  <sr-panel class="search-panel">
+  <sr-panel class="search-panel" *ngIf="useSearch">
     <sr-list-filter-row (querySearch)="onSearch($event)"></sr-list-filter-row>
   </sr-panel>
-  <br>
+  <br *ngIf="useSearch">
   <sr-panel>
     <div class="list" *ngIf="data">
       <div *ngIf="data.length > 0">
         <sr-list-tile *ngFor="let entry of data; let i = index" [entry]="entry" srIsVisible (elementVisible)="fetchData($event)" [isTargetElement]="i === data.length - 1"></sr-list-tile>
       </div>
-      <span *ngIf="data.length <= 0">{{'COMMON.LIST.NO_ENTRIES_MESSAGE' | translate}}</span>
+      <sr-spinner *ngIf="fetching.fetching && data.length <= 0"></sr-spinner>
+      <span *ngIf="!fetching.fetching && data.length <= 0">{{'COMMON.LIST.NO_ENTRIES_MESSAGE' | translate}}</span>
     </div>
     <span *ngIf="!data">{{'COMMON.LIST.NO_ENTRIES_MESSAGE' | translate}}</span>
   </sr-panel>

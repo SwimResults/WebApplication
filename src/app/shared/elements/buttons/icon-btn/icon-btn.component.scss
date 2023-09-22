@@ -1,0 +1,8 @@
+.btn {
+  ::ng-deep {
+    mat-icon {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}

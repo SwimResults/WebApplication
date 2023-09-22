@@ -1,32 +1,54 @@
 $color-sr-first: #204988;
+//$color-sr-first: #3fcd10;
 $color-sr-dark: #052a62;
+$color-sr-second: #0099f8;
+//$color-sr-dark: #0e8d00;
 
-$color-bg-gray: #f5f5f5;
-$color-bg-first: #ffffff;
+$color-bg-page: #f2f2f2;
+$color-bg-contrast: #ffffff;
+$color-bg-first: #ffffffaa;
+$color-bg-popup: #ffffff;
 $color-shadow-first: #999999;
-$color-shadow-second: black;
-
-$color-search-bg: #e6e6e6;
-$color-search-text: #6b6b6b;
-
-$color-sidebar-header: #ffffff;
-$color-sidebar-bg: $color-sr-dark;
-$color-sidebar-border: #aaaaaa;
-
-$color-nav-link: #68a2c6;
-$color-nav-link-active: #00dbff;
-$color-nav-group-title: $color-nav-link;
-$color-nav-bg-active: #111246;
+$color-shadow-second: #000000;
 
 $color-text-main: #222222;
-$color-text-gray: #727272;
+$color-text-gray: #6b6b6b;
+
+$color-search-bg: #ffffff;
+$color-search-text: $color-text-gray;
+
+$color-sidebar-header: $color-sr-first;
+$color-sidebar-bg: #ffffffaa;
+$color-sidebar-border: #aaaaaa00;
+
+$color-nav-link: $color-sr-first;
+$color-nav-link-active: #fff;
+$color-nav-link-hover: $color-sr-second;
+$color-nav-group-title: $color-nav-link;
+$color-nav-bg-active: $color-sr-dark;
+
 
 $color-icon-first: $color-sr-dark;
 
 $color-btn-first: $color-sr-first;
 $color-btn-second: #eaeaea;
 
-$color-hr-border: #d9d9d9;
+$color-hr-border: #d0d0d0;
+
+$color-red: #d72c2c;
+$color-green: #39c114;
+
+$color-disqualification: $color-red;
+$color-gold: #ffc000;
+$color-silver: #acacac;
+$color-bronze: #d57b00;
+
+// files
+
+$color-pdf: #aa0a00;
+$color-dsv: #0176bb;
+$color-lex: #5dc1f3;
+$color-zip: #edc213;
 
 $random-colors: [
   #ff5151,

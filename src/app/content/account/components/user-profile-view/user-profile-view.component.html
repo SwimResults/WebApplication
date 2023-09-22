@@ -1,0 +1,58 @@
+<ng-container *ngIf="isAuthed">
+  <h1 *ngIf="!kcUser">{{'USER.PROFILE.TITLE' | translate}}</h1>
+  <h1 *ngIf="kcUser">
+    <span *ngIf="kcUser['given_name'] && kcUser['family_name']">
+      {{kcUser["given_name"] + " " + kcUser["family_name"]}}
+    </span>
+    <span *ngIf="!kcUser['given_name'] || !kcUser['family_name']">
+      {{kcUser["preferred_username"]}}
+    </span>
+  </h1>
+
+  <sr-panel
+    panelTitle="{{'USER.PROFILE.USER_DATA_TITLE' | translate}}"
+  >
+    <table *ngIf="kcUser">
+      <tr>
+        <td>{{'USER.PROFILE.INTERNAL_ID' | translate}}</td>
+        <td>{{user._id}}</td>
+      </tr>
+      <tr>
+        <td>{{'USER.PROFILE.USERNAME' | translate}}</td>
+        <td>{{kcUser["preferred_username"]}}</td>
+      </tr>
+      <tr>
+        <td>{{'USER.PROFILE.MAIL' | translate}}</td>
+        <td>{{kcUser["email"]}}</td>
+      </tr>
+      <tr>
+        <td>{{'USER.PROFILE.GIVEN_NAME' | translate}}</td>
+        <td>{{kcUser["given_name"]}}</td>
+      </tr>
+      <tr>
+        <td>{{'USER.PROFILE.FAMILY_NAME' | translate}}</td>
+        <td>{{kcUser["family_name"]}}</td>
+      </tr>
+    </table>
+  </sr-panel>
+  <br>
+  <br>
+  <sr-panel
+    panelTitle="{{'USER.PROFILE.ACTION_BUTTON_TITLE' | translate}}"
+  >
+    <sr-btn (btnClick)="deleteAccount()">
+      <mat-icon>delete_forever</mat-icon>
+      <span>{{'USER.PROFILE.DELETE_USER_BUTTON_TEXT' | translate}}</span>
+    </sr-btn>
+    &nbsp;
+    <sr-btn (btnClick)="changeData()">
+      <mat-icon>edit</mat-icon>
+      <span>{{'USER.PROFILE.CHANGE_DATA_BUTTON_TEXT' | translate}}</span>
+    </sr-btn>
+  </sr-panel>
+</ng-container>
+
+<ng-container *ngIf="!isAuthed">
+  <h1>{{'USER.PROFILE.TITLE' | translate}}</h1>
+  <sr-no-content>{{'USER.PROFILE.NOT_AUTHED_MESSAGE' | translate}}</sr-no-content>
+</ng-container>

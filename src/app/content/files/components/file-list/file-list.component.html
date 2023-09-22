@@ -1,0 +1,14 @@
+
+<sr-spinner *ngIf="fetchingFiles.fetching"></sr-spinner>
+<div *ngIf="!fetchingFiles.fetching">
+  <sr-panel *ngIf="files && files.length > 0">
+    <sr-file-list-tile
+      *ngFor="let file of files"
+      [file]="file"
+    >
+    </sr-file-list-tile>
+  </sr-panel>
+  <sr-no-content *ngIf="!files || files.length <= 0">
+    {{'FILES.NO_FILES_MESSAGE' | translate}}
+  </sr-no-content>
+</div>

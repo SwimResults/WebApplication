@@ -1,0 +1,17 @@
+.livetiming-grid {
+  display: grid;
+  max-width: 600px;  grid-gap: 24px;
+  justify-content: center;
+  align-content: center;
+}
+
+.livetiming-grid-element {
+  display: block;
+  justify-self: center;
+
+}
+
+
+sr-livetiming-header.livetiming-grid-element {
+  justify-self: end;
+}

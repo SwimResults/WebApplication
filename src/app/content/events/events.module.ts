@@ -10,29 +10,29 @@ import { EventListComponent } from './components/event-list/event-list.component
 import { EventListTileComponent } from './components/event-list-tile/event-list-tile.component';
 import { EventListHeatComponent } from './components/event-list-heat/event-list-heat.component';
 import { EventListEventComponent } from './components/event-list-event/event-list-event.component';
-import { EventListDelayComponent } from './components/event-list-delay/event-list-delay.component';
 import {MatIconModule} from "@angular/material/icon";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 
 
 @NgModule({
-  declarations: [
-    PageEventsComponent,
-    PageEventComponent,
-    EventViewComponent,
-    EventListComponent,
-    EventListTileComponent,
-    EventListHeatComponent,
-    EventListEventComponent,
-    EventListDelayComponent
-  ],
+    declarations: [
+        PageEventsComponent,
+        PageEventComponent,
+        EventViewComponent,
+        EventListComponent,
+        EventListTileComponent,
+        EventListHeatComponent,
+        EventListEventComponent
+    ],
     imports: [
         CommonModule,
-        StartsModule,
         ElementsModule,
         CoreModule,
         RouterLink,
-        MatIconModule
+        MatIconModule,
+        StartsModule,
+        MatButtonToggleModule
     ]
 })
 export class EventsModule { }

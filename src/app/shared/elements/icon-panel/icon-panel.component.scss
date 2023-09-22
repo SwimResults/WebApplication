@@ -1,6 +1,10 @@
 @import "../../../../colors";
 
 :host {
+  display: inline-block;
+}
+
+.icon-panel {
   padding: 6px;
   height: 28px;
   width: 28px;
@@ -12,23 +16,17 @@
   border-radius: 10px;
   vertical-align: middle;
   //box-shadow: 0 0 10px -4px $color-shadow-second;
+
+  &.style-flat {
+    height: 10px;
+    line-height: 0.3;
+
+    .mat-icon {
+      margin-top: -6px;
+    }
+  }
 }
 
-:host.rank1 {
-  background-color: #ffc000;
-}
-
-:host.rank2 {
-  background-color: #acacac;
-}
-
-:host.rank3 {
-  background-color: #d57b00;
-}
-
-:host.disqualified {
-  background-color: #d72c2c;
-}
 
 .mat-icon {
   margin-top: 2px;
@@ -40,4 +38,44 @@ span {
   display: inline-block;
   vertical-align: middle;
   margin-top: 4px;
+}
+
+
+// DIFFERENT COLOR DEFINITIONS
+
+
+:host.rank1 .icon-panel {
+  background-color: $color-gold;
+}
+
+:host.rank2 .icon-panel {
+  background-color: $color-silver;
+}
+
+:host.rank3 .icon-panel {
+  background-color: $color-bronze;
+}
+
+:host.disqualified .icon-panel {
+  background-color: $color-disqualification;
+}
+
+:host.pdf .icon-panel {
+  background-color: $color-pdf;
+}
+
+:host.dsv .icon-panel {
+  background-color: $color-dsv;
+}
+
+:host.lef .icon-panel {
+  background-color: $color-lex;
+}
+
+:host.zip .icon-panel {
+  background-color: $color-zip;
+}
+
+:host.inactive .icon-panel {
+  background-color: #0176bb;
 }

@@ -29,7 +29,7 @@ export class StartService extends BaseService {
     return this.apiService.get(this.API_URL, "start/meet/" + meeting + "/athlete/" + athlete);
   }
 
-  getStartsByMeetingAndEvent(meeting: string, event: string): Observable<Start[]> {
+  getStartsByMeetingAndEvent(meeting: string, event: number): Observable<Start[]> {
     return this.apiService.get(this.API_URL, "start/meet/" + meeting + "/event/" + event);
   }
 
@@ -47,6 +47,10 @@ export class StartService extends BaseService {
 
   getStartByMeetingAndEventAndHeatAndLane(meeting: string, event: number, heat: number, lane: number): Observable<Start> {
     return this.apiService.get(this.API_URL, "start/meet/" + meeting + "/event/" + event + "/heat/" + heat + "/lane/" + lane);
+  }
+
+  getCurrentStarts(meeting: string): Observable<Start[]> {
+    return this.apiService.get(this.API_URL, "start/meet/" + meeting + "/current");
   }
 
   getStartById(id: string): Observable<Start> {

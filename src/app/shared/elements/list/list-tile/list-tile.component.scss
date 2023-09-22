@@ -17,10 +17,14 @@
   width: 40px;
 }
 
-.link {
-  cursor: pointer;
-}
-
-.link:hover {
-  text-decoration: underline;
+@media only screen and (max-width: 800px) {
+  .main-icon {
+    display: none;
+  }
+  .sr-right {
+    display: none;
+  }
+  .name {
+    font-weight: 700;
+  }
 }

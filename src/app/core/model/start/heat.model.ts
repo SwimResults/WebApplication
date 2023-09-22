@@ -1,9 +1,12 @@
+import {createDate} from "../../function/date.functions";
+
 export interface Heat {
   _id: string;
   meeting: string;
   event: number;
   number: number;
   start_estimation: string;
+  start_delay_estimation: string;
   start_at: string;
   finished_at: string;
 }
@@ -11,11 +14,12 @@ export interface Heat {
 export class HeatImpl implements Heat {
   _id: string;
   event: number;
-  finished_at: string;
   meeting: string;
   number: number;
-  start_at: string;
   start_estimation: string;
+  start_delay_estimation: string;
+  start_at: string;
+  finished_at: string;
 
 
   constructor(heat: Heat) {
@@ -26,23 +30,68 @@ export class HeatImpl implements Heat {
     this.number = heat.number;
     this.start_at = heat.start_at;
     this.start_estimation = heat.start_estimation;
+    this.start_delay_estimation = heat.start_delay_estimation;
   }
 
   getEstimatedStart(): Date {
-    return new Date(this.start_estimation);
+    return createDate(this.start_estimation);
   }
 
   getEstimatedStartTime(): string {
     const d = this.getEstimatedStart();
-    return d.getHours() + ":" + d.getMinutes();
+    let minutes = "0" + d.getMinutes();
+    return d.getHours() + ":" + minutes.substr(-2);
+  }
+
+  getStartDelayEstimation(): Date {
+    return createDate(this.start_delay_estimation);
+  }
+
+  getFinishedAt(): Date {
+    return createDate(this.finished_at);
+  }
+
+  getFinishedAtTime(): string {
+    const d = this.getFinishedAt();
+    let minutes = "0" + d.getMinutes();
+    return d.getHours() + ":" + minutes.substr(-2);
+  }
+
+  getStartDelayEstimationTime(): string {
+    const d = this.getStartDelayEstimation();
+    let minutes = "0" + d.getMinutes();
+    return d.getHours() + ":" + minutes.substr(-2);
+  }
+
+  hasStartDelayEstimationTime(): boolean {
+    if (!this.start_delay_estimation) return false;
+    let s = this.getStartDelayEstimation()
+    return !(s.getMinutes() == 0 && s.getHours() == 0)
   }
 
   getStartAt(): Date {
-    return new Date(this.start_at);
+    return createDate(this.start_at);
   }
 
   getStartAtTime(): string {
     const d = this.getStartAt();
-    return d.getHours() + ":" + d.getMinutes();
+    let minutes = "0" + d.getMinutes();
+    return d.getHours() + ":" + minutes.substr(-2);
+  }
+
+  hasStartTime(): boolean {
+    let s = this.getStartAt()
+    return !(s.getMinutes() == 0 && s.getHours() == 0)
+  }
+
+  // returns delay in seconds
+  getDelay(): number {
+    let delayEst = this.getStartDelayEstimation()
+    let est = this.getEstimatedStart()
+
+    delayEst.setFullYear(0, 0, 0);
+    est.setFullYear(0, 0, 0);
+
+    return delayEst.getTime() - est.getTime();
   }
 }

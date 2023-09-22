@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {HeatImpl} from "../../../core/model/start/heat.model";
 
 @Component({
   selector: 'sr-panel',
@@ -8,4 +9,5 @@ import {Component, Input} from '@angular/core';
 export class PanelComponent {
   @Input() panelTitle?: string;
   @Input() panelSubtitle?: string;
+  @Input() heatForTimes?: HeatImpl
 }

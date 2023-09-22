@@ -5,11 +5,15 @@ import { CalendarComponent } from './calendar/calendar.component';
 import {RouterLink} from "@angular/router";
 import {ElementsModule} from "../shared/elements/elements.module";
 import {CoreModule} from "../core/core.module";
+import { AuthComponent } from './auth/auth.component';
+import { LogoutComponent } from './auth/logout/logout.component';
 
 
 @NgModule({
   declarations: [
-    CalendarComponent
+    CalendarComponent,
+    AuthComponent,
+    LogoutComponent,
   ],
   imports: [
     CommonModule,

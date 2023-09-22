@@ -1,0 +1,7 @@
+<sr-icon-btn (btnClick)="firstEvent()" [active]="hasPrevEvent"><mat-icon>first_page</mat-icon></sr-icon-btn>
+<sr-icon-btn (btnClick)="decEvent()" [active]="hasPrevEvent"><mat-icon>keyboard_double_arrow_left</mat-icon></sr-icon-btn>
+<sr-icon-btn (btnClick)="decHeat()" [active]="currentHeat > 1 || hasPrevEvent"><mat-icon>navigate_before</mat-icon></sr-icon-btn>
+<span class="info-text">{{'COMMON.EVENT.SINGULAR' | translate}} {{currentEvent}} – {{'COMMON.HEAT.SINGULAR' | translate}} {{currentHeat}} / {{heatAmount}}</span>
+<sr-icon-btn (btnClick)="incHeat()" [active]="currentHeat < heatAmount || hasNextEvent"><mat-icon>navigate_next</mat-icon></sr-icon-btn>
+<sr-icon-btn (btnClick)="incEvent()" [active]="hasNextEvent"><mat-icon>keyboard_double_arrow_right</mat-icon></sr-icon-btn>
+<sr-icon-btn (btnClick)="lastEvent()" [active]="hasNextEvent"><mat-icon>last_page</mat-icon></sr-icon-btn>

@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageFilesComponent } from './page-files.component';
+import {ElementsModule} from "../../../../shared/elements/elements.module";
+import {FilesModule} from "../../files.module";
+import {RouterTestingModule} from "@angular/router/testing";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('PageFilesComponent', () => {
   let component: PageFilesComponent;
@@ -8,7 +12,13 @@ describe('PageFilesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageFilesComponent ]
+      declarations: [ PageFilesComponent ],
+      imports: [
+        ElementsModule,
+        FilesModule,
+        RouterTestingModule,
+        TranslateModule.forRoot()
+      ]
     })
     .compileComponents();
 

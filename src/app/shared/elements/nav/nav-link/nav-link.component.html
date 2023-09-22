@@ -1,4 +1,4 @@
-<div class="link" [routerLink]="link" routerLinkActive="active" title="{{link_title | translate}}">
+<div class="link" [routerLink]="link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: link === '' }" title="{{link_title | translate}}">
   <mat-icon>{{icon}}</mat-icon>
-  <span class="link-name">{{link_title | translate}}</span>
+  <span class="link-name">{{link_title}}</span>
 </div>

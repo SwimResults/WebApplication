@@ -1,0 +1,52 @@
+@import "../../../../../colors";
+
+.meeting-logo {
+  background-color: $color-bg-contrast;
+  border-radius: 50%;
+  height: 100px;
+  display: block;
+  width: 100px;
+  margin: 0 calc(50% - 50px) 12px;
+  text-align: center;
+
+  mat-icon {
+    font-size: 46px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    color: $color-sr-first
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+    margin-top: 10px;
+    border-radius: 50%;
+  }
+}
+
+.title {
+  display: block;
+  font-weight: 700;
+  line-height: 16px;
+  height: 34px;
+  overflow-y: hidden;
+}
+
+.info {
+  mat-icon,
+  .info-content {
+    display: inline-block;
+  }
+
+  mat-icon {
+    width: 24px;
+    vertical-align: top;
+  }
+
+  .info-content {
+    vertical-align: middle;
+    width: calc(100% - 36px);
+    padding-left: 12px;
+  }
+}

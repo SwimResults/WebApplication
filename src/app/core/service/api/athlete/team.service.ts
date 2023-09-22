@@ -5,6 +5,7 @@ import {environment} from "../../../../../environments/environment";
 import {Observable} from "rxjs";
 import {Team} from "../../../model";
 import {PagingRequest} from "../../../model/common/paging-request.model";
+import {HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class TeamService extends BaseService{
 
   public getTeamById(id: string): Observable<Team> {
     return this.apiService.get(this.API_URL, "team/" + id);
+  }
+
+  public getTeamByAlias(alias: string): Observable<Team> {
+    return this.apiService.get(this.API_URL, "team/alias", new HttpParams().set("alias", alias));
   }
 
   public getTeamsByMeeting(id: string, paging: PagingRequest): Observable<Team[]> {

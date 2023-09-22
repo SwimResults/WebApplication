@@ -1,0 +1,40 @@
+.distance {
+  font-weight: 700;
+}
+
+.live-text {
+  font-weight: 700;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 18px;
+}
+
+.live-indicator {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: red;
+  border-radius: 50%;
+  vertical-align: middle;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  margin-left: 12px;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+sr-heat-times {
+  display: inline-block;
+  vertical-align: middle;
+}

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {Example1Component} from "./content/example";
 import {CalendarComponent} from "./content/calendar/calendar.component";
 import {PageLiveComponent} from "./content/live";
 import {PageFilesComponent} from "./content/files";
@@ -9,26 +8,35 @@ import {PageAthleteComponent, PageAthletesEventComponent, PageAthletesGeneralCom
 import {PageTeamComponent, PageTeamsEventComponent, PageTeamsGeneralComponent} from "./content/teams";
 import {PageStatsEventComponent, PageStatsGeneralComponent} from "./content/stats";
 import {PageEventComponent, PageEventsComponent} from "./content/events";
+import {AuthComponent} from "./content/auth/auth.component";
+import {UserProfileComponent} from "./content/account";
+import {PageMeetingsComponent} from "./content/meetings";
+import {LogoutComponent} from "./content/auth/logout/logout.component";
 
 
 const routes: Routes = [
-  { path: '',               component: Example1Component, data: { title: 'SwimResults'} },
-  { path: 'dashboard',      component: PageDashboardGeneralComponent },
-  { path: 'calendar',       component: CalendarComponent },
-  { path: 'athlete',        component: PageAthletesGeneralComponent },
-  { path: 'athlete/:entity_id',    component: PageAthleteComponent },
-  { path: 'team',           component: PageTeamsGeneralComponent },
-  { path: 'team/:entity_id',       component: PageTeamComponent },
-  { path: 'stats',          component: PageStatsGeneralComponent },
+  { path: '',                         component: PageMeetingsComponent, pathMatch: "full" },
+  { path: 'auth',                     component: AuthComponent },
+  { path: 'auth/logout',              component: LogoutComponent },
+  { path: 'account/profile',          component: UserProfileComponent },
+  { path: 'dashboard',                component: PageDashboardGeneralComponent },
+  { path: 'calendar',                 component: CalendarComponent },
+  { path: 'meetings',                 redirectTo: '/meetings' },
+  { path: 'athlete',                  component: PageAthletesGeneralComponent },
+  { path: 'athlete/:entity_id',       component: PageAthleteComponent },
+  { path: 'team',                     component: PageTeamsGeneralComponent },
+  { path: 'team/:entity_id',          component: PageTeamComponent },
+  { path: 'stats',                    component: PageStatsGeneralComponent },
   {
     path: 'm/:event',
     children: [
+      { path: "",                     component: PageDashboardEventComponent },
       { path: "dashboard",            component: PageDashboardEventComponent },
       { path: "live",                 component: PageLiveComponent },
       { path: "event",                component: PageEventsComponent },
       { path: "event/:event_number",  component: PageEventComponent },
       { path: "athlete",              component: PageAthletesEventComponent },
-      { path: 'athlete/:entity_id',   component: PageAthleteComponent },
+      { path: 'athlete/:entity_id',component: PageAthleteComponent },
       { path: "team",                 component: PageTeamsEventComponent },
       { path: 'team/:entity_id',      component: PageTeamComponent },
       { path: "files",                component: PageFilesComponent },

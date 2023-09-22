@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Meeting} from "../../core/model/meeting/meeting.model";
-import {MeetingService} from "../../core/service/api/meeting/meeting.service";
+import {MeetingService} from "../../core/service/api";
 
 @Component({
   selector: 'sr-calendar',

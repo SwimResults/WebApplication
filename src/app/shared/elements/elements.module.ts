@@ -20,6 +20,12 @@ import {MatMenuModule} from "@angular/material/menu";
 import { FlatBtnComponent } from './buttons/flat-btn/flat-btn.component';
 import { BtnComponent } from './buttons/btn/btn.component';
 import { TextBtnComponent } from './buttons/text-btn/text-btn.component';
+import { HeatTimesComponent } from './heat-times/heat-times.component';
+import { FileIconComponent } from './file-icon/file-icon.component';
+import { IconBtnComponent } from './buttons/icon-btn/icon-btn.component';
+import { NoContentComponent } from './no-content/no-content.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 
@@ -37,19 +43,30 @@ import { TextBtnComponent } from './buttons/text-btn/text-btn.component';
         BadgeComponent,
         FlatBtnComponent,
         BtnComponent,
-        TextBtnComponent
+        TextBtnComponent,
+        HeatTimesComponent,
+        FileIconComponent,
+        IconBtnComponent,
+        NoContentComponent,
+        SpinnerComponent
     ],
-    exports: [
-        PanelComponent,
-        IconPanelComponent,
-        NavGroupComponent,
-        NavLinkComponent,
-        PageTitleComponent,
-        ListViewComponent,
-        BadgeComponent,
-        FlatBtnComponent,
-        TextBtnComponent
-    ],
+  exports: [
+    PanelComponent,
+    IconPanelComponent,
+    NavGroupComponent,
+    NavLinkComponent,
+    PageTitleComponent,
+    ListViewComponent,
+    BadgeComponent,
+    FlatBtnComponent,
+    TextBtnComponent,
+    HeatTimesComponent,
+    BtnComponent,
+    FileIconComponent,
+    IconBtnComponent,
+    NoContentComponent,
+    SpinnerComponent
+  ],
     imports: [
         CommonModule,
         MatIconModule,
@@ -59,7 +76,8 @@ import { TextBtnComponent } from './buttons/text-btn/text-btn.component';
         ReactiveFormsModule,
         CoreModule,
         MatButtonModule,
-        MatMenuModule
+        MatMenuModule,
+        MatProgressSpinnerModule
     ]
 })
 export class ElementsModule { }

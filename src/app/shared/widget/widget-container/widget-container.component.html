@@ -1,0 +1,5 @@
+<div class="widget-container">
+  <sr-panel *ngFor="let widget of container.widgets" [class]="widget.size.toLowerCase()" >
+    <sr-widget-tile [widget]="widget"></sr-widget-tile>
+  </sr-panel>
+</div>

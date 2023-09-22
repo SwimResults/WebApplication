@@ -1,0 +1,18 @@
+.widget-containers {
+  display: grid;
+  grid-gap: 0 10px;
+  grid-template-columns: repeat(auto-fill, minmax(312px, 312px));
+}
+
+sr-widget-container {
+  display: inline-block;
+  width: auto;
+}
+
+@media only screen and (max-width: 662px) {
+  .widget-containers {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
