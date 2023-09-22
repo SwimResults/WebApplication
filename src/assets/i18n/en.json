@@ -27,7 +27,8 @@
         },
         "LIST": {
             "PAGE_TITLE": "Schedule",
-            "PART_TITLE": "Part"
+            "PART_TITLE": "Part",
+            "NO_EVENTS_MESSAGE": "No events have been found."
         }
     },
     "COMMON": {
@@ -41,7 +42,10 @@
         },
         "LANGUAGE": {
             "EN": "English",
-            "DE": "German"
+            "DE": "German",
+            "CZ": "Czech",
+            "UA": "Ukrainian",
+            "RU": "Russian"
         },
         "STYLE": {
             "MEDLEY": {
@@ -97,6 +101,16 @@
                 "NOV": "Nov",
                 "DEC": "Dec"
             }
+        },
+        "ERROR": {
+            "SERVICE_OFFLINE": {
+                "MESSAGE": "The {{system}} is currently not available!",
+                "MEETING": "meeting service",
+                "START": "start service",
+                "ATHLETE": "athlete and team service",
+                "USER": "user service",
+                "IMPORT": "import service"
+            }
         }
     },
     "START": {
@@ -124,7 +138,9 @@
         "MENU": {
             "ACCOUNT": {
                 "SETTINGS_BUTTON_TEXT": "Settings",
-                "PROFILE_BUTTON_TEXT": "Show Profile"
+                "PROFILE_BUTTON_TEXT": "Show Profile",
+                "LOGIN": "Login",
+                "LOGOUT": "Logout"
             },
             "LANGUAGE_TITLE": "Select Language"
         }
@@ -206,5 +222,9 @@
         "COMING_SOON": {
             "MAIN_TEXT": "This dashboard will be extended in the future and new widgets will be added."
         }
+    },
+    "ENTRY_PAGE": {
+        "ABOUT_TEXT": "SwimResults enables athletes, coaches, family and friends to view starts, results, places, livetiming and more for participating swimming competitions in an easy and interactive manner.",
+        "INFO_LINKS_TITLE": "Informative Links"
     }
 }
