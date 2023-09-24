@@ -11,6 +11,7 @@ import {User} from "../../../../core/model/user/user.model";
 export class AthleteProfileIntroComponent implements OnInit {
   @Input() athlete!: Athlete;
   isFollowed: boolean = false;
+  updatingFollowing: boolean = false;
 
   constructor(
     private userService: UserService
@@ -33,8 +34,10 @@ export class AthleteProfileIntroComponent implements OnInit {
   }
 
   changeFollowing(follow: boolean) {
+    this.updatingFollowing = true;
     this.userService.setFollowing(this.athlete._id, follow).subscribe(data => {
       this.updateFollowingState(data);
+      this.updatingFollowing = false;
     })
   }
 

@@ -67,6 +67,11 @@
   display: none;
 }
 
+.mat-spinner-size-btn.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle,
+.mat-spinner-size-btn.mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+  stroke: white !important;
+}
+
 body {
   .material-icons {
     font-family: 'Material Icons Round', 'Material Icons', serif !important;

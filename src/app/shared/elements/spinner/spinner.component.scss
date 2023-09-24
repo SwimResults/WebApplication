@@ -1,8 +1,26 @@
-:host {
+.spinner {
   width: 120px;
   text-align: center;
   display: block;
   padding: 100px calc(50% - 60px);
+
+  &.spinner-size-text,
+  &.spinner-size-btn {
+    padding: 0;
+    display: inline-block;
+    width: auto;
+  }
+
+  &.spinner-size-btn {
+    .mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle, .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+      stroke: white !important;
+    }
+  }
+
+  .mat-spinner {
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
 
 
