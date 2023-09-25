@@ -35,7 +35,7 @@ export class AthleteListViewComponent {
     this.userService.getUser().subscribe(data => {
       this.following = [];
       if (data.following) {
-        let loopDone = false;
+        if (data.following.length <= 0) this.fetchingFollowing.fetching = false;
         for (let follower of data.following) {
           this.athleteService.getAthleteById(follower.athlete_id).subscribe(ath => {
             if (!this.meetingId) {
@@ -50,15 +50,17 @@ export class AthleteListViewComponent {
                 }
               }
             }
-            if (loopDone) this.fetchingFollowing.fetching = false;
+            this.fetchingFollowing.fetching = false;
           })
         }
-        loopDone = true;
+      } else {
+        this.fetchingFollowing.fetching = false;
       }
     })
   }
 
   appendFollowing(athlete: Athlete) {
+    if (!athlete) return;
     this.listFollowing.push(new AthleteListTile(athlete));
   }
 
@@ -82,6 +84,7 @@ export class AthleteListViewComponent {
   }
 
   appendAthletes(athletes: Athlete[]) {
+    if (!athletes) return;
     this.athletes.concat(athletes);
     athletes.forEach(athlete => {
       this.listAthletes.push(new AthleteListTile(athlete));
