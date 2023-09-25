@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {AfterViewChecked, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 
@@ -7,8 +7,8 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './search-form.component.html',
   styleUrls: ['./search-form.component.scss']
 })
-export class SearchFormComponent implements OnInit {
-  @Output() querySearch: EventEmitter<string> = new EventEmitter<string>();
+export class SearchFormComponent implements OnInit, AfterViewChecked {
+  @Output() querySearch: EventEmitter<string> = new EventEmitter<string>(true);
 
   searchForm: FormGroup;
 
@@ -19,6 +19,9 @@ export class SearchFormComponent implements OnInit {
     this.searchForm = this.fb.group({
       query: [""]
     })
+  }
+
+  ngAfterViewChecked() {
   }
 
   ngOnInit() {
