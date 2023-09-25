@@ -16,7 +16,7 @@ export class ListViewComponent implements OnInit {
   @Input() fetching: FetchingModel = {fetching: false};
   @Output() refreshData: EventEmitter<RefreshListRequest> = new EventEmitter<RefreshListRequest>();
 
-  limit: number = 10;
+  limit: number = 30;
   searchQuery: string = "";
   lastOffset: number = -1;
 
