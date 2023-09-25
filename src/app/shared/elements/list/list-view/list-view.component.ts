@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IListTile} from "../../../../core/model/list/list-tile.model";
 import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
 import {PagingRequest} from "../../../../core/model/common/paging-request.model";
@@ -20,6 +20,8 @@ export class ListViewComponent implements OnInit {
   searchQuery: string = "";
   lastOffset: number = -1;
 
+  showFetchingSpinner: boolean = false;
+
   ngOnInit() {
     window.scroll(0,0);
     if (!this.useSearch)
@@ -33,7 +35,11 @@ export class ListViewComponent implements OnInit {
   }
 
   refresh() {
-    if (this.data && this.data.length && this.lastOffset == this.data.length) return;
+    if (this.data && this.data.length && this.lastOffset == this.data.length) {
+      this.showFetchingSpinner = false;
+      return;
+    }
+    this.showFetchingSpinner = true;
     this.lastOffset = this.data?.length;
     this.refreshData.emit({
         paging: new PagingRequest(this.limit, this.data?.length, this.searchQuery.toLowerCase())
