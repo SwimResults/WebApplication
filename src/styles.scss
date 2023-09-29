@@ -136,4 +136,10 @@ input[type=search] {
     display: inline-block;
     margin-left: 14px;
   }
+
+  a {
+    color: $color-nav-link;
+    text-decoration: none;
+    line-height: 16px;
+  }
 }
