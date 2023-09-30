@@ -23,7 +23,8 @@
         },
         "PAGE": {
             "EVENT_TITLE_EVENT": "Event",
-            "HEAT": "Heat"
+            "HEAT": "Heat",
+            "NO_STARTS_MESSAGE": "No starts have been found."
         },
         "LIST": {
             "PAGE_TITLE": "Schedule",

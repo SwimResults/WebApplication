@@ -88,6 +88,10 @@ export class EventViewComponent implements OnInit, OnDestroy {
     if (this.meetingId) {
       this.fetchingStarts.fetching = true;
       this.startService.getStartsByMeetingAndEvent(this.meetingId, this.eventNumber).subscribe(data => {
+        if (!data) {
+          this.fetchingStarts.fetching = false;
+          return;
+        }
         this.starts = data;
 
         this.heats.clear();

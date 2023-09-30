@@ -17,22 +17,30 @@
 
 <sr-spinner *ngIf="fetchingStarts.fetching"></sr-spinner>
 <ng-container *ngIf="!fetchingStarts.fetching">
-  <sr-panel>
-    <mat-button-toggle-group>
-      <mat-button-toggle value="lanes" checked="true"  (click)="changeListMode('lanes')">Bahnverteilung</mat-button-toggle>
-      <mat-button-toggle value="results" (click)="changeListMode('results')">Zielanschlag</mat-button-toggle>
-    </mat-button-toggle-group>
-  </sr-panel>
 
-  <sr-panel class="heat-starts"
-            *ngFor="let heat of heats.keys()"
-            panelTitle="{{'EVENT.PAGE.HEAT' | translate}}{{' ' + heat + '/' + heats.size}}"
-            [heatForTimes]="heatData.get(heat)"
-  >
-    <sr-start-list *ngIf="starts.length > 0"
-      [starts]="heats.get(heat)"
-      [config]="config"
-      [fetching]="fetchingStarts"
-    ></sr-start-list>
-  </sr-panel>
+  <sr-no-content *ngIf="starts.length <= 0">
+    {{'EVENT.PAGE.NO_STARTS_MESSAGE' | translate}}
+  </sr-no-content>
+
+  <ng-container *ngIf="starts.length > 0">
+
+    <sr-panel>
+      <mat-button-toggle-group>
+        <mat-button-toggle value="lanes" checked="true"  (click)="changeListMode('lanes')">Bahnverteilung</mat-button-toggle>
+        <mat-button-toggle value="results" (click)="changeListMode('results')">Zielanschlag</mat-button-toggle>
+      </mat-button-toggle-group>
+    </sr-panel>
+
+    <sr-panel class="heat-starts"
+              *ngFor="let heat of heats.keys()"
+              panelTitle="{{'EVENT.PAGE.HEAT' | translate}}{{' ' + heat + '/' + heats.size}}"
+              [heatForTimes]="heatData.get(heat)"
+    >
+      <sr-start-list *ngIf="starts.length > 0"
+        [starts]="heats.get(heat)"
+        [config]="config"
+        [fetching]="fetchingStarts"
+      ></sr-start-list>
+    </sr-panel>
+  </ng-container>
 </ng-container>

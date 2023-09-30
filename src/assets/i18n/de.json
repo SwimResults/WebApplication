@@ -8,7 +8,8 @@
         },
         "PAGE": {
             "EVENT_TITLE_EVENT": "Wettkampf",
-            "HEAT": "Lauf"
+            "HEAT": "Lauf",
+            "NO_STARTS_MESSAGE": "Es wurden keine Starts für diesen Wettkampf gefunden."
         },
         "LIST": {
             "PAGE_TITLE": "Ablaufplan",
