@@ -48,7 +48,7 @@
             config && (
               (!config.showMostSignificantTime && config.showRegistrationTime && data.hasResultType(resultTypes.REGISTRATION))
               ||
-              (config.showMostSignificantTime && !data.hasResultType(resultTypes.REACTION) && !data.hasResult() && data.hasResultType(resultTypes.REGISTRATION))
+              (config.showMostSignificantTime && !data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP) && data.hasResultType(resultTypes.REGISTRATION))
             )"
         >{{getTimeString(data.getTimeMilliseconds(resultTypes.REGISTRATION))}}</span>
 
@@ -68,12 +68,25 @@
           </span>
 
           <span
+            class="duration lap-time"
+            *ngIf="
+              config && (
+                (!config.showMostSignificantTime && config.showLapTimes && data.hasResultType(resultTypes.LAP))
+                ||
+                (config.showMostSignificantTime && !data.hasResult() && data.hasResultType(resultTypes.LAP))
+              )"
+          >
+            <span class="lap-meters">{{data.getMostRecentLap().lap_meters}}</span>
+            <span class="result-time-string">{{getTimeString(data.getMostRecentLap().time)}}</span>
+          </span>
+
+          <span
             class="reaction"
             *ngIf="
               config && (
                 (!config.showMostSignificantTime && config.showReactionTime && data.hasResultType(resultTypes.REACTION))
                 ||
-                (config.showMostSignificantTime && data.hasResultType(resultTypes.REACTION) && !data.hasResult())
+                (config.showMostSignificantTime && data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP))
               )"
           >{{getReactionString(data.getTimeMilliseconds(resultTypes.REACTION))}}</span>
 

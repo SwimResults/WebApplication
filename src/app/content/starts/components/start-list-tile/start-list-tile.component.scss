@@ -131,6 +131,25 @@
       }
     }
 
+    .lap-time {
+      font-size: 12px;
+      .lap-meters {
+        background-color: $color-sr-first;
+        color: white;
+        border-radius: 4px;
+        padding: 0;
+        font-size: 9px;
+        display: inline-block;
+        width: 20px;
+        text-align: center;
+      }
+
+      .result-time-string {
+        display: inline-block;
+        margin-left: 4px;
+      }
+    }
+
     .reason {
       color: $color-disqualification;
     }
