@@ -13,5 +13,7 @@ export const environment = {
     meeting_service: "http://localhost:8089/",
     athlete_service: "http://localhost:8086/",
     start_service: "http://localhost:8087/",
-  }
+    user_service: "http://localhost:8090/",
+  },
+  o_auth_issuer: "http://localhost:8080/realms/master"
 }

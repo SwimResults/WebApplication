@@ -4,6 +4,8 @@ import { TeamListViewComponent } from './team-list-view.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {TeamsModule} from "../../teams.module";
 import {TranslateModule} from "@ngx-translate/core";
+import {ElementsModule} from "../../../../shared/elements/elements.module";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('TeamListViewComponent', () => {
   let component: TeamListViewComponent;
@@ -15,7 +17,9 @@ describe('TeamListViewComponent', () => {
       imports: [
         HttpClientTestingModule,
         TeamsModule,
-        TranslateModule.forRoot()
+        ElementsModule,
+        TranslateModule.forRoot(),
+        RouterTestingModule
       ]
     })
     .compileComponents();

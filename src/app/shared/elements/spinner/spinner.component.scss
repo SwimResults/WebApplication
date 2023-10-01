@@ -1,0 +1,112 @@
+.spinner {
+  width: 120px;
+  text-align: center;
+  display: block;
+  padding: 100px calc(50% - 60px);
+
+  &.spinner-size-text,
+  &.spinner-size-btn {
+    padding: 0;
+    display: inline-block;
+    width: auto;
+  }
+
+  &.spinner-size-btn {
+    .mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle, .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+      stroke: white !important;
+    }
+  }
+
+  .mat-spinner {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+
+.clock {
+  display: inline-block;
+  border: 10px solid #e1e1e1;
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  background-image: url("https://i.imgur.com/2iydoin.png");
+  background-size: 100px;
+  border-radius: 28px;
+}
+
+.pointer {
+  background-color: black;
+  display: block;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  margin-top: 46px;
+  margin-left: 46px;
+  animation-name: turn;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 8px;
+    height: 36px;
+    display: block;
+    margin-top: 8px;
+  }
+
+  &::before {
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+
+  &::after {
+    margin-top: -80px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+  }
+}
+
+.pointer-2 {
+  animation-delay: -5s;
+}
+
+.pointer-1::before {
+  background-color: #ffc800;
+}
+
+.pointer-1::after {
+  background-color: blue;
+}
+
+.pointer-2::before {
+  background-color: red;
+}
+
+.pointer-2::after {
+  background-color: green;
+}
+
+@keyframes turn {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

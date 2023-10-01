@@ -3,22 +3,40 @@ import { CommonModule } from '@angular/common';
 import {HttpClientModule} from "@angular/common/http";
 import {TranslateModule} from "@ngx-translate/core";
 import { IsVisibleDirective } from './directive/is-visible.directive';
+import {OAuthModule, OAuthStorage} from "angular-oauth2-oidc";
+import { WidgetDirective } from './directive/widget.directive';
+import { IsAuthedDirective } from './directive/is-authed.directive';
 
-
+export function storageFactory(): OAuthStorage {
+  return localStorage;
+}
 
 @NgModule({
   declarations: [
-    IsVisibleDirective
+    IsVisibleDirective,
+    WidgetDirective,
+    IsAuthedDirective
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    TranslateModule
+    TranslateModule,
+    OAuthModule.forRoot({
+      resourceServer: {
+        allowedUrls: [],
+        sendAccessToken: true,
+      }
+    })
   ],
-    exports: [
-        TranslateModule,
-        IsVisibleDirective
-    ]
+  exports: [
+      TranslateModule,
+      IsVisibleDirective,
+      WidgetDirective,
+      IsAuthedDirective
+  ],
+  providers: [
+    { provide: OAuthStorage, useFactory: storageFactory}
+  ]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() core:CoreModule ){

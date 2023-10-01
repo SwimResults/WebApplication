@@ -24,6 +24,8 @@ import { HeatTimesComponent } from './heat-times/heat-times.component';
 import { FileIconComponent } from './file-icon/file-icon.component';
 import { IconBtnComponent } from './buttons/icon-btn/icon-btn.component';
 import { NoContentComponent } from './no-content/no-content.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 
@@ -45,24 +47,26 @@ import { NoContentComponent } from './no-content/no-content.component';
         HeatTimesComponent,
         FileIconComponent,
         IconBtnComponent,
-        NoContentComponent
+        NoContentComponent,
+        SpinnerComponent
     ],
-    exports: [
-        PanelComponent,
-        IconPanelComponent,
-        NavGroupComponent,
-        NavLinkComponent,
-        PageTitleComponent,
-        ListViewComponent,
-        BadgeComponent,
-        FlatBtnComponent,
-        TextBtnComponent,
-        HeatTimesComponent,
-        BtnComponent,
-        FileIconComponent,
-        IconBtnComponent,
-        NoContentComponent
-    ],
+  exports: [
+    PanelComponent,
+    IconPanelComponent,
+    NavGroupComponent,
+    NavLinkComponent,
+    PageTitleComponent,
+    ListViewComponent,
+    BadgeComponent,
+    FlatBtnComponent,
+    TextBtnComponent,
+    HeatTimesComponent,
+    BtnComponent,
+    FileIconComponent,
+    IconBtnComponent,
+    NoContentComponent,
+    SpinnerComponent
+  ],
     imports: [
         CommonModule,
         MatIconModule,
@@ -72,7 +76,8 @@ import { NoContentComponent } from './no-content/no-content.component';
         ReactiveFormsModule,
         CoreModule,
         MatButtonModule,
-        MatMenuModule
+        MatMenuModule,
+        MatProgressSpinnerModule
     ]
 })
 export class ElementsModule { }

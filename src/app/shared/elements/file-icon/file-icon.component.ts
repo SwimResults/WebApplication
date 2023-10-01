@@ -10,6 +10,7 @@ export class FileIconComponent implements OnInit {
 
   @Input() extension!: string;
   @Input() icon?: string;
+  @Input() existing: boolean = false;
 
   fileType: FileType = {
     icon: "insert_drive_file",
@@ -35,7 +36,7 @@ export class FileIconComponent implements OnInit {
   }
 
   getStyle() {
-    return this.fileType.color;
+    return this.existing ? this.fileType.color : 'inactive';
   }
 
 }

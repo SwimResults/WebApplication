@@ -9,8 +9,10 @@ export class StartListTileConfig {
   showRegistrationTime: boolean = true;
   showResults: boolean = true;
   showResultTime: boolean = true;
+  showLapTimes: boolean = false;
   showDisqualification: boolean = true;
   showReactionTime: boolean = true;
+  showMostSignificantTime: boolean = false; // show either registration; reaction; lap; livetiming result OR result list result time
   laneAsIcon: boolean = false;
   flatStyle: boolean = false;
   allLanes: boolean = false;

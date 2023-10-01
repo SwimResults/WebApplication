@@ -4,6 +4,7 @@ import { PageTeamsGeneralComponent } from './page-teams-general.component';
 import {TeamsModule} from "../../teams.module";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('PageTeamsGeneralComponent', () => {
   let component: PageTeamsGeneralComponent;
@@ -15,7 +16,8 @@ describe('PageTeamsGeneralComponent', () => {
       imports: [
         TeamsModule,
         HttpClientTestingModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        RouterTestingModule
       ]
     })
     .compileComponents();

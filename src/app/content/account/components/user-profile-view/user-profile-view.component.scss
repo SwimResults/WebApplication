@@ -1,0 +1,13 @@
+table {
+  tr td:first-child {
+    font-weight: 700;
+
+    &::after {
+      content: ': ';
+    }
+  }
+
+  td {
+    padding: 4px 8px;
+  }
+}

@@ -3,12 +3,12 @@ import {Subscription} from "rxjs";
 import {Start, StartImpl} from "../../../../core/model/start/start.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {ActivatedRoute} from "@angular/router";
-import {StartService} from "../../../../core/service/api";
+import {StartService, EventService} from "../../../../core/service/api";
 import {RouteService} from "../../../../core/service/route.service";
-import {EventService} from "../../../../core/service/api/meeting/event.service";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
+import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
   selector: 'sr-event-view',
@@ -40,13 +40,15 @@ export class EventViewComponent implements OnInit, OnDestroy {
 
   listMode: string = "lanes";
 
+  fetchingStarts: FetchingModel = {fetching: false};
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private startService: StartService,
     private routeService: RouteService,
     private eventService: EventService
   ) {
-    this.meetingSubscription = this.routeService.currentEvent.subscribe(data => {
+    this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
       console.log("fetched meeting:")
       console.log(this.meeting)
@@ -84,7 +86,12 @@ export class EventViewComponent implements OnInit, OnDestroy {
 
   fetchStarts() {
     if (this.meetingId) {
+      this.fetchingStarts.fetching = true;
       this.startService.getStartsByMeetingAndEvent(this.meetingId, this.eventNumber).subscribe(data => {
+        if (!data) {
+          this.fetchingStarts.fetching = false;
+          return;
+        }
         this.starts = data;
 
         this.heats.clear();
@@ -126,6 +133,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
           // sort heats map by heat number
           this.heats = new Map([...this.heats.entries()].sort((a,b) => a[0] - b[0]));
 
+          this.fetchingStarts.fetching = false;
         }
 
       })

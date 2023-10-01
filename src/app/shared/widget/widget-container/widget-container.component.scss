@@ -1,0 +1,31 @@
+
+sr-panel {
+  //border: 1px dotted lightskyblue;
+  margin: 6px;
+  display: inline-block;
+
+  border-radius: 12px;
+  overflow: hidden;
+
+
+  &.small {
+    width: 140px;
+    height: 140px;
+  }
+
+  &.medium {
+    width: 298px;
+    height: 140px;
+  }
+
+  &.large {
+    width: 298px;
+    height: 298px;
+  }
+
+}
+
+sr-widget-tile {
+  margin-bottom: 500px;
+  display: block;
+}

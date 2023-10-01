@@ -9,7 +9,8 @@
                 "ATHLETES": "Athletes",
                 "TEAMS": "Teams",
                 "FILES": "Files",
-                "STATS": "Statistics"
+                "STATS": "Statistics",
+                "LEAVE_MEETING": "Leave {{short}}"
             }
         }
     },
@@ -22,10 +23,13 @@
         },
         "PAGE": {
             "EVENT_TITLE_EVENT": "Event",
-            "HEAT": "Heat"
+            "HEAT": "Heat",
+            "NO_STARTS_MESSAGE": "No starts have been found."
         },
         "LIST": {
-            "PART_TITLE": "Session"
+            "PAGE_TITLE": "Schedule",
+            "PART_TITLE": "Part",
+            "NO_EVENTS_MESSAGE": "No events have been found."
         }
     },
     "COMMON": {
@@ -39,7 +43,10 @@
         },
         "LANGUAGE": {
             "EN": "English",
-            "DE": "German"
+            "DE": "German",
+            "CZ": "Czech",
+            "UA": "Ukrainian",
+            "RU": "Russian"
         },
         "STYLE": {
             "MEDLEY": {
@@ -77,7 +84,34 @@
             "SINGULAR": "Event"
         },
         "LANE": {
-            "SINGULAR": "Lane"
+            "SINGULAR": "Lane",
+            "PLURAL": "Lanes"
+        },
+        "DATE": {
+            "MONTH": {
+                "JAN": "Jan",
+                "FEB": "Feb",
+                "MAR": "Mar",
+                "APR": "Apr",
+                "MAY": "May",
+                "JUN": "Jun",
+                "JUL": "Jul",
+                "AUG": "Aug",
+                "SEP": "Sep",
+                "OCT": "Oct",
+                "NOV": "Nov",
+                "DEC": "Dec"
+            }
+        },
+        "ERROR": {
+            "SERVICE_OFFLINE": {
+                "MESSAGE": "The {{system}} is currently not available!",
+                "MEETING": "meeting service",
+                "START": "start service",
+                "ATHLETE": "athlete and team service",
+                "USER": "user service",
+                "IMPORT": "import service"
+            }
         }
     },
     "START": {
@@ -92,25 +126,106 @@
                 "ATHLETE_BUTTON_TEXT": "Show Athlete",
                 "TEAM_BUTTON_TEXT": "Show Team"
             },
-            "PAGE_TITLE": "Athlete"
+            "PAGE_TITLE": "Athletes",
+            "FAVORITES_TITLE": "Favorites",
+            "ATHLETES_TITLE": "Athletes"
+        },
+        "PROFILE": {
+            "FOLLOW_BUTTON_TEXT": "Follow",
+            "UNFOLLOW_BUTTON_TEXT": "Unfollow"
         }
     },
     "HEADER": {
         "MENU": {
             "ACCOUNT": {
                 "SETTINGS_BUTTON_TEXT": "Settings",
-                "PROFILE_BUTTON_TEXT": "Show Profile"
-            }
+                "PROFILE_BUTTON_TEXT": "Show Profile",
+                "LOGIN": "Login",
+                "LOGOUT": "Logout"
+            },
+            "LANGUAGE_TITLE": "Select Language"
         }
     },
     "TEAM": {
         "PAGE": {
-            "CONTACT_TITLE": "Contact",
+            "INFO_TITLE": "Info",
+            "ADDRESS_TITLE": "Address",
             "ATHLETE_TITLE": "Athletes",
-            "PARTICIPANTS_TITLE": "Participants"
+            "PARTICIPANTS_TITLE": "Participants",
+            "WEBSITE": {
+                "TITLE": "Homepage",
+                "OPEN_BTN_TEXT": "Open Homepage"
+            },
+            "CONTACT": {
+                "TITLE": "Contact",
+                "NAME": "Contact Person",
+                "EMAIL": "E-Mail Address",
+                "FAX": "Fax",
+                "PHONE": "Phone"
+            }
         },
         "LIST": {
             "PAGE_TITLE": "Teams"
         }
+    },
+    "FILES": {
+        "LIST": {
+            "PAGE_TITLE": "Files"
+        },
+        "FILE_NAMES": {
+            "MEETING_INFO": "Announcement",
+            "REGISTRATION_LIST": "Registration List",
+            "START_LIST": "Start List",
+            "RESULTS_LIST": "Results",
+            "DSV_DEFINITION": "DSV File",
+            "DSV_RESULTS": "DSV Results File",
+            "LENEX_DEFINITION": "LENEX File",
+            "LENEX_RESULTS": "LENEX Results File",
+            "REGISTRATION_SOFTWARE": "Registration Software For International Clubs",
+            "DATA_PROTECTION": "Data Protection",
+            "PRIVACY_INFORMATION": "Privacy Information (DSV)",
+            "OVERNIGHT_STAY_TICKETS": "Order Overnight Stay/Catering/Extra Tickets "
+        },
+        "NO_FILES_MESSAGE": "For this meeting no files could be found."
+    },
+    "MEETINGS": {
+        "LIST": {
+            "PAGE_TITLE": "Meetings"
+        }
+    },
+    "LIVE": {
+        "NO_STARTS_MESSAGE": "There are currently no starts available for the livetiming.",
+        "NO_LIVETIMING_MESSAGE": "This meeting does not support the livetiming feature.",
+        "NO_CONTENT_MESSAGE": "Unable to load content."
+    },
+    "AUTH": {
+        "LOGOUT": {
+            "TITLE": "Logout",
+            "INFO_TEXT": "You have been logged out successfully."
+        }
+    },
+    "USER": {
+        "PROFILE": {
+            "TITLE": "User Profile",
+            "NOT_AUTHED_MESSAGE": "You are not logged in!",
+            "USER_DATA_TITLE": "Stored Information",
+            "INTERNAL_ID": "Internal ID",
+            "USERNAME": "Username",
+            "MAIL": "E-Mail",
+            "GIVEN_NAME": "Given Name",
+            "FAMILY_NAME": "Family Name",
+            "ACTION_BUTTON_TITLE": "Actions",
+            "DELETE_USER_BUTTON_TEXT": "Delete Account",
+            "CHANGE_DATA_BUTTON_TEXT": "Change User Data"
+        }
+    },
+    "WIDGET": {
+        "COMING_SOON": {
+            "MAIN_TEXT": "This dashboard will be extended in the future and new widgets will be added."
+        }
+    },
+    "ENTRY_PAGE": {
+        "ABOUT_TEXT": "SwimResults enables athletes, coaches, family and friends to view starts, results, places, livetiming and more for participating swimming competitions in an easy and interactive manner.",
+        "INFO_LINKS_TITLE": "Informative Links"
     }
 }

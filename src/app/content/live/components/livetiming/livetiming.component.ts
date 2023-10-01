@@ -1,17 +1,22 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {StartService} from "../../../../core/service/api";
 import {Start, StartImpl} from "../../../../core/model/start/start.model";
-import {EventService} from "../../../../core/service/api/meeting/event.service";
+import {EventService} from "../../../../core/service/api";
 import {MeetingEventLivetiming} from "../../../../core/model/meeting/meeting-event-livetiming.model";
-import {HeatService} from "../../../../core/service/api/start/heat.service";
+import {HeatService} from "../../../../core/service/api";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
+import {HeatImpl} from "../../../../core/model/start/heat.model";
 
 export interface ChangeHeatEvent {
-  name: "event" | "heat" | "all";
+  name: "event" | "heat" | "all" | "nothing";
   next: boolean;
+}
+
+export interface LiveSettingsData {
+  isLive: boolean;
 }
 
 @Component({
@@ -20,6 +25,9 @@ export interface ChangeHeatEvent {
   styleUrls: ['./livetiming.component.scss']
 })
 export class LivetimingComponent implements OnInit, OnDestroy {
+
+  liveTimingUpdateInterval: number = 3000;
+
   meeting?: MeetingImpl;
   meetingId?: string;
   meetingSubscription: Subscription;
@@ -29,9 +37,12 @@ export class LivetimingComponent implements OnInit, OnDestroy {
   currentHeat: number = 1;
 
   starts: Start[] = [];
+  heat?: HeatImpl;
   event: MeetingEventLivetiming = {} as MeetingEventLivetiming;
   heatAmount: number = 1;
   heatFinished: boolean = false;
+
+  liveSettingsData: LiveSettingsData = {isLive: true} as LiveSettingsData;
 
   lanes: number = 1;
   firstLane: number = 1;
@@ -43,8 +54,10 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     allLanes: true,
     showResults: true,
     showRegistrationTime: !this.heatFinished,
-    showResultTime: this.heatFinished
+    showResultTime: this.heatFinished,
+    showMostSignificantTime: this.liveSettingsData.isLive
   } as StartListTileConfig;
+  private interval: any;
 
   constructor(
     private routeService: RouteService,
@@ -63,14 +76,18 @@ export class LivetimingComponent implements OnInit, OnDestroy {
       this.currentEvent = Number(event);
     }
 
-    this.meetingSubscription = this.routeService.currentEvent.subscribe(data => {
+    let isLive = window.sessionStorage.getItem("livetiming_live") == "1";
+    console.log(isLive);
+    this.liveSettingsData.isLive = isLive;
+
+    this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
       if (this.meeting) {
-        this.fetchData();
         if (this.meeting.location && this.meeting.location.lanes && this.meeting.location.first_lane) {
           this.lanes = this.meeting.location.lanes;
           this.firstLane = this.meeting.location.first_lane
         }
+        this.fetchData();
       }
     })
     this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
@@ -78,13 +95,38 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     })
   }
 
+  startLiveCycle() {
+    if (this.liveSettingsData.isLive) {
+      this.interval = setInterval(() => {
+        console.log("LIVE CYCLE RUNNING: interval: " + this.liveTimingUpdateInterval + " rnd: " + Math.random());
+        this.fetchData();
+      }, this.liveTimingUpdateInterval);
+    }
+  }
+
+  stopLiveCycle() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
+
+  updateLiveCycle() {
+    if (this.liveSettingsData.isLive) {
+      this.startLiveCycle()
+    } else {
+      this.stopLiveCycle()
+    }
+  }
+
   ngOnInit() {
     //this.fetchData();
+    this.updateLiveCycle()
   }
 
   ngOnDestroy() {
     this.meetingSubscription.unsubscribe();
     this.meetingIdSubscription.unsubscribe();
+    this.stopLiveCycle()
   }
 
   fetchData() {
@@ -94,63 +136,96 @@ export class LivetimingComponent implements OnInit, OnDestroy {
 
   fetchHeat() {
     if (this.meetingId) {
-      this.startService.getStartsByMeetingAndEventAndHeat(this.meetingId, this.currentEvent, this.currentHeat).subscribe(data => {
-        if (data) {
-          this.heatFinished = false;
-          this.starts = [];
-          let st: StartImpl[] = []
-          let ls: StartImpl[] = [];
+      if (this.liveSettingsData.isLive) {
+        this.startService.getCurrentStarts(this.meetingId).subscribe(data => {
+          this.processStarts(data)
+        })
+      } else {
+        this.startService.getStartsByMeetingAndEventAndHeat(this.meetingId, this.currentEvent, this.currentHeat).subscribe(data => {
+          this.processStarts(data);
+        })
+        this.fetchHeatAmount();
+      }
+    }
+  }
 
-          for (let start of data) {
-            let s = new StartImpl(start)
-            if (!this.heatFinished && s.hasResult()) {
-              this.heatFinished = true;
-            }
-            st.push(s);
-          }
-
-          if (st.length > this.lanes) {
-            this.lanes = st.length;
-          }
-          if (st[0].lane < this.firstLane) {
-            this.firstLane = st[0].lane;
-          }
-
-          // create all lanes with empty data
-          for (let i = this.firstLane; i < this.lanes + this.firstLane; i++) {
-            ls.push({lane: i, emptyLane: true} as StartImpl)
-          }
-
-          for (let start of st) {
-            ls[start.lane - this.firstLane] = start
-            ls[start.lane - this.firstLane].emptyLane = false;
-          }
-
-          if (this.heatFinished) {
-            ls.sort((a,b) => (a.emptyLane ? 1 : (b.emptyLane ? -1 : (a.getResultMilliseconds() <= 0 ? 1 : (b.getResultMilliseconds() <= 0 ? -1 : a.getResultMilliseconds() - b.getResultMilliseconds())))))
-            let j = 1;
-            for (let start of ls) {
-              start.rank = j++;
-            }
-          }
-
-          this.config = {
-            showAthlete: true,
-            laneAsIcon: !this.heatFinished,
-            flatStyle: true,
-            allLanes: !this.heatFinished,
-            showResults: true,
-            showRegistrationTime: !this.heatFinished,
-            showResultTime: this.heatFinished
-          } as StartListTileConfig;
-          this.starts = ls
-        }
-      })
+  fetchHeatAmount() {
+    if (this.meetingId)
       this.heatService.getEventHeatInfo(this.meetingId, this.currentEvent).subscribe(data => {
-        if (data)
+        if (data && data.amount)
           this.heatAmount = data.amount
       })
-    }
+  }
+
+  processStarts(starts: Start[]) {
+      this.heatFinished = false;
+      this.starts = [];
+      let st: StartImpl[] = []
+      let ls: StartImpl[] = [];
+
+      for (let start of starts) {
+        let s = new StartImpl(start)
+        if (!this.heatFinished && s.hasResult()) {
+          this.heatFinished = true;
+        }
+        st.push(s);
+
+        if (this.liveSettingsData.isLive) {
+          this.currentEvent = s.event;
+          this.currentHeat = s.heat_number;
+        }
+      }
+
+      if (st.length > 0) {
+        this.heat = st[0].heat;
+      }
+
+      if (this.liveSettingsData.isLive) { // in live mode, set to finished when finished_at is set
+        console.log(st[0].heat.getFinishedAt())
+        this.heatFinished = (st.length > 0 && st[0].heat.getFinishedAtTime() != "0:00");
+      }
+
+      if (this.liveSettingsData.isLive) {
+        this.fetchEvent();
+        this.fetchHeatAmount();
+      }
+
+      if (st.length > this.lanes) {
+        this.lanes = st.length;
+      }
+      if (st[0].lane < this.firstLane) {
+        this.firstLane = st[0].lane;
+      }
+
+      // create all lanes with empty data
+      for (let i = this.firstLane; i < this.lanes + this.firstLane; i++) {
+        ls.push({lane: i, emptyLane: true} as StartImpl)
+      }
+
+      for (let start of st) {
+        ls[start.lane - this.firstLane] = start
+        ls[start.lane - this.firstLane].emptyLane = false;
+      }
+
+      if (this.heatFinished) {
+        ls.sort((a,b) => (a.emptyLane ? 1 : (b.emptyLane ? -1 : (a.getResultMilliseconds() <= 0 ? 1 : (b.getResultMilliseconds() <= 0 ? -1 : a.getResultMilliseconds() - b.getResultMilliseconds())))))
+        let j = 1;
+        for (let start of ls) {
+          start.rank = j++;
+        }
+      }
+
+      this.config = {
+        showAthlete: true,
+        laneAsIcon: !this.heatFinished,
+        flatStyle: true,
+        allLanes: !this.heatFinished,
+        showResults: true,
+        showRegistrationTime: !this.heatFinished,
+        showResultTime: this.heatFinished,
+        showMostSignificantTime: this.liveSettingsData.isLive
+      } as StartListTileConfig;
+      this.starts = ls
   }
 
   fetchEvent() {
@@ -174,6 +249,15 @@ export class LivetimingComponent implements OnInit, OnDestroy {
   }
 
   onChangeHeat(ev: ChangeHeatEvent) {
+    if (ev.name == "nothing") {
+      this.storeCurrentHeat();
+      this.updateLiveCycle();
+      this.fetchData();
+      return;
+    } else {
+      this.liveSettingsData.isLive = false;
+      this.stopLiveCycle()
+    }
     if (ev.name == "heat") {
       this.currentHeat += (ev.next ? 1 : -1);
     } else {
@@ -219,6 +303,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
   storeCurrentHeat() {
     window.sessionStorage.setItem("livetiming_heat", "" + this.currentHeat);
     window.sessionStorage.setItem("livetiming_event", "" + this.currentEvent);
+    window.sessionStorage.setItem("livetiming_live", this.liveSettingsData.isLive ? "1" : "0");
   }
 
   nextEvent() {

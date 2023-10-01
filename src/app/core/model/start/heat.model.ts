@@ -47,6 +47,16 @@ export class HeatImpl implements Heat {
     return createDate(this.start_delay_estimation);
   }
 
+  getFinishedAt(): Date {
+    return createDate(this.finished_at);
+  }
+
+  getFinishedAtTime(): string {
+    const d = this.getFinishedAt();
+    let minutes = "0" + d.getMinutes();
+    return d.getHours() + ":" + minutes.substr(-2);
+  }
+
   getStartDelayEstimationTime(): string {
     const d = this.getStartDelayEstimation();
     let minutes = "0" + d.getMinutes();
@@ -72,5 +82,16 @@ export class HeatImpl implements Heat {
   hasStartTime(): boolean {
     let s = this.getStartAt()
     return !(s.getMinutes() == 0 && s.getHours() == 0)
+  }
+
+  // returns delay in seconds
+  getDelay(): number {
+    let delayEst = this.getStartDelayEstimation()
+    let est = this.getEstimatedStart()
+
+    delayEst.setFullYear(0, 0, 0);
+    est.setFullYear(0, 0, 0);
+
+    return delayEst.getTime() - est.getTime();
   }
 }

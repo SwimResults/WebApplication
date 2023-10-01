@@ -1,6 +1,6 @@
-
-
-<span class="distance" *ngIf="event && event.style">
-  {{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{event.number}}
-  -
-  {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</span>
+<sr-heat-times *ngIf="heat" [heat]="heat" orientation="horizontal"></sr-heat-times>
+<ng-container *ngIf="liveSettingsData">
+  <div class="live-indicator" *ngIf="liveSettingsData.isLive"></div>
+  <span class="live-text">Live</span>
+  <mat-slide-toggle [checked]="liveSettingsData.isLive" (click)="onLiveButtonClick()"></mat-slide-toggle>
+</ng-container>

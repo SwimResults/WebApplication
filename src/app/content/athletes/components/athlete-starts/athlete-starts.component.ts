@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {StartService} from "../../../../core/service/api";
 import {Start} from "../../../../core/model/start/start.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
+import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
   selector: 'sr-athlete-starts',
@@ -12,6 +13,8 @@ export class AthleteStartsComponent implements OnInit{
   @Input() athleteId!: string;
   @Input() meetingId?: string;
   starts: Start[] = [];
+
+  fetchingStarts: FetchingModel = {fetching: false};
 
   config: StartListTileConfig = {} as StartListTileConfig;
 
@@ -38,13 +41,16 @@ export class AthleteStartsComponent implements OnInit{
   }
 
   fetchStarts() {
+    this.fetchingStarts.fetching = true;
     if (this.meetingId === undefined) {
       this.startService.getStartsByAthlete(this.athleteId).subscribe(data => {
         this.starts = data;
+        this.fetchingStarts.fetching = false;
       })
     } else {
       this.startService.getStartsByMeetingAndAthlete(this.meetingId, this.athleteId).subscribe(data => {
         this.starts = data;
+        this.fetchingStarts.fetching = false;
       })
     }
   }

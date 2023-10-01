@@ -14,7 +14,7 @@ export class TeamAthleteListTile implements IListTile {
     this.id = athlete._id;
     this.name = athlete.name;
     this.badge = athlete.year;
-    this.nameLink = "../../athlete/" + athlete._id;
+    this.nameLink = "../../athlete/" + athlete.alias[0] + "-" + athlete.year;
   }
 
 

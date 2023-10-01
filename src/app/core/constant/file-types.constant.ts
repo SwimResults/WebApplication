@@ -20,4 +20,12 @@ export let fileTypes = new Map<string, FileType>([
     icon: "folder_zip",
     color: "zip"
   }],
+  ["lef", {
+    icon: "article",
+    color: "lef"
+  }],
+  ["lxf", {
+    icon: "folder_zip",
+    color: "lef"
+  }],
 ]);

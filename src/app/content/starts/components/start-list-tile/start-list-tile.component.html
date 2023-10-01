@@ -41,14 +41,55 @@
           <span class="link athlete-team"  [routerLink]="'/m/' + data.meeting + '/team/' + data.athlete_team">{{data.athlete_team_name}}</span>
         </span>
 
-        <span class="duration registration-time" *ngIf="config && config.showRegistrationTime && data.hasResultType(resultTypes.REGISTRATION)">{{getTimeString(data.getTimeMilliseconds(resultTypes.REGISTRATION))}}</span>
-        <!--span class="duration result-time" *ngIf="data.hasResult()"><sr-badge>{{getTimeString(data.getResultMilliseconds())}}</sr-badge></span-->
+
+        <span
+          class="duration registration-time"
+          *ngIf="
+            config && (
+              (!config.showMostSignificantTime && config.showRegistrationTime && data.hasResultType(resultTypes.REGISTRATION))
+              ||
+              (config.showMostSignificantTime && !data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP) && data.hasResultType(resultTypes.REGISTRATION))
+            )"
+        >{{getTimeString(data.getTimeMilliseconds(resultTypes.REGISTRATION))}}</span>
+
         <ng-container *ngIf="config && config.showResults">
-          <span class="duration result-time {{getGotBetter() ? 'result-better' : 'result-worse'}}" *ngIf="config && config.showResultTime && data.hasResult()">
+
+          <span
+            class="duration result-time {{getGotBetter() ? 'result-better' : 'result-worse'}}"
+            *ngIf="
+              config && (
+                (!config.showMostSignificantTime && config.showResultTime && data.hasResult())
+                ||
+                (config.showMostSignificantTime && data.hasResult())
+              )"
+          >
             <mat-icon>{{getGotBetter() ? 'north_east' : 'south_east'}}</mat-icon>
             <span class="result-time-string">{{getTimeString(data.getResultMilliseconds())}}</span>
           </span>
-          <span class="reaction" *ngIf="config && config.showReactionTime && data.hasResultType(resultTypes.REACTION)">{{getReactionString(data.getTimeMilliseconds(resultTypes.REACTION))}}</span>
+
+          <span
+            class="duration lap-time"
+            *ngIf="
+              config && (
+                (!config.showMostSignificantTime && config.showLapTimes && data.hasResultType(resultTypes.LAP))
+                ||
+                (config.showMostSignificantTime && !data.hasResult() && data.hasResultType(resultTypes.LAP))
+              )"
+          >
+            <span class="lap-meters">{{data.getMostRecentLap().lap_meters}}</span>
+            <span class="result-time-string">{{getTimeString(data.getMostRecentLap().time)}}</span>
+          </span>
+
+          <span
+            class="reaction"
+            *ngIf="
+              config && (
+                (!config.showMostSignificantTime && config.showReactionTime && data.hasResultType(resultTypes.REACTION))
+                ||
+                (config.showMostSignificantTime && data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP))
+              )"
+          >{{getReactionString(data.getTimeMilliseconds(resultTypes.REACTION))}}</span>
+
           <div class="disqualification" *ngIf="config && config.showDisqualification && data.disqualification.type && config && !config.laneAsIcon">
             <span class="reason">{{getReason()}}</span>
           </div>

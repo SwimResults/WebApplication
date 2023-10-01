@@ -6,12 +6,20 @@
   src: url("/assets/fonts/SwimResults.ttf");
 }
 
+:root {
+  //--bg-gradient-1: #acffff;
+  //--bg-gradient-2: #ceb3ff;
+  --bg-gradient-1: #A1FFE9;
+  --bg-gradient-2: #ACC3FF;
+}
+
 html, body { height: 100%; }
 body {
   margin: 0;
   font-family: SwimResults, Roboto, "Helvetica Neue", sans-serif;
-  background-color: #f2f2f2;
+  //background-color: $color-bg-page;
   color: $color-text-main;
+  background: linear-gradient(to bottom right, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%) fixed;
 }
 
 h1,
@@ -102,9 +110,9 @@ input[type=search] {
 
 .sr-btn-menu {
   width: calc(100%);
-  margin: 0;
   line-height: 22px;
   padding: 8px 12px 8px 8px;
+  margin: 4px 0;
   height: 34px;
   background-color: transparent;
   box-sizing: border-box;
@@ -115,7 +123,7 @@ input[type=search] {
   overflow: hidden;
 
   &:hover {
-    background-color: $color-bg-gray;
+    color: $color-sr-second;
   }
 
   mat-icon {
@@ -127,5 +135,11 @@ input[type=search] {
     vertical-align: middle;
     display: inline-block;
     margin-left: 14px;
+  }
+
+  a {
+    color: $color-nav-link;
+    text-decoration: none;
+    line-height: 16px;
   }
 }

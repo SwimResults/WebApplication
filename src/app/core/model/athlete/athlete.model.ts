@@ -6,4 +6,6 @@ export interface Athlete {
   year: string;
   team: Team;
   dsv_id: number;
+  alias: string[];
+  participation: string[];
 }

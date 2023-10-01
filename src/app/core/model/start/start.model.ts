@@ -4,9 +4,10 @@ import {Result, ResultImpl} from "./result.model";
 
 export enum ResultTypes {
   REGISTRATION = "registration",
-  LIVETIMING = "livetiming",
+  LIVETIMING = "livetiming", // TODO: not as mentioned in start service
   REACTION = "reaction",
-  RESULT_LIST = "result_list"
+  RESULT_LIST = "result_list",
+  LAP = "lap"
 }
 
 export interface Start {
@@ -107,6 +108,19 @@ export class StartImpl implements Start {
     }
     return false;
   }
+
+  getMostRecentLap(): ResultImpl {
+    let highestLapMeters = 0;
+    let lapResult: ResultImpl = new ResultImpl({} as Result);
+    for (let result of this.results) {
+      if (result.result_type == ResultTypes.LAP && result.lap_meters >= highestLapMeters) {
+        highestLapMeters = result.lap_meters;
+        lapResult = result;
+      }
+    }
+    return lapResult;
+  }
+
   getResultMilliseconds(): number {
     let latest: Date = new Date(0);
     let time = 0

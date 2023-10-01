@@ -10,5 +10,6 @@ export const environment = {
     import_service: "https://api.swimresults.de/import/v1/",
     user_service: "https://api.swimresults.de/user/v1/",
     meeting_service: "https://api.swimresults.de/meeting/v1/"
-  }
+  },
+  o_auth_issuer: "https://auth.swimresults.de/realms/swimresults"
 }

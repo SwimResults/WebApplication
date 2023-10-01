@@ -1,11 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ResultTypes, Start, StartImpl} from "../../../../core/model/start/start.model";
 import {StartId} from "../../../../core/model/start/start-id.model";
-import {MeetingService, StartService} from "../../../../core/service/api";
+import {MeetingService, StartService, EventService} from "../../../../core/service/api";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
-import {EventService} from "../../../../core/service/api/meeting/event.service";
 
 @Component({
   selector: 'sr-start-list-tile',
@@ -104,7 +103,8 @@ export class StartListTileComponent implements OnInit {
 
   getIconTextContent(): string | undefined {
     if (this.config && this.config.laneAsIcon) return this.data.lane + "";
-    if (this.data.certified && this.data.rank) return this.data.rank + ".";
+    //if (this.data.certified && this.data.rank) return this.data.rank + ".";
+    if (this.data.rank) return this.data.rank + ".";
     return undefined;
   }
 
@@ -114,6 +114,7 @@ export class StartListTileComponent implements OnInit {
   }
 
   getTimeString(time: number): string {
+    if (!time) return "-";
     let d = new Date((time / 1000) / 1000)
     let minutes = "0" + d.getMinutes()
     let seconds = "0" + d.getSeconds()
