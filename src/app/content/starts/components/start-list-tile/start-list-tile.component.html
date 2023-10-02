@@ -69,16 +69,22 @@
 
           <span
             class="duration lap-time"
-            *ngIf="
-              config && (
-                (!config.showMostSignificantTime && config.showLapTimes && data.hasResultType(resultTypes.LAP))
-                ||
-                (config.showMostSignificantTime && !data.hasResult() && data.hasResultType(resultTypes.LAP))
-              )"
+            *ngIf="config && config.showMostSignificantTime && !data.hasResult() && data.hasResultType(resultTypes.LAP)"
           >
             <span class="lap-meters">{{data.getMostRecentLap().lap_meters}}</span>
             <span class="result-time-string">{{getTimeString(data.getMostRecentLap().time)}}</span>
           </span>
+
+          <div class="lap-time-list"
+            *ngIf="config && config.showLapTimes && data.hasResultType(resultTypes.LAP)">
+            <span
+              class="duration lap-time"
+              *ngFor="let lap of data.getLapTimes()"
+            >
+              <span class="lap-meters">{{lap.lap_meters}}</span>
+              <span class="result-time-string">{{getTimeString(lap.time)}}</span>
+            </span>
+          </div>
 
           <span
             class="reaction"
@@ -93,6 +99,12 @@
           <div class="disqualification" *ngIf="config && config.showDisqualification && data.disqualification.type && config && !config.laneAsIcon">
             <span class="reason">{{getReason()}}</span>
           </div>
+
+          <button
+            class="sr-btn-bar sr-btn-icon sr-btn sr-right"
+            *ngIf="config && config.showLapTimesPopup && data.hasResultType(resultTypes.LAP)">
+            <mat-icon>clock</mat-icon>
+          </button>
         </ng-container>
       </ng-container>
       <ng-container *ngIf="data.emptyLane">

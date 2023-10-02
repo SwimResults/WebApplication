@@ -10,6 +10,7 @@ export class StartListTileConfig {
   showResults: boolean = true;
   showResultTime: boolean = true;
   showLapTimes: boolean = false;
+  showLapTimesPopup: boolean = false;
   showDisqualification: boolean = true;
   showReactionTime: boolean = true;
   showMostSignificantTime: boolean = false; // show either registration; reaction; lap; livetiming result OR result list result time

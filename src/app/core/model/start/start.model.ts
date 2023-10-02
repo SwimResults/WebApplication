@@ -121,6 +121,16 @@ export class StartImpl implements Start {
     return lapResult;
   }
 
+  getLapTimes(): IterableIterator<ResultImpl> {
+    let res: Map<number, ResultImpl> = new Map<number, ResultImpl>();
+    for (let result of this.results) {
+      if (result.result_type == ResultTypes.LAP) {
+        res.set(result.lap_meters, result)
+      }
+    }
+    return res.values();
+  }
+
   getResultMilliseconds(): number {
     let latest: Date = new Date(0);
     let time = 0

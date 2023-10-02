@@ -37,6 +37,7 @@ export class AthleteStartsComponent implements OnInit{
       showResultTime: true,
       showDisqualification: true,
       showReactionTime: true,
+      showLapTimes: true,
       rankStylesIcon: true} as StartListTileConfig;
   }
 
