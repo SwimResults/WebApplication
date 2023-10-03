@@ -33,8 +33,8 @@
           <span *ngIf="meeting.location?.city" class="meeting-city">{{meeting.location.city}}</span>
         </span>
 
-        <span class="heat" *ngIf="config.showHeat">{{data.heat_number}}</span>
-        <span class="lane" *ngIf="config.showLane">{{'START.LANE' | translate}} {{data.lane}}</span>
+        <span class="heat" *ngIf="config.showHeat">{{'COMMON.HEAT.SHORT' | translate}} {{data.heat_number}}</span>
+        <span class="lane" *ngIf="config.showLane">{{'COMMON.LANE.SHORT' | translate}} {{data.lane}}</span>
         <span class="athlete" *ngIf="config.showAthlete">
           <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{data.athlete_name}}</span>
           <span class="athlete-year">{{data.athlete_year}}</span>

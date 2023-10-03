@@ -78,14 +78,16 @@
         },
         "HEAT": {
             "SINGULAR": "Heat",
-            "PLURAL": "Heats"
+            "PLURAL": "Heats",
+            "SHORT": "H"
         },
         "EVENT": {
             "SINGULAR": "Event"
         },
         "LANE": {
             "SINGULAR": "Lane",
-            "PLURAL": "Lanes"
+            "PLURAL": "Lanes",
+            "SHORT": "L"
         },
         "DATE": {
             "MONTH": {

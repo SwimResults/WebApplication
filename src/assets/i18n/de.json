@@ -88,14 +88,16 @@
         },
         "HEAT": {
             "SINGULAR": "Lauf",
-            "PLURAL": "Läufe"
+            "PLURAL": "Läufe",
+            "SHORT": "L"
         },
         "EVENT": {
           "SINGULAR": "Wettkampf"
         },
         "LANE": {
           "SINGULAR": "Bahn",
-          "PLURAL": "Bahnen"
+          "PLURAL": "Bahnen",
+          "SHORT": "B"
         },
         "DATE": {
             "MONTH": {
