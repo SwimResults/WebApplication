@@ -27,7 +27,7 @@ export class FileListTileComponent implements OnInit {
 
   ngOnInit() {
     if (this.file && this.file.name) {
-      this.translateService.get("FILES.FILE_NAMES." + this.file.name).subscribe(results => {
+      this.translateService.get("FILES.FILE_NAMES." + this.file.name.toUpperCase()).subscribe(results => {
         if (results) {
           this.name = results;
         } else {
