@@ -52,6 +52,20 @@ export class PageDashboardEventComponent {
           container: undefined
         }
       ]
-    }
+    },
+    {
+      id: 3,
+      orderPosition: 3,
+      widgets: [
+        {
+          id: 1,
+          size: "MEDIUM",
+          user: "default",
+          content: "map",
+          orderPosition: 1,
+          container: undefined
+        }
+      ]
+    },
   ]
 }

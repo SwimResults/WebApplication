@@ -1,0 +1,14 @@
+<iframe *ngIf="meeting && meeting.location"
+  width="300"
+  height="140"
+  frameborder="0" style="border:0"
+  referrerpolicy="no-referrer-when-downgrade"
+        [src]=""
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCSsDd54wOfUNyJNeqTUeIEItOtlIgE_gs&q={{meeting.location.name + ' ' + meeting.location.street + ' ' + meeting.location.number + ' ' + meeting.location.city + ' ' + meeting.location.postal_code}}"
+  allowfullscreen
+>
+</iframe>
+
+<p *ngIf="meeting">
+  {{meeting.location.name + ' ' + meeting.location.street + ' ' + meeting.location.number + ' ' + meeting.location.city + ' ' + meeting.location.postal_code}}
+</p>

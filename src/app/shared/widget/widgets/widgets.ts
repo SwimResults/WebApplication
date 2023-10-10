@@ -14,6 +14,7 @@ import {
 import {
   WidgetComingSoonMediumComponent
 } from "./coming-soon/widget-coming-soon-medium/widget-coming-soon-medium.component";
+import {WidgetMapMediumComponent} from "./map/widget-map-medium/widget-map-medium.component";
 
 export type ComponentClass = { new (): Component };
 
@@ -27,3 +28,4 @@ widgetComponents.set('clock-small', WidgetClockSmallComponent);
 widgetComponents.set('swimresults-small', WidgetSwimresultsSmallComponent);
 widgetComponents.set('coming-soon-large', WidgetComingSoonLargeComponent);
 widgetComponents.set('coming-soon-medium', WidgetComingSoonMediumComponent);
+widgetComponents.set('map-medium', WidgetMapMediumComponent);
