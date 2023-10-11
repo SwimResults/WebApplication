@@ -17,6 +17,7 @@ import { WidgetSwimresultsSmallComponent } from './widgets/swimresults/widget-sw
 import { WidgetComingSoonLargeComponent } from './widgets/coming-soon/widget-coming-soon-large/widget-coming-soon-large.component';
 import { WidgetComingSoonMediumComponent } from './widgets/coming-soon/widget-coming-soon-medium/widget-coming-soon-medium.component';
 import { WidgetMapMediumComponent } from './widgets/map/widget-map-medium/widget-map-medium.component';
+import {SafePipeModule} from "safe-pipe";
 
 
 
@@ -44,7 +45,8 @@ import { WidgetMapMediumComponent } from './widgets/map/widget-map-medium/widget
     CoreModule,
     ElementsModule,
     MatIconModule,
-    RouterLink
+    RouterLink,
+    SafePipeModule
   ]
 })
 export class WidgetModule { }
