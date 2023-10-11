@@ -1,9 +1,8 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
 import {MeetingImpl} from "../../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {Team} from "../../../../../core/model";
 import {RouteService} from "../../../../../core/service/route.service";
-import {TeamService} from "../../../../../core/service/api";
 
 @Component({
   selector: 'sr-widget-map-medium',
@@ -11,35 +10,39 @@ import {TeamService} from "../../../../../core/service/api";
   styleUrls: ['./widget-map-medium.component.scss']
 })
 export class WidgetMapMediumComponent implements OnDestroy {
+
+  @ViewChild('mapIframe') mapIframe?: ElementRef;
+
   meeting?: MeetingImpl;
-  meetingId?: string;
   meetingSubscription: Subscription;
-  meetingIdSubscription: Subscription;
 
   organizer?: Team;
 
   constructor(
-    private routeService: RouteService,
-    private teamService: TeamService
+    private routeService: RouteService
   ) {
     this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
-      console.log("fetched meeting:")
-      console.log(this.meeting)
-
-      if (Number(this.meeting.organizer_id) != 0) {
-        this.teamService.getTeamById(this.meeting.organizer_id).subscribe(data => {
-          this.organizer = data;
-        })
-      }
-    })
-    this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
-      this.meetingId = data;
+      this.fetchMap();
     })
   }
 
   ngOnDestroy() {
     this.meetingSubscription.unsubscribe();
-    this.meetingIdSubscription.unsubscribe();
+  }
+
+  fetchMap() {
+    setTimeout(() => {
+      if (this.mapIframe)
+        this.mapIframe.nativeElement.src = this.getMapsUrl();
+    }, 1000)
+  }
+
+  getMapsUrl() {
+    if (this.meeting) {
+      return 'https://www.google.com/maps/embed/v1/place?key=AIzaSyCSsDd54wOfUNyJNeqTUeIEItOtlIgE_gs&q=' + this.meeting.location.name + ' ' + this.meeting.location.street + ' ' + this.meeting.location.number + ' ' + this.meeting.location.city + ' ' + this.meeting.location.postal_code + '&zoom=10'
+    }
+    console.log("failed fetching map url")
+    return ""
   }
 }
