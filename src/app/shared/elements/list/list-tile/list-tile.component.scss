@@ -17,6 +17,12 @@
   width: 40px;
 }
 
+.country-flag {
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 24px;
+}
+
 @media only screen and (max-width: 800px) {
   .main-icon {
     display: none;

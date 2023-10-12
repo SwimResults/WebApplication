@@ -1,6 +1,7 @@
 import {Component, Input, ViewChild} from '@angular/core';
 import {IListTile} from "../../../../core/model/list/list-tile.model";
 import {MatMenuTrigger} from "@angular/material/menu";
+import {countryFlags} from "../../../../core/constant/countryflags.constant";
 
 @Component({
   selector: 'sr-list-tile',
@@ -9,6 +10,7 @@ import {MatMenuTrigger} from "@angular/material/menu";
 })
 export class ListTileComponent {
   @Input() entry!: IListTile;
+  flags: Map<string, string> = countryFlags;
 
   // we create an object that contains coordinates
   menuTopLeftPosition =  {x: 0, y: 0}
