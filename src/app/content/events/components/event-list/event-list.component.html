@@ -1,5 +1,5 @@
 <sr-spinner *ngIf="fetchingParts.fetching"></sr-spinner>
-<ng-container *ngIf="!fetchingParts.fetching">
+<ng-container *ngIf="!fetchingParts.fetching && meeting">
   <sr-no-content *ngIf="!parts || parts.length <= 0">
     {{'EVENT.LIST.NO_EVENTS_MESSAGE' | translate}}
   </sr-no-content>
@@ -10,6 +10,7 @@
         *ngFor="let ev of part.events"
         [event]="ev"
         [heatInfo]="heats.get(ev.number)"
+        [clickable]="meeting.hasData()"
       ></sr-event-list-event>
     </sr-panel>
     <sr-spinner *ngIf="fetchingHeats.fetching"></sr-spinner>

@@ -3,10 +3,11 @@
     class="livetiming-grid-element"
     [liveSettingsData]="liveSettingsData"
     [heat]="heat"
+    [meeting]="meeting"
     (changeHeat)="onChangeHeat($event)"
   ></sr-livetiming-header>
 
-  <sr-panel *ngIf="event && event.event"
+  <sr-panel *ngIf="event && event.event && starts.length > 0"
             class="livetiming-grid-element"
     panelTitle="{{'COMMON.EVENT.SINGULAR' | translate}} {{event.event.number}} - {{event.event.relay_distance ? event.event.relay_distance : event.event.distance}}m {{'COMMON.STYLE.' + event.event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.event.gender + '.NAME' | translate}}"
   >
@@ -26,6 +27,7 @@
 
   <sr-livetiming-controls
     class="livetiming-grid-element"
+    *ngIf="starts.length > 0"
     (changeHeat)="onChangeHeat($event)"
     [currentEvent]="currentEvent"
     [currentHeat]="currentHeat"

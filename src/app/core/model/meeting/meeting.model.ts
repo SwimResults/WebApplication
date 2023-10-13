@@ -4,6 +4,19 @@ import {MeetingData} from "./meeting-data.model";
 import {MeetingLayout} from "./meeting-layout.model";
 import {months} from "../../constant/months.constant";
 
+export enum MeetingStates {
+  HIDDEN = "HIDDEN",
+  ANNOUNCED = "ANNOUNCED",
+  PREPARATION = "PREPARATION",
+  OPENING = "OPENING",
+  RUNNING = "RUNNING",
+  BREAK = "BREAK",
+  PAUSE = "PAUSE",
+  FINAL = "FINAL",
+  OVER = "OVER",
+  ARCHIVED = "ARCHIVED"
+}
+
 export interface Meeting {
   _id: string;
   date_start: string;
@@ -13,6 +26,7 @@ export interface Meeting {
   series: MeetingSeries;
   iteration: number;
   meet_id: string;
+  state: MeetingStates;
 
   data: MeetingData;
   layout: MeetingLayout;
@@ -27,6 +41,7 @@ export class MeetingImpl implements Meeting {
   series: MeetingSeries = {} as MeetingSeries;
   iteration: number = 1;
   meet_id: string = "";
+  state: MeetingStates = MeetingStates.HIDDEN;
   data: MeetingData = {} as MeetingData;
   layout: MeetingLayout = {} as MeetingLayout;
 
@@ -43,6 +58,7 @@ export class MeetingImpl implements Meeting {
       this.meet_id = meeting.meet_id;
       this.data = meeting.data;
       this.layout = meeting.layout;
+      this.state = meeting.state;
     }
   }
 
@@ -103,5 +119,25 @@ export class MeetingImpl implements Meeting {
       return d1 + "." + mo1 + " - " + d2 + "." + mo2;
     }
 
+  }
+
+  hasState(state: MeetingStates): boolean {
+     return this.state == state
+  }
+
+  hasStates(states: MeetingStates[]): boolean {
+    for (let state1 of states) {
+      if (this.state == state1) return true;
+    }
+    return false;
+  }
+
+  hasData(): boolean {
+    switch (this.state) {
+      case MeetingStates.ANNOUNCED || MeetingStates.HIDDEN:
+        return false;
+      default:
+        return true;
+    }
   }
 }
