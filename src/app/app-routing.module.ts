@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'account/profile',          component: UserProfileComponent },
   { path: 'dashboard',                component: PageDashboardGeneralComponent },
   { path: 'calendar',                 component: CalendarComponent },
-  { path: 'meetings',                 redirectTo: '/meetings' },
+  { path: 'meetings',                 redirectTo: '/' },
   { path: 'athlete',                  component: PageAthletesGeneralComponent },
   { path: 'athlete/:entity_id',       component: PageAthleteComponent },
   { path: 'team',                     component: PageTeamsGeneralComponent },
@@ -30,7 +30,7 @@ const routes: Routes = [
   {
     path: 'm/:event',
     children: [
-      { path: "",                     component: PageDashboardEventComponent },
+      { path: "",                     redirectTo: 'dashboard', pathMatch: "full" },
       { path: "dashboard",            component: PageDashboardEventComponent },
       { path: "live",                 component: PageLiveComponent },
       { path: "event",                component: PageEventsComponent },
