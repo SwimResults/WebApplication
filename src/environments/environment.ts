@@ -15,5 +15,7 @@ export const environment = {
     start_service: "http://localhost:8087/",
     user_service: "http://localhost:8090/",
   },
-  o_auth_issuer: "http://localhost:8080/realms/master"
+//  o_auth_issuer: "http://localhost:8080/realms/master",
+  o_auth_issuer: "https://auth.swimresults.de/realms/swimresults"
+
 }

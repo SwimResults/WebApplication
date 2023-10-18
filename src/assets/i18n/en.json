@@ -10,7 +10,8 @@
                 "TEAMS": "Teams",
                 "FILES": "Files",
                 "STATS": "Statistics",
-                "LEAVE_MEETING": "Leave {{short}}"
+                "ADMIN": "Admin",
+                "LEAVE_MEETING": "Exit {{short}}"
             }
         }
     },
@@ -198,6 +199,7 @@
     "LIVE": {
         "NO_STARTS_MESSAGE": "There are currently no starts available for the livetiming.",
         "NO_LIVETIMING_MESSAGE": "This meeting does not support the livetiming feature.",
+        "NO_LIVETIMING_YET_MESSAGE": "The livetiming will be available after the start list has been published.",
         "NO_CONTENT_MESSAGE": "Unable to load content."
     },
     "AUTH": {

@@ -41,6 +41,7 @@ export class AuthComponent {
         console.debug('scopes', scopes);
 
         this.authService.setAuthenticated(true);
+        this.authService.setScopes(scopes)
 
       });
   }

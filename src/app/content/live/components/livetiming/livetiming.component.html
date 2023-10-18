@@ -1,4 +1,4 @@
-<div class="livetiming-grid" *ngIf="meeting && meeting.data && meeting.data.has_livetiming">
+<div class="livetiming-grid" *ngIf="meeting && meeting.data && meeting.data.has_livetiming && meeting.hasData()">
   <sr-livetiming-header
     class="livetiming-grid-element"
     [liveSettingsData]="liveSettingsData"
@@ -7,7 +7,7 @@
     (changeHeat)="onChangeHeat($event)"
   ></sr-livetiming-header>
 
-  <sr-panel *ngIf="event && event.event && starts.length > 0"
+  <sr-panel *ngIf="event && event.event"
             class="livetiming-grid-element"
     panelTitle="{{'COMMON.EVENT.SINGULAR' | translate}} {{event.event.number}} - {{event.event.relay_distance ? event.event.relay_distance : event.event.distance}}m {{'COMMON.STYLE.' + event.event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.event.gender + '.NAME' | translate}}"
   >
@@ -27,7 +27,6 @@
 
   <sr-livetiming-controls
     class="livetiming-grid-element"
-    *ngIf="starts.length > 0"
     (changeHeat)="onChangeHeat($event)"
     [currentEvent]="currentEvent"
     [currentHeat]="currentHeat"
@@ -38,6 +37,9 @@
 </div>
 <sr-no-content *ngIf="meeting && (meeting.data && !meeting.data.has_livetiming || !meeting.data)">
   {{'LIVE.NO_LIVETIMING_MESSAGE' | translate}}
+</sr-no-content>
+<sr-no-content *ngIf="meeting && !meeting.hasData()">
+  {{'LIVE.NO_LIVETIMING_YET_MESSAGE' | translate}}
 </sr-no-content>
 <sr-no-content *ngIf="!meeting">
   {{'LIVE.NO_CONTENT_MESSAGE' | translate}}

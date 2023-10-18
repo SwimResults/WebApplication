@@ -12,6 +12,7 @@ import {AuthComponent} from "./content/auth/auth.component";
 import {UserProfileComponent} from "./content/account";
 import {PageMeetingsComponent} from "./content/meetings";
 import {LogoutComponent} from "./content/auth/logout/logout.component";
+import {PageAdminEventComponent} from "./content/admin";
 
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
       { path: 'team/:entity_id',      component: PageTeamComponent },
       { path: "files",                component: PageFilesComponent },
       { path: "stats",                component: PageStatsEventComponent },
+      { path: "admin",                component: PageAdminEventComponent },
     ]
   }
 
