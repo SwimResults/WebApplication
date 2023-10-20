@@ -4,6 +4,7 @@
 
 export const environment = {
   environment: 'development',
+  env_color: "#017e93",
   api_urls: {
     // athlete_service: "https://api.swimresults.de/athlete/v1/",
     // start_service: "https://api.swimresults.de/start/v1/",

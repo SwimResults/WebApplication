@@ -1,3 +1,11 @@
+<div
+  class="system-environment"
+  *ngIf="showEnv"
+  (click)="toggleEnv()"
+  style="{{'background-color: ' + env_color}}"
+>
+  <span class="env">{{environment | uppercase}}</span>
+</div>
 <main [class]="'sidebar-' + sidebarState">
   <sr-sidebar [class]="sidebarState"></sr-sidebar>
   <div class="sidebar-hider" (click)="hideSidebar()"></div>

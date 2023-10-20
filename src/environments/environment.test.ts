@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  environment: 'test',
+  environment: 'testing',
+  env_color: "#149d00",
   api_urls: {
     athlete_service: "https://api-dev.swimresults.de/athlete/v1/",
     start_service: "https://api-dev.swimresults.de/start/v1/",

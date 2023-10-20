@@ -57,6 +57,20 @@ main {
   }
 }
 
+.system-environment {
+  position: fixed;
+  width: 300px;
+  rotate: -45deg;
+  z-index: 1000;
+  background-color: #00459d;
+  color: white;
+  text-align: center;
+  font-weight: 1000;
+  left: -104px;
+  top: 34px;
+  padding: 4px;
+}
+
 @media only screen and (max-width: 1050px) {
   main {
     grid-template-columns: 0 40px minmax(1px,1440px) 40px;
