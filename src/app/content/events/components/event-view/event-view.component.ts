@@ -35,7 +35,8 @@ export class EventViewComponent implements OnInit, OnDestroy {
     showRegistrationTime: true,
     showResults: true,
     showResultTime: true,
-    showReactionTime: true
+    showReactionTime: true,
+    showLapTimes: true
   } as StartListTileConfig;
 
   listMode: string = "lanes";

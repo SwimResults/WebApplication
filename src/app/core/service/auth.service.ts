@@ -11,11 +11,15 @@ export class AuthService {
   private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
+  private scopesSubject = new ReplaySubject<string[]>(1);
+  public scopes = this.scopesSubject.asObservable();
+
   constructor(
     private oAuthService: OAuthService,
     private router: Router
   ) {
     this.isAuthenticatedSubject.next(false);
+    this.scopesSubject.next([]);
     this.setup()
   }
 
@@ -24,6 +28,7 @@ export class AuthService {
     this.oAuthService.loadDiscoveryDocumentAndTryLogin().then(_ => {
       if (this.oAuthService.hasValidIdToken()) {
         this.isAuthenticatedSubject.next(true);
+        this.setScopes(this.oAuthService.getGrantedScopes())
       }
 
       this.oAuthService.setupAutomaticSilentRefresh()
@@ -42,5 +47,12 @@ export class AuthService {
 
   setAuthenticated(authed: boolean) {
     this.isAuthenticatedSubject.next(authed);
+  }
+
+  setScopes(scopes: object) {
+    console.log("scopes set!");
+    let s: string[];
+    s = scopes as string[];
+    this.scopesSubject.next(s);
   }
 }

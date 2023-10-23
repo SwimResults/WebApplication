@@ -1,0 +1,16 @@
+<ng-container *ngIf="meeting && meeting.location">
+  <iframe
+    width="300"
+    height="140"
+    style="border:0"
+    referrerpolicy="no-referrer-when-downgrade"
+    src=""
+    allowfullscreen
+    #mapIframe
+  >
+    Failed to Load Map
+  </iframe>
+</ng-container>
+<p *ngIf="meeting">
+  {{meeting.location.name + ' ' + meeting.location.street + ' ' + meeting.location.number + ' ' + meeting.location.city + ' ' + meeting.location.postal_code}}
+</p>

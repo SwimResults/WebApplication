@@ -13,6 +13,9 @@
     [routerLink]="entry.teamLink">
     {{entry.team}}
   </span>
+  <span *ngIf="entry.country" class="country-flag" [title]="entry.country">
+    <img class="flag" src="https://flagsapi.com/{{flags.get(entry.country)}}/flat/24.png" alt="flag">
+  </span>
   <button class="sr-btn-bar sr-btn-icon sr-btn sr-right" [matMenuTriggerFor]="contextMenu"><mat-icon>more_horiz</mat-icon></button>
 
 

@@ -2,7 +2,7 @@
   <sr-heat-times class="time-info" *ngIf="heatInfo && heatInfo.first_heat" [heat]="heatInfo.first_heat"></sr-heat-times>
   <div class="time-info" *ngIf="!heatInfo || heatInfo && !heatInfo.first_heat"></div>
   <sr-icon-panel [textContent]="event.number + ''"></sr-icon-panel>
-  <div (click)="openEvent()" class="event-info-content">
+  <div (click)="openEvent()" class="event-info-content {{clickable ? 'event-clickable' : ''}}">
     <span class="event-name-text">
       {{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{event.number}}<ng-container *ngIf="event && event.style"> - {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</ng-container>
     </span>

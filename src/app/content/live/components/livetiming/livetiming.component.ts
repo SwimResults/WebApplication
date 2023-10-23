@@ -4,7 +4,7 @@ import {Start, StartImpl} from "../../../../core/model/start/start.model";
 import {EventService} from "../../../../core/service/api";
 import {MeetingEventLivetiming} from "../../../../core/model/meeting/meeting-event-livetiming.model";
 import {HeatService} from "../../../../core/service/api";
-import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
+import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
@@ -27,6 +27,8 @@ export interface LiveSettingsData {
 export class LivetimingComponent implements OnInit, OnDestroy {
 
   liveTimingUpdateInterval: number = 3000;
+
+  meetingStates = MeetingStates;
 
   meeting?: MeetingImpl;
   meetingId?: string;

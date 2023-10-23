@@ -13,6 +13,8 @@ export class EventListEventComponent implements OnInit {
   @Input() event!: MeetingEvent;
   @Input() heatInfo?: EventListHeatImpl;
 
+  @Input() clickable: boolean = false;
+
   heatString: string = "";
   heatsString: string = "";
 
@@ -29,6 +31,7 @@ export class EventListEventComponent implements OnInit {
   }
 
   openEvent() {
+    if (!this.clickable) return;
     this.router.navigate([this.event.number], {relativeTo: this.route}).then(_ => {
       console.log("failed to navigate to event: " + this.event.number)
     })

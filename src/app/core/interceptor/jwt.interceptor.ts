@@ -21,7 +21,7 @@ export class JwtInterceptor implements HttpInterceptor {
       return next.handle(request);
     }
 
-    if (request.url.includes("api.swimresults.de") || request.url.includes("localhost:8090")) {
+    if (request.url.includes("api.swimresults.de") || request.url.includes("api-dev.swimresults.de") || request.url.includes("localhost:8090")) {
       const modifiedReq = request.clone({
         //headers: request.headers.set('Authorization', `Bearer ${userToken}`),
         headers: request.headers.set('Authorization', this.oAuthService.authorizationHeader()),

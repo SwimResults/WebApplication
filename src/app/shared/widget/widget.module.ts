@@ -16,6 +16,8 @@ import {WidgetClockSmallComponent} from "./widgets/clock/widget-clock-small/widg
 import { WidgetSwimresultsSmallComponent } from './widgets/swimresults/widget-swimresults-small/widget-swimresults-small.component';
 import { WidgetComingSoonLargeComponent } from './widgets/coming-soon/widget-coming-soon-large/widget-coming-soon-large.component';
 import { WidgetComingSoonMediumComponent } from './widgets/coming-soon/widget-coming-soon-medium/widget-coming-soon-medium.component';
+import { WidgetMapMediumComponent } from './widgets/map/widget-map-medium/widget-map-medium.component';
+import {SafePipeModule} from "safe-pipe";
 
 
 
@@ -32,7 +34,8 @@ import { WidgetComingSoonMediumComponent } from './widgets/coming-soon/widget-co
     WidgetClockSmallComponent,
     WidgetSwimresultsSmallComponent,
     WidgetComingSoonLargeComponent,
-    WidgetComingSoonMediumComponent
+    WidgetComingSoonMediumComponent,
+    WidgetMapMediumComponent
   ],
   exports: [
     WidgetViewerComponent
@@ -42,7 +45,8 @@ import { WidgetComingSoonMediumComponent } from './widgets/coming-soon/widget-co
     CoreModule,
     ElementsModule,
     MatIconModule,
-    RouterLink
+    RouterLink,
+    SafePipeModule
   ]
 })
 export class WidgetModule { }

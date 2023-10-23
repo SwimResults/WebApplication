@@ -1,8 +1,9 @@
-<div class="livetiming-grid" *ngIf="meeting && meeting.data && meeting.data.has_livetiming">
+<div class="livetiming-grid" *ngIf="meeting && meeting.data && meeting.data.has_livetiming && meeting.hasData()">
   <sr-livetiming-header
     class="livetiming-grid-element"
     [liveSettingsData]="liveSettingsData"
     [heat]="heat"
+    [meeting]="meeting"
     (changeHeat)="onChangeHeat($event)"
   ></sr-livetiming-header>
 
@@ -36,6 +37,9 @@
 </div>
 <sr-no-content *ngIf="meeting && (meeting.data && !meeting.data.has_livetiming || !meeting.data)">
   {{'LIVE.NO_LIVETIMING_MESSAGE' | translate}}
+</sr-no-content>
+<sr-no-content *ngIf="meeting && !meeting.hasData()">
+  {{'LIVE.NO_LIVETIMING_YET_MESSAGE' | translate}}
 </sr-no-content>
 <sr-no-content *ngIf="!meeting">
   {{'LIVE.NO_CONTENT_MESSAGE' | translate}}

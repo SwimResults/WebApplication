@@ -4,6 +4,7 @@
 
 export const environment = {
   environment: 'development',
+  env_color: "#017e93",
   api_urls: {
     // athlete_service: "https://api.swimresults.de/athlete/v1/",
     // start_service: "https://api.swimresults.de/start/v1/",
@@ -15,5 +16,7 @@ export const environment = {
     start_service: "http://localhost:8087/",
     user_service: "http://localhost:8090/",
   },
-  o_auth_issuer: "http://localhost:8080/realms/master"
+//  o_auth_issuer: "http://localhost:8080/realms/master",
+  o_auth_issuer: "https://auth.swimresults.de/realms/swimresults"
+
 }

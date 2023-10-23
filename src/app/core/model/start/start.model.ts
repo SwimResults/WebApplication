@@ -4,7 +4,7 @@ import {Result, ResultImpl} from "./result.model";
 
 export enum ResultTypes {
   REGISTRATION = "registration",
-  LIVETIMING = "livetiming", // TODO: not as mentioned in start service
+  LIVETIMING = "livetiming_result",
   REACTION = "reaction",
   RESULT_LIST = "result_list",
   LAP = "lap"
@@ -119,6 +119,16 @@ export class StartImpl implements Start {
       }
     }
     return lapResult;
+  }
+
+  getLapTimes(): IterableIterator<ResultImpl> {
+    let res: Map<number, ResultImpl> = new Map<number, ResultImpl>();
+    for (let result of this.results) {
+      if (result.result_type == ResultTypes.LAP) {
+        res.set(result.lap_meters, result)
+      }
+    }
+    return res.values();
   }
 
   getResultMilliseconds(): number {
