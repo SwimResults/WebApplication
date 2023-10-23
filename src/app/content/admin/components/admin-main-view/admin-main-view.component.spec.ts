@@ -1,22 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageAdminEventComponent } from './page-admin-event.component';
+import { AdminMainViewComponent } from './admin-main-view.component';
 import {AdminModule} from "../../admin.module";
 
-describe('PageAdminEventComponent', () => {
-  let component: PageAdminEventComponent;
-  let fixture: ComponentFixture<PageAdminEventComponent>;
+describe('AdminMainViewComponent', () => {
+  let component: AdminMainViewComponent;
+  let fixture: ComponentFixture<AdminMainViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageAdminEventComponent ],
+      declarations: [ AdminMainViewComponent ],
       imports: [
         AdminModule
       ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PageAdminEventComponent);
+    fixture = TestBed.createComponent(AdminMainViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
