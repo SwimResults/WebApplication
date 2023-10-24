@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminMainViewComponent } from './admin-main-view.component';
 import {AdminModule} from "../../admin.module";
+import {RouterTestingModule} from "@angular/router/testing";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('AdminMainViewComponent', () => {
   let component: AdminMainViewComponent;
@@ -11,7 +13,9 @@ describe('AdminMainViewComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ AdminMainViewComponent ],
       imports: [
-        AdminModule
+        AdminModule,
+        RouterTestingModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();
