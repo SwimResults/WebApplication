@@ -1,0 +1,25 @@
+input {
+  margin: 0 8px;
+  vertical-align: middle;
+}
+
+input[type=time] {
+  margin: 0 0 0 8px;
+}
+
+input[type=number] {
+  width: 50px;
+}
+
+label {
+  vertical-align: middle;
+}
+
+.heat-buttons {
+  margin-top: 12px;
+
+  sr-btn {
+    margin: 8px;
+    display: inline-block;
+  }
+}

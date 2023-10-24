@@ -1,1 +1,42 @@
-<p>admin-heat-tool works!</p>
+<div>
+  <form [formGroup]="heatForm" (ngSubmit)="setHeat()">
+    <label for="event_number">WK:</label>
+    <input type="number" formControlName="event" id="event_number">
+    <label for="heat_number">Lauf:</label>
+    <input type="number" formControlName="heat" id="heat_number">
+    <sr-btn><mat-icon>search</mat-icon></sr-btn>
+  </form>
+</div>
+
+<h2>{{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{currentEvent}}<ng-container *ngIf="event && event.style"> - {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</ng-container></h2>
+
+
+<sr-panel class="heat-starts"
+          *ngIf="heat"
+          panelTitle="{{'EVENT.PAGE.HEAT' | translate}}{{' ' + heat.number + '/' + maxHeats}}"
+          [heatForTimes]="heat"
+>
+  <sr-spinner *ngIf="fetchingStarts.fetching"></sr-spinner>
+  <sr-start-list *ngIf="starts.length > 0 && !fetchingStarts.fetching"
+                 [starts]="starts"
+                 [config]="config"
+                 [fetching]="fetchingStarts"
+  ></sr-start-list>
+</sr-panel>
+
+<form class="heat-buttons">
+  <sr-btn><mat-icon>start</mat-icon> <span>Lauf setzen</span></sr-btn>
+  <sr-btn><mat-icon>flag</mat-icon> <span>Lauf beenden</span></sr-btn>
+  <sr-btn><mat-icon>delete</mat-icon> <span>Ergebnisse löschen</span></sr-btn>
+  <sr-btn><mat-icon>check</mat-icon> <span>Ergebnisse bestätigen</span></sr-btn>
+  <br>
+  <input type="time" formControlName="est_start_time">
+  <sr-btn><mat-icon>schedule</mat-icon> <span>vorl. Startzeit setzen</span></sr-btn>
+  <sr-vr></sr-vr>
+  <input type="time" formControlName="start_time">
+  <sr-btn><mat-icon>schedule</mat-icon> <span>Startzeit setzen</span></sr-btn>
+  <sr-vr></sr-vr>
+  <input type="time" formControlName="finish_time">
+  <sr-btn><mat-icon>schedule</mat-icon> <span>Endzeit setzen</span></sr-btn>
+  <sr-btn><mat-icon>delete</mat-icon> <span>Zeiten löschen</span></sr-btn>
+</form>

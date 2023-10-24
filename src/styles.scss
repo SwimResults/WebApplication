@@ -57,7 +57,10 @@ input:active {
   outline: 0;
 }
 
-input[type=search] {
+input[type=search],
+input[type=number],
+input[type=time]
+{
   border: none;
   background-color: $color-search-bg;
   padding: 4px;
