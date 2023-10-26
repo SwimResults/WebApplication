@@ -13,13 +13,16 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 
 @NgModule({
-  declarations: [
-    PageLiveComponent,
-    LivetimingComponent,
-    LivetimingTableComponent,
-    LivetimingControlsComponent,
-    LivetimingHeaderComponent,
-  ],
+    declarations: [
+        PageLiveComponent,
+        LivetimingComponent,
+        LivetimingTableComponent,
+        LivetimingControlsComponent,
+        LivetimingHeaderComponent,
+    ],
+    exports: [
+        LivetimingControlsComponent
+    ],
     imports: [
         CommonModule,
         ElementsModule,

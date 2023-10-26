@@ -8,6 +8,7 @@ import {CoreModule} from "../../core/core.module";
 import {StartsModule} from "../starts";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
+import {LiveModule} from "../live";
 
 
 
@@ -26,7 +27,8 @@ import {MatIconModule} from "@angular/material/icon";
     CoreModule,
     StartsModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    LiveModule
   ]
 })
 export class AdminModule { }

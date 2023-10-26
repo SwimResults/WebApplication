@@ -3,7 +3,7 @@ import {Start} from "../../../../core/model/start/start.model";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
-import {EventService, StartService} from "../../../../core/service/api";
+import {EventService, HeatService, StartService} from "../../../../core/service/api";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 
@@ -24,6 +24,9 @@ export class AdminHeatToolComponent implements OnInit {
   currentEvent: number = 1;
   currentHeat: number = 1;
 
+  availableMeters: number[] = [];
+  availableLanes: number[] = [];
+
   fetchingStarts: FetchingModel = {fetching: false};
   config: StartListTileConfig = {
     showAthlete: true,
@@ -38,15 +41,28 @@ export class AdminHeatToolComponent implements OnInit {
   } as StartListTileConfig;
 
   heatForm: FormGroup;
+  timesForm: FormGroup;
+  resultForm: FormGroup;
 
   constructor(
     private startService: StartService,
+    private heatService: HeatService,
+    private eventService: EventService,
     private fb: FormBuilder,
-    private eventService: EventService
   ) {
     this.heatForm = this.fb.group({
       event: [],
       heat: []
+    })
+    this.timesForm = this.fb.group({
+      estimation: [],
+      start: [],
+      finished: []
+    })
+    this.resultForm = this.fb.group({
+      lane: [],
+      result: [],
+      meters: []
     })
   }
 
@@ -64,8 +80,14 @@ export class AdminHeatToolComponent implements OnInit {
       if (data) {
         if (data.length > 0) {
           this.heat = new HeatImpl(data[0].heat);
+          this.updateHeatTimes();
+          this.fetchHeatAmount();
         }
         this.starts = data;
+        this.availableLanes = []
+        for (const start of this.starts) {
+          this.availableLanes.push(start.lane);
+        }
       }
       this.fetchingStarts.fetching = false;
     });
@@ -75,8 +97,24 @@ export class AdminHeatToolComponent implements OnInit {
     if (this.meetingId && this.currentEvent) {
       this.eventService.getCachedEventByMeetingAndNumber(this.meetingId, this.currentEvent).subscribe(data => {
         this.event = data;
+        this.heatForm.setValue({
+          event:  this.event.number,
+          heat: this.currentHeat
+        });
+        this.availableMeters = [];
+        for (let i = 25; i <= this.event.distance; i += 25) {
+          this.availableMeters.push(i)
+        }
       })
     }
+  }
+
+  fetchHeatAmount() {
+    if (this.meetingId)
+      this.heatService.getEventHeatInfo(this.meetingId, this.currentEvent).subscribe(data => {
+        if (data && data.amount)
+          this.maxHeats = data.amount
+      })
   }
 
   setHeat() {
@@ -84,5 +122,47 @@ export class AdminHeatToolComponent implements OnInit {
     this.currentHeat = this.heatForm.value.heat;
     this.fetchStarts();
     this.fetchEvent();
+  }
+
+  private updateHeatTimes() {
+    if (this.heat) {
+      this.timesForm.setValue(
+        {
+          estimation: this.getTimeString(this.heat.getStartDelayEstimation()),
+          start: this.getTimeString(this.heat.getStartAt()),
+          finished: this.getTimeString(this.heat.getFinishedAt()),
+        }
+      )
+    }
+  }
+
+  private getTimeString(date: Date) {
+    return date.getHours() + ":" + date.getMinutes();
+  }
+
+  // BUTTON ACTIONS:
+
+  startHeat() {
+
+  }
+
+  finishHeat() {
+
+  }
+
+  deleteResults() {
+
+  }
+
+  verifyResults() {
+
+  }
+
+  modifyTimes() {
+
+  }
+
+  addResult() {
+
   }
 }
