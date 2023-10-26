@@ -6,6 +6,7 @@ import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-
 import {EventService, HeatService, StartService} from "../../../../core/service/api";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
+import {EasyWkService} from "../../../../core/service/api/import/easy-wk.service";
 
 @Component({
   selector: 'sr-admin-heat-tool',
@@ -41,18 +42,25 @@ export class AdminHeatToolComponent implements OnInit {
   } as StartListTileConfig;
 
   heatForm: FormGroup;
+  passwordForm: FormGroup;
   timesForm: FormGroup;
   resultForm: FormGroup;
+
+  password: string | null = null;
 
   constructor(
     private startService: StartService,
     private heatService: HeatService,
     private eventService: EventService,
+    private easyWkService: EasyWkService,
     private fb: FormBuilder,
   ) {
     this.heatForm = this.fb.group({
       event: [],
       heat: []
+    })
+    this.passwordForm = this.fb.group({
+      pwd: []
     })
     this.timesForm = this.fb.group({
       estimation: [],
@@ -62,13 +70,16 @@ export class AdminHeatToolComponent implements OnInit {
     this.resultForm = this.fb.group({
       lane: [],
       result: [],
-      meters: []
+      meters: [],
+      finished: []
     })
   }
 
   ngOnInit() {
     this.fetchStarts();
     this.fetchEvent();
+    this.password = window.sessionStorage.getItem("livetiming_key");
+    this.passwordForm.setValue({pwd: this.password});
   }
 
   fetchStarts() {
@@ -124,6 +135,11 @@ export class AdminHeatToolComponent implements OnInit {
     this.fetchEvent();
   }
 
+  setPassword() {
+    this.password = this.passwordForm.value.pwd;
+    window.sessionStorage.setItem("livetiming_key", "" + this.password);
+  }
+
   private updateHeatTimes() {
     if (this.heat) {
       this.timesForm.setValue(
@@ -143,11 +159,13 @@ export class AdminHeatToolComponent implements OnInit {
   // BUTTON ACTIONS:
 
   startHeat() {
-
+    if (this.password)
+      this.easyWkService.newRace(this.password, this.currentEvent, this.currentHeat).subscribe(data => data == "OK" ? this.fetchStarts() : null);
   }
 
   finishHeat() {
-
+    if (this.password)
+      this.easyWkService.raceResult(this.password).subscribe(data => data == "OK" ? this.fetchStarts() : null);
   }
 
   deleteResults() {
@@ -158,11 +176,41 @@ export class AdminHeatToolComponent implements OnInit {
 
   }
 
-  modifyTimes() {
-
+  modifyTimes(time_type: string) {
+    const t: string[] = this.timesForm.value[time_type].split(":");
+    let tt = "";
+    switch (time_type) {
+      case "estimation":
+        tt = "start_delay_estimation";
+        break;
+      case "start":
+        tt = "start_at";
+        break;
+      case "finished":
+        tt = "finished_at";
+        break;
+    }
+    let d = new Date();
+    d.setHours(parseInt(t[0]), parseInt(t[1]), 0, 0);
+    let time = d.toISOString();
+    console.log(time);
+    // TODO: update heat request
   }
 
   addResult() {
+    const lane = this.resultForm.value.lane;
+    let result: string = this.resultForm.value.result;
+    const meters = this.resultForm.value.meters;
+    const finished = this.resultForm.value.finished;
 
+    console.log(finished);
+
+    result = result.replaceAll(":", "");
+    result = result.replaceAll(",", "");
+    result = result.replaceAll(";", "");
+
+    if (this.password) {
+      this.easyWkService.time(this.password, parseInt(lane), meters, parseInt(result), finished).subscribe(data => data == "OK" ? this.fetchStarts() : null);
+    }
   }
 }
