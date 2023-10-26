@@ -1,13 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EasywkService } from './easy-wk.service';
+import { EasyWkService } from './easy-wk.service';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
-describe('EasywkService', () => {
-  let service: EasywkService;
+describe('EasyWkService', () => {
+  let service: EasyWkService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(EasywkService);
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule
+      ]
+    });
+    service = TestBed.inject(EasyWkService);
   });
 
   it('should be created', () => {
