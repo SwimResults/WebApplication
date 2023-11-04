@@ -1,0 +1,37 @@
+input,
+select {
+  margin: 8px;
+  vertical-align: middle;
+}
+
+input[type=number] {
+  width: 50px;
+}
+
+label {
+  vertical-align: middle;
+}
+
+.heat-buttons {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+
+  .heat-button-box {
+    margin-right: 12px;
+    margin-top: 12px;
+
+    &:first-child {
+      border-left: none;
+    }
+  }
+
+
+  sr-btn {
+    margin: 8px 0;
+    display: inline-block;
+  }
+  #result_time {
+    width: 100px;
+  }
+}

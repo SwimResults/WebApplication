@@ -57,7 +57,9 @@ input:active {
   outline: 0;
 }
 
-input[type=search] {
+input,
+select
+{
   border: none;
   background-color: $color-search-bg;
   padding: 4px;
