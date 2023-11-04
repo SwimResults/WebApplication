@@ -25,6 +25,9 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
         EventListHeatComponent,
         EventListEventComponent
     ],
+    exports: [
+        EventListTileComponent
+    ],
     imports: [
         CommonModule,
         ElementsModule,

@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminHeatToolComponent } from './admin-heat-tool.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {ElementsModule} from "../../../../shared/elements/elements.module";
+import {MatIconModule} from "@angular/material/icon";
+import {TranslateModule} from "@ngx-translate/core";
+import {ReactiveFormsModule} from "@angular/forms";
 
 describe('AdminHeatToolComponent', () => {
   let component: AdminHeatToolComponent;
@@ -8,7 +13,14 @@ describe('AdminHeatToolComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminHeatToolComponent ]
+      declarations: [ AdminHeatToolComponent ],
+      imports: [
+        HttpClientTestingModule,
+        ElementsModule,
+        MatIconModule,
+        TranslateModule.forRoot(),
+        ReactiveFormsModule
+      ]
     })
     .compileComponents();
 
