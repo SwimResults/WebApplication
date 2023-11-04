@@ -1,4 +1,16 @@
 <form>
   <input type="text" name="import_url">
-  <sr-btn><mat-icon>load</mat-icon> Import</sr-btn>
+
+  <mat-radio-group aria-label="Dateityp">
+    <mat-radio-button>DSV</mat-radio-button>
+    <mat-radio-button>PDF</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-radio-group aria-label="Listentyp">
+    <mat-radio-button>Definitionsliste</mat-radio-button>
+    <mat-radio-button>Startliste</mat-radio-button>
+    <mat-radio-button>Ergebnis</mat-radio-button>
+  </mat-radio-group>
+
+  <sr-btn><mat-icon>cloud_upload</mat-icon> Import</sr-btn>
 </form>

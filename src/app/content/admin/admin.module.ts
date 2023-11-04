@@ -9,7 +9,7 @@ import {StartsModule} from "../starts";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
 import {LiveModule} from "../live";
-
+import {MatRadioModule} from "@angular/material/radio";
 
 
 
@@ -29,7 +29,8 @@ import {LiveModule} from "../live";
     StartsModule,
     ReactiveFormsModule,
     MatIconModule,
-    LiveModule
+    LiveModule,
+    MatRadioModule
   ]
 })
 export class AdminModule { }
