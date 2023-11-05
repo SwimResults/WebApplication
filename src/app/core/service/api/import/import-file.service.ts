@@ -23,8 +23,8 @@ export class ImportFileService extends BaseService {
     ): Observable<any> {
     const data = {
       url: url,
-      file_extension: fileExtension,
-      file_type: fileType,
+      file_extension: fileExtension.toUpperCase(),
+      file_type: fileType.toUpperCase(),
       meeting: meeting
     }
     return this.apiService.post(this.API_URL, "file", data)

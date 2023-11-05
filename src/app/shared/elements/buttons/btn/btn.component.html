@@ -1,3 +1,6 @@
 <button type="submit" class="btn btn-{{color}} btn-{{getActiveClass()}}" (click)="onClick()">
-  <ng-content></ng-content>
+  <ng-container *ngIf="!loading">
+    <ng-content></ng-content>
+  </ng-container>
+  <sr-spinner *ngIf="loading" [style]="'material'" spinnerSize="btn"></sr-spinner>
 </button>

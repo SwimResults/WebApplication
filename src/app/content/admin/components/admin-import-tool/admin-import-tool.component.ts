@@ -33,6 +33,8 @@ export class AdminImportToolComponent implements OnInit {
 
   importForm: FormGroup
 
+  runningImport: boolean = false;
+
   constructor(
     private eventService: EventService,
     private fileService: FileService,
@@ -81,16 +83,22 @@ export class AdminImportToolComponent implements OnInit {
 
 
   onImport() {
-    if (!this.currentFile) return;
     if (!this.meetingId) return;
+    this.runningImport = true;
+    console.log("starting import...");
     this.importService.importFile(
       this.importForm.value.url,
       this.importForm.value.fileType,
       this.importForm.value.listType,
       this.meetingId
-    ).subscribe(_ => {
+    ).subscribe({next: (_ => {
       console.log("successfully send import for '" + this.importForm.value.url + "'")
-    })
+      this.runningImport = false;
+      }),
+    error: err => {
+      console.error(err);
+      this.runningImport = false;
+    }})
   }
 
   setCurrentFileForImport() {
@@ -99,7 +107,7 @@ export class AdminImportToolComponent implements OnInit {
       this.importForm.setValue({
         url: this.currentFile.url,
         fileType: "pdf",
-        listType: "result",
+        listType: "result_list",
       })
     }
   }
