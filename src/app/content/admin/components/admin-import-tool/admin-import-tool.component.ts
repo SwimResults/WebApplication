@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {EventService, FileService} from "../../../../core/service/api";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {ImportFileService} from "../../../../core/service/api/import/import-file.service";
 
 interface FileList {
   name: string,
@@ -24,15 +26,24 @@ export class AdminImportToolComponent implements OnInit {
   ];
 
   currentFileType: string = ""
-  currentFile?: number;
+  currentFile?: FileList;
 
   events: MeetingEvent[] = [];
   files: FileList[] = [];
 
+  importForm: FormGroup
+
   constructor(
     private eventService: EventService,
-    private fileService: FileService
+    private fileService: FileService,
+    private importService: ImportFileService,
+    private fb: FormBuilder
   ) {
+    this.importForm = this.fb.group({
+      url: [],
+      fileType: [],
+      listType: []
+    })
   }
 
   ngOnInit() {
@@ -64,7 +75,38 @@ export class AdminImportToolComponent implements OnInit {
     this.currentFileType = v;
   }
 
-  onSelectFile(event_number: number) {
-    this.currentFile = event_number;
+  onSelectFile(file: FileList) {
+    this.currentFile = file;
+  }
+
+
+  onImport() {
+    if (!this.currentFile) return;
+    if (!this.meetingId) return;
+    this.importService.importFile(
+      this.importForm.value.url,
+      this.importForm.value.fileType,
+      this.importForm.value.listType,
+      this.meetingId
+    ).subscribe(_ => {
+      console.log("successfully send import for '" + this.importForm.value.url + "'")
+    })
+  }
+
+  setCurrentFileForImport() {
+    if (this.currentFile) {
+      this.onFileTypeChange("pdf");
+      this.importForm.setValue({
+        url: this.currentFile.url,
+        fileType: "pdf",
+        listType: "result",
+      })
+    }
+  }
+
+  openCurrentFile() {
+    if (this.currentFile && this.currentFile.url) {
+      window.open(this.currentFile.url, "_blank")
+    }
   }
 }
