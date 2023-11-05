@@ -1,16 +1,36 @@
-<form>
-  <input type="text" name="import_url">
+<sr-panel panelTitle="Datei-Import">
+  <form>
+    <input type="text" class="file-import-url" name="import_url" placeholder="https://file...">
 
-  <mat-radio-group aria-label="Dateityp">
-    <mat-radio-button>DSV</mat-radio-button>
-    <mat-radio-button>PDF</mat-radio-button>
-  </mat-radio-group>
+    <div class="file-import">
+      <mat-radio-group aria-label="Dateityp">
+        <mat-radio-button *ngFor="let entry of fileTypeList" (change)="onFileTypeChange(entry.value)" [value]="entry.value">{{entry.name}}</mat-radio-button>
+      </mat-radio-group>
 
-  <mat-radio-group aria-label="Listentyp">
-    <mat-radio-button>Definitionsliste</mat-radio-button>
-    <mat-radio-button>Startliste</mat-radio-button>
-    <mat-radio-button>Ergebnis</mat-radio-button>
-  </mat-radio-group>
+      <mat-radio-group aria-label="Listentyp">
+        <mat-radio-button *ngIf="currentFileType === 'dsv'">Definitionsliste</mat-radio-button>
+        <mat-radio-button *ngIf="currentFileType === 'pdf'">Startliste</mat-radio-button>
+        <mat-radio-button *ngIf="currentFileType !== ''">Ergebnis</mat-radio-button>
+      </mat-radio-group>
 
-  <sr-btn><mat-icon>cloud_upload</mat-icon> Import</sr-btn>
-</form>
+      <sr-btn><mat-icon>cloud_upload</mat-icon> Import</sr-btn>
+    </div>
+  </form>
+</sr-panel>
+
+<sr-panel panelTitle="Protokolldienst">
+  <div class="file-list">
+    <div class="file-list-tile"
+      *ngFor="let file of files"
+    >
+      <span class="file-name {{file.event.number == currentFile ? 'file-selected' : ''}}" (click)="onSelectFile(file.event.number)">
+          <span>{{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{file.event.number}}<ng-container *ngIf="file.event && file.event.style"> - {{file.event.relay_distance ? file.event.relay_distance : file.event.distance}}m {{'COMMON.STYLE.' + file.event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + file.event.gender + '.NAME' | translate}}</ng-container></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="file-list-buttons">
+    <sr-btn [active]="currentFile !== undefined"><mat-icon>arrow_left</mat-icon> Set URL for Import</sr-btn>
+    <sr-btn [active]="currentFile !== undefined"><mat-icon>link</mat-icon> Open</sr-btn>
+  </div>
+</sr-panel>

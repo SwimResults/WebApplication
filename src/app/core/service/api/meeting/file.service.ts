@@ -18,4 +18,18 @@ export class FileService extends BaseService{
   public getFileListByMeeting(meeting: string): Observable<StorageFile[]> {
     return this.apiService.get(this.API_URL, "file/meeting/list/" + meeting);
   }
+
+  public getUrlFromMask(mask: string, event: number) {
+    let n = (mask.match(/#/g) || []).length;
+    mask = mask.replace("#", "$");
+    mask = mask.replaceAll("#", "");
+
+    let s = "";
+    for (let i = 0; i < n; i++) {
+      s += "0";
+    }
+    s += event;
+    mask = mask.replace("$", s.slice(-n));
+    return "https://download.swimresults.de" + mask;
+  }
 }
