@@ -13,7 +13,11 @@
         <mat-radio-button value="result_list" *ngIf="currentFileType !== ''">Ergebnis</mat-radio-button>
       </mat-radio-group>
 
-      <sr-btn [loading]="runningImport" (btnClick)="onImport()"><mat-icon>cloud_upload</mat-icon> Import</sr-btn>
+      <div class="import-button-box">
+        <sr-btn [loading]="runningImport" (btnClick)="onImport()"><mat-icon>cloud_upload</mat-icon> Import</sr-btn>
+        <input type="text" class="file-import-events" formControlName="exclude" placeholder="exclude">
+        <input type="text" class="file-import-events" formControlName="include" placeholder="include">
+      </div>
     </div>
   </form>
 </sr-panel>

@@ -44,7 +44,9 @@ export class AdminImportToolComponent implements OnInit {
     this.importForm = this.fb.group({
       url: [],
       fileType: [],
-      listType: []
+      listType: [],
+      exclude: [],
+      include: []
     })
   }
 
@@ -65,6 +67,7 @@ export class AdminImportToolComponent implements OnInit {
     if (!this.meeting) return;
     this.files = [];
     for (const event of this.events) {
+      if (!event.certified) continue;
       this.files.push({
         url: this.fileService.getUrlFromMask(this.meeting.data.ftp_result_list_mask, event.number),
         name: "WK " + event.number,
@@ -85,11 +88,32 @@ export class AdminImportToolComponent implements OnInit {
   onImport() {
     if (!this.meetingId) return;
     this.runningImport = true;
+
     console.log("starting import...");
+
+    let excludes: number[] = [];
+    if (this.importForm.value.exclude) {
+      const exs = this.importForm.value.exclude.split(",");
+      for (const ex of exs) {
+        excludes.push(Number(ex))
+      }
+    }
+
+
+    let includes: number[] = [];
+    if (this.importForm.value.include) {
+      const incs = this.importForm.value.include.split(",");
+      for (const inc of incs) {
+        includes.push(Number(inc))
+      }
+    }
+
     this.importService.importFile(
       this.importForm.value.url,
       this.importForm.value.fileType,
       this.importForm.value.listType,
+      excludes,
+      includes,
       this.meetingId
     ).subscribe({next: (_ => {
       console.log("successfully send import for '" + this.importForm.value.url + "'")
@@ -108,6 +132,8 @@ export class AdminImportToolComponent implements OnInit {
         url: this.currentFile.url,
         fileType: "pdf",
         listType: "result_list",
+        exclude: "",
+        include: this.currentFile.event.number
       })
     }
   }

@@ -33,7 +33,7 @@ mat-radio-button {
 
 .file-list {
   display: inline-block;
-  height: 120px;
+  height: 138px;
   overflow-y: auto;
   overflow-x: hidden;
   width: 350px;
@@ -66,5 +66,15 @@ mat-radio-button {
 
   &.file-selected {
     background-color: $color-bg-contrast;
+  }
+}
+
+.import-button-box {
+  display: inline-block;
+
+  .file-import-events {
+    width: 100px;
+    display: block;
+    margin: 4px 0;
   }
 }
