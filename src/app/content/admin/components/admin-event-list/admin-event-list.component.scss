@@ -1,0 +1,25 @@
+
+.refresh-btn {
+  float: right;
+  margin-top: -50px;
+}
+
+.event-list-heat {
+  span {
+    display: inline-block;
+
+    &.heat-name {
+      width: 100px;
+      font-weight: bold;
+    }
+
+    &.heat-time {
+      width: 88px;
+    }
+  }
+
+  sr-heat-times {
+    display: inline-block;
+    width: 168px;
+  }
+}

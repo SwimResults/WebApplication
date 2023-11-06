@@ -140,6 +140,14 @@ export class AdminHeatToolComponent implements OnInit {
     window.sessionStorage.setItem("livetiming_key", "" + this.password);
   }
 
+  unsetPassword() {
+    this.password = "";
+    this.passwordForm.setValue({
+      pwd: ""
+    });
+    window.sessionStorage.setItem("livetiming_key", "");
+  }
+
   private updateHeatTimes() {
     if (this.heat) {
       this.timesForm.setValue(

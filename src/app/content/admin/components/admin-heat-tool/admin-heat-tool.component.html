@@ -1,7 +1,8 @@
 <div>
-  <form [formGroup]="passwordForm" (ngSubmit)="setPassword()">
+  <form class="password-form" [formGroup]="passwordForm" (ngSubmit)="setPassword()">
     <input type="password" formControlName="pwd">
     <sr-btn><mat-icon>key</mat-icon> <span>Key setzen</span></sr-btn>
+    <sr-btn (btnClick)="unsetPassword()"><mat-icon>delete</mat-icon> <span>Key löschen</span></sr-btn>
   </form>
   <form [formGroup]="heatForm" (ngSubmit)="setHeat()">
     <label for="event_number">WK:</label>
