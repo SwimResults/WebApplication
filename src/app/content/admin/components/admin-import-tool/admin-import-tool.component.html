@@ -27,7 +27,7 @@
     <div class="file-list-tile"
       *ngFor="let file of files"
     >
-      <span class="file-name {{file.event.number == currentFile?.event?.number ? 'file-selected' : ''}}" (click)="onSelectFile(file)">
+      <span class="file-name {{file.event.number === currentFile?.event?.number ? 'file-selected' : ''}}" (click)="onSelectFile(file)">
           <span>{{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{file.event.number}}<ng-container *ngIf="file.event && file.event.style"> - {{file.event.relay_distance ? file.event.relay_distance : file.event.distance}}m {{'COMMON.STYLE.' + file.event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + file.event.gender + '.NAME' | translate}}</ng-container></span>
       </span>
     </div>
