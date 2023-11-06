@@ -1,0 +1,80 @@
+@import "../../../../../colors";
+
+sr-panel {
+  height: 150px;
+  vertical-align: top;
+  margin-bottom: 56px;
+}
+
+sr-panel:first-child {
+  margin-right: 12px;
+}
+
+mat-radio-group {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 8px;
+  padding-right: 21px;
+}
+
+mat-radio-button {
+  display: block;
+}
+
+.file-import {
+  display: block;
+}
+
+.file-import,
+.file-import-url {
+  width: 400px;
+  margin: 4px 0;
+}
+
+.file-list {
+  display: inline-block;
+  height: 138px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 350px;
+}
+
+.file-list,
+.file-list-buttons {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.file-list-buttons {
+  margin-left: 12px;
+  sr-btn {
+    display: block;
+    margin: 4px 0;
+  }
+}
+
+.file-name {
+  display: block;
+  text-overflow: ellipsis;
+  width: 328px;
+  padding: 2px;
+  margin: 0;
+  background-color: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+
+  &.file-selected {
+    background-color: $color-bg-contrast;
+  }
+}
+
+.import-button-box {
+  display: inline-block;
+
+  .file-import-events {
+    width: 100px;
+    display: block;
+    margin: 4px 0;
+  }
+}

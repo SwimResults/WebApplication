@@ -3,7 +3,7 @@ import {Subscription} from "rxjs";
 import {Start, StartImpl} from "../../../../core/model/start/start.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {ActivatedRoute} from "@angular/router";
-import {StartService, EventService} from "../../../../core/service/api";
+import {StartService, EventService, FileService} from "../../../../core/service/api";
 import {RouteService} from "../../../../core/service/route.service";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
@@ -47,7 +47,8 @@ export class EventViewComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private startService: StartService,
     private routeService: RouteService,
-    private eventService: EventService
+    private eventService: EventService,
+    private fileService: FileService
   ) {
     this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
@@ -150,16 +151,6 @@ export class EventViewComponent implements OnInit, OnDestroy {
   }
 
   getUrlFromMask(mask: string) {
-    let n = (mask.match(/#/g) || []).length;
-    mask = mask.replace("#", "$");
-    mask = mask.replaceAll("#", "");
-
-    let s = "";
-    for (let i = 0; i < n; i++) {
-      s += "0";
-    }
-    s += this.eventNumber;
-    mask = mask.replace("$", s.slice(-n));
-    return "https://download.swimresults.de" + mask;
+    return this.fileService.getUrlFromMask(mask, this.eventNumber);
   }
 }
