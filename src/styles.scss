@@ -12,6 +12,9 @@
   --bg-gradient-1: #A1FFE9;
   --bg-gradient-2: #ACC3FF;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 html, body { height: 100%; }
 body {

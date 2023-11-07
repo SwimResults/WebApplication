@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MeetingPart} from "../../../../core/model/meeting/meeting-part.model";
 import {EventService, HeatService} from "../../../../core/service/api";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
-import {HeatImpl} from "../../../../core/model/start/heat.model";
+import {Heat, HeatImpl} from "../../../../core/model/start/heat.model";
 
 @Component({
   selector: 'sr-admin-event-list',
@@ -12,6 +12,8 @@ import {HeatImpl} from "../../../../core/model/start/heat.model";
 export class AdminEventListComponent implements OnInit {
   @Input() meetingId?: string;
   @Input() meeting?: MeetingImpl;
+
+  @Output() showHeat: EventEmitter<Heat> = new EventEmitter<Heat>();
 
   parts: MeetingPart[] = [];
   heats: Map<number, HeatImpl[]> = new Map<number, HeatImpl[]>()
@@ -50,5 +52,9 @@ export class AdminEventListComponent implements OnInit {
         }
       }
     })
+  }
+
+  onShowHeat(heat: Heat) {
+    this.showHeat.emit(heat);
   }
 }
