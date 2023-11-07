@@ -1,7 +1,21 @@
+@import "../../../../../colors";
 
 .refresh-btn {
   float: right;
   margin-top: -50px;
+}
+
+.event-name-text {
+  span,
+  mat-icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  mat-icon {
+    margin-left: 8px;
+    color: $color-sr-first;
+  }
 }
 
 .event-list-heat {
@@ -21,5 +35,15 @@
   sr-heat-times {
     display: inline-block;
     width: 168px;
+  }
+
+  .heat-check {
+    display: inline-block;
+    margin: 0 8px;
+    vertical-align: middle;
+
+    mat-icon {
+      color: $color-sr-first;
+    }
   }
 }

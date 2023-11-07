@@ -36,7 +36,8 @@
   </div>
 
   <div class="file-list-buttons">
-    <sr-btn [active]="currentFile !== undefined" (btnClick)="setCurrentFileForImport()"><mat-icon>arrow_left</mat-icon> Set URL for Import</sr-btn>
-    <sr-btn [active]="currentFile !== undefined" (btnClick)="openCurrentFile()"><mat-icon>link</mat-icon> Open</sr-btn>
+    <sr-btn [active]="currentFile !== undefined" (btnClick)="setCurrentFileForImport()"><mat-icon>arrow_left</mat-icon> <span>Set URL for Import</span></sr-btn>
+    <sr-btn [active]="currentFile !== undefined" (btnClick)="openCurrentFile()"><mat-icon>link</mat-icon> <span>Öffnen</span></sr-btn>
+    <sr-btn [active]="currentFile !== undefined" (btnClick)="toggleCurrentFileEventCertification()" [loading]="runningCertificationToggle"><mat-icon>public</mat-icon> <span>Veröffentlichung</span></sr-btn>
   </div>
 </sr-panel>

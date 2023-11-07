@@ -28,6 +28,8 @@ export class AdminHeatToolComponent implements OnInit {
   availableMeters: number[] = [];
   availableLanes: number[] = [];
 
+  runningUpdateTime: string = "";
+
   fetchingStarts: FetchingModel = {fetching: false};
   config: StartListTileConfig = {
     showAthlete: true,
@@ -185,24 +187,51 @@ export class AdminHeatToolComponent implements OnInit {
   }
 
   modifyTimes(time_type: string) {
-    const t: string[] = this.timesForm.value[time_type].split(":");
-    let tt = "";
-    switch (time_type) {
-      case "estimation":
-        tt = "start_delay_estimation";
-        break;
-      case "start":
-        tt = "start_at";
-        break;
-      case "finished":
-        tt = "finished_at";
-        break;
+    if (this.heat) {
+      this.runningUpdateTime = time_type;
+
+      let time_input = this.timesForm.value[time_type];
+
+      const t: string[] = time_input.split(":");
+
+      let tt = "";
+      switch (time_type) {
+        case "estimation":
+          tt = "start_delay_estimation";
+          break;
+        case "start":
+          tt = "start_at";
+          break;
+        case "finished":
+          tt = "finished_at";
+          break;
+      }
+
+      let d = new Date();
+
+      // 2023-11-07T05:30:00.000Z
+      const zero = "" + ("0" + t[0]).substr(-2) + ":" + ("0" + t[1]).substr(-2);
+      let time;
+      if (time_input === zero) {
+        time = "0000-01-01T00:00";
+      } else {
+        time = ("000" + d.getFullYear()).substr(-4) + "-" + ("0" + d.getMonth()).substr(-2) + "-" + ("0" + d.getDay()).substr(-2) + "T";
+        time += ("0" + t[0]).substr(-2) + ":" + ("0" + t[1]).substr(-2);
+      }
+
+      time += ":00.000Z";
+
+      console.log(time);
+
+      this.heatService.updateHeatTime(this.heat._id, tt, time).subscribe({
+        next: (_ => {
+          this.runningUpdateTime = "";
+        }),
+        error: (_ => {
+          this.runningUpdateTime = "";
+        })
+      });
     }
-    let d = new Date();
-    d.setHours(parseInt(t[0]), parseInt(t[1]), 0, 0);
-    let time = d.toISOString();
-    console.log(time);
-    // TODO: update heat request
   }
 
   addResult() {

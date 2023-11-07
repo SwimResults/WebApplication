@@ -43,13 +43,13 @@
   <sr-panel class="heat-button-box" *ngIf="heat">
     <form [formGroup]="timesForm">
       <input type="time" formControlName="estimation">
-      <sr-btn (btnClick)="modifyTimes('estimation')"><mat-icon>schedule</mat-icon> <span>vorl. Start setzen</span></sr-btn>
+      <sr-btn (btnClick)="modifyTimes('estimation')" [loading]="runningUpdateTime === 'estimation'"><mat-icon>schedule</mat-icon> <span>vorl. Start setzen</span></sr-btn>
       <br>
       <input type="time" formControlName="start">
-      <sr-btn (btnClick)="modifyTimes('start')"><mat-icon>schedule</mat-icon> <span>Startzeit setzen</span></sr-btn>
+      <sr-btn (btnClick)="modifyTimes('start')" [loading]="runningUpdateTime === 'start'"><mat-icon>schedule</mat-icon> <span>Startzeit setzen</span></sr-btn>
       <br>
       <input type="time" formControlName="finished">
-      <sr-btn (btnClick)="modifyTimes('finished')"><mat-icon>schedule</mat-icon> <span>Endzeit setzen</span></sr-btn>
+      <sr-btn (btnClick)="modifyTimes('finished')" [loading]="runningUpdateTime === 'finished'"><mat-icon>schedule</mat-icon> <span>Endzeit setzen</span></sr-btn>
       <br>
       <sr-btn [active]="false"><mat-icon>delete</mat-icon> <span>Zeiten löschen</span></sr-btn>
     </form>
