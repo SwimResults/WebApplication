@@ -1,3 +1,5 @@
+<sr-btn class="refresh-btn" (btnClick)="fetchEvents()"><mat-icon>refresh</mat-icon></sr-btn>
+
 <sr-panel panelTitle="Datei-Import">
   <form [formGroup]="importForm">
     <input type="text" class="file-import-url" formControlName="url" placeholder="https://file...">
@@ -27,14 +29,15 @@
     <div class="file-list-tile"
       *ngFor="let file of files"
     >
-      <span class="file-name {{file.event.number === currentFile?.event?.number ? 'file-selected' : ''}}" (click)="onSelectFile(file)">
+      <span class="file-name {{file.event.number === currentFile?.event?.number ? 'file-selected' : ''}} {{file.event.certified ? 'file-exists' : 'file-exists-not'}}" (click)="onSelectFile(file)">
           <span>{{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{file.event.number}}<ng-container *ngIf="file.event && file.event.style"> - {{file.event.relay_distance ? file.event.relay_distance : file.event.distance}}m {{'COMMON.STYLE.' + file.event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + file.event.gender + '.NAME' | translate}}</ng-container></span>
       </span>
     </div>
   </div>
 
   <div class="file-list-buttons">
-    <sr-btn [active]="currentFile !== undefined" (btnClick)="setCurrentFileForImport()"><mat-icon>arrow_left</mat-icon> Set URL for Import</sr-btn>
-    <sr-btn [active]="currentFile !== undefined" (btnClick)="openCurrentFile()"><mat-icon>link</mat-icon> Open</sr-btn>
+    <sr-btn [active]="currentFile !== undefined" (btnClick)="setCurrentFileForImport()"><mat-icon>arrow_left</mat-icon> <span>Set URL for Import</span></sr-btn>
+    <sr-btn [active]="currentFile !== undefined" (btnClick)="openCurrentFile()"><mat-icon>link</mat-icon> <span>Öffnen</span></sr-btn>
+    <sr-btn [active]="currentFile !== undefined" (btnClick)="toggleCurrentFileEventCertification()" [loading]="runningCertificationToggle"><mat-icon>public</mat-icon> <span>Veröffentlichung</span></sr-btn>
   </div>
 </sr-panel>

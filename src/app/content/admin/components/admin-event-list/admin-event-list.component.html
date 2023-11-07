@@ -1,0 +1,38 @@
+<ng-container *ngIf="meeting">
+  <sr-btn class="refresh-btn" (btnClick)="fetchLists()"><mat-icon>refresh</mat-icon></sr-btn>
+
+  <sr-no-content *ngIf="!parts || parts.length <= 0">
+    {{'EVENT.LIST.NO_EVENTS_MESSAGE' | translate}}
+  </sr-no-content>
+
+  <div *ngFor="let part of parts">
+    <h2 *ngIf="part.number">{{'EVENT.LIST.PART_TITLE' | translate}} {{part.number}}</h2>
+    <sr-panel>
+      <div class="event-list-event" *ngFor="let event of part.events">
+        <h2 class="event-name-text">
+          <span>{{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{event.number}}<ng-container *ngIf="event && event.style"> - {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</ng-container></span>
+          <mat-icon *ngIf="!event.certified">radio_button_unchecked</mat-icon>
+          <mat-icon *ngIf="event.certified">check_circle</mat-icon>
+        </h2>
+
+        <div class="event-list-info">
+
+        </div>
+
+        <div class="event-list-heats" *ngIf="heats.get(event.number)">
+          <div class="event-list-heat" *ngFor="let heat of heats.get(event.number)">
+            <span class="heat-name">Lauf {{heat.number}}/{{heats.get(event.number)?.length}}</span>
+            <sr-heat-times [heat]="heat" orientation="horizontal" fixedTimeWidth="80"></sr-heat-times>
+            <span class="heat-time">{{heat.getStartAtTime()}}</span>
+            <span class="heat-time">{{heat.getFinishedAtTime()}}</span>
+
+            <div class="heat-check">
+              <mat-icon *ngIf="heat.getFinishedAtTime() === '0:00'">radio_button_unchecked</mat-icon>
+              <mat-icon *ngIf="heat.getFinishedAtTime() !== '0:00'">check_circle</mat-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sr-panel>
+  </div>
+</ng-container>

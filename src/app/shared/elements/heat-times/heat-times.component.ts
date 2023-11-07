@@ -9,6 +9,7 @@ import {HeatImpl} from "../../../core/model/start/heat.model";
 export class HeatTimesComponent {
   @Input() heat!: HeatImpl;
   @Input() orientation: "horizontal" | "vertical" = "vertical";
+  @Input() fixedTimeWidth?: "80";
 
   getLiveTimeClass() {
     // delay

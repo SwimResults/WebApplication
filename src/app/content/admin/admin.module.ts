@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageAdminEventComponent } from './pages';
-import { AdminMainViewComponent, AdminHeatToolComponent, AdminImportToolComponent, AdminEventListToolComponent } from './components';
+import { AdminMainViewComponent, AdminHeatToolComponent, AdminImportToolComponent, AdminEventListComponent } from './components';
 import {ElementsModule} from "../../shared/elements/elements.module";
 import {EventsModule} from "../events";
 import {CoreModule} from "../../core/core.module";
@@ -19,7 +19,7 @@ import {MatRadioModule} from "@angular/material/radio";
     AdminMainViewComponent,
     AdminHeatToolComponent,
     AdminImportToolComponent,
-    AdminEventListToolComponent
+    AdminEventListComponent
   ],
   imports: [
     CommonModule,

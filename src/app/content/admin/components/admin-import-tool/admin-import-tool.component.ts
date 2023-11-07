@@ -34,6 +34,7 @@ export class AdminImportToolComponent implements OnInit {
   importForm: FormGroup
 
   runningImport: boolean = false;
+  runningCertificationToggle: boolean = false;
 
   constructor(
     private eventService: EventService,
@@ -67,7 +68,6 @@ export class AdminImportToolComponent implements OnInit {
     if (!this.meeting) return;
     this.files = [];
     for (const event of this.events) {
-      if (!event.certified) continue;
       this.files.push({
         url: this.fileService.getUrlFromMask(this.meeting.data.ftp_result_list_mask, event.number),
         name: "WK " + event.number,
@@ -143,4 +143,20 @@ export class AdminImportToolComponent implements OnInit {
       window.open(this.currentFile.url, "_blank")
     }
   }
+
+  toggleCurrentFileEventCertification() {
+    if (this.currentFile && this.meetingId) {
+      this.runningCertificationToggle = true;
+      this.eventService.updateEventCertification(this.meetingId, this.currentFile?.event.number).subscribe({
+        next: (_ => {
+          this.runningCertificationToggle = false;
+          this.fetchEvents();
+        }),
+        error: (_ => {
+          this.runningCertificationToggle = false;
+        })
+      });
+    }
+  }
+
 }
