@@ -1,12 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Start} from "../../../../core/model/start/start.model";
-import {HeatImpl} from "../../../../core/model/start/heat.model";
+import {Heat, HeatImpl} from "../../../../core/model/start/heat.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {EventService, HeatService, StartService} from "../../../../core/service/api";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {EasyWkService} from "../../../../core/service/api/import/easy-wk.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'sr-admin-heat-tool',
@@ -15,6 +16,9 @@ import {EasyWkService} from "../../../../core/service/api/import/easy-wk.service
 })
 export class AdminHeatToolComponent implements OnInit {
   @Input() meetingId?: string;
+
+  @Input() showHeat?: Observable<Heat>;
+
   heat?: HeatImpl;
   starts: Start[] = [];
 
@@ -82,6 +86,14 @@ export class AdminHeatToolComponent implements OnInit {
     this.fetchEvent();
     this.password = window.sessionStorage.getItem("livetiming_key");
     this.passwordForm.setValue({pwd: this.password});
+
+    if (this.showHeat) {
+      this.showHeat.subscribe(h => {
+        this.heatForm.value.event = h.event;
+        this.heatForm.value.heat = h.number;
+        this.setHeat();
+      })
+    }
   }
 
   fetchStarts() {

@@ -10,6 +10,8 @@ export class BtnComponent {
   @Input() active: boolean = true;
   @Input() loading: boolean = false;
 
+  @Input() layout: "normal" | "no-background" = "normal";
+
   @Output() btnClick: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   getActiveClass() {

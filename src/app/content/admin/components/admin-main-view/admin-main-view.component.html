@@ -1,6 +1,7 @@
-<h1>Laufdetails und Livetiming-Steuerung</h1>
+<h1 id="heat_tool">Laufdetails und Livetiming-Steuerung</h1>
 <sr-admin-heat-tool
   [meetingId]="meetingId"
+  [showHeat]="showHeat.asObservable()"
 ></sr-admin-heat-tool>
 
 <hr>
@@ -17,4 +18,5 @@
 <sr-admin-event-list
   [meetingId]="meetingId"
   [meeting]="meeting"
+  (showHeat)="onShowHeat($event)"
 ></sr-admin-event-list>

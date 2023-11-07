@@ -30,6 +30,8 @@
               <mat-icon *ngIf="heat.getFinishedAtTime() === '0:00'">radio_button_unchecked</mat-icon>
               <mat-icon *ngIf="heat.getFinishedAtTime() !== '0:00'">check_circle</mat-icon>
             </div>
+
+            <sr-icon-btn layout="no-background" class="show-heat" (btnClick)="onShowHeat(heat)"><mat-icon>loupe</mat-icon></sr-icon-btn>
           </div>
         </div>
       </div>
