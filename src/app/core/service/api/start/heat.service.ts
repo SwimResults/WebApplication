@@ -34,4 +34,14 @@ export class HeatService extends BaseService{
   getHeatsByMeetingForEventList(meeting: string): Observable<EventListHeats> {
     return this.apiService.get(this.API_URL, "heat/meet/" + meeting + "/event_list");
   }
+
+  updateHeatTime(id: string, time_type: string, time: string): Observable<Heat> {
+    const data = {
+      time: time,
+      type: time_type
+    }
+    console.log("update times for " + id);
+    console.log(data);
+    return this.apiService.post(this.API_URL, "heat/" + id + "/time", data);
+  }
 }

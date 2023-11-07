@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageAdminEventComponent } from './page-admin-event.component';
+import { AdminMainViewComponent } from './admin-main-view.component';
 import {AdminModule} from "../../admin.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
 
-describe('PageAdminEventComponent', () => {
-  let component: PageAdminEventComponent;
-  let fixture: ComponentFixture<PageAdminEventComponent>;
+describe('AdminMainViewComponent', () => {
+  let component: AdminMainViewComponent;
+  let fixture: ComponentFixture<AdminMainViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageAdminEventComponent ],
+      declarations: [ AdminMainViewComponent ],
       imports: [
         AdminModule,
         RouterTestingModule,
@@ -20,7 +20,7 @@ describe('PageAdminEventComponent', () => {
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PageAdminEventComponent);
+    fixture = TestBed.createComponent(AdminMainViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,22 @@
+<h1 id="heat_tool">Laufdetails und Livetiming-Steuerung</h1>
+<sr-admin-heat-tool
+  [meetingId]="meetingId"
+  [showHeat]="showHeat.asObservable()"
+></sr-admin-heat-tool>
+
+<hr>
+
+<h1>Import und Protokolle</h1>
+<sr-admin-import-tool
+  [meetingId]="meetingId"
+  [meeting]="meeting"
+></sr-admin-import-tool>
+
+<hr>
+
+<h1>Wettkampf- und Lauffolge</h1>
+<sr-admin-event-list
+  [meetingId]="meetingId"
+  [meeting]="meeting"
+  (showHeat)="onShowHeat($event)"
+></sr-admin-event-list>

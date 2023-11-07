@@ -8,6 +8,9 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 export class BtnComponent {
   @Input() color: "pdf" | "info" | "stream" | undefined;
   @Input() active: boolean = true;
+  @Input() loading: boolean = false;
+
+  @Input() layout: "normal" | "no-background" = "normal";
 
   @Output() btnClick: EventEmitter<boolean> = new EventEmitter<boolean>()
 

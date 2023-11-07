@@ -26,6 +26,7 @@ import { IconBtnComponent } from './buttons/icon-btn/icon-btn.component';
 import { NoContentComponent } from './no-content/no-content.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { VrComponent } from './vr/vr.component';
 
 
 
@@ -48,7 +49,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
         FileIconComponent,
         IconBtnComponent,
         NoContentComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        VrComponent
     ],
   exports: [
     PanelComponent,
@@ -65,7 +67,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     FileIconComponent,
     IconBtnComponent,
     NoContentComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    VrComponent
   ],
     imports: [
         CommonModule,

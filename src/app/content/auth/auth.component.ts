@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {OAuthService} from "angular-oauth2-oidc";
-import {filter} from "rxjs";
+import {filter, Subscription} from "rxjs";
 import {AuthService} from "../../core/service/auth.service";
 import {Router} from "@angular/router";
 
@@ -9,15 +9,17 @@ import {Router} from "@angular/router";
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent {
+export class AuthComponent implements OnDestroy {
   user: any;
+
+  private eventSubscription: Subscription
 
   constructor(
     private oAuthService: OAuthService,
     private authService: AuthService,
     private router: Router
   ) {
-    this.oAuthService.events
+    this.eventSubscription = this.oAuthService.events
       .pipe(filter((e) => e.type === 'token_received'))
       .subscribe((e) => {
         this.user = this.oAuthService.getIdentityClaims();
@@ -44,5 +46,9 @@ export class AuthComponent {
         this.authService.setScopes(scopes)
 
       });
+  }
+
+  ngOnDestroy() {
+    this.eventSubscription.unsubscribe();
   }
 }

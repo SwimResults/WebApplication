@@ -65,4 +65,9 @@ export class EventService extends BaseService {
       return event;
     }
   }
+
+  public updateEventCertification(meeting: string, number: number): Observable<MeetingEvent> {
+    const data = {toggle_certification: true};
+    return this.apiService.post(this.API_URL, "event/meet/" + meeting + "/event/" + number + "/certification", data);
+  }
 }

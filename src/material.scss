@@ -72,6 +72,16 @@
   stroke: white !important;
 }
 
+.mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled:checked + .mdc-radio__background .mdc-radio__outer-circle,
+.mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled + .mdc-radio__background .mdc-radio__inner-circle {
+  border-color: $color-sr-first !important;
+}
+
+.mat-mdc-radio-button.mat-mdc-radio-checked .mdc-radio__background::before,
+.mat-mdc-radio-button.mat-mdc-radio-checked .mat-ripple-element {
+  background-color: $color-sr-first !important;
+}
+
 body {
   .material-icons {
     font-family: 'Material Icons Round', 'Material Icons', serif !important;
