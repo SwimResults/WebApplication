@@ -17,6 +17,7 @@ export interface Start {
   heat_number: number;
   heat: Heat;
   lane: number;
+  is_relay: boolean;
   athlete: string;
   athlete_name: string;
   athlete_year: number;
@@ -44,6 +45,7 @@ export class StartImpl implements Start {
   heat: HeatImpl = {} as HeatImpl;
   heat_number: number;
   lane: number;
+  is_relay: boolean;
   meeting: string;
   rank: number;
   emptyLane: boolean;
@@ -67,6 +69,7 @@ export class StartImpl implements Start {
     this.meeting = start.meeting;
     this.rank = start.rank;
     this.emptyLane = start.emptyLane
+    this.is_relay = start.is_relay
 
     this.results = []
     if (start.results) {
