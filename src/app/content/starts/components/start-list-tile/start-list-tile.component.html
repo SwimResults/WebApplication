@@ -76,26 +76,30 @@
             <span class="result-time-string">{{getTimeString(data.getMostRecentLap().time)}}</span>
           </span>
 
-          <div class="lap-time-list"
-            *ngIf="config && config.showLapTimes && data.hasResultType(resultTypes.LAP)">
-            <span
-              class="duration lap-time"
-              *ngFor="let lap of data.getLapTimes()"
-            >
-              <span class="lap-meters">{{lap.lap_meters}}</span>
-              <span class="result-time-string">{{getTimeString(lap.time)}}</span>
-            </span>
-          </div>
 
           <span
-            class="reaction"
+            class="reaction duration"
             *ngIf="
-              config && (
-                (!config.showMostSignificantTime && config.showReactionTime && data.hasResultType(resultTypes.REACTION))
-                ||
-                (config.showMostSignificantTime && data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP))
-              )"
-          >{{getReactionString(data.getTimeMilliseconds(resultTypes.REACTION))}}</span>
+                config && (
+                  (!config.showMostSignificantTime && config.showReactionTime && data.hasResultType(resultTypes.REACTION))
+                  ||
+                  (config.showMostSignificantTime && data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP))
+                )"
+          >
+             <span class="result-time-string">+{{getReactionString(data.getTimeMilliseconds(resultTypes.REACTION))}}</span>
+            </span>
+
+          <div class="lap-time-list">
+            <ng-container *ngIf="config && config.showLapTimes && data.hasResultType(resultTypes.LAP)">
+              <span
+                class="duration lap-time"
+                *ngFor="let lap of data.getLapTimes()"
+              >
+                <span class="lap-meters">{{lap.lap_meters}}</span>
+                <span class="result-time-string">{{getTimeString(lap.time)}}</span>
+              </span>
+            </ng-container>
+          </div>
 
           <div class="disqualification" *ngIf="config && config.showDisqualification && data.disqualification.type && config && !config.laneAsIcon">
             <span class="reason">{{getReason()}}</span>
