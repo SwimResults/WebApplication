@@ -4,12 +4,14 @@ import { PageDashboardEventComponent, PageDashboardGeneralComponent } from './pa
 import {ElementsModule} from "../../shared/elements/elements.module";
 import {CoreModule} from "../../core/core.module";
 import {WidgetModule} from "../../shared/widget/widget.module";
+import { DashboardViewComponent } from './components';
 
 
 @NgModule({
   declarations: [
     PageDashboardEventComponent,
-    PageDashboardGeneralComponent
+    PageDashboardGeneralComponent,
+    DashboardViewComponent
   ],
     imports: [
         CommonModule,
