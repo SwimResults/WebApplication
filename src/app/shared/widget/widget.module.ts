@@ -24,6 +24,11 @@ import { WidgetFileAnnouncementSmallComponent } from './widgets/file/widget-file
 import { WidgetFileStartListSmallComponent } from './widgets/file/widget-file-start-list-small/widget-file-start-list-small.component';
 import { WidgetFileResultListSmallComponent } from './widgets/file/widget-file-result-list-small/widget-file-result-list-small.component';
 import {WidgetFileSmallComponent} from "./widgets/file/widget-file-small.component";
+import { WidgetNOSmallComponent } from './widgets/n-o/widget-n-o-small.component';
+import { WidgetNOStartsSmallComponent } from './widgets/n-o/widget-n-o-starts-small/widget-n-o-starts-small.component';
+import { WidgetNOHeatsSmallComponent } from './widgets/n-o/widget-n-o-heats-small/widget-n-o-heats-small.component';
+import { WidgetNOAthletesSmallComponent } from './widgets/n-o/widget-n-o-athletes-small/widget-n-o-athletes-small.component';
+import { WidgetNOTeamsSmallComponent } from './widgets/n-o/widget-n-o-teams-small/widget-n-o-teams-small.component';
 
 
 
@@ -47,7 +52,12 @@ import {WidgetFileSmallComponent} from "./widgets/file/widget-file-small.compone
     WidgetFileSmallComponent,
     WidgetFileAnnouncementSmallComponent,
     WidgetFileStartListSmallComponent,
-    WidgetFileResultListSmallComponent
+    WidgetFileResultListSmallComponent,
+    WidgetNOSmallComponent,
+    WidgetNOStartsSmallComponent,
+    WidgetNOHeatsSmallComponent,
+    WidgetNOAthletesSmallComponent,
+    WidgetNOTeamsSmallComponent
   ],
   exports: [
     WidgetViewerComponent

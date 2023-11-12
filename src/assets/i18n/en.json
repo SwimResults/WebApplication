@@ -226,6 +226,12 @@
     "WIDGET": {
         "COMING_SOON": {
             "MAIN_TEXT": "This dashboard will be extended in the future and new widgets will be added."
+        },
+        "NUMBER_OF": {
+            "STARTS": "Starts",
+            "HEATS": "Läufe",
+            "ATHLETES": "Sportler",
+            "TEAMS": "Vereine"
         }
     },
     "ENTRY_PAGE": {

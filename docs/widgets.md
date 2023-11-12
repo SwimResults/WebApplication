@@ -26,9 +26,9 @@ It also gives the current state of development.
 | swimresults       | SMALL  | SwimResults logo and weblink      | 🟢       |
 | map               | MEDIUM | google maps for meeting location  | 🟢       |
 | user              | SMALL  | current logged user info          | 🔵       |
-| file-announcement | SMALL  | "Ausschreibung" file download     | 🔵       |
-| file-start-list   | SMALL  | start list file download          | 🔵       |
-| file-result-list  | SMALL  | result list file download         | 🔵       |
+| file-announcement | SMALL  | "Ausschreibung" file download     | 🟢       |
+| file-start-list   | SMALL  | start list file download          | 🟢       |
+| file-result-list  | SMALL  | result list file download         | 🟢       |
 | n-o-starts        | SMALL  | number of starts                  | 🔵       |
 | n-o-heats         | SMALL  | number of heats                   | 🔵       |
 | n-o-athletes      | SMALL  | number of athletes                | 🔵       |

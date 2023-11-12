@@ -1,0 +1,9 @@
+<sr-spinner spinnerSize="text" *ngIf="fetching.fetching"></sr-spinner>
+<div class="number-container" *ngIf="!fetching.fetching">
+    <span class="header">
+        <mat-icon>insights</mat-icon>
+        <span class="header-title">{{'WIDGET.NUMBER_OF.' + countName.toUpperCase() | translate}}</span>
+    </span>
+    <span class="number">{{n}}</span>
+    <span class="number-name"></span>
+</div>

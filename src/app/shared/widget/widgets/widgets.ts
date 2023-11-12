@@ -26,6 +26,10 @@ import {
 import {
     WidgetFileResultListSmallComponent
 } from "./file/widget-file-result-list-small/widget-file-result-list-small.component";
+import {WidgetNOStartsSmallComponent} from "./n-o/widget-n-o-starts-small/widget-n-o-starts-small.component";
+import {WidgetNOHeatsSmallComponent} from "./n-o/widget-n-o-heats-small/widget-n-o-heats-small.component";
+import {WidgetNOAthletesSmallComponent} from "./n-o/widget-n-o-athletes-small/widget-n-o-athletes-small.component";
+import {WidgetNOTeamsSmallComponent} from "./n-o/widget-n-o-teams-small/widget-n-o-teams-small.component";
 
 export type ComponentClass = { new (): Component };
 
@@ -45,3 +49,7 @@ widgetComponents.set('not-found-large', NotFoundLargeComponent);
 widgetComponents.set('file-announcement-small', WidgetFileAnnouncementSmallComponent);
 widgetComponents.set('file-start-list-small', WidgetFileStartListSmallComponent);
 widgetComponents.set('file-result-list-small', WidgetFileResultListSmallComponent);
+widgetComponents.set('n-o-starts-small', WidgetNOStartsSmallComponent);
+widgetComponents.set('n-o-heats-small', WidgetNOHeatsSmallComponent);
+widgetComponents.set('n-o-athletes-small', WidgetNOAthletesSmallComponent);
+widgetComponents.set('n-o-teams-small', WidgetNOTeamsSmallComponent);

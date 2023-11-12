@@ -230,6 +230,12 @@
     "WIDGET": {
         "COMING_SOON": {
             "MAIN_TEXT": "Dieses Dashboard wird fortlaufend um zusätzliche Widgets erweitert."
+        },
+        "NUMBER_OF": {
+            "STARTS": "Starts",
+            "HEATS": "Läufe",
+            "ATHLETES": "Sportler",
+            "TEAMS": "Vereine"
         }
     }
 }

@@ -1,0 +1,43 @@
+sr-spinner {
+    position: absolute;
+    margin-top: -4px;
+    margin-left: -4px;
+}
+
+.number-container {
+    text-align: left;
+    display: block;
+    width: 100%;
+}
+
+.number,
+.number-name,
+.header {
+    display: block;
+    width: 100%;
+}
+
+.header {
+    text-align: left;
+
+    mat-icon {
+        margin-right: 6px;
+    }
+
+    mat-icon,
+    .header-title {
+        vertical-align: middle;
+        display: inline-block;
+    }
+}
+
+.number {
+    font-size: 40px;
+    font-weight: 1000;
+    margin: 50px 0 0;
+    background-color: #000;
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 16px 0;
+}
