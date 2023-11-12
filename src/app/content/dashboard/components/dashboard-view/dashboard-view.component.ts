@@ -14,13 +14,15 @@ import {RouteService} from "../../../../core/service/route.service";
 export class DashboardViewComponent implements OnInit, OnDestroy {
 
     dashboard: Dashboard = {} as Dashboard;
-    isAuthed: boolean = false;
+    isAuthed: boolean | null = null;
 
     isAuthedSubscription: Subscription;
 
 
-    meeting?: MeetingImpl;
+    meeting?: MeetingImpl | null;
     meetingSubscription: Subscription;
+
+
 
     constructor(
         private dashboardService: DashboardService,
@@ -33,6 +35,7 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
         })
         this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
             this.meeting = new MeetingImpl(data.meeting);
+            this.fetchDashboard();
         })
     }
 
@@ -46,6 +49,7 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
     }
 
     fetchDashboard() {
+        if (this.meeting === null || this.isAuthed === null) return;
         let meetingState = "";
         if (this.meeting) {
             meetingState = this.meeting.state;

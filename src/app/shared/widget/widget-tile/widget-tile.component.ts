@@ -29,6 +29,11 @@ export class WidgetTileComponent implements OnInit {
 
     const selector = this.widget.content + '-' + this.widget.size?.toLowerCase();
     let widgetComp: ComponentClass | undefined = widgetComponents.get(selector);
+    if (widgetComp == undefined) {
+      const selector = 'not-found-' + this.widget.size?.toLowerCase();
+      widgetComp = widgetComponents.get(selector);
+    }
+
     if (widgetComp != undefined) {
       viewContainerRef.createComponent(widgetComp);
     }
