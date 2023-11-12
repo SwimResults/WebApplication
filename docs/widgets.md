@@ -19,8 +19,8 @@ It also gives the current state of development.
 | name              | sizes  | description                       | progress |
 |-------------------|--------|-----------------------------------|----------|
 | clock             | SMALL  | current time                      | 🟢       |
-| clock             | MEDIUM | current time                      | 🟠       |
-| clock             | LARGE  | current time                      | 🟠       |
+| clock             | MEDIUM | current time                      | 🟢       |
+| clock             | LARGE  | current time                      | 🔴       |
 | meeting           | LARGE  | general meeting info              | 🟢       |
 | meeting           | MEDIUM | general meeting info              | 🟢       |
 | swimresults       | SMALL  | SwimResults logo and weblink      | 🟢       |

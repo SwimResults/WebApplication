@@ -20,6 +20,10 @@ import {SafePipeModule} from "safe-pipe";
 import { NotFoundSmallComponent } from './widgets/not-found/not-found-small/not-found-small.component';
 import { NotFoundMediumComponent } from './widgets/not-found/not-found-medium/not-found-medium.component';
 import { NotFoundLargeComponent } from './widgets/not-found/not-found-large/not-found-large.component';
+import { WidgetFileAnnouncementSmallComponent } from './widgets/file/widget-file-announcement-small/widget-file-announcement-small.component';
+import { WidgetFileStartListSmallComponent } from './widgets/file/widget-file-start-list-small/widget-file-start-list-small.component';
+import { WidgetFileResultListSmallComponent } from './widgets/file/widget-file-result-list-small/widget-file-result-list-small.component';
+import {WidgetFileSmallComponent} from "./widgets/file/widget-file-small.component";
 
 
 
@@ -39,7 +43,11 @@ import { NotFoundLargeComponent } from './widgets/not-found/not-found-large/not-
     WidgetMapMediumComponent,
     NotFoundSmallComponent,
     NotFoundMediumComponent,
-    NotFoundLargeComponent
+    NotFoundLargeComponent,
+    WidgetFileSmallComponent,
+    WidgetFileAnnouncementSmallComponent,
+    WidgetFileStartListSmallComponent,
+    WidgetFileResultListSmallComponent
   ],
   exports: [
     WidgetViewerComponent

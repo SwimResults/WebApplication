@@ -1,0 +1,6 @@
+<ng-container *ngIf="file">
+    <a [href]="file.url" target="_blank">
+        <sr-file-icon [extension]="file.extension" [existing]="file.existing"></sr-file-icon>
+        <span class="file-name">{{name}}</span>
+    </a>
+</ng-container>
