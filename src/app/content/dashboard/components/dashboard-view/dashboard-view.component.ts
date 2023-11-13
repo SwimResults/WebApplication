@@ -5,6 +5,8 @@ import {AuthService} from "../../../../core/service/auth.service";
 import {Subscription} from "rxjs";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {RouteService} from "../../../../core/service/route.service";
+import {User} from "../../../../core/model/user/user.model";
+import {OAuthService} from "angular-oauth2-oidc";
 
 @Component({
     selector: 'sr-dashboard-view',
@@ -12,6 +14,8 @@ import {RouteService} from "../../../../core/service/route.service";
     styleUrls: ['./dashboard-view.component.scss']
 })
 export class DashboardViewComponent implements OnInit, OnDestroy {
+
+    kcUser: any;
 
     dashboard: Dashboard = {} as Dashboard;
     isAuthed: boolean | null = null;
@@ -22,12 +26,15 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
     meeting?: MeetingImpl | null;
     meetingSubscription: Subscription;
 
+    user?: User;
 
+    welcomeMessageParam = {username: ""}
 
     constructor(
         private dashboardService: DashboardService,
         private authService: AuthService,
-        private routeService: RouteService
+        private routeService: RouteService,
+        private oAuthService: OAuthService
     ) {
         this.isAuthedSubscription = this.authService.isAuthenticated.subscribe(data => {
             this.isAuthed = data
@@ -41,6 +48,9 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.fetchDashboard();
+        this.kcUser = this.oAuthService.getIdentityClaims();
+        if (this.kcUser && this.kcUser["given_name"])
+            this.welcomeMessageParam.username = this.kcUser["given_name"];
     }
 
     ngOnDestroy() {

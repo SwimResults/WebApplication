@@ -253,5 +253,8 @@
     "ENTRY_PAGE": {
         "ABOUT_TEXT": "SwimResults enables athletes, coaches, family and friends to view starts, results, places, livetiming and more for participating swimming competitions in an easy and interactive manner.",
         "INFO_LINKS_TITLE": "Informative Links"
+    },
+    "DASHBOARD": {
+        "WELCOME_MESSAGE": "Welcome back, {{username}}!"
     }
 }

@@ -1,3 +1,4 @@
+<h1 *ngIf="kcUser && welcomeMessageParam.username">{{'DASHBOARD.WELCOME_MESSAGE' | translate:welcomeMessageParam}}</h1>
 <sr-widget-viewer
     *ngIf="dashboard"
     [widgets]="dashboard.widget_container"
