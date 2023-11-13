@@ -38,6 +38,7 @@ import { WidgetLoginRequiredComponent } from './widget-login-required/widget-log
 import { WidgetInfoTextComponent } from './widget-info-text/widget-info-text.component';
 import { WidgetTitleComponent } from './widget-title/widget-title.component';
 import { WidgetFavoritesComponent } from './widgets/favorites/widget-favorites/widget-favorites.component';
+import {StartsModule} from "../../content/starts";
 
 
 
@@ -82,13 +83,14 @@ import { WidgetFavoritesComponent } from './widgets/favorites/widget-favorites/w
         WidgetDelaySmallComponent,
         WidgetTileComponent
     ],
-  imports: [
-    CommonModule,
-    CoreModule,
-    ElementsModule,
-    MatIconModule,
-    RouterLink,
-    SafePipeModule
-  ]
+    imports: [
+        CommonModule,
+        CoreModule,
+        ElementsModule,
+        MatIconModule,
+        RouterLink,
+        SafePipeModule,
+        StartsModule
+    ]
 })
 export class WidgetModule { }

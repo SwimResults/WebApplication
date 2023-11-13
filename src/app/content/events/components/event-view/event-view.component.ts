@@ -29,6 +29,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
   heatData: Map<number, HeatImpl> = new Map<number, HeatImpl>();
   config: StartListTileConfig = {
     showAthlete: true,
+    showIcon: true,
     laneAsIcon: true,
     flatStyle: true,
     rankStylesIcon: false,

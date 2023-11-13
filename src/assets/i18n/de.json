@@ -246,6 +246,12 @@
         "FAVORITES": {
             "TITLE": "Favoriten",
             "NO_FAVORITES": "Du kannst Sportlern über ihr Profil folgen, damit sie hier aufgelistet werden."
+        },
+        "STARTS": {
+            "TITLE": "Nächste Starts",
+            "NO_OWN_ATHLETE": "Wähle aus, welcher Sportler du bist, um dieses Widget nutzen zu können.",
+            "NO_STARTS": "Es wurden keine offenen Starts gefunden.",
+            "SHOW_STARTS_BUTTON": "Alle Starts anzeigen"
         }
     }
 }
