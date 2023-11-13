@@ -1,4 +1,4 @@
-<sr-spinner *ngIf="fetching.fetching"></sr-spinner>
+<sr-spinner *ngIf="fetching.fetching" spinnerSize="widget"></sr-spinner>
 <div *ngIf="!fetching.fetching" class="delay-container">
     <sr-widget-title icon="more_time">{{'WIDGET.DELAY.TITLE' | translate}}</sr-widget-title>
     <span class="number {{heat.isDelayed() ? 'delayed' : ''}}">
