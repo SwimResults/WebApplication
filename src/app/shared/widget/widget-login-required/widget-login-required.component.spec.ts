@@ -4,6 +4,7 @@ import { WidgetLoginRequiredComponent } from './widget-login-required.component'
 import {OAuthModule} from "angular-oauth2-oidc";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {WidgetModule} from "../widget.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('WidgetLoginRequiredComponent', () => {
   let component: WidgetLoginRequiredComponent;
@@ -15,7 +16,8 @@ describe('WidgetLoginRequiredComponent', () => {
         imports: [
             OAuthModule.forRoot(),
             HttpClientTestingModule,
-            WidgetModule
+            WidgetModule,
+            TranslateModule.forRoot()
         ]
     })
     .compileComponents();
