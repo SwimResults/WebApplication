@@ -224,8 +224,24 @@
         }
     },
     "WIDGET": {
+        "LOGIN_REQUIRED": "In order to use this widget you have to be logged in.",
         "COMING_SOON": {
             "MAIN_TEXT": "This dashboard will be extended in the future and new widgets will be added."
+        },
+        "NUMBER_OF": {
+            "STARTS": "Starts",
+            "HEATS": "Heats",
+            "ATHLETES": "Athletes",
+            "TEAMS": "Teams"
+        },
+        "DELAY": {
+            "TITLE": "Delay",
+            "BEHIND_SCHEDULE": "behind Schedule",
+            "AHEAD_OF_SCHEDULE": "ahead of Schedule"
+        },
+        "FAVORITES": {
+            "TITLE": "Favorites",
+            "NO_FAVORITES": "You can follow athletes using the athlete page to have them shown here."
         }
     },
     "ENTRY_PAGE": {

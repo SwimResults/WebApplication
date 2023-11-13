@@ -1,0 +1,42 @@
+@import "../../../../../../colors";
+
+sr-spinner {
+    position: absolute;
+    margin-top: -4px;
+    margin-left: -4px;
+}
+
+.delay-container {
+    display: block;
+    width: 100%;
+}
+.number {
+    display: block;
+    width: 100%;
+    font-size: 40px;
+    font-weight: 1000;
+    margin: 30px 0 0;
+    background: linear-gradient(to bottom right, #03f10e 0%, #0F3600 100%);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 8px 0 0;
+
+    &.delayed {
+        background: linear-gradient(to bottom right, #e80000 0%, #420000 100%);
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .unit {
+        font-size: 16px;
+    }
+}
+
+.subtitle {
+    color: $color-text-gray;
+    display: block;
+    width: 100%;
+    line-height: 14px;
+}

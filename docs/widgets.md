@@ -19,23 +19,24 @@ It also gives the current state of development.
 | name              | sizes  | description                       | progress |
 |-------------------|--------|-----------------------------------|----------|
 | clock             | SMALL  | current time                      | 🟢       |
-| clock             | MEDIUM | current time                      | 🟠       |
-| clock             | LARGE  | current time                      | 🟠       |
+| clock             | MEDIUM | current time                      | 🟢       |
+| clock             | LARGE  | current time                      | 🔴       |
 | meeting           | LARGE  | general meeting info              | 🟢       |
 | meeting           | MEDIUM | general meeting info              | 🟢       |
 | swimresults       | SMALL  | SwimResults logo and weblink      | 🟢       |
 | map               | MEDIUM | google maps for meeting location  | 🟢       |
 | user              | SMALL  | current logged user info          | 🔵       |
-| file-announcement | SMALL  | "Ausschreibung" file download     | 🔵       |
-| file-start-list   | SMALL  | start list file download          | 🔵       |
-| file-result-list  | SMALL  | result list file download         | 🔵       |
-| n-o-starts        | SMALL  | number of starts                  | 🔵       |
-| n-o-heats         | SMALL  | number of heats                   | 🔵       |
-| n-o-athletes      | SMALL  | number of athletes                | 🔵       |
-| n-o-teams         | SMALL  | number of teams                   | 🔵       |
+| file-announcement | SMALL  | "Ausschreibung" file download     | 🟢       |
+| file-start-list   | SMALL  | start list file download          | 🟢       |
+| file-result-list  | SMALL  | result list file download         | 🟢       |
+| n-o-starts        | SMALL  | number of starts                  | 🟢       |
+| n-o-heats         | SMALL  | number of heats                   | 🟢       |
+| n-o-athletes      | SMALL  | number of athletes                | 🟢       |
+| n-o-teams         | SMALL  | number of teams                   | 🟢       |
 | delay             | SMALL  | current delay behind schedule     | 🔵       |
 | time-info         | MEDIUM | next break, progress, time to end | 🔵       |
 | favorites         | LARGE  | list of favorites of a user       | 🔵       |
+| favorites         | MEDIUM | list of favorites of a user       | 🔵       |
 | fav-starts        | LARGE  | upcoming start for favorites      | 🔵       |
 | my-starts         | LARGE  | upcoming start for myself         | 🔵       |
 
