@@ -33,10 +33,10 @@ It also gives the current state of development.
 | n-o-heats         | SMALL  | number of heats                   | 🟢       |
 | n-o-athletes      | SMALL  | number of athletes                | 🟢       |
 | n-o-teams         | SMALL  | number of teams                   | 🟢       |
-| delay             | SMALL  | current delay behind schedule     | 🔵       |
+| delay             | SMALL  | current delay behind schedule     | 🟢       |
 | time-info         | MEDIUM | next break, progress, time to end | 🔵       |
-| favorites         | LARGE  | list of favorites of a user       | 🔵       |
-| favorites         | MEDIUM | list of favorites of a user       | 🔵       |
+| favorites         | LARGE  | list of favorites of a user       | 🟢       |
+| favorites         | MEDIUM | list of favorites of a user       | 🟢       |
 | fav-starts        | LARGE  | upcoming start for favorites      | 🔵       |
-| my-starts         | LARGE  | upcoming start for myself         | 🔵       |
+| my-starts         | LARGE  | upcoming start for myself         | 🟢       |
 
