@@ -228,6 +228,7 @@
         }
     },
     "WIDGET": {
+        "LOGIN_REQUIRED": "Du musst angemeldet sein, um dieses Widget nutzen zu können.",
         "COMING_SOON": {
             "MAIN_TEXT": "Dieses Dashboard wird fortlaufend um zusätzliche Widgets erweitert."
         },
@@ -243,7 +244,8 @@
             "AHEAD_OF_SCHEDULE": "vorm Zeitplan"
         },
         "FAVORITES": {
-            "TITLE": "Favoriten"
+            "TITLE": "Favoriten",
+            "NO_FAVORITES": "Du kannst Sportlern über ihr Profil folgen, damit sie hier aufgelistet werden."
         }
     }
 }
