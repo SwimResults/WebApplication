@@ -236,6 +236,14 @@
             "HEATS": "Läufe",
             "ATHLETES": "Sportler",
             "TEAMS": "Vereine"
+        },
+        "DELAY": {
+            "TITLE": "Verspätung",
+            "BEHIND_SCHEDULE": "hinterm Zeitplan",
+            "AHEAD_OF_SCHEDULE": "vorm Zeitplan"
+        },
+        "FAVORITES": {
+            "TITLE": "Favoriten"
         }
     }
 }

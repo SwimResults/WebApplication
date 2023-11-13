@@ -1,32 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WidgetNOSmallComponent } from './widget-n-o-small.component';
+import { WidgetFavoritesMediumComponent } from './widget-favorites-medium.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
+import {WidgetModule} from "../../../widget.module";
 import {TranslateModule} from "@ngx-translate/core";
-import {ElementsModule} from "../../../elements/elements.module";
-import {MatIconModule} from "@angular/material/icon";
-import {WidgetModule} from "../../widget.module";
 
-describe('WidgetNOSmallComponent', () => {
-  let component: WidgetNOSmallComponent;
-  let fixture: ComponentFixture<WidgetNOSmallComponent>;
+describe('WidgetFavoritesMediumComponent', () => {
+  let component: WidgetFavoritesMediumComponent;
+  let fixture: ComponentFixture<WidgetFavoritesMediumComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetNOSmallComponent ],
+      declarations: [ WidgetFavoritesMediumComponent ],
         imports: [
             HttpClientTestingModule,
             RouterTestingModule,
-            TranslateModule.forRoot(),
-            ElementsModule,
-            MatIconModule,
-            WidgetModule
+            WidgetModule,
+            TranslateModule.forRoot()
         ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WidgetNOSmallComponent);
+    fixture = TestBed.createComponent(WidgetFavoritesMediumComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

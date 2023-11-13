@@ -1,32 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WidgetNOSmallComponent } from './widget-n-o-small.component';
+import { WidgetDelaySmallComponent } from './widget-delay-small.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
-import {ElementsModule} from "../../../elements/elements.module";
-import {MatIconModule} from "@angular/material/icon";
-import {WidgetModule} from "../../widget.module";
+import {ElementsModule} from "../../../../elements/elements.module";
 
-describe('WidgetNOSmallComponent', () => {
-  let component: WidgetNOSmallComponent;
-  let fixture: ComponentFixture<WidgetNOSmallComponent>;
+describe('WidgetDelaySmallComponent', () => {
+  let component: WidgetDelaySmallComponent;
+  let fixture: ComponentFixture<WidgetDelaySmallComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetNOSmallComponent ],
+      declarations: [ WidgetDelaySmallComponent ],
         imports: [
             HttpClientTestingModule,
             RouterTestingModule,
             TranslateModule.forRoot(),
-            ElementsModule,
-            MatIconModule,
-            WidgetModule
+            ElementsModule
         ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WidgetNOSmallComponent);
+    fixture = TestBed.createComponent(WidgetDelaySmallComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

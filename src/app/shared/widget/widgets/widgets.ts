@@ -30,6 +30,10 @@ import {WidgetNOStartsSmallComponent} from "./n-o/widget-n-o-starts-small/widget
 import {WidgetNOHeatsSmallComponent} from "./n-o/widget-n-o-heats-small/widget-n-o-heats-small.component";
 import {WidgetNOAthletesSmallComponent} from "./n-o/widget-n-o-athletes-small/widget-n-o-athletes-small.component";
 import {WidgetNOTeamsSmallComponent} from "./n-o/widget-n-o-teams-small/widget-n-o-teams-small.component";
+import {WidgetDelaySmallComponent} from "./delay/widget-delay-small/widget-delay-small.component";
+import {WidgetFavoritesMediumComponent} from "./favorites/widget-favorites-medium/widget-favorites-medium.component";
+import {WidgetFavoritesLargeComponent} from "./favorites/widget-favorites-large/widget-favorites-large.component";
+import {WidgetStartsLargeComponent} from "./starts/widget-starts-large/widget-starts-large.component";
 
 export type ComponentClass = { new (): Component };
 
@@ -53,3 +57,7 @@ widgetComponents.set('n-o-starts-small', WidgetNOStartsSmallComponent);
 widgetComponents.set('n-o-heats-small', WidgetNOHeatsSmallComponent);
 widgetComponents.set('n-o-athletes-small', WidgetNOAthletesSmallComponent);
 widgetComponents.set('n-o-teams-small', WidgetNOTeamsSmallComponent);
+widgetComponents.set('delay-small', WidgetDelaySmallComponent);
+widgetComponents.set('favorites-medium', WidgetFavoritesMediumComponent);
+widgetComponents.set('favorites-large', WidgetFavoritesLargeComponent);
+widgetComponents.set('starts-large', WidgetStartsLargeComponent);

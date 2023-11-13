@@ -1,0 +1,10 @@
+<sr-spinner *ngIf="fetching.fetching"></sr-spinner>
+<div *ngIf="!fetching.fetching" class="delay-container">
+    <sr-widget-title icon="more_time">{{'WIDGET.DELAY.TITLE' | translate}}</sr-widget-title>
+    <span class="number {{heat.isDelayed() ? 'delayed' : ''}}">
+        <ng-container *ngIf="delayedHours">{{delayedHours}}<span class="unit">h</span></ng-container>
+        <ng-container *ngIf="!delayedHours || (delayedHours && delayedMinutes)">{{delayedMinutes}}<span class="unit">min</span></ng-container>
+    </span>
+    <span *ngIf="heat.isDelayed" class="subtitle">{{'WIDGET.DELAY.BEHIND_SCHEDULE' | translate}}</span>
+    <span *ngIf="!heat.isDelayed" class="subtitle">{{'WIDGET.DELAY.AHEAD_OF_SCHEDULE' | translate}}</span>
+</div>

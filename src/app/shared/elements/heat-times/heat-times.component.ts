@@ -13,7 +13,7 @@ export class HeatTimesComponent {
 
   getLiveTimeClass() {
     // delay
-    return (this.heat.getDelay()) <= 4*60*1000 ? 'on-time' : 'late';
+    return this.heat.isDelayed()  ? 'late' : 'on-time';
   }
 
   getEstimationTimeClass() {

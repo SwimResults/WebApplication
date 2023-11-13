@@ -94,4 +94,34 @@ export class HeatImpl implements Heat {
 
     return delayEst.getTime() - est.getTime();
   }
+
+  getDelayReadable(): string {
+      const delay = this.getDelay();
+      let d = new Date(delay);
+      const h = d.getHours();
+      const m = d.getMinutes();
+      let str = "";
+
+      if (h) {
+          str += h + "h";
+          if (m) {
+              str += m + "m";
+          }
+          return str;
+      }
+
+      return m + "m";
+  }
+
+  getDelayHoursAndMinutes(): number[] {
+      const delay = this.getDelay();
+      let d = new Date(delay);
+      const h = d.getHours();
+      const m = d.getMinutes();
+      return [h, m];
+  }
+
+  isDelayed(): boolean {
+      return this.getDelay() > 4*60*1000;
+  }
 }

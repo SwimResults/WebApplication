@@ -232,6 +232,14 @@
             "HEATS": "Läufe",
             "ATHLETES": "Sportler",
             "TEAMS": "Vereine"
+        },
+        "DELAY": {
+            "TITLE": "Delay",
+            "BEHIND_SCHEDULE": "behind Schedule",
+            "AHEAD_OF_SCHEDULE": "ahead of Schedule"
+        },
+        "FAVORITES": {
+            "TITLE": "Favorites"
         }
     },
     "ENTRY_PAGE": {
