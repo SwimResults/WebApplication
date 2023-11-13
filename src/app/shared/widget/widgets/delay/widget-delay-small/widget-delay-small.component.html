@@ -5,6 +5,6 @@
         <ng-container *ngIf="delayedHours">{{delayedHours}}<span class="unit">h</span></ng-container>
         <ng-container *ngIf="!delayedHours || (delayedHours && delayedMinutes)">{{delayedMinutes}}<span class="unit">min</span></ng-container>
     </span>
-    <span *ngIf="heat.isDelayed" class="subtitle">{{'WIDGET.DELAY.BEHIND_SCHEDULE' | translate}}</span>
-    <span *ngIf="!heat.isDelayed" class="subtitle">{{'WIDGET.DELAY.AHEAD_OF_SCHEDULE' | translate}}</span>
+    <span *ngIf="heat.isDelayed()" class="subtitle">{{'WIDGET.DELAY.BEHIND_SCHEDULE' | translate}}</span>
+    <span *ngIf="!heat.isDelayed()" class="subtitle">{{'WIDGET.DELAY.AHEAD_OF_SCHEDULE' | translate}}</span>
 </div>

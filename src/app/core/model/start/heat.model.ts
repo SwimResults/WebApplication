@@ -21,6 +21,8 @@ export class HeatImpl implements Heat {
   start_at: string;
   finished_at: string;
 
+  delay?: number;
+
 
   constructor(heat: Heat) {
     this._id = heat._id;
@@ -86,17 +88,19 @@ export class HeatImpl implements Heat {
 
   // returns delay in seconds
   getDelay(): number {
+      if (this.delay !== undefined) return this.delay;
     let delayEst = this.getStartDelayEstimation()
     let est = this.getEstimatedStart()
 
-    delayEst.setFullYear(0, 0, 0);
-    est.setFullYear(0, 0, 0);
+    delayEst.setFullYear(2023, 1, 1);
+    est.setFullYear(2023, 1, 1);
+
 
     return delayEst.getTime() - est.getTime();
   }
 
   getDelayReadable(): string {
-      const delay = this.getDelay();
+      const delay = Math.abs(this.getDelay());
       let d = new Date(delay);
       const h = d.getHours();
       const m = d.getMinutes();
@@ -114,10 +118,9 @@ export class HeatImpl implements Heat {
   }
 
   getDelayHoursAndMinutes(): number[] {
-      const delay = this.getDelay();
-      let d = new Date(delay);
-      const h = d.getHours();
-      const m = d.getMinutes();
+      const delay = Math.round(Math.abs(this.getDelay())/(1000*60));
+      const h = Math.floor(delay / 60);
+      const m = delay - 60*h;
       return [h, m];
   }
 

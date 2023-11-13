@@ -229,9 +229,9 @@
         },
         "NUMBER_OF": {
             "STARTS": "Starts",
-            "HEATS": "Läufe",
-            "ATHLETES": "Sportler",
-            "TEAMS": "Vereine"
+            "HEATS": "Heats",
+            "ATHLETES": "Athletes",
+            "TEAMS": "Teams"
         },
         "DELAY": {
             "TITLE": "Delay",
