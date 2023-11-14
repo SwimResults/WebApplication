@@ -23,4 +23,8 @@ export class UserService extends BaseService {
   public setFollowing(athlete_id: string, follow: boolean): Observable<User> {
     return this.apiService.post(this.API_URL, "user/athlete", {athlete: athlete_id, follow: follow});
   }
+
+    public setUserAthlete(athlete_id: string, set: boolean): Observable<User> {
+        return this.apiService.post(this.API_URL, "user/me", {athlete: athlete_id, set: set});
+    }
 }

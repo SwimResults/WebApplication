@@ -16,13 +16,33 @@
   <span *ngIf="entry.country" class="country-flag" [title]="entry.country">
     <img class="flag" src="https://flagsapi.com/{{flags.get(entry.country)}}/flat/24.png" alt="flag">
   </span>
-  <button class="sr-btn-bar sr-btn-icon sr-btn sr-right" [matMenuTriggerFor]="contextMenu"><mat-icon>more_horiz</mat-icon></button>
+
+  <button *ngIf="config.showMoreButton" class="sr-btn-bar sr-btn-icon sr-btn sr-right" [matMenuTriggerFor]="contextMenu"><mat-icon>more_horiz</mat-icon></button>
+
+  <button
+      *ngIf="config.showSetUserAthleteButton"
+      (click)="onSetUserAthlete()"
+      class="sr-btn-bar sr-btn-icon sr-btn sr-right"
+  >
+      <sr-spinner *ngIf="fetchingSetUserAthlete.fetching" spinnerSize="btn" [style]="'material'" materialColor="first"></sr-spinner>
+      <mat-icon *ngIf="!fetchingSetUserAthlete.fetching">person_add</mat-icon>
+  </button>
+
+  <button
+      *ngIf="config.showUnsetUserAthleteButton"
+      (click)="onUnsetUserAthlete()"
+      class="sr-btn-bar sr-btn-icon sr-btn sr-right"
+  >
+      <sr-spinner *ngIf="fetchingSetUserAthlete.fetching" spinnerSize="btn" [style]="'material'" materialColor="first"></sr-spinner>
+      <mat-icon *ngIf="!fetchingSetUserAthlete.fetching">person_remove</mat-icon>
+  </button>
 
 
   <!-- an hidden div is created to set the position of appearance of the menu-->
   <div style="visibility: hidden; position: fixed;"
        [style.left.px]="menuTopLeftPosition.x"
        [style.top.px]="menuTopLeftPosition.y"
+       *ngIf="config.showMoreButton"
        #contextMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="contextMenu"></div>
 
 

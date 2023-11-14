@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserProfileComponent } from './pages';
-import { UserProfileViewComponent } from './components/user-profile-view/user-profile-view.component';
+import {PageUserSettingsComponent, UserProfileComponent} from './pages';
+import { UserProfileViewComponent, SettingsViewComponent} from './components';
 import {ElementsModule} from "../../shared/elements/elements.module";
 import {CoreModule} from "../../core/core.module";
 import {MatIconModule} from "@angular/material/icon";
+import { SettingsUserAthleteComponent } from './components/settings-user-athlete/settings-user-athlete.component';
 
 
 
 @NgModule({
   declarations: [
     UserProfileComponent,
-    UserProfileViewComponent
+    UserProfileViewComponent,
+    PageUserSettingsComponent,
+    SettingsViewComponent,
+    SettingsUserAthleteComponent
   ],
     imports: [
         CommonModule,

@@ -5,6 +5,8 @@
 <sr-widget-login-required></sr-widget-login-required>
 <sr-widget-info-text *ngIf="user && !user.own_athlete_id">
     {{'WIDGET.STARTS.NO_OWN_ATHLETE' | translate}}
+    <br><br>
+    <sr-btn [routerLink]="'/account/settings'">{{'WIDGET.STARTS.SET_OWN_ATHLETE_BUTTON' | translate}}</sr-btn>
 </sr-widget-info-text>
 <sr-widget-info-text *ngIf="user && user.own_athlete_id && starts.length <= 0">
     {{'WIDGET.STARTS.NO_STARTS' | translate}}

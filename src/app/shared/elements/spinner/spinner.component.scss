@@ -1,3 +1,5 @@
+@import "../../../../colors";
+
 .spinner {
     width: 120px;
     text-align: center;
@@ -17,12 +19,6 @@
         scale: 0.8;
         margin-left: -4px;
         margin-top: -4px;
-    }
-
-    &.spinner-size-btn {
-        .mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle, .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
-            stroke: white !important;
-        }
     }
 
     .mat-spinner {
