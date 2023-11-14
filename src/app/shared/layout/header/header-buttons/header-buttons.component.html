@@ -45,18 +45,18 @@
   <ng-container *srIsAuthed="true">
     <span class="menu-title" *ngIf="kcUser && kcUser['given_name'] && kcUser['family_name']"><b>{{kcUser["given_name"] + " " + kcUser["family_name"]}}</b></span>
     <mat-divider *ngIf="kcUser && kcUser['given_name'] && kcUser['family_name']"></mat-divider>
+
+      <button class="sr-btn sr-btn-menu" routerLink="/account/profile">
+        <mat-icon>person</mat-icon>
+        <span>{{'HEADER.MENU.ACCOUNT.PROFILE_BUTTON_TEXT' | translate}}</span>
+      </button>
+      <button class="sr-btn sr-btn-menu" routerLink="/account/settings">
+        <mat-icon>settings</mat-icon>
+        <span>{{'HEADER.MENU.ACCOUNT.SETTINGS_BUTTON_TEXT' | translate}}</span>
+      </button>
+
+      <mat-divider></mat-divider>
   </ng-container>
-
-  <button class="sr-btn sr-btn-menu" routerLink="/account/profile" *srIsAuthed="true">
-    <mat-icon>person</mat-icon>
-    <span>{{'HEADER.MENU.ACCOUNT.PROFILE_BUTTON_TEXT' | translate}}</span>
-  </button>
-  <button class="sr-btn sr-btn-menu" routerLink="/account/settings" *srIsAuthed="true">
-    <mat-icon>settings</mat-icon>
-    <span>{{'HEADER.MENU.ACCOUNT.SETTINGS_BUTTON_TEXT' | translate}}</span>
-  </button>
-
-  <mat-divider></mat-divider>
 
   <button class="sr-btn sr-btn-menu" (click)="login()" *srIsAuthed="false">
     <mat-icon>login</mat-icon>
