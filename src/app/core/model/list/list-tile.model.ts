@@ -7,5 +7,4 @@ export interface IListTile {
   teamLink?: string;
   country?: string;
   entryType: "athlete" | "team" | undefined;
-
 }

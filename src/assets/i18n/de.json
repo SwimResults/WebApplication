@@ -225,6 +225,14 @@
             "ACTION_BUTTON_TITLE": "Aktionen",
             "DELETE_USER_BUTTON_TEXT": "Account löschen",
             "CHANGE_DATA_BUTTON_TEXT": "Benutzerdaten ändern"
+        },
+        "SETTINGS": {
+            "USER_ATHLETE": {
+                "INFO_TEXT": "Wenn du selbst ein Schwimmer bist, kannst du hier Auswählen, bei welchem Sportler es sich um dich handelt. Dies wird verwendet, um dir beispielweise in Widgets deine nächsten Starts anzuzeigen.",
+                "TITLE": "Der Sportler zu deinem Account",
+                "THIS_IS_YOU_TITLE": "Das bist du:",
+                "NO_USER_SET": "Dein Account ist aktuell keinem Sportler zugeordnet."
+            }
         }
     },
     "WIDGET": {

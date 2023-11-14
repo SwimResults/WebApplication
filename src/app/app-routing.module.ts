@@ -9,7 +9,7 @@ import {PageTeamComponent, PageTeamsEventComponent, PageTeamsGeneralComponent} f
 import {PageStatsEventComponent, PageStatsGeneralComponent} from "./content/stats";
 import {PageEventComponent, PageEventsComponent} from "./content/events";
 import {AuthComponent} from "./content/auth/auth.component";
-import {UserProfileComponent} from "./content/account";
+import {PageUserSettingsComponent, UserProfileComponent} from "./content/account";
 import {PageMeetingsComponent} from "./content/meetings";
 import {LogoutComponent} from "./content/auth/logout/logout.component";
 import {PageAdminEventComponent} from "./content/admin";
@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'auth',                     component: AuthComponent },
   { path: 'auth/logout',              component: LogoutComponent },
   { path: 'account/profile',          component: UserProfileComponent },
+  { path: 'account/settings',         component: PageUserSettingsComponent },
   { path: 'dashboard',                component: PageDashboardGeneralComponent },
   { path: 'calendar',                 component: CalendarComponent },
   { path: 'meetings',                 redirectTo: '/' },
