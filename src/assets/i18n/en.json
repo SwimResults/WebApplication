@@ -245,7 +245,8 @@
         },
         "STARTS": {
             "TITLE": "Upcoming Starts",
-            "NO_OWN_ATHLETE": "Select what athlete you are in order to use this widget.",
+            "NO_OWN_ATHLETE": "Select which athlete you are in order to use this widget.",
+            "SET_OWN_ATHLETE_BUTTON": "Set Athlete",
             "NO_STARTS": "No starts could be found.",
             "SHOW_STARTS_BUTTON": "Show all starts"
         }

@@ -250,6 +250,7 @@
         "STARTS": {
             "TITLE": "Nächste Starts",
             "NO_OWN_ATHLETE": "Wähle aus, welcher Sportler du bist, um dieses Widget nutzen zu können.",
+            "SET_OWN_ATHLETE_BUTTON": "Sportler setzen",
             "NO_STARTS": "Es wurden keine offenen Starts gefunden.",
             "SHOW_STARTS_BUTTON": "Alle Starts anzeigen"
         }
