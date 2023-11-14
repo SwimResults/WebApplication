@@ -1,7 +1,7 @@
 import {IListTile} from "./list-tile.model";
 import {Athlete} from "../athlete";
 
-export class AthleteListTile implements IListTile {
+export class UserAthleteListTile implements IListTile {
   id: string;
   name: string;
   nameLink?: string;
@@ -15,7 +15,7 @@ export class AthleteListTile implements IListTile {
     this.name = athlete.name;
     this.badge = athlete.year;
     this.team = athlete.team.name;
-    this.nameLink = "" + athlete.alias[0] + "-" + athlete.year;
-    this.teamLink = "../team/@" + athlete.team.alias[0];
+    this.nameLink = "../../athlete/" + athlete.alias[0] + "-" + athlete.year;
+    this.teamLink = "../../team/@" + athlete.team.alias[0];
   }
 }

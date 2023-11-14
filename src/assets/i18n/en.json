@@ -221,6 +221,14 @@
             "ACTION_BUTTON_TITLE": "Actions",
             "DELETE_USER_BUTTON_TEXT": "Delete Account",
             "CHANGE_DATA_BUTTON_TEXT": "Change User Data"
+        },
+        "SETTINGS": {
+            "USER_ATHLETE": {
+                "INFO_TEXT": "Users who are athletes themselves can use this settings to define which athlete their account belongs to. This information is used for example to show you upcoming starts in a widget and other things.",
+                "TITLE": "Your Accounts Athlete",
+                "THIS_IS_YOU_TITLE": "That's You:",
+                "NO_USER_SET": "Your account is currently not assigned to any athlete."
+            }
         }
     },
     "WIDGET": {
@@ -245,7 +253,8 @@
         },
         "STARTS": {
             "TITLE": "Upcoming Starts",
-            "NO_OWN_ATHLETE": "Select what athlete you are in order to use this widget.",
+            "NO_OWN_ATHLETE": "Select which athlete you are in order to use this widget.",
+            "SET_OWN_ATHLETE_BUTTON": "Set Athlete",
             "NO_STARTS": "No starts could be found.",
             "SHOW_STARTS_BUTTON": "Show all starts"
         }

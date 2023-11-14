@@ -4,6 +4,7 @@ import {RefreshListRequest} from "../../../../core/model/list/refresh-list-reque
 import {PagingRequest} from "../../../../core/model/common/paging-request.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {ListFilterRequest} from "../../../../core/model/list/list-filter-request.model";
+import {ListConfig} from "../../../../core/model/list/list-config.model";
 
 @Component({
   selector: 'sr-list-view',
@@ -14,6 +15,7 @@ export class ListViewComponent implements OnInit {
   @Input() data!: IListTile[];
   @Input() useSearch: boolean = true;
   @Input() fetching: FetchingModel = {fetching: false};
+  @Input() config: ListConfig = {showMoreButton: true, showSetUserAthleteButton: false, showUnsetUserAthleteButton: false}
   @Output() refreshData: EventEmitter<RefreshListRequest> = new EventEmitter<RefreshListRequest>();
 
   limit: number = 30;
@@ -32,6 +34,12 @@ export class ListViewComponent implements OnInit {
     if (fetch) {
       this.refresh();
     }
+  }
+
+  reload() {
+      this.data = [];
+      this.lastOffset = -1
+      this.refresh();
   }
 
   refresh() {
