@@ -172,24 +172,24 @@
         }
     },
     "FILES": {
-      "LIST": {
-        "PAGE_TITLE": "Dateien"
-      },
-      "FILE_NAMES": {
-        "MEETING_INFO": "Ausschreibung",
-        "REGISTRATION_LIST": "Meldeliste",
-        "START_LIST": "Meldeergebnis",
-        "RESULTS_LIST": "Protokoll",
-        "DSV_DEFINITION": "Wettkampfdefinition",
-        "DSV_RESULTS": "Wettkampfergebnisliste",
-        "LENEX_DEFINITION": "LENEX Datei",
-        "LENEX_RESULTS": "LENEX Ergebnisdatei",
-        "REGISTRATION_SOFTWARE": "Meldeprogramm für internationale Vereine",
-        "DATA_PROTECTION": "Datenschutzerklärung",
-        "PRIVACY_INFORMATION": "Informationen zum Datenschutz (DSV)",
-        "OVERNIGHT_STAY_TICKETS": "Bestellung Übernachtung"
-      },
-      "NO_FILES_MESSAGE": "Für diese Veranstaltung sind keine Dateien hinterlegt."
+        "LIST": {
+            "PAGE_TITLE": "Dateien"
+        },
+        "FILE_NAMES": {
+            "MEETING_INFO": "Ausschreibung",
+            "REGISTRATION_LIST": "Meldeliste",
+            "START_LIST": "Meldeergebnis",
+            "RESULTS_LIST": "Protokoll",
+            "DSV_DEFINITION": "Wettkampfdefinition",
+            "DSV_RESULTS": "Wettkampfergebnisliste",
+            "LENEX_DEFINITION": "LENEX Datei",
+            "LENEX_RESULTS": "LENEX Ergebnisdatei",
+            "REGISTRATION_SOFTWARE": "Meldeprogramm für internationale Vereine",
+            "DATA_PROTECTION": "Datenschutzerklärung",
+            "PRIVACY_INFORMATION": "Informationen zum Datenschutz (DSV)",
+            "OVERNIGHT_STAY_TICKETS": "Bestellung Übernachtung"
+        },
+        "NO_FILES_MESSAGE": "Für diese Veranstaltung sind keine Dateien hinterlegt."
     },
     "MEETINGS": {
         "LIST": {
@@ -228,8 +228,33 @@
         }
     },
     "WIDGET": {
+        "LOGIN_REQUIRED": "Du musst angemeldet sein, um dieses Widget nutzen zu können.",
         "COMING_SOON": {
             "MAIN_TEXT": "Dieses Dashboard wird fortlaufend um zusätzliche Widgets erweitert."
+        },
+        "NUMBER_OF": {
+            "STARTS": "Starts",
+            "HEATS": "Läufe",
+            "ATHLETES": "Sportler",
+            "TEAMS": "Vereine"
+        },
+        "DELAY": {
+            "TITLE": "Verspätung",
+            "BEHIND_SCHEDULE": "hinterm Zeitplan",
+            "AHEAD_OF_SCHEDULE": "vorm Zeitplan"
+        },
+        "FAVORITES": {
+            "TITLE": "Favoriten",
+            "NO_FAVORITES": "Du kannst Sportlern über ihr Profil folgen, damit sie hier aufgelistet werden."
+        },
+        "STARTS": {
+            "TITLE": "Nächste Starts",
+            "NO_OWN_ATHLETE": "Wähle aus, welcher Sportler du bist, um dieses Widget nutzen zu können.",
+            "NO_STARTS": "Es wurden keine offenen Starts gefunden.",
+            "SHOW_STARTS_BUTTON": "Alle Starts anzeigen"
         }
+    },
+    "DASHBOARD": {
+        "WELCOME_MESSAGE": "Willkommen zurück, {{username}}!"
     }
 }

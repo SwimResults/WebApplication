@@ -7,5 +7,5 @@ import {Component, Input} from '@angular/core';
 })
 export class SpinnerComponent {
   @Input() style: "material" | "swim clock" = "swim clock";
-  @Input() spinnerSize: "large" | "text" | "btn" = "large";
+  @Input() spinnerSize: "large" | "text" | "btn" | "widget" = "large";
 }

@@ -37,6 +37,7 @@ export class AdminHeatToolComponent implements OnInit {
   fetchingStarts: FetchingModel = {fetching: false};
   config: StartListTileConfig = {
     showAthlete: true,
+    showIcon: true,
     laneAsIcon: true,
     flatStyle: true,
     rankStylesIcon: false,

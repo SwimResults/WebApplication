@@ -25,6 +25,10 @@ export class AthleteService extends BaseService{
     return this.apiService.get(this.API_URL, "athlete", paging.toParams());
   }
 
+    getAthletesAmountByMeeting(meeting: string): Observable<number> {
+        return this.apiService.getText(this.API_URL, "athlete/meet/" + meeting + "/amount");
+    }
+
   public getAthleteById(id: string): Observable<Athlete> {
     return this.apiService.get(this.API_URL, "athlete/" + id);
   }

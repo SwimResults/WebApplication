@@ -1,10 +1,11 @@
 <div *ngIf="data">
-  <div class="left-container icon-style-{{getStyleType()}} {{config && config.showTimes && data.heat ? 'left-container-with-times' : ''}}">
+  <div class="left-container icon-style-{{getStyleType()}} {{config && config.showTimes && config.showIcon && data.heat ? 'left-container-with-times' : ''}}">
     <div class="time" *ngIf="config && config.showTimes && data.heat">
       <sr-heat-times [heat]="data.heat"></sr-heat-times>
       <!--span class="estimated time-entry">{{data.heat.getEstimatedStartTime()}}</span-->
     </div>
     <sr-icon-panel
+      *ngIf="config && config.showIcon"
       [class]="getIconClass()"
       [icon]="getIcon()"
       [style]="getStyleType()"
@@ -12,7 +13,7 @@
     ></sr-icon-panel>
   </div>
 
-  <div class="right-container {{config && config.showTimes && data.heat ? 'right-container-with-times' : ''}}">
+  <div class="right-container {{config && config.showTimes && config.showIcon && data.heat ? 'right-container-with-times' : ''}}">
 <!--    <div class="header-row">-->
 <!--      <span class="athlete" *ngIf="config.showAthlete && athlete">-->
 <!--        <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{athlete.name}}</span>-->
@@ -25,7 +26,7 @@
     <div class="content-row">
       <ng-container *ngIf="config && !data.emptyLane">
         <span class="event link" *ngIf="config.showEvent" [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{'START.EVENT_SHORT' | translate}} {{data.event}}</span>
-        <span class="style link" *ngIf="config.showStyle && event && event.style" [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}}</span>
+        <span class="style link {{config && config.widgetSize ? 'style-widget' : ''}}" *ngIf="config.showStyle && event && event.style" [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}}</span>
         <span class="style" *ngIf="config.showStyle && (!event || !event.style)"></span>
 
         <span class="meeting link" *ngIf="config.showMeeting && meeting" [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">
@@ -36,7 +37,8 @@
         <span class="heat" *ngIf="config.showHeat">{{'COMMON.HEAT.SHORT' | translate}} {{data.heat_number}}</span>
         <span class="lane" *ngIf="config.showLane">{{'COMMON.LANE.SHORT' | translate}} {{data.lane}}</span>
         <span class="athlete" *ngIf="config.showAthlete">
-          <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{data.athlete_name}}</span>
+          <span *ngIf="!data.is_relay" class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{data.athlete_name}}</span>
+          <span *ngIf="data.is_relay" class="athlete-name">{{data.athlete_name}}</span>
           <span class="athlete-year">{{data.athlete_year}}</span>
           <span class="link athlete-team"  [routerLink]="'/m/' + data.meeting + '/team/' + data.athlete_team">{{data.athlete_team_name}}</span>
         </span>
@@ -75,26 +77,30 @@
             <span class="result-time-string">{{getTimeString(data.getMostRecentLap().time)}}</span>
           </span>
 
-          <div class="lap-time-list"
-            *ngIf="config && config.showLapTimes && data.hasResultType(resultTypes.LAP)">
-            <span
-              class="duration lap-time"
-              *ngFor="let lap of data.getLapTimes()"
-            >
-              <span class="lap-meters">{{lap.lap_meters}}</span>
-              <span class="result-time-string">{{getTimeString(lap.time)}}</span>
-            </span>
-          </div>
 
           <span
-            class="reaction"
+            class="reaction duration"
             *ngIf="
-              config && (
-                (!config.showMostSignificantTime && config.showReactionTime && data.hasResultType(resultTypes.REACTION))
-                ||
-                (config.showMostSignificantTime && data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP))
-              )"
-          >{{getReactionString(data.getTimeMilliseconds(resultTypes.REACTION))}}</span>
+                config && (
+                  (!config.showMostSignificantTime && config.showReactionTime && data.hasResultType(resultTypes.REACTION))
+                  ||
+                  (config.showMostSignificantTime && data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP))
+                )"
+          >
+             <span class="result-time-string">+{{getReactionString(data.getTimeMilliseconds(resultTypes.REACTION))}}</span>
+            </span>
+
+          <div class="lap-time-list">
+            <ng-container *ngIf="config && config.showLapTimes && data.hasResultType(resultTypes.LAP)">
+              <span
+                class="duration lap-time"
+                *ngFor="let lap of data.getLapTimes()"
+              >
+                <span class="lap-meters">{{lap.lap_meters}}</span>
+                <span class="result-time-string">{{getTimeString(lap.time)}}</span>
+              </span>
+            </ng-container>
+          </div>
 
           <div class="disqualification" *ngIf="config && config.showDisqualification && data.disqualification.type && config && !config.laneAsIcon">
             <span class="reason">{{getReason()}}</span>

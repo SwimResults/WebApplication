@@ -67,6 +67,13 @@
 
     .style {
       width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .style.style-widget {
+      width: 146px;
     }
 
 
@@ -149,6 +156,10 @@
         display: inline-block;
         margin-left: 4px;
       }
+    }
+
+    .reaction {
+      font-style: italic;
     }
 
     .reason {

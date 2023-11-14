@@ -31,6 +31,7 @@ export class AthleteStartsComponent implements OnInit{
       showHeat: (this.meetingId !== undefined),
       showLane: (this.meetingId !== undefined),
       showStyle: true,
+      showIcon: true,
       showTimes: true,
       showRegistrationTime: true,
       showResults: true,

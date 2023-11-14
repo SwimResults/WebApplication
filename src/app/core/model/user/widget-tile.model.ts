@@ -1,10 +1,6 @@
-import {WidgetContainer} from "./widget-container.model";
+import {Widget} from "./widget.model";
 
 export interface WidgetTile {
-  id: number,
-  size: "SMALL" | "MEDIUM" | "LARGE",
-  user: string,
-  content: string,
-  orderPosition: 1 | 2 | 3 | 4,
-  container?: WidgetContainer
+    widget: Widget;
+    order_position: number;
 }

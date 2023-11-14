@@ -4,6 +4,7 @@ import { PageDashboardEventComponent } from './page-dashboard-event.component';
 import {WidgetModule} from "../../../../shared/widget/widget.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
+import {DashboardModule} from "../../dashboard.module";
 
 describe('PageDashboardEventComponent', () => {
   let component: PageDashboardEventComponent;
@@ -15,7 +16,8 @@ describe('PageDashboardEventComponent', () => {
       imports: [
         WidgetModule,
         RouterTestingModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        DashboardModule
       ]
     })
     .compileComponents();

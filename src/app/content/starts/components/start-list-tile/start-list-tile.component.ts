@@ -123,7 +123,7 @@ export class StartListTileComponent implements OnInit {
   }
 
   getReactionString(time: number): string {
-    let d = new Date(time)
+    let d = new Date((time / 1000) / 1000)
     let millis = "0" + (d.getMilliseconds() / 10)
     return d.getSeconds() + "," + millis.substr(-2)
   }

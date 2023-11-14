@@ -15,7 +15,9 @@ export class StartListTileConfig {
   showReactionTime: boolean = true;
   showMostSignificantTime: boolean = false; // show either registration; reaction; lap; livetiming result OR result list result time
   laneAsIcon: boolean = false;
+  showIcon: boolean = true;
   flatStyle: boolean = false;
   allLanes: boolean = false;
   rankStylesIcon: boolean = true;
+  widgetSize: boolean = false;
 }

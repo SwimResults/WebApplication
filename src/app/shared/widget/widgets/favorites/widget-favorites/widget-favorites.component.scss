@@ -1,0 +1,59 @@
+@import "../../../../../../colors";
+
+.athlete-list {
+    overflow-y: auto;
+}
+
+.athlete {
+    display: block;
+    margin: 6px 0;
+
+    &:hover {
+        cursor: pointer;
+
+        .athlete-name,
+        .athlete-team {
+            text-decoration: underline;
+        }
+    }
+}
+
+.athlete-icon,
+.athlete-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.athlete-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: $color-sr-first;
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    margin-right: 10px;
+
+    .athlete-initials {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+.athlete-text {
+    width: calc(100% - 50px);
+
+    .athlete-name,
+    .athlete-team {
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .athlete-team {
+        color: $color-text-gray;
+    }
+}

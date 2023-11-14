@@ -52,6 +52,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
   config: StartListTileConfig = {
     showAthlete: true,
     laneAsIcon: true,
+    showIcon: true,
     flatStyle: true,
     allLanes: true,
     showResults: true,
@@ -219,6 +220,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
 
       this.config = {
         showAthlete: true,
+        showIcon: true,
         laneAsIcon: !this.heatFinished,
         flatStyle: true,
         allLanes: !this.heatFinished,

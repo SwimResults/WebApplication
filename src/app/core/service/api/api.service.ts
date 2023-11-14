@@ -22,6 +22,11 @@ export class ApiService {
      .pipe(catchError(ApiService.formatErrors));
   }
 
+    getText(url: string, path: string, params?: HttpParams, headers?: HttpHeaders): Observable<any> {
+        return this.http.get(url + path, { params, headers: headers, responseType: "text"})
+            .pipe(catchError(ApiService.formatErrors));
+    }
+
   getDownload(url: string, path: string, params?: HttpParams, headers?: HttpHeaders): Observable<any> {
     return this.http.get(url + path, { params, headers: headers, responseType: "blob"})
       .pipe(catchError(ApiService.formatErrors));

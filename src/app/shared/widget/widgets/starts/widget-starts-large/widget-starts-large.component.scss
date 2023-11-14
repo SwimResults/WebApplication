@@ -1,0 +1,20 @@
+@import "../../../../../../colors";
+
+sr-start-list {
+    margin: 4px 0;
+    display: block;
+}
+
+.more-button {
+    text-align: right;
+
+    mat-icon,
+    .link {
+        display: inline-block;
+        vertical-align: middle;
+        color: $color-sr-first;
+    }
+    mat-icon {
+        margin-right: 6px;
+    }
+}
