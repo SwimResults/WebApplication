@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IListTile} from "../../../../core/model/list/list-tile.model";
 import {Athlete} from "../../../../core/model";
 import {AthleteService, UserService} from "../../../../core/service/api";
@@ -23,8 +23,8 @@ export class SettingsUserAthleteComponent implements OnInit {
     listAthletes: IListTile[] = [];
     fetchingAthletes: FetchingModel = {fetching: false};
 
-    config: ListConfig = {showSetUserAthleteButton: true, showUnsetUserAthleteButton: false, showMoreButton: true};
-    configUserAthlete: ListConfig = {showUnsetUserAthleteButton: true, showMoreButton: true, showSetUserAthleteButton: false};
+    config: ListConfig = {showSetUserAthleteButton: true, showUnsetUserAthleteButton: false, showMoreButton: false};
+    configUserAthlete: ListConfig = {showUnsetUserAthleteButton: true, showMoreButton: false, showSetUserAthleteButton: false};
 
     constructor(
         private athleteService: AthleteService,
