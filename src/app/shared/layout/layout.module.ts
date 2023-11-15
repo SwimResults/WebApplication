@@ -13,6 +13,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import {CoreModule} from "../../core/core.module";
 import {MatButtonModule} from "@angular/material/button";
 import {MatDividerModule} from "@angular/material/divider";
+import { LiveBarComponent } from './live-bar/live-bar.component';
 
 
 
@@ -23,12 +24,14 @@ import {MatDividerModule} from "@angular/material/divider";
     HeaderComponent,
     NavEventComponent,
     NavDefaultComponent,
-    HeaderButtonsComponent
+    HeaderButtonsComponent,
+    LiveBarComponent
   ],
-  exports: [
-    SidebarComponent,
-    HeaderComponent
-  ],
+    exports: [
+        SidebarComponent,
+        HeaderComponent,
+        LiveBarComponent
+    ],
     imports: [
         CommonModule,
         ElementsModule,

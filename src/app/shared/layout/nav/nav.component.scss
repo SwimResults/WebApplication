@@ -1,7 +1,22 @@
 @import "../../../../colors";
 
+.back-btn {
+    margin: 10px 12px 0;
+    cursor: pointer;
+    color: $color-sr-first;
+
+    span,
+    mat-icon {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    mat-icon {
+        margin-right: 2px;
+    }
+}
+
 nav {
-  margin-top: 20px;
   font-size: 13px;
   color: $color-nav-link;
   height: calc(100vh - 160px);
