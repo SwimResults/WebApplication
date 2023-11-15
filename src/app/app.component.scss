@@ -24,7 +24,15 @@ main {
   .content {
     display: grid;
     grid-area: page-content;
-    margin-bottom: 34px;
+    margin-bottom: 70px;
+  }
+
+  sr-live-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 3;
   }
 
   sr-header {
