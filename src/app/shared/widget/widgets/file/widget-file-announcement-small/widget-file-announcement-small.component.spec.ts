@@ -4,6 +4,7 @@ import { WidgetFileAnnouncementSmallComponent } from './widget-file-announcement
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
+import {WidgetModule} from "../../../widget.module";
 
 describe('WidgetFileAnnouncementSmallComponent', () => {
   let component: WidgetFileAnnouncementSmallComponent;
@@ -15,7 +16,8 @@ describe('WidgetFileAnnouncementSmallComponent', () => {
         imports: [
             HttpClientTestingModule,
             RouterTestingModule,
-            TranslateModule.forRoot()
+            TranslateModule.forRoot(),
+            WidgetModule
         ]
     })
     .compileComponents();

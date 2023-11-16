@@ -245,7 +245,8 @@
         "DELAY": {
             "TITLE": "Delay",
             "BEHIND_SCHEDULE": "behind Schedule",
-            "AHEAD_OF_SCHEDULE": "ahead of Schedule"
+            "AHEAD_OF_SCHEDULE": "ahead of Schedule",
+            "NO_HEAT_DATA_MESSAGE": "It is currently not possible to calculate the delay."
         },
         "FAVORITES": {
             "TITLE": "Favorites",
@@ -257,6 +258,9 @@
             "SET_OWN_ATHLETE_BUTTON": "Set Athlete",
             "NO_STARTS": "No starts could be found.",
             "SHOW_STARTS_BUTTON": "Show all starts"
+        },
+        "FILE": {
+            "NOT_FOUND_MESSAGE": "{{filename}} was not found."
         }
     },
     "ENTRY_PAGE": {

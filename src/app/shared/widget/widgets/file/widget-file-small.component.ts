@@ -16,6 +16,7 @@ export class WidgetFileSmallComponent implements OnDestroy {
 
     file?: StorageFile;
     name?: string;
+    notFoundMessage = {filename: ""};
 
     constructor(
         private fileService: FileService,
@@ -36,17 +37,16 @@ export class WidgetFileSmallComponent implements OnDestroy {
         this.fileService.getFileByMeetingAndName(this.meetingId, name).subscribe(data => {
             this.file = data;
             this.file.url = this.fileService.getUrl(this.file);
-
-            if (this.file && this.file.name) {
-                this.translateService.get("FILES.FILE_NAMES." + this.file.name.toUpperCase()).subscribe(results => {
-                    if (results) {
-                        this.name = results;
-                    } else {
-                        if (this.file)
-                            this.name = this.file.name;
-                    }
-                })
+        })
+        this.translateService.get("FILES.FILE_NAMES." + name.toUpperCase()).subscribe(results => {
+            if (results) {
+                this.name = results;
+            } else {
+                if (this.file)
+                    this.name = this.file.name;
             }
+            if (this.name)
+                this.notFoundMessage.filename = this.name;
         })
     }
 }

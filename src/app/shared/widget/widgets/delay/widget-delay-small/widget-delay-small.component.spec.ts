@@ -5,6 +5,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
 import {ElementsModule} from "../../../../elements/elements.module";
+import {WidgetModule} from "../../../widget.module";
 
 describe('WidgetDelaySmallComponent', () => {
   let component: WidgetDelaySmallComponent;
@@ -17,7 +18,8 @@ describe('WidgetDelaySmallComponent', () => {
             HttpClientTestingModule,
             RouterTestingModule,
             TranslateModule.forRoot(),
-            ElementsModule
+            ElementsModule,
+            WidgetModule
         ]
     })
     .compileComponents();

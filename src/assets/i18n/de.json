@@ -249,7 +249,8 @@
         "DELAY": {
             "TITLE": "Verspätung",
             "BEHIND_SCHEDULE": "hinterm Zeitplan",
-            "AHEAD_OF_SCHEDULE": "vorm Zeitplan"
+            "AHEAD_OF_SCHEDULE": "vorm Zeitplan",
+            "NO_HEAT_DATA_MESSAGE": "Die Verspätung kann aktuell nicht berechnet werden."
         },
         "FAVORITES": {
             "TITLE": "Favoriten",
@@ -261,6 +262,9 @@
             "SET_OWN_ATHLETE_BUTTON": "Sportler setzen",
             "NO_STARTS": "Es wurden keine offenen Starts gefunden.",
             "SHOW_STARTS_BUTTON": "Alle Starts anzeigen"
+        },
+        "FILE": {
+            "NOT_FOUND_MESSAGE": "{{filename}} wurde nicht gefunden."
         }
     },
     "DASHBOARD": {
