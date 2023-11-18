@@ -3,7 +3,7 @@ import {DashboardService} from "../../../../core/service/api/user/dashboard.serv
 import {Dashboard} from "../../../../core/model/user/dashboard.model";
 import {AuthService} from "../../../../core/service/auth.service";
 import {Subscription} from "rxjs";
-import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
+import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
 import {RouteService} from "../../../../core/service/route.service";
 import {User} from "../../../../core/model/user/user.model";
 import {OAuthService} from "angular-oauth2-oidc";
@@ -30,6 +30,9 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
 
     welcomeMessageParam = {username: ""}
 
+    fetchedMeeting: boolean = false;
+    fetchedUser: boolean = false;
+
     constructor(
         private dashboardService: DashboardService,
         private authService: AuthService,
@@ -38,16 +41,17 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
     ) {
         this.isAuthedSubscription = this.authService.isAuthenticated.subscribe(data => {
             this.isAuthed = data
+            this.fetchedUser = true;
             this.fetchDashboard();
         })
         this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
             this.meeting = new MeetingImpl(data.meeting);
+            this.fetchedMeeting = true;
             this.fetchDashboard();
         })
     }
 
     ngOnInit() {
-        this.fetchDashboard();
         this.kcUser = this.oAuthService.getIdentityClaims();
         if (this.kcUser && this.kcUser["given_name"])
             this.welcomeMessageParam.username = this.kcUser["given_name"];
@@ -59,9 +63,10 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
     }
 
     fetchDashboard() {
-        if (this.meeting === null || this.isAuthed === null) return;
+        if (!this.fetchedMeeting || !this.fetchedUser) return;
         let meetingState = "";
         if (this.meeting) {
+            if (this.meeting.hasState(MeetingStates.HIDDEN)) return;
             meetingState = this.meeting.state;
         }
         this.dashboardService.getDashboard(!this.isAuthed, meetingState).subscribe(data => this.dashboard = data);

@@ -11,7 +11,7 @@ import {MeetingEventImpl} from "../../../core/model/meeting/meeting-event.model"
 export class LiveBarComponent implements OnInit, OnDestroy {
     @Input() meetingId?: string;
 
-    liveUpdateInterval: number = 3000;
+    liveUpdateInterval: number = 15000;
 
     currentHeat?: HeatImpl
     maxHeat: number = 1;
