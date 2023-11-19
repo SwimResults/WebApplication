@@ -24,12 +24,12 @@
 
   <ng-container *ngIf="starts.length > 0">
 
-    <sr-panel>
+    <!--<sr-panel>
       <mat-button-toggle-group>
         <mat-button-toggle value="lanes" checked="true"  (click)="changeListMode('lanes')">Bahnverteilung</mat-button-toggle>
         <mat-button-toggle value="results" (click)="changeListMode('results')">Zielanschlag</mat-button-toggle>
       </mat-button-toggle-group>
-    </sr-panel>
+    </sr-panel>-->
 
     <sr-panel class="heat-starts"
               *ngFor="let heat of heats.keys()"
