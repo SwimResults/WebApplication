@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {Start} from "../../../model/start/start.model";
 import {ApiService} from "../api.service";
 import {StartId} from "../../../model/start/start-id.model";
+import {StartResults} from "../../../model/start/start-results.model";
 
 @Injectable({
   providedIn: 'root'
@@ -60,4 +61,8 @@ export class StartService extends BaseService {
   getStartById(id: string): Observable<Start> {
     return this.apiService.get(this.API_URL, "start/" + id);
   }
+
+    getStartsByMeetingAndEventAsResults(meeting: string, event: number): Observable<StartResults[]> {
+        return this.apiService.get(this.API_URL, "start/meet/" + meeting + "/event/" + event + "/results");
+    }
 }

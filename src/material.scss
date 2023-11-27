@@ -87,6 +87,24 @@
   background-color: $color-sr-first !important;
 }
 
+.mat-button-toggle {
+    font-family: SwimResults, Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-button-toggle-checked.mat-button-toggle-appearance-standard {
+    color: white !important;
+    background-color: $color-sr-first !important;
+}
+
+.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    line-height: 38px !important;
+}
+
+.mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
+    border: 2px solid $color-sr-first !important;
+}
+
+
 body {
   .material-icons {
     font-family: 'Material Icons Round', 'Material Icons', serif !important;

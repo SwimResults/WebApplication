@@ -6,6 +6,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
 import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatIconModule} from "@angular/material/icon";
 
 describe('EventViewComponent', () => {
   let component: EventViewComponent;
@@ -19,7 +20,8 @@ describe('EventViewComponent', () => {
         HttpClientTestingModule,
         ElementsModule,
         MatButtonToggleModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        MatIconModule
       ]
     })
     .compileComponents();

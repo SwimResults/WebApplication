@@ -9,6 +9,7 @@ import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
+import {StartResults} from "../../../../core/model/start/start-results.model";
 
 @Component({
   selector: 'sr-event-view',
@@ -23,6 +24,8 @@ export class EventViewComponent implements OnInit, OnDestroy {
   eventNumber: number = 1;
 
   event: MeetingEvent = {} as MeetingEvent;
+
+  fileButtonData = {event_number: this.eventNumber};
 
   starts: Start[] = [];
   heats: Map<number, StartImpl[]> = new Map<number, StartImpl[]>();
@@ -39,6 +42,8 @@ export class EventViewComponent implements OnInit, OnDestroy {
     showReactionTime: true,
     showLapTimes: true
   } as StartListTileConfig;
+
+  resultStarts: StartResults[] = [];
 
   listMode: string = "lanes";
 
@@ -69,6 +74,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(s => {
       this.eventNumber = s["event_number"];
+      this.fileButtonData.event_number = this.eventNumber;
       this.fetchStarts();
       this.fetchEvent();
     });
@@ -79,9 +85,18 @@ export class EventViewComponent implements OnInit, OnDestroy {
 
     if (this.listMode == "lanes") {
       this.config.laneAsIcon = true
+        this.config.rankStylesIcon = false;
     }
-    if (this.listMode == "results") {
+    if (this.listMode == "finish") {
       this.config.laneAsIcon = false
+        this.config.rankStylesIcon = false;
+    }
+
+    if (this.listMode == "results") {
+        this.config.laneAsIcon = false;
+        this.config.rankStylesIcon = true;
+        this.fetchResultStarts();
+        return;
     }
 
     this.fetchStarts()
@@ -116,7 +131,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
             }
           }
 
-          if (this.listMode == "results") {
+          if (this.listMode == "finish") {
             for (let heat of this.heats.keys()) {
               this.heats.get(heat)?.sort((a,b) => a.disqualification.type ? 1 : (b.disqualification.type ? -1 : a.getResultMilliseconds() - b.getResultMilliseconds()))
               let starts = this.heats.get(heat);
@@ -141,6 +156,22 @@ export class EventViewComponent implements OnInit, OnDestroy {
 
       })
     }
+  }
+
+  fetchResultStarts() {
+      if (this.meetingId) {
+          this.fetchingStarts.fetching = true;
+          this.startService.getStartsByMeetingAndEventAsResults(this.meetingId, this.eventNumber).subscribe({
+                  next: (data => {
+                      this.resultStarts = data;
+                      this.fetchingStarts.fetching = false;
+                  }),
+                  error: (_ => {
+                      this.fetchingStarts.fetching = false;
+                  })
+              }
+          );
+      }
   }
 
   fetchEvent() {

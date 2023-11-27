@@ -9,7 +9,12 @@
         "PAGE": {
             "EVENT_TITLE_EVENT": "Wettkampf",
             "HEAT": "Lauf",
-            "NO_STARTS_MESSAGE": "Es wurden keine Starts für diesen Wettkampf gefunden."
+            "NO_STARTS_MESSAGE": "Es wurden keine Starts für diesen Wettkampf gefunden.",
+            "START_LIST_FILE_BUTTON": "Meldeergebnis WK {{event_number}}",
+            "RESULT_LIST_FILE_BUTTON": "Protokoll WK {{event_number}}",
+            "LIST_MODE_START_LIST": "Meldeliste",
+            "LIST_MODE_FINISH": "Zielanschlag",
+            "LIST_MODE_RESULT_LIST": "Protokoll"
         },
         "LIST": {
             "PAGE_TITLE": "Ablaufplan",
