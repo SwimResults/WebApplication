@@ -7,7 +7,7 @@ import {StartService, EventService, FileService} from "../../../../core/service/
 import {RouteService} from "../../../../core/service/route.service";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
-import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
+import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {StartResults} from "../../../../core/model/start/start-results.model";
 
@@ -58,8 +58,6 @@ export class EventViewComponent implements OnInit, OnDestroy {
   ) {
     this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
-      console.log("fetched meeting:")
-      console.log(this.meeting)
     })
     this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
       this.meetingId = data;
@@ -190,4 +188,6 @@ export class EventViewComponent implements OnInit, OnDestroy {
   getUrlFromMask(mask: string) {
     return this.fileService.getUrlFromMask(mask, this.eventNumber);
   }
+
+    protected readonly MeetingStates = MeetingStates;
 }
