@@ -158,29 +158,34 @@ export class EventViewComponent implements OnInit, OnDestroy {
     }
   }
 
-  fetchResultStarts() {
-      if (this.meetingId) {
-          this.fetchingStarts.fetching = true;
-          this.startService.getStartsByMeetingAndEventAsResults(this.meetingId, this.eventNumber).subscribe({
-                  next: (data => {
-                      this.resultStarts = data;
-                      this.fetchingStarts.fetching = false;
-                  }),
-                  error: (_ => {
-                      this.fetchingStarts.fetching = false;
-                  })
-              }
-          );
-      }
-  }
-
-  fetchEvent() {
-    if (this.meetingId && this.eventNumber) {
-      this.eventService.getCachedEventByMeetingAndNumber(this.meetingId, this.eventNumber).subscribe(data => {
-        this.event = data;
-      })
+    fetchResultStarts() {
+        if (this.meetingId) {
+            this.fetchingStarts.fetching = true;
+            this.startService.getStartsByMeetingAndEventAsResults(this.meetingId, this.eventNumber).subscribe({
+                next: (data => {
+                    this.resultStarts = data;
+                    this.fetchingStarts.fetching = false;
+                }),
+                error: (_ => {
+                    this.fetchingStarts.fetching = false;
+                    })
+                }
+            );
+        }
     }
-  }
+
+    fetchEvent() {
+        if (this.meetingId && this.eventNumber) {
+            this.eventService.getCachedEventByMeetingAndNumber(this.meetingId, this.eventNumber).subscribe(data => {
+                this.event = data;
+                if (this.meetingId)
+                    this.eventService.getEventByMeetingAndNumber(this.meetingId, this.eventNumber).subscribe(event => {
+                        this.event = event;
+                    })
+            })
+
+        }
+    }
 
   getUrlFromMask(mask: string) {
     return this.fileService.getUrlFromMask(mask, this.eventNumber);

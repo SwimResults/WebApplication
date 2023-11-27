@@ -44,7 +44,7 @@ export class LiveBarComponent implements OnInit, OnDestroy {
                     if (data && data.amount)
                         this.maxHeat = data.amount
                 })
-                this.eventService.getEventByMeetingAndNumber(this.meetingId, this.currentHeat.event).subscribe(data => {
+                this.eventService.getCachedEventByMeetingAndNumber(this.meetingId, this.currentHeat.event).subscribe(data => {
                     this.event = new MeetingEventImpl(data);
                 })
             }
