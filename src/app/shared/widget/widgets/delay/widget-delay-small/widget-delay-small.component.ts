@@ -14,9 +14,9 @@ export class WidgetDelaySmallComponent implements OnInit, OnDestroy {
     meetingId?: string;
     meetingIdSubscription: Subscription;
 
-    fetching: FetchingModel = {fetching: true} as FetchingModel;
+    fetching: FetchingModel = {fetching: false} as FetchingModel;
 
-    heat: HeatImpl = {} as HeatImpl;
+    heat?: HeatImpl;
 
     delayedHours: number = 0;
     delayedMinutes: number = 0;
@@ -31,12 +31,16 @@ export class WidgetDelaySmallComponent implements OnInit, OnDestroy {
     }
     ngOnInit() {
         if (!this.meetingId) return;
-        this.heatService.getCurrentHeat(this.meetingId).subscribe(data => {
-            this.heat = new HeatImpl(data);
-            const delay = this.heat.getDelayHoursAndMinutes();
-            this.delayedHours = delay[0];
-            this.delayedMinutes = delay[1];
-            this.fetching.fetching = false;
+        this.fetching.fetching = true;
+        this.heatService.getCurrentHeat(this.meetingId).subscribe({
+            next: data => {
+                this.heat = new HeatImpl(data);
+                const delay = this.heat.getDelayHoursAndMinutes();
+                this.delayedHours = delay[0];
+                this.delayedMinutes = delay[1];
+                this.fetching.fetching = false;
+            },
+            error: _ => this.fetching.fetching = false
         })
     }
 

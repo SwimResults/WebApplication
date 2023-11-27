@@ -9,6 +9,7 @@ import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
+import {ActivatedRoute} from "@angular/router";
 
 export interface ChangeHeatEvent {
   name: "event" | "heat" | "all" | "nothing";
@@ -66,7 +67,8 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     private routeService: RouteService,
     private startService: StartService,
     private heatService: HeatService,
-    private eventService: EventService
+    private eventService: EventService,
+    private route: ActivatedRoute
   ) {
 
     // get heat and event from session storage
@@ -82,6 +84,16 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     let isLive = window.sessionStorage.getItem("livetiming_live") == "1";
     console.log(isLive);
     this.liveSettingsData.isLive = isLive;
+
+      this.route.queryParams
+          .subscribe(params => {
+                  console.log(params['live'])
+                  if (params && params['live']) {
+                      this.liveSettingsData.isLive = true;
+                      window.sessionStorage.setItem("livetiming_live", "1");
+                  }
+              }
+          );
 
     this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);

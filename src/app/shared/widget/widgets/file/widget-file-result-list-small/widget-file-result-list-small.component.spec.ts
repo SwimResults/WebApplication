@@ -4,6 +4,7 @@ import { WidgetFileResultListSmallComponent } from './widget-file-result-list-sm
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
+import {WidgetModule} from "../../../widget.module";
 
 describe('WidgetFileResultListSmallComponent', () => {
   let component: WidgetFileResultListSmallComponent;
@@ -15,7 +16,8 @@ describe('WidgetFileResultListSmallComponent', () => {
         imports: [
             HttpClientTestingModule,
             RouterTestingModule,
-            TranslateModule.forRoot()
+            TranslateModule.forRoot(),
+            WidgetModule
         ]
     })
     .compileComponents();

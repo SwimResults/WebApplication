@@ -1,4 +1,14 @@
+<div
+    class="back-btn"
+    *ngIf="meetingId && meeting"
+    routerLink=""
+>
+    <mat-icon>keyboard_backspace</mat-icon>
+    <span class="link">{{'NAV.LINK.TITLE.LEAVE_MEETING' | translate:meetingParam}}</span>
+</div>
+
 <nav>
+
   <!--sr-nav-link
     icon="close"
     class="btn-menu"
@@ -7,10 +17,3 @@
   <sr-nav-default *ngIf="!meetingId"></sr-nav-default>
   <sr-nav-event *ngIf="meetingId" [meeting]="meeting" [meetingId]="meetingId"></sr-nav-event>
 </nav>
-
-<sr-nav-link
-  *ngIf="meetingId && meeting"
-  icon="exit_to_app"
-  link=""
-  link_title="{{'NAV.LINK.TITLE.LEAVE_MEETING' | translate:meetingParam}}"
-></sr-nav-link>

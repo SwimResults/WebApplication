@@ -9,7 +9,12 @@
         "PAGE": {
             "EVENT_TITLE_EVENT": "Wettkampf",
             "HEAT": "Lauf",
-            "NO_STARTS_MESSAGE": "Es wurden keine Starts für diesen Wettkampf gefunden."
+            "NO_STARTS_MESSAGE": "Es wurden keine Starts für diesen Wettkampf gefunden.",
+            "START_LIST_FILE_BUTTON": "Meldeergebnis WK {{event_number}}",
+            "RESULT_LIST_FILE_BUTTON": "Protokoll WK {{event_number}}",
+            "LIST_MODE_START_LIST": "Meldeliste",
+            "LIST_MODE_FINISH": "Zielanschlag",
+            "LIST_MODE_RESULT_LIST": "Protokoll"
         },
         "LIST": {
             "PAGE_TITLE": "Ablaufplan",
@@ -249,7 +254,8 @@
         "DELAY": {
             "TITLE": "Verspätung",
             "BEHIND_SCHEDULE": "hinterm Zeitplan",
-            "AHEAD_OF_SCHEDULE": "vorm Zeitplan"
+            "AHEAD_OF_SCHEDULE": "vorm Zeitplan",
+            "NO_HEAT_DATA_MESSAGE": "Die Verspätung kann aktuell nicht berechnet werden."
         },
         "FAVORITES": {
             "TITLE": "Favoriten",
@@ -261,6 +267,9 @@
             "SET_OWN_ATHLETE_BUTTON": "Sportler setzen",
             "NO_STARTS": "Es wurden keine offenen Starts gefunden.",
             "SHOW_STARTS_BUTTON": "Alle Starts anzeigen"
+        },
+        "FILE": {
+            "NOT_FOUND_MESSAGE": "{{filename}} wurde nicht gefunden."
         }
     },
     "DASHBOARD": {

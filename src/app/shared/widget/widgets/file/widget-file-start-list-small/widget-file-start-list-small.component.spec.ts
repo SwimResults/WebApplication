@@ -4,6 +4,7 @@ import { WidgetFileStartListSmallComponent } from './widget-file-start-list-smal
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
+import {WidgetModule} from "../../../widget.module";
 
 describe('WidgetFileStartListSmallComponent', () => {
   let component: WidgetFileStartListSmallComponent;
@@ -15,7 +16,8 @@ describe('WidgetFileStartListSmallComponent', () => {
         imports: [
             HttpClientTestingModule,
             RouterTestingModule,
-            TranslateModule.forRoot()
+            TranslateModule.forRoot(),
+            WidgetModule
         ]
     })
     .compileComponents();

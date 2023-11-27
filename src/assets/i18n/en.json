@@ -25,7 +25,12 @@
         "PAGE": {
             "EVENT_TITLE_EVENT": "Event",
             "HEAT": "Heat",
-            "NO_STARTS_MESSAGE": "No starts have been found."
+            "NO_STARTS_MESSAGE": "No starts have been found.",
+            "START_LIST_FILE_BUTTON": "Start List Event {{event_number}}",
+            "RESULT_LIST_FILE_BUTTON": "Result List Event {{event_number}}",
+            "LIST_MODE_START_LIST": "Start List",
+            "LIST_MODE_FINISH": "Finish",
+            "LIST_MODE_RESULT_LIST": "Result List"
         },
         "LIST": {
             "PAGE_TITLE": "Schedule",
@@ -245,7 +250,8 @@
         "DELAY": {
             "TITLE": "Delay",
             "BEHIND_SCHEDULE": "behind Schedule",
-            "AHEAD_OF_SCHEDULE": "ahead of Schedule"
+            "AHEAD_OF_SCHEDULE": "ahead of Schedule",
+            "NO_HEAT_DATA_MESSAGE": "It is currently not possible to calculate the delay."
         },
         "FAVORITES": {
             "TITLE": "Favorites",
@@ -257,6 +263,9 @@
             "SET_OWN_ATHLETE_BUTTON": "Set Athlete",
             "NO_STARTS": "No starts could be found.",
             "SHOW_STARTS_BUTTON": "Show all starts"
+        },
+        "FILE": {
+            "NOT_FOUND_MESSAGE": "{{filename}} was not found."
         }
     },
     "ENTRY_PAGE": {

@@ -23,7 +23,8 @@ export class FileService extends BaseService{
         return this.apiService.get(this.API_URL, "file/meeting/" + meeting + "/name/" + name);
     }
 
-    public getUrlFromMask(mask: string, event: number) {
+    public getUrlFromMask(mask: string, event: number): string {
+        if (mask === undefined) return "";
         let n = (mask.match(/#/g) || []).length;
         mask = mask.replace("#", "$");
         mask = mask.replaceAll("#", "");

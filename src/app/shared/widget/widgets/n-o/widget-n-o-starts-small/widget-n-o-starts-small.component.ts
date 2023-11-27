@@ -20,9 +20,12 @@ export class WidgetNOStartsSmallComponent extends WidgetNOSmallComponent {
     override fetchNumber() {
         if (!this.meetingId) return;
         this.fetching.fetching = true;
-        this.startService.getStartsAmountByMeeting(this.meetingId).subscribe(data => {
-            this.n = data;
-            this.fetching.fetching = false;
+        this.startService.getStartsAmountByMeeting(this.meetingId).subscribe({
+            next: data => {
+                this.n = data;
+                this.fetching.fetching = false;
+            },
+            error: _ => this.fetching.fetching = false
         })
     }
 }

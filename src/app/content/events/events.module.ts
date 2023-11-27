@@ -12,6 +12,8 @@ import { EventListHeatComponent } from './components/event-list-heat/event-list-
 import { EventListEventComponent } from './components/event-list-event/event-list-event.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatSelectModule} from "@angular/material/select";
 
 
 
@@ -35,7 +37,9 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
         RouterLink,
         MatIconModule,
         StartsModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
+        MatSlideToggleModule,
+        MatSelectModule
     ]
 })
 export class EventsModule { }

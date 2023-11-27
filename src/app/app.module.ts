@@ -11,6 +11,7 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {HTTP_INTERCEPTORS, HttpClient} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {JwtInterceptor} from "./core/interceptor/jwt.interceptor";
+import {MatSelectModule} from "@angular/material/select";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -34,7 +35,8 @@ export function HttpLoaderFactory(http: HttpClient) {
             deps: [HttpClient]
           },
           defaultLanguage: 'en'
-        })
+        }),
+        MatSelectModule
     ],
   exports: [
     AppComponent
