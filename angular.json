@@ -93,22 +93,22 @@
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
-						"production": {
-							"browserTarget": "swimresults:build:production"
+            "production": {
+              "buildTarget": "swimresults:build:production"
 						},
-						"test": {
-							"browserTarget": "swimresults:build:test"
+            "test": {
+              "buildTarget": "swimresults:build:test"
 						},
-						"development": {
-							"browserTarget": "swimresults:build:development"
+            "development": {
+              "buildTarget": "swimresults:build:development"
 						}
 					},
 					"defaultConfiguration": "development"
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
-					"options": {
-						"browserTarget": "swimresults:build"
+          "options": {
+            "buildTarget": "swimresults:build"
 					}
 				},
 				"test": {
