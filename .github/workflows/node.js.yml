@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: 18.x
+  NODE_VERSION: 20.x
   CLI_VERSION: 17.0.3
 
   # Use docker.io for Docker Hub if empty
