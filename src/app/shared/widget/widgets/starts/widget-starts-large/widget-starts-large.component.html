@@ -1,0 +1,23 @@
+<sr-widget-title icon="waves">
+    {{'WIDGET.STARTS.TITLE' | translate}}
+</sr-widget-title>
+
+<sr-widget-login-required></sr-widget-login-required>
+<sr-widget-info-text *ngIf="user && !user.own_athlete_id">
+    {{'WIDGET.STARTS.NO_OWN_ATHLETE' | translate}}
+    <br><br>
+    <sr-btn [routerLink]="'/account/settings'">{{'WIDGET.STARTS.SET_OWN_ATHLETE_BUTTON' | translate}}</sr-btn>
+</sr-widget-info-text>
+<sr-widget-info-text *ngIf="user && user.own_athlete_id && starts.length <= 0">
+    {{'WIDGET.STARTS.NO_STARTS' | translate}}
+</sr-widget-info-text>
+<ng-container *ngIf="user && starts">
+    <sr-start-list
+        [starts]="starts"
+        [config]="config"
+    ></sr-start-list>
+</ng-container>
+<div class="more-button" *ngIf="user && user.own_athlete_id" [routerLink]="'../athlete/' + user.own_athlete_id">
+    <!--mat-icon>format_list_numbered</mat-icon-->
+    <span class="link">{{'WIDGET.STARTS.SHOW_STARTS_BUTTON' | translate}}</span>
+</div>

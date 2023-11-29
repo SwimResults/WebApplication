@@ -96,6 +96,7 @@ export class PageTeamComponent implements OnInit, OnDestroy {
   }
 
   appendAthletes(athletes: Athlete[]) {
+    if (!athletes) return;
     this.athletes.concat(athletes);
     athletes.forEach(athlete => {
       this.listAthletes.push(new TeamAthleteListTile(athlete));

@@ -22,17 +22,20 @@ sr-icon-panel {
   z-index: 0;
   height: 40px;
   font-size: 16px;
-  cursor: pointer;
   align-content: center;
   width: calc(100% - 95px);
   margin-left: 63px;
   margin-top: -40px;
 
+  &.event-clickable {
+    cursor: pointer;
+  }
+
   .event-name-text {
     font-weight: 700;
   }
 
-  &:hover .event-name-text {
+  &:hover.event-clickable .event-name-text {
     text-decoration: underline;
   }
 

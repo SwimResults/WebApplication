@@ -31,12 +31,14 @@ export class AthleteStartsComponent implements OnInit{
       showHeat: (this.meetingId !== undefined),
       showLane: (this.meetingId !== undefined),
       showStyle: true,
+      showIcon: true,
       showTimes: true,
       showRegistrationTime: true,
       showResults: true,
       showResultTime: true,
       showDisqualification: true,
       showReactionTime: true,
+      showLapTimes: true,
       rankStylesIcon: true} as StartListTileConfig;
   }
 

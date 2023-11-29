@@ -6,9 +6,17 @@
   <sr-panel>
     <div class="list" *ngIf="data">
       <div *ngIf="data.length > 0">
-        <sr-list-tile *ngFor="let entry of data; let i = index" [entry]="entry" srIsVisible (elementVisible)="fetchData($event)" [isTargetElement]="i === data.length - 1"></sr-list-tile>
+        <sr-list-tile
+            *ngFor="let entry of data; let i = index"
+            [entry]="entry"
+            [config]="config"
+            (refreshRequired)="reload()"
+            srIsVisible
+            (elementVisible)="fetchData($event)"
+            [isTargetElement]="i === data.length - 1"
+        ></sr-list-tile>
       </div>
-      <sr-spinner *ngIf="fetching.fetching && data.length <= 0"></sr-spinner>
+      <sr-spinner *ngIf="(fetching.fetching && data.length <= 0) || showFetchingSpinner && fetching.fetching"></sr-spinner>
       <span *ngIf="!fetching.fetching && data.length <= 0">{{'COMMON.LIST.NO_ENTRIES_MESSAGE' | translate}}</span>
     </div>
     <span *ngIf="!data">{{'COMMON.LIST.NO_ENTRIES_MESSAGE' | translate}}</span>

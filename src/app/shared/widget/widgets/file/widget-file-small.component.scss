@@ -1,0 +1,36 @@
+@import "../../../../../colors";
+
+:host {
+    text-align: center;
+}
+
+a {
+    display: block;
+    width: 100%;
+    padding: 26px 0;
+    text-decoration: none;
+    color: $color-text-main;
+}
+
+a:hover .file-name {
+    text-decoration: underline;
+}
+
+.file-inactive {
+    cursor: unset;
+    filter: grayscale(1) brightness(1.8);
+    pointer-events: none;
+}
+
+sr-file-icon,
+.file-name {
+    display: block;
+}
+
+.file-name {
+    margin-top: 16px;
+}
+
+sr-file-icon {
+    scale: 1.5;
+}

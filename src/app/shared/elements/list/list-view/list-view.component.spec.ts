@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ListViewComponent } from './list-view.component';
 import {ElementsModule} from "../../elements.module";
 import {TranslateModule} from "@ngx-translate/core";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('ListViewComponent', () => {
   let component: ListViewComponent;
@@ -13,7 +14,8 @@ describe('ListViewComponent', () => {
       declarations: [ ListViewComponent ],
       imports: [
         ElementsModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        RouterTestingModule
       ]
     })
     .compileComponents();

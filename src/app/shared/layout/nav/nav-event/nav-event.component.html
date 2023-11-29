@@ -40,4 +40,11 @@
   <!--    link_title="{{'NAV.LINK.TITLE.STATS' | translate}}"-->
   <!--  ></sr-nav-link>-->
   </sr-nav-group>
+  <sr-nav-group *srIsAdmin>
+    <sr-nav-link
+      icon="terminal"
+      link="/m/{{meetingId}}/admin"
+      link_title="{{'NAV.LINK.TITLE.ADMIN' | translate}}"
+    ></sr-nav-link>
+  </sr-nav-group>
 </ng-container>

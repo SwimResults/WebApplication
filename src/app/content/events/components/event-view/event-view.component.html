@@ -1,38 +1,65 @@
 <h1>{{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{eventNumber}}<ng-container *ngIf="event && event.style"> - {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</ng-container></h1>
 
 <ng-container *ngIf="meeting && event">
-  <div class="event-files">
-    <a
-      class="sr-btn"
-      *ngIf="meeting.data.has_ftp_start_list"
-      [href]="getUrlFromMask(meeting.data.ftp_start_list_mask)"
-    ><sr-btn><mat-icon>description</mat-icon> <span>Meldeergebnis</span></sr-btn></a>
-    <br>
-    <a
-      *ngIf="meeting.data.has_ftp_result_list && event.certified"
-      [href]="getUrlFromMask(meeting.data.ftp_result_list_mask)"
-    ><sr-btn><mat-icon>description</mat-icon> <span>Protokoll</span></sr-btn></a>
-  </div>
+    <div class="event-files">
+        <a [href]="getUrlFromMask(meeting.data.ftp_start_list_mask)">
+            <sr-btn [active]="meeting.data.has_ftp_start_list && !event.no_start_list">
+                <mat-icon>description</mat-icon> <span>{{'EVENT.PAGE.START_LIST_FILE_BUTTON' | translate:fileButtonData}}</span>
+            </sr-btn>
+        </a>
+        <a [href]="getUrlFromMask(meeting.data.ftp_result_list_mask)">
+            <sr-btn [active]="meeting.data.has_ftp_result_list && event.certified">
+                <mat-icon>description</mat-icon> <span>{{'EVENT.PAGE.RESULT_LIST_FILE_BUTTON' | translate:fileButtonData}}</span>
+            </sr-btn>
+        </a>
+    </div>
 </ng-container>
 
-<sr-spinner *ngIf="fetchingStarts.fetching"></sr-spinner>
-<ng-container *ngIf="!fetchingStarts.fetching">
-  <sr-panel>
+<div class="list-mode-select">
     <mat-button-toggle-group>
-      <mat-button-toggle value="lanes" checked="true"  (click)="changeListMode('lanes')">Bahnverteilung</mat-button-toggle>
-      <mat-button-toggle value="results" (click)="changeListMode('results')">Zielanschlag</mat-button-toggle>
+        <mat-button-toggle value="lanes" checked="true"  (click)="changeListMode('lanes')">{{'EVENT.PAGE.LIST_MODE_START_LIST' | translate}}</mat-button-toggle>
+        <mat-button-toggle value="finish" (click)="changeListMode('finish')">{{'EVENT.PAGE.LIST_MODE_FINISH' | translate}}</mat-button-toggle>
+        <mat-button-toggle value="results" (click)="changeListMode('results')">{{'EVENT.PAGE.LIST_MODE_RESULT_LIST' | translate}}</mat-button-toggle>
     </mat-button-toggle-group>
-  </sr-panel>
+</div>
 
-  <sr-panel class="heat-starts"
+<sr-spinner *ngIf="fetchingStarts.fetching"></sr-spinner>
+
+<div class="event-start-list" *ngIf="!fetchingStarts.fetching">
+
+    <sr-no-content *ngIf="
+        (starts.length <= 0 && listMode !== 'results')
+        ||
+        (listMode === 'results' && (!resultStarts || resultStarts.length <= 0))
+    ">
+        {{'EVENT.PAGE.NO_STARTS_MESSAGE' | translate}}
+    </sr-no-content>
+
+    <ng-container *ngIf="starts.length > 0 && (listMode === 'lanes' || listMode === 'finish')">
+
+        <sr-panel class="heat-starts"
             *ngFor="let heat of heats.keys()"
             panelTitle="{{'EVENT.PAGE.HEAT' | translate}}{{' ' + heat + '/' + heats.size}}"
             [heatForTimes]="heatData.get(heat)"
-  >
-    <sr-start-list *ngIf="starts.length > 0"
-      [starts]="heats.get(heat)"
-      [config]="config"
-      [fetching]="fetchingStarts"
-    ></sr-start-list>
-  </sr-panel>
-</ng-container>
+        >
+            <sr-start-list *ngIf="starts.length > 0"
+                [starts]="heats.get(heat)"
+                [config]="config"
+                [fetching]="fetchingStarts"
+            ></sr-start-list>
+        </sr-panel>
+    </ng-container>
+
+    <ng-container *ngIf="listMode === 'results' && resultStarts && resultStarts.length > 0">
+        <sr-panel class="heat-starts" *ngFor="let age of resultStarts" [panelTitle]="age.age_group.name">
+            <sr-no-content *ngIf="age && ((age.starts && age.starts.length <= 0) || !age.starts) ">
+                {{'EVENT.PAGE.NO_STARTS_MESSAGE' | translate}}
+            </sr-no-content>
+            <sr-start-list
+                [starts]="age.starts"
+                [config]="config"
+                [fetching]="fetchingStarts"
+            ></sr-start-list>
+        </sr-panel>
+    </ng-container>
+</div>

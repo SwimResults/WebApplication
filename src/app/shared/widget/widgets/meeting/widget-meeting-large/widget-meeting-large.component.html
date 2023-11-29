@@ -1,4 +1,4 @@
-<ng-container *ngIf="meeting">
+<ng-container *ngIf="meeting && meeting.series">
   <div class="meeting-logo">
     <mat-icon *ngIf="(meeting.layout && !meeting.layout.logo_url) || !meeting.layout">event</mat-icon>
     <img *ngIf="meeting.layout && meeting.layout.logo_url" [src]="meeting.layout.logo_url" alt="Logo {{meeting.getFullSeriesName()}}">

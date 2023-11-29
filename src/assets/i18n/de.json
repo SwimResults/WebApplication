@@ -8,7 +8,13 @@
         },
         "PAGE": {
             "EVENT_TITLE_EVENT": "Wettkampf",
-            "HEAT": "Lauf"
+            "HEAT": "Lauf",
+            "NO_STARTS_MESSAGE": "Es wurden keine Starts für diesen Wettkampf gefunden.",
+            "START_LIST_FILE_BUTTON": "Meldeergebnis WK {{event_number}}",
+            "RESULT_LIST_FILE_BUTTON": "Protokoll WK {{event_number}}",
+            "LIST_MODE_START_LIST": "Meldeliste",
+            "LIST_MODE_FINISH": "Zielanschlag",
+            "LIST_MODE_RESULT_LIST": "Protokoll"
         },
         "LIST": {
             "PAGE_TITLE": "Ablaufplan",
@@ -27,6 +33,7 @@
                 "TEAMS": "Vereine",
                 "FILES": "Dateien",
                 "STATS": "Statistiken",
+                "ADMIN": "Admin",
                 "LEAVE_MEETING": "{{short}} verlassen"
             }
         }
@@ -87,14 +94,16 @@
         },
         "HEAT": {
             "SINGULAR": "Lauf",
-            "PLURAL": "Läufe"
+            "PLURAL": "Läufe",
+            "SHORT": "L"
         },
         "EVENT": {
           "SINGULAR": "Wettkampf"
         },
         "LANE": {
           "SINGULAR": "Bahn",
-          "PLURAL": "Bahnen"
+          "PLURAL": "Bahnen",
+          "SHORT": "B"
         },
         "DATE": {
             "MONTH": {
@@ -168,24 +177,24 @@
         }
     },
     "FILES": {
-      "LIST": {
-        "PAGE_TITLE": "Dateien"
-      },
-      "FILE_NAMES": {
-        "MEETING_INFO": "Ausschreibung",
-        "REGISTRATION_LIST": "Meldeliste",
-        "START_LIST": "Meldeergebnis",
-        "RESULTS_LIST": "Protokoll",
-        "DSV_DEFINITION": "Wettkampfdefinition",
-        "DSV_RESULTS": "Wettkampfergebnisliste",
-        "LENEX_DEFINITION": "LENEX Datei",
-        "LENEX_RESULTS": "LENEX Ergebnisdatei",
-        "REGISTRATION_SOFTWARE": "Meldeprogramm für internationale Vereine",
-        "DATA_PROTECTION": "Datenschutzerklärung",
-        "PRIVACY_INFORMATION": "Informationen zum Datenschutz (DSV)",
-        "OVERNIGHT_STAY_TICKETS": "Bestellung Übernachtung"
-      },
-      "NO_FILES_MESSAGE": "Für diese Veranstaltung sind keine Dateien hinterlegt."
+        "LIST": {
+            "PAGE_TITLE": "Dateien"
+        },
+        "FILE_NAMES": {
+            "MEETING_INFO": "Ausschreibung",
+            "REGISTRATION_LIST": "Meldeliste",
+            "START_LIST": "Meldeergebnis",
+            "RESULTS_LIST": "Protokoll",
+            "DSV_DEFINITION": "Wettkampfdefinition",
+            "DSV_RESULTS": "Wettkampfergebnisliste",
+            "LENEX_DEFINITION": "LENEX Datei",
+            "LENEX_RESULTS": "LENEX Ergebnisdatei",
+            "REGISTRATION_SOFTWARE": "Meldeprogramm für internationale Vereine",
+            "DATA_PROTECTION": "Datenschutzerklärung",
+            "PRIVACY_INFORMATION": "Informationen zum Datenschutz (DSV)",
+            "OVERNIGHT_STAY_TICKETS": "Bestellung Übernachtung"
+        },
+        "NO_FILES_MESSAGE": "Für diese Veranstaltung sind keine Dateien hinterlegt."
     },
     "MEETINGS": {
         "LIST": {
@@ -199,6 +208,7 @@
     "LIVE": {
         "NO_STARTS_MESSAGE": "Es sind aktuell keine Starts für das Livetiming verfügbar.",
         "NO_LIVETIMING_MESSAGE": "Für diese Veranstaltung gibt es leider kein Livetiming.",
+        "NO_LIVETIMING_YET_MESSAGE": "Das Livetiming ist erst nach Veröffentlichung des Meldeergebnisses verfügbar.",
         "NO_CONTENT_MESSAGE": "Inhalt konnte nicht geladen werden."
     },
     "AUTH": {
@@ -220,11 +230,49 @@
             "ACTION_BUTTON_TITLE": "Aktionen",
             "DELETE_USER_BUTTON_TEXT": "Account löschen",
             "CHANGE_DATA_BUTTON_TEXT": "Benutzerdaten ändern"
+        },
+        "SETTINGS": {
+            "USER_ATHLETE": {
+                "INFO_TEXT": "Wenn du selbst ein Schwimmer bist, kannst du hier Auswählen, bei welchem Sportler es sich um dich handelt. Dies wird verwendet, um dir beispielweise in Widgets deine nächsten Starts anzuzeigen.",
+                "TITLE": "Der Sportler zu deinem Account",
+                "THIS_IS_YOU_TITLE": "Das bist du:",
+                "NO_USER_SET": "Dein Account ist aktuell keinem Sportler zugeordnet."
+            }
         }
     },
     "WIDGET": {
+        "LOGIN_REQUIRED": "Du musst angemeldet sein, um dieses Widget nutzen zu können.",
         "COMING_SOON": {
             "MAIN_TEXT": "Dieses Dashboard wird fortlaufend um zusätzliche Widgets erweitert."
+        },
+        "NUMBER_OF": {
+            "STARTS": "Starts",
+            "HEATS": "Läufe",
+            "ATHLETES": "Sportler",
+            "TEAMS": "Vereine"
+        },
+        "DELAY": {
+            "TITLE": "Verspätung",
+            "BEHIND_SCHEDULE": "hinterm Zeitplan",
+            "AHEAD_OF_SCHEDULE": "vorm Zeitplan",
+            "NO_HEAT_DATA_MESSAGE": "Die Verspätung kann aktuell nicht berechnet werden."
+        },
+        "FAVORITES": {
+            "TITLE": "Favoriten",
+            "NO_FAVORITES": "Du kannst Sportlern über ihr Profil folgen, damit sie hier aufgelistet werden."
+        },
+        "STARTS": {
+            "TITLE": "Nächste Starts",
+            "NO_OWN_ATHLETE": "Wähle aus, welcher Sportler du bist, um dieses Widget nutzen zu können.",
+            "SET_OWN_ATHLETE_BUTTON": "Sportler setzen",
+            "NO_STARTS": "Es wurden keine offenen Starts gefunden.",
+            "SHOW_STARTS_BUTTON": "Alle Starts anzeigen"
+        },
+        "FILE": {
+            "NOT_FOUND_MESSAGE": "{{filename}} wurde nicht gefunden."
         }
+    },
+    "DASHBOARD": {
+        "WELCOME_MESSAGE": "Willkommen zurück, {{username}}!"
     }
 }

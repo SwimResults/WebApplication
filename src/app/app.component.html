@@ -1,11 +1,23 @@
+<div
+  class="system-environment"
+  *ngIf="showEnv"
+  (click)="toggleEnv()"
+  style="{{'background-color: ' + env_color}}"
+>
+  <span class="env">{{environment | uppercase}}</span>
+</div>
 <main [class]="'sidebar-' + sidebarState">
-  <sr-sidebar [class]="sidebarState"></sr-sidebar>
-  <div class="sidebar-hider" (click)="hideSidebar()"></div>
-  <sr-header></sr-header>
-  <div class="content">
-    <router-outlet></router-outlet>
-    <div class="build-info" *ngIf="showBuild" (click)="toggleBuild()">
-      <b>BUILD: </b> {{build}}
+    <sr-sidebar [class]="sidebarState"></sr-sidebar>
+    <div class="sidebar-hider" (click)="hideSidebar()"></div>
+    <sr-header></sr-header>
+    <div class="content">
+        <router-outlet></router-outlet>
+        <div class="build-info" *ngIf="showBuild" (click)="toggleBuild()">
+            <b>BUILD: </b> {{build}}
+        </div>
     </div>
-  </div>
+    <sr-live-bar
+        *ngIf="meeting && meeting.hasStates([MeetingStates.RUNNING, MeetingStates.BREAK, MeetingStates.PAUSE])"
+        [meetingId]="meetingId"
+    ></sr-live-bar>
 </main>

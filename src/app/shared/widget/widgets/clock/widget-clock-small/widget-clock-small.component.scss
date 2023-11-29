@@ -1,14 +1,9 @@
-.date,
-.digital-clock {
-  width: 100%;
-  display: block;
-  text-align: center;
+.date {
+  font-size: 14px;
 }
 
 .digital-clock {
   font-size: 28px;
-  margin: 32px 0 8px;
-  font-weight: 700;
 
   .seconds {
     font-size: 16px;

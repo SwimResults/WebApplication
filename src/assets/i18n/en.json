@@ -10,7 +10,8 @@
                 "TEAMS": "Teams",
                 "FILES": "Files",
                 "STATS": "Statistics",
-                "LEAVE_MEETING": "Leave {{short}}"
+                "ADMIN": "Admin",
+                "LEAVE_MEETING": "Exit {{short}}"
             }
         }
     },
@@ -23,7 +24,13 @@
         },
         "PAGE": {
             "EVENT_TITLE_EVENT": "Event",
-            "HEAT": "Heat"
+            "HEAT": "Heat",
+            "NO_STARTS_MESSAGE": "No starts have been found.",
+            "START_LIST_FILE_BUTTON": "Start List Event {{event_number}}",
+            "RESULT_LIST_FILE_BUTTON": "Result List Event {{event_number}}",
+            "LIST_MODE_START_LIST": "Start List",
+            "LIST_MODE_FINISH": "Finish",
+            "LIST_MODE_RESULT_LIST": "Result List"
         },
         "LIST": {
             "PAGE_TITLE": "Schedule",
@@ -77,14 +84,16 @@
         },
         "HEAT": {
             "SINGULAR": "Heat",
-            "PLURAL": "Heats"
+            "PLURAL": "Heats",
+            "SHORT": "H"
         },
         "EVENT": {
             "SINGULAR": "Event"
         },
         "LANE": {
             "SINGULAR": "Lane",
-            "PLURAL": "Lanes"
+            "PLURAL": "Lanes",
+            "SHORT": "L"
         },
         "DATE": {
             "MONTH": {
@@ -195,6 +204,7 @@
     "LIVE": {
         "NO_STARTS_MESSAGE": "There are currently no starts available for the livetiming.",
         "NO_LIVETIMING_MESSAGE": "This meeting does not support the livetiming feature.",
+        "NO_LIVETIMING_YET_MESSAGE": "The livetiming will be available after the start list has been published.",
         "NO_CONTENT_MESSAGE": "Unable to load content."
     },
     "AUTH": {
@@ -216,15 +226,53 @@
             "ACTION_BUTTON_TITLE": "Actions",
             "DELETE_USER_BUTTON_TEXT": "Delete Account",
             "CHANGE_DATA_BUTTON_TEXT": "Change User Data"
+        },
+        "SETTINGS": {
+            "USER_ATHLETE": {
+                "INFO_TEXT": "Users who are athletes themselves can use this settings to define which athlete their account belongs to. This information is used for example to show you upcoming starts in a widget and other things.",
+                "TITLE": "Your Accounts Athlete",
+                "THIS_IS_YOU_TITLE": "That's You:",
+                "NO_USER_SET": "Your account is currently not assigned to any athlete."
+            }
         }
     },
     "WIDGET": {
+        "LOGIN_REQUIRED": "In order to use this widget you have to be logged in.",
         "COMING_SOON": {
             "MAIN_TEXT": "This dashboard will be extended in the future and new widgets will be added."
+        },
+        "NUMBER_OF": {
+            "STARTS": "Starts",
+            "HEATS": "Heats",
+            "ATHLETES": "Athletes",
+            "TEAMS": "Teams"
+        },
+        "DELAY": {
+            "TITLE": "Delay",
+            "BEHIND_SCHEDULE": "behind Schedule",
+            "AHEAD_OF_SCHEDULE": "ahead of Schedule",
+            "NO_HEAT_DATA_MESSAGE": "It is currently not possible to calculate the delay."
+        },
+        "FAVORITES": {
+            "TITLE": "Favorites",
+            "NO_FAVORITES": "You can follow athletes using the athlete page to have them shown here."
+        },
+        "STARTS": {
+            "TITLE": "Upcoming Starts",
+            "NO_OWN_ATHLETE": "Select which athlete you are in order to use this widget.",
+            "SET_OWN_ATHLETE_BUTTON": "Set Athlete",
+            "NO_STARTS": "No starts could be found.",
+            "SHOW_STARTS_BUTTON": "Show all starts"
+        },
+        "FILE": {
+            "NOT_FOUND_MESSAGE": "{{filename}} was not found."
         }
     },
     "ENTRY_PAGE": {
         "ABOUT_TEXT": "SwimResults enables athletes, coaches, family and friends to view starts, results, places, livetiming and more for participating swimming competitions in an easy and interactive manner.",
         "INFO_LINKS_TITLE": "Informative Links"
+    },
+    "DASHBOARD": {
+        "WELCOME_MESSAGE": "Welcome back, {{username}}!"
     }
 }

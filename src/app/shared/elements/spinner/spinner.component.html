@@ -1,11 +1,14 @@
-<ng-container *ngIf="style === 'material'">
-  <mat-spinner color="accent"></mat-spinner>
-</ng-container>
+<div class="spinner-size-{{spinnerSize}} spinner">
+  <ng-container *ngIf="style === 'material'">
+<!--      Spinner Color is handled in material.scss-->
+    <mat-spinner class="mat-spinner mat-spinner-size-{{spinnerSize}} mat-spinner-color-{{materialColor}}" [diameter]="spinnerSize ? 22 : undefined"></mat-spinner>
+  </ng-container>
 
-<ng-container *ngIf="style === 'swim clock'">
-  <div class="clock">
-    <div class="pointer pointer-1"></div>
-    <div class="pointer pointer-2"></div>
-  </div>
-</ng-container>
+  <ng-container *ngIf="style === 'swim clock'">
+    <div class="clock">
+      <div class="pointer pointer-1"></div>
+      <div class="pointer pointer-2"></div>
+    </div>
+  </ng-container>
 
+</div>

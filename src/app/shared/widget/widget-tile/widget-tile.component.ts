@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {WidgetTile} from "../../../core/model/user/widget-tile.model";
+import {Widget} from "../../../core/model/user/widget.model";
 import {ComponentClass, widgetComponents} from "../widgets/widgets";
 import {WidgetDirective} from "../../../core/directive/widget.directive";
 
@@ -10,7 +10,7 @@ import {WidgetDirective} from "../../../core/directive/widget.directive";
 })
 export class WidgetTileComponent implements OnInit {
 
-  @Input() widget: WidgetTile = {} as WidgetTile;
+  @Input() widget: Widget = {} as Widget;
 
 
   @ViewChild(WidgetDirective, {static: true}) srWidget!: WidgetDirective;
@@ -29,6 +29,11 @@ export class WidgetTileComponent implements OnInit {
 
     const selector = this.widget.content + '-' + this.widget.size?.toLowerCase();
     let widgetComp: ComponentClass | undefined = widgetComponents.get(selector);
+    if (widgetComp == undefined) {
+      const selector = 'not-found-' + this.widget.size?.toLowerCase();
+      widgetComp = widgetComponents.get(selector);
+    }
+
     if (widgetComp != undefined) {
       viewContainerRef.createComponent(widgetComp);
     }

@@ -1,0 +1,9 @@
+@import "../../../../colors";
+
+:host {
+  display: inline-block;
+  border-left: 1px solid $color-sr-first;
+  height: 30px;
+  width: 0;
+  vertical-align: middle;
+}

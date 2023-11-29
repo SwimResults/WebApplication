@@ -1,0 +1,20 @@
+<div class="live-bar" *ngIf="currentHeat && event" [routerLink]="'/m/' + meetingId + '/live'" [queryParams]="{live: '1'}">
+
+
+    <div class="bar-live">
+        <div class="blink">
+            <div class="live-indicator"></div>
+            <span class="live-text">Live</span>
+        </div>
+    </div>
+
+    <sr-heat-times [heat]="currentHeat"></sr-heat-times>
+
+    <sr-icon-panel [textContent]="event.number + ''"></sr-icon-panel>
+
+    <div class="bar-content">
+        <span class="bar-event">{{'COMMON.EVENT.SINGULAR' | translate}} {{event.number}} - {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</span>
+        <span>{{'COMMON.HEAT.SINGULAR' | translate}} {{currentHeat.number}} / {{maxHeat}}</span>
+    </div>
+
+</div>

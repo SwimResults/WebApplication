@@ -24,6 +24,11 @@
     }
   }
 
+  &.btn-no-background {
+    background-color: transparent;
+    color: $color-sr-first;
+  }
+
   &.btn-pdf {
     background-color: #aa0a00;
   }

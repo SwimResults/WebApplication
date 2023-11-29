@@ -48,6 +48,7 @@ export class TeamListViewComponent implements OnInit{
   }
 
   appendTeams(teams: Team[]) {
+    if (!teams) return;
     this.teams.concat(teams);
     teams.forEach(team => {
       this.listTeams.push(new TeamListTile(team));

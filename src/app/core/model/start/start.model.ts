@@ -4,9 +4,10 @@ import {Result, ResultImpl} from "./result.model";
 
 export enum ResultTypes {
   REGISTRATION = "registration",
-  LIVETIMING = "livetiming",
+  LIVETIMING = "livetiming_result",
   REACTION = "reaction",
-  RESULT_LIST = "result_list"
+  RESULT_LIST = "result_list",
+  LAP = "lap"
 }
 
 export interface Start {
@@ -16,6 +17,7 @@ export interface Start {
   heat_number: number;
   heat: Heat;
   lane: number;
+  is_relay: boolean;
   athlete: string;
   athlete_name: string;
   athlete_year: number;
@@ -43,6 +45,7 @@ export class StartImpl implements Start {
   heat: HeatImpl = {} as HeatImpl;
   heat_number: number;
   lane: number;
+  is_relay: boolean;
   meeting: string;
   rank: number;
   emptyLane: boolean;
@@ -66,6 +69,7 @@ export class StartImpl implements Start {
     this.meeting = start.meeting;
     this.rank = start.rank;
     this.emptyLane = start.emptyLane
+    this.is_relay = start.is_relay
 
     this.results = []
     if (start.results) {
@@ -107,6 +111,29 @@ export class StartImpl implements Start {
     }
     return false;
   }
+
+  getMostRecentLap(): ResultImpl {
+    let highestLapMeters = 0;
+    let lapResult: ResultImpl = new ResultImpl({} as Result);
+    for (let result of this.results) {
+      if (result.result_type == ResultTypes.LAP && result.lap_meters >= highestLapMeters) {
+        highestLapMeters = result.lap_meters;
+        lapResult = result;
+      }
+    }
+    return lapResult;
+  }
+
+  getLapTimes(): IterableIterator<ResultImpl> {
+    let res: Map<number, ResultImpl> = new Map<number, ResultImpl>();
+    for (let result of this.results) {
+      if (result.result_type == ResultTypes.LAP) {
+        res.set(result.lap_meters, result)
+      }
+    }
+    return res.values();
+  }
+
   getResultMilliseconds(): number {
     let latest: Date = new Date(0);
     let time = 0

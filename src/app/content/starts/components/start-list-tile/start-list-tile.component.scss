@@ -67,14 +67,19 @@
 
     .style {
       width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
-    .heat {
-      width: 50px;
+    .style.style-widget {
+      width: 146px;
     }
 
+
+    .heat,
     .lane {
-      width: 70px;
+      width: 40px;
     }
 
     .athlete {
@@ -129,6 +134,32 @@
       &.result-worse .mat-icon {
         color: $color-red;
       }
+    }
+
+    .lap-time-list {
+      display: block;
+    }
+
+    .lap-time {
+      .lap-meters {
+        background-color: $color-sr-first;
+        color: white;
+        border-radius: 4px;
+        padding: 0;
+        font-size: 9px;
+        display: inline-block;
+        width: 20px;
+        text-align: center;
+      }
+
+      .result-time-string {
+        display: inline-block;
+        margin-left: 4px;
+      }
+    }
+
+    .reaction {
+      font-style: italic;
     }
 
     .reason {

@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
+import {ListFilterRequest} from "../../../../../core/model/list/list-filter-request.model";
 
 @Component({
   selector: 'sr-list-filter-row',
@@ -6,9 +7,9 @@ import {Component, EventEmitter, Output} from '@angular/core';
   styleUrls: ['./list-filter-row.component.scss']
 })
 export class ListFilterRowComponent {
-  @Output() querySearch: EventEmitter<string> = new EventEmitter<string>();
+  @Output() querySearch: EventEmitter<ListFilterRequest> = new EventEmitter<ListFilterRequest>();
 
   search(event: string) {
-    this.querySearch.emit(event);
+    this.querySearch.emit({query: event});
   }
 }

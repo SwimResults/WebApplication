@@ -12,6 +12,9 @@
   --bg-gradient-1: #A1FFE9;
   --bg-gradient-2: #ACC3FF;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 html, body { height: 100%; }
 body {
@@ -42,6 +45,10 @@ h2,
   font-weight: 800;
 }
 
+hr {
+  border: 0.5px solid $color-sr-first;
+}
+
 input,
 .sr-btn{
   font-family: SwimResults, sans-serif;
@@ -53,7 +60,9 @@ input:active {
   outline: 0;
 }
 
-input[type=search] {
+input,
+select
+{
   border: none;
   background-color: $color-search-bg;
   padding: 4px;
@@ -135,5 +144,11 @@ input[type=search] {
     vertical-align: middle;
     display: inline-block;
     margin-left: 14px;
+  }
+
+  a {
+    color: $color-nav-link;
+    text-decoration: none;
+    line-height: 16px;
   }
 }

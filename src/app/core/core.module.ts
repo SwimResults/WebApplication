@@ -6,6 +6,7 @@ import { IsVisibleDirective } from './directive/is-visible.directive';
 import {OAuthModule, OAuthStorage} from "angular-oauth2-oidc";
 import { WidgetDirective } from './directive/widget.directive';
 import { IsAuthedDirective } from './directive/is-authed.directive';
+import { IsAdminDirective } from './directive/is-admin.directive';
 
 export function storageFactory(): OAuthStorage {
   return localStorage;
@@ -15,7 +16,8 @@ export function storageFactory(): OAuthStorage {
   declarations: [
     IsVisibleDirective,
     WidgetDirective,
-    IsAuthedDirective
+    IsAuthedDirective,
+    IsAdminDirective
   ],
   imports: [
     CommonModule,
@@ -28,12 +30,13 @@ export function storageFactory(): OAuthStorage {
       }
     })
   ],
-  exports: [
-      TranslateModule,
-      IsVisibleDirective,
-      WidgetDirective,
-      IsAuthedDirective
-  ],
+    exports: [
+        TranslateModule,
+        IsVisibleDirective,
+        WidgetDirective,
+        IsAuthedDirective,
+        IsAdminDirective
+    ],
   providers: [
     { provide: OAuthStorage, useFactory: storageFactory}
   ]

@@ -2,7 +2,7 @@ import {Component, OnDestroy} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import { environment } from 'src/environments/environment';
 import {SidebarMenuService} from "./core/service/sidebar-menu.service";
-import {MeetingImpl} from "./core/model/meeting/meeting.model";
+import {MeetingImpl, MeetingStates} from "./core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "./core/service/route.service";
 
@@ -21,9 +21,11 @@ export class AppComponent implements OnDestroy {
 
   build: string = "";
   showBuild: boolean = true;
+  showEnv: boolean = true;
   sidebarState = "";
 
   environment = environment.environment;
+  env_color = environment.env_color;
 
   constructor(
     private translateService: TranslateService,
@@ -31,6 +33,7 @@ export class AppComponent implements OnDestroy {
     private routeService: RouteService
   ) {
     this.showBuild = this.environment != 'productive'
+    this.showEnv = this.environment != 'productive'
 
     this.fetchBuild().then(r => {
       this.build = r;
@@ -76,7 +79,13 @@ export class AppComponent implements OnDestroy {
     this.showBuild = !this.showBuild;
   }
 
+  toggleEnv() {
+    this.showEnv = !this.showEnv;
+  }
+
   hideSidebar() {
     this.menuService.setViewType("hidden");
   }
+
+    protected readonly MeetingStates = MeetingStates;
 }

@@ -1,5 +1,9 @@
 .time {
   display: block;
+
+  &.time-80 {
+    width: 80px;
+  }
 }
 .live-on-time {
   color: green;

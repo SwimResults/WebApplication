@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ChangeHeatEvent, LiveSettingsData} from "../livetiming.component";
 import {HeatImpl} from "../../../../../core/model/start/heat.model";
+import {MeetingImpl, MeetingStates} from "../../../../../core/model/meeting/meeting.model";
 
 @Component({
   selector: 'sr-livetiming-header',
@@ -12,6 +13,11 @@ export class LivetimingHeaderComponent {
   @Input() liveSettingsData!: LiveSettingsData;
   @Input() heat?: HeatImpl
   @Output() changeHeat: EventEmitter<ChangeHeatEvent> = new EventEmitter<ChangeHeatEvent>();
+
+  @Input() meeting!: MeetingImpl;
+
+  meetingStates = MeetingStates;
+
 
   onLiveButtonClick() {
     this.liveSettingsData.isLive = !this.liveSettingsData.isLive;

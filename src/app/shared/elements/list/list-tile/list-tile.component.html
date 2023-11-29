@@ -1,50 +1,81 @@
 <div *ngIf="entry" (contextmenu)="onRightClick($event)">
-  <span class="icon main-icon">
-    <sr-icon-panel *ngIf="entry.entryType === 'athlete'" icon="pool"></sr-icon-panel>
-    <sr-icon-panel *ngIf="entry.entryType === 'team'" icon="shield"></sr-icon-panel>
-  </span>
-  <span class="text name link" [routerLink]="entry.nameLink">
-    {{entry.name}}
-  </span>
-  <sr-badge class="text badge year" *ngIf="entry.badge">{{entry.badge}}</sr-badge>
-  <span
-    class="text team link"
-    *ngIf="entry.team"
-    [routerLink]="entry.teamLink">
-    {{entry.team}}
-  </span>
-  <button class="sr-btn-bar sr-btn-icon sr-btn sr-right" [matMenuTriggerFor]="contextMenu"><mat-icon>more_horiz</mat-icon></button>
+    <span class="icon main-icon">
+        <sr-icon-panel *ngIf="entry.entryType === 'athlete'" icon="pool"></sr-icon-panel>
+        <sr-icon-panel *ngIf="entry.entryType === 'team'" icon="shield"></sr-icon-panel>
+    </span>
+
+    <div class="list-left">
+        <span class="text name link" [routerLink]="entry.nameLink">
+            {{entry.name}}
+        </span>
+
+        <sr-badge class="text badge year" *ngIf="entry.badge">{{entry.badge}}</sr-badge>
+
+        <span
+            class="text team link"
+            *ngIf="entry.team"
+            [routerLink]="entry.teamLink"
+        >
+            {{entry.team}}
+        </span>
+        <span *ngIf="entry.country" class="country-flag" [title]="entry.country">
+            <img class="flag" src="https://flagsapi.com/{{flags.get(entry.country)}}/flat/24.png" alt="flag">
+        </span>
+    </div>
+
+    <div class="list-right">
+        <button *ngIf="config.showMoreButton" class="sr-btn-bar sr-btn-icon sr-btn" [matMenuTriggerFor]="contextMenu"><mat-icon>more_horiz</mat-icon></button>
+
+        <button
+            *ngIf="config.showSetUserAthleteButton"
+            (click)="onSetUserAthlete()"
+            class="sr-btn-bar sr-btn-icon sr-btn"
+        >
+            <sr-spinner *ngIf="fetchingSetUserAthlete.fetching" spinnerSize="btn" [style]="'material'" materialColor="first"></sr-spinner>
+            <mat-icon *ngIf="!fetchingSetUserAthlete.fetching">person_add</mat-icon>
+        </button>
+
+        <button
+            *ngIf="config.showUnsetUserAthleteButton"
+            (click)="onUnsetUserAthlete()"
+            class="sr-btn-bar sr-btn-icon sr-btn"
+        >
+            <sr-spinner *ngIf="fetchingSetUserAthlete.fetching" spinnerSize="btn" [style]="'material'" materialColor="first"></sr-spinner>
+            <mat-icon *ngIf="!fetchingSetUserAthlete.fetching">person_remove</mat-icon>
+        </button>
+    </div>
+
+    <!-- an hidden div is created to set the position of appearance of the menu-->
+    <div style="visibility: hidden; position: fixed;"
+        [style.left.px]="menuTopLeftPosition.x"
+        [style.top.px]="menuTopLeftPosition.y"
+        *ngIf="config.showMoreButton"
+        #contextMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="contextMenu"
+    ></div>
 
 
-  <!-- an hidden div is created to set the position of appearance of the menu-->
-  <div style="visibility: hidden; position: fixed;"
-       [style.left.px]="menuTopLeftPosition.x"
-       [style.top.px]="menuTopLeftPosition.y"
-       #contextMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="contextMenu"></div>
+    <mat-menu #contextMenu="matMenu">
+        <button class="sr-btn sr-btn-menu sr-inactive">
+            <mat-icon>share</mat-icon>
+            <span>{{'ATHLETE.LIST.MORE.SHARE_BUTTON_TEXT' | translate}}</span>
+        </button>
 
+        <ng-container *ngIf="entry.entryType === 'athlete'">
+            <button class="sr-btn sr-btn-menu" *ngIf="entry.nameLink" [routerLink]="entry.nameLink">
+                <mat-icon>person</mat-icon>
+                <span>{{'ATHLETE.LIST.MORE.ATHLETE_BUTTON_TEXT' | translate}}</span>
+            </button>
+            <button class="sr-btn sr-btn-menu" *ngIf="entry.teamLink" [routerLink]="entry.teamLink">
+                <mat-icon>shield</mat-icon>
+                <span>{{'ATHLETE.LIST.MORE.TEAM_BUTTON_TEXT' | translate}}</span>
+            </button>
+        </ng-container>
 
-  <mat-menu #contextMenu="matMenu">
-    <button class="sr-btn sr-btn-menu sr-inactive">
-      <mat-icon>share</mat-icon>
-      <span>{{'ATHLETE.LIST.MORE.SHARE_BUTTON_TEXT' | translate}}</span>
-    </button>
-
-    <ng-container *ngIf="entry.entryType === 'athlete'">
-      <button class="sr-btn sr-btn-menu" *ngIf="entry.nameLink" [routerLink]="entry.nameLink">
-        <mat-icon>person</mat-icon>
-        <span>{{'ATHLETE.LIST.MORE.ATHLETE_BUTTON_TEXT' | translate}}</span>
-      </button>
-      <button class="sr-btn sr-btn-menu" *ngIf="entry.teamLink" [routerLink]="entry.teamLink">
-        <mat-icon>shield</mat-icon>
-        <span>{{'ATHLETE.LIST.MORE.TEAM_BUTTON_TEXT' | translate}}</span>
-      </button>
-    </ng-container>
-
-    <ng-container *ngIf="entry.entryType === 'team'">
-      <button class="sr-btn sr-btn-menu" *ngIf="entry.nameLink" [routerLink]="entry.nameLink">
-        <mat-icon>shield</mat-icon>
-        <span>{{'ATHLETE.LIST.MORE.TEAM_BUTTON_TEXT' | translate}}</span>
-      </button>
-    </ng-container>
-  </mat-menu>
+        <ng-container *ngIf="entry.entryType === 'team'">
+            <button class="sr-btn sr-btn-menu" *ngIf="entry.nameLink" [routerLink]="entry.nameLink">
+                <mat-icon>shield</mat-icon>
+                <span>{{'ATHLETE.LIST.MORE.TEAM_BUTTON_TEXT' | translate}}</span>
+            </button>
+        </ng-container>
+    </mat-menu>
 </div>

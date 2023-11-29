@@ -18,8 +18,4 @@ export class AthleteListTile implements IListTile {
     this.nameLink = "" + athlete.alias[0] + "-" + athlete.year;
     this.teamLink = "../team/@" + athlete.team.alias[0];
   }
-
-
-
-
 }

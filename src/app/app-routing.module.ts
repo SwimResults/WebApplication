@@ -9,9 +9,10 @@ import {PageTeamComponent, PageTeamsEventComponent, PageTeamsGeneralComponent} f
 import {PageStatsEventComponent, PageStatsGeneralComponent} from "./content/stats";
 import {PageEventComponent, PageEventsComponent} from "./content/events";
 import {AuthComponent} from "./content/auth/auth.component";
-import {UserProfileComponent} from "./content/account";
+import {PageUserSettingsComponent, UserProfileComponent} from "./content/account";
 import {PageMeetingsComponent} from "./content/meetings";
 import {LogoutComponent} from "./content/auth/logout/logout.component";
+import {PageAdminEventComponent} from "./content/admin";
 
 
 const routes: Routes = [
@@ -19,9 +20,10 @@ const routes: Routes = [
   { path: 'auth',                     component: AuthComponent },
   { path: 'auth/logout',              component: LogoutComponent },
   { path: 'account/profile',          component: UserProfileComponent },
+  { path: 'account/settings',         component: PageUserSettingsComponent },
   { path: 'dashboard',                component: PageDashboardGeneralComponent },
   { path: 'calendar',                 component: CalendarComponent },
-  { path: 'meetings',                 redirectTo: '/meetings' },
+  { path: 'meetings',                 redirectTo: '/' },
   { path: 'athlete',                  component: PageAthletesGeneralComponent },
   { path: 'athlete/:entity_id',       component: PageAthleteComponent },
   { path: 'team',                     component: PageTeamsGeneralComponent },
@@ -30,7 +32,7 @@ const routes: Routes = [
   {
     path: 'm/:event',
     children: [
-      { path: "",                     component: PageDashboardEventComponent },
+      { path: "",                     redirectTo: 'dashboard', pathMatch: "full" },
       { path: "dashboard",            component: PageDashboardEventComponent },
       { path: "live",                 component: PageLiveComponent },
       { path: "event",                component: PageEventsComponent },
@@ -41,6 +43,7 @@ const routes: Routes = [
       { path: 'team/:entity_id',      component: PageTeamComponent },
       { path: "files",                component: PageFilesComponent },
       { path: "stats",                component: PageStatsEventComponent },
+      { path: "admin",                component: PageAdminEventComponent },
     ]
   }
 

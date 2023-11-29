@@ -4,6 +4,7 @@ import { AthleteListViewComponent } from './athlete-list-view.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {AthletesModule} from "../../athletes.module";
 import {TranslateModule} from "@ngx-translate/core";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('AthleteListViewComponent', () => {
   let component: AthleteListViewComponent;
@@ -15,7 +16,8 @@ describe('AthleteListViewComponent', () => {
       imports: [
         HttpClientTestingModule,
         AthletesModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        RouterTestingModule
       ]
     })
     .compileComponents();

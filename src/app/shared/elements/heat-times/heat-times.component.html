@@ -1,5 +1,5 @@
 <div *ngIf="heat" class="{{orientation}}">
-  <span class="time estimation {{getEstimationTimeClass()}}">{{heat.getEstimatedStartTime()}}</span>
+  <span class="time estimation {{getEstimationTimeClass()}} {{fixedTimeWidth ? 'time-' + fixedTimeWidth : ''}}">{{heat.getEstimatedStartTime()}}</span>
   <!--span *ngIf="orientation == 'horizontal' && heat.hasStartDelayEstimationTime()"> • </span-->
-  <span class="time live live-{{getLiveTimeClass()}}" *ngIf="heat.hasStartDelayEstimationTime()">{{heat.getStartDelayEstimationTime()}}</span>
+  <span class="time live live-{{getLiveTimeClass()}} {{fixedTimeWidth ? 'time-' + fixedTimeWidth : ''}}" *ngIf="heat.hasStartDelayEstimationTime()">{{heat.getStartDelayEstimationTime()}}</span>
 </div>

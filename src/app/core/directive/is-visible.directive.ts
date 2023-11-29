@@ -9,6 +9,8 @@ export class IsVisibleDirective implements AfterViewInit {
   @Output() elementVisible = new EventEmitter<boolean>();
   @Input() isTargetElement: boolean = false;
 
+  hasFired: boolean = false;
+
   public intersectionOptions = {
     root: null, //implies the root is the document viewport
     rootMargin: '0px',
@@ -28,8 +30,9 @@ export class IsVisibleDirective implements AfterViewInit {
 
   intersectionCallback(entries: any) {
     entries.forEach((entry: any) => {
-      if (entry.intersectionRatio === 1) {
+      if (entry.intersectionRatio === 1 && !this.hasFired) {
         this.elementVisible.emit(true); //element is completely visible in the viewport
+        this.hasFired = true;
       } else {
         this.elementVisible.emit(false);
       }

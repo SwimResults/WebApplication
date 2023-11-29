@@ -67,6 +67,44 @@
   display: none;
 }
 
+.mat-spinner-size-btn.mat-mdc-progress-spinner.mat-spinner-color-first .mdc-circular-progress__determinate-circle,
+.mat-spinner-size-btn.mat-mdc-progress-spinner.mat-spinner-color-first .mdc-circular-progress__indeterminate-circle-graphic {
+    stroke: $color-sr-first !important;
+}
+
+.mat-spinner-size-btn.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle,
+.mat-spinner-size-btn.mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+  stroke: white !important;
+}
+
+.mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled:checked + .mdc-radio__background .mdc-radio__outer-circle,
+.mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled + .mdc-radio__background .mdc-radio__inner-circle {
+  border-color: $color-sr-first !important;
+}
+
+.mat-mdc-radio-button.mat-mdc-radio-checked .mdc-radio__background::before,
+.mat-mdc-radio-button.mat-mdc-radio-checked .mat-ripple-element {
+  background-color: $color-sr-first !important;
+}
+
+.mat-button-toggle {
+    font-family: SwimResults, Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-button-toggle-checked.mat-button-toggle-appearance-standard {
+    color: white !important;
+    background-color: $color-sr-first !important;
+}
+
+.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    line-height: 38px !important;
+}
+
+.mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
+    border: 2px solid $color-sr-first !important;
+}
+
+
 body {
   .material-icons {
     font-family: 'Material Icons Round', 'Material Icons', serif !important;
