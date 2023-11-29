@@ -25,16 +25,19 @@
 						],
 						"tsConfig": "tsconfig.app.json",
 						"assets": [
-							"src/favicon.ico",
-							"src/assets"
-						],
+              "src/favicon.ico",
+              "src/assets",
+              "src/manifest.webmanifest"
+            ],
 						"styles": [
 							"@angular/material/prebuilt-themes/indigo-pink.css",
 							"src/styles.scss",
               "src/material.scss",
               "src/colors.scss"
 						],
-						"scripts": []
+            "scripts": [],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
 					},
 					"configurations": {
 						"production": {
@@ -120,9 +123,10 @@
 						],
 						"tsConfig": "tsconfig.spec.json",
 						"assets": [
-							"src/favicon.ico",
-							"src/assets"
-						],
+              "src/favicon.ico",
+              "src/assets",
+              "src/manifest.webmanifest"
+            ],
 						"styles": [
 							"@angular/material/prebuilt-themes/indigo-pink.css",
 							"src/styles.scss",
