@@ -1,0 +1,129 @@
+{
+  "name": "SwimResults",
+  "short_name": "SwimResults",
+  "theme_color": "#204988",
+  "background_color": "#f2f2f2",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "icons": [
+    {
+      "src": "assets/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "id": "swimresults",
+  "share_target": {
+    "method": "GET"
+  },
+  "description": "SwimResults ist eine Online-Plattform für Schwimmwettkämpfe, welche Daten von teilnehmenden Veranstaltungen aufbereitet und strukturiert zur Verfügung stellt.",
+  "dir": "ltr",
+  "lang": "de",
+  "orientation": "any",
+  "shortcuts": [
+    {
+      "name": "Sportler",
+      "url": "/athlete",
+      "description": "Liste aller Sportler"
+    },
+    {
+      "name": "Vereine",
+      "url": "/team",
+      "description": "Liste aller Vereine"
+    },
+    {
+      "name": "Veranstaltungen",
+      "url": "/meetings",
+      "description": "Veranstaltungsliste"
+    }
+  ],
+  "categories": ["fitness", "sports"],
+  "screenshots": [
+    {
+      "src": "assets/screenshots/screenshot_meetings.png",
+      "sizes": "2198x1552",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Veranstaltungsliste"
+    },
+    {
+      "src": "assets/screenshots/screenshot_dashboard.png",
+      "sizes": "2084x1462",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Dashboard"
+    },
+    {
+      "src": "assets/screenshots/screenshot_starts.png",
+      "sizes": "2084x1550",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Interaktives Meldeergebnis"
+    },
+    {
+      "src": "assets/screenshots/screenshot_livetiming.png",
+      "sizes": "1324x880",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Livetiming"
+    },
+    {
+      "src": "assets/screenshots/screenshot_files.png",
+      "sizes": "2084x1366",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Dateienliste"
+    },
+    {
+      "src": "assets/screenshots/screenshot_login.png",
+      "sizes": "2084x1550",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Login-Seite"
+    }
+  ]
+}
