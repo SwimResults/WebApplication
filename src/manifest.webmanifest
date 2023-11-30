@@ -81,8 +81,49 @@
       "description": "Veranstaltungsliste"
     }
   ],
-  "categories": [
-    "fitness",
-    "sports"
+  "categories": ["fitness", "sports"],
+  "screenshots": [
+    {
+      "src": "assets/screenshots/screenshot_meetings.png",
+      "sizes": "2198x1552",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Veranstaltungsliste"
+    },
+    {
+      "src": "assets/screenshots/screenshot_dashboard.png",
+      "sizes": "2084x1462",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Dashboard"
+    },
+    {
+      "src": "assets/screenshots/screenshot_starts.png",
+      "sizes": "2084x1550",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Interaktives Meldeergebnis"
+    },
+    {
+      "src": "assets/screenshots/screenshot_livetiming.png",
+      "sizes": "1324x880",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Livetiming"
+    },
+    {
+      "src": "assets/screenshots/screenshot_files.png",
+      "sizes": "2084x1366",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Dateienliste"
+    },
+    {
+      "src": "assets/screenshots/screenshot_login.png",
+      "sizes": "2084x1550",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Login-Seite"
+    }
   ]
 }
