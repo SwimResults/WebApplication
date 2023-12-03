@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
+import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
 import {MeetingService} from "../../../../core/service/api";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
@@ -30,6 +30,7 @@ export class MeetingListComponent implements OnInit{
         this.meetingYears.clear();
         for (let meet of data) {
           let m = new MeetingImpl(meet);
+          if (m.hasState(MeetingStates.HIDDEN)) continue;
           let y = m.getStartDate().getFullYear();
           if (!this.meetingYears.get(y)) {
             this.meetingYears.set(y, []);
