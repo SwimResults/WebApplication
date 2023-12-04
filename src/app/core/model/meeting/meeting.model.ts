@@ -45,7 +45,7 @@ export class MeetingImpl implements Meeting {
   state: MeetingStates = MeetingStates.HIDDEN;
   data: MeetingData = {} as MeetingData;
   layout: MeetingLayout = {} as MeetingLayout;
-  unpublished: boolean;
+  unpublished: boolean = false;
 
 
   constructor(meeting: Meeting) {
