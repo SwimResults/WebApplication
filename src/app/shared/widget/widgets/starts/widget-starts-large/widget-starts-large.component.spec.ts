@@ -5,6 +5,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatIconModule} from "@angular/material/icon";
 import {WidgetModule} from "../../../widget.module";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('WidgetStartsLargeComponent', () => {
   let component: WidgetStartsLargeComponent;
@@ -17,7 +18,8 @@ describe('WidgetStartsLargeComponent', () => {
             HttpClientTestingModule,
             TranslateModule.forRoot(),
             MatIconModule,
-            WidgetModule
+            WidgetModule,
+            RouterTestingModule
         ]
     })
     .compileComponents();
