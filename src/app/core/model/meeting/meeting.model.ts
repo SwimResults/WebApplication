@@ -27,6 +27,7 @@ export interface Meeting {
   iteration: number;
   meet_id: string;
   state: MeetingStates;
+  unpublished: boolean;
 
   data: MeetingData;
   layout: MeetingLayout;
@@ -44,6 +45,7 @@ export class MeetingImpl implements Meeting {
   state: MeetingStates = MeetingStates.HIDDEN;
   data: MeetingData = {} as MeetingData;
   layout: MeetingLayout = {} as MeetingLayout;
+  unpublished: boolean;
 
 
   constructor(meeting: Meeting) {
@@ -59,6 +61,7 @@ export class MeetingImpl implements Meeting {
       this.data = meeting.data;
       this.layout = meeting.layout;
       this.state = meeting.state;
+      this.unpublished = meeting.unpublished;
     }
   }
 
