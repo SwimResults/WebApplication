@@ -78,11 +78,12 @@ import {StartsModule} from "../../content/starts";
     WidgetTitleComponent,
     WidgetFavoritesComponent
   ],
-    exports: [
-        WidgetViewerComponent,
-        WidgetDelaySmallComponent,
-        WidgetTileComponent
-    ],
+  exports: [
+    WidgetViewerComponent,
+    WidgetDelaySmallComponent,
+    WidgetTileComponent,
+    WidgetContainerComponent
+  ],
     imports: [
         CommonModule,
         CoreModule,

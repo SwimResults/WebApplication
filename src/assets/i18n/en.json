@@ -9,6 +9,7 @@
                 "ATHLETES": "Athletes",
                 "TEAMS": "Teams",
                 "FILES": "Files",
+                "SPEAKER": "Speaker",
                 "STATS": "Statistics",
                 "ADMIN": "Admin",
                 "LEAVE_MEETING": "Exit {{short}}"
@@ -148,6 +149,7 @@
             "ACCOUNT": {
                 "SETTINGS_BUTTON_TEXT": "Settings",
                 "PROFILE_BUTTON_TEXT": "Show Profile",
+                "EXPERIMENTAL_BUTTON_TEXT": "Experimental Features",
                 "LOGIN": "Login",
                 "LOGOUT": "Logout"
             },

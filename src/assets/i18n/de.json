@@ -32,6 +32,7 @@
                 "ATHLETES": "Sportler",
                 "TEAMS": "Vereine",
                 "FILES": "Dateien",
+                "SPEAKER": "Sprecher",
                 "STATS": "Statistiken",
                 "ADMIN": "Admin",
                 "LEAVE_MEETING": "{{short}} verlassen"
@@ -148,6 +149,7 @@
             "ACCOUNT": {
                 "SETTINGS_BUTTON_TEXT": "Einstellungen",
                 "PROFILE_BUTTON_TEXT": "Profil anzeigen",
+                "EXPERIMENTAL_BUTTON_TEXT": "Experimentelles",
                 "LOGIN": "Login",
                 "LOGOUT": "Logout"
             },

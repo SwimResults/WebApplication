@@ -14,6 +14,7 @@ import {CoreModule} from "../../core/core.module";
 import {MatButtonModule} from "@angular/material/button";
 import {MatDividerModule} from "@angular/material/divider";
 import { LiveBarComponent } from './live-bar/live-bar.component';
+import {HasScopeDirective} from "../../core/directive/has-scope.directive";
 
 
 
@@ -32,17 +33,18 @@ import { LiveBarComponent } from './live-bar/live-bar.component';
         HeaderComponent,
         LiveBarComponent
     ],
-    imports: [
-        CommonModule,
-        ElementsModule,
-        MatIconModule,
-        RouterLink,
-        RouterLinkActive,
-        RouterModule,
-        MatMenuModule,
-        CoreModule,
-        MatButtonModule,
-        MatDividerModule
-    ]
+  imports: [
+    CommonModule,
+    ElementsModule,
+    MatIconModule,
+    RouterLink,
+    RouterLinkActive,
+    RouterModule,
+    MatMenuModule,
+    CoreModule,
+    MatButtonModule,
+    MatDividerModule,
+    HasScopeDirective
+  ]
 })
 export class LayoutModule { }

@@ -20,9 +20,10 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
         LivetimingControlsComponent,
         LivetimingHeaderComponent,
     ],
-    exports: [
-        LivetimingControlsComponent
-    ],
+  exports: [
+    LivetimingControlsComponent,
+    LivetimingComponent
+  ],
     imports: [
         CommonModule,
         ElementsModule,
