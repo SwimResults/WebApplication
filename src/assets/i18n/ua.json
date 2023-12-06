@@ -85,7 +85,7 @@
         "HEAT": {
             "SINGULAR": "Заплив",
             "PLURAL": "Запливи",
-            "SHORT": "Зап."
+            "SHORT": "З."
         },
         "EVENT": {
             "SINGULAR": "Дистанція"
@@ -93,7 +93,7 @@
         "LANE": {
             "SINGULAR": "Доріжка",
             "PLURAL": "Доріжки",
-            "SHORT": "Дор."
+            "SHORT": "Д."
         },
         "DATE": {
             "MONTH": {
