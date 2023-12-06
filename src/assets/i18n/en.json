@@ -9,6 +9,7 @@
                 "ATHLETES": "Athletes",
                 "TEAMS": "Teams",
                 "FILES": "Files",
+                "SPEAKER": "Speaker",
                 "STATS": "Statistics",
                 "ADMIN": "Admin",
                 "LEAVE_MEETING": "Exit {{short}}"
@@ -148,6 +149,7 @@
             "ACCOUNT": {
                 "SETTINGS_BUTTON_TEXT": "Settings",
                 "PROFILE_BUTTON_TEXT": "Show Profile",
+                "EXPERIMENTAL_BUTTON_TEXT": "Experimental Features",
                 "LOGIN": "Login",
                 "LOGOUT": "Logout"
             },
@@ -205,7 +207,8 @@
         "NO_STARTS_MESSAGE": "There are currently no starts available for the livetiming.",
         "NO_LIVETIMING_MESSAGE": "This meeting does not support the livetiming feature.",
         "NO_LIVETIMING_YET_MESSAGE": "The livetiming will be available after the start list has been published.",
-        "NO_CONTENT_MESSAGE": "Unable to load content."
+        "NO_CONTENT_MESSAGE": "Unable to load content.",
+        "STREAM_BUTTON_TEXT": "Livestream on {{platform}}"
     },
     "AUTH": {
         "LOGOUT": {
@@ -266,6 +269,11 @@
         },
         "FILE": {
             "NOT_FOUND_MESSAGE": "{{filename}} was not found."
+        },
+        "WEBLINKS": {
+            "TITLE": "Weblinks",
+            "LIVESTREAM_LINK_TEXT": "Livestream",
+            "WEBSITE_LINK_TEXT": "Website"
         }
     },
     "ENTRY_PAGE": {

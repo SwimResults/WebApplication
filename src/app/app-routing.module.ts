@@ -3,7 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import {CalendarComponent} from "./content/calendar/calendar.component";
 import {PageLiveComponent} from "./content/live";
 import {PageFilesComponent} from "./content/files";
-import {PageDashboardEventComponent, PageDashboardGeneralComponent} from "./content/dashboard";
+import {
+    PageDashboardEventComponent,
+    PageDashboardGeneralComponent,
+    PageDashboardSpeakerComponent
+} from "./content/dashboard";
 import {PageAthleteComponent, PageAthletesEventComponent, PageAthletesGeneralComponent} from "./content/athletes";
 import {PageTeamComponent, PageTeamsEventComponent, PageTeamsGeneralComponent} from "./content/teams";
 import {PageStatsEventComponent, PageStatsGeneralComponent} from "./content/stats";
@@ -38,10 +42,11 @@ const routes: Routes = [
       { path: "event",                component: PageEventsComponent },
       { path: "event/:event_number",  component: PageEventComponent },
       { path: "athlete",              component: PageAthletesEventComponent },
-      { path: 'athlete/:entity_id',component: PageAthleteComponent },
+      { path: 'athlete/:entity_id',   component: PageAthleteComponent },
       { path: "team",                 component: PageTeamsEventComponent },
       { path: 'team/:entity_id',      component: PageTeamComponent },
       { path: "files",                component: PageFilesComponent },
+      { path: "speaker",              component: PageDashboardSpeakerComponent },
       { path: "stats",                component: PageStatsEventComponent },
       { path: "admin",                component: PageAdminEventComponent },
     ]

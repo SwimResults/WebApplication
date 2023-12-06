@@ -8,12 +8,12 @@ import {CoreModule} from "../../core/core.module";
 import {RouterLink} from "@angular/router";
 import { EventListComponent } from './components/event-list/event-list.component';
 import { EventListTileComponent } from './components/event-list-tile/event-list-tile.component';
-import { EventListHeatComponent } from './components/event-list-heat/event-list-heat.component';
 import { EventListEventComponent } from './components/event-list-event/event-list-event.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatSelectModule} from "@angular/material/select";
+import {EventListPartComponent} from "./components/event-list-part/event-list-part.component";
 
 
 
@@ -24,8 +24,8 @@ import {MatSelectModule} from "@angular/material/select";
         EventViewComponent,
         EventListComponent,
         EventListTileComponent,
-        EventListHeatComponent,
-        EventListEventComponent
+        EventListEventComponent,
+        EventListPartComponent
     ],
     exports: [
         EventListTileComponent
