@@ -207,7 +207,8 @@
         "NO_STARTS_MESSAGE": "There are currently no starts available for the livetiming.",
         "NO_LIVETIMING_MESSAGE": "This meeting does not support the livetiming feature.",
         "NO_LIVETIMING_YET_MESSAGE": "The livetiming will be available after the start list has been published.",
-        "NO_CONTENT_MESSAGE": "Unable to load content."
+        "NO_CONTENT_MESSAGE": "Unable to load content.",
+        "STREAM_BUTTON_TEXT": "Livestream on {{platform}}"
     },
     "AUTH": {
         "LOGOUT": {

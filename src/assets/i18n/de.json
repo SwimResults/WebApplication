@@ -211,7 +211,8 @@
         "NO_STARTS_MESSAGE": "Es sind aktuell keine Starts für das Livetiming verfügbar.",
         "NO_LIVETIMING_MESSAGE": "Für diese Veranstaltung gibt es leider kein Livetiming.",
         "NO_LIVETIMING_YET_MESSAGE": "Das Livetiming ist erst nach Veröffentlichung des Meldeergebnisses verfügbar.",
-        "NO_CONTENT_MESSAGE": "Inhalt konnte nicht geladen werden."
+        "NO_CONTENT_MESSAGE": "Inhalt konnte nicht geladen werden.",
+        "STREAM_BUTTON_TEXT": "Livestream auf {{platform}}"
     },
     "AUTH": {
         "LOGOUT": {
