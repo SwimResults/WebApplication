@@ -2,6 +2,7 @@ export interface MeetingData {
   livetiming_url: string;
   website_url: string;
   stream_url: string;
+  stream_embed_url: string;
   instagram_url: string;
   facebook_url: string;
   has_livetiming: boolean;

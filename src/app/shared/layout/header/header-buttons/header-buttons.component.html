@@ -56,6 +56,13 @@
       </button>
 
       <mat-divider></mat-divider>
+
+      <button class="sr-btn sr-btn-menu sr-inactive" routerLink="/account/experimental" *srIsAdmin>
+          <mat-icon>science</mat-icon>
+          <span>{{'HEADER.MENU.ACCOUNT.EXPERIMENTAL_BUTTON_TEXT' | translate}}</span>
+      </button>
+
+      <mat-divider></mat-divider>
   </ng-container>
 
   <button class="sr-btn sr-btn-menu" (click)="login()" *srIsAuthed="false">

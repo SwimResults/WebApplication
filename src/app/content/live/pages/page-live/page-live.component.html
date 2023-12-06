@@ -1,2 +1,31 @@
+
+<ng-container *ngIf="meeting && meeting.data && (meeting.data.stream_embed_url || meeting.data.stream_url)">
+    <h1>Livestream</h1>
+    <a *ngIf="meeting.data.stream_url"
+        [href]="meeting.data.stream_url"
+       target="_blank">
+        <sr-btn>
+            <mat-icon>ondemand_video</mat-icon>
+            <span>{{'LIVE.STREAM_BUTTON_TEXT' | translate:streamButtonData}}</span>
+        </sr-btn>
+    </a>
+    <br><br>
+
+    <div class="embed-container" *ngIf="meeting.data.stream_embed_url">
+        <div class="live-stream">
+            <iframe
+                width="560" height="315"
+                frameborder="0"
+                webkitallowfullscreen
+                mozallowfullscreen
+                allowfullscreen
+                src=""
+                #streamIframe
+            ></iframe>
+        </div>
+    </div>
+</ng-container>
+
 <h1>Livetiming</h1>
 <sr-livetiming></sr-livetiming>
+

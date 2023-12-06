@@ -1,7 +1,7 @@
 import {WidgetContainer} from "./widget-container.model";
 
 export interface Widget {
-  _id: number,
+  _id: string,
   size: "SMALL" | "MEDIUM" | "LARGE",
   content: string,
 }

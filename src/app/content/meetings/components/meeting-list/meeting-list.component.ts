@@ -30,7 +30,7 @@ export class MeetingListComponent implements OnInit{
         this.meetingYears.clear();
         for (let meet of data) {
           let m = new MeetingImpl(meet);
-          if (m.hasState(MeetingStates.HIDDEN)) continue;
+          if (m.hasState(MeetingStates.HIDDEN) || m.unpublished) continue;
           let y = m.getStartDate().getFullYear();
           if (!this.meetingYears.get(y)) {
             this.meetingYears.set(y, []);
