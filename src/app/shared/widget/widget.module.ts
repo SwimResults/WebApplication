@@ -39,6 +39,7 @@ import { WidgetInfoTextComponent } from './widget-info-text/widget-info-text.com
 import { WidgetTitleComponent } from './widget-title/widget-title.component';
 import { WidgetFavoritesComponent } from './widgets/favorites/widget-favorites/widget-favorites.component';
 import {StartsModule} from "../../content/starts";
+import {WidgetWeblinksSmallComponent} from "./widgets/weblinks/widget-weblinks-small/widget-weblinks-small.component";
 
 
 
@@ -76,7 +77,8 @@ import {StartsModule} from "../../content/starts";
     WidgetLoginRequiredComponent,
     WidgetInfoTextComponent,
     WidgetTitleComponent,
-    WidgetFavoritesComponent
+    WidgetFavoritesComponent,
+    WidgetWeblinksSmallComponent
   ],
   exports: [
     WidgetViewerComponent,
