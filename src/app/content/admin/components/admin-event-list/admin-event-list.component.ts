@@ -10,49 +10,49 @@ import {Heat, HeatImpl} from "../../../../core/model/start/heat.model";
   styleUrls: ['./admin-event-list.component.scss']
 })
 export class AdminEventListComponent implements OnInit {
-  @Input() meetingId?: string;
-  @Input() meeting?: MeetingImpl;
+    @Input() meetingId?: string;
+    @Input() meeting?: MeetingImpl;
 
-  @Output() showHeat: EventEmitter<Heat> = new EventEmitter<Heat>();
+    @Output() showHeat: EventEmitter<Heat> = new EventEmitter<Heat>();
 
-  parts: MeetingPart[] = [];
-  heats: Map<number, HeatImpl[]> = new Map<number, HeatImpl[]>()
+    parts: MeetingPart[] = [];
+    heats: Map<number, HeatImpl[]> = new Map<number, HeatImpl[]>()
 
-  constructor(
-    private eventService: EventService,
-    private heatService: HeatService
-  ) {
-  }
-
-  ngOnInit() {
-    this.fetchLists();
-  }
-
-  fetchLists() {
-    if (this.meetingId) {
-      this.eventService.getEventsAsPartsByMeeting(this.meetingId).subscribe(data => {
-        this.parts = data;
-      });
+    constructor(
+        private eventService: EventService,
+        private heatService: HeatService
+    ) {
     }
-    this.fetchHeats();
-  }
 
-  fetchHeats() {
-    if (!this.meetingId) return;
-    this.heatService.getHeatsByMeeting(this.meetingId).subscribe(data => {
-      if (data) {
-        this.heats = new Map<number, HeatImpl[]>();
-        for (let heat of data) {
-          let heats = this.heats.get(heat.event);
-          if (!heats) {
-            heats = [];
-          }
-          heats.push(new HeatImpl(heat));
-          this.heats.set(heat.event, heats);
+    ngOnInit() {
+        this.fetchLists();
+    }
+
+    fetchLists() {
+        if (this.meetingId) {
+            this.eventService.getEventsAsPartsByMeeting(this.meetingId).subscribe(data => {
+                this.parts = data;
+                this.fetchHeats();
+            });
         }
-      }
-    })
-  }
+    }
+
+    fetchHeats() {
+        if (!this.meetingId) return;
+        this.heatService.getHeatsByMeeting(this.meetingId).subscribe(data => {
+            if (data) {
+                this.heats = new Map<number, HeatImpl[]>();
+                for (let heat of data) {
+                    let heats = this.heats.get(heat.event);
+                    if (!heats) {
+                        heats = [];
+                    }
+                    heats.push(new HeatImpl(heat));
+                    this.heats.set(heat.event, heats);
+                }
+            }
+        })
+    }
 
   onShowHeat(heat: Heat) {
     this.showHeat.emit(heat);
