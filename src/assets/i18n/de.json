@@ -272,6 +272,11 @@
         },
         "FILE": {
             "NOT_FOUND_MESSAGE": "{{filename}} wurde nicht gefunden."
+        },
+        "WEBLINKS": {
+            "TITLE": "Links",
+            "LIVESTREAM_LINK_TEXT": "Livestream",
+            "WEBSITE_LINK_TEXT": "Webseite"
         }
     },
     "DASHBOARD": {

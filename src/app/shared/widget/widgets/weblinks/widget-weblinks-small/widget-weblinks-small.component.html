@@ -1,0 +1,13 @@
+<sr-widget-title icon="link">{{'WIDGET.WEBLINKS.TITLE' | translate}}</sr-widget-title>
+<ng-container *ngIf="meeting && meeting.data">
+    <div class="link-list">
+        <div class="link-tile" *ngIf="meeting.data.stream_url">
+            <mat-icon>ondemand_video</mat-icon>
+            <a class="link" [href]="meeting.data.stream_url">{{'WIDGET.WEBLINKS.LIVESTREAM_LINK_TEXT' | translate}}</a>
+        </div>
+        <div class="link-tile" *ngIf="meeting.data.website_url">
+            <mat-icon>public</mat-icon>
+            <a class="link" [href]="meeting.data.website_url">{{'WIDGET.WEBLINKS.WEBSITE_LINK_TEXT' | translate}}</a>
+        </div>
+    </div>
+</ng-container>
