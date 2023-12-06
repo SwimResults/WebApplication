@@ -1,0 +1,13 @@
+<ng-container *ngIf="part">
+    <h2 *ngIf="part.number">{{'EVENT.LIST.PART_TITLE' | translate}} {{part.number}}</h2>
+    <sr-panel *ngIf="!fetchingHeats.fetching">
+        <sr-event-list-event
+            *ngFor="let ev of part.events"
+            [event]="ev"
+            [heatInfo]="heats.get(ev.number)"
+            [clickable]="meeting.hasData()"
+        ></sr-event-list-event>
+    </sr-panel>
+    <sr-spinner *ngIf="fetchingHeats.fetching"></sr-spinner>
+</ng-container>
+
