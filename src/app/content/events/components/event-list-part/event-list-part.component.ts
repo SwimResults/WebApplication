@@ -4,6 +4,7 @@ import {EventListHeatImpl} from "../../../../core/model/start/event-list-heat.mo
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {HeatService} from "../../../../core/service/api";
+import {Incident, IncidentImpl} from "../../../../core/model/meeting/incident.model";
 
 @Component({
   selector: 'sr-event-list-part',
@@ -14,6 +15,7 @@ export class EventListPartComponent implements OnInit {
     @Input() part!: MeetingPart
     @Input() meetingId!: string;
     @Input() meeting!: MeetingImpl;
+    @Input() incidents?: Map<number, IncidentImpl[]>;
 
     fetchingHeats: FetchingModel = {fetching: false}
     heats: Map<number, EventListHeatImpl> = new Map<number, EventListHeatImpl>()

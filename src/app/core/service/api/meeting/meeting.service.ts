@@ -4,6 +4,7 @@ import {Observable, shareReplay} from "rxjs";
 import {Meeting} from "../../../model/meeting/meeting.model";
 import {BaseService} from "../base.service";
 import {environment} from "../../../../../environments/environment";
+import {Incident} from "../../../model/meeting/incident.model";
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,9 @@ export class MeetingService extends BaseService {
       this.meetingCache.set(id, meeting);
       return meeting;
     }
+  }
+
+  public getIncidentsByMeeting(meeting: string): Observable<Incident[]> {
+      return this.apiService.get(this.API_URL, "incident/meet/" + meeting);
   }
 }

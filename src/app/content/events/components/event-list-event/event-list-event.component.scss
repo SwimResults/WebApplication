@@ -1,31 +1,35 @@
 @import "../../../../../colors";
 
+.time-info,
+sr-icon-panel {
+    position: absolute;
+    margin-top: 10px;
+}
+
 .time-info {
-  display: inline-block;
-  vertical-align: top;
-  width: 45px;
+    display: inline-block;
+    vertical-align: top;
+    width: 45px;
 }
 
 sr-icon-panel {
-  vertical-align: top;
-  position: relative;
-  z-index: 1;
-  //box-shadow: 0 0 0 4px $color-bg-first;
+    z-index: 1;
+    margin-left: 45px;
 }
 
 .event-info-content {
-  display: inline-grid;
-  vertical-align: top;
-  padding: 0 14px 32px 34px;
-  border-left: 4px solid $color-hr-border;
-  position: relative;
-  z-index: 0;
-  height: 40px;
-  font-size: 16px;
-  align-content: center;
-  width: calc(100% - 95px);
-  margin-left: 63px;
-  margin-top: -40px;
+    vertical-align: top;
+    border-left: 4px solid $color-hr-border;
+    position: relative;
+    z-index: 0;
+    padding: 10px 14px 10px 34px;
+    font-size: 16px;
+    align-content: start;
+    width: calc(100% - 95px);
+    margin-left: 63px;
+    display: inline-grid;
+    min-height: 40px;
+
 
   &.event-clickable {
     cursor: pointer;

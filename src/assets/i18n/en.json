@@ -36,7 +36,13 @@
         "LIST": {
             "PAGE_TITLE": "Schedule",
             "PART_TITLE": "Part",
-            "NO_EVENTS_MESSAGE": "No events have been found."
+            "NO_EVENTS_MESSAGE": "No events have been found.",
+            "INCIDENT": {
+                "WARMUP": "Warm-up",
+                "JUDGES_MEETING": "Judges Meeting",
+                "TEAM_LEADER_MEETING": "Team Leader Meeting",
+                "BREAK": "Break"
+            }
         }
     },
     "COMMON": {
