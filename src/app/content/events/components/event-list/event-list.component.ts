@@ -34,7 +34,7 @@ export class EventListComponent implements OnDestroy {
             this.meetingId = data;
             this.fetchingParts.fetching = true;
             if (this.meetingId) {
-                this.eventService.getEventsAsPartsByMeeting(this.meetingId).subscribe(data => {
+                this.eventService.getCachedEventsAsPartsByMeeting(this.meetingId).subscribe(data => {
                     this.parts = data;
                     this.fetchingParts.fetching = false;
                 });
