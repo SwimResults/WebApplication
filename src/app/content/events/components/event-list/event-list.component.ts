@@ -5,7 +5,7 @@ import {MeetingPart} from "../../../../core/model/meeting/meeting-part.model";
 import {RouteService} from "../../../../core/service/route.service";
 import {EventService, MeetingService} from "../../../../core/service/api";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
-import {Incident, IncidentImpl} from "../../../../core/model/meeting/incident.model";
+import {IncidentImpl} from "../../../../core/model/meeting/incident.model";
 
 @Component({
   selector: 'sr-event-list',
