@@ -1,0 +1,45 @@
+@import "../../../../../colors";
+
+.time-container {
+    position: absolute;
+    margin-top: 20px;
+}
+
+.dot {
+    background-color: $color-sr-dark;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    margin-top: 20px;
+    border-radius: 50%;
+    margin-left: 55px;
+    z-index: 1;
+}
+
+.content-container {
+    vertical-align: top;
+    border-left: 4px solid $color-hr-border;
+    position: relative;
+    z-index: 0;
+    height: 60px;
+    font-size: 16px;
+    align-content: center;
+    width: calc(100% - 95px);
+    margin-left: 63px;
+    padding: 0 14px 0 34px;
+    display: inline-grid;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &.container-duration {
+        border-left-style: dotted;
+    }
+
+    .name {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+

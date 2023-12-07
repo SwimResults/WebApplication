@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EventListHeatComponent } from './event-list-heat.component';
+import { EventIncidentComponent } from './event-incident.component';
 
-describe('EventListHeatComponent', () => {
-  let component: EventListHeatComponent;
-  let fixture: ComponentFixture<EventListHeatComponent>;
+describe('EventIncidentComponent', () => {
+  let component: EventIncidentComponent;
+  let fixture: ComponentFixture<EventIncidentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EventListHeatComponent ]
+      declarations: [EventIncidentComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EventListHeatComponent);
+    fixture = TestBed.createComponent(EventIncidentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

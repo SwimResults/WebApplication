@@ -34,6 +34,7 @@ import {WidgetDelaySmallComponent} from "./delay/widget-delay-small/widget-delay
 import {WidgetFavoritesMediumComponent} from "./favorites/widget-favorites-medium/widget-favorites-medium.component";
 import {WidgetFavoritesLargeComponent} from "./favorites/widget-favorites-large/widget-favorites-large.component";
 import {WidgetStartsLargeComponent} from "./starts/widget-starts-large/widget-starts-large.component";
+import {WidgetWeblinksSmallComponent} from "./weblinks/widget-weblinks-small/widget-weblinks-small.component";
 
 export type ComponentClass = { new (): Component };
 
@@ -61,3 +62,4 @@ widgetComponents.set('delay-small', WidgetDelaySmallComponent);
 widgetComponents.set('favorites-medium', WidgetFavoritesMediumComponent);
 widgetComponents.set('favorites-large', WidgetFavoritesLargeComponent);
 widgetComponents.set('starts-large', WidgetStartsLargeComponent);
+widgetComponents.set('weblinks-small', WidgetWeblinksSmallComponent);

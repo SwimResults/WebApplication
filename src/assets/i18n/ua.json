@@ -1,7 +1,278 @@
 {
-  "MEETINGS": {
-    "LIST": {
-      "PAGE_TITLE": "Події"
+    "NAV": {
+        "LINK": {
+            "TITLE": {
+                "DASHBOARD": "Панель швидкого доступу",
+                "LIVE": "Пряма трансляція",
+                "EVENTS": "Дистанції",
+                "MEETINGS": "Змагання",
+                "ATHLETES": "Спортмени",
+                "TEAMS": "Команди",
+                "FILES": "Файли",
+                "STATS": "Статистика",
+                "ADMIN": "Адміністратор",
+                "LEAVE_MEETING": "Вийти з {{short}}"
+            }
+        }
+    },
+    "TEST": {
+        "EXAMPLE": "Це приклад тексту, який було перекладено."
+    },
+    "EVENT": {
+        "DASHBOARD": {
+            "CURRENT_MEETING_INFO": "Поточна дистанція: {{name_full}}"
+        },
+        "PAGE": {
+            "EVENT_TITLE_EVENT": "Дистанція",
+            "HEAT": "Заплив",
+            "NO_STARTS_MESSAGE": "На жаль, стартів не знайдено.",
+            "START_LIST_FILE_BUTTON": "Стартвий протокол змагань {{event_number}}",
+            "RESULT_LIST_FILE_BUTTON": "Результати змагань {{event_number}}",
+            "LIST_MODE_START_LIST": "Стартовий протокол",
+            "LIST_MODE_FINISH": "Результати запливів",
+            "LIST_MODE_RESULT_LIST": "Результати змагань"
+        },
+        "LIST": {
+            "PAGE_TITLE": "Розклад",
+            "PART_TITLE": "Частина",
+            "NO_EVENTS_MESSAGE": "Дистанцій не знайдено."
+        }
+    },
+    "COMMON": {
+        "FORM": {
+            "SEARCH": {
+                "SEARCH_INPUT_LABEL": "Пошук…"
+            }
+        },
+        "LIST": {
+            "NO_ENTRIES_MESSAGE": "Записів не знайдено!"
+        },
+        "LANGUAGE": {
+            "EN": "Англійська",
+            "DE": "Німецька",
+            "CZ": "Чеська",
+            "UA": "Українська",
+            "RU": "Російська"
+        },
+        "STYLE": {
+            "MEDLEY": {
+                "NAME": "Комплексне плавання"
+            },
+            "BUTTERFLY": {
+                "NAME": "Батерфляй"
+            },
+            "BREASTSTROKE": {
+                "NAME": "Брас"
+            },
+            "FREESTYLE": {
+                "NAME": "Вільний стиль"
+            },
+            "BACKSTROKE": {
+                "NAME": "На спині"
+            }
+        },
+        "GENDER": {
+            "MALE": {
+                "NAME": "Чоловіки"
+            },
+            "FEMALE": {
+                "NAME": "Жінки"
+            },
+            "MIXED": {
+                "NAME": "Чоловіки та Жінки"
+            }
+        },
+        "HEAT": {
+            "SINGULAR": "Заплив",
+            "PLURAL": "Запливи",
+            "SHORT": "З."
+        },
+        "EVENT": {
+            "SINGULAR": "Дистанція"
+        },
+        "LANE": {
+            "SINGULAR": "Доріжка",
+            "PLURAL": "Доріжки",
+            "SHORT": "Д."
+        },
+        "DATE": {
+            "MONTH": {
+                "JAN": "Січ.",
+                "FEB": "Лют.",
+                "MAR": "Берез.",
+                "APR": "Квіт.",
+                "MAY": "Трав.",
+                "JUN": "Черв.",
+                "JUL": "Лип.",
+                "AUG": "Серп.",
+                "SEP": "Верес.",
+                "OCT": "Жовт.",
+                "NOV": "Листоп.",
+                "DEC": "Груд."
+            }
+        },
+        "ERROR": {
+            "SERVICE_OFFLINE": {
+                "MESSAGE": "Нажаль, {{system}} зараз не відповідає!",
+                "MEETING": "Сервіс змагань",
+                "START": "Сервіс стартів",
+                "ATHLETE": "Сервіс команди та учасників",
+                "USER": "Сервіс користувача",
+                "IMPORT": "Сервіс імпорту"
+            }
+        }
+    },
+    "START": {
+        "LANE": "Доріжка",
+        "EVENT_SHORT": "Дист.",
+        "LANE_STAYS_EMPTY": "Доріжка {{lane}} залишається порожньою"
+    },
+    "ATHLETE": {
+        "LIST": {
+            "MORE": {
+                "SHARE_BUTTON_TEXT": "Поділитися",
+                "ATHLETE_BUTTON_TEXT": "Показати спортсмена",
+                "TEAM_BUTTON_TEXT": "Показати команду"
+            },
+            "PAGE_TITLE": "Спортсмени",
+            "FAVORITES_TITLE": "Вибрані",
+            "ATHLETES_TITLE": "Спортсмени"
+        },
+        "PROFILE": {
+            "FOLLOW_BUTTON_TEXT": "Підписатися",
+            "UNFOLLOW_BUTTON_TEXT": "Відписатися"
+        }
+    },
+    "HEADER": {
+        "MENU": {
+            "ACCOUNT": {
+                "SETTINGS_BUTTON_TEXT": "Налаштування",
+                "PROFILE_BUTTON_TEXT": "Показати профіль",
+                "LOGIN": "Увійти",
+                "LOGOUT": "Вийти"
+            },
+            "LANGUAGE_TITLE": "Вибрати мову"
+        }
+    },
+    "TEAM": {
+        "PAGE": {
+            "INFO_TITLE": "Інформація",
+            "ADDRESS_TITLE": "Адреса",
+            "ATHLETE_TITLE": "Спортсмени",
+            "PARTICIPANTS_TITLE": "Учасники",
+            "WEBSITE": {
+                "TITLE": "Головна",
+                "OPEN_BTN_TEXT": "На головну"
+            },
+            "CONTACT": {
+                "TITLE": "Контакти",
+                "NAME": "Контактна особа",
+                "EMAIL": "Адреса електронної пошти",
+                "FAX": "Факс",
+                "PHONE": "Телефон"
+            }
+        },
+        "LIST": {
+            "PAGE_TITLE": "Команди"
+        }
+    },
+    "FILES": {
+        "LIST": {
+            "PAGE_TITLE": "Файли"
+        },
+        "FILE_NAMES": {
+            "MEETING_INFO": "Регламент змагань",
+            "REGISTRATION_LIST": "Список учасників",
+            "START_LIST": "Стартовий протокол",
+            "RESULTS_LIST": "Результати",
+            "DSV_DEFINITION": "DSV файл",
+            "DSV_RESULTS": "DSV файл результатів",
+            "LENEX_DEFINITION": "LENEX файл",
+            "LENEX_RESULTS": "LENEX файл результатів",
+            "REGISTRATION_SOFTWARE": "Програмне забезпечення для реєстрації закордонних клубів",
+            "DATA_PROTECTION": "Захист даних",
+            "PRIVACY_INFORMATION": "Інформація про конфіденційність (DSV)",
+            "OVERNIGHT_STAY_TICKETS": "Замовлення ночівлі/харчування/додаткових квитків"
+        },
+        "NO_FILES_MESSAGE": "Нажаль, не вдалось знайти файлів змагань."
+    },
+    "MEETINGS": {
+        "LIST": {
+            "PAGE_TITLE": "Змагання"
+        }
+    },
+    "LIVE": {
+        "NO_STARTS_MESSAGE": "Наразі немає доступних стартів для прямої трансляції.",
+        "NO_LIVETIMING_MESSAGE": "Ці змаганя не підтримують функцію прямої трансляції.",
+        "NO_LIVETIMING_YET_MESSAGE": "Пряма трансляція буде доступна після публікації протоколу змагань.",
+        "NO_CONTENT_MESSAGE": "Не вдалося завантажити вміст."
+    },
+    "AUTH": {
+        "LOGOUT": {
+            "TITLE": "Вихід",
+            "INFO_TEXT": "Ви успійшно вийшли з системи."
+        }
+    },
+    "USER": {
+        "PROFILE": {
+            "TITLE": "Профіль",
+            "NOT_AUTHED_MESSAGE": "Ви не ввійшли в систему!",
+            "USER_DATA_TITLE": "Збережена інформація",
+            "INTERNAL_ID": "Внутрішній ID",
+            "USERNAME": "Username",
+            "MAIL": "E-Mail",
+            "GIVEN_NAME": "Ім'я",
+            "FAMILY_NAME": "Фамілія",
+            "ACTION_BUTTON_TITLE": "Дії",
+            "DELETE_USER_BUTTON_TEXT": "Видалити аккаунт",
+            "CHANGE_DATA_BUTTON_TEXT": "Змінити дані користувача"
+        },
+        "SETTINGS": {
+            "USER_ATHLETE": {
+                "INFO_TEXT": "Користувачі які є спортсменами можуть використовувати налаштування щоб визначити, якому спортсмену відповідає їх акаунт. Цю інформацію можна використовувати для перегляду майбутніх стартів через віджети і т. ін.",
+                "TITLE": "Ваш акаунт спортсмена",
+                "THIS_IS_YOU_TITLE": "Це ви:",
+                "NO_USER_SET": "Ваш акаунт наразі не призначений жодному спортсмену."
+            }
+        }
+    },
+    "WIDGET": {
+        "LOGIN_REQUIRED": "Щоб використовувати цей віджет, ви повинні авторизуватися.",
+        "COMING_SOON": {
+            "MAIN_TEXT": "Ця панель швидкого доступу буде розширена та буде мати більше віджетів в майбутньому."
+        },
+        "NUMBER_OF": {
+            "STARTS": "Стартів",
+            "HEATS": "Запливів",
+            "ATHLETES": "Спортсмени",
+            "TEAMS": "Команди"
+        },
+        "DELAY": {
+            "TITLE": "Затримка",
+            "BEHIND_SCHEDULE": "Відстає від розкладу",
+            "AHEAD_OF_SCHEDULE": "Переганяє розклад",
+            "NO_HEAT_DATA_MESSAGE": "Наразі неможливо порахувати затримку."
+        },
+        "FAVORITES": {
+            "TITLE": "Вибрані",
+            "NO_FAVORITES": "Тут поки що пусто. Ви можете підписатися на спортсменів використовуючи їх персональні сторінки."
+        },
+        "STARTS": {
+            "TITLE": "Майбутні старти",
+            "NO_OWN_ATHLETE": "Виберіть спортсмена, яким ви являєтеся, щоб використовувати цей віджет.",
+            "SET_OWN_ATHLETE_BUTTON": "Встановити спортсмена",
+            "NO_STARTS": "Стартів не знайдено.",
+            "SHOW_STARTS_BUTTON": "Показати всі старти"
+        },
+        "FILE": {
+            "NOT_FOUND_MESSAGE": "{{filename}} не знайдено."
+        }
+    },
+    "ENTRY_PAGE": {
+        "ABOUT_TEXT": "SwimResults дозволяє спортсменам, тренерам, родині та друзям переглядати старти, результати, місця, пряму трансляцію тощо для участі в змаганнях з плавання в легкій та інтерактивній формі.",
+        "INFO_LINKS_TITLE": "Корисні посилання"
+    },
+    "DASHBOARD": {
+        "WELCOME_MESSAGE": "З поверненням, {{username}}!"
     }
-  }
 }

@@ -71,6 +71,12 @@ select
   vertical-align: middle;
 }
 
+a {
+    cursor: pointer;
+    color: $color-text-main;
+    text-decoration: none;
+}
+
 .link {
   cursor: pointer;
 }

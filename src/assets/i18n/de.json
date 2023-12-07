@@ -19,7 +19,13 @@
         "LIST": {
             "PAGE_TITLE": "Ablaufplan",
             "PART_TITLE": "Abschnitt",
-            "NO_EVENTS_MESSAGE": "Es wurden keine Wettkämpfe gefunden."
+            "NO_EVENTS_MESSAGE": "Es wurden keine Wettkämpfe gefunden.",
+            "INCIDENT": {
+                "WARMUP": "Einschwimmen",
+                "JUDGES_MEETING": "Kampfrichtersitzung",
+                "TEAM_LEADER_MEETING": "Mannschaftsleitersitzung",
+                "BREAK": "Pause"
+            }
         }
     },
     "NAV": {
@@ -32,6 +38,7 @@
                 "ATHLETES": "Sportler",
                 "TEAMS": "Vereine",
                 "FILES": "Dateien",
+                "SPEAKER": "Sprecher",
                 "STATS": "Statistiken",
                 "ADMIN": "Admin",
                 "LEAVE_MEETING": "{{short}} verlassen"
@@ -148,6 +155,7 @@
             "ACCOUNT": {
                 "SETTINGS_BUTTON_TEXT": "Einstellungen",
                 "PROFILE_BUTTON_TEXT": "Profil anzeigen",
+                "EXPERIMENTAL_BUTTON_TEXT": "Experimentelles",
                 "LOGIN": "Login",
                 "LOGOUT": "Logout"
             },
@@ -209,7 +217,8 @@
         "NO_STARTS_MESSAGE": "Es sind aktuell keine Starts für das Livetiming verfügbar.",
         "NO_LIVETIMING_MESSAGE": "Für diese Veranstaltung gibt es leider kein Livetiming.",
         "NO_LIVETIMING_YET_MESSAGE": "Das Livetiming ist erst nach Veröffentlichung des Meldeergebnisses verfügbar.",
-        "NO_CONTENT_MESSAGE": "Inhalt konnte nicht geladen werden."
+        "NO_CONTENT_MESSAGE": "Inhalt konnte nicht geladen werden.",
+        "STREAM_BUTTON_TEXT": "Livestream auf {{platform}}"
     },
     "AUTH": {
         "LOGOUT": {
@@ -270,6 +279,11 @@
         },
         "FILE": {
             "NOT_FOUND_MESSAGE": "{{filename}} wurde nicht gefunden."
+        },
+        "WEBLINKS": {
+            "TITLE": "Links",
+            "LIVESTREAM_LINK_TEXT": "Livestream",
+            "WEBSITE_LINK_TEXT": "Webseite"
         }
     },
     "DASHBOARD": {

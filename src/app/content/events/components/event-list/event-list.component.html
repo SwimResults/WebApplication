@@ -1,18 +1,15 @@
 <sr-spinner *ngIf="fetchingParts.fetching"></sr-spinner>
-<ng-container *ngIf="!fetchingParts.fetching && meeting">
-  <sr-no-content *ngIf="!parts || parts.length <= 0">
+<ng-container *ngIf="!fetchingParts.fetching && meeting && meetingId">
+    <sr-no-content *ngIf="!parts || parts.length <= 0">
     {{'EVENT.LIST.NO_EVENTS_MESSAGE' | translate}}
-  </sr-no-content>
-  <div *ngFor="let part of parts">
-    <h2 *ngIf="part.number">{{'EVENT.LIST.PART_TITLE' | translate}} {{part.number}}</h2>
-    <sr-panel *ngIf="!fetchingHeats.fetching">
-      <sr-event-list-event
-        *ngFor="let ev of part.events"
-        [event]="ev"
-        [heatInfo]="heats.get(ev.number)"
-        [clickable]="meeting.hasData()"
-      ></sr-event-list-event>
-    </sr-panel>
-    <sr-spinner *ngIf="fetchingHeats.fetching"></sr-spinner>
-  </div>
+    </sr-no-content>
+
+    <sr-event-list-part
+        *ngFor="let part of parts"
+        [part]="part"
+        [meetingId]="meetingId"
+        [meeting]="meeting"
+        [incidents]="incidents"
+    ></sr-event-list-part>
+
 </ng-container>
