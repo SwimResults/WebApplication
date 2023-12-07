@@ -14,6 +14,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatSelectModule} from "@angular/material/select";
 import {EventListPartComponent} from "./components/event-list-part/event-list-part.component";
+import {EventIncidentComponent} from "./components/event-incident/event-incident.component";
 
 
 
@@ -25,7 +26,8 @@ import {EventListPartComponent} from "./components/event-list-part/event-list-pa
         EventListComponent,
         EventListTileComponent,
         EventListEventComponent,
-        EventListPartComponent
+        EventListPartComponent,
+        EventIncidentComponent
     ],
     exports: [
         EventListTileComponent

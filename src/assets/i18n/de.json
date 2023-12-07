@@ -19,7 +19,13 @@
         "LIST": {
             "PAGE_TITLE": "Ablaufplan",
             "PART_TITLE": "Abschnitt",
-            "NO_EVENTS_MESSAGE": "Es wurden keine Wettkämpfe gefunden."
+            "NO_EVENTS_MESSAGE": "Es wurden keine Wettkämpfe gefunden.",
+            "INCIDENT": {
+                "WARMUP": "Einschwimmen",
+                "JUDGES_MEETING": "Kampfrichtersitzung",
+                "TEAM_LEADER_MEETING": "Mannschaftsleitersitzung",
+                "BREAK": "Pause"
+            }
         }
     },
     "NAV": {

@@ -1,0 +1,12 @@
+@import "../../../../../colors";
+
+.timeline {
+    position: absolute;
+    border-left: solid 4px $color-hr-border;
+    height: 14px;
+    margin-left: 63px;
+
+    &.timeline-start {
+        margin-top: -14px;
+    }
+}
