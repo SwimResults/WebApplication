@@ -37,7 +37,13 @@ export function HttpLoaderFactory(http: HttpClient) {
           },
           defaultLanguage: 'en'
         }),
-        MatSelectModule
+        MatSelectModule,
+        ServiceWorkerModule.register('/assets/service-worker-v1.js', {
+          enabled: !isDevMode(),
+          // Register the ServiceWorker as soon as the application is stable
+          // or after 30 seconds (whichever comes first).
+          registrationStrategy: 'registerWhenStable:30000'
+        })
     ],
   exports: [
     AppComponent
