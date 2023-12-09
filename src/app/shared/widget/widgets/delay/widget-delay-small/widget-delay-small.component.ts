@@ -21,6 +21,10 @@ export class WidgetDelaySmallComponent implements OnInit, OnDestroy {
     delayedHours: number = 0;
     delayedMinutes: number = 0;
 
+    interval: any;
+
+    delayInterval: number = 60000;
+
     constructor(
         private heatService: HeatService,
         private routeService: RouteService
@@ -30,6 +34,14 @@ export class WidgetDelaySmallComponent implements OnInit, OnDestroy {
         })
     }
     ngOnInit() {
+        this.interval = setInterval(() => {
+            console.log("LIVE CYCLE RUNNING: interval: " + this.delayInterval + " rnd: " + Math.random());
+            this.fetchCurrentDelay();
+        }, this.delayInterval);
+
+    }
+
+    fetchCurrentDelay() {
         if (!this.meetingId) return;
         this.fetching.fetching = true;
         this.heatService.getCurrentHeat(this.meetingId).subscribe({
@@ -46,5 +58,6 @@ export class WidgetDelaySmallComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.meetingIdSubscription.unsubscribe();
+        clearInterval(this.interval);
     }
 }
