@@ -1,5 +1,7 @@
 <div class="livetiming-grid" *ngIf="meeting && meeting.data && meeting.data.has_livetiming && meeting.hasData()">
-  <sr-livetiming-header
+    <sr-spinner [style]="'material'" spinnerSize="text" *ngIf="fetchingHeat.fetching || fetchingEvent.fetching || fetchingStarts.fetching"></sr-spinner>
+
+    <sr-livetiming-header
     class="livetiming-grid-element"
     [liveSettingsData]="liveSettingsData"
     [heat]="heat"

@@ -6,3 +6,13 @@ sr-icon-btn {
   display: inline-block;
   margin: 0 24px;
 }
+
+@media only screen and (max-width: 600px) {
+    .info-text {
+        position: absolute;
+        display: block;
+        margin: 16px 0 0;
+        text-align: center;
+        width: 288px;
+    }
+}

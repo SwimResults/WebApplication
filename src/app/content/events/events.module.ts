@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { PageEventsComponent, PageEventComponent } from './pages';
 import {StartsModule} from "../starts";
 import {ElementsModule} from "../../shared/elements/elements.module";
-import { EventViewComponent } from './components';
 import {CoreModule} from "../../core/core.module";
 import {RouterLink} from "@angular/router";
 import { EventListComponent } from './components/event-list/event-list.component';
@@ -15,6 +14,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatSelectModule} from "@angular/material/select";
 import {EventListPartComponent} from "./components/event-list-part/event-list-part.component";
 import {EventIncidentComponent} from "./components/event-incident/event-incident.component";
+import {EventViewComponent} from "./components/event-view/event-view.component";
 
 
 
