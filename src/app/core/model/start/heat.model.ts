@@ -46,7 +46,6 @@ export class HeatImpl implements Heat {
   }
 
   getStartDelayEstimation(): Date {
-      console.log(this.start_at)
       if (this.getStartAt().getTime() > 1000) {
           return createDateFromUTC(this.start_delay_estimation);
       } else {
