@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
+    refresh() {
+        window.location.href = "/";
+    }
 }
