@@ -10,6 +10,7 @@ import {RouteService} from "../../../../core/service/route.service";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
 import {ActivatedRoute} from "@angular/router";
+import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 export interface ChangeHeatEvent {
   name: "event" | "heat" | "all" | "nothing";
@@ -44,6 +45,10 @@ export class LivetimingComponent implements OnInit, OnDestroy {
   event: MeetingEventLivetiming = {} as MeetingEventLivetiming;
   heatAmount: number = 1;
   heatFinished: boolean = false;
+
+  fetchingHeat: FetchingModel = {fetching: false};
+  fetchingEvent: FetchingModel = {fetching: false};
+  fetchingStarts: FetchingModel = {fetching: false};
 
   liveSettingsData: LiveSettingsData = {isLive: true} as LiveSettingsData;
 
@@ -151,13 +156,26 @@ export class LivetimingComponent implements OnInit, OnDestroy {
 
   fetchHeat() {
     if (this.meetingId) {
+        this.fetchingHeat.fetching = true;
       if (this.liveSettingsData.isLive) {
-        this.startService.getCurrentStarts(this.meetingId).subscribe(data => {
-          this.processStarts(data)
+        this.startService.getCurrentStarts(this.meetingId).subscribe({
+            next: data => {
+                this.processStarts(data)
+                this.fetchingHeat.fetching = false;
+            },
+            error: _ => {
+                this.fetchingHeat.fetching = false;
+            }
         })
       } else {
-        this.startService.getStartsByMeetingAndEventAndHeat(this.meetingId, this.currentEvent, this.currentHeat).subscribe(data => {
-          this.processStarts(data);
+        this.startService.getStartsByMeetingAndEventAndHeat(this.meetingId, this.currentEvent, this.currentHeat).subscribe({
+            next: data => {
+                this.processStarts(data)
+                this.fetchingHeat.fetching = false;
+            },
+            error: _ => {
+                this.fetchingHeat.fetching = false;
+            }
         })
         this.fetchHeatAmount();
       }
@@ -165,11 +183,19 @@ export class LivetimingComponent implements OnInit, OnDestroy {
   }
 
   fetchHeatAmount() {
-    if (this.meetingId)
-      this.heatService.getEventHeatInfo(this.meetingId, this.currentEvent).subscribe(data => {
-        if (data && data.amount)
-          this.heatAmount = data.amount
+    if (this.meetingId) {
+      this.fetchingHeat.fetching = true;
+      this.heatService.getEventHeatInfo(this.meetingId, this.currentEvent).subscribe({
+          next: data => {
+              if (data && data.amount)
+                  this.heatAmount = data.amount
+              this.fetchingHeat.fetching = false;
+          },
+          error: _ => {
+              this.fetchingHeat.fetching = false;
+          }
       })
+    }
   }
 
   processStarts(starts: Start[]) {
@@ -246,20 +272,27 @@ export class LivetimingComponent implements OnInit, OnDestroy {
 
   fetchEvent() {
     if (this.meeting && this.meeting.meet_id) {
-      this.eventService.getCachedEventByMeetingAndNumberForLivetiming(this.meeting.meet_id, this.currentEvent).subscribe(data => {
-        if (data) {
-          this.event = data;
-          console.log(this.event)
-          if (!this.event || !this.event.event || !this.event.event.number) {
-            if (this.event.next_event && this.event.next_event.number) {
-              this.currentEvent = this.event.next_event.number
-              this.fetchData()
-            } else if (this.event.prev_event && this.event.prev_event.number) {
-              this.currentEvent = this.event.prev_event.number
-              this.fetchData()
-            }
+        this.fetchingEvent.fetching = true;
+      this.eventService.getCachedEventByMeetingAndNumberForLivetiming(this.meeting.meet_id, this.currentEvent).subscribe({
+          next: data => {
+              if (data) {
+                  this.event = data;
+                  console.log(this.event)
+                  if (!this.event || !this.event.event || !this.event.event.number) {
+                      if (this.event.next_event && this.event.next_event.number) {
+                          this.currentEvent = this.event.next_event.number
+                          this.fetchData()
+                      } else if (this.event.prev_event && this.event.prev_event.number) {
+                          this.currentEvent = this.event.prev_event.number
+                          this.fetchData()
+                      }
+                  }
+              }
+              this.fetchingEvent.fetching = false;
+          },
+          error: _ => {
+              this.fetchingEvent.fetching = false;
           }
-        }
       })
     }
   }
