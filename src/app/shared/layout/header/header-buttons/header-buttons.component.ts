@@ -27,6 +27,7 @@ export class HeaderButtonsComponent {
 
   changeLocale(lang: string) {
     this.translateService.use(lang);
+    window.localStorage.setItem("language", lang);
   }
 
   showMenu() {

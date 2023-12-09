@@ -38,7 +38,12 @@ export class AppComponent implements OnDestroy {
     this.fetchBuild().then(r => {
       this.build = r;
     });
-    this.translateService.use(navigator.language);
+
+    let lang = window.localStorage.getItem("language");
+    if (!lang) {
+        lang = navigator.language;
+    }
+    this.translateService.use(lang);
     this.menuService.viewType.subscribe(data => {
       this.sidebarState = data;
     })
