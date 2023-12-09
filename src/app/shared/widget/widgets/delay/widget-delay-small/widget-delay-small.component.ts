@@ -34,8 +34,9 @@ export class WidgetDelaySmallComponent implements OnInit, OnDestroy {
         })
     }
     ngOnInit() {
+        this.fetchCurrentDelay();
         this.interval = setInterval(() => {
-            console.log("LIVE CYCLE RUNNING: interval: " + this.delayInterval + " rnd: " + Math.random());
+            console.log("DELAY CYCLE RUNNING: interval: " + this.delayInterval + " rnd: " + Math.random());
             this.fetchCurrentDelay();
         }, this.delayInterval);
 
