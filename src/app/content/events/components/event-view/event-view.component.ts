@@ -166,6 +166,8 @@ export class EventViewComponent implements OnInit, OnDestroy {
                         age.starts = age.starts.sort((a,b) => {
                             const aS = new StartImpl(a);
                             const bS = new StartImpl(b);
+                            if (aS.disqualification.reason) return 1;
+                            if (bS.disqualification.reason) return -1;
                             if (!aS.getResultMilliseconds()) return 1;
                             if (!bS.getResultMilliseconds()) return -1;
                             return aS.getResultMilliseconds() - bS.getResultMilliseconds();
