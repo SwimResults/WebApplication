@@ -9,6 +9,15 @@ export function createDate(s: string): Date {
   return new Date(year, month - 1, date, hours, minutes, seconds)
 }
 
+export function createDatePlusOne(s: string): Date {
+    let [dateString, timeString] = s.split("T")
+    let [year, month, date] = dateString.split("-").map(Number)
+    let clearTimeString = timeString.split(/[Z+-]/)[0]
+    let [hours, minutes, seconds] = clearTimeString.split(":").map(Number)
+
+    return new Date(year, month - 1, date, hours+1, minutes, seconds)
+}
+
 export function createDateFromUTC(s: string): Date {
     let d = new Date(s);
     return d;

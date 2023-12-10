@@ -1,4 +1,4 @@
-import {createDate, createDateFromUTC} from "../../function/date.functions";
+import {createDate, createDateFromUTC, createDatePlusOne} from "../../function/date.functions";
 
 export interface Heat {
   _id: string;
@@ -49,7 +49,7 @@ export class HeatImpl implements Heat {
       if (this.getStartAt().getTime() > 1000) {
           return createDateFromUTC(this.start_delay_estimation);
       } else {
-          return createDate(this.start_delay_estimation)
+          return createDatePlusOne(this.start_delay_estimation)
       }
   }
 
