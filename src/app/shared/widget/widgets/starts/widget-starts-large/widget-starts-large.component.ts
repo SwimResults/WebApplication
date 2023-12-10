@@ -55,6 +55,7 @@ export class WidgetStartsLargeComponent implements OnInit, OnDestroy {
             this.startService.getStartsByMeetingAndAthlete(this.meetingId, this.user.own_athlete_id).subscribe(data => {
                 for (const start of data) {
                     if (this.starts.length >= 4) break;
+                    if (start.certified) continue;
                     const h = new HeatImpl(start.heat);
                     if (h.start_at) this.starts.push(start);
                 }
