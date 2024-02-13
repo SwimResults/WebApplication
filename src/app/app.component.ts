@@ -44,6 +44,7 @@ export class AppComponent implements OnDestroy {
         lang = navigator.language;
     }
     this.translateService.use(lang);
+
     this.menuService.viewType.subscribe(data => {
       this.sidebarState = data;
     })
