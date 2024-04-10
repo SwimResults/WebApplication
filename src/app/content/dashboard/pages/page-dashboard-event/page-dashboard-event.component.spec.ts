@@ -1,33 +1,35 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PageDashboardEventComponent } from './page-dashboard-event.component';
+import {PageDashboardEventComponent} from './page-dashboard-event.component';
 import {WidgetModule} from "../../../../shared/widget/widget.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
 import {DashboardModule} from "../../dashboard.module";
+import {OAuthModule} from "angular-oauth2-oidc";
 
 describe('PageDashboardEventComponent', () => {
-  let component: PageDashboardEventComponent;
-  let fixture: ComponentFixture<PageDashboardEventComponent>;
+    let component: PageDashboardEventComponent;
+    let fixture: ComponentFixture<PageDashboardEventComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ PageDashboardEventComponent ],
-      imports: [
-        WidgetModule,
-        RouterTestingModule,
-        TranslateModule.forRoot(),
-        DashboardModule
-      ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [PageDashboardEventComponent],
+            imports: [
+                WidgetModule,
+                RouterTestingModule,
+                TranslateModule.forRoot(),
+                DashboardModule,
+                OAuthModule.forRoot()
+            ]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(PageDashboardEventComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(PageDashboardEventComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

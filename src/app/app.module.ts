@@ -13,9 +13,14 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {JwtInterceptor} from "./core/interceptor/jwt.interceptor";
 import {MatSelectModule} from "@angular/material/select";
 import { ServiceWorkerModule } from '@angular/service-worker';
+import {OAuthModule, OAuthStorage} from "angular-oauth2-oidc";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
+}
+
+export function storageFactory(): OAuthStorage {
+    return localStorage;
 }
 
 @NgModule({
@@ -37,6 +42,12 @@ export function HttpLoaderFactory(http: HttpClient) {
           },
           defaultLanguage: 'en'
         }),
+        OAuthModule.forRoot({
+            resourceServer: {
+                allowedUrls: [],
+                sendAccessToken: true,
+            }
+        }),
         MatSelectModule,
         ServiceWorkerModule.register('/assets/service-worker-v1.js', {
           enabled: !isDevMode(),
@@ -49,7 +60,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    { provide: OAuthStorage, useFactory: storageFactory}
   ],
   bootstrap: [AppComponent]
 })

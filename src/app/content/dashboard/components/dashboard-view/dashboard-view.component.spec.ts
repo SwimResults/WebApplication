@@ -5,6 +5,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {CoreModule} from "../../../../core/core.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {WidgetModule} from "../../../../shared/widget/widget.module";
+import {OAuthModule} from "angular-oauth2-oidc";
 
 describe('DashboardViewComponent', () => {
   let component: DashboardViewComponent;
@@ -17,7 +18,8 @@ describe('DashboardViewComponent', () => {
             HttpClientTestingModule,
             CoreModule,
             RouterTestingModule,
-            WidgetModule
+            WidgetModule,
+            OAuthModule.forRoot()
         ]
     })
     .compileComponents();
