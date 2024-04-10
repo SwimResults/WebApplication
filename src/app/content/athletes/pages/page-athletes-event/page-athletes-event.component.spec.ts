@@ -1,35 +1,38 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PageAthletesEventComponent } from './page-athletes-event.component';
+import {PageAthletesEventComponent} from './page-athletes-event.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {AthletesModule} from "../../athletes.module";
 import {TranslateModule} from "@ngx-translate/core";
+import {OAuthModule} from "angular-oauth2-oidc";
 
 describe('PageAthletesEventComponent', () => {
-  let component: PageAthletesEventComponent;
-  let fixture: ComponentFixture<PageAthletesEventComponent>;
+    let component: PageAthletesEventComponent;
+    let fixture: ComponentFixture<PageAthletesEventComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ PageAthletesEventComponent ],
-      imports: [
-        ElementsModule,
-        RouterTestingModule,
-        HttpClientTestingModule,
-        AthletesModule,
-        TranslateModule.forRoot()
-      ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [PageAthletesEventComponent],
+            imports: [
+                ElementsModule,
+                RouterTestingModule,
+                HttpClientTestingModule,
+                AthletesModule,
+                TranslateModule.forRoot(),
+                OAuthModule.forRoot()
 
-    fixture = TestBed.createComponent(PageAthletesEventComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+            ]
+        })
+            .compileComponents();
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+        fixture = TestBed.createComponent(PageAthletesEventComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
