@@ -2,12 +2,12 @@
 
 <ng-container *ngIf="meeting && event">
     <div class="event-files">
-        <a [href]="getUrlFromMask(meeting.data.ftp_start_list_mask)">
+        <a [href]="getUrlFromMask(meeting.data.ftp_start_list_mask)" target="_blank">
             <sr-btn [active]="meeting.data.has_ftp_start_list && !event.no_start_list">
                 <mat-icon>description</mat-icon> <span>{{'EVENT.PAGE.START_LIST_FILE_BUTTON' | translate:fileButtonData}}</span>
             </sr-btn>
         </a>
-        <a [href]="getUrlFromMask(meeting.data.ftp_result_list_mask)">
+        <a [href]="getUrlFromMask(meeting.data.ftp_result_list_mask)" target="_blank">
             <sr-btn [active]="meeting.data.has_ftp_result_list && event.certified">
                 <mat-icon>description</mat-icon> <span>{{'EVENT.PAGE.RESULT_LIST_FILE_BUTTON' | translate:fileButtonData}}</span>
             </sr-btn>

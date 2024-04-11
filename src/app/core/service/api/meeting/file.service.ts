@@ -35,6 +35,10 @@ export class FileService extends BaseService{
         }
         s += event;
         mask = mask.replace("$", s.slice(-n));
+
+        if (mask.startsWith("http")) {
+            return mask;
+        }
         return "https://download.swimresults.de" + mask;
     }
 
