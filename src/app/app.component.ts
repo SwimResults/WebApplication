@@ -41,7 +41,8 @@ export class AppComponent implements OnDestroy {
 
     let lang = window.localStorage.getItem("language");
     if (!lang) {
-        lang = navigator.language;
+        //lang = navigator.language;
+        lang = "de";
     }
     this.translateService.use(lang);
 
