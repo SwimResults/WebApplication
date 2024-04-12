@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {StorageFile} from "../../../../core/model/meeting/storage-file.model";
 import {TranslateService} from "@ngx-translate/core";
+import {fileTypes} from "../../../../core/constant/file-types.constant";
 
 @Component({
   selector: 'sr-file-list-tile',
@@ -41,4 +42,6 @@ export class FileListTileComponent implements OnInit {
     if (this.file.url) return;
     this.file.downloads++;
   }
+
+    protected readonly fileTypes = fileTypes;
 }
