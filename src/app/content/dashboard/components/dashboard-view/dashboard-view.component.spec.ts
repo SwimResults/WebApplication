@@ -6,6 +6,8 @@ import {CoreModule} from "../../../../core/core.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {WidgetModule} from "../../../../shared/widget/widget.module";
 import {OAuthModule} from "angular-oauth2-oidc";
+import {MatIconModule} from "@angular/material/icon";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('DashboardViewComponent', () => {
   let component: DashboardViewComponent;
@@ -19,7 +21,9 @@ describe('DashboardViewComponent', () => {
             CoreModule,
             RouterTestingModule,
             WidgetModule,
-            OAuthModule.forRoot()
+            OAuthModule.forRoot(),
+            MatIconModule,
+            TranslateModule.forRoot()
         ]
     })
     .compileComponents();
