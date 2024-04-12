@@ -34,6 +34,8 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
     fetchedMeeting: boolean = false;
     fetchedUser: boolean = false;
 
+    fetchingDashboard: boolean = false;
+
     constructor(
         private dashboardService: DashboardService,
         private authService: AuthService,
@@ -41,18 +43,27 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
         private oAuthService: OAuthService,
         private meetingService: MeetingService
     ) {
-        this.isAuthedSubscription = this.authService.isAuthenticated.subscribe(data => {
-            this.isAuthed = data
-            this.fetchedUser = true;
-            this.fetchDashboard();
+        this.fetchingDashboard = true;
+        this.isAuthedSubscription = this.authService.isAuthenticated.subscribe({
+            next: data => {
+                this.isAuthed = data
+                this.fetchedUser = true;
+                this.fetchDashboard();
+            },
+            error: _ => this.fetchingDashboard = false
         })
         this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
             if (data) {
-                this.meetingService.getMeetingByMeetId(data).subscribe(meeting => {
-                    this.meeting = new MeetingImpl(meeting);
-                    this.fetchedMeeting = true;
-                    this.fetchDashboard();
+                this.meetingService.getMeetingByMeetId(data).subscribe({
+                    next: meeting => {
+                        this.meeting = new MeetingImpl(meeting);
+                        this.fetchedMeeting = true;
+                        this.fetchDashboard();
+                    },
+                    error: _ => this.fetchingDashboard = false
                 })
+            } else {
+                this.fetchingDashboard = false;
             }
         })
     }
@@ -69,13 +80,25 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
     }
 
     fetchDashboard() {
-        if (!this.fetchedMeeting || !this.fetchedUser) return;
+        this.fetchingDashboard = true;
+        if (!this.fetchedMeeting || !this.fetchedUser) {
+            this.fetchingDashboard = false;
+            return;
+        }
         let meetingState = "";
         if (this.meeting) {
-            if (this.meeting.hasState(MeetingStates.HIDDEN)) return;
+            if (this.meeting.hasState(MeetingStates.HIDDEN)) {
+                this.fetchingDashboard = false;
+                return;
+            }
             meetingState = this.meeting.state;
         }
-        this.dashboardService.getDashboard(!this.isAuthed, meetingState).subscribe(data => this.dashboard = data);
+        this.dashboardService.getDashboard(!this.isAuthed, meetingState).subscribe({
+            next: data => {
+                this.dashboard = data;
+                this.fetchingDashboard = false;
+            }, error: _ => this.fetchingDashboard = false
+        });
     }
 
 }
