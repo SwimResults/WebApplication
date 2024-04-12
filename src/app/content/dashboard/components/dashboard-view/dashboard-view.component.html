@@ -1,6 +1,7 @@
 <h1 *ngIf="isAuthed && kcUser && welcomeMessageParam.username">{{'DASHBOARD.WELCOME_MESSAGE' | translate:welcomeMessageParam}}</h1>
 <p class="dashboard-info">{{"DASHBOARD.FIND_MORE_MESSAGE" | translate}} <span style="white-space: nowrap;">(<mat-icon>menu</mat-icon>)</span></p>
+<sr-spinner *ngIf="fetchingDashboard"></sr-spinner>
 <sr-widget-viewer
-    *ngIf="dashboard"
+    *ngIf="dashboard && !fetchingDashboard"
     [widgets]="dashboard.widget_container"
 ></sr-widget-viewer>
