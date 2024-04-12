@@ -1,4 +1,10 @@
 
+// Date Helper Functions
+// some dates are stored as 0001-01-03T10:11:00.000Z
+// some are stored as 2024-04-13T10:11:00.000Z
+// methods can be used to get the correct times with time zone shift + winter/summer
+
+
 // https://stackoverflow.com/questions/56057128/javascript-date-parsing-returning-strange-results-in-chrome
 export function createDate(s: string): Date {
   let [dateString, timeString] = s.split("T")
@@ -15,7 +21,7 @@ export function createDatePlusOne(s: string): Date {
     let clearTimeString = timeString.split(/[Z+-]/)[0]
     let [hours, minutes, seconds] = clearTimeString.split(":").map(Number)
 
-    return new Date(year, month - 1, date, hours+1, minutes, seconds)
+    return new Date(year, month - 1, date, hours+2, minutes, seconds)
 }
 
 export function createDateFromUTC(s: string): Date {
