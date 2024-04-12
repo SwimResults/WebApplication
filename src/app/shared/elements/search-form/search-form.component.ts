@@ -32,16 +32,17 @@ export class SearchFormComponent implements OnInit, AfterViewChecked {
             this.searchForm.setValue({"query": params['query']})
             this.searchForm.value.query = params['query'];
           }
-          this.submit()
+          this.submit(true)
         }
       );
   }
 
-  submit() {
-    if (this.searchForm.value.query)
-      window.history.pushState(undefined, "", window.location.pathname + "?query=" + this.searchForm.value.query);
-    else
-      window.history.pushState(undefined, "", window.location.pathname);
+  submit(init: boolean = false) {
+    if (this.searchForm.value.query) {
+        window.history.pushState(undefined, "", window.location.pathname + "?query=" + this.searchForm.value.query);
+    } else if (!init) {
+        window.history.pushState(undefined, "", window.location.pathname);
+    }
     this.querySearch.emit(this.searchForm.value.query);
   }
 }
