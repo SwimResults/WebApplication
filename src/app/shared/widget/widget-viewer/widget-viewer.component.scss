@@ -1,7 +1,7 @@
 .widget-containers {
   display: grid;
   grid-gap: 0 10px;
-  grid-template-columns: repeat(auto-fill, minmax(312px, 312px));
+  grid-template-columns: repeat(auto-fill,minmax(314px,1fr));
 }
 
 sr-widget-container {
@@ -9,10 +9,10 @@ sr-widget-container {
   width: auto;
 }
 
-@media only screen and (max-width: 662px) {
-  .widget-containers {
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
-}
+//@media only screen and (max-width: 662px) {
+//  .widget-containers {
+//    display: block;
+//    width: 100%;
+//    text-align: center;
+//  }
+//}

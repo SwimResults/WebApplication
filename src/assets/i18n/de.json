@@ -288,6 +288,7 @@
         }
     },
     "DASHBOARD": {
-        "WELCOME_MESSAGE": "Willkommen zurück, {{username}}!"
+        "WELCOME_MESSAGE": "Willkommen zurück, {{username}}!",
+        "FIND_MORE_MESSAGE": "Das Dashboard zeigt die wichtigsten Informationen an. Livetiming, Sportler- und Vereinssuche und Wettkämpfe findest du über das Menü."
     }
 }
