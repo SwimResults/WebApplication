@@ -14,7 +14,8 @@
                 "ADMIN": "Admin",
                 "LEAVE_MEETING": "Exit {{short}}"
             }
-        }
+        },
+        "NO_MEETING_INFO": "Select a meeting in order to search events, athletes and teams."
     },
     "TEST": {
         "EXAMPLE": "This is an example text that has been translated."
