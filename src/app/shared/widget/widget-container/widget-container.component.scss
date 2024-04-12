@@ -9,17 +9,17 @@ sr-panel {
 
 
   &.small {
-    width: 140px;
+    width: calc(50% - 16px);
     height: 140px;
   }
 
   &.medium {
-    width: 298px;
+    width: calc(100% - 16px);
     height: 140px;
   }
 
   &.large {
-    width: 298px;
+    width: calc(100% - 16px);
     height: 298px;
   }
 
