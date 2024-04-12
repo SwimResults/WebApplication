@@ -43,7 +43,8 @@
                 "ADMIN": "Admin",
                 "LEAVE_MEETING": "{{short}} verlassen"
             }
-        }
+        },
+        "NO_MEETING_INFO": "Wähle eine Veranstaltung aus, um nach Wettkämpfen, Sportlern und Vereinen suchen zu können."
     },
     "COMMON": {
         "ERROR": {
