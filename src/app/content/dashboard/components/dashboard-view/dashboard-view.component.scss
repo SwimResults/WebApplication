@@ -1,0 +1,14 @@
+.dashboard-info {
+    display: none;
+    mat-icon {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+
+@media only screen and (max-width: 1050px) {
+    .dashboard-info {
+        display: inline-block;
+    }
+}

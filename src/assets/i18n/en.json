@@ -288,6 +288,7 @@
         "INFO_LINKS_TITLE": "Informative Links"
     },
     "DASHBOARD": {
-        "WELCOME_MESSAGE": "Welcome back, {{username}}!"
+        "WELCOME_MESSAGE": "Welcome back, {{username}}!",
+        "FIND_MORE_MESSAGE": "The Dashboard displays most important information. Livetiming, athlete and team search and events can be found in the menu."
     }
 }

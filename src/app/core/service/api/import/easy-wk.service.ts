@@ -16,7 +16,7 @@ export class EasyWkService extends BaseService {
   }
 
   private postEasyWk(body: any): Observable<String> {
-    return this.apiService.postText(this.API_URL, "easywk", body);
+    return this.apiService.postText(this.API_URL, "easywk/v3", body);
   }
 
   public newRace(password: string, event: number, heat: number): Observable<String> {
