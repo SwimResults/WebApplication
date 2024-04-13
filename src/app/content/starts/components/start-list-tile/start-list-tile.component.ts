@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ResultTypes, Start, StartImpl} from "../../../../core/model/start/start.model";
 import {StartId} from "../../../../core/model/start/start-id.model";
-import {MeetingService, StartService, EventService} from "../../../../core/service/api";
+import {EventService, MeetingService, StartService} from "../../../../core/service/api";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
@@ -148,6 +148,6 @@ export class StartListTileComponent implements OnInit {
     }
 
     getGotBetter(): boolean {
-        return this.data.getResultMilliseconds() < this.data.getTimeMilliseconds(ResultTypes.REGISTRATION)
+        return (!this.data.getTimeMilliseconds(ResultTypes.REGISTRATION) || this.data.getTimeMilliseconds(ResultTypes.REGISTRATION) <= 0) ? true : (this.data.getResultMilliseconds() < this.data.getTimeMilliseconds(ResultTypes.REGISTRATION))
     }
 }
