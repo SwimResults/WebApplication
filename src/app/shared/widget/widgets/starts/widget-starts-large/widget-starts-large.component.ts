@@ -57,7 +57,8 @@ export class WidgetStartsLargeComponent implements OnInit, OnDestroy {
                     if (this.starts.length >= 4) break;
                     if (start.certified) continue;
                     const h = new HeatImpl(start.heat);
-                    if (h.start_at) this.starts.push(start);
+                    if (h.getFinishedAt().getMilliseconds() > 0) continue;
+                    this.starts.push(start);
                 }
             })
     }
