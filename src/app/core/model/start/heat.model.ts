@@ -128,7 +128,10 @@ export class HeatImpl implements Heat {
       return [h, m];
   }
 
-  isDelayed(): boolean {
-      return this.getDelay() > 4*60*1000;
+  isDelayed(tolerance: boolean = false): boolean {
+      if (tolerance)
+          return this.getDelay() > 4*60*1000;
+      return this.getDelay() > 0;
   }
+
 }
