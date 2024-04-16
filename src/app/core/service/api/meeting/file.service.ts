@@ -23,6 +23,24 @@ export class FileService extends BaseService{
         return this.apiService.get(this.API_URL, "file/meeting/" + meeting + "/name/" + name);
     }
 
+    public checkExistence(url: string): Promise<boolean> {
+        return new Promise<boolean>((resolve) => {
+            this.apiService.get(url, "").subscribe({
+                next: data => {
+                    console.log("data:")
+                    console.log(data);
+                    resolve(true)
+                },
+                error: err => {
+                    console.log("data:");
+                    console.log(err);
+                    resolve(false)
+                }
+            })
+        })
+
+    }
+
     public getUrlFromMask(mask: string, event: number): string {
         if (mask === undefined) return "";
         let n = (mask.match(/#/g) || []).length;
