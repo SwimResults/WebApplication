@@ -1,36 +1,42 @@
 @import "../../../../colors";
 
 :host {
-  background-color: $color-sidebar-bg;
-  height: 100vh;
-  //border-right: 4px solid $color-sidebar-border;
-  box-shadow: 0px -10px 10px 5px $color-sidebar-border;
-  padding: 12px;
+    background-color: $color-sidebar-bg;
+    height: 100vh;
+    //border-right: 4px solid $color-sidebar-border;
+    box-shadow: 0px -10px 10px 5px $color-sidebar-border;
+    padding: 12px;
 }
 
 .heading {
-  padding: 12px 20px;
-  cursor: pointer;
+    padding: 12px 20px;
+    cursor: pointer;
+    width: calc(100% - 40px);
 
-  .logo {
-    display: inline-block;
-    width: 42px;
-    //filter: brightness(100);
-    vertical-align: middle;
-    margin-right: 12px;
-  }
+    .logo {
+        display: inline-block;
+        width: 42px;
+        //filter: brightness(100);
+        vertical-align: middle;
+        margin-right: 12px;
+    }
 
-  .title {
-    font-size: 21px;
-    font-weight: bold;
-    color: $color-sidebar-header;
-    vertical-align: middle;
-  }
+    .title {
+        font-size: 21px;
+        font-weight: bold;
+        color: $color-sidebar-header;
+        vertical-align: middle;
+        width: 146px;
+        display: inline-block;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 
 }
 
 @media only screen and (max-width: 1050px) {
-  :host {
-    background-color: $color-bg-popup;
-  }
+    :host {
+        background-color: $color-bg-popup;
+    }
 }
