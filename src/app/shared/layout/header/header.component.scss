@@ -1,66 +1,79 @@
 @import "../../../../colors";
 
 :host {
-  margin: 22px 0;
+    margin: 22px 0;
+}
+
+.title-box {
+    vertical-align: middle;
 }
 
 .title {
-  font-weight: 700;
-  font-size: 22px;
-  vertical-align: middle;
-  height: 24px;
+    font-weight: 700;
+    font-size: 22px;
+    height: 24px;
+}
+
+.subtitle {
+    display: block;
 }
 
 .header {
-  .title {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    display: inline-block;
-    width: calc(100% - 190px);
-    overflow-x: hidden;
-    margin: 0 18px;
-  }
+    .title-box {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: inline-block;
+        width: calc(100% - 190px);
+        overflow-x: hidden;
+        margin: 0 18px;
+    }
 }
 
 .buttons {
-  display: inline-block;
+    display: inline-block;
 }
 
 .icon-btn-menu {
-  display: none;
-  cursor: pointer;
+    display: none;
+    cursor: pointer;
 }
 
 .icon {
-  display: inline-block;
+    display: inline-block;
 }
 
 .title-mobile {
-  display: none;
-  text-align: center;
-  margin-top: 12px;
-  .title {
-    height: auto;
-  }
+    display: none;
+    text-align: center;
+    margin-top: 12px;
+
+    .title-box {
+        height: auto;
+    }
 }
 
 @media only screen and (max-width: 1050px) {
-  .header .title {
-    display: none;
-  }
-
-  .title-mobile {
-    display: block;
-    .title {
-      display: block;
+    .header .title-box {
+        display: none;
     }
-  }
 
-  .icon-btn-menu {
-    display: inline-block;
-  }
+    sr-header-buttons {
+        margin-left: calc(100% - 154px);
+    }
 
-  .icon {
-    display: none;
-  }
+    .title-mobile {
+        display: block;
+
+        .title-box {
+            display: block;
+        }
+    }
+
+    .icon-btn-menu {
+        display: inline-block;
+    }
+
+    .icon {
+        display: none;
+    }
 }
