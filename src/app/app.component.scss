@@ -1,3 +1,5 @@
+@import "../colors";
+
 main {
   display: grid;
   grid-column-gap: 0;
@@ -78,6 +80,30 @@ main {
   top: 34px;
   padding: 4px;
 }
+
+.footer {
+    text-align: center;
+    margin-top: 56px;
+
+    .footer-logo {
+        width: 40px;
+        display: block;
+        margin: 14px auto;
+    }
+
+    .footer-text {
+        display: block;
+        color: $color-footer-text;
+
+        a {
+            color: $color-footer-text;
+            display: inline-block;
+            margin: 0 6px;
+            text-decoration: underline;
+        }
+    }
+}
+
 
 @media only screen and (max-width: 1050px) {
   main {
