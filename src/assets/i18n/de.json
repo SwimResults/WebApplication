@@ -87,6 +87,9 @@
             },
             "BACKSTROKE": {
                 "NAME": "Rücken"
+            },
+            "UNDEFINED": {
+                "NAME": "Schwimmen"
             }
         },
         "GENDER": {
