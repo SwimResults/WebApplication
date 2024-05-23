@@ -10,6 +10,7 @@ export interface MeetingEvent {
     gender: string;
     style: Style;
     final: EventFinal;
+    name_extension: string;
     finished: boolean;
     certified: boolean;
     no_start_list: boolean;
@@ -24,6 +25,7 @@ export class MeetingEventImpl implements MeetingEvent {
     relay_distance: string;
     style: Style;
     final: EventFinal
+    name_extension: string;
     finished: boolean;
     certified: boolean;
     no_start_list: boolean;
@@ -37,6 +39,7 @@ export class MeetingEventImpl implements MeetingEvent {
         this.relay_distance = event.relay_distance;
         this.style = event.style;
         this.final = event.final;
+        this.name_extension = event.name_extension;
         this.finished = event.finished;
         this.certified = event.certified;
         this.no_start_list = event.no_start_list;
