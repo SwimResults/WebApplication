@@ -87,6 +87,24 @@
             },
             "BACKSTROKE": {
                 "NAME": "Rücken"
+            },
+            "UNDEFINED": {
+                "NAME": "Schwimmen"
+            },
+            "FINSWIMMING": {
+                "NAME": "FS"
+            },
+            "DISTANCE_DIVING": {
+                "NAME": "ST"
+            },
+            "BIFIN": {
+                "NAME": "BF"
+            },
+            "APNOE": {
+                "NAME": "AP"
+            },
+            "SB": {
+                "NAME": "SB"
             }
         },
         "GENDER": {
