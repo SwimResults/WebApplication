@@ -5,8 +5,14 @@
     <div class="time-container" *ngIf="incident.type === 'DURATION'">
         <i>{{incident.getDurationString()}}</i>
     </div>
+    <div class="time-container" *ngIf="incident.type === 'TIMELESS'">
+        <i>&nbsp;</i>
+    </div>
     <div *ngIf="incident.type === 'EVENT'" class="dot"></div>
     <div class="content-container {{incident.type === 'DURATION' ? 'container-duration' : 'container-event'}}">
-        <span class="name">{{'EVENT.LIST.INCIDENT.' + incident.name.toUpperCase() | translate}}</span>
+        <span class="name">
+            <span>{{'EVENT.LIST.INCIDENT.' + incident.name.toUpperCase() | translate}}</span>
+            <span>{{incident.name_extension}}</span>
+        </span>
     </div>
 </ng-container>
