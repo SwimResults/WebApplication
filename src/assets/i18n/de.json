@@ -24,7 +24,8 @@
                 "WARMUP": "Einschwimmen",
                 "JUDGES_MEETING": "Kampfrichtersitzung",
                 "TEAM_LEADER_MEETING": "Mannschaftsleitersitzung",
-                "BREAK": "Pause"
+                "BREAK": "Pause",
+                "CEREMONY": "Siegerehrung"
             }
         }
     },

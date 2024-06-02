@@ -42,7 +42,8 @@
                 "WARMUP": "Warm-up",
                 "JUDGES_MEETING": "Judges Meeting",
                 "TEAM_LEADER_MEETING": "Team Leader Meeting",
-                "BREAK": "Break"
+                "BREAK": "Break",
+                "CEREMONY": "Medal ceremony"
             }
         }
     },

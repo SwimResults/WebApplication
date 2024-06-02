@@ -3,8 +3,9 @@ import {createDate} from "../../function/date.functions";
 export interface Incident {
     _id: string;
     meeting: string;
-    type: "EVENT" | "DURATION";
+    type: "EVENT" | "DURATION" | "TIMELESS";
     name: string;
+    name_extension: string;
     start: string;
     end: string;
     prev_event: number;
@@ -14,8 +15,9 @@ export interface Incident {
 export class IncidentImpl {
     _id: string;
     meeting: string;
-    type: "EVENT" | "DURATION";
+    type: "EVENT" | "DURATION" | "TIMELESS";
     name: string;
+    name_extension: string;
     start: string;
     end: string;
     prev_event: number;
@@ -26,6 +28,7 @@ export class IncidentImpl {
         this.meeting = data.meeting;
         this.type = data.type;
         this.name = data.name;
+        this.name_extension = data.name_extension;
         this.start = data.start;
         this.end = data.end;
         this.prev_event = data.prev_event;
