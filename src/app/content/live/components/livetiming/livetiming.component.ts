@@ -223,7 +223,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
 
         if (this.liveSettingsData.isLive) { // in live mode, set to finished when finished_at is set
             console.log(st[0].heat.getFinishedAt().getMilliseconds())
-            this.heatFinished = (st.length > 0 && st[0].heat.getFinishedAt().getMilliseconds() > 1000);
+            this.heatFinished = (st.length > 0 && st[0].heat.getFinishedAt().getMilliseconds() > 0);
         }
 
         if (this.liveSettingsData.isLive) {
