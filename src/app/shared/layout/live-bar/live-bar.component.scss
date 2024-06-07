@@ -10,12 +10,6 @@
 
 .bar-content {
     width: calc(100% - 116px);
-
-    .bar-status-text {
-        font-weight: bold;
-        display: block;
-        text-align: center;
-    }
 }
 
 .bar-content,
@@ -24,6 +18,12 @@ sr-heat-times {
     display: inline-block;
     vertical-align: middle;
     margin-right: 12px;
+}
+
+.bar-status-text {
+    font-weight: bold;
+    display: block;
+    text-align: center;
 }
 
 .bar-event {
