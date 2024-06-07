@@ -1,5 +1,4 @@
-<div class="live-bar" *ngIf="currentHeat && event" [routerLink]="'/m/' + meetingId + '/live'" [queryParams]="{live: '1'}">
-
+<div class="live-bar" *ngIf="meetingId" [routerLink]="'/m/' + meetingId + '/live'" [queryParams]="{live: '1'}">
 
     <div class="bar-live">
         <div class="blink">
@@ -8,13 +7,21 @@
         </div>
     </div>
 
-    <sr-heat-times [heat]="currentHeat"></sr-heat-times>
+    <ng-container *ngIf="statusText">
+        <div class="bar-content">
+            <span class="bar-status-text">{{statusText}}</span>
+        </div>
+    </ng-container>
 
-    <sr-icon-panel [textContent]="event.number + ''"></sr-icon-panel>
+    <ng-container *ngIf="!statusText && currentHeat && event" >
 
-    <div class="bar-content">
-        <span class="bar-event">{{'COMMON.EVENT.SINGULAR' | translate}} {{event.number}} - {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{event.name_extension}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</span>
-        <span>{{'COMMON.HEAT.SINGULAR' | translate}} {{currentHeat.number}} / {{maxHeat}}</span>
-    </div>
+        <sr-heat-times [heat]="currentHeat"></sr-heat-times>
 
+        <sr-icon-panel [textContent]="event.number + ''"></sr-icon-panel>
+
+        <div class="bar-content">
+            <span class="bar-event">{{'COMMON.EVENT.SINGULAR' | translate}} {{event.number}} - {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{event.name_extension}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</span>
+            <span>{{'COMMON.HEAT.SINGULAR' | translate}} {{currentHeat.number}} / {{maxHeat}}</span>
+        </div>
+    </ng-container>
 </div>

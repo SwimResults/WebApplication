@@ -6,6 +6,7 @@ import {Heat} from "../../../model/start/heat.model";
 import {ApiService} from "../api.service";
 import {EventHeatInfo} from "../../../model/start/event-heat-info.model";
 import {EventListHeats} from "../../../model/start/event-list-heats.model";
+import {CurrentNextHeat} from "../../../model/start/current-next-heat.model";
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,10 @@ export class HeatService extends BaseService{
 
     getCurrentHeat(meeting: string): Observable<Heat> {
         return this.apiService.get(this.API_URL, "heat/meet/" + meeting + "/current");
+    }
+
+    getCurrentAndNextHeat(meeting: string): Observable<CurrentNextHeat> {
+        return this.apiService.get(this.API_URL, "heat/meet/" + meeting + "/current_next");
     }
 
     getHeatsByMeetingForEventList(meeting: string): Observable<EventListHeats> {

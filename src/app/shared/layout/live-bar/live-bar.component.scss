@@ -10,6 +10,12 @@
 
 .bar-content {
     width: calc(100% - 116px);
+
+    .bar-status-text {
+        font-weight: bold;
+        display: block;
+        text-align: center;
+    }
 }
 
 .bar-content,
