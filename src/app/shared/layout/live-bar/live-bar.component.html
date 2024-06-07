@@ -1,4 +1,4 @@
-<div class="live-bar" [routerLink]="'/m/' + meetingId + '/live'" [queryParams]="{live: '1'}">
+<div class="live-bar" *ngIf="meetingId" [routerLink]="'/m/' + meetingId + '/live'" [queryParams]="{live: '1'}">
 
     <div class="bar-live">
         <div class="blink">
