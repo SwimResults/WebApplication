@@ -13,7 +13,7 @@
   </form>
 </div>
 
-<h2>{{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{currentEvent}}<ng-container *ngIf="event && event.style"> - {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</ng-container></h2>
+<h2>{{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{currentEvent}}<ng-container *ngIf="event && event.style"> - {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{event.name_extension}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</ng-container></h2>
 
 
 <sr-panel class="heat-starts"
