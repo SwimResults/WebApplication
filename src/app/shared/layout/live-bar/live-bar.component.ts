@@ -100,7 +100,11 @@ export class LiveBarComponent implements OnInit, OnDestroy {
                                 this.statusText = undefined;
                             }
                         } else {
-                            this.statusText = "Bis Morgen. Erster Start um " + this.nextHeat.getStartDelayEstimationTime() + " Uhr";
+                            if (now.getDate() == currentPlan.getDate()) {
+                                this.statusText = "Bis Morgen. Erster Start um " + this.nextHeat.getStartDelayEstimationTime() + " Uhr";
+                            } else {
+                                this.statusText = "Der Wettkampf beginnt um " + this.nextHeat.getStartDelayEstimationTime();
+                            }
                         }
                     }
                 } else {
