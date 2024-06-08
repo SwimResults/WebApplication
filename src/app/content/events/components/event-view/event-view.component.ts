@@ -163,15 +163,17 @@ export class EventViewComponent implements OnInit, OnDestroy {
                 next: (data => {
                     this.resultStarts = [];
                     for (const age of data) {
-                        age.starts = age.starts.sort((a,b) => {
-                            const aS = new StartImpl(a);
-                            const bS = new StartImpl(b);
-                            if (aS.disqualification.reason) return 1;
-                            if (bS.disqualification.reason) return -1;
-                            if (!aS.getResultMilliseconds()) return 1;
-                            if (!bS.getResultMilliseconds()) return -1;
-                            return aS.getResultMilliseconds() - bS.getResultMilliseconds();
-                        })
+                        if (age.starts) {
+                            age.starts = age.starts.sort((a, b) => {
+                                const aS = new StartImpl(a);
+                                const bS = new StartImpl(b);
+                                if (aS.disqualification.reason) return 1;
+                                if (bS.disqualification.reason) return -1;
+                                if (!aS.getResultMilliseconds()) return 1;
+                                if (!bS.getResultMilliseconds()) return -1;
+                                return aS.getResultMilliseconds() - bS.getResultMilliseconds();
+                            })
+                        }
                         this.resultStarts.push(age)
                     }
                     this.fetchingStarts.fetching = false;
