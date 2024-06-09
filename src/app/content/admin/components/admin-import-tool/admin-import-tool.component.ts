@@ -5,7 +5,7 @@ import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ImportFileRequest, ImportFileService} from "../../../../core/service/api/import/import-file.service";
 import {MatDialog} from "@angular/material/dialog";
-import {AdminImportTextDialog} from "./admin-import-text-dialog.component";
+import {AdminImportTextDialogComponent} from "./admin-import-text-dialog.component";
 
 interface FileList {
     name: string,
@@ -132,7 +132,7 @@ export class AdminImportToolComponent implements OnInit {
                     console.log("successfully send pdf to text for '" + this.importForm.value.url + "'")
                     console.log(newData.text)
 
-                    const dialogRef = this.dialog.open(AdminImportTextDialog, {
+                    const dialogRef = this.dialog.open(AdminImportTextDialogComponent, {
                         data: newData,
                         width: '80%'
                     });

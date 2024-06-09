@@ -7,9 +7,9 @@ import {ImportFileRequest} from "../../../../core/service/api/import/import-file
     templateUrl: './admin-import-text-dialog.component.html',
     styleUrls: ['./admin-import-text-dialog.component.scss']
 })
-export class AdminImportTextDialog {
+export class AdminImportTextDialogComponent {
     constructor(
-        public dialogRef: MatDialogRef<AdminImportTextDialog>,
+        public dialogRef: MatDialogRef<AdminImportTextDialogComponent>,
         @Inject(MAT_DIALOG_DATA) public data: ImportFileRequest,
     ) {
     }

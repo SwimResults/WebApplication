@@ -6,7 +6,7 @@ import {
     AdminHeatToolComponent,
     AdminImportToolComponent,
     AdminEventListComponent,
-    AdminImportTextDialog
+    AdminImportTextDialogComponent
 } from './components';
 import {ElementsModule} from "../../shared/elements/elements.module";
 import {EventsModule} from "../events";
@@ -29,7 +29,7 @@ import {MatInputModule} from "@angular/material/input";
         AdminHeatToolComponent,
         AdminImportToolComponent,
         AdminEventListComponent,
-        AdminImportTextDialog
+        AdminImportTextDialogComponent
     ],
     imports: [
         CommonModule,
