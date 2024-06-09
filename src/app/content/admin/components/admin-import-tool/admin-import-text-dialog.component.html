@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Import PDF from Text</h2>
+<mat-dialog-content>
+    <mat-form-field class="text-area-field">
+        <mat-label>Text from PDF</mat-label>
+        <textarea matInput [(ngModel)]="data.text">
+        </textarea>
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Import</button>
+</mat-dialog-actions>

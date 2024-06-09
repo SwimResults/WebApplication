@@ -3,7 +3,9 @@ import {EventService, FileService} from "../../../../core/service/api";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {ImportFileService} from "../../../../core/service/api/import/import-file.service";
+import {ImportFileRequest, ImportFileService} from "../../../../core/service/api/import/import-file.service";
+import {MatDialog} from "@angular/material/dialog";
+import {AdminImportTextDialog} from "./admin-import-text-dialog.component";
 
 interface FileList {
     name: string,
@@ -24,6 +26,7 @@ export class AdminImportToolComponent implements OnInit {
     fileTypeList = [
         {name: 'DSV', value: "dsv"},
         {name: 'PDF', value: "pdf"},
+        {name: 'TXT', value: "pdf_txt"},
     ];
 
     currentFileType: string = ""
@@ -41,7 +44,8 @@ export class AdminImportToolComponent implements OnInit {
         private eventService: EventService,
         private fileService: FileService,
         private importService: ImportFileService,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private dialog: MatDialog
     ) {
         this.importForm = this.fb.group({
             url: [],
@@ -112,23 +116,60 @@ export class AdminImportToolComponent implements OnInit {
             }
         }
 
-        this.importService.importFile(
-            this.importForm.value.url,
-            this.importForm.value.fileType,
-            this.importForm.value.listType,
-            excludes,
-            includes,
-            this.meetingId
-        ).subscribe({
-            next: (_ => {
-                console.log("successfully send import for '" + this.importForm.value.url + "'")
-                this.runningImport = false;
-            }),
-            error: err => {
-                console.error(err);
-                this.runningImport = false;
-            }
-        })
+        let data: ImportFileRequest = {
+            url: this.importForm.value.url,
+            text: "",
+            file_extension: this.importForm.value.fileType.toUpperCase(),
+            file_type: this.importForm.value.listType.toUpperCase(),
+            exclude_events: excludes,
+            include_events: includes,
+            meeting: this.meetingId
+        }
+
+        if (this.importForm.value.fileType === 'pdf_txt') {
+            this.importService.readToPdfBeforeImport(data).subscribe({
+                next: (newData => {
+                    console.log("successfully send pdf to text for '" + this.importForm.value.url + "'")
+                    console.log(newData.text)
+
+                    const dialogRef = this.dialog.open(AdminImportTextDialog, {
+                        data: newData,
+                        width: '80%'
+                    });
+
+                    dialogRef.afterClosed().subscribe(result => {
+                        console.log('The dialog was closed');
+
+                        this.importService.importFile(result).subscribe({
+                            next: (_ => {
+                                console.log("successfully send import for text")
+                                this.runningImport = false;
+                            }),
+                            error: err => {
+                                console.error(err);
+                                this.runningImport = false;
+                            }
+                        })
+                    });
+                }),
+                error: err => {
+                    console.error(err);
+                    this.runningImport = false;
+                }
+            })
+        } else {
+            this.importService.importFile(data).subscribe({
+                next: (_ => {
+                    console.log("successfully send import for '" + this.importForm.value.url + "'")
+                    this.runningImport = false;
+                }),
+                error: err => {
+                    console.error(err);
+                    this.runningImport = false;
+                }
+            })
+        }
+
     }
 
     setCurrentFileForImport() {
@@ -164,5 +205,5 @@ export class AdminImportToolComponent implements OnInit {
             });
         }
     }
-
 }
+
