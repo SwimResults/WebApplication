@@ -11,7 +11,7 @@
 
       <mat-radio-group aria-label="Listentyp" formControlName="listType">
         <mat-radio-button value="definition" *ngIf="currentFileType === 'dsv'">Definitionsliste</mat-radio-button>
-        <mat-radio-button value="start_list" *ngIf="currentFileType === 'pdf'">Startliste</mat-radio-button>
+        <mat-radio-button value="start_list" *ngIf="currentFileType !== 'dsv' && currentFileType !== ''">Startliste</mat-radio-button>
         <mat-radio-button value="result_list" *ngIf="currentFileType !== ''">Ergebnis</mat-radio-button>
       </mat-radio-group>
 
