@@ -106,6 +106,18 @@
             },
             "SB": {
                 "NAME": "SB"
+            },
+            "BUTTERFLY_KICKS": {
+                "NAME": "Delfinbeine"
+            },
+            "BREASTSTROKE_KICKS": {
+                "NAME": "Brustbeine"
+            },
+            "FREESTYLE_KICKS": {
+                "NAME": "Kraulbeine"
+            },
+            "BACKSTROKE_KICKS": {
+                "NAME": "Rückenkraulbeine"
             }
         },
         "GENDER": {
