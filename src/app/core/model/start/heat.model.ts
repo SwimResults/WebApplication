@@ -1,4 +1,4 @@
-import {createDate, createDateFromUTC, createDatePlusOne} from "../../function/date.functions";
+import {createDateForBerlin} from "../../function/date.functions";
 
 export interface Heat {
   _id: string;
@@ -36,7 +36,7 @@ export class HeatImpl implements Heat {
   }
 
   getEstimatedStart(): Date {
-    return createDate(this.start_estimation);
+    return createDateForBerlin(this.start_estimation);
   }
 
   getEstimatedStartTime(): string {
@@ -46,15 +46,11 @@ export class HeatImpl implements Heat {
   }
 
   getStartDelayEstimation(): Date {
-      if (this.getStartAt().getTime() > 1000) {
-          return createDateFromUTC(this.start_delay_estimation);
-      } else {
-          return createDatePlusOne(this.start_delay_estimation)
-      }
+      return createDateForBerlin(this.start_delay_estimation);
   }
 
   getFinishedAt(): Date {
-    return createDateFromUTC(this.finished_at);
+    return createDateForBerlin(this.finished_at);
   }
 
   getFinishedAtTime(): string {
@@ -76,7 +72,7 @@ export class HeatImpl implements Heat {
   }
 
   getStartAt(): Date {
-    return createDateFromUTC(this.start_at);
+    return createDateForBerlin(this.start_at);
   }
 
   getStartAtTime(): string {

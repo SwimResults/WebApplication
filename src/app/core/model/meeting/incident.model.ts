@@ -1,4 +1,4 @@
-import {createDate} from "../../function/date.functions";
+import {createDateForBerlin} from "../../function/date.functions";
 
 export interface Incident {
     _id: string;
@@ -36,11 +36,11 @@ export class IncidentImpl {
     }
 
     public getStartDate(): Date {
-        return createDate(this.start);
+        return createDateForBerlin(this.start);
     }
 
     public getEndDate(): Date {
-        return createDate(this.end)
+        return createDateForBerlin(this.end)
     }
 
     public getStartTimeString(): string {

@@ -25,8 +25,12 @@ export function createDatePlusOne(s: string): Date {
 }
 
 export function createDateFromUTC(s: string): Date {
+    return new Date(s);
+}
+
+export function createDateForBerlin(s: string): Date {
     let d = new Date(s);
-    return d;
+    return convertTZ(d, "Europe/Berlin");
 }
 
 //https://stackoverflow.com/questions/10087819/convert-date-to-another-timezone-in-javascript
