@@ -96,6 +96,18 @@
             },
             "SB": {
                 "NAME": "SB"
+            },
+            "BUTTERFLY_KICKS": {
+                "NAME": "Dolphin kicks"
+            },
+            "BREASTSTROKE_KICKS": {
+                "NAME": "Breaststroke kicks"
+            },
+            "FREESTYLE_KICKS": {
+                "NAME": "Freestyle kicks"
+            },
+            "BACKSTROKE_KICKS": {
+                "NAME": "Backstroke kicks"
             }
         },
         "GENDER": {
