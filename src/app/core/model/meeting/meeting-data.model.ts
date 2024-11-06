@@ -1,3 +1,5 @@
+import {Sponsor} from "./sponsor.model";
+
 export interface MeetingData {
   livetiming_url: string;
   website_url: string;
@@ -10,4 +12,5 @@ export interface MeetingData {
   has_ftp_result_list: boolean;
   ftp_start_list_mask: string;
   ftp_result_list_mask: string;
+  sponsors: Sponsor[];
 }

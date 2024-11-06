@@ -35,6 +35,7 @@ import {WidgetFavoritesMediumComponent} from "./favorites/widget-favorites-mediu
 import {WidgetFavoritesLargeComponent} from "./favorites/widget-favorites-large/widget-favorites-large.component";
 import {WidgetStartsLargeComponent} from "./starts/widget-starts-large/widget-starts-large.component";
 import {WidgetWeblinksSmallComponent} from "./weblinks/widget-weblinks-small/widget-weblinks-small.component";
+import {WidgetSponsorsMediumComponent} from "./sponsors/widget-sponsors-medium/widget-sponsors-medium.component";
 
 export type ComponentClass = { new (): Component };
 
@@ -63,3 +64,4 @@ widgetComponents.set('favorites-medium', WidgetFavoritesMediumComponent);
 widgetComponents.set('favorites-large', WidgetFavoritesLargeComponent);
 widgetComponents.set('starts-large', WidgetStartsLargeComponent);
 widgetComponents.set('weblinks-small', WidgetWeblinksSmallComponent);
+widgetComponents.set('sponsors-medium', WidgetSponsorsMediumComponent)

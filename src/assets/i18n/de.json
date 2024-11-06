@@ -316,6 +316,10 @@
             "TITLE": "Links",
             "LIVESTREAM_LINK_TEXT": "Livestream",
             "WEBSITE_LINK_TEXT": "Webseite"
+        },
+        "SPONSORS": {
+            "TITLE": "Sponsoren",
+            "NO_SPONSORS": "Keine Einträge"
         }
     },
     "DASHBOARD": {

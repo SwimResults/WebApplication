@@ -312,6 +312,10 @@
             "TITLE": "Weblinks",
             "LIVESTREAM_LINK_TEXT": "Livestream",
             "WEBSITE_LINK_TEXT": "Website"
+        },
+        "SPONSORS": {
+            "TITLE": "Sponsors",
+            "NO_SPONSORS": "No Entries"
         }
     },
     "ENTRY_PAGE": {

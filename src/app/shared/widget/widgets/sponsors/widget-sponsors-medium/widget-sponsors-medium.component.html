@@ -1,0 +1,12 @@
+<sr-widget-title icon="paid">{{'WIDGET.SPONSORS.TITLE' | translate}}</sr-widget-title>
+<sr-widget-info-text *ngIf="!sponsor">{{'WIDGET.SPONSORS.NO_SPONSORS' | translate}}</sr-widget-info-text>
+<ng-container *ngIf="sponsor">
+
+    <a *ngIf="sponsor.website_url" [href]="sponsor.website_url">
+        <img class="sponsor-image" [src]="sponsor.image_url" [alt]="sponsor.name">
+    </a>
+
+    <span *ngIf="!sponsor.website_url">
+        <img class="sponsor-image" [src]="sponsor.image_url" [alt]="sponsor.name">
+    </span>
+</ng-container>
