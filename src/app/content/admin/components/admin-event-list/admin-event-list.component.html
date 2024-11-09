@@ -22,14 +22,14 @@
         <div class="event-list-heats" *ngIf="heats.get(event.number)">
           <div class="event-list-heat" *ngFor="let heat of heats.get(event.number)">
             <span class="heat-name">Lauf {{heat.number}}/{{heats.get(event.number)?.length}}</span>
-            <sr-heat-times [heat]="heat" orientation="horizontal" fixedTimeWidth="80"></sr-heat-times>
+            <!--sr-heat-times [heat]="heat" orientation="horizontal" fixedTimeWidth="80"></sr-heat-times>
             <span class="heat-time">{{heat.getStartAtTime()}}</span>
             <span class="heat-time">{{heat.getFinishedAtTime()}}</span>
 
             <div class="heat-check">
               <mat-icon *ngIf="heat.getFinishedAtTime() === '0:00'">radio_button_unchecked</mat-icon>
               <mat-icon *ngIf="heat.getFinishedAtTime() !== '0:00'">check_circle</mat-icon>
-            </div>
+            </div-->
 
             <sr-icon-btn layout="no-background" class="show-heat" (btnClick)="onShowHeat(heat)"><mat-icon>loupe</mat-icon></sr-icon-btn>
           </div>
