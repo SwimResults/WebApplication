@@ -1,23 +1,329 @@
 {
+    "ATHLETE": {
+        "LIST": {
+            "ATHLETES_TITLE": "Sportovci",
+            "FAVORITES_TITLE": "Favorité",
+            "MORE": {
+                "ATHLETE_BUTTON_TEXT": "Zobrazit sportovce",
+                "SHARE_BUTTON_TEXT": "Sdílet",
+                "TEAM_BUTTON_TEXT": "Zobrazit tým"
+            },
+            "PAGE_TITLE": "Sportovci"
+        },
+        "PROFILE": {
+            "FOLLOW_BUTTON_TEXT": "Sledovat",
+            "UNFOLLOW_BUTTON_TEXT": "Přestat sledovat"
+        }
+    },
+    "AUTH": {
+        "LOGOUT": {
+            "INFO_TEXT": "Byl jsi úspěšně odhlášen",
+            "TITLE": "Odhlášení"
+        }
+    },
+    "COMMON": {
+        "DATE": {
+            "MONTH": {
+                "APR": "Dub",
+                "AUG": "Srp",
+                "DEC": "Pro",
+                "FEB": "Únr",
+                "JAN": "Led",
+                "JUL": "Čvc",
+                "JUN": "Čvn",
+                "MAR": "Bře",
+                "MAY": "Kvě",
+                "NOV": "Lis",
+                "OCT": "Říj",
+                "SEP": "Zář"
+            }
+        },
+        "ERROR": {
+            "SERVICE_OFFLINE": {
+                "ATHLETE": "Servis sportovců a týmů",
+                "IMPORT": "Servis importu",
+                "MEETING": "Organizační servis akce",
+                "MESSAGE": "{{system}} není momentálně k dispozici",
+                "START": "Obsluha startu",
+                "USER": "Uživatelský servis"
+            }
+        },
+        "EVENT": {
+            "SINGULAR": "Závod"
+        },
+        "FORM": {
+            "SEARCH": {
+                "SEARCH_INPUT_LABEL": "Hledání..."
+            }
+        },
+        "GENDER": {
+            "FEMALE": {
+                "NAME": "ženy"
+            },
+            "MALE": {
+                "NAME": "muži"
+            },
+            "MIXED": {
+                "NAME": "Muži i ženy mix"
+            }
+        },
+        "HEAT": {
+            "PLURAL": "Rozplavby",
+            "SHORT": "R",
+            "SINGULAR": "Rozplavba"
+        },
+        "LANE": {
+            "PLURAL": "Dráhy",
+            "SHORT": "D",
+            "SINGULAR": "Dráha"
+        },
+        "LANGUAGE": {
+            "CZ": "Čs.",
+            "DE": "Něm.",
+            "EN": "Angl.",
+            "RU": "Rus.",
+            "UA": "Ukr."
+        },
+        "LIST": {
+            "NO_ENTRIES_MESSAGE": "Nebyly nalezeny žádné záznamy!"
+        },
+        "STYLE": {
+            "APNOE": {
+                "NAME": "AP"
+            },
+            "BACKSTROKE_KICKS": {
+                "NAME": "Znak-nohy"
+            },
+            "BACKSTROKE": {
+                "NAME": "Znak"
+            },
+            "BIFIN": {
+                "NAME": "BF"
+            },
+            "BREASTSTROKE_KICKS": {
+                "NAME": "Prsa-nohy"
+            },
+            "BREASTSTROKE": {
+                "NAME": "Prsa"
+            },
+            "BUTTERFLY_KICKS": {
+                "NAME": "Motýlek/delfín-nohy"
+            },
+            "BUTTERFLY": {
+                "NAME": "Motýlek"
+            },
+            "DISTANCE_DIVING": {
+                "NAME": "ST"
+            },
+            "FINSWIMMING": {
+                "NAME": "FS"
+            },
+            "FREESTYLE_KICKS": {
+                "NAME": "Kraul-nohy"
+            },
+            "FREESTYLE": {
+                "NAME": "Volný stal"
+            },
+            "MEDLEY": {
+                "NAME": "Polohový závod"
+            },
+            "SB": {
+                "NAME": "SB"
+            },
+            "UNDEFINED": {
+                "NAME": "Plavání"
+            }
+        }
+    },
+    "DASHBOARD": {
+        "FIND_MORE_MESSAGE": "Displej ukazuje nejdůležitější informace.  Časomíra, soutěžící, tým a závod lze najít",
+        "WELCOME_MESSAGE": "Vítej zpátky  {{username}}!"
+    },
+    "ENTRY_PAGE": {
+        "ABOUT_TEXT": "SwimResults umožňuje soutěžícím, trenérům a doprovodu zobrazit starty, výsledky, umístění, časomíru a další údaje",
+        "INFO_LINKS_TITLE": "Informační odkazy"
+    },
+    "EVENT": {
+        "DASHBOARD": {
+            "CURRENT_MEETING_INFO": "Aktuální závod {{name_full}}"
+        },
+        "LIST": {
+            "INCIDENT": {
+                "BREAK": "Přestávka",
+                "CEREMONY": "Vyhlášení vítězů",
+                "JUDGES_MEETING": "Porada rozhodčích",
+                "TEAM_LEADER_MEETING": "Porada vedoucích týmů",
+                "WARMUP": "Rozplavání"
+            },
+            "NO_EVENTS_MESSAGE": "Nebyly nalezeny žádné závody",
+            "PAGE_TITLE": "Rozpis",
+            "PART_TITLE": "Část"
+        },
+        "PAGE": {
+            "EVENT_TITLE_EVENT": "Závod",
+            "HEAT": "Rozplavba",
+            "LIST_MODE_FINISH": "Cíl",
+            "LIST_MODE_RESULT_LIST": "Výsledková listina",
+            "LIST_MODE_START_LIST": "Startovní listina",
+            "NO_STARTS_MESSAGE": "Nebyly nalezeny žádné starty v tomto závodě",
+            "RESULT_LIST_FILE_BUTTON": "Výsledková listina závodů {{event_number}}",
+            "START_LIST_FILE_BUTTON": "Listina nahlášených startů  {{event_number}}"
+        }
+    },
+    "FILES": {
+        "FILE_NAMES": {
+            "DATA_PROTECTION": "Ochrana dat",
+            "DSV_DEFINITION": "DSV-datové soubory",
+            "DSV_RESULTS": "DSV-výsledkový soubor",
+            "LENEX_DEFINITION": "LENEX",
+            "LENEX_RESULTS": "LENEX-výsledkový soubor",
+            "MEETING_INFO": "Rozpis",
+            "OVERNIGHT_STAY_TICKETS": "Objednávky: prenocování/stravování/volné lístky",
+            "PRIVACY_INFORMATION": "Informace o ochrane osobních údaju (DSV)",
+            "REGISTRATION_LIST": "Starter List",
+            "REGISTRATION_SOFTWARE": "Registracní software pro mezinárodní kluby",
+            "RESULTS_LIST": "Výsledkové záznamy",
+            "START_LIST": "Rozhodnutí o registraci"
+        },
+        "LIST": {
+            "PAGE_TITLE": "Soubory"
+        },
+        "NO_FILES_MESSAGE": "Pro tyto závody nebyly nalezeny žádné soubory"
+    },
+    "HEADER": {
+        "MENU": {
+            "ACCOUNT": {
+                "EXPERIMENTAL_BUTTON_TEXT": "Experimentální funkce",
+                "LOGIN": "Přihlášení",
+                "LOGOUT": "Odhlášení",
+                "PROFILE_BUTTON_TEXT": "Zobrazení profilu",
+                "SETTINGS_BUTTON_TEXT": "Nastavení"
+            },
+            "LANGUAGE_TITLE": "Výběr jazyka"
+        }
+    },
+    "LIVE": {
+        "NO_CONTENT_MESSAGE": "Obsah nelze nahrát",
+        "NO_LIVETIMING_MESSAGE": "Pro tento závod není k dispozici časomíra",
+        "NO_LIVETIMING_YET_MESSAGE": "Časomíra je k dispozici až po zveřejnění startovní listiny",
+        "NO_STARTS_MESSAGE": "Momentálně nejsou k dispozici žádné starty pro časomíru",
+        "STREAM_BUTTON_TEXT": "Livestream na {{platform}}"
+    },
     "MEETINGS": {
         "LIST": {
             "PAGE_TITLE": "Události"
         }
     },
-    "FILES": {
-        "FILE_NAMES": {
-            "MEETING_INFO": "Rozpis",
-            "REGISTRATION_LIST": "Starter List",
-            "START_LIST": "Rozhodnutí o registraci",
-            "RESULTS_LIST": "Výsledkové záznamy",
-            "DSV_DEFINITION": "DSV-datové soubory",
-            "DSV_RESULTS": "DSV-výsledkový soubor",
-            "LENEX_DEFINITION": "LENEX",
-            "LENEX_RESULTS": "LENEX-výsledkový soubor",
-            "REGISTRATION_SOFTWARE": "Registracní software pro mezinárodní kluby",
-            "DATA_PROTECTION": "Ochrana dat",
-            "PRIVACY_INFORMATION": "Informace o ochrane osobních údaju (DSV)",
-            "OVERNIGHT_STAY_TICKETS": "Objednávky: prenocování/stravování/volné lístky"
+    "NAV": {
+        "LINK": {
+            "TITLE": {
+                "ADMIN": "Admin",
+                "ATHLETES": "Sportovci",
+                "DASHBOARD": "Displej",
+                "EVENTS": "Závody",
+                "FILES": "Soubory",
+                "LEAVE_MEETING": "Opustit {{short}}",
+                "LIVE": "Živě",
+                "MEETINGS": "Meetingy",
+                "SPEAKER": "Komentátor",
+                "STATS": "Statistiky",
+                "TEAMS": "Týmy"
+            }
+        },
+        "NO_MEETING_INFO": "Vyber sportovní akci, aby bylo možno vyhledat závod, soutěžící a týmy"
+    },
+    "START": {
+        "EVENT_SHORT": "Závod",
+        "LANE": "Dráha",
+        "LANE_STAYS_EMPTY": "Dráha {{lane}} zůstane prázdná"
+    },
+    "TEAM": {
+        "LIST": {
+            "PAGE_TITLE": "Týmy"
+        },
+        "PAGE": {
+            "ADDRESS_TITLE": "Adresa",
+            "ATHLETE_TITLE": "Závodník",
+            "CONTACT": {
+                "EMAIL": "E-mailová adresa",
+                "FAX": "Fax",
+                "NAME": "Kontaktní osoba",
+                "PHONE": "Tel.",
+                "TITLE": "Kontakt"
+            },
+            "INFO_TITLE": "Info",
+            "PARTICIPANTS_TITLE": "Účastník",
+            "WEBSITE": {
+                "OPEN_BTN_TEXT": "Otevřít domovskou stránku",
+                "TITLE": "Domovská stránka"
+            }
+        }
+    },
+    "TEST": {
+        "EXAMPLE": "To je příklad textu, který bude přeložen"
+    },
+    "USER": {
+        "PROFILE": {
+            "ACTION_BUTTON_TITLE": "Akce",
+            "CHANGE_DATA_BUTTON_TEXT": "Změnit uživatelská data",
+            "DELETE_USER_BUTTON_TEXT": "Vymazat účet",
+            "FAMILY_NAME": "Příjmení",
+            "GIVEN_NAME": "Křestní jméno",
+            "INTERNAL_ID": "Interní ID",
+            "MAIL": "E-mail",
+            "NOT_AUTHED_MESSAGE": "Nejsi přihlášen!",
+            "TITLE": "Uživatelský profil",
+            "USER_DATA_TITLE": "Uložená uživatelská data",
+            "USERNAME": "Uživatelské jméno"
+        },
+        "SETTINGS": {
+            "USER_ATHLETE": {
+                "INFO_TEXT": "Pokud jsi plavec, můžeš zde zvolit, jakým jsi sportovcem. To může být užito při ohlášení tvých dalších startů",
+                "NO_USER_SET": "Tvůj účet není momentálně přiřazen žádnému závodníkovi",
+                "THIS_IS_YOU_TITLE": "To jsi ty:",
+                "TITLE": "Soutěžící k tvému účtu"
+            }
+        }
+    },
+    "WIDGET": {
+        "COMING_SOON": {
+            "MAIN_TEXT": "Tento displej bude průběžně rozšířen o dodatečné položky"
+        },
+        "DELAY": {
+            "AHEAD_OF_SCHEDULE": "před časovým rozpisem",
+            "BEHIND_SCHEDULE": "po časovém rozpisu",
+            "NO_HEAT_DATA_MESSAGE": "Zpoždění nemůže být aktuálně vyčísleno",
+            "TITLE": "Zpoždění"
+        },
+        "FAVORITES": {
+            "NO_FAVORITES": "Můžeš sledovat své sportovce přes jejich profil",
+            "TITLE": "Favorité"
+        },
+        "FILE": {
+            "NOT_FOUND_MESSAGE": "{{filename}} nebyl nalezen"
+        },
+        "LOGIN_REQUIRED": "Musíš být přihlášen, abys mohl využít tuto položku",
+        "NUMBER_OF": {
+            "ATHLETES": "Sportovci",
+            "HEATS": "Rozplavby",
+            "STARTS": "Starty",
+            "TEAMS": "Týmy"
+        },
+        "SPONSORS": {
+            "NO_SPONSORS": "Žádné záznamy",
+            "TITLE": "Sponzoři"
+        },
+        "STARTS": {
+            "NO_OWN_ATHLETE": "Zvol si, jakým jsi sportovcem, abys mohl použít tuto položku.",
+            "NO_STARTS": "Nebyly nalezeny žádné starty",
+            "SET_OWN_ATHLETE_BUTTON": "Zadat sportovce",
+            "SHOW_STARTS_BUTTON": "Ukázat všechny starty",
+            "TITLE": "Následující starty"
+        },
+        "WEBLINKS": {
+            "LIVESTREAM_LINK_TEXT": "Livestream",
+            "TITLE": "Odkazy",
+            "WEBSITE_LINK_TEXT": "Webová stránka"
         }
     }
 }
