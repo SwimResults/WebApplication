@@ -20,16 +20,22 @@ import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import {PageAdminNotificationComponent} from "./pages/page-admin-notification/page-admin-notification.component";
+import { AdminNotificationSenderComponent } from './components/admin-notification-sender/admin-notification-sender.component';
+import { AdminNotificationViewComponent } from './components/admin-notification-view/admin-notification-view.component';
 
 
 @NgModule({
     declarations: [
         PageAdminEventComponent,
+        PageAdminNotificationComponent,
         AdminMainViewComponent,
         AdminHeatToolComponent,
         AdminImportToolComponent,
         AdminEventListComponent,
-        AdminImportTextDialogComponent
+        AdminImportTextDialogComponent,
+        AdminNotificationSenderComponent,
+        AdminNotificationViewComponent
     ],
     imports: [
         CommonModule,

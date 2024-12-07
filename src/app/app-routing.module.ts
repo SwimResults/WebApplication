@@ -17,6 +17,9 @@ import {PageUserSettingsComponent, UserProfileComponent} from "./content/account
 import {PageMeetingsComponent} from "./content/meetings";
 import {LogoutComponent} from "./content/auth/logout/logout.component";
 import {PageAdminEventComponent} from "./content/admin";
+import {
+    PageAdminNotificationComponent
+} from "./content/admin/pages/page-admin-notification/page-admin-notification.component";
 
 
 const routes: Routes = [
@@ -48,7 +51,8 @@ const routes: Routes = [
       { path: "files",                component: PageFilesComponent },
       { path: "speaker",              component: PageDashboardSpeakerComponent },
       { path: "stats",                component: PageStatsEventComponent },
-      { path: "admin",                component: PageAdminEventComponent },
+      { path: "admin/event",          component: PageAdminEventComponent },
+      { path: "admin/notification",   component: PageAdminNotificationComponent },
     ]
   }
 
