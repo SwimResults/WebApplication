@@ -49,8 +49,13 @@
   <sr-nav-group *srIsAdmin>
     <sr-nav-link
       icon="terminal"
-      link="/m/{{meetingId}}/admin"
+      link="/m/{{meetingId}}/admin/event"
       link_title="{{'NAV.LINK.TITLE.ADMIN' | translate}}"
     ></sr-nav-link>
+      <sr-nav-link
+          icon="bell"
+          link="/m/{{meetingId}}/admin/notification"
+          link_title="Notifications"
+      ></sr-nav-link>
   </sr-nav-group>
 </ng-container>
