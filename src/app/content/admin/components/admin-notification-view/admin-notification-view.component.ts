@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 
@@ -7,7 +7,7 @@ import {RouteService} from "../../../../core/service/route.service";
   templateUrl: './admin-notification-view.component.html',
   styleUrl: './admin-notification-view.component.scss'
 })
-export class AdminNotificationViewComponent {
+export class AdminNotificationViewComponent implements OnDestroy {
     meetingId?: string;
     meetingIdSubscription: Subscription;
 

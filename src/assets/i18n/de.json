@@ -9,6 +9,7 @@
         "PAGE": {
             "EVENT_TITLE_EVENT": "Wettkampf",
             "HEAT": "Lauf",
+            "START_LIST": "Startliste",
             "NO_STARTS_MESSAGE": "Es wurden keine Starts für diesen Wettkampf gefunden.",
             "START_LIST_FILE_BUTTON": "Meldeergebnis WK {{event_number}}",
             "RESULT_LIST_FILE_BUTTON": "Protokoll WK {{event_number}}",
