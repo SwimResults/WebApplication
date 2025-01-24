@@ -27,6 +27,7 @@
         "PAGE": {
             "EVENT_TITLE_EVENT": "Event",
             "HEAT": "Heat",
+            "START_LIST": "Startliste",
             "NO_STARTS_MESSAGE": "No starts have been found.",
             "START_LIST_FILE_BUTTON": "Start List Event {{event_number}}",
             "RESULT_LIST_FILE_BUTTON": "Result List Event {{event_number}}",
