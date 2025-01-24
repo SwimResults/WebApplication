@@ -34,8 +34,8 @@
           <span *ngIf="meeting.location?.city" class="meeting-city">{{meeting.location.city}}</span>
         </span>
 
-        <span class="heat" *ngIf="config.showHeat">{{'COMMON.HEAT.SHORT' | translate}} {{data.is_pre_list ? '?' : data.heat_number}}</span>
-        <span class="lane" *ngIf="config.showLane">{{'COMMON.LANE.SHORT' | translate}} {{data.is_pre_list ? '?' : data.lane}}</span>
+        <span class="heat" *ngIf="config.showHeat">{{'COMMON.HEAT.SHORT' | translate}} {{data.isPreList() ? '?' : data.heat_number}}</span>
+        <span class="lane" *ngIf="config.showLane">{{'COMMON.LANE.SHORT' | translate}} {{data.isPreList() ? '?' : data.lane}}</span>
         <span class="athlete" *ngIf="config.showAthlete">
           <span *ngIf="!data.is_relay" class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{data.athlete_name}}</span>
           <span *ngIf="data.is_relay" class="athlete-name">{{data.athlete_name}}</span>

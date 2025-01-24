@@ -82,6 +82,10 @@ export class StartImpl implements Start {
     }
   }
 
+  isPreList(): boolean {
+      return this.is_pre_list || this.heat.is_pre_list;
+  }
+
   getTimeMilliseconds(resultType: ResultTypes): number {
     let latest: Date = new Date(0);
     let time = 0
