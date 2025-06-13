@@ -37,6 +37,30 @@
   </button>
 </mat-menu>
 
+<button class="sr-btn-bar sr-btn-icon sr-btn" [matMenuTriggerFor]="feedbackMenu">
+    <mat-icon>feedback</mat-icon>
+</button>
+
+<mat-menu #feedbackMenu="matMenu">
+    <ng-container *srIsAdmin>
+        <button class="sr-btn sr-btn-menu" routerLink="/admin/reports">
+            <mat-icon>report</mat-icon>
+            <span>{{'HEADER.MENU.FEEDBACK.ADMIN_REPORTS_BUTTON' | translate}}</span>
+        </button>
+
+        <mat-divider></mat-divider>
+    </ng-container>
+
+    <button class="sr-btn sr-btn-menu" (click)="openFeedbackDialog()">
+        <mat-icon>feedback</mat-icon>
+        <span>{{'HEADER.MENU.FEEDBACK.FEEDBACK_BUTTON' | translate}}</span>
+    </button>
+    <button class="sr-btn sr-btn-menu" (click)="openReportDialog()">
+        <mat-icon>report</mat-icon>
+        <span>{{'HEADER.MENU.FEEDBACK.REPORT_BUTTON' | translate}}</span>
+    </button>
+</mat-menu>
+
 <button class="sr-btn-bar sr-btn-icon sr-btn" [matMenuTriggerFor]="accountMenu">
   <mat-icon>account_circle</mat-icon>
 </button>

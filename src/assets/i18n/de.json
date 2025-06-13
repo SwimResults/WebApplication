@@ -62,6 +62,18 @@
         "FORM": {
             "SEARCH": {
                 "SEARCH_INPUT_LABEL": "Suchen…"
+            },
+            "BUTTON": {
+                "SEARCH": "Suchen",
+                "CANCEL": "Abbrechen",
+                "SAVE": "Speichern",
+                "DELETE": "Löschen",
+                "EDIT": "Bearbeiten",
+                "ADD": "Hinzufügen",
+                "BACK": "Zurück",
+                "SHOW_MORE": "Mehr anzeigen",
+                "SHOW_LESS": "Weniger anzeigen",
+                "SUBMIT": "Absenden"
             }
         },
         "LIST": {
@@ -185,6 +197,11 @@
     },
     "HEADER": {
         "MENU": {
+            "FEEDBACK": {
+                "ADMIN_REPORTS_BUTTON": "Reports",
+                "FEEDBACK_BUTTON": "Feedback",
+                "REPORT_BUTTON": "Fehler melden"
+            },
             "ACCOUNT": {
                 "SETTINGS_BUTTON_TEXT": "Einstellungen",
                 "PROFILE_BUTTON_TEXT": "Profil anzeigen",
@@ -326,5 +343,16 @@
     "DASHBOARD": {
         "WELCOME_MESSAGE": "Willkommen zurück, {{username}}!",
         "FIND_MORE_MESSAGE": "Das Dashboard zeigt die wichtigsten Informationen an. Livetiming, Sportler- und Vereinssuche und Wettkämpfe findest du über das Menü."
+    },
+    "REPORT": {
+        "DIALOG": {
+            "TITLE": "Fehler melden",
+            "DESCRIPTION": "Dir ist ein Fehler aufgefallen? Hier kannst du diesen schnell und einfach melden.",
+            "MESSAGE_LABEL": "Beschreibung des Fehlers",
+            "SUBMIT": {
+                "SUCCESS_MESSAGE": "Report gesendet!",
+                "FAILURE_MESSAGE": "Senden fehlgeschlagen!"
+            }
+        }
     }
 }
