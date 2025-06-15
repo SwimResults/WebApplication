@@ -16,7 +16,7 @@
 </ng-container>
 
 <div class="list-mode-select">
-    <mat-button-toggle-group>
+    <mat-button-toggle-group [hideSingleSelectionIndicator]="true">
         <mat-button-toggle value="lanes" checked="true"  (click)="changeListMode('lanes')">{{'EVENT.PAGE.LIST_MODE_START_LIST' | translate}}</mat-button-toggle>
         <mat-button-toggle value="finish" (click)="changeListMode('finish')">{{'EVENT.PAGE.LIST_MODE_FINISH' | translate}}</mat-button-toggle>
         <mat-button-toggle value="results" (click)="changeListMode('results')">{{'EVENT.PAGE.LIST_MODE_RESULT_LIST' | translate}}</mat-button-toggle>
