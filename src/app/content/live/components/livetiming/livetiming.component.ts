@@ -24,7 +24,8 @@ export interface LiveSettingsData {
 @Component({
     selector: 'sr-livetiming',
     templateUrl: './livetiming.component.html',
-    styleUrls: ['./livetiming.component.scss']
+    styleUrls: ['./livetiming.component.scss'],
+    standalone: false
 })
 export class LivetimingComponent implements OnInit, OnDestroy {
 

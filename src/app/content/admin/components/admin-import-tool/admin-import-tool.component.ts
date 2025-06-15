@@ -17,7 +17,8 @@ interface FileList {
 @Component({
     selector: 'sr-admin-import-tool',
     templateUrl: './admin-import-tool.component.html',
-    styleUrls: ['./admin-import-tool.component.scss']
+    styleUrls: ['./admin-import-tool.component.scss'],
+    standalone: false
 })
 export class AdminImportToolComponent implements OnInit {
     @Input() meetingId?: string;

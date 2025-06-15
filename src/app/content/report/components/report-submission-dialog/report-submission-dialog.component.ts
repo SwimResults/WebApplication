@@ -20,11 +20,10 @@ export interface ReportSubmissionDialogData {
 }
 
 @Component({
-  selector: 'sr-report-submission-dialog',
-  standalone: true,
+    selector: 'sr-report-submission-dialog',
     imports: [CommonModule, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule, TranslateModule, MatInputModule, FormsModule],
-  templateUrl: './report-submission-dialog.component.html',
-  styleUrl: './report-submission-dialog.component.scss'
+    templateUrl: './report-submission-dialog.component.html',
+    styleUrl: './report-submission-dialog.component.scss'
 })
 export class ReportSubmissionDialogComponent {
 

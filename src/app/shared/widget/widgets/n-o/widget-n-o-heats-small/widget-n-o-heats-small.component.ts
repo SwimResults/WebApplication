@@ -4,9 +4,10 @@ import {HeatService} from "../../../../../core/service/api";
 import {RouteService} from "../../../../../core/service/route.service";
 
 @Component({
-  selector: 'sr-widget-n-o-heats-small',
+    selector: 'sr-widget-n-o-heats-small',
     templateUrl: './../widget-n-o-small.component.html',
-  styleUrls: ['./widget-n-o-heats-small.component.scss', './../widget-n-o-small.component.scss']
+    styleUrls: ['./widget-n-o-heats-small.component.scss', './../widget-n-o-small.component.scss'],
+    standalone: false
 })
 export class WidgetNOHeatsSmallComponent extends WidgetNOSmallComponent {
     constructor(

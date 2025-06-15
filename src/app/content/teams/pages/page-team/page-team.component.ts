@@ -10,9 +10,10 @@ import {RouteService} from "../../../../core/service/route.service";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
-  selector: 'sr-page-team',
-  templateUrl: './page-team.component.html',
-  styleUrls: ['./page-team.component.scss']
+    selector: 'sr-page-team',
+    templateUrl: './page-team.component.html',
+    styleUrls: ['./page-team.component.scss'],
+    standalone: false
 })
 export class PageTeamComponent implements OnInit, OnDestroy {
   meetingId: string | undefined;

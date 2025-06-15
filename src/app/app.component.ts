@@ -7,9 +7,10 @@ import {Subscription} from "rxjs";
 import {RouteService} from "./core/service/route.service";
 
 @Component({
-  selector: 'sr-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'sr-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: false
 })
 export class AppComponent implements OnDestroy {
   meeting?: MeetingImpl;

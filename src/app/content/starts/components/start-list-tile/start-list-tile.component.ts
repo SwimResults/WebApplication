@@ -9,7 +9,8 @@ import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 @Component({
     selector: 'sr-start-list-tile',
     templateUrl: './start-list-tile.component.html',
-    styleUrls: ['./start-list-tile.component.scss']
+    styleUrls: ['./start-list-tile.component.scss'],
+    standalone: false
 })
 export class StartListTileComponent implements OnInit {
     @Input() config!: StartListTileConfig;

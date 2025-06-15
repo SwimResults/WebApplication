@@ -4,9 +4,10 @@ import {RouteService} from "../../../../../core/service/route.service";
 import {MeetingImpl} from "../../../../../core/model/meeting/meeting.model";
 
 @Component({
-  selector: 'sr-widget-weblinks-small',
-  templateUrl: './widget-weblinks-small.component.html',
-  styleUrl: './widget-weblinks-small.component.scss'
+    selector: 'sr-widget-weblinks-small',
+    templateUrl: './widget-weblinks-small.component.html',
+    styleUrl: './widget-weblinks-small.component.scss',
+    standalone: false
 })
 export class WidgetWeblinksSmallComponent implements OnDestroy {
     meeting?: MeetingImpl;

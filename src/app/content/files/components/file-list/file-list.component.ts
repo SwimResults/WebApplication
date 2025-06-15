@@ -6,9 +6,10 @@ import {RouteService} from "../../../../core/service/route.service";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
-  selector: 'sr-file-list',
-  templateUrl: './file-list.component.html',
-  styleUrls: ['./file-list.component.scss']
+    selector: 'sr-file-list',
+    templateUrl: './file-list.component.html',
+    styleUrls: ['./file-list.component.scss'],
+    standalone: false
 })
 export class FileListComponent implements OnDestroy {
   meetingId?: string;

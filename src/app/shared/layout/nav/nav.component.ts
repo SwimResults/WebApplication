@@ -6,9 +6,10 @@ import {SidebarMenuService} from "../../../core/service/sidebar-menu.service";
 import {Subscription} from "rxjs";
 
 @Component({
-  selector: 'sr-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+    selector: 'sr-nav',
+    templateUrl: './nav.component.html',
+    styleUrls: ['./nav.component.scss'],
+    standalone: false
 })
 export class NavComponent implements OnInit, OnDestroy {
   meeting: Meeting = {} as Meeting;

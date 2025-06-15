@@ -8,9 +8,10 @@ import {AthleteListTile} from "../../../../core/model/list/athlete-list-tile.mod
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
-  selector: 'sr-athlete-list-view',
-  templateUrl: './athlete-list-view.component.html',
-  styleUrls: ['./athlete-list-view.component.scss']
+    selector: 'sr-athlete-list-view',
+    templateUrl: './athlete-list-view.component.html',
+    styleUrls: ['./athlete-list-view.component.scss'],
+    standalone: false
 })
 export class AthleteListViewComponent {
   @Input() meeting?: Meeting;

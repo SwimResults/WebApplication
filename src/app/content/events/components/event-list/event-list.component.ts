@@ -8,9 +8,10 @@ import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {IncidentImpl} from "../../../../core/model/meeting/incident.model";
 
 @Component({
-  selector: 'sr-event-list',
-  templateUrl: './event-list.component.html',
-  styleUrls: ['./event-list.component.scss']
+    selector: 'sr-event-list',
+    templateUrl: './event-list.component.html',
+    styleUrls: ['./event-list.component.scss'],
+    standalone: false
 })
 export class EventListComponent implements OnDestroy {
     meeting?: MeetingImpl;

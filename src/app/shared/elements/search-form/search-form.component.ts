@@ -3,9 +3,10 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'sr-search-form',
-  templateUrl: './search-form.component.html',
-  styleUrls: ['./search-form.component.scss']
+    selector: 'sr-search-form',
+    templateUrl: './search-form.component.html',
+    styleUrls: ['./search-form.component.scss'],
+    standalone: false
 })
 export class SearchFormComponent implements OnInit, AfterViewChecked {
   @Output() querySearch: EventEmitter<string> = new EventEmitter<string>(true);

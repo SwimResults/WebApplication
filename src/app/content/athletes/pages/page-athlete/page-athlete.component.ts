@@ -8,9 +8,10 @@ import {Subscription} from "rxjs";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
-  selector: 'sr-page-athlete',
-  templateUrl: './page-athlete.component.html',
-  styleUrls: ['./page-athlete.component.scss']
+    selector: 'sr-page-athlete',
+    templateUrl: './page-athlete.component.html',
+    styleUrls: ['./page-athlete.component.scss'],
+    standalone: false
 })
 export class PageAthleteComponent implements OnInit, OnDestroy {
   meeting: Meeting = {} as Meeting;

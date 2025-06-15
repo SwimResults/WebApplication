@@ -4,9 +4,10 @@ import {ComponentClass, widgetComponents} from "../widgets/widgets";
 import {WidgetDirective} from "../../../core/directive/widget.directive";
 
 @Component({
-  selector: 'sr-widget-tile',
-  templateUrl: './widget-tile.component.html',
-  styleUrls: ['./widget-tile.component.scss']
+    selector: 'sr-widget-tile',
+    templateUrl: './widget-tile.component.html',
+    styleUrls: ['./widget-tile.component.scss'],
+    standalone: false
 })
 export class WidgetTileComponent implements OnInit {
 

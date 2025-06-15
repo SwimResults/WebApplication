@@ -4,11 +4,10 @@ import {ReportService} from "../../../../core/service/api/user/report.service";
 import {UserReport} from "../../../../core/model/user/user-report.model";
 
 @Component({
-  selector: 'sr-admin-report-view',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './admin-report-view.component.html',
-  styleUrl: './admin-report-view.component.scss'
+    selector: 'sr-admin-report-view',
+    imports: [CommonModule],
+    templateUrl: './admin-report-view.component.html',
+    styleUrl: './admin-report-view.component.scss'
 })
 export class AdminReportViewComponent implements OnInit {
     reports: UserReport[] = [];

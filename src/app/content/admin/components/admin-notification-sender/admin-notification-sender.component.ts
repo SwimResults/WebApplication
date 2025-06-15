@@ -4,9 +4,10 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {MeetingNotification, Notification} from "../../../../core/model/user/notification.model";
 
 @Component({
-  selector: 'sr-admin-notification-sender',
-  templateUrl: './admin-notification-sender.component.html',
-  styleUrl: './admin-notification-sender.component.scss'
+    selector: 'sr-admin-notification-sender',
+    templateUrl: './admin-notification-sender.component.html',
+    styleUrl: './admin-notification-sender.component.scss',
+    standalone: false
 })
 export class AdminNotificationSenderComponent {
     @Input() meetingId?: string;

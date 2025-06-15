@@ -12,7 +12,8 @@ import {MeetingService} from "../../../../core/service/api";
 @Component({
     selector: 'sr-dashboard-view',
     templateUrl: './dashboard-view.component.html',
-    styleUrls: ['./dashboard-view.component.scss']
+    styleUrls: ['./dashboard-view.component.scss'],
+    standalone: false
 })
 export class DashboardViewComponent implements OnInit, OnDestroy {
 

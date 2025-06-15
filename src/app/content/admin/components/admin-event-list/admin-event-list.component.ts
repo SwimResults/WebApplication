@@ -5,9 +5,10 @@ import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {Heat, HeatImpl} from "../../../../core/model/start/heat.model";
 
 @Component({
-  selector: 'sr-admin-event-list',
-  templateUrl: './admin-event-list.component.html',
-  styleUrls: ['./admin-event-list.component.scss']
+    selector: 'sr-admin-event-list',
+    templateUrl: './admin-event-list.component.html',
+    styleUrls: ['./admin-event-list.component.scss'],
+    standalone: false
 })
 export class AdminEventListComponent implements OnInit {
     @Input() meetingId?: string;

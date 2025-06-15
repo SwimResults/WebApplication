@@ -4,9 +4,10 @@ import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
 
 @Component({
-  selector: 'sr-widget-meeting-medium',
-  templateUrl: './widget-meeting-medium.component.html',
-  styleUrls: ['./../widget-meeting.component.scss']
+    selector: 'sr-widget-meeting-medium',
+    templateUrl: './widget-meeting-medium.component.html',
+    styleUrls: ['./../widget-meeting.component.scss'],
+    standalone: false
 })
 export class WidgetMeetingMediumComponent implements OnDestroy {
   meeting?: MeetingImpl;

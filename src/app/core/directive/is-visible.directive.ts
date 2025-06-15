@@ -1,7 +1,8 @@
 import {AfterViewInit, Directive, ElementRef, EventEmitter, Input, Output} from '@angular/core';
 
 @Directive({
-  selector: '[srIsVisible]'
+    selector: '[srIsVisible]',
+    standalone: false
 })
 export class IsVisibleDirective implements AfterViewInit {
   constructor(private element: ElementRef) {}

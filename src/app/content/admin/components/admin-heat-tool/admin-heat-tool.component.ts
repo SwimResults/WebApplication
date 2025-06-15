@@ -10,9 +10,10 @@ import {EasyWkService} from "../../../../core/service/api/import/easy-wk.service
 import {Observable} from "rxjs";
 
 @Component({
-  selector: 'sr-admin-heat-tool',
-  templateUrl: './admin-heat-tool.component.html',
-  styleUrls: ['./admin-heat-tool.component.scss']
+    selector: 'sr-admin-heat-tool',
+    templateUrl: './admin-heat-tool.component.html',
+    styleUrls: ['./admin-heat-tool.component.scss'],
+    standalone: false
 })
 export class AdminHeatToolComponent implements OnInit {
   @Input() meetingId?: string;

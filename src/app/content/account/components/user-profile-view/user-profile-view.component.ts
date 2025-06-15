@@ -5,9 +5,10 @@ import {User} from "../../../../core/model/user/user.model";
 import {UserService} from "../../../../core/service/api";
 
 @Component({
-  selector: 'sr-user-profile-view',
-  templateUrl: './user-profile-view.component.html',
-  styleUrls: ['./user-profile-view.component.scss']
+    selector: 'sr-user-profile-view',
+    templateUrl: './user-profile-view.component.html',
+    styleUrls: ['./user-profile-view.component.scss'],
+    standalone: false
 })
 export class UserProfileViewComponent implements OnInit {
 

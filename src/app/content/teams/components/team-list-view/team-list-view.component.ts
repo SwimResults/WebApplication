@@ -7,9 +7,10 @@ import {RefreshListRequest} from "../../../../core/model/list/refresh-list-reque
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
-  selector: 'sr-team-list-view',
-  templateUrl: './team-list-view.component.html',
-  styleUrls: ['./team-list-view.component.scss']
+    selector: 'sr-team-list-view',
+    templateUrl: './team-list-view.component.html',
+    styleUrls: ['./team-list-view.component.scss'],
+    standalone: false
 })
 export class TeamListViewComponent implements OnInit{
   @Input() meeting?: Meeting;

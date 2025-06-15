@@ -6,9 +6,10 @@ import {AthleteService, UserService} from "../../../../../core/service/api";
 import {RouteService} from "../../../../../core/service/route.service";
 
 @Component({
-  selector: 'sr-widget-favorites',
-  templateUrl: './widget-favorites.component.html',
-  styleUrls: ['./widget-favorites.component.scss']
+    selector: 'sr-widget-favorites',
+    templateUrl: './widget-favorites.component.html',
+    styleUrls: ['./widget-favorites.component.scss'],
+    standalone: false
 })
 export class WidgetFavoritesComponent implements OnInit, OnDestroy {
     meetingId?: string;

@@ -4,9 +4,10 @@ import {MeetingImpl} from "../../../core/model/meeting/meeting.model";
 import {SidebarMenuService} from "../../../core/service/sidebar-menu.service";
 
 @Component({
-  selector: 'sr-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+    selector: 'sr-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    standalone: false
 })
 export class HeaderComponent {
 

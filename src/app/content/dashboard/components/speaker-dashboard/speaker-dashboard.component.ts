@@ -3,9 +3,10 @@ import {Widget} from "../../../../core/model/user/widget.model";
 import {WidgetContainer} from "../../../../core/model/user/widget-container.model";
 
 @Component({
-  selector: 'sr-speaker-dashboard',
-  templateUrl: './speaker-dashboard.component.html',
-  styleUrl: './speaker-dashboard.component.scss'
+    selector: 'sr-speaker-dashboard',
+    templateUrl: './speaker-dashboard.component.html',
+    styleUrl: './speaker-dashboard.component.scss',
+    standalone: false
 })
 export class SpeakerDashboardComponent {
     widgetContainers: WidgetContainer[] = [];

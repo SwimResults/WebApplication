@@ -1,9 +1,10 @@
 import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'sr-icon-panel',
-  templateUrl: './icon-panel.component.html',
-  styleUrls: ['./icon-panel.component.scss']
+    selector: 'sr-icon-panel',
+    templateUrl: './icon-panel.component.html',
+    styleUrls: ['./icon-panel.component.scss'],
+    standalone: false
 })
 export class IconPanelComponent {
   @Input() icon?: string;

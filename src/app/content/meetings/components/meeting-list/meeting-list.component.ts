@@ -4,9 +4,10 @@ import {MeetingService} from "../../../../core/service/api";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
-  selector: 'sr-meeting-list',
-  templateUrl: './meeting-list.component.html',
-  styleUrls: ['./meeting-list.component.scss']
+    selector: 'sr-meeting-list',
+    templateUrl: './meeting-list.component.html',
+    styleUrls: ['./meeting-list.component.scss'],
+    standalone: false
 })
 export class MeetingListComponent implements OnInit{
 

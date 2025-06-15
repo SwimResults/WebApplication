@@ -4,9 +4,10 @@ import {UserService} from "../../../../core/service/api";
 import {User} from "../../../../core/model/user/user.model";
 
 @Component({
-  selector: 'sr-athlete-profile-intro',
-  templateUrl: './athlete-profile-intro.component.html',
-  styleUrls: ['./athlete-profile-intro.component.scss']
+    selector: 'sr-athlete-profile-intro',
+    templateUrl: './athlete-profile-intro.component.html',
+    styleUrls: ['./athlete-profile-intro.component.scss'],
+    standalone: false
 })
 export class AthleteProfileIntroComponent implements OnInit {
   @Input() athlete!: Athlete;

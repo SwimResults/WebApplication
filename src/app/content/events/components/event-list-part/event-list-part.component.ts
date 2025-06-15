@@ -7,9 +7,10 @@ import {HeatService} from "../../../../core/service/api";
 import {Incident, IncidentImpl} from "../../../../core/model/meeting/incident.model";
 
 @Component({
-  selector: 'sr-event-list-part',
-  templateUrl: './event-list-part.component.html',
-  styleUrl: './event-list-part.component.scss'
+    selector: 'sr-event-list-part',
+    templateUrl: './event-list-part.component.html',
+    styleUrl: './event-list-part.component.scss',
+    standalone: false
 })
 export class EventListPartComponent implements OnInit {
     @Input() part!: MeetingPart

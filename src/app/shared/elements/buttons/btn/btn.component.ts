@@ -1,9 +1,10 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  selector: 'sr-btn',
-  templateUrl: './btn.component.html',
-  styleUrls: ['./btn.component.scss']
+    selector: 'sr-btn',
+    templateUrl: './btn.component.html',
+    styleUrls: ['./btn.component.scss'],
+    standalone: false
 })
 export class BtnComponent {
   @Input() color: "pdf" | "info" | "stream" | undefined;

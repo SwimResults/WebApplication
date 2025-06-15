@@ -12,9 +12,10 @@ import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {StartResults} from "../../../../core/model/start/start-results.model";
 
 @Component({
-  selector: 'sr-event-view',
-  templateUrl: './event-view.component.html',
-  styleUrls: ['./event-view.component.scss']
+    selector: 'sr-event-view',
+    templateUrl: './event-view.component.html',
+    styleUrls: ['./event-view.component.scss'],
+    standalone: false
 })
 export class EventViewComponent implements OnInit, OnDestroy {
   meeting?: MeetingImpl;

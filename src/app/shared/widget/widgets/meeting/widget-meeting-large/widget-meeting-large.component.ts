@@ -6,9 +6,10 @@ import {Team} from "../../../../../core/model";
 import {TeamService} from "../../../../../core/service/api";
 
 @Component({
-  selector: 'sr-widget-meeting-large',
-  templateUrl: './widget-meeting-large.component.html',
-  styleUrls: ['./../widget-meeting.component.scss']
+    selector: 'sr-widget-meeting-large',
+    templateUrl: './widget-meeting-large.component.html',
+    styleUrls: ['./../widget-meeting.component.scss'],
+    standalone: false
 })
 export class WidgetMeetingLargeComponent implements OnDestroy {
   meeting?: MeetingImpl;

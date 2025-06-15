@@ -4,9 +4,10 @@ import {RouteService} from "../../../../../core/service/route.service";
 import {AthleteService} from "../../../../../core/service/api";
 
 @Component({
-  selector: 'sr-widget-n-o-athletes-small',
+    selector: 'sr-widget-n-o-athletes-small',
     templateUrl: './../widget-n-o-small.component.html',
-  styleUrls: ['./widget-n-o-athletes-small.component.scss', './../widget-n-o-small.component.scss']
+    styleUrls: ['./widget-n-o-athletes-small.component.scss', './../widget-n-o-small.component.scss'],
+    standalone: false
 })
 export class WidgetNOAthletesSmallComponent extends WidgetNOSmallComponent {
     constructor(

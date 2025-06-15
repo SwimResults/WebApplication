@@ -4,9 +4,10 @@ import {EventService, HeatService} from "../../../core/service/api";
 import {MeetingEventImpl} from "../../../core/model/meeting/meeting-event.model";
 
 @Component({
-  selector: 'sr-live-bar',
-  templateUrl: './live-bar.component.html',
-  styleUrls: ['./live-bar.component.scss']
+    selector: 'sr-live-bar',
+    templateUrl: './live-bar.component.html',
+    styleUrls: ['./live-bar.component.scss'],
+    standalone: false
 })
 export class LiveBarComponent implements OnInit, OnDestroy {
     @Input() meetingId?: string;

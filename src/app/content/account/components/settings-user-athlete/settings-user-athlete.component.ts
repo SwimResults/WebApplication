@@ -9,9 +9,10 @@ import {User} from "../../../../core/model/user/user.model";
 import {UserAthleteListTile} from "../../../../core/model/list/user-athlete-list-tile.model";
 
 @Component({
-  selector: 'sr-settings-user-athlete',
-  templateUrl: './settings-user-athlete.component.html',
-  styleUrls: ['./settings-user-athlete.component.scss']
+    selector: 'sr-settings-user-athlete',
+    templateUrl: './settings-user-athlete.component.html',
+    styleUrls: ['./settings-user-athlete.component.scss'],
+    standalone: false
 })
 export class SettingsUserAthleteComponent implements OnInit {
     user?: User;

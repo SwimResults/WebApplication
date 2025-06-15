@@ -4,9 +4,10 @@ import {RouteService} from "../../../../core/service/route.service";
 import {Subscription} from "rxjs";
 
 @Component({
-  selector: 'sr-page-live',
-  templateUrl: './page-live.component.html',
-  styleUrls: ['./page-live.component.scss']
+    selector: 'sr-page-live',
+    templateUrl: './page-live.component.html',
+    styleUrls: ['./page-live.component.scss'],
+    standalone: false
 })
 export class PageLiveComponent implements OnDestroy {
     @ViewChild('streamIframe') streamIframe?: ElementRef;

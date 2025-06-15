@@ -7,9 +7,10 @@ import {ListFilterRequest} from "../../../../core/model/list/list-filter-request
 import {ListConfig} from "../../../../core/model/list/list-config.model";
 
 @Component({
-  selector: 'sr-list-view',
-  templateUrl: './list-view.component.html',
-  styleUrls: ['./list-view.component.scss']
+    selector: 'sr-list-view',
+    templateUrl: './list-view.component.html',
+    styleUrls: ['./list-view.component.scss'],
+    standalone: false
 })
 export class ListViewComponent implements OnInit {
   @Input() data!: IListTile[];

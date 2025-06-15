@@ -6,9 +6,10 @@ import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
 
 @Component({
-  selector: 'sr-widget-delay-small',
-  templateUrl: './widget-delay-small.component.html',
-  styleUrls: ['./widget-delay-small.component.scss']
+    selector: 'sr-widget-delay-small',
+    templateUrl: './widget-delay-small.component.html',
+    styleUrls: ['./widget-delay-small.component.scss'],
+    standalone: false
 })
 export class WidgetDelaySmallComponent implements OnInit, OnDestroy {
     meetingId?: string;
