@@ -12,7 +12,7 @@ on:
 
 env:
   NODE_VERSION: 20.x
-  CLI_VERSION: 17.0.3
+  CLI_VERSION: 20.0.3
 
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
