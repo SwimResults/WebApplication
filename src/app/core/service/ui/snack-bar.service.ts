@@ -17,7 +17,7 @@ export class SnackBarService {
     }
 
     public openAndTranslate(key: string) {
-        this.translateService.getTranslation(key).subscribe({
+        this.translateService.get(key).subscribe({
             next: translation => {
                 this.snackBar.open(translation)
             },

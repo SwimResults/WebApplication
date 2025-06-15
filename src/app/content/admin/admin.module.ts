@@ -2,11 +2,11 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {PageAdminEventComponent} from './pages';
 import {
-    AdminMainViewComponent,
-    AdminHeatToolComponent,
-    AdminImportToolComponent,
-    AdminEventListComponent,
-    AdminImportTextDialogComponent
+  AdminMainViewComponent,
+  AdminHeatToolComponent,
+  AdminImportToolComponent,
+  AdminEventListComponent,
+  AdminImportTextDialogComponent, AdminReportViewComponent
 } from './components';
 import {ElementsModule} from "../../shared/elements/elements.module";
 import {EventsModule} from "../events";
@@ -37,25 +37,26 @@ import { AdminNotificationViewComponent } from './components/admin-notification-
         AdminNotificationSenderComponent,
         AdminNotificationViewComponent
     ],
-    imports: [
-        CommonModule,
-        ElementsModule,
-        EventsModule,
-        CoreModule,
-        StartsModule,
-        ReactiveFormsModule,
-        MatIconModule,
-        LiveModule,
-        MatRadioModule,
-        MatDialogTitle,
-        MatDialogContent,
-        FormsModule,
-        MatFormFieldModule,
-        MatDialogActions,
-        MatButtonModule,
-        MatInputModule,
-        MatDialogClose
-    ]
+  imports: [
+    CommonModule,
+    ElementsModule,
+    EventsModule,
+    CoreModule,
+    StartsModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    LiveModule,
+    MatRadioModule,
+    MatDialogTitle,
+    MatDialogContent,
+    FormsModule,
+    MatFormFieldModule,
+    MatDialogActions,
+    MatButtonModule,
+    MatInputModule,
+    MatDialogClose,
+    AdminReportViewComponent
+  ]
 })
 export class AdminModule {
 }

@@ -16,6 +16,10 @@ export class ReportService extends BaseService {
         super("ReportService", environment.api_urls.user_service);
     }
 
+    public getReports(): Observable<UserReport[]> {
+        return this.apiService.get(this.API_URL, "report");
+    }
+
     public submitReport(report: UserReport): Observable<UserReport> {
         return this.apiService.post(this.API_URL, "report/submit", report);
     }

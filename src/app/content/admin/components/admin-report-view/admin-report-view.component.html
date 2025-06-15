@@ -1,0 +1,5 @@
+<ul>
+    @for (report of reports; track report._id) {
+        <li>{{report.added_at | date}} {{report.message}}</li>
+    }
+</ul>

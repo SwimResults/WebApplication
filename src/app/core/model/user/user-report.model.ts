@@ -5,4 +5,5 @@ export interface UserReport {
     user_id: string; // not part of submission request dto
     subject_id: string;
     subject_type: string;
+    added_at: string;
 }

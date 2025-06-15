@@ -13,7 +13,6 @@ import {TranslateModule} from "@ngx-translate/core";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {ReportService} from "../../../../core/service/api/user/report.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
 import {SnackBarService} from "../../../../core/service/ui/snack-bar.service";
 
 export interface ReportSubmissionDialogData {
@@ -34,7 +33,13 @@ export class ReportSubmissionDialogComponent {
         @Inject(MAT_DIALOG_DATA) public data: ReportSubmissionDialogData,
         private reportService: ReportService,
         private snackBarService: SnackBarService
-    ) {}
+    ) {
+        if (!data) {
+            this.data = {
+                report: {} as UserReport
+            } as ReportSubmissionDialogData;
+        }
+    }
 
     submitReport() {
         this.reportService.submitReport(this.data.report).subscribe({
