@@ -1,4 +1,4 @@
-export let countryFlags = new Map<string, string>([
+export const countryFlags = new Map<string, string>([
   ["GER", "DE"],
   ["CZE", "CZ"],
   ["UKR", "UA"],

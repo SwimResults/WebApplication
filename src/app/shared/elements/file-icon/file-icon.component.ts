@@ -19,10 +19,6 @@ export class FileIconComponent implements OnInit {
         download: true
     }
 
-    constructor() {
-
-    }
-
     ngOnInit() {
         if (fileTypes.has(this.extension)) {
             const ft = fileTypes.get(this.extension);

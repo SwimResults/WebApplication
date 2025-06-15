@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Team} from "../../../../core/model";
 import {TeamService} from "../../../../core/service/api";
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
@@ -12,7 +12,7 @@ import {FetchingModel} from "../../../../core/model/common/fetching.model";
     styleUrls: ['./team-list-view.component.scss'],
     standalone: false
 })
-export class TeamListViewComponent implements OnInit{
+export class TeamListViewComponent {
   @Input() meeting?: Meeting;
   @Input() meetingId: string | undefined;
   teams: Team[] = [];
@@ -23,10 +23,6 @@ export class TeamListViewComponent implements OnInit{
   constructor(
     private teamService: TeamService
   ) {
-  }
-
-  ngOnInit(): void {
-    //this.fetchTeams({paging: new PagingRequest()});
   }
 
   fetchTeams(request: RefreshListRequest) {

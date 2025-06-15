@@ -45,7 +45,7 @@ export class AthleteProfileIntroComponent implements OnInit {
   updateFollowingState(user: User) {
     console.log("checking following for: " + this.athlete._id);
     if (user.following) {
-      for (let follower of user.following) {
+      for (const follower of user.following) {
         if (this.athlete._id == follower.athlete_id) {
           this.isFollowed = true;
           return;

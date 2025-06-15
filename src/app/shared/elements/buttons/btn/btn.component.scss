@@ -1,7 +1,7 @@
 @use "/src/colors";
 
 .btn {
-  background-color: $color-sr-first;
+  background-color: colors.$color-sr-first;
   border: none;
   display: inline-block;
   border-radius: 10px;
@@ -16,17 +16,17 @@
   &.btn-inactive {
     filter: grayscale(1);
     cursor: initial;
-    color: $color-text-gray !important;
+    color: colors.$color-text-gray !important;
     pointer-events: none;
 
     ::ng-deep mat-icon {
-      color: $color-text-gray !important;
+      color: colors.$color-text-gray !important;
     }
   }
 
   &.btn-no-background {
     background-color: transparent;
-    color: $color-sr-first;
+    color: colors.$color-sr-first;
   }
 
   &.btn-pdf {

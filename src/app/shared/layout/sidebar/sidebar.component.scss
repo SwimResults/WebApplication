@@ -1,10 +1,10 @@
 @use "/src/colors";
 
 :host {
-    background-color: $color-sidebar-bg;
+    background-color: colors.$color-sidebar-bg;
     height: 100vh;
-    //border-right: 4px solid $color-sidebar-border;
-    box-shadow: 0px -10px 10px 5px $color-sidebar-border;
+    //border-right: 4px solid colors.$color-sidebar-border;
+    box-shadow: 0px -10px 10px 5px colors.$color-sidebar-border;
     padding: 12px;
 }
 
@@ -24,7 +24,7 @@
     .title {
         font-size: 21px;
         font-weight: bold;
-        color: $color-sidebar-header;
+        color: colors.$color-sidebar-header;
         vertical-align: middle;
         width: 146px;
         display: inline-block;
@@ -37,6 +37,6 @@
 
 @media only screen and (max-width: 1050px) {
     :host {
-        background-color: $color-bg-popup;
+        background-color: colors.$color-bg-popup;
     }
 }

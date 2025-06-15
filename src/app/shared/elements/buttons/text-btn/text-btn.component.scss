@@ -1,11 +1,11 @@
 @use "/src/colors";
 
 .btn {
-  background-color: $color-btn-second !important;
+  background-color: colors.$color-btn-second !important;
   border: none;
   display: inline-block;
   text-align: center;
-  color: $color-text-main;
+  color: colors.$color-text-main;
   vertical-align: middle;
   cursor: pointer;
   transition: 0.2s;

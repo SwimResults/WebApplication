@@ -62,14 +62,14 @@ export class LiveBarComponent implements OnInit, OnDestroy {
         console.log("[LIVE BAR STATUS] refresh live bar status");
 
         if (this.currentHeat) {
-            let now = new Date();   // to check, how long current heat is over
-            let finish = this.currentHeat.getFinishedAt();  // to check how long it is over and how much time until next
-            let current = this.currentHeat.getStartDelayEstimation();  // to compare dates of current and next
+            const now = new Date();   // to check, how long current heat is over
+            const finish = this.currentHeat.getFinishedAt();  // to check how long it is over and how much time until next
+            const current = this.currentHeat.getStartDelayEstimation();  // to compare dates of current and next
 
             console.log(finish.getTime())
             console.log(finish.getUTCFullYear())
             if (finish.getUTCFullYear() > 2010) { // current heat is over
-                let d = now.getTime() - finish.getTime();
+                const d = now.getTime() - finish.getTime();
 
                 if (d > 1 * 60 * 1000) { // current heat is over for more than 1 minute
 
@@ -77,13 +77,13 @@ export class LiveBarComponent implements OnInit, OnDestroy {
                         this.statusText = "Ende der Veranstaltung. Kommt gut nach Hause!";
                     } else {
 
-                        let currentPlan = this.currentHeat.getEstimatedStart();
-                        let nextPlan = this.nextHeat.getEstimatedStart();
+                        const currentPlan = this.currentHeat.getEstimatedStart();
+                        const nextPlan = this.nextHeat.getEstimatedStart();
 
-                        let next = this.nextHeat.getStartDelayEstimation(); // to check, if next is today, and if it is a break
+                        const next = this.nextHeat.getStartDelayEstimation(); // to check, if next is today, and if it is a break
                         // TODO: do not check planned time, but finish and start time (has problems with testing the day before)
 
-                        let d2 = next.getTime() - finish.getTime();
+                        const d2 = next.getTime() - finish.getTime();
 
                         console.log("current heat is over for a while and next heat exists")
 

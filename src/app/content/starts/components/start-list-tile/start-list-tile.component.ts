@@ -119,16 +119,16 @@ export class StartListTileComponent implements OnInit {
 
     getTimeString(time: number): string {
         if (!time) return "-";
-        let d = new Date((time / 1000) / 1000)
-        let minutes = "0" + d.getMinutes()
-        let seconds = "0" + d.getSeconds()
-        let millis = "0" + Math.floor(d.getMilliseconds() / 10)
+        const d = new Date((time / 1000) / 1000)
+        const minutes = "0" + d.getMinutes()
+        const seconds = "0" + d.getSeconds()
+        const millis = "0" + Math.floor(d.getMilliseconds() / 10)
         return minutes.substr(-2) + ":" + seconds.substr(-2) + "," + millis.substr(-2)
     }
 
     getReactionString(time: number): string {
-        let d = new Date((time / 1000) / 1000)
-        let millis = "0" + (d.getMilliseconds() / 10)
+        const d = new Date((time / 1000) / 1000)
+        const millis = "0" + (d.getMilliseconds() / 10)
         return d.getSeconds() + "," + millis.substr(-2)
     }
 

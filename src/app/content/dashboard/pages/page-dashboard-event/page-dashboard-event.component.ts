@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {WidgetContainer} from "../../../../core/model/user/widget-container.model";
 
 @Component({
     selector: 'sr-page-dashboard-event',

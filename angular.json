@@ -25,6 +25,7 @@
                             "zone.js"
                         ],
                         "tsConfig": "tsconfig.app.json",
+                        "inlineStyleLanguage": "scss",
                         "assets": [
                             "src/favicon.ico",
                             "src/assets",
@@ -38,7 +39,13 @@
                         ],
                         "scripts": [],
                         "serviceWorker": "ngsw-config.json",
-                        "browser": "src/main.ts"
+                        "browser": "src/main.ts",
+                        "stylePreprocessorOptions": {
+                            "includePaths": [
+                                "."
+                            ]
+                        }
+
                     },
                     "configurations": {
                         "production": {

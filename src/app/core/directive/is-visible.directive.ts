@@ -19,7 +19,7 @@ export class IsVisibleDirective implements AfterViewInit {
   };
 
   ngAfterViewInit() {
-    let observer = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       this.intersectionCallback.bind(this),
       this.intersectionOptions
     );

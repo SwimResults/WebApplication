@@ -11,11 +11,11 @@
   display: inline-block;
   text-align: center;
   color: white;
-  //background: linear-gradient(#2c73df, $color-sr-first);
-  background-color: $color-icon-first;
+  //background: linear-gradient(#2c73df, colors.$color-sr-first);
+  background-color: colors.$color-icon-first;
   border-radius: 10px;
   vertical-align: middle;
-  //box-shadow: 0 0 10px -4px $color-shadow-second;
+  //box-shadow: 0 0 10px -4px colors.$color-shadow-second;
 
   &.style-flat {
     height: 10px;
@@ -45,35 +45,35 @@ span {
 
 
 :host.rank1 .icon-panel {
-  background-color: $color-gold;
+  background-color: colors.$color-gold;
 }
 
 :host.rank2 .icon-panel {
-  background-color: $color-silver;
+  background-color: colors.$color-silver;
 }
 
 :host.rank3 .icon-panel {
-  background-color: $color-bronze;
+  background-color: colors.$color-bronze;
 }
 
 :host.disqualified .icon-panel {
-  background-color: $color-disqualification;
+  background-color: colors.$color-disqualification;
 }
 
 :host.pdf .icon-panel {
-  background-color: $color-pdf;
+  background-color: colors.$color-pdf;
 }
 
 :host.dsv .icon-panel {
-  background-color: $color-dsv;
+  background-color: colors.$color-dsv;
 }
 
 :host.lef .icon-panel {
-  background-color: $color-lex;
+  background-color: colors.$color-lex;
 }
 
 :host.zip .icon-panel {
-  background-color: $color-zip;
+  background-color: colors.$color-zip;
 }
 
 :host.inactive .icon-panel {

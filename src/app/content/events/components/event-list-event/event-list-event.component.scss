@@ -19,7 +19,7 @@ sr-icon-panel {
 
 .event-info-content {
     vertical-align: top;
-    border-left: 4px solid $color-hr-border;
+    border-left: 4px solid colors.$color-hr-border;
     position: relative;
     z-index: 0;
     padding: 10px 14px 10px 34px;
@@ -45,7 +45,7 @@ sr-icon-panel {
 
   .event-heats {
     display: block;
-    color: $color-text-gray;
+    color: colors.$color-text-gray;
   }
 
   mat-icon,

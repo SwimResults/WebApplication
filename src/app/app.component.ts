@@ -54,7 +54,7 @@ export class AppComponent implements OnDestroy {
 
     this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
-      let body = document.getElementsByTagName("body").item(0);
+      const body = document.getElementsByTagName("body").item(0);
       if (this.meeting && this.meeting.meet_id) {
         if (this.meeting.layout && this.meeting.layout.color_set && this.meeting.layout.color_set.primary && this.meeting.layout.color_set.secondary) {
           body?.style.setProperty("--bg-gradient-1", this.meeting.layout.color_set.primary);

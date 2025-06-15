@@ -6,7 +6,7 @@ export class TeamListTile implements IListTile {
   name: string;
   nameLink?: string;
   country?: string;
-  entryType: "team" = "team";
+  entryType = "team" as const;
 
   constructor(team: Team) {
     this.id = team._id;

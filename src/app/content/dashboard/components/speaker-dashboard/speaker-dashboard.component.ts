@@ -12,28 +12,28 @@ export class SpeakerDashboardComponent {
     widgetContainers: WidgetContainer[] = [];
 
     constructor() {
-        let delayWidget: Widget = {
+        const delayWidget: Widget = {
             _id: "",
             content: "delay",
             size: "SMALL"
         }
-        let clockWidget: Widget = {
+        const clockWidget: Widget = {
             _id: "",
             content: "clock",
             size: "MEDIUM"
         }
-        let announcementWidget: Widget = {
+        const announcementWidget: Widget = {
             _id: "",
             content: "file-announcement",
             size: "SMALL"
         }
-        let startListWidget: Widget = {
+        const startListWidget: Widget = {
             _id: "",
             content: "file-start-list",
             size: "SMALL"
         }
 
-        let widgetContainer1: WidgetContainer = {
+        const widgetContainer1: WidgetContainer = {
             order_position: 1,
             widgets: [
                 {
@@ -43,7 +43,7 @@ export class SpeakerDashboardComponent {
             ]
         } as WidgetContainer
 
-        let widgetContainer2: WidgetContainer = {
+        const widgetContainer2: WidgetContainer = {
             order_position: 2,
             widgets: [
                 { order_position: 1, widget: announcementWidget },
@@ -51,7 +51,7 @@ export class SpeakerDashboardComponent {
             ]
         } as WidgetContainer;
 
-        let widgetContainer3: WidgetContainer = {
+        const widgetContainer3: WidgetContainer = {
             order_position: 3,
             widgets: [
                 { order_position: 1, widget: delayWidget }

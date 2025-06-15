@@ -29,10 +29,10 @@ export class MeetingListComponent implements OnInit{
     this.meetingService.getMeetings().subscribe({next: data => {
       if (data) {
         this.meetingYears.clear();
-        for (let meet of data) {
-          let m = new MeetingImpl(meet);
+        for (const meet of data) {
+          const m = new MeetingImpl(meet);
           if (m.hasState(MeetingStates.HIDDEN) || m.unpublished) continue;
-          let y = m.getStartDate().getFullYear();
+          const y = m.getStartDate().getFullYear();
           if (!this.meetingYears.get(y)) {
             this.meetingYears.set(y, []);
           }

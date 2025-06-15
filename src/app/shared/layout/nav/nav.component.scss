@@ -3,7 +3,7 @@
 .back-btn {
     margin: 10px 12px 0;
     cursor: pointer;
-    color: $color-sr-first;
+    color: colors.$color-sr-first;
 
     span,
     mat-icon {
@@ -18,7 +18,7 @@
 
 nav {
   font-size: 13px;
-  color: $color-nav-link;
+  color: colors.$color-nav-link;
   height: calc(100vh - 160px);
   overflow: auto;
   display: inline-block;

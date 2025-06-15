@@ -1,7 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ReportSubmissionDialogComponent} from './report-submission-dialog.component';
-import {CoreModule} from "../../../../core/core.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {provideHttpClientTesting} from "@angular/common/http/testing";

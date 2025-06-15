@@ -15,11 +15,11 @@ export class EasyWkService extends BaseService {
     super("EasyWkService", environment.api_urls.import_service);
   }
 
-  private postEasyWk(body: any): Observable<String> {
+  private postEasyWk(body: any): Observable<string> {
     return this.apiService.postText(this.API_URL, "easywk/v3", body);
   }
 
-  public newRace(password: string, event: number, heat: number): Observable<String> {
+  public newRace(password: string, event: number, heat: number): Observable<string> {
     const body = {
       pwd: password,
       action: "newrace",
@@ -29,7 +29,7 @@ export class EasyWkService extends BaseService {
     return this.postEasyWk(body);
   }
 
-  public raceResult(password: string): Observable<String> {
+  public raceResult(password: string): Observable<string> {
     const body = {
       pwd: password,
       action: "raceresult"
@@ -37,7 +37,7 @@ export class EasyWkService extends BaseService {
     return this.postEasyWk(body);
   }
 
-  public time(password: string, lane: number, meter: string, time: number, finished: boolean): Observable<String> {
+  public time(password: string, lane: number, meter: string, time: number, finished: boolean): Observable<string> {
     const body = {
       pwd: password,
       action: "time",

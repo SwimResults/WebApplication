@@ -76,7 +76,7 @@ export class StartImpl implements Start {
 
     this.results = []
     if (start.results) {
-      for (let result of start.results) {
+      for (const result of start.results) {
         this.results.push(new ResultImpl(result))
       }
     }
@@ -89,7 +89,7 @@ export class StartImpl implements Start {
   getTimeMilliseconds(resultType: ResultTypes): number {
     let latest: Date = new Date(0);
     let time = 0
-    for (let result of this.results) {
+    for (const result of this.results) {
       if (result.result_type == resultType) {
         if (latest.getTime() < result.addedAtTime.getTime()) {
           latest = result.addedAtTime
@@ -102,7 +102,7 @@ export class StartImpl implements Start {
   }
 
   hasResultType(resultType: ResultTypes): boolean {
-    for (let result of this.results) {
+    for (const result of this.results) {
       if (result.result_type == resultType) {
         return true;
       }
@@ -111,7 +111,7 @@ export class StartImpl implements Start {
   }
 
   hasResult(): boolean {
-    for (let result of this.results) {
+    for (const result of this.results) {
       if (result.result_type == ResultTypes.RESULT_LIST || result.result_type == ResultTypes.LIVETIMING) {
         return true;
       }
@@ -122,7 +122,7 @@ export class StartImpl implements Start {
   getMostRecentLap(): ResultImpl {
     let highestLapMeters = 0;
     let lapResult: ResultImpl = new ResultImpl({} as Result);
-    for (let result of this.results) {
+    for (const result of this.results) {
       if (result.result_type == ResultTypes.LAP && result.lap_meters >= highestLapMeters) {
         highestLapMeters = result.lap_meters;
         lapResult = result;
@@ -132,8 +132,8 @@ export class StartImpl implements Start {
   }
 
   getLapTimes(): IterableIterator<ResultImpl> {
-    let res: Map<number, ResultImpl> = new Map<number, ResultImpl>();
-    for (let result of this.results) {
+    const res: Map<number, ResultImpl> = new Map<number, ResultImpl>();
+    for (const result of this.results) {
       if (result.result_type == ResultTypes.LAP) {
         res.set(result.lap_meters, result)
       }
@@ -144,7 +144,7 @@ export class StartImpl implements Start {
   getResultMilliseconds(): number {
     let latest: Date = new Date(0);
     let time = 0
-    for (let result of this.results) {
+    for (const result of this.results) {
       if (result.result_type == ResultTypes.RESULT_LIST || result.result_type == ResultTypes.LIVETIMING) {
         if (latest.getTime() < result.addedAtTime.getTime()) {
           latest = result.addedAtTime

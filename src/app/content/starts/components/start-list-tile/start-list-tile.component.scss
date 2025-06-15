@@ -115,7 +115,7 @@
     .registration-time {
       width: calc(90px - 24px);
       padding-left: 24px;
-      color: $color-text-gray;
+      color: colors.$color-text-gray;
     }
 
     .result-time {
@@ -129,10 +129,10 @@
       }
 
       &.result-better .mat-icon {
-        color: $color-green;
+        color: colors.$color-green;
       }
       &.result-worse .mat-icon {
-        color: $color-red;
+        color: colors.$color-red;
       }
     }
 
@@ -142,7 +142,7 @@
 
     .lap-time {
       .lap-meters {
-        background-color: $color-sr-first;
+        background-color: colors.$color-sr-first;
         color: white;
         border-radius: 4px;
         padding: 0;
@@ -163,7 +163,7 @@
     }
 
     .reason {
-      color: $color-disqualification;
+      color: colors.$color-disqualification;
     }
   }
 }

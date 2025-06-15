@@ -73,8 +73,6 @@ export class AuthService {
 
     setScopes(scopes: object) {
         console.log("scopes set!");
-        let s: string[];
-        s = scopes as string[];
-        this.scopesSubject.next(s);
+        this.scopesSubject.next(scopes as string[]);
     }
 }

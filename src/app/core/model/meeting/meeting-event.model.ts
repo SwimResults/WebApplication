@@ -44,8 +44,4 @@ export class MeetingEventImpl implements MeetingEvent {
         this.certified = event.certified;
         this.no_start_list = event.no_start_list;
     }
-
-  getFullDistanceName() {
-
-  }
 }

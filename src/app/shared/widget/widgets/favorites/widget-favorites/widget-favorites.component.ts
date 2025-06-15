@@ -41,7 +41,7 @@ export class WidgetFavoritesComponent implements OnInit, OnDestroy {
         this.fetching.fetching = true;
         this.userService.getUser().subscribe(data => {
             if (data.following) {
-                for (let follower of data.following) {
+                for (const follower of data.following) {
                     this.athleteService.getAthleteById(follower.athlete_id).subscribe(ath => {
                         if (!this.meetingId || ath.participation && ath.participation.includes(this.meetingId)) {
                             this.following.push(ath);

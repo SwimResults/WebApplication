@@ -1,7 +1,7 @@
 @use "/src/colors";
 
 .file-tile {
-  color: $color-text-main;
+  color: colors.$color-text-main;
   text-decoration: none;
   cursor: pointer;
   display: block;
@@ -42,7 +42,7 @@
   .file-info {
     margin-left: 12px;
     display: inline-block;
-    color: $color-text-gray;
+    color: colors.$color-text-gray;
 
     mat-icon {
       vertical-align: middle;

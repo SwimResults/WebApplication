@@ -8,7 +8,7 @@ export class AthleteListTile implements IListTile {
   badge?: string;
   team?: string;
   teamLink?: string;
-  entryType: "athlete" = "athlete";
+  entryType = "athlete" as const;
 
   constructor(athlete: Athlete) {
     this.id = athlete._id;

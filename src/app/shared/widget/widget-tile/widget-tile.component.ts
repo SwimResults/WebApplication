@@ -16,9 +16,6 @@ export class WidgetTileComponent implements OnInit {
 
   @ViewChild(WidgetDirective, {static: true}) srWidget!: WidgetDirective;
 
-  constructor() {
-  }
-
   ngOnInit(): void {
     this.loadComponents();
   }

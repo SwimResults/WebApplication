@@ -1,7 +1,7 @@
 @use "/src/colors";
 
 .meeting-logo {
-  background-color: $color-bg-contrast;
+  background-color: colors.$color-bg-contrast;
   border-radius: 50%;
   height: 100px;
   display: block;
@@ -14,7 +14,7 @@
     width: 100px;
     height: 100px;
     line-height: 100px;
-    color: $color-sr-first
+    color: colors.$color-sr-first
   }
 
   img {

@@ -71,11 +71,11 @@ mat-radio-button {
     white-space: nowrap;
 
     &.file-selected {
-        background-color: $color-bg-contrast;
+        background-color: colors.$color-bg-contrast;
     }
 
     &.file-not-public {
-        color: $color-text-gray;
+        color: colors.$color-text-gray;
     }
 }
 

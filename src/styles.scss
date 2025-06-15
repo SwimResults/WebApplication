@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@use "/src/colors";
+@use "colors";
 
 @font-face {
   font-family: 'SwimResults';
@@ -20,7 +20,7 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font-family: SwimResults, Roboto, "Helvetica Neue", sans-serif;
-  //background-color: $color-bg-page;
+  //background-color: colors.$color-bg-page;
   color: colors.$color-text-main;
   background: linear-gradient(to bottom right, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%) fixed;
 }

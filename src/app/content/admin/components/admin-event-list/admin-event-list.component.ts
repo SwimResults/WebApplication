@@ -43,7 +43,7 @@ export class AdminEventListComponent implements OnInit {
         this.heatService.getHeatsByMeeting(this.meetingId).subscribe(data => {
             if (data) {
                 this.heats = new Map<number, HeatImpl[]>();
-                for (let heat of data) {
+                for (const heat of data) {
                     let heats = this.heats.get(heat.event);
                     if (!heats) {
                         heats = [];

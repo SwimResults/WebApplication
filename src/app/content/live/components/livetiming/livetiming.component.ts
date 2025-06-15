@@ -78,8 +78,8 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     ) {
 
         // get heat and event from session storage
-        let heat = window.sessionStorage.getItem("livetiming_heat");
-        let event = window.sessionStorage.getItem("livetiming_event");
+        const heat = window.sessionStorage.getItem("livetiming_heat");
+        const event = window.sessionStorage.getItem("livetiming_event");
         if (heat) {
             this.currentHeat = Number(heat);
         }
@@ -87,7 +87,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
             this.currentEvent = Number(event);
         }
 
-        let isLive = window.sessionStorage.getItem("livetiming_live") == "1";
+        const isLive = window.sessionStorage.getItem("livetiming_live") == "1";
         console.log(isLive);
         this.liveSettingsData.isLive = isLive;
 
@@ -202,11 +202,11 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     processStarts(starts: Start[]) {
         this.heatFinished = false;
         this.starts = [];
-        let st: StartImpl[] = []
-        let ls: StartImpl[] = [];
+        const st: StartImpl[] = []
+        const ls: StartImpl[] = [];
 
-        for (let start of starts) {
-            let s = new StartImpl(start)
+        for (const start of starts) {
+            const s = new StartImpl(start)
             if (!this.heatFinished && s.hasResult()) {
                 this.heatFinished = true;
             }
@@ -244,7 +244,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
             ls.push({lane: i, emptyLane: true} as StartImpl)
         }
 
-        for (let start of st) {
+        for (const start of st) {
             ls[start.lane - this.firstLane] = start
             ls[start.lane - this.firstLane].emptyLane = false;
         }
@@ -252,7 +252,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
         if (this.heatFinished) {
             ls.sort((a, b) => (a.emptyLane ? 1 : (b.emptyLane ? -1 : (a.getResultMilliseconds() <= 0 ? 1 : (b.getResultMilliseconds() <= 0 ? -1 : a.getResultMilliseconds() - b.getResultMilliseconds())))))
             let j = 1;
-            for (let start of ls) {
+            for (const start of ls) {
                 start.rank = j++;
             }
         }
