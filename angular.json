@@ -32,9 +32,9 @@
                         ],
                         "styles": [
                             "@angular/material/prebuilt-themes/indigo-pink.css",
+                            "src/colors.scss",
                             "src/styles.scss",
-                            "src/material.scss",
-                            "src/colors.scss"
+                            "src/material.scss"
                         ],
                         "scripts": [],
                         "serviceWorker": "ngsw-config.json",
@@ -128,9 +128,9 @@
                         ],
                         "styles": [
                             "@angular/material/prebuilt-themes/indigo-pink.css",
+                            "src/colors.scss",
                             "src/styles.scss",
-                            "src/material.scss",
-                            "src/colors.scss"
+                            "src/material.scss"
                         ],
                         "scripts": []
                     }
