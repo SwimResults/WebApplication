@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "colors";
+@use "/src/colors";
 
 @font-face {
   font-family: 'SwimResults';
@@ -21,7 +21,7 @@ body {
   margin: 0;
   font-family: SwimResults, Roboto, "Helvetica Neue", sans-serif;
   //background-color: $color-bg-page;
-  color: $color-text-main;
+  color: colors.$color-text-main;
   background: linear-gradient(to bottom right, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%) fixed;
 }
 
@@ -46,7 +46,7 @@ h2,
 }
 
 hr {
-  border: 0.5px solid $color-sr-first;
+  border: 0.5px solid colors.$color-sr-first;
 }
 
 input,
@@ -64,16 +64,16 @@ input,
 select
 {
   border: none;
-  background-color: $color-search-bg;
+  background-color: colors.$color-search-bg;
   padding: 4px;
   border-radius: 6px;
-  color: $color-search-text;
+  color: colors.$color-search-text;
   vertical-align: middle;
 }
 
 a {
     cursor: pointer;
-    color: $color-text-main;
+    color: colors.$color-text-main;
     text-decoration: none;
 }
 
@@ -104,13 +104,13 @@ a {
 
 .sr-btn-icon {
   background-color: transparent;
-  color: $color-sr-first;
+  color: colors.$color-sr-first;
   width: 30px;
   vertical-align: middle;
 }
 
 .sr-btn-icon:hover {
-  color: $color-sr-dark;
+  color: colors.$color-sr-dark;
 }
 
 .sr-btn-bar {
@@ -138,11 +138,11 @@ a {
   overflow: hidden;
 
   &:hover {
-    color: $color-sr-second;
+    color: colors.$color-sr-second;
   }
 
   mat-icon {
-    color: $color-sr-first;
+    color: colors.$color-sr-first;
     vertical-align: middle;
   }
 
@@ -153,7 +153,7 @@ a {
   }
 
   a {
-    color: $color-nav-link;
+    color: colors.$color-nav-link;
     text-decoration: none;
     line-height: 16px;
   }
