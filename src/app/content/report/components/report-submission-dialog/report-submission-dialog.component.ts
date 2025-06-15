@@ -36,7 +36,7 @@ export class ReportSubmissionDialogComponent {
     ) {
         if (!data) {
             this.data = {
-                report: {} as UserReport
+                report: {message: ""} as UserReport
             } as ReportSubmissionDialogData;
         }
     }

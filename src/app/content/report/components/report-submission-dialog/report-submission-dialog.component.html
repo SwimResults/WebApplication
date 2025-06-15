@@ -1,13 +1,15 @@
 <span mat-dialog-title>{{'REPORT.DIALOG.TITLE' | translate}}</span>
 <mat-dialog-content>
     <p>{{'REPORT.DIALOG.DESCRIPTION' | translate}}</p>
-    <mat-form-field subscriptSizing="dynamic">
-        <mat-label>{{'REPORT.DIALOG.MESSAGE_LABEL' | translate}}</mat-label>
-        <textarea matInput
-                  [(ngModel)]="data.report.message"
-                  rows="3"
-                  cols="50"></textarea>
-    </mat-form-field>
+    @if (data && data.report) {
+        <mat-form-field subscriptSizing="dynamic">
+            <mat-label>{{'REPORT.DIALOG.MESSAGE_LABEL' | translate}}</mat-label>
+            <textarea matInput
+                      [(ngModel)]="data.report.message"
+                      rows="3"
+                      cols="50"></textarea>
+        </mat-form-field>
+    }
 </mat-dialog-content>
 <mat-dialog-actions>
     <!--sr-btn [mat-dialog-close]="false">{{'COMMON.FORM.BUTTON.CANCEL' | translate}}</sr-btn-->
