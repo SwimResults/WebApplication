@@ -4,9 +4,10 @@ import {RouteService} from "../../../../../core/service/route.service";
 import {TeamService} from "../../../../../core/service/api";
 
 @Component({
-  selector: 'sr-widget-n-o-teams-small',
-  templateUrl: './../widget-n-o-small.component.html',
-  styleUrls: ['./widget-n-o-teams-small.component.scss', './../widget-n-o-small.component.scss']
+    selector: 'sr-widget-n-o-teams-small',
+    templateUrl: './../widget-n-o-small.component.html',
+    styleUrls: ['./widget-n-o-teams-small.component.scss', './../widget-n-o-small.component.scss'],
+    standalone: false
 })
 export class WidgetNOTeamsSmallComponent extends WidgetNOSmallComponent {
     constructor(

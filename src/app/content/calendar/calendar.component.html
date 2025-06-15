@@ -1,8 +1,10 @@
 <sr-page-title title_name="Veranstaltungen"></sr-page-title>
 <sr-panel>
   <ul>
-    <li *ngFor="let meeting of meetings">
-      <a [routerLink]="'/m/' + meeting.meet_id + '/dashboard'">{{meeting.iteration + ". " + meeting.series.name_short}}</a>
-    </li>
+      @for (meeting of meetings; track meeting) {
+          <li>
+              <a [routerLink]="'/m/' + meeting.meet_id + '/dashboard'">{{ meeting.iteration + ". " + meeting.series.name_short }}</a>
+          </li>
+      }
   </ul>
 </sr-panel>

@@ -4,9 +4,10 @@ import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
-  selector: 'sr-start-list',
-  templateUrl: './start-list.component.html',
-  styleUrls: ['./start-list.component.scss']
+    selector: 'sr-start-list',
+    templateUrl: './start-list.component.html',
+    styleUrls: ['./start-list.component.scss'],
+    standalone: false
 })
 export class StartListComponent {
   @Input() starts!: Start[] | undefined;

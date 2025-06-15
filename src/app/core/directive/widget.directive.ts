@@ -1,7 +1,8 @@
 import {Directive, ViewContainerRef} from '@angular/core';
 
 @Directive({
-  selector: '[srWidget]'
+    selector: '[srWidget]',
+    standalone: false
 })
 export class WidgetDirective {
 

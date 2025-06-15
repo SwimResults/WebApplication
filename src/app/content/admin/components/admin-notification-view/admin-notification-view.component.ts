@@ -3,9 +3,10 @@ import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 
 @Component({
-  selector: 'sr-admin-notification-view',
-  templateUrl: './admin-notification-view.component.html',
-  styleUrl: './admin-notification-view.component.scss'
+    selector: 'sr-admin-notification-view',
+    templateUrl: './admin-notification-view.component.html',
+    styleUrl: './admin-notification-view.component.scss',
+    standalone: false
 })
 export class AdminNotificationViewComponent implements OnDestroy {
     meetingId?: string;

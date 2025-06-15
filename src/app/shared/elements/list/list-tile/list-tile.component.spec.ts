@@ -2,8 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListTileComponent } from './list-tile.component';
 import {ElementsModule} from "../../elements.module";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ListTileComponent', () => {
   let component: ListTileComponent;
@@ -11,13 +12,11 @@ describe('ListTileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListTileComponent ],
-      imports: [
-        ElementsModule,
-        HttpClientTestingModule,
-        RouterTestingModule
-      ]
-    })
+    declarations: [ListTileComponent],
+    imports: [ElementsModule,
+        RouterTestingModule],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ListTileComponent);

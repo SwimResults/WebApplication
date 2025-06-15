@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {WidgetFileSmallComponent} from "../widget-file-small.component";
 
 @Component({
-  selector: 'sr-widget-file-result-list-small',
+    selector: 'sr-widget-file-result-list-small',
     templateUrl: './../widget-file-small.component.html',
-    styleUrls: ['./../widget-file-small.component.scss']
+    styleUrls: ['./../widget-file-small.component.scss'],
+    standalone: false
 })
 export class WidgetFileResultListSmallComponent extends WidgetFileSmallComponent implements OnInit {
     ngOnInit() {

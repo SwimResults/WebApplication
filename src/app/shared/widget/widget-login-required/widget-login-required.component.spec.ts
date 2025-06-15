@@ -2,9 +2,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WidgetLoginRequiredComponent } from './widget-login-required.component';
 import {OAuthModule} from "angular-oauth2-oidc";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 import {WidgetModule} from "../widget.module";
 import {TranslateModule} from "@ngx-translate/core";
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('WidgetLoginRequiredComponent', () => {
   let component: WidgetLoginRequiredComponent;
@@ -12,14 +13,12 @@ describe('WidgetLoginRequiredComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetLoginRequiredComponent ],
-        imports: [
-            OAuthModule.forRoot(),
-            HttpClientTestingModule,
-            WidgetModule,
-            TranslateModule.forRoot()
-        ]
-    })
+    declarations: [WidgetLoginRequiredComponent],
+    imports: [OAuthModule.forRoot(),
+        WidgetModule,
+        TranslateModule.forRoot()],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(WidgetLoginRequiredComponent);

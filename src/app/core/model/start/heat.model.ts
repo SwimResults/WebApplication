@@ -44,7 +44,7 @@ export class HeatImpl implements Heat {
 
     getEstimatedStartTime(): string {
         const d = this.getEstimatedStart();
-        let minutes = "0" + d.getMinutes();
+        const minutes = "0" + d.getMinutes();
         return d.getHours() + ":" + minutes.substr(-2);
     }
 
@@ -58,19 +58,19 @@ export class HeatImpl implements Heat {
 
     getFinishedAtTime(): string {
         const d = this.getFinishedAt();
-        let minutes = "0" + d.getMinutes();
+        const minutes = "0" + d.getMinutes();
         return d.getHours() + ":" + minutes.substr(-2);
     }
 
     getStartDelayEstimationTime(): string {
         const d = this.getStartDelayEstimation();
-        let minutes = "0" + d.getMinutes();
+        const minutes = "0" + d.getMinutes();
         return d.getHours() + ":" + minutes.substr(-2);
     }
 
     hasStartDelayEstimationTime(): boolean {
         if (!this.start_delay_estimation) return false;
-        let s = this.getStartDelayEstimation()
+        const s = this.getStartDelayEstimation()
         return !(s.getMinutes() == 0 && s.getHours() == 0)
     }
 
@@ -80,20 +80,20 @@ export class HeatImpl implements Heat {
 
     getStartAtTime(): string {
         const d = this.getStartAt();
-        let minutes = "0" + d.getMinutes();
+        const minutes = "0" + d.getMinutes();
         return d.getHours() + ":" + minutes.substr(-2);
     }
 
     hasStartTime(): boolean {
-        let s = this.getStartAt()
+        const s = this.getStartAt()
         return !(s.getMinutes() == 0 && s.getHours() == 0)
     }
 
     // returns delay in seconds
     getDelay(): number {
         if (this.delay !== undefined) return this.delay;
-        let delayEst = this.getStartDelayEstimation()
-        let est = this.getEstimatedStart()
+        const delayEst = this.getStartDelayEstimation()
+        const est = this.getEstimatedStart()
 
         delayEst.setFullYear(2023, 1, 1);
         est.setFullYear(2023, 1, 1);
@@ -104,7 +104,7 @@ export class HeatImpl implements Heat {
 
     getDelayReadable(): string {
         const delay = Math.abs(this.getDelay());
-        let d = new Date(delay);
+        const d = new Date(delay);
         const h = d.getHours();
         const m = d.getMinutes();
         let str = "";

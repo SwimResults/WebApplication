@@ -7,9 +7,10 @@ import {UserService} from "../../../../core/service/api";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
-  selector: 'sr-list-tile',
-  templateUrl: './list-tile.component.html',
-  styleUrls: ['./list-tile.component.scss']
+    selector: 'sr-list-tile',
+    templateUrl: './list-tile.component.html',
+    styleUrls: ['./list-tile.component.scss'],
+    standalone: false
 })
 export class ListTileComponent {
   @Input() entry!: IListTile;

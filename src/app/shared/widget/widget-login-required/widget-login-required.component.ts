@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import {AuthService} from "../../../core/service/auth.service";
 
 @Component({
-  selector: 'sr-widget-login-required',
-  templateUrl: './widget-login-required.component.html',
-  styleUrls: ['./widget-login-required.component.scss']
+    selector: 'sr-widget-login-required',
+    templateUrl: './widget-login-required.component.html',
+    styleUrls: ['./widget-login-required.component.scss'],
+    standalone: false
 })
 export class WidgetLoginRequiredComponent {
     isAuthed: boolean = false;

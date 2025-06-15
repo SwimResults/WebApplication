@@ -7,19 +7,19 @@
 
 // https://stackoverflow.com/questions/56057128/javascript-date-parsing-returning-strange-results-in-chrome
 export function createDate(s: string): Date {
-  let [dateString, timeString] = s.split("T")
-  let [year, month, date] = dateString.split("-").map(Number)
-  let clearTimeString = timeString.split(/[Z+-]/)[0]
-  let [hours, minutes, seconds] = clearTimeString.split(":").map(Number)
+  const [dateString, timeString] = s.split("T")
+  const [year, month, date] = dateString.split("-").map(Number)
+  const clearTimeString = timeString.split(/[Z+-]/)[0]
+  const [hours, minutes, seconds] = clearTimeString.split(":").map(Number)
 
   return new Date(year, month - 1, date, hours, minutes, seconds)
 }
 
 export function createDatePlusOne(s: string): Date {
-    let [dateString, timeString] = s.split("T")
-    let [year, month, date] = dateString.split("-").map(Number)
-    let clearTimeString = timeString.split(/[Z+-]/)[0]
-    let [hours, minutes, seconds] = clearTimeString.split(":").map(Number)
+    const [dateString, timeString] = s.split("T")
+    const [year, month, date] = dateString.split("-").map(Number)
+    const clearTimeString = timeString.split(/[Z+-]/)[0]
+    const [hours, minutes, seconds] = clearTimeString.split(":").map(Number)
 
     return new Date(year, month - 1, date, hours+2, minutes, seconds)
 }
@@ -29,7 +29,7 @@ export function createDateFromUTC(s: string): Date {
 }
 
 export function createDateForBerlin(s: string): Date {
-    let d = new Date(s);
+    const d = new Date(s);
     return convertTZ(d, "Europe/Berlin");
 }
 

@@ -5,7 +5,8 @@ import {ImportFileRequest} from "../../../../core/service/api/import/import-file
 @Component({
     selector: 'sr-admin-import-text-dialog',
     templateUrl: './admin-import-text-dialog.component.html',
-    styleUrls: ['./admin-import-text-dialog.component.scss']
+    styleUrls: ['./admin-import-text-dialog.component.scss'],
+    standalone: false
 })
 export class AdminImportTextDialogComponent {
     constructor(

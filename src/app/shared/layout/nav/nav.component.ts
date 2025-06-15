@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {RouteService} from "../../../core/service/route.service";
 import {Meeting} from "../../../core/model/meeting/meeting.model";
@@ -6,11 +6,12 @@ import {SidebarMenuService} from "../../../core/service/sidebar-menu.service";
 import {Subscription} from "rxjs";
 
 @Component({
-  selector: 'sr-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+    selector: 'sr-nav',
+    templateUrl: './nav.component.html',
+    styleUrls: ['./nav.component.scss'],
+    standalone: false
 })
-export class NavComponent implements OnInit, OnDestroy {
+export class NavComponent implements OnDestroy {
   meeting: Meeting = {} as Meeting;
   meetingId: string | undefined;
   private meetingSubscription: Subscription;
@@ -31,9 +32,6 @@ export class NavComponent implements OnInit, OnDestroy {
       this.meeting = data.meeting;
       this.meetingParam.short = data.meeting.series.name_short;
     })
-  }
-
-  ngOnInit(): void {
   }
 
   ngOnDestroy() {

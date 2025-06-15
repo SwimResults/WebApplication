@@ -2,9 +2,10 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ChangeHeatEvent} from "../livetiming.component";
 
 @Component({
-  selector: 'sr-livetiming-controls',
-  templateUrl: './livetiming-controls.component.html',
-  styleUrls: ['./livetiming-controls.component.scss']
+    selector: 'sr-livetiming-controls',
+    templateUrl: './livetiming-controls.component.html',
+    styleUrls: ['./livetiming-controls.component.scss'],
+    standalone: false
 })
 export class LivetimingControlsComponent {
 

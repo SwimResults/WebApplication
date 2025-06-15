@@ -43,7 +43,7 @@ export class FileService extends BaseService{
 
     public getUrlFromMask(mask: string, event: number): string {
         if (mask === undefined) return "";
-        let n = (mask.match(/#/g) || []).length;
+        const n = (mask.match(/#/g) || []).length;
         mask = mask.replace("#", "$");
         mask = mask.replaceAll("#", "");
 

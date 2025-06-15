@@ -5,9 +5,10 @@ import {Team} from "../../../../../core/model";
 import {RouteService} from "../../../../../core/service/route.service";
 
 @Component({
-  selector: 'sr-widget-map-medium',
-  templateUrl: './widget-map-medium.component.html',
-  styleUrls: ['./widget-map-medium.component.scss']
+    selector: 'sr-widget-map-medium',
+    templateUrl: './widget-map-medium.component.html',
+    styleUrls: ['./widget-map-medium.component.scss'],
+    standalone: false
 })
 export class WidgetMapMediumComponent implements OnDestroy {
 

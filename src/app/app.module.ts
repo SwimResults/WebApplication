@@ -8,7 +8,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {LayoutModule} from "./shared/layout/layout.module";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {HTTP_INTERCEPTORS, HttpClient} from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClient } from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {JwtInterceptor} from "./core/interceptor/jwt.interceptor";
 import {MatSelectModule} from "@angular/material/select";

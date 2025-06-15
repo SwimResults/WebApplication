@@ -5,9 +5,10 @@ import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {Heat, HeatImpl} from "../../../../core/model/start/heat.model";
 
 @Component({
-  selector: 'sr-admin-event-list',
-  templateUrl: './admin-event-list.component.html',
-  styleUrls: ['./admin-event-list.component.scss']
+    selector: 'sr-admin-event-list',
+    templateUrl: './admin-event-list.component.html',
+    styleUrls: ['./admin-event-list.component.scss'],
+    standalone: false
 })
 export class AdminEventListComponent implements OnInit {
     @Input() meetingId?: string;
@@ -42,7 +43,7 @@ export class AdminEventListComponent implements OnInit {
         this.heatService.getHeatsByMeeting(this.meetingId).subscribe(data => {
             if (data) {
                 this.heats = new Map<number, HeatImpl[]>();
-                for (let heat of data) {
+                for (const heat of data) {
                     let heats = this.heats.get(heat.event);
                     if (!heats) {
                         heats = [];

@@ -3,9 +3,10 @@ import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {TranslateService} from "@ngx-translate/core";
 
 @Component({
-  selector: 'sr-meeting-list-tile',
-  templateUrl: './meeting-list-tile.component.html',
-  styleUrls: ['./meeting-list-tile.component.scss']
+    selector: 'sr-meeting-list-tile',
+    templateUrl: './meeting-list-tile.component.html',
+    styleUrls: ['./meeting-list-tile.component.scss'],
+    standalone: false
 })
 export class MeetingListTileComponent implements OnInit{
   @Input() meeting!: MeetingImpl;
@@ -24,7 +25,7 @@ export class MeetingListTileComponent implements OnInit{
   fetchTranslations() {
     if (!this.meeting) return;
     let sf = this.meeting.getDateString(true);
-    let s1 = sf.split("#");
+    const s1 = sf.split("#");
     console.log(sf);
     console.log(s1);
 

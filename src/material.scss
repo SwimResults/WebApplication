@@ -1,4 +1,4 @@
-@import "colors";
+@use "colors";
 
 @font-face {
     font-family: 'SwimResults';
@@ -57,16 +57,16 @@
 
 .mat-mdc-slide-toggle .mdc-switch:enabled .mdc-switch__track {
     &::after {
-        background: $color-bg-first !important;
+        background: colors.$color-bg-first !important;
     }
 
     &::before {
-        background: $color-bg-first !important;
+        background: colors.$color-bg-first !important;
     }
 }
 
 .mat-mdc-slide-toggle .mdc-switch:enabled .mdc-switch__handle::after {
-    background: $color-sr-first !important;
+    background: colors.$color-sr-first !important;
 }
 
 .mat-mdc-slide-toggle .mdc-switch:enabled .mdc-switch__shadow {
@@ -83,7 +83,7 @@
 
 .mat-spinner-size-btn.mat-mdc-progress-spinner.mat-spinner-color-first .mdc-circular-progress__determinate-circle,
 .mat-spinner-size-btn.mat-mdc-progress-spinner.mat-spinner-color-first .mdc-circular-progress__indeterminate-circle-graphic {
-    stroke: $color-sr-first !important;
+    stroke: colors.$color-sr-first !important;
 }
 
 .mat-spinner-size-btn.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle,
@@ -93,12 +93,12 @@
 
 .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled:checked + .mdc-radio__background .mdc-radio__outer-circle,
 .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled + .mdc-radio__background .mdc-radio__inner-circle {
-    border-color: $color-sr-first !important;
+    border-color: colors.$color-sr-first !important;
 }
 
 .mat-mdc-radio-button.mat-mdc-radio-checked .mdc-radio__background::before,
 .mat-mdc-radio-button.mat-mdc-radio-checked .mat-ripple-element {
-    background-color: $color-sr-first !important;
+    background-color: colors.$color-sr-first !important;
 }
 
 .mat-button-toggle {
@@ -107,7 +107,7 @@
 
 .mat-button-toggle-checked.mat-button-toggle-appearance-standard {
     color: white !important;
-    background-color: $color-sr-first !important;
+    background-color: colors.$color-sr-first !important;
 }
 
 .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
@@ -115,11 +115,11 @@
 }
 
 .mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
-    border: 2px solid $color-sr-first !important;
+    border: 2px solid colors.$color-sr-first !important;
 }
 
 .mat-mdc-dialog-container {
-    --mdc-dialog-container-shape: 12px;
+    --mat-dialog-container-shape: 12px;
 }
 
 .mat-mdc-menu-panel {
@@ -133,7 +133,7 @@ body {
 
     .mdc-menu-surface {
         border-radius: 8px;
-        background-color: $color-bg-popup;
+        background-color: colors.$color-bg-popup;
         box-shadow: 0 0 22px -16px black !important;
     }
 

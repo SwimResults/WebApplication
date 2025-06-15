@@ -6,9 +6,10 @@ import {AthleteService, UserService} from "../../../../../core/service/api";
 import {RouteService} from "../../../../../core/service/route.service";
 
 @Component({
-  selector: 'sr-widget-favorites',
-  templateUrl: './widget-favorites.component.html',
-  styleUrls: ['./widget-favorites.component.scss']
+    selector: 'sr-widget-favorites',
+    templateUrl: './widget-favorites.component.html',
+    styleUrls: ['./widget-favorites.component.scss'],
+    standalone: false
 })
 export class WidgetFavoritesComponent implements OnInit, OnDestroy {
     meetingId?: string;
@@ -40,7 +41,7 @@ export class WidgetFavoritesComponent implements OnInit, OnDestroy {
         this.fetching.fetching = true;
         this.userService.getUser().subscribe(data => {
             if (data.following) {
-                for (let follower of data.following) {
+                for (const follower of data.following) {
                     this.athleteService.getAthleteById(follower.athlete_id).subscribe(ath => {
                         if (!this.meetingId || ath.participation && ath.participation.includes(this.meetingId)) {
                             this.following.push(ath);

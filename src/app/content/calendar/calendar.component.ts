@@ -3,9 +3,10 @@ import {Meeting} from "../../core/model/meeting/meeting.model";
 import {MeetingService} from "../../core/service/api";
 
 @Component({
-  selector: 'sr-calendar',
-  templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.scss']
+    selector: 'sr-calendar',
+    templateUrl: './calendar.component.html',
+    styleUrls: ['./calendar.component.scss'],
+    standalone: false
 })
 export class CalendarComponent implements OnInit{
 

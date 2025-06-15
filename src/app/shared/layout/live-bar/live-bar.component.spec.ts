@@ -1,9 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LiveBarComponent } from './live-bar.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatIconModule} from "@angular/material/icon";
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('LiveBarComponent', () => {
   let component: LiveBarComponent;
@@ -11,13 +12,11 @@ describe('LiveBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LiveBarComponent ],
-        imports: [
-            HttpClientTestingModule,
-            TranslateModule.forRoot(),
-            MatIconModule
-        ]
-    })
+    declarations: [LiveBarComponent],
+    imports: [TranslateModule.forRoot(),
+        MatIconModule],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(LiveBarComponent);

@@ -4,12 +4,13 @@ import {EventListHeatImpl} from "../../../../core/model/start/event-list-heat.mo
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {HeatService} from "../../../../core/service/api";
-import {Incident, IncidentImpl} from "../../../../core/model/meeting/incident.model";
+import {IncidentImpl} from "../../../../core/model/meeting/incident.model";
 
 @Component({
-  selector: 'sr-event-list-part',
-  templateUrl: './event-list-part.component.html',
-  styleUrl: './event-list-part.component.scss'
+    selector: 'sr-event-list-part',
+    templateUrl: './event-list-part.component.html',
+    styleUrl: './event-list-part.component.scss',
+    standalone: false
 })
 export class EventListPartComponent implements OnInit {
     @Input() part!: MeetingPart
@@ -32,14 +33,14 @@ export class EventListPartComponent implements OnInit {
     fetchHeats() {
         if (!this.meetingId) return;
         this.fetchingHeats.fetching = true;
-        let events: number[] = [];
+        const events: number[] = [];
         for (const event of this.part.events) {
             events.push(event.number);
         }
         this.heatService.getHeatsByMeetingForEventListEvents(this.meetingId, events).subscribe({
             next: data => {
                 if (data && data.events && data.events.length > 0) {
-                    for (let heatInfo of data.events) {
+                    for (const heatInfo of data.events) {
                         this.heats.set(heatInfo.event_number, new EventListHeatImpl(heatInfo));
                     }
                 }

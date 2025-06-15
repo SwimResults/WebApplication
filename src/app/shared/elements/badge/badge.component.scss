@@ -1,8 +1,8 @@
-@import "../../../../colors";
+@use "/src/colors";
 
 :host {
   font-size: 13px;
-  background-color: $color-sr-first;
+  background-color: colors.$color-sr-first;
   color: white;
   border-radius: 4px;
   padding: 1px 3px;

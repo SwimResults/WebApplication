@@ -1,15 +1,18 @@
-<sr-spinner *ngIf="fetchingParts.fetching"></sr-spinner>
-<ng-container *ngIf="!fetchingParts.fetching && meeting && meetingId">
-    <sr-no-content *ngIf="!parts || parts.length <= 0">
-    {{'EVENT.LIST.NO_EVENTS_MESSAGE' | translate}}
+@if (fetchingParts.fetching) {
+    <sr-spinner></sr-spinner>
+}
+@if (!fetchingParts.fetching && meeting && meetingId) {
+    @if (!parts || parts.length <= 0) {
+        <sr-no-content>
+            {{ 'EVENT.LIST.NO_EVENTS_MESSAGE' | translate }}
     </sr-no-content>
-
+    }
+    @for (part of parts; track part) {
     <sr-event-list-part
-        *ngFor="let part of parts"
         [part]="part"
         [meetingId]="meetingId"
         [meeting]="meeting"
         [incidents]="incidents"
     ></sr-event-list-part>
-
-</ng-container>
+    }
+}

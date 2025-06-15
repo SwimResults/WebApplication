@@ -5,9 +5,10 @@ import {RouteService} from "../../../../../core/service/route.service";
 import {Sponsor} from "../../../../../core/model/meeting/sponsor.model";
 
 @Component({
-  selector: 'sr-widget-coming-soon-medium',
-  templateUrl: './widget-sponsors-medium.component.html',
-  styleUrls: ['./widget-sponsors-medium.component.scss']
+    selector: 'sr-widget-coming-soon-medium',
+    templateUrl: './widget-sponsors-medium.component.html',
+    styleUrls: ['./widget-sponsors-medium.component.scss'],
+    standalone: false
 })
 export class WidgetSponsorsMediumComponent implements OnDestroy {
     meeting?: MeetingImpl;

@@ -5,9 +5,10 @@ import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
-  selector: 'sr-athlete-starts',
-  templateUrl: './athlete-starts.component.html',
-  styleUrls: ['./athlete-starts.component.scss']
+    selector: 'sr-athlete-starts',
+    templateUrl: './athlete-starts.component.html',
+    styleUrls: ['./athlete-starts.component.scss'],
+    standalone: false
 })
 export class AthleteStartsComponent implements OnInit{
   @Input() athleteId!: string;

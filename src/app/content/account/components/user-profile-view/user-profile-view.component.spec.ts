@@ -2,9 +2,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserProfileViewComponent } from './user-profile-view.component';
 import {OAuthModule} from "angular-oauth2-oidc";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {TranslateModule} from "@ngx-translate/core";
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('UserProfileViewComponent', () => {
   let component: UserProfileViewComponent;
@@ -12,14 +13,12 @@ describe('UserProfileViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserProfileViewComponent ],
-      imports: [
-        OAuthModule.forRoot(),
-        HttpClientTestingModule,
+    declarations: [UserProfileViewComponent],
+    imports: [OAuthModule.forRoot(),
         ElementsModule,
-        TranslateModule.forRoot()
-      ]
-    })
+        TranslateModule.forRoot()],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(UserProfileViewComponent);

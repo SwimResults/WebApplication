@@ -6,7 +6,8 @@ import {fileTypes} from "../../../../core/constant/file-types.constant";
 @Component({
     selector: 'sr-file-list-tile',
     templateUrl: './file-list-tile.component.html',
-    styleUrls: ['./file-list-tile.component.scss']
+    styleUrls: ['./file-list-tile.component.scss'],
+    standalone: false
 })
 export class FileListTileComponent implements OnInit {
 

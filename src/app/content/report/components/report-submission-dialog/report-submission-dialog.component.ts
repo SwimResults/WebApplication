@@ -1,8 +1,9 @@
 import {Component, Inject} from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import {
     MAT_DIALOG_DATA,
-    MatDialogActions, MatDialogClose,
+    MatDialogActions,
+    MatDialogClose,
     MatDialogContent,
     MatDialogRef,
     MatDialogTitle
@@ -20,11 +21,10 @@ export interface ReportSubmissionDialogData {
 }
 
 @Component({
-  selector: 'sr-report-submission-dialog',
-  standalone: true,
-    imports: [CommonModule, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule, TranslateModule, MatInputModule, FormsModule],
-  templateUrl: './report-submission-dialog.component.html',
-  styleUrl: './report-submission-dialog.component.scss'
+    selector: 'sr-report-submission-dialog',
+    imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule, TranslateModule, MatInputModule, FormsModule],
+    templateUrl: './report-submission-dialog.component.html',
+    styleUrl: './report-submission-dialog.component.scss'
 })
 export class ReportSubmissionDialogComponent {
 
@@ -36,7 +36,7 @@ export class ReportSubmissionDialogComponent {
     ) {
         if (!data) {
             this.data = {
-                report: {} as UserReport
+                report: {message: ""} as UserReport
             } as ReportSubmissionDialogData;
         }
     }

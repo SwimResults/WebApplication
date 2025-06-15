@@ -4,7 +4,7 @@ export interface FileType {
   download: boolean;
 }
 
-export let fileTypes = new Map<string, FileType>([
+export const fileTypes = new Map<string, FileType>([
     ["pdf", {
         icon: "description",
         color: "pdf",

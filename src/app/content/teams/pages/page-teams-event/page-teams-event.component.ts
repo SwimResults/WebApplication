@@ -4,9 +4,10 @@ import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 
 @Component({
-  selector: 'sr-page-teams-event',
-  templateUrl: './page-teams-event.component.html',
-  styleUrls: ['./page-teams-event.component.scss']
+    selector: 'sr-page-teams-event',
+    templateUrl: './page-teams-event.component.html',
+    styleUrls: ['./page-teams-event.component.scss'],
+    standalone: false
 })
 export class PageTeamsEventComponent implements OnDestroy {
   meeting: Meeting = {} as Meeting;

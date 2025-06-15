@@ -8,9 +8,10 @@ import {Subscription} from "rxjs";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
-  selector: 'sr-page-athlete',
-  templateUrl: './page-athlete.component.html',
-  styleUrls: ['./page-athlete.component.scss']
+    selector: 'sr-page-athlete',
+    templateUrl: './page-athlete.component.html',
+    styleUrls: ['./page-athlete.component.scss'],
+    standalone: false
 })
 export class PageAthleteComponent implements OnInit, OnDestroy {
   meeting: Meeting = {} as Meeting;
@@ -46,9 +47,9 @@ export class PageAthleteComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(s => {
-      let s0: string = s["entity_id"];
+      const s0: string = s["entity_id"];
       if (s0.includes("-")) {
-        let s2s = s0.split("-", 2)
+        const s2s = s0.split("-", 2)
         this.athleteAlias = s2s[0];
         this.athleteYear = +s2s[1];
         console.log("extracted alias: '" + this.athleteAlias + "' and year: '" + this.athleteYear + "'");

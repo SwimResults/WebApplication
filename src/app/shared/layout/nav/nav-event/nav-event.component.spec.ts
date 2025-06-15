@@ -3,8 +3,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavEventComponent } from './nav-event.component';
 import {ElementsModule} from "../../../elements/elements.module";
 import {RouterTestingModule} from "@angular/router/testing";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NavEventComponent', () => {
   let component: NavEventComponent;
@@ -12,14 +13,12 @@ describe('NavEventComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavEventComponent ],
-      imports: [
-        ElementsModule,
+    declarations: [NavEventComponent],
+    imports: [ElementsModule,
         RouterTestingModule,
-        HttpClientTestingModule,
-        TranslateModule.forRoot()
-      ]
-    })
+        TranslateModule.forRoot()],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(NavEventComponent);

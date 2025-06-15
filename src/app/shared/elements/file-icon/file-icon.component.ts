@@ -4,7 +4,8 @@ import {FileType, fileTypes} from "../../../core/constant/file-types.constant";
 @Component({
     selector: 'sr-file-icon',
     templateUrl: './file-icon.component.html',
-    styleUrls: ['./file-icon.component.scss']
+    styleUrls: ['./file-icon.component.scss'],
+    standalone: false
 })
 export class FileIconComponent implements OnInit {
 
@@ -16,10 +17,6 @@ export class FileIconComponent implements OnInit {
         icon: "insert_drive_file",
         color: "",
         download: true
-    }
-
-    constructor() {
-
     }
 
     ngOnInit() {

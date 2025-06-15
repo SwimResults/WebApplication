@@ -6,9 +6,10 @@ import {Heat} from "../../../../core/model/start/heat.model";
 import {ViewportScroller} from "@angular/common";
 
 @Component({
-  selector: 'sr-admin-main-view',
-  templateUrl: './admin-main-view.component.html',
-  styleUrls: ['./admin-main-view.component.scss']
+    selector: 'sr-admin-main-view',
+    templateUrl: './admin-main-view.component.html',
+    styleUrls: ['./admin-main-view.component.scss'],
+    standalone: false
 })
 export class AdminMainViewComponent implements OnDestroy {
   meeting?: MeetingImpl;

@@ -4,9 +4,10 @@ import {HeatImpl} from "../../../../../core/model/start/heat.model";
 import {MeetingImpl, MeetingStates} from "../../../../../core/model/meeting/meeting.model";
 
 @Component({
-  selector: 'sr-livetiming-header',
-  templateUrl: './livetiming-header.component.html',
-  styleUrls: ['./livetiming-header.component.scss']
+    selector: 'sr-livetiming-header',
+    templateUrl: './livetiming-header.component.html',
+    styleUrls: ['./livetiming-header.component.scss'],
+    standalone: false
 })
 export class LivetimingHeaderComponent {
   //@Input() event!: MeetingEvent;

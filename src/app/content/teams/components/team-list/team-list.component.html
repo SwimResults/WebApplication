@@ -1,3 +1,5 @@
 <div>
-  <sr-team-list-tile *ngFor="let team of teams" [team]="team"></sr-team-list-tile>
+    @for (team of teams; track team) {
+        <sr-team-list-tile [team]="team"></sr-team-list-tile>
+    }
 </div>

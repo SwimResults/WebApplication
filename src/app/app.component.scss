@@ -1,4 +1,4 @@
-@import "../colors";
+@use "/src/colors";
 
 main {
   display: grid;
@@ -93,10 +93,10 @@ main {
 
     .footer-text {
         display: block;
-        color: $color-footer-text;
+        color: colors.$color-footer-text;
 
         a {
-            color: $color-footer-text;
+            color: colors.$color-footer-text;
             display: inline-block;
             margin: 0 6px;
             text-decoration: underline;

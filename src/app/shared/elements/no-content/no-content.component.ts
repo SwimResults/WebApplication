@@ -2,9 +2,10 @@ import {Component, Input} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 
 @Component({
-  selector: 'sr-no-content',
-  templateUrl: './no-content.component.html',
-  styleUrls: ['./no-content.component.scss']
+    selector: 'sr-no-content',
+    templateUrl: './no-content.component.html',
+    styleUrls: ['./no-content.component.scss'],
+    standalone: false
 })
 export class NoContentComponent {
   @Input() serviceOffline?: "MEETING" | "ATHLETE" | "START" | "IMPORT" | "USER";

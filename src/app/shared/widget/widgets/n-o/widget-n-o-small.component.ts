@@ -4,9 +4,10 @@ import {count, Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 
 @Component({
-  selector: 'sr-widget-n-o-small',
-  templateUrl: './widget-n-o-small.component.html',
-  styleUrls: ['./widget-n-o-small.component.scss']
+    selector: 'sr-widget-n-o-small',
+    templateUrl: './widget-n-o-small.component.html',
+    styleUrls: ['./widget-n-o-small.component.scss'],
+    standalone: false
 })
 export class WidgetNOSmallComponent implements OnInit, OnDestroy {
     meetingId?: string;

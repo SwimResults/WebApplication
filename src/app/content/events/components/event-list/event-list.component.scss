@@ -1,9 +1,9 @@
-@import "../../../../../colors";
+@use "/src/colors";
 
 .event {
   display: block;
   padding: 8px 0;
-  border-bottom: 1px solid $color-hr-border;
+  border-bottom: 1px solid colors.$color-hr-border;
 }
 
 .event:first-child {

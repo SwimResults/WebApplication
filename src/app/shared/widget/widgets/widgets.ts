@@ -37,9 +37,9 @@ import {WidgetStartsLargeComponent} from "./starts/widget-starts-large/widget-st
 import {WidgetWeblinksSmallComponent} from "./weblinks/widget-weblinks-small/widget-weblinks-small.component";
 import {WidgetSponsorsMediumComponent} from "./sponsors/widget-sponsors-medium/widget-sponsors-medium.component";
 
-export type ComponentClass = { new (): Component };
+export type ComponentClass = new () => Component
 
-export const widgetComponents = new Map<String, any>();
+export const widgetComponents = new Map<string, any>();
 widgetComponents.set('meeting-large', WidgetMeetingLargeComponent);
 widgetComponents.set('meeting-medium', WidgetMeetingMediumComponent);
 widgetComponents.set('user-small', WidgetUserSmallComponent);

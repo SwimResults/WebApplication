@@ -1,23 +1,17 @@
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {HttpClientModule} from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import {TranslateModule} from "@ngx-translate/core";
 import { IsVisibleDirective } from './directive/is-visible.directive';
 import { WidgetDirective } from './directive/widget.directive';
 import { IsAuthedDirective } from './directive/is-authed.directive';
 import { IsAdminDirective } from './directive/is-admin.directive';
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         IsVisibleDirective,
         WidgetDirective,
         IsAuthedDirective,
         IsAdminDirective
-    ],
-    imports: [
-        CommonModule,
-        HttpClientModule,
-        TranslateModule
     ],
     exports: [
         TranslateModule,
@@ -25,8 +19,8 @@ import { IsAdminDirective } from './directive/is-admin.directive';
         WidgetDirective,
         IsAuthedDirective,
         IsAdminDirective
-    ]
-})
+    ], imports: [CommonModule,
+        TranslateModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() core:CoreModule ){
     if (core) {

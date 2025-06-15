@@ -8,7 +8,8 @@ import {TranslateService} from "@ngx-translate/core";
 @Component({
     selector: 'sr-widget-file-small',
     templateUrl: './widget-file-small.component.html',
-    styleUrls: ['./widget-file-small.component.scss']
+    styleUrls: ['./widget-file-small.component.scss'],
+    standalone: false
 })
 export class WidgetFileSmallComponent implements OnDestroy {
     meetingId?: string;

@@ -1,4 +1,4 @@
-@import "../../../../../colors";
+@use "/src/colors";
 
 sr-panel {
   width: 100%;
@@ -8,7 +8,7 @@ sr-panel {
   text-align: center;
 
   .meeting-logo {
-    background-color: $color-bg-contrast;
+    background-color: colors.$color-bg-contrast;
     border-radius: 50%;
     height: 100px;
     display: block;
@@ -20,7 +20,7 @@ sr-panel {
       width: 100px;
       height: 100px;
       line-height: 100px;
-      color: $color-sr-first
+      color: colors.$color-sr-first
     }
 
     img {
@@ -44,7 +44,7 @@ sr-panel {
 
   .location {
     font-weight: 600;
-    color: $color-text-gray;
+    color: colors.$color-text-gray;
 
     mat-icon,
     span {

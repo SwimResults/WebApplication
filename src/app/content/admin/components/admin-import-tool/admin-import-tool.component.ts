@@ -17,7 +17,8 @@ interface FileList {
 @Component({
     selector: 'sr-admin-import-tool',
     templateUrl: './admin-import-tool.component.html',
-    styleUrls: ['./admin-import-tool.component.scss']
+    styleUrls: ['./admin-import-tool.component.scss'],
+    standalone: false
 })
 export class AdminImportToolComponent implements OnInit {
     @Input() meetingId?: string;
@@ -73,7 +74,7 @@ export class AdminImportToolComponent implements OnInit {
         if (!this.meeting) return;
         this.files = [];
         for (const event of this.events) {
-            let file = {
+            const file = {
                 url: this.fileService.getUrlFromMask(this.meeting.data.ftp_result_list_mask, event.number),
                 name: "WK " + event.number,
                 event: event,
@@ -99,7 +100,7 @@ export class AdminImportToolComponent implements OnInit {
 
         console.log("starting import...");
 
-        let excludes: number[] = [];
+        const excludes: number[] = [];
         if (this.importForm.value.exclude) {
             const exs = this.importForm.value.exclude.split(",");
             for (const ex of exs) {
@@ -108,7 +109,7 @@ export class AdminImportToolComponent implements OnInit {
         }
 
 
-        let includes: number[] = [];
+        const includes: number[] = [];
         if (this.importForm.value.include) {
             const incs = this.importForm.value.include.split(",");
             for (const inc of incs) {
@@ -116,7 +117,7 @@ export class AdminImportToolComponent implements OnInit {
             }
         }
 
-        let data: ImportFileRequest = {
+        const data: ImportFileRequest = {
             url: this.importForm.value.url,
             text: "",
             file_extension: this.importForm.value.fileType.toUpperCase(),

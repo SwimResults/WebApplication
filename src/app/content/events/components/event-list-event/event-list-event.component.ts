@@ -5,9 +5,10 @@ import {TranslateService} from "@ngx-translate/core";
 import {EventListHeatImpl} from "../../../../core/model/start/event-list-heat.model";
 
 @Component({
-  selector: 'sr-event-list-event',
-  templateUrl: './event-list-event.component.html',
-  styleUrls: ['./event-list-event.component.scss']
+    selector: 'sr-event-list-event',
+    templateUrl: './event-list-event.component.html',
+    styleUrls: ['./event-list-event.component.scss'],
+    standalone: false
 })
 export class EventListEventComponent implements OnInit {
   @Input() event!: MeetingEvent;

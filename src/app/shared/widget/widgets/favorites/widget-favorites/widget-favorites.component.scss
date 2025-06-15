@@ -1,4 +1,4 @@
-@import "../../../../../../colors";
+@use "/src/colors";
 
 .athlete-list {
     overflow-y: auto;
@@ -28,7 +28,7 @@
     width: 40px;
     height: 40px;
     border-radius: 10px;
-    background-color: $color-sr-first;
+    background-color: colors.$color-sr-first;
     color: white;
     font-weight: 900;
     font-size: 18px;
@@ -54,6 +54,6 @@
     }
 
     .athlete-team {
-        color: $color-text-gray;
+        color: colors.$color-text-gray;
     }
 }

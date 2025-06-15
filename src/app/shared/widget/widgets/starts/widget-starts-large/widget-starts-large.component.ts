@@ -8,9 +8,10 @@ import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
 
 @Component({
-  selector: 'sr-widget-starts-large',
-  templateUrl: './widget-starts-large.component.html',
-  styleUrls: ['./widget-starts-large.component.scss']
+    selector: 'sr-widget-starts-large',
+    templateUrl: './widget-starts-large.component.html',
+    styleUrls: ['./widget-starts-large.component.scss'],
+    standalone: false
 })
 export class WidgetStartsLargeComponent implements OnInit, OnDestroy {
     meetingId?: string;

@@ -6,13 +6,22 @@
 
     <div class="file-import">
       <mat-radio-group aria-label="Dateityp" formControlName="fileType">
-        <mat-radio-button *ngFor="let entry of fileTypeList" (change)="onFileTypeChange(entry.value)" [value]="entry.value">{{entry.name}}</mat-radio-button>
+          @for (entry of fileTypeList; track entry) {
+              <mat-radio-button (change)="onFileTypeChange(entry.value)" [value]="entry.value">{{ entry.name }}
+              </mat-radio-button>
+          }
       </mat-radio-group>
 
       <mat-radio-group aria-label="Listentyp" formControlName="listType">
-        <mat-radio-button value="definition" *ngIf="currentFileType === 'dsv'">Definitionsliste</mat-radio-button>
-        <mat-radio-button value="start_list" *ngIf="currentFileType !== 'dsv' && currentFileType !== ''">Startliste</mat-radio-button>
-        <mat-radio-button value="result_list" *ngIf="currentFileType !== ''">Ergebnis</mat-radio-button>
+          @if (currentFileType === 'dsv') {
+              <mat-radio-button value="definition">Definitionsliste</mat-radio-button>
+          }
+          @if (currentFileType !== 'dsv' && currentFileType !== '') {
+              <mat-radio-button value="start_list">Startliste</mat-radio-button>
+          }
+          @if (currentFileType !== '') {
+              <mat-radio-button value="result_list">Ergebnis</mat-radio-button>
+          }
       </mat-radio-group>
 
       <div class="import-button-box">
@@ -26,13 +35,18 @@
 
 <sr-panel panelTitle="Protokolldienst">
   <div class="file-list">
-    <div class="file-list-tile"
-      *ngFor="let file of files"
-    >
-      <span class="file-name {{file.event.number === currentFile?.event?.number ? 'file-selected' : ''}} {{file.exists ? 'file-exists' : 'file-exists-not'}} {{file.event.certified ? 'file-public' : 'file-not-public'}}" (click)="onSelectFile(file)">
-          <span>{{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{file.event.number}}<ng-container *ngIf="file.event && file.event.style"> - {{file.event.relay_distance ? file.event.relay_distance : file.event.distance}}m {{'COMMON.STYLE.' + file.event.style.name + '.NAME' | translate}} {{file.event.name_extension}} {{'COMMON.GENDER.' + file.event.gender + '.NAME' | translate}}</ng-container></span>
-      </span>
-    </div>
+      @for (file of files; track file) {
+          <div class="file-list-tile"
+          >
+        <span
+            class="file-name {{file.event.number === currentFile?.event?.number ? 'file-selected' : ''}} {{file.exists ? 'file-exists' : 'file-exists-not'}} {{file.event.certified ? 'file-public' : 'file-not-public'}}"
+            (click)="onSelectFile(file)">
+          <span>{{ 'EVENT.PAGE.EVENT_TITLE_EVENT' | translate }} {{ file.event.number }}@if (file.event && file.event.style) {
+              - {{ file.event.relay_distance ? file.event.relay_distance : file.event.distance }}m {{ 'COMMON.STYLE.' + file.event.style.name + '.NAME' | translate }} {{ file.event.name_extension }} {{ 'COMMON.GENDER.' + file.event.gender + '.NAME' | translate }}
+          }</span>
+        </span>
+          </div>
+      }
   </div>
 
   <div class="file-list-buttons">

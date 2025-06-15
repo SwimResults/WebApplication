@@ -132,7 +132,7 @@ export class MeetingImpl implements Meeting {
     }
 
     hasStates(states: MeetingStates[]): boolean {
-        for (let state1 of states) {
+        for (const state1 of states) {
             if (this.state == state1) return true;
         }
         return false;

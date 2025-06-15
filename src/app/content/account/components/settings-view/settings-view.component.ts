@@ -3,9 +3,10 @@ import {User} from "../../../../core/model/user/user.model";
 import {UserService} from "../../../../core/service/api";
 
 @Component({
-  selector: 'sr-settings-view',
-  templateUrl: './settings-view.component.html',
-  styleUrls: ['./settings-view.component.scss']
+    selector: 'sr-settings-view',
+    templateUrl: './settings-view.component.html',
+    styleUrls: ['./settings-view.component.scss'],
+    standalone: false
 })
 export class SettingsViewComponent implements OnInit {
     user?: User;

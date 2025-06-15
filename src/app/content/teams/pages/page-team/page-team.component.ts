@@ -10,9 +10,10 @@ import {RouteService} from "../../../../core/service/route.service";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
-  selector: 'sr-page-team',
-  templateUrl: './page-team.component.html',
-  styleUrls: ['./page-team.component.scss']
+    selector: 'sr-page-team',
+    templateUrl: './page-team.component.html',
+    styleUrls: ['./page-team.component.scss'],
+    standalone: false
 })
 export class PageTeamComponent implements OnInit, OnDestroy {
   meetingId: string | undefined;
@@ -45,7 +46,7 @@ export class PageTeamComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(s => {
-      let s0: string = s["entity_id"];
+      const s0: string = s["entity_id"];
       if (s0.includes("@")) {
         this.teamAlias = s0.split("@", 2)[1];
         console.log("found alias: " + this.teamAlias)

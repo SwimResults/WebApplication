@@ -4,9 +4,10 @@ import {StartService} from "../../../../../core/service/api";
 import {RouteService} from "../../../../../core/service/route.service";
 
 @Component({
-  selector: 'sr-widget-n-o-starts-small',
+    selector: 'sr-widget-n-o-starts-small',
     templateUrl: './../widget-n-o-small.component.html',
-  styleUrls: ['./widget-n-o-starts-small.component.scss', './../widget-n-o-small.component.scss']
+    styleUrls: ['./widget-n-o-starts-small.component.scss', './../widget-n-o-small.component.scss'],
+    standalone: false
 })
 export class WidgetNOStartsSmallComponent extends WidgetNOSmallComponent {
     constructor(

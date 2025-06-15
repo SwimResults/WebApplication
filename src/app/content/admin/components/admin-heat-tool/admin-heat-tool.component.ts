@@ -10,9 +10,10 @@ import {EasyWkService} from "../../../../core/service/api/import/easy-wk.service
 import {Observable} from "rxjs";
 
 @Component({
-  selector: 'sr-admin-heat-tool',
-  templateUrl: './admin-heat-tool.component.html',
-  styleUrls: ['./admin-heat-tool.component.scss']
+    selector: 'sr-admin-heat-tool',
+    templateUrl: './admin-heat-tool.component.html',
+    styleUrls: ['./admin-heat-tool.component.scss'],
+    standalone: false
 })
 export class AdminHeatToolComponent implements OnInit {
   @Input() meetingId?: string;
@@ -191,19 +192,11 @@ export class AdminHeatToolComponent implements OnInit {
       this.easyWkService.raceResult(this.password).subscribe(data => data == "OK" ? this.fetchStarts() : null);
   }
 
-  deleteResults() {
-
-  }
-
-  verifyResults() {
-
-  }
-
   modifyTimes(time_type: string) {
     if (this.heat) {
       this.runningUpdateTime = time_type;
 
-      let time_input = this.timesForm.value[time_type];
+      const time_input = this.timesForm.value[time_type];
 
       const t: string[] = time_input.split(":");
 
@@ -220,7 +213,7 @@ export class AdminHeatToolComponent implements OnInit {
           break;
       }
 
-      let d = new Date();
+      const d = new Date();
 
       // 2023-11-07T05:30:00.000Z
       const zero = "" + ("0" + t[0]).substr(-2) + ":" + ("0" + t[1]).substr(-2);

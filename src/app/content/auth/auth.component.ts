@@ -5,9 +5,10 @@ import {AuthService} from "../../core/service/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'sr-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+    selector: 'sr-auth',
+    templateUrl: './auth.component.html',
+    styleUrls: ['./auth.component.scss'],
+    standalone: false
 })
 export class AuthComponent implements OnDestroy {
   user: any;

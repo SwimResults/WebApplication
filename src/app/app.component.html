@@ -1,11 +1,12 @@
-<div
-  class="system-environment"
-  *ngIf="showEnv"
-  (click)="toggleEnv()"
-  style="{{'background-color: ' + env_color}}"
->
-  <span class="env">{{environment | uppercase}}</span>
-</div>
+@if (showEnv) {
+    <div
+        class="system-environment"
+        (click)="toggleEnv()"
+        style="{{'background-color: ' + env_color}}"
+    >
+        <span class="env">{{ environment | uppercase }}</span>
+    </div>
+}
 <main [class]="'sidebar-' + sidebarState">
     <sr-sidebar [class]="sidebarState"></sr-sidebar>
     <div class="sidebar-hider" (click)="hideSidebar()"></div>
@@ -17,18 +18,21 @@
             <img class="footer-logo" src="assets/logo.svg" alt="SwimResults logo">
             <span class="footer-text">&copy; 2024 - SwimResults</span>
             <span class="footer-text">
-                <a href="https://swimresults.de/" target="_blank">Homepage</a>
-                <a href="https://swimresults.de/impressum" target="_blank">Impressum</a>
-                <a href="https://swimresults.de/contact" target="_blank">Kontakt</a>
-            </span>
+        <a href="https://swimresults.de/" target="_blank">Homepage</a>
+        <a href="https://swimresults.de/impressum" target="_blank">Impressum</a>
+        <a href="https://swimresults.de/contact" target="_blank">Kontakt</a>
+      </span>
         </div>
 
-        <div class="build-info" *ngIf="showBuild" (click)="toggleBuild()">
-            <b>BUILD: </b> {{build}}
-        </div>
+        @if (showBuild) {
+            <div class="build-info" (click)="toggleBuild()">
+                <b>BUILD: </b> {{ build }}
+            </div>
+        }
     </div>
+    @if (meeting && meeting.hasStates([MeetingStates.RUNNING, MeetingStates.BREAK, MeetingStates.PAUSE])) {
     <sr-live-bar
-        *ngIf="meeting && meeting.hasStates([MeetingStates.RUNNING, MeetingStates.BREAK, MeetingStates.PAUSE])"
         [meetingId]="meetingId"
     ></sr-live-bar>
+    }
 </main>

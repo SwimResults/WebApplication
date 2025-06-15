@@ -1,12 +1,13 @@
 import {Component, Input} from '@angular/core';
 import {NotificationService} from "../../../../core/service/api/user/notification.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {MeetingNotification, Notification} from "../../../../core/model/user/notification.model";
+import {MeetingNotification} from "../../../../core/model/user/notification.model";
 
 @Component({
-  selector: 'sr-admin-notification-sender',
-  templateUrl: './admin-notification-sender.component.html',
-  styleUrl: './admin-notification-sender.component.scss'
+    selector: 'sr-admin-notification-sender',
+    templateUrl: './admin-notification-sender.component.html',
+    styleUrl: './admin-notification-sender.component.scss',
+    standalone: false
 })
 export class AdminNotificationSenderComponent {
     @Input() meetingId?: string;
@@ -31,8 +32,8 @@ export class AdminNotificationSenderComponent {
     sendNotification() {
         if (!this.meetingId) return;
 
-        let subtitle = this.notificationForm.value.subtitle;
-        let notification: MeetingNotification = {
+        const subtitle = this.notificationForm.value.subtitle;
+        const notification: MeetingNotification = {
             subtitle: subtitle,
             message: this.notificationForm.value.message,
             message_type: this.notificationForm.value.type,

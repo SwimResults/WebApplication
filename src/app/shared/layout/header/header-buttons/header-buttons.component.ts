@@ -9,9 +9,10 @@ import {
 } from "../../../../content/report/components/report-submission-dialog/report-submission-dialog.component";
 
 @Component({
-  selector: 'sr-header-buttons',
-  templateUrl: './header-buttons.component.html',
-  styleUrls: ['./header-buttons.component.scss']
+    selector: 'sr-header-buttons',
+    templateUrl: './header-buttons.component.html',
+    styleUrls: ['./header-buttons.component.scss'],
+    standalone: false
 })
 export class HeaderButtonsComponent {
   kcUser: any;

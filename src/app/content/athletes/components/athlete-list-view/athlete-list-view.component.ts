@@ -8,9 +8,10 @@ import {AthleteListTile} from "../../../../core/model/list/athlete-list-tile.mod
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 
 @Component({
-  selector: 'sr-athlete-list-view',
-  templateUrl: './athlete-list-view.component.html',
-  styleUrls: ['./athlete-list-view.component.scss']
+    selector: 'sr-athlete-list-view',
+    templateUrl: './athlete-list-view.component.html',
+    styleUrls: ['./athlete-list-view.component.scss'],
+    standalone: false
 })
 export class AthleteListViewComponent {
   @Input() meeting?: Meeting;
@@ -36,14 +37,14 @@ export class AthleteListViewComponent {
       this.following = [];
       if (data.following) {
         if (data.following.length <= 0) this.fetchingFollowing.fetching = false;
-        for (let follower of data.following) {
+        for (const follower of data.following) {
           this.athleteService.getAthleteById(follower.athlete_id).subscribe(ath => {
             if (!this.meetingId) {
               this.following.push(ath);
               this.appendFollowing(ath);
             } else
             if (ath.participation) {
-              for (let string of ath.participation) {
+              for (const string of ath.participation) {
                 if (string == this.meetingId) {
                   this.following.push(ath);
                   this.appendFollowing(ath);

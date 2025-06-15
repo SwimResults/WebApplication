@@ -36,7 +36,7 @@ export class RouteService {
         if (ev) this.currentMeetingIdSubject.next(ev);
         else this.currentMeetingIdSubject.next(undefined);
 
-        let meeting: RouteEvent = new class implements RouteEvent {
+        const meeting: RouteEvent = new class implements RouteEvent {
             meeting: Meeting = {} as Meeting;
             has_meeting: boolean = false;
         }

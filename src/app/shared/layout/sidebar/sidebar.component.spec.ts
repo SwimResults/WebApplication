@@ -3,8 +3,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SidebarComponent } from './sidebar.component';
 import {LayoutModule} from "../layout.module";
 import {RouterTestingModule} from "@angular/router/testing";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -12,14 +13,12 @@ describe('SidebarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SidebarComponent ],
-      imports: [
-        LayoutModule,
+    declarations: [SidebarComponent],
+    imports: [LayoutModule,
         RouterTestingModule,
-        HttpClientTestingModule,
-        TranslateModule.forRoot()
-      ]
-    })
+        TranslateModule.forRoot()],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(SidebarComponent);
