@@ -34,9 +34,13 @@
                         [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{ 'START.EVENT_SHORT' | translate }} {{ data.event }}</span>
               }
               @if (config.showStyle && event && event.style) {
-                  <span class="style link {{config && config.widgetSize ? 'style-widget' : ''}}"
-                        [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{ event.relay_distance ? event.relay_distance : event.distance }}
-                      m {{ 'COMMON.STYLE.' + event.style.name + '.NAME' | translate }}</span>
+                  <span
+                      class="style link {{config && config.widgetSize ? 'style-widget' : ''}}"
+                      [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'"
+                  >
+                      {{ event.relay_distance ? event.relay_distance : event.distance }}
+                      m {{ 'COMMON.STYLE.' + event.style.name + '.NAME' | translate }}
+                  </span>
               }
               @if (config.showStyle && (!event || !event.style)) {
                   <span class="style"></span>
@@ -45,7 +49,7 @@
                   <span class="meeting link" [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">
         <span class="meeting-date">{{ meeting.getStartDate().getMonth() }}
             /{{ meeting.getStartDate().getFullYear() }}</span>
-                      @if (meeting.location?.city) {
+                      @if (meeting.location.city) {
                           <span class="meeting-city">{{ meeting.location.city }}</span>
                       }
       </span>
