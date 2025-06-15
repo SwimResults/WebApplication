@@ -2,11 +2,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageEventsComponent } from './page-events.component';
 import {RouterTestingModule} from "@angular/router/testing";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {StartsModule} from "../../../starts";
 import {EventsModule} from "../../events.module";
 import {TranslateModule} from "@ngx-translate/core";
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('PageEventsComponent', () => {
   let component: PageEventsComponent;
@@ -14,16 +15,14 @@ describe('PageEventsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageEventsComponent ],
-      imports: [
-        EventsModule,
+    declarations: [PageEventsComponent],
+    imports: [EventsModule,
         RouterTestingModule,
-        HttpClientTestingModule,
         ElementsModule,
         StartsModule,
-        TranslateModule.forRoot()
-      ]
-    })
+        TranslateModule.forRoot()],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(PageEventsComponent);

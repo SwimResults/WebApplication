@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminHeatToolComponent } from './admin-heat-tool.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {MatIconModule} from "@angular/material/icon";
 import {TranslateModule} from "@ngx-translate/core";
 import {ReactiveFormsModule} from "@angular/forms";
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('AdminHeatToolComponent', () => {
   let component: AdminHeatToolComponent;
@@ -13,15 +14,13 @@ describe('AdminHeatToolComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminHeatToolComponent ],
-      imports: [
-        HttpClientTestingModule,
-        ElementsModule,
+    declarations: [AdminHeatToolComponent],
+    imports: [ElementsModule,
         MatIconModule,
         TranslateModule.forRoot(),
-        ReactiveFormsModule
-      ]
-    })
+        ReactiveFormsModule],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(AdminHeatToolComponent);

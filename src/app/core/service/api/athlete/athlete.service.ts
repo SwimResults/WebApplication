@@ -5,7 +5,7 @@ import {Observable, shareReplay} from "rxjs";
 import {Athlete} from "../../../model";
 import {environment} from "../../../../../environments/environment";
 import {PagingRequest} from "../../../model/common/paging-request.model";
-import {HttpParams} from "@angular/common/http";
+import { HttpParams } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'

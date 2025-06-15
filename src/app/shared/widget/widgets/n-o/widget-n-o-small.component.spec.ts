@@ -1,12 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WidgetNOSmallComponent } from './widget-n-o-small.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
 import {ElementsModule} from "../../../elements/elements.module";
 import {MatIconModule} from "@angular/material/icon";
 import {WidgetModule} from "../../widget.module";
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('WidgetNOSmallComponent', () => {
   let component: WidgetNOSmallComponent;
@@ -14,16 +15,14 @@ describe('WidgetNOSmallComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetNOSmallComponent ],
-        imports: [
-            HttpClientTestingModule,
-            RouterTestingModule,
-            TranslateModule.forRoot(),
-            ElementsModule,
-            MatIconModule,
-            WidgetModule
-        ]
-    })
+    declarations: [WidgetNOSmallComponent],
+    imports: [RouterTestingModule,
+        TranslateModule.forRoot(),
+        ElementsModule,
+        MatIconModule,
+        WidgetModule],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(WidgetNOSmallComponent);

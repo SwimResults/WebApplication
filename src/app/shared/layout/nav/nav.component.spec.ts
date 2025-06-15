@@ -5,8 +5,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {ElementsModule} from "../../elements/elements.module";
 import {LayoutModule} from "../layout.module";
 import {RouterTestingModule} from "@angular/router/testing";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NavComponent', () => {
   let component: NavComponent;
@@ -14,16 +15,14 @@ describe('NavComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavComponent ],
-      imports: [
-        MatIconModule,
+    declarations: [NavComponent],
+    imports: [MatIconModule,
         ElementsModule,
         LayoutModule,
         RouterTestingModule,
-        HttpClientTestingModule,
-        TranslateModule.forRoot()
-      ]
-    })
+        TranslateModule.forRoot()],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(NavComponent);

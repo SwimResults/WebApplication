@@ -2,7 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalendarComponent } from './calendar.component';
 import {ElementsModule} from "../../shared/elements/elements.module";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('CalendarComponent', () => {
   let component: CalendarComponent;
@@ -10,12 +11,10 @@ describe('CalendarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CalendarComponent ],
-      imports: [
-        ElementsModule,
-        HttpClientTestingModule
-      ]
-    })
+    declarations: [CalendarComponent],
+    imports: [ElementsModule],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(CalendarComponent);

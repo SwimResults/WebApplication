@@ -5,7 +5,7 @@ import {environment} from "../../../../../environments/environment";
 import {Observable} from "rxjs";
 import {Team} from "../../../model";
 import {PagingRequest} from "../../../model/common/paging-request.model";
-import {HttpParams} from "@angular/common/http";
+import { HttpParams } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'

@@ -1,27 +1,26 @@
 import {TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {ElementsModule} from "./shared/elements/elements.module";
 import {LayoutModule} from "./shared/layout/layout.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {OAuthModule} from "angular-oauth2-oidc";
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('AppComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [
-                AppComponent
-            ],
-            imports: [
-                HttpClientTestingModule,
-                RouterTestingModule,
-                ElementsModule,
-                LayoutModule,
-                TranslateModule.forRoot(),
-                OAuthModule.forRoot()
-            ]
-        }).compileComponents();
+    declarations: [
+        AppComponent
+    ],
+    imports: [RouterTestingModule,
+        ElementsModule,
+        LayoutModule,
+        TranslateModule.forRoot(),
+        OAuthModule.forRoot()],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+}).compileComponents();
     });
 
     it('should create the app', () => {

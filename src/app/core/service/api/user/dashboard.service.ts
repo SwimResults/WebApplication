@@ -4,7 +4,7 @@ import {environment} from "../../../../../environments/environment";
 import {BaseService} from "../base.service";
 import {Observable} from "rxjs";
 import {Dashboard} from "../../../model/user/dashboard.model";
-import {HttpParams} from "@angular/common/http";
+import { HttpParams } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'

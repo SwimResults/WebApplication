@@ -2,7 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WidgetMapMediumComponent } from './widget-map-medium.component';
 import {RouterTestingModule} from "@angular/router/testing";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('WidgetMapMediumComponent', () => {
   let component: WidgetMapMediumComponent;
@@ -10,12 +11,10 @@ describe('WidgetMapMediumComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetMapMediumComponent ],
-      imports: [
-        RouterTestingModule,
-        HttpClientTestingModule
-      ]
-    })
+    declarations: [WidgetMapMediumComponent],
+    imports: [RouterTestingModule],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(WidgetMapMediumComponent);
