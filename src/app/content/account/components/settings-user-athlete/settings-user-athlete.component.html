@@ -1,25 +1,27 @@
 <h1>{{'USER.SETTINGS.USER_ATHLETE.TITLE' | translate}}</h1>
 <p>{{'USER.SETTINGS.USER_ATHLETE.INFO_TEXT' | translate}}</p>
 
-<ng-container *ngIf="user">
-    <ng-container *ngIf="listUserAthlete && userAthlete">
-        <h2>{{'USER.SETTINGS.USER_ATHLETE.THIS_IS_YOU_TITLE' | translate}}</h2>
+@if (user) {
+    @if (listUserAthlete && userAthlete) {
+        <h2>{{ 'USER.SETTINGS.USER_ATHLETE.THIS_IS_YOU_TITLE' | translate }}</h2>
         <sr-list-view
-                      [data]="listUserAthlete"
-                      [useSearch]="false"
-                      [config]="configUserAthlete"
+            [data]="listUserAthlete"
+            [useSearch]="false"
+            [config]="configUserAthlete"
         ></sr-list-view>
-    </ng-container>
-    <div *ngIf="!user.own_athlete_id">
-        <i>{{'USER.SETTINGS.USER_ATHLETE.NO_USER_SET' | translate}}</i>
+    }
+    @if (!user.own_athlete_id) {
+        <div>
+            <i>{{ 'USER.SETTINGS.USER_ATHLETE.NO_USER_SET' | translate }}</i>
     </div>
-
+    }
     <br><br>
-
-    <sr-list-view *ngIf="listAthletes"
-                  [data]="listAthletes"
-                  [fetching]="fetchingAthletes"
-                  [config]="config"
-                  (refreshData)="fetchAthletes($event)"
+    @if (listAthletes) {
+        <sr-list-view
+            [data]="listAthletes"
+            [fetching]="fetchingAthletes"
+            [config]="config"
+            (refreshData)="fetchAthletes($event)"
     ></sr-list-view>
-</ng-container>
+    }
+}

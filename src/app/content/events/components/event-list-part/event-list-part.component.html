@@ -1,29 +1,36 @@
-<ng-container *ngIf="part">
-    <h2 *ngIf="part.number">{{'EVENT.LIST.PART_TITLE' | translate}} {{part.number}}</h2>
-    <sr-panel *ngIf="!fetchingHeats.fetching">
-        <div class="timeline timeline-start"></div>
-        <ng-container *ngFor="let ev of part.events">
-
-            <ng-container *ngIf="incidents">
-                <ng-container *ngFor="let incident of incidents.get(ev.number)">
-                    <sr-event-incident *ngIf="incident.next_event === ev.number" [incident]="incident"></sr-event-incident>
-                </ng-container>
-            </ng-container>
-
-            <sr-event-list-event
-                [event]="ev"
-                [heatInfo]="heats.get(ev.number)"
-                [clickable]="meeting.hasData()"
-            ></sr-event-list-event>
-
-            <ng-container *ngIf="incidents">
-                <ng-container *ngFor="let incident of incidents.get(ev.number)">
-                    <sr-event-incident *ngIf="incident.prev_event === ev.number" [incident]="incident"></sr-event-incident>
-                </ng-container>
-            </ng-container>
-        </ng-container>
-        <div class="timeline timeline-end"></div>
+@if (part) {
+    @if (part.number) {
+        <h2>{{ 'EVENT.LIST.PART_TITLE' | translate }} {{ part.number }}</h2>
+    }
+    @if (!fetchingHeats.fetching) {
+        <sr-panel>
+            <div class="timeline timeline-start"></div>
+            @for (ev of part.events; track ev) {
+                @if (incidents) {
+                    @for (incident of incidents.get(ev.number); track incident) {
+                        @if (incident.next_event === ev.number) {
+                            <sr-event-incident [incident]="incident"></sr-event-incident>
+                        }
+                    }
+                }
+                <sr-event-list-event
+                    [event]="ev"
+                    [heatInfo]="heats.get(ev.number)"
+                    [clickable]="meeting.hasData()"
+                ></sr-event-list-event>
+                @if (incidents) {
+                    @for (incident of incidents.get(ev.number); track incident) {
+                        @if (incident.prev_event === ev.number) {
+                            <sr-event-incident [incident]="incident"></sr-event-incident>
+                        }
+                    }
+                }
+            }
+            <div class="timeline timeline-end"></div>
     </sr-panel>
-    <sr-spinner *ngIf="fetchingHeats.fetching"></sr-spinner>
-</ng-container>
+    }
+    @if (fetchingHeats.fetching) {
+        <sr-spinner></sr-spinner>
+    }
+}
 

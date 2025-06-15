@@ -1,3 +1,5 @@
 <div>
-  <sr-athlete-list-tile *ngFor="let athlete of athletes" [athlete]="athlete"></sr-athlete-list-tile>
+    @for (athlete of athletes; track athlete) {
+        <sr-athlete-list-tile [athlete]="athlete"></sr-athlete-list-tile>
+    }
 </div>

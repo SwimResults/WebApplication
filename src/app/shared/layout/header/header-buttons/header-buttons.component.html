@@ -27,14 +27,15 @@
     <span>{{'COMMON.LANGUAGE.UA' | translate}}</span>
   </button>
   <!--button class="sr-btn sr-btn-menu sr-inactive" (click)="changeLocale('ru')">
-    <img src="https://flagsapi.com/RU/flat/24.png" alt="RU">
-    <span>{{'COMMON.LANGUAGE.RU' | translate}}</span>
-  </button-->
-  <mat-divider></mat-divider>
+  <img src="https://flagsapi.com/RU/flat/24.png" alt="RU">
+  <span>{{'COMMON.LANGUAGE.RU' | translate}}</span>
+</button-->
+    <mat-divider></mat-divider>
 
-  <button class="sr-btn sr-btn-menu">
-    <a href="https://swimresults.de/article/5-help-to-translate" target="_blank">Language missing? Help to translate!</a>
-  </button>
+    <button class="sr-btn sr-btn-menu">
+        <a href="https://swimresults.de/article/5-help-to-translate" target="_blank">Language missing? Help to
+            translate!</a>
+    </button>
 </mat-menu>
 
 <button class="sr-btn-bar sr-btn-icon sr-btn" [matMenuTriggerFor]="feedbackMenu">
@@ -45,7 +46,7 @@
     <ng-container *srIsAdmin>
         <button class="sr-btn sr-btn-menu" routerLink="/admin/reports">
             <mat-icon>report</mat-icon>
-            <span>{{'HEADER.MENU.FEEDBACK.ADMIN_REPORTS_BUTTON' | translate}}</span>
+            <span>{{ 'HEADER.MENU.FEEDBACK.ADMIN_REPORTS_BUTTON' | translate }}</span>
         </button>
 
         <mat-divider></mat-divider>
@@ -53,11 +54,11 @@
 
     <button class="sr-btn sr-btn-menu" (click)="openFeedbackDialog()">
         <mat-icon>feedback</mat-icon>
-        <span>{{'HEADER.MENU.FEEDBACK.FEEDBACK_BUTTON' | translate}}</span>
+        <span>{{ 'HEADER.MENU.FEEDBACK.FEEDBACK_BUTTON' | translate }}</span>
     </button>
     <button class="sr-btn sr-btn-menu" (click)="openReportDialog()">
         <mat-icon>report</mat-icon>
-        <span>{{'HEADER.MENU.FEEDBACK.REPORT_BUTTON' | translate}}</span>
+        <span>{{ 'HEADER.MENU.FEEDBACK.REPORT_BUTTON' | translate }}</span>
     </button>
 </mat-menu>
 
@@ -67,23 +68,27 @@
 
 <mat-menu #accountMenu="matMenu">
   <ng-container *srIsAuthed="true">
-    <span class="menu-title" *ngIf="kcUser && kcUser['given_name'] && kcUser['family_name']"><b>{{kcUser["given_name"] + " " + kcUser["family_name"]}}</b></span>
-    <mat-divider *ngIf="kcUser && kcUser['given_name'] && kcUser['family_name']"></mat-divider>
+      @if (kcUser && kcUser['given_name'] && kcUser['family_name']) {
+          <span class="menu-title"><b>{{ kcUser["given_name"] + " " + kcUser["family_name"] }}</b></span>
+      }
+      @if (kcUser && kcUser['given_name'] && kcUser['family_name']) {
+          <mat-divider></mat-divider>
+      }
 
       <button class="sr-btn sr-btn-menu" routerLink="/account/profile">
-        <mat-icon>person</mat-icon>
-        <span>{{'HEADER.MENU.ACCOUNT.PROFILE_BUTTON_TEXT' | translate}}</span>
+          <mat-icon>person</mat-icon>
+          <span>{{ 'HEADER.MENU.ACCOUNT.PROFILE_BUTTON_TEXT' | translate }}</span>
       </button>
       <button class="sr-btn sr-btn-menu" routerLink="/account/settings">
-        <mat-icon>settings</mat-icon>
-        <span>{{'HEADER.MENU.ACCOUNT.SETTINGS_BUTTON_TEXT' | translate}}</span>
+          <mat-icon>settings</mat-icon>
+          <span>{{ 'HEADER.MENU.ACCOUNT.SETTINGS_BUTTON_TEXT' | translate }}</span>
       </button>
 
       <mat-divider></mat-divider>
 
       <button class="sr-btn sr-btn-menu sr-inactive" routerLink="/account/experimental" *srIsAdmin>
           <mat-icon>science</mat-icon>
-          <span>{{'HEADER.MENU.ACCOUNT.EXPERIMENTAL_BUTTON_TEXT' | translate}}</span>
+          <span>{{ 'HEADER.MENU.ACCOUNT.EXPERIMENTAL_BUTTON_TEXT' | translate }}</span>
       </button>
 
       <mat-divider></mat-divider>

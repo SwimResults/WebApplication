@@ -1,15 +1,29 @@
-<sr-spinner *ngIf="fetching.fetching" spinnerSize="widget"></sr-spinner>
-<div *ngIf="!fetching.fetching" class="delay-container">
-    <ng-container *ngIf="heat">
-        <sr-widget-title icon="more_time">{{'WIDGET.DELAY.TITLE' | translate}}</sr-widget-title>
-        <span class="number {{heat.isDelayed() ? 'delayed' : ''}}">
-            <ng-container *ngIf="delayedHours">{{delayedHours}}<span class="unit">h</span></ng-container>
-            <ng-container *ngIf="!delayedHours || (delayedHours && delayedMinutes)">{{delayedMinutes}}<span class="unit">min</span></ng-container>
-        </span>
-        <span *ngIf="heat.isDelayed()" class="subtitle">{{'WIDGET.DELAY.BEHIND_SCHEDULE' | translate}}</span>
-        <span *ngIf="!heat.isDelayed()" class="subtitle">{{'WIDGET.DELAY.AHEAD_OF_SCHEDULE' | translate}}</span>
-    </ng-container>
-    <sr-widget-info-text *ngIf="!heat">
+@if (fetching.fetching) {
+    <sr-spinner spinnerSize="widget"></sr-spinner>
+}
+@if (!fetching.fetching) {
+    <div class="delay-container">
+        @if (heat) {
+            <sr-widget-title icon="more_time">{{ 'WIDGET.DELAY.TITLE' | translate }}</sr-widget-title>
+            <span class="number {{heat.isDelayed() ? 'delayed' : ''}}">
+        @if (delayedHours) {
+            {{ delayedHours }}<span class="unit">h</span>
+        }
+                @if (!delayedHours || (delayedHours && delayedMinutes)) {
+                    {{ delayedMinutes }}<span class="unit">min</span>
+                }
+      </span>
+            @if (heat.isDelayed()) {
+                <span class="subtitle">{{ 'WIDGET.DELAY.BEHIND_SCHEDULE' | translate }}</span>
+            }
+            @if (!heat.isDelayed()) {
+                <span class="subtitle">{{ 'WIDGET.DELAY.AHEAD_OF_SCHEDULE' | translate }}</span>
+            }
+        }
+        @if (!heat) {
+            <sr-widget-info-text>
         {{'WIDGET.DELAY.NO_HEAT_DATA_MESSAGE' | translate}}
-    </sr-widget-info-text>
-</div>
+            </sr-widget-info-text>
+        }
+    </div>
+}

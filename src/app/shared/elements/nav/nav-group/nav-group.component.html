@@ -1,2 +1,4 @@
-<span *ngIf="title" class="group-title">{{title}}</span>
+@if (title) {
+    <span class="group-title">{{ title }}</span>
+}
 <ng-content></ng-content>

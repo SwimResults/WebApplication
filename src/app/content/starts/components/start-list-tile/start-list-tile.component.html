@@ -1,121 +1,149 @@
-<div *ngIf="data">
-  <div class="left-container icon-style-{{getStyleType()}} {{config && config.showTimes && config.showIcon && data.heat ? 'left-container-with-times' : ''}}">
-    <div class="time" *ngIf="config && config.showTimes && data.heat">
-      <sr-heat-times [heat]="data.heat"></sr-heat-times>
-      <!--span class="estimated time-entry">{{data.heat.getEstimatedStartTime()}}</span-->
-    </div>
-    <sr-icon-panel
-      *ngIf="config && config.showIcon"
-      [class]="getIconClass()"
-      [icon]="getIcon()"
-      [style]="getStyleType()"
-      [textContent]="getIconTextContent()"
-    ></sr-icon-panel>
+@if (data) {
+    <div>
+        <div
+            class="left-container icon-style-{{getStyleType()}} {{config && config.showTimes && config.showIcon && data.heat ? 'left-container-with-times' : ''}}">
+            @if (config && config.showTimes && data.heat) {
+                <div class="time">
+                    <sr-heat-times [heat]="data.heat"></sr-heat-times>
+                    <!--span class="estimated time-entry">{{data.heat.getEstimatedStartTime()}}</span-->
+                </div>
+            }
+            @if (config && config.showIcon) {
+                <sr-icon-panel
+                    [class]="getIconClass()"
+                    [icon]="getIcon()"
+                    [style]="getStyleType()"
+                    [textContent]="getIconTextContent()"
+                ></sr-icon-panel>
+            }
   </div>
-
   <div class="right-container {{config && config.showTimes && config.showIcon && data.heat ? 'right-container-with-times' : ''}}">
-<!--    <div class="header-row">-->
-<!--      <span class="athlete" *ngIf="config.showAthlete && athlete">-->
-<!--        <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{athlete.name}}</span>-->
-<!--        <span class="athlete-year">{{athlete.year}}</span>-->
-<!--        <span class="link athlete-team"  [routerLink]="'/m/' + data.meeting + '/team/' + athlete.team._id">{{athlete.team.name}}</span>-->
-<!--      </span>-->
-<!--      <span class="event link" *ngIf="config.showEvent" [routerLink]="'/m/' + data.meeting + '/'">Wettkampf {{data.event}} - 50m Schmetterling weiblich</span>-->
-<!--      <span class="meeting row-right link" *ngIf="config.showMeeting && meeting" [routerLink]="'/m/' + data.meeting + '/'">{{meeting.getShortSeriesName()}} <span *ngIf="meeting.location?.city">({{meeting.location.city}})</span></span>-->
+      <!--    <div class="header-row">-->
+      <!--      <span class="athlete" *ngIf="config.showAthlete && athlete">-->
+      <!--        <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{athlete.name}}</span>-->
+      <!--        <span class="athlete-year">{{athlete.year}}</span>-->
+      <!--        <span class="link athlete-team"  [routerLink]="'/m/' + data.meeting + '/team/' + athlete.team._id">{{athlete.team.name}}</span>-->
+      <!--      </span>-->
+      <!--      <span class="event link" *ngIf="config.showEvent" [routerLink]="'/m/' + data.meeting + '/'">Wettkampf {{data.event}} - 50m Schmetterling weiblich</span>-->
+      <!--      <span class="meeting row-right link" *ngIf="config.showMeeting && meeting" [routerLink]="'/m/' + data.meeting + '/'">{{meeting.getShortSeriesName()}} <span *ngIf="meeting.location?.city">({{meeting.location.city}})</span></span>-->
 <!--    </div>-->
-    <div class="content-row">
-      <ng-container *ngIf="config && !data.emptyLane">
-        <span class="event link" *ngIf="config.showEvent" [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{'START.EVENT_SHORT' | translate}} {{data.event}}</span>
-        <span class="style link {{config && config.widgetSize ? 'style-widget' : ''}}" *ngIf="config.showStyle && event && event.style" [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}}</span>
-        <span class="style" *ngIf="config.showStyle && (!event || !event.style)"></span>
-
-        <span class="meeting link" *ngIf="config.showMeeting && meeting" [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">
-          <span class="meeting-date">{{meeting.getStartDate().getMonth()}}/{{meeting.getStartDate().getFullYear()}}</span>
-          <span *ngIf="meeting.location?.city" class="meeting-city">{{meeting.location.city}}</span>
-        </span>
-
-        <span class="heat" *ngIf="config.showHeat">{{'COMMON.HEAT.SHORT' | translate}} {{data.isPreList() ? '?' : data.heat_number}}</span>
-        <span class="lane" *ngIf="config.showLane">{{'COMMON.LANE.SHORT' | translate}} {{data.isPreList() ? '?' : data.lane}}</span>
-        <span class="athlete" *ngIf="config.showAthlete">
-          <span *ngIf="!data.is_relay" class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{data.athlete_name}}</span>
-          <span *ngIf="data.is_relay" class="athlete-name">{{data.athlete_name}}</span>
-          <span class="athlete-year">{{data.athlete_year}}</span>
-          <span class="link athlete-team"  [routerLink]="'/m/' + data.meeting + '/team/' + data.athlete_team">{{data.athlete_team_name}}</span>
-        </span>
-
-
-        <span
-          class="duration registration-time"
-          *ngIf="
-            config && (
-              (!config.showMostSignificantTime && config.showRegistrationTime && data.hasResultType(resultTypes.REGISTRATION))
-              ||
-              (config.showMostSignificantTime && !data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP) && data.hasResultType(resultTypes.REGISTRATION))
-            )"
-        >{{getTimeString(data.getTimeMilliseconds(resultTypes.REGISTRATION))}}</span>
-
-        <ng-container *ngIf="config && config.showResults">
-
-          <span
-            class="duration result-time {{getGotBetter() ? 'result-better' : 'result-worse'}}"
-            *ngIf="
-              config && (
-                (!config.showMostSignificantTime && config.showResultTime && data.hasResult())
-                ||
-                (config.showMostSignificantTime && data.hasResult())
-              )"
-          >
-            <mat-icon>{{getGotBetter() ? 'north_east' : 'south_east'}}</mat-icon>
-            <span class="result-time-string">{{getTimeString(data.getResultMilliseconds())}}</span>
-          </span>
-
-          <span
-            class="duration lap-time"
-            *ngIf="config && config.showMostSignificantTime && !data.hasResult() && data.hasResultType(resultTypes.LAP)"
-          >
-            <span class="lap-meters">{{data.getMostRecentLap().lap_meters}}</span>
-            <span class="result-time-string">{{getTimeString(data.getMostRecentLap().time)}}</span>
-          </span>
-
-
-          <span
-            class="reaction duration"
-            *ngIf="
-                config && (
-                  (!config.showMostSignificantTime && config.showReactionTime && data.hasResultType(resultTypes.REACTION))
+      <div class="content-row">
+          @if (config && !data.emptyLane) {
+              @if (config.showEvent) {
+                  <span class="event link"
+                        [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{ 'START.EVENT_SHORT' | translate }} {{ data.event }}</span>
+              }
+              @if (config.showStyle && event && event.style) {
+                  <span class="style link {{config && config.widgetSize ? 'style-widget' : ''}}"
+                        [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{ event.relay_distance ? event.relay_distance : event.distance }}
+                      m {{ 'COMMON.STYLE.' + event.style.name + '.NAME' | translate }}</span>
+              }
+              @if (config.showStyle && (!event || !event.style)) {
+                  <span class="style"></span>
+              }
+              @if (config.showMeeting && meeting) {
+                  <span class="meeting link" [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">
+        <span class="meeting-date">{{ meeting.getStartDate().getMonth() }}
+            /{{ meeting.getStartDate().getFullYear() }}</span>
+                      @if (meeting.location?.city) {
+                          <span class="meeting-city">{{ meeting.location.city }}</span>
+                      }
+      </span>
+              }
+              @if (config.showHeat) {
+                  <span
+                      class="heat">{{ 'COMMON.HEAT.SHORT' | translate }} {{ data.isPreList() ? '?' : data.heat_number }}</span>
+              }
+              @if (config.showLane) {
+                  <span
+                      class="lane">{{ 'COMMON.LANE.SHORT' | translate }} {{ data.isPreList() ? '?' : data.lane }}</span>
+              }
+              @if (config.showAthlete) {
+                  <span class="athlete">
+        @if (!data.is_relay) {
+            <span class="link athlete-name"
+                  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{ data.athlete_name }}</span>
+        }
+                      @if (data.is_relay) {
+                          <span class="athlete-name">{{ data.athlete_name }}</span>
+                      }
+                      <span class="athlete-year">{{ data.athlete_year }}</span>
+        <span class="link athlete-team"
+              [routerLink]="'/m/' + data.meeting + '/team/' + data.athlete_team">{{ data.athlete_team_name }}</span>
+      </span>
+              }
+              @if (config && (
+                  (!config.showMostSignificantTime && config.showRegistrationTime && data.hasResultType(resultTypes.REGISTRATION))
                   ||
-                  (config.showMostSignificantTime && data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP))
-                )"
+                  (config.showMostSignificantTime && !data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP) && data.hasResultType(resultTypes.REGISTRATION))
+              )) {
+                  <span
+                      class="duration registration-time"
+                  >{{ getTimeString(data.getTimeMilliseconds(resultTypes.REGISTRATION)) }}</span>
+              }
+              @if (config && config.showResults) {
+                  @if (config && (
+                      (!config.showMostSignificantTime && config.showResultTime && data.hasResult())
+                      ||
+                      (config.showMostSignificantTime && data.hasResult())
+                  )) {
+                      <span
+                          class="duration result-time {{getGotBetter() ? 'result-better' : 'result-worse'}}"
           >
-             <span class="result-time-string">+{{getReactionString(data.getTimeMilliseconds(resultTypes.REACTION))}}</span>
-            </span>
-
-          <div class="lap-time-list">
-            <ng-container *ngIf="config && config.showLapTimes && data.hasResultType(resultTypes.LAP)">
-              <span
-                class="duration lap-time"
-                *ngFor="let lap of data.getLapTimes()"
+          <mat-icon>{{ getGotBetter() ? 'north_east' : 'south_east' }}</mat-icon>
+          <span class="result-time-string">{{ getTimeString(data.getResultMilliseconds()) }}</span>
+        </span>
+                  }
+                  @if (config && config.showMostSignificantTime && !data.hasResult() && data.hasResultType(resultTypes.LAP)) {
+                      <span
+                          class="duration lap-time"
+          >
+          <span class="lap-meters">{{ data.getMostRecentLap().lap_meters }}</span>
+          <span class="result-time-string">{{ getTimeString(data.getMostRecentLap().time) }}</span>
+        </span>
+                  }
+                  @if (config && (
+                      (!config.showMostSignificantTime && config.showReactionTime && data.hasResultType(resultTypes.REACTION))
+                      ||
+                      (config.showMostSignificantTime && data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP))
+                  )) {
+                      <span
+                          class="reaction duration"
+          >
+          <span
+              class="result-time-string">+{{ getReactionString(data.getTimeMilliseconds(resultTypes.REACTION)) }}</span>
+        </span>
+                  }
+                  <div class="lap-time-list">
+                      @if (config && config.showLapTimes && data.hasResultType(resultTypes.LAP)) {
+                          @for (lap of data.getLapTimes(); track lap) {
+                              <span
+                                  class="duration lap-time"
               >
-                <span class="lap-meters">{{lap.lap_meters}}</span>
-                <span class="result-time-string">{{getTimeString(lap.time)}}</span>
-              </span>
-            </ng-container>
-          </div>
-
-          <div class="disqualification" *ngIf="config && config.showDisqualification && data.disqualification.type && config && !config.laneAsIcon">
-            <span class="reason">{{getReason()}}</span>
-          </div>
-
-          <button
-            class="sr-btn-bar sr-btn-icon sr-btn sr-right"
-            *ngIf="config && config.showLapTimesPopup && data.hasResultType(resultTypes.LAP)">
-            <mat-icon>clock</mat-icon>
-          </button>
-        </ng-container>
-      </ng-container>
-      <ng-container *ngIf="data.emptyLane">
-        <i>{{"START.LANE_STAYS_EMPTY" | translate:laneParam}}</i>
-      </ng-container>
-    </div>
+              <span class="lap-meters">{{ lap.lap_meters }}</span>
+              <span class="result-time-string">{{ getTimeString(lap.time) }}</span>
+            </span>
+                          }
+                      }
+                  </div>
+                  @if (config && config.showDisqualification && data.disqualification.type && config && !config.laneAsIcon) {
+                      <div class="disqualification">
+                          <span class="reason">{{ getReason() }}</span>
+                      </div>
+                  }
+                  @if (config && config.showLapTimesPopup && data.hasResultType(resultTypes.LAP)) {
+                      <button
+                          class="sr-btn-bar sr-btn-icon sr-btn sr-right"
+                      >
+                          <mat-icon>clock</mat-icon>
+                      </button>
+                  }
+              }
+          }
+          @if (data.emptyLane) {
+              <i>{{ "START.LANE_STAYS_EMPTY" | translate:laneParam }}</i>
+          }
+      </div>
   </div>
 </div>
+}

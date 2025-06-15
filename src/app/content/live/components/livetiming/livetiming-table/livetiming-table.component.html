@@ -1,4 +1,6 @@
-<sr-start-list *ngIf="starts && starts.length > 0"
-               [starts]="starts"
-               [config]="config"
-></sr-start-list>
+@if (starts && starts.length > 0) {
+    <sr-start-list
+        [starts]="starts"
+        [config]="config"
+    ></sr-start-list>
+}

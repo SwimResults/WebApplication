@@ -1,16 +1,22 @@
-<ng-container *ngIf="team">
+@if (team) {
   <div class="logo-container">
-    <img class="logo" *ngIf="team.logo_url" [src]="team.logo_url" [alt]="team.name">
-    <img class="logo" *ngIf="!team.logo_url" src="/assets/images/logo/club_logo_small.png" [alt]="team.name">
-<!--    <mat-icon class="logo" *ngIf="!team.logo_url">shield</mat-icon>-->
+      @if (team.logo_url) {
+          <img class="logo" [src]="team.logo_url" [alt]="team.name">
+      }
+      @if (!team.logo_url) {
+          <img class="logo" src="/assets/images/logo/club_logo_small.png" [alt]="team.name">
+      }
+      <!--    <mat-icon class="logo" *ngIf="!team.logo_url">shield</mat-icon>-->
   </div>
   <div class="info">
     <span class="name">
       {{team.name}}
     </span>
-    <span class="country-container" *ngIf="team.country">
-      <img class="flag" src="https://flagsapi.com/{{flags.get(team.country)}}/flat/24.png" alt="flag">
-      <span class="county"> {{team.country}}</span>
-    </span>
+      @if (team.country) {
+          <span class="country-container">
+        <img class="flag" src="https://flagsapi.com/{{flags.get(team.country)}}/flat/24.png" alt="flag">
+        <span class="county"> {{ team.country }}</span>
+      </span>
+      }
   </div>
-</ng-container>
+}

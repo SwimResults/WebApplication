@@ -1,9 +1,9 @@
 <h1>Sprecher-Ansicht</h1>
 
 <div class="widget-containers">
-    <ng-container *ngFor="let widgets of widgetContainers">
+    @for (widgets of widgetContainers; track widgets) {
         <sr-widget-container [container]="widgets"></sr-widget-container>
-    </ng-container>
+    }
 </div>
 <br><br>
 <sr-livetiming></sr-livetiming>

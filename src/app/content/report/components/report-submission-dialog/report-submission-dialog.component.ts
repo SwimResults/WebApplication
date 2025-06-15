@@ -1,8 +1,9 @@
 import {Component, Inject} from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import {
     MAT_DIALOG_DATA,
-    MatDialogActions, MatDialogClose,
+    MatDialogActions,
+    MatDialogClose,
     MatDialogContent,
     MatDialogRef,
     MatDialogTitle
@@ -21,7 +22,7 @@ export interface ReportSubmissionDialogData {
 
 @Component({
     selector: 'sr-report-submission-dialog',
-    imports: [CommonModule, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule, TranslateModule, MatInputModule, FormsModule],
+    imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule, TranslateModule, MatInputModule, FormsModule],
     templateUrl: './report-submission-dialog.component.html',
     styleUrl: './report-submission-dialog.component.scss'
 })

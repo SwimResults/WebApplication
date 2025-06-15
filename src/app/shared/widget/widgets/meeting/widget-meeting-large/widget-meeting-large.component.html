@@ -1,27 +1,37 @@
-<ng-container *ngIf="meeting && meeting.series">
+@if (meeting && meeting.series) {
   <div class="meeting-logo">
-    <mat-icon *ngIf="(meeting.layout && !meeting.layout.logo_url) || !meeting.layout">event</mat-icon>
-    <img *ngIf="meeting.layout && meeting.layout.logo_url" [src]="meeting.layout.logo_url" alt="Logo {{meeting.getFullSeriesName()}}">
+      @if ((meeting.layout && !meeting.layout.logo_url) || !meeting.layout) {
+          <mat-icon>event</mat-icon>
+      }
+      @if (meeting.layout && meeting.layout.logo_url) {
+          <img [src]="meeting.layout.logo_url" alt="Logo {{meeting.getFullSeriesName()}}">
+      }
   </div>
   <span class="title">{{meeting.getFullSeriesName()}}</span>
-  <div class="info" *ngIf="meeting.location">
-    <mat-icon>place</mat-icon>
-    <div class="info-content location">
-      <span>{{meeting.location.name}}</span><br>
-      <span>{{meeting.location.street}} {{meeting.location.number}}</span><br>
-      <span>{{meeting.location.postal_code}} {{meeting.location.city}}</span>
-    </div>
-  </div>
+    @if (meeting.location) {
+        <div class="info">
+            <mat-icon>place</mat-icon>
+            <div class="info-content location">
+                <span>{{ meeting.location.name }}</span><br>
+                <span>{{ meeting.location.street }} {{ meeting.location.number }}</span><br>
+                <span>{{ meeting.location.postal_code }} {{ meeting.location.city }}</span>
+            </div>
+        </div>
+    }
   <div class="info">
     <mat-icon>calendar_month</mat-icon>
     <span class="info-content date">{{meeting.getDateStringWithYear()}}</span>
   </div>
-  <div class="info" *ngIf="meeting.location && meeting.location.lanes > 0">
-    <mat-icon>numbers</mat-icon>
-    <span class="info-content">{{meeting.location.lanes}} {{"COMMON.LANE.PLURAL" | translate}}</span>
-  </div>
-  <div class="info" *ngIf="organizer">
-    <mat-icon>group</mat-icon>
-    <span class="info-content link"  [routerLink]="'../team/@' + organizer.alias[0]">{{organizer.name}}</span>
-  </div>
-</ng-container>
+    @if (meeting.location && meeting.location.lanes > 0) {
+        <div class="info">
+            <mat-icon>numbers</mat-icon>
+            <span class="info-content">{{ meeting.location.lanes }} {{ "COMMON.LANE.PLURAL" | translate }}</span>
+        </div>
+    }
+    @if (organizer) {
+        <div class="info">
+            <mat-icon>group</mat-icon>
+            <span class="info-content link" [routerLink]="'../team/@' + organizer.alias[0]">{{ organizer.name }}</span>
+        </div>
+    }
+}

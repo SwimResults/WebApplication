@@ -1,31 +1,43 @@
 <sr-panel class="header">
     <sr-icon-panel class="icon" [icon]="has_meeting ? 'event' : 'public'"></sr-icon-panel>
     <sr-icon-panel class="icon-btn-menu" icon="menu" (click)="showMenu()"></sr-icon-panel>
-    <div class="title-box" *ngIf="has_meeting && meeting">
-        <span class="title">
-            {{ meeting.getFullSeriesNameWithYear() }}
+    @if (has_meeting && meeting) {
+        <div class="title-box">
+      <span class="title">
+        {{ meeting.getFullSeriesNameWithYear() }}
+      </span>
+            @for (subtitle of meeting.subtitles; track subtitle) {
+                <span class="subtitle">
+          {{ subtitle }}
         </span>
-        <span class="subtitle" *ngFor="let subtitle of meeting.subtitles">
-            {{ subtitle }}
-        </span>
+            }
     </div>
-    <div class="title-box" *ngIf="!has_meeting">
-        <span class="title">SwimResults</span>
+    }
+    @if (!has_meeting) {
+        <div class="title-box">
+            <span class="title">SwimResults</span>
     </div>
+    }
     <sr-header-buttons class="buttons"></sr-header-buttons>
 </sr-panel>
 
 <sr-panel class="title-mobile">
-    <div class="title-box" *ngIf="has_meeting && meeting">
-        <span class="title">
-            {{ meeting.getFullSeriesNameWithYear() }}
+    @if (has_meeting && meeting) {
+        <div class="title-box">
+      <span class="title">
+        {{ meeting.getFullSeriesNameWithYear() }}
+      </span>
+            @for (subtitle of meeting.subtitles; track subtitle) {
+                <span class="subtitle">
+          {{ subtitle }}
         </span>
-        <span class="subtitle" *ngFor="let subtitle of meeting.subtitles">
-            {{ subtitle }}
-        </span>
+            }
     </div>
-    <div class="title-box" *ngIf="!has_meeting">
-        <span class="title">SwimResults</span>
+    }
+    @if (!has_meeting) {
+        <div class="title-box">
+            <span class="title">SwimResults</span>
     </div>
+    }
 </sr-panel>
 

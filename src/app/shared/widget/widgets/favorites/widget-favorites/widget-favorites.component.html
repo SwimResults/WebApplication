@@ -1,20 +1,24 @@
 <sr-widget-title icon="persons">{{'WIDGET.FAVORITES.TITLE' | translate}}</sr-widget-title>
 <sr-widget-login-required></sr-widget-login-required>
-<sr-widget-info-text *ngIf="following && following.length <= 0">{{'WIDGET.FAVORITES.NO_FAVORITES' | translate}}</sr-widget-info-text>
-<ng-container *ngIf="following && following.length > 0">
+@if (following && following.length <= 0) {
+    <sr-widget-info-text>{{ 'WIDGET.FAVORITES.NO_FAVORITES' | translate }}</sr-widget-info-text>
+}
+@if (following && following.length > 0) {
     <div class="athlete-list">
-        <div class="athlete" *ngFor="let follow of following" [routerLink]="'../athlete/' + follow.alias[0] + '-' + follow.year">
-            <div class="athlete-icon">
-                <span class="athlete-initials">{{getInitials(follow)}}</span>
+        @for (follow of following; track follow) {
+            <div class="athlete" [routerLink]="'../athlete/' + follow.alias[0] + '-' + follow.year">
+                <div class="athlete-icon">
+                    <span class="athlete-initials">{{ getInitials(follow) }}</span>
+                </div>
+                <div class="athlete-text">
+          <span class="athlete-name">
+            {{ follow.name }}
+          </span>
+                    <span class="athlete-team">
+            {{ follow.team.name }}
+          </span>
+                </div>
             </div>
-            <div class="athlete-text">
-                <span class="athlete-name">
-                    {{follow.name}}
-                </span>
-                <span class="athlete-team">
-                    {{follow.team.name}}
-                </span>
-            </div>
-        </div>
+        }
     </div>
-</ng-container>
+}

@@ -1,10 +1,20 @@
-<div class="title-box" *ngIf="panelTitle">
-  <span class="panel-title">{{panelTitle}}</span>
-  <span *ngIf="panelSubtitle"> • </span>
-  <span *ngIf="panelSubtitle" class="panel-subtitle">{{panelSubtitle}}</span>
-  <span *ngIf="heatForTimes"> • </span>
-  <sr-heat-times *ngIf="heatForTimes" [heat]="heatForTimes" orientation="horizontal"></sr-heat-times>
-</div>
+@if (panelTitle) {
+    <div class="title-box">
+        <span class="panel-title">{{ panelTitle }}</span>
+        @if (panelSubtitle) {
+            <span> • </span>
+        }
+        @if (panelSubtitle) {
+            <span class="panel-subtitle">{{ panelSubtitle }}</span>
+        }
+        @if (heatForTimes) {
+            <span> • </span>
+        }
+        @if (heatForTimes) {
+            <sr-heat-times [heat]="heatForTimes" orientation="horizontal"></sr-heat-times>
+        }
+    </div>
+}
 <div class="panel-container {{panelTitle ? 'panel-container-with-header' : ''}}">
   <ng-content></ng-content>
 </div>
