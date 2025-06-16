@@ -1,12 +1,14 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
+import {MatIcon} from '@angular/material/icon';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-search-form',
     templateUrl: './search-form.component.html',
     styleUrls: ['./search-form.component.scss'],
-    standalone: false
+    imports: [ReactiveFormsModule, MatIcon, TranslateModule]
 })
 export class SearchFormComponent implements OnInit {
   @Output() querySearch: EventEmitter<string> = new EventEmitter<string>(true);

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SearchFormComponent } from './search-form.component';
+import {SearchFormComponent} from './search-form.component';
 import {TranslateModule} from "@ngx-translate/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatIconTestingModule} from "@angular/material/icon/testing";
@@ -13,15 +13,15 @@ describe('SearchFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchFormComponent ],
-      imports: [
+        imports: [
         TranslateModule.forRoot(),
         FormsModule,
         ReactiveFormsModule,
         MatIconTestingModule,
         MatIconModule,
-        RouterTestingModule
-      ]
+            RouterTestingModule,
+            SearchFormComponent
+        ]
     })
     .compileComponents();
 

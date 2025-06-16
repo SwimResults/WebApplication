@@ -2,12 +2,16 @@ import {Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
 import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
 import {RouteService} from "../../../../core/service/route.service";
 import {Subscription} from "rxjs";
+import {LivetimingComponent} from '../../components/livetiming/livetiming.component';
+import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
+import {MatIcon} from '@angular/material/icon';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-page-live',
     templateUrl: './page-live.component.html',
     styleUrls: ['./page-live.component.scss'],
-    standalone: false
+    imports: [LivetimingComponent, BtnComponent, MatIcon, TranslateModule]
 })
 export class PageLiveComponent implements OnDestroy {
     @ViewChild('streamIframe') streamIframe?: ElementRef;

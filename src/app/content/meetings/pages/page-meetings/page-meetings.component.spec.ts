@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PageMeetingsComponent } from './page-meetings.component';
+import {PageMeetingsComponent} from './page-meetings.component';
 import {MeetingsModule} from "../../meetings.module";
 import {TranslateModule} from "@ngx-translate/core";
 
@@ -10,11 +10,11 @@ describe('PageMeetingsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageMeetingsComponent ],
-      imports: [
+        imports: [
         MeetingsModule,
-        TranslateModule.forRoot()
-      ]
+            TranslateModule.forRoot(),
+            PageMeetingsComponent
+        ]
     })
     .compileComponents();
 

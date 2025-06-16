@@ -1,12 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AdminNotificationSenderComponent } from './admin-notification-sender.component';
-import { provideHttpClientTesting } from "@angular/common/http/testing";
+import {AdminNotificationSenderComponent} from './admin-notification-sender.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {MatIconModule} from "@angular/material/icon";
 import {TranslateModule} from "@ngx-translate/core";
 import {ReactiveFormsModule} from "@angular/forms";
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('AdminNotificationSenderComponent', () => {
   let component: AdminNotificationSenderComponent;
@@ -14,11 +14,10 @@ describe('AdminNotificationSenderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [AdminNotificationSenderComponent],
     imports: [ElementsModule,
         MatIconModule,
         TranslateModule.forRoot(),
-        ReactiveFormsModule],
+        ReactiveFormsModule, AdminNotificationSenderComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {PageLiveComponent} from "./pages";
-import { LivetimingComponent, LivetimingControlsComponent, LivetimingTableComponent } from './components';
-import { LivetimingHeaderComponent } from './components/livetiming/livetiming-header/livetiming-header.component';
+import {LivetimingComponent, LivetimingControlsComponent, LivetimingTableComponent} from './components';
+import {LivetimingHeaderComponent} from './components/livetiming/livetiming-header/livetiming-header.component';
 import {ElementsModule} from "../../shared/elements/elements.module";
 import {CoreModule} from "../../core/core.module";
 import {MatIconModule} from "@angular/material/icon";
@@ -11,19 +11,11 @@ import {StartsModule} from "../starts";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 
-
 @NgModule({
-    declarations: [
-        PageLiveComponent,
-        LivetimingComponent,
-        LivetimingTableComponent,
+    exports: [
         LivetimingControlsComponent,
-        LivetimingHeaderComponent,
+        LivetimingComponent
     ],
-  exports: [
-    LivetimingControlsComponent,
-    LivetimingComponent
-  ],
     imports: [
         CommonModule,
         ElementsModule,
@@ -31,7 +23,12 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
         MatIconModule,
         RouterLink,
         StartsModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        PageLiveComponent,
+        LivetimingComponent,
+        LivetimingTableComponent,
+        LivetimingControlsComponent,
+        LivetimingHeaderComponent
     ]
 })
 export class LiveModule { }

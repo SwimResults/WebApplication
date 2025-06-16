@@ -13,13 +13,13 @@ describe('PageDashboardEventComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [PageDashboardEventComponent],
             imports: [
                 WidgetModule,
                 RouterTestingModule,
                 TranslateModule.forRoot(),
                 DashboardModule,
-                OAuthModule.forRoot()
+                OAuthModule.forRoot(),
+                PageDashboardEventComponent
             ]
         })
             .compileComponents();

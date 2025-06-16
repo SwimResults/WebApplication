@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'sr-not-found-small',
     templateUrl: './not-found-small.component.html',
-    styleUrls: [],
-    standalone: false
+    styleUrls: []
 })
 export class NotFoundSmallComponent {
 

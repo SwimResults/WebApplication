@@ -10,18 +10,16 @@ import { SettingsUserAthleteComponent } from './components/settings-user-athlete
 
 
 @NgModule({
-  declarations: [
-    UserProfileComponent,
-    UserProfileViewComponent,
-    PageUserSettingsComponent,
-    SettingsViewComponent,
-    SettingsUserAthleteComponent
-  ],
     imports: [
         CommonModule,
         ElementsModule,
         CoreModule,
-        MatIconModule
+        MatIconModule,
+        UserProfileComponent,
+        UserProfileViewComponent,
+        PageUserSettingsComponent,
+        SettingsViewComponent,
+        SettingsUserAthleteComponent
     ]
 })
 export class AccountModule { }

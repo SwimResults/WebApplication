@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CalendarComponent } from './calendar.component';
+import {CalendarComponent} from './calendar.component';
 import {ElementsModule} from "../../shared/elements/elements.module";
-import { provideHttpClientTesting } from "@angular/common/http/testing";
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('CalendarComponent', () => {
   let component: CalendarComponent;
@@ -11,8 +11,7 @@ describe('CalendarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [CalendarComponent],
-    imports: [ElementsModule],
+        imports: [ElementsModule, CalendarComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {DashboardViewComponent} from '../../components/dashboard-view/dashboard-view.component';
 
 @Component({
     selector: 'sr-page-dashboard-event',
     templateUrl: './page-dashboard-event.component.html',
     styleUrls: ['./page-dashboard-event.component.scss'],
-    standalone: false
+    imports: [DashboardViewComponent]
 })
 export class PageDashboardEventComponent {
   //

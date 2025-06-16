@@ -1,12 +1,16 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {TranslateService} from "@ngx-translate/core";
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {MatIcon} from '@angular/material/icon';
+import {RouterLink} from '@angular/router';
+import {IconBtnComponent} from '../../../../shared/elements/buttons/icon-btn/icon-btn.component';
 
 @Component({
     selector: 'sr-meeting-list-tile',
     templateUrl: './meeting-list-tile.component.html',
     styleUrls: ['./meeting-list-tile.component.scss'],
-    standalone: false
+    imports: [PanelComponent, MatIcon, RouterLink, IconBtnComponent]
 })
 export class MeetingListTileComponent implements OnInit{
   @Input() meeting!: MeetingImpl;

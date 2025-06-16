@@ -5,12 +5,14 @@ import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {TeamListTile} from "../../../../core/model/list/team-list-tile.model";
 import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
+import {ListViewComponent} from '../../../../shared/elements/list/list-view/list-view.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-team-list-view',
     templateUrl: './team-list-view.component.html',
     styleUrls: ['./team-list-view.component.scss'],
-    standalone: false
+    imports: [ListViewComponent, TranslateModule]
 })
 export class TeamListViewComponent {
   @Input() meeting?: Meeting;

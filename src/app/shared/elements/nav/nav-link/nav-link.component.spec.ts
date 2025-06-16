@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NavLinkComponent } from './nav-link.component';
+import {NavLinkComponent} from './nav-link.component';
 import {MatIconModule} from "@angular/material/icon";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
@@ -11,12 +11,12 @@ describe('NavLinkComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavLinkComponent ],
-      imports: [
+        imports: [
         MatIconModule,
         RouterTestingModule,
-        TranslateModule.forRoot()
-      ]
+            TranslateModule.forRoot(),
+            NavLinkComponent
+        ]
     })
     .compileComponents();
 

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PageStatsEventComponent } from './page-stats-event.component';
+import {PageStatsEventComponent} from './page-stats-event.component';
 
 describe('PageStatsEventComponent', () => {
   let component: PageStatsEventComponent;
@@ -8,7 +8,7 @@ describe('PageStatsEventComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageStatsEventComponent ]
+        imports: [PageStatsEventComponent]
     })
     .compileComponents();
 

@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-logout',
     templateUrl: './logout.component.html',
     styleUrls: ['./logout.component.scss'],
-    standalone: false
+    imports: [TranslateModule]
 })
 export class LogoutComponent {
 

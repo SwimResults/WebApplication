@@ -5,12 +5,17 @@ import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {HeatService} from "../../../../core/service/api";
 import {IncidentImpl} from "../../../../core/model/meeting/incident.model";
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {EventIncidentComponent} from '../event-incident/event-incident.component';
+import {EventListEventComponent} from '../event-list-event/event-list-event.component';
+import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-event-list-part',
     templateUrl: './event-list-part.component.html',
     styleUrl: './event-list-part.component.scss',
-    standalone: false
+    imports: [PanelComponent, EventIncidentComponent, EventListEventComponent, SpinnerComponent, TranslateModule]
 })
 export class EventListPartComponent implements OnInit {
     @Input() part!: MeetingPart

@@ -14,11 +14,10 @@ describe('AdminHeatToolComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [AdminHeatToolComponent],
     imports: [ElementsModule,
         MatIconModule,
         TranslateModule.forRoot(),
-        ReactiveFormsModule],
+        ReactiveFormsModule, AdminHeatToolComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

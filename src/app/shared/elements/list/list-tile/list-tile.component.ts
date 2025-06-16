@@ -1,16 +1,22 @@
 import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {IListTile} from "../../../../core/model/list/list-tile.model";
-import {MatMenuTrigger} from "@angular/material/menu";
+import {MatMenu, MatMenuTrigger} from "@angular/material/menu";
 import {countryFlags} from "../../../../core/constant/countryflags.constant";
 import {ListConfig} from "../../../../core/model/list/list-config.model";
 import {UserService} from "../../../../core/service/api";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
+import {IconPanelComponent} from '../../icon-panel/icon-panel.component';
+import {RouterLink} from '@angular/router';
+import {BadgeComponent} from '../../badge/badge.component';
+import {MatIcon} from '@angular/material/icon';
+import {SpinnerComponent} from '../../spinner/spinner.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-list-tile',
     templateUrl: './list-tile.component.html',
     styleUrls: ['./list-tile.component.scss'],
-    standalone: false
+    imports: [IconPanelComponent, RouterLink, BadgeComponent, MatMenuTrigger, MatIcon, SpinnerComponent, MatMenu, TranslateModule]
 })
 export class ListTileComponent {
   @Input() entry!: IListTile;

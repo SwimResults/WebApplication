@@ -1,11 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PageTeamsGeneralComponent } from './page-teams-general.component';
+import {PageTeamsGeneralComponent} from './page-teams-general.component';
 import {TeamsModule} from "../../teams.module";
-import { provideHttpClientTesting } from "@angular/common/http/testing";
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
 import {RouterTestingModule} from "@angular/router/testing";
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('PageTeamsGeneralComponent', () => {
   let component: PageTeamsGeneralComponent;
@@ -13,10 +13,9 @@ describe('PageTeamsGeneralComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [PageTeamsGeneralComponent],
     imports: [TeamsModule,
         TranslateModule.forRoot(),
-        RouterTestingModule],
+        RouterTestingModule, PageTeamsGeneralComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

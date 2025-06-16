@@ -4,16 +4,23 @@ import {Heat, HeatImpl} from "../../../../core/model/start/heat.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {EventService, HeatService, StartService} from "../../../../core/service/api";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {EasyWkService} from "../../../../core/service/api/import/easy-wk.service";
 import {Observable} from "rxjs";
+import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
+import {MatIcon} from '@angular/material/icon';
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
+import {StartListComponent} from '../../../starts/components/start-list/start-list.component';
+import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-admin-heat-tool',
     templateUrl: './admin-heat-tool.component.html',
     styleUrls: ['./admin-heat-tool.component.scss'],
-    standalone: false
+    imports: [ReactiveFormsModule, BtnComponent, MatIcon, PanelComponent, SpinnerComponent, StartListComponent, NoContentComponent, TranslateModule]
 })
 export class AdminHeatToolComponent implements OnInit {
   @Input() meetingId?: string;

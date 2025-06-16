@@ -26,7 +26,25 @@ import { AdminNotificationViewComponent } from './components/admin-notification-
 
 
 @NgModule({
-    declarations: [
+    imports: [
+        CommonModule,
+        ElementsModule,
+        EventsModule,
+        CoreModule,
+        StartsModule,
+        ReactiveFormsModule,
+        MatIconModule,
+        LiveModule,
+        MatRadioModule,
+        MatDialogTitle,
+        MatDialogContent,
+        FormsModule,
+        MatFormFieldModule,
+        MatDialogActions,
+        MatButtonModule,
+        MatInputModule,
+        MatDialogClose,
+        AdminReportViewComponent,
         PageAdminEventComponent,
         PageAdminNotificationComponent,
         AdminMainViewComponent,
@@ -36,27 +54,7 @@ import { AdminNotificationViewComponent } from './components/admin-notification-
         AdminImportTextDialogComponent,
         AdminNotificationSenderComponent,
         AdminNotificationViewComponent
-    ],
-  imports: [
-    CommonModule,
-    ElementsModule,
-    EventsModule,
-    CoreModule,
-    StartsModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    LiveModule,
-    MatRadioModule,
-    MatDialogTitle,
-    MatDialogContent,
-    FormsModule,
-    MatFormFieldModule,
-    MatDialogActions,
-    MatButtonModule,
-    MatInputModule,
-    MatDialogClose,
-    AdminReportViewComponent
-  ]
+    ]
 })
 export class AdminModule {
 }

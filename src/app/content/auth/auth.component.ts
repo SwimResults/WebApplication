@@ -3,12 +3,13 @@ import {OAuthService} from "angular-oauth2-oidc";
 import {filter, Subscription} from "rxjs";
 import {AuthService} from "../../core/service/auth.service";
 import {Router} from "@angular/router";
+import {SpinnerComponent} from '../../shared/elements/spinner/spinner.component';
 
 @Component({
     selector: 'sr-auth',
     templateUrl: './auth.component.html',
     styleUrls: ['./auth.component.scss'],
-    standalone: false
+    imports: [SpinnerComponent]
 })
 export class AuthComponent implements OnDestroy {
   user: any;

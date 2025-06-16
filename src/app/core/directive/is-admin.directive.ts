@@ -1,10 +1,7 @@
 import {Directive, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 import {AuthService} from "../service/auth.service";
 
-@Directive({
-    selector: '[srIsAdmin]',
-    standalone: false
-})
+@Directive({selector: '[srIsAdmin]'})
 export class IsAdminDirective implements OnInit{
 
   constructor(

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PageUserSettingsComponent } from './page-user-settings.component';
+import {PageUserSettingsComponent} from './page-user-settings.component';
 import {AccountModule} from "../../account.module";
 import {TranslateModule} from "@ngx-translate/core";
 
@@ -10,10 +10,10 @@ describe('PageUserSettingsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageUserSettingsComponent ],
         imports: [
             AccountModule,
-            TranslateModule.forRoot()
+            TranslateModule.forRoot(),
+            PageUserSettingsComponent
         ]
     })
     .compileComponents();

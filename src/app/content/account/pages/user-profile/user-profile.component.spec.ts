@@ -11,11 +11,11 @@ describe('UserProfileComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [UserProfileComponent],
             imports: [
                 AccountModule,
                 TranslateModule.forRoot(),
-                OAuthModule.forRoot()
+                OAuthModule.forRoot(),
+                UserProfileComponent
             ]
         })
             .compileComponents();

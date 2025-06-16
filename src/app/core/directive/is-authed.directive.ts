@@ -1,10 +1,7 @@
 import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 import {AuthService} from "../service/auth.service";
 
-@Directive({
-    selector: '[srIsAuthed]',
-    standalone: false
-})
+@Directive({selector: '[srIsAuthed]'})
 export class IsAuthedDirective implements OnInit {
 
   constructor(

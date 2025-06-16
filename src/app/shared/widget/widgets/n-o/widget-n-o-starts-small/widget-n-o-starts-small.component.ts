@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {WidgetNOSmallComponent} from "../widget-n-o-small.component";
 import {StartService} from "../../../../../core/service/api";
 import {RouteService} from "../../../../../core/service/route.service";
+import {SpinnerComponent} from '../../../../elements/spinner/spinner.component';
+import {WidgetTitleComponent} from '../../../widget-title/widget-title.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-widget-n-o-starts-small',
     templateUrl: './../widget-n-o-small.component.html',
     styleUrls: ['./widget-n-o-starts-small.component.scss', './../widget-n-o-small.component.scss'],
-    standalone: false
+    imports: [SpinnerComponent, WidgetTitleComponent, TranslateModule]
 })
 export class WidgetNOStartsSmallComponent extends WidgetNOSmallComponent {
     constructor(

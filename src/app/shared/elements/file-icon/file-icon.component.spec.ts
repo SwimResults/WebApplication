@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FileIconComponent } from './file-icon.component';
+import {FileIconComponent} from './file-icon.component';
 import {ElementsModule} from "../elements.module";
 
 describe('FileIconComponent', () => {
@@ -9,10 +9,10 @@ describe('FileIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FileIconComponent ],
-      imports: [
-        ElementsModule
-      ]
+        imports: [
+            ElementsModule,
+            FileIconComponent
+        ]
     })
     .compileComponents();
 

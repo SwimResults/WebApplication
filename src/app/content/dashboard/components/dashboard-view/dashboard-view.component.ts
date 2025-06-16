@@ -8,12 +8,16 @@ import {RouteService} from "../../../../core/service/route.service";
 import {User} from "../../../../core/model/user/user.model";
 import {OAuthService} from "angular-oauth2-oidc";
 import {MeetingService} from "../../../../core/service/api";
+import {MatIcon} from '@angular/material/icon';
+import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
+import {WidgetViewerComponent} from '../../../../shared/widget/widget-viewer/widget-viewer.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-dashboard-view',
     templateUrl: './dashboard-view.component.html',
     styleUrls: ['./dashboard-view.component.scss'],
-    standalone: false
+    imports: [MatIcon, SpinnerComponent, WidgetViewerComponent, TranslateModule]
 })
 export class DashboardViewComponent implements OnInit, OnDestroy {
 

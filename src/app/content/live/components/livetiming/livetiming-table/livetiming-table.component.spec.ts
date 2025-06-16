@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LivetimingTableComponent } from './livetiming-table.component';
+import {LivetimingTableComponent} from './livetiming-table.component';
 
 describe('LivetimingTableComponent', () => {
   let component: LivetimingTableComponent;
@@ -8,7 +8,7 @@ describe('LivetimingTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LivetimingTableComponent ]
+        imports: [LivetimingTableComponent]
     })
     .compileComponents();
 

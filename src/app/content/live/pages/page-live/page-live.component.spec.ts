@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PageLiveComponent } from './page-live.component';
+import {PageLiveComponent} from './page-live.component';
 import {LiveModule} from "../../live.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
@@ -11,12 +11,12 @@ describe('PageLiveComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageLiveComponent ],
-      imports: [
+        imports: [
         LiveModule,
         RouterTestingModule,
-        TranslateModule.forRoot()
-      ]
+            TranslateModule.forRoot(),
+            PageLiveComponent
+        ]
     })
     .compileComponents();
 

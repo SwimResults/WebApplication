@@ -6,12 +6,19 @@ import {StartListTileConfig} from "../../../../../core/model/start/start-list-ti
 import {HeatImpl} from "../../../../../core/model/start/heat.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
+import {WidgetTitleComponent} from '../../../widget-title/widget-title.component';
+import {WidgetLoginRequiredComponent} from '../../../widget-login-required/widget-login-required.component';
+import {WidgetInfoTextComponent} from '../../../widget-info-text/widget-info-text.component';
+import {BtnComponent} from '../../../../elements/buttons/btn/btn.component';
+import {RouterLink} from '@angular/router';
+import {StartListComponent} from '../../../../../content/starts/components/start-list/start-list.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-widget-starts-large',
     templateUrl: './widget-starts-large.component.html',
     styleUrls: ['./widget-starts-large.component.scss'],
-    standalone: false
+    imports: [WidgetTitleComponent, WidgetLoginRequiredComponent, WidgetInfoTextComponent, BtnComponent, RouterLink, StartListComponent, TranslateModule]
 })
 export class WidgetStartsLargeComponent implements OnInit, OnDestroy {
     meetingId?: string;

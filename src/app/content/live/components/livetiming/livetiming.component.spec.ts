@@ -1,11 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LivetimingComponent } from './livetiming.component';
-import { provideHttpClientTesting } from "@angular/common/http/testing";
+import {LivetimingComponent} from './livetiming.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {LiveModule} from "../../live.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('LivetimingComponent', () => {
   let component: LivetimingComponent;
@@ -13,10 +13,9 @@ describe('LivetimingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [LivetimingComponent],
     imports: [LiveModule,
         RouterTestingModule,
-        TranslateModule.forRoot()],
+        TranslateModule.forRoot(), LivetimingComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

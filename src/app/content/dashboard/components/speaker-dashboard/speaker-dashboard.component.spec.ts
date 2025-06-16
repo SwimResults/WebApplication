@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SpeakerDashboardComponent } from './speaker-dashboard.component';
+import {SpeakerDashboardComponent} from './speaker-dashboard.component';
 import {DashboardModule} from "../../dashboard.module";
 import {WidgetModule} from "../../../../shared/widget/widget.module";
 import {RouterTestingModule} from "@angular/router/testing";
@@ -12,12 +12,12 @@ describe('SpeakerDashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-        declarations: [SpeakerDashboardComponent],
         imports: [
             DashboardModule,
             WidgetModule,
             RouterTestingModule,
-            TranslateModule.forRoot()
+            TranslateModule.forRoot(),
+            SpeakerDashboardComponent
         ]
     })
     .compileComponents();

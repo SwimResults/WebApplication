@@ -4,12 +4,17 @@ import {FetchingModel} from "../../../../../core/model/common/fetching.model";
 import {Athlete} from "../../../../../core/model";
 import {AthleteService, UserService} from "../../../../../core/service/api";
 import {RouteService} from "../../../../../core/service/route.service";
+import {WidgetTitleComponent} from '../../../widget-title/widget-title.component';
+import {WidgetLoginRequiredComponent} from '../../../widget-login-required/widget-login-required.component';
+import {WidgetInfoTextComponent} from '../../../widget-info-text/widget-info-text.component';
+import {RouterLink} from '@angular/router';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-widget-favorites',
     templateUrl: './widget-favorites.component.html',
     styleUrls: ['./widget-favorites.component.scss'],
-    standalone: false
+    imports: [WidgetTitleComponent, WidgetLoginRequiredComponent, WidgetInfoTextComponent, RouterLink, TranslateModule]
 })
 export class WidgetFavoritesComponent implements OnInit, OnDestroy {
     meetingId?: string;

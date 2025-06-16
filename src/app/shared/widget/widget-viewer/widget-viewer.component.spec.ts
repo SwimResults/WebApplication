@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WidgetViewerComponent } from './widget-viewer.component';
+import {WidgetViewerComponent} from './widget-viewer.component';
 
 describe('WidgetViewerComponent', () => {
   let component: WidgetViewerComponent;
@@ -8,7 +8,7 @@ describe('WidgetViewerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetViewerComponent ]
+        imports: [WidgetViewerComponent]
     })
     .compileComponents();
 

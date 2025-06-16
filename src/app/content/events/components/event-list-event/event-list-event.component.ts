@@ -1,14 +1,16 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {ActivatedRoute, Router} from "@angular/router";
-import {TranslateService} from "@ngx-translate/core";
+import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {EventListHeatImpl} from "../../../../core/model/start/event-list-heat.model";
+import {HeatTimesComponent} from '../../../../shared/elements/heat-times/heat-times.component';
+import {IconPanelComponent} from '../../../../shared/elements/icon-panel/icon-panel.component';
 
 @Component({
     selector: 'sr-event-list-event',
     templateUrl: './event-list-event.component.html',
     styleUrls: ['./event-list-event.component.scss'],
-    standalone: false
+    imports: [HeatTimesComponent, IconPanelComponent, TranslateModule]
 })
 export class EventListEventComponent implements OnInit {
   @Input() event!: MeetingEvent;

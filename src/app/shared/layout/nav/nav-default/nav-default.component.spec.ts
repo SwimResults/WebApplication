@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NavDefaultComponent } from './nav-default.component';
+import {NavDefaultComponent} from './nav-default.component';
 import {ElementsModule} from "../../../elements/elements.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
@@ -11,12 +11,12 @@ describe('NavDefaultComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavDefaultComponent ],
-      imports: [
+        imports: [
         ElementsModule,
         RouterTestingModule,
-        TranslateModule.forRoot()
-      ]
+            TranslateModule.forRoot(),
+            NavDefaultComponent
+        ]
     })
     .compileComponents();
 

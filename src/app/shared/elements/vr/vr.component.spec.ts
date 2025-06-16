@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { VrComponent } from './vr.component';
+import {VrComponent} from './vr.component';
 
 describe('VrComponent', () => {
   let component: VrComponent;
@@ -8,7 +8,7 @@ describe('VrComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VrComponent ]
+        imports: [VrComponent]
     })
     .compileComponents();
 

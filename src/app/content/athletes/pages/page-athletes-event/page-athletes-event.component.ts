@@ -2,12 +2,13 @@ import {Component, OnDestroy} from '@angular/core';
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {RouteService} from "../../../../core/service/route.service";
 import {Subscription} from "rxjs";
+import {AthleteListViewComponent} from '../../components/athlete-list-view/athlete-list-view.component';
 
 @Component({
     selector: 'sr-page-athletes-event',
     templateUrl: './page-athletes-event.component.html',
     styleUrls: ['./page-athletes-event.component.scss'],
-    standalone: false
+    imports: [AthleteListViewComponent]
 })
 export class PageAthletesEventComponent implements OnDestroy {
   meeting: Meeting = {} as Meeting;

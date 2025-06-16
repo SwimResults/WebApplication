@@ -10,8 +10,7 @@ describe('AdminEventListToolComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [AdminEventListComponent],
-    imports: [],
+        imports: [AdminEventListComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

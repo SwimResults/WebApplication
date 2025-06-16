@@ -3,19 +3,27 @@ import {Subscription} from "rxjs";
 import {Start, StartImpl} from "../../../../core/model/start/start.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {ActivatedRoute} from "@angular/router";
-import {StartService, EventService, FileService} from "../../../../core/service/api";
+import {EventService, FileService, StartService} from "../../../../core/service/api";
 import {RouteService} from "../../../../core/service/route.service";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
 import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {StartResults} from "../../../../core/model/start/start-results.model";
+import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
+import {MatIcon} from '@angular/material/icon';
+import {MatButtonToggle, MatButtonToggleGroup} from '@angular/material/button-toggle';
+import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
+import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {StartListComponent} from '../../../starts/components/start-list/start-list.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-event-view',
     templateUrl: './event-view.component.html',
     styleUrls: ['./event-view.component.scss'],
-    standalone: false
+    imports: [BtnComponent, MatIcon, MatButtonToggleGroup, MatButtonToggle, SpinnerComponent, NoContentComponent, PanelComponent, StartListComponent, TranslateModule]
 })
 export class EventViewComponent implements OnInit, OnDestroy {
     meeting?: MeetingImpl;

@@ -30,27 +30,6 @@ import {VrComponent} from './vr/vr.component';
 
 
 @NgModule({
-    declarations: [
-        PanelComponent,
-        IconPanelComponent,
-        NavGroupComponent,
-        NavLinkComponent,
-        PageTitleComponent,
-        ListFilterRowComponent,
-        ListViewComponent,
-        SearchFormComponent,
-        ListTileComponent,
-        BadgeComponent,
-        FlatBtnComponent,
-        BtnComponent,
-        TextBtnComponent,
-        HeatTimesComponent,
-        FileIconComponent,
-        IconBtnComponent,
-        NoContentComponent,
-        SpinnerComponent,
-        VrComponent
-    ],
     exports: [
         PanelComponent,
         IconPanelComponent,
@@ -79,7 +58,26 @@ import {VrComponent} from './vr/vr.component';
         CoreModule,
         MatButtonModule,
         MatMenuModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        PanelComponent,
+        IconPanelComponent,
+        NavGroupComponent,
+        NavLinkComponent,
+        PageTitleComponent,
+        ListFilterRowComponent,
+        ListViewComponent,
+        SearchFormComponent,
+        ListTileComponent,
+        BadgeComponent,
+        FlatBtnComponent,
+        BtnComponent,
+        TextBtnComponent,
+        HeatTimesComponent,
+        FileIconComponent,
+        IconBtnComponent,
+        NoContentComponent,
+        SpinnerComponent,
+        VrComponent
     ]
 })
 export class ElementsModule {

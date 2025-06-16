@@ -1,11 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WidgetFileAnnouncementSmallComponent } from './widget-file-announcement-small.component';
-import { provideHttpClientTesting } from "@angular/common/http/testing";
+import {WidgetFileAnnouncementSmallComponent} from './widget-file-announcement-small.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
 import {WidgetModule} from "../../../widget.module";
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('WidgetFileAnnouncementSmallComponent', () => {
   let component: WidgetFileAnnouncementSmallComponent;
@@ -13,10 +13,9 @@ describe('WidgetFileAnnouncementSmallComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [WidgetFileAnnouncementSmallComponent],
     imports: [RouterTestingModule,
         TranslateModule.forRoot(),
-        WidgetModule],
+        WidgetModule, WidgetFileAnnouncementSmallComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

@@ -1,9 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {StartService} from "../../../../core/service/api";
+import {EventService, HeatService, StartService} from "../../../../core/service/api";
 import {Start, StartImpl} from "../../../../core/model/start/start.model";
-import {EventService} from "../../../../core/service/api";
 import {MeetingEventLivetiming} from "../../../../core/model/meeting/meeting-event-livetiming.model";
-import {HeatService} from "../../../../core/service/api";
 import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
@@ -11,6 +9,13 @@ import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-
 import {HeatImpl} from "../../../../core/model/start/heat.model";
 import {ActivatedRoute} from "@angular/router";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
+import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
+import {LivetimingHeaderComponent} from './livetiming-header/livetiming-header.component';
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {LivetimingTableComponent} from './livetiming-table/livetiming-table.component';
+import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
+import {LivetimingControlsComponent} from './livetiming-controls/livetiming-controls.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 export interface ChangeHeatEvent {
     name: "event" | "heat" | "all" | "nothing";
@@ -25,7 +30,7 @@ export interface LiveSettingsData {
     selector: 'sr-livetiming',
     templateUrl: './livetiming.component.html',
     styleUrls: ['./livetiming.component.scss'],
-    standalone: false
+    imports: [SpinnerComponent, LivetimingHeaderComponent, PanelComponent, LivetimingTableComponent, NoContentComponent, LivetimingControlsComponent, TranslateModule]
 })
 export class LivetimingComponent implements OnInit, OnDestroy {
 

@@ -3,12 +3,18 @@ import {MeetingPart} from "../../../../core/model/meeting/meeting-part.model";
 import {EventService, HeatService} from "../../../../core/service/api";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {Heat, HeatImpl} from "../../../../core/model/start/heat.model";
+import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
+import {MatIcon} from '@angular/material/icon';
+import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {IconBtnComponent} from '../../../../shared/elements/buttons/icon-btn/icon-btn.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-admin-event-list',
     templateUrl: './admin-event-list.component.html',
     styleUrls: ['./admin-event-list.component.scss'],
-    standalone: false
+    imports: [BtnComponent, MatIcon, NoContentComponent, PanelComponent, IconBtnComponent, TranslateModule]
 })
 export class AdminEventListComponent implements OnInit {
     @Input() meetingId?: string;

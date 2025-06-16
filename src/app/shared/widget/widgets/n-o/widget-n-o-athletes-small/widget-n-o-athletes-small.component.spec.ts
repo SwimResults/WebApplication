@@ -1,11 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WidgetNOAthletesSmallComponent } from './widget-n-o-athletes-small.component';
-import { provideHttpClientTesting } from "@angular/common/http/testing";
+import {WidgetNOAthletesSmallComponent} from './widget-n-o-athletes-small.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
 import {ElementsModule} from "../../../../elements/elements.module";
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('WidgetNOAthletesSmallComponent', () => {
   let component: WidgetNOAthletesSmallComponent;
@@ -13,10 +13,9 @@ describe('WidgetNOAthletesSmallComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [WidgetNOAthletesSmallComponent],
     imports: [RouterTestingModule,
         TranslateModule.forRoot(),
-        ElementsModule],
+        ElementsModule, WidgetNOAthletesSmallComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

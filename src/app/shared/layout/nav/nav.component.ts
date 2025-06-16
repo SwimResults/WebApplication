@@ -1,15 +1,19 @@
 import {Component, OnDestroy} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {RouteService} from "../../../core/service/route.service";
 import {Meeting} from "../../../core/model/meeting/meeting.model";
 import {SidebarMenuService} from "../../../core/service/sidebar-menu.service";
 import {Subscription} from "rxjs";
+import {MatIcon} from '@angular/material/icon';
+import {NavDefaultComponent} from './nav-default/nav-default.component';
+import {NavEventComponent} from './nav-event/nav-event.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-nav',
     templateUrl: './nav.component.html',
     styleUrls: ['./nav.component.scss'],
-    standalone: false
+    imports: [RouterLink, MatIcon, NavDefaultComponent, NavEventComponent, TranslateModule]
 })
 export class NavComponent implements OnDestroy {
   meeting: Meeting = {} as Meeting;

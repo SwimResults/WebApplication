@@ -5,12 +5,18 @@ import {PagingRequest} from "../../../../core/model/common/paging-request.model"
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {ListFilterRequest} from "../../../../core/model/list/list-filter-request.model";
 import {ListConfig} from "../../../../core/model/list/list-config.model";
+import {PanelComponent} from '../../panel/panel.component';
+import {ListFilterRowComponent} from '../filter/list-filter-row/list-filter-row.component';
+import {ListTileComponent} from '../list-tile/list-tile.component';
+import {IsVisibleDirective} from '../../../../core/directive/is-visible.directive';
+import {SpinnerComponent} from '../../spinner/spinner.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-list-view',
     templateUrl: './list-view.component.html',
     styleUrls: ['./list-view.component.scss'],
-    standalone: false
+    imports: [PanelComponent, ListFilterRowComponent, ListTileComponent, IsVisibleDirective, SpinnerComponent, TranslateModule]
 })
 export class ListViewComponent implements OnInit {
   @Input() data!: IListTile[];

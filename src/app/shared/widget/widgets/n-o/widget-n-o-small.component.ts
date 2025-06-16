@@ -2,12 +2,15 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {count, Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
+import {SpinnerComponent} from '../../../elements/spinner/spinner.component';
+import {WidgetTitleComponent} from '../../widget-title/widget-title.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-widget-n-o-small',
     templateUrl: './widget-n-o-small.component.html',
     styleUrls: ['./widget-n-o-small.component.scss'],
-    standalone: false
+    imports: [SpinnerComponent, WidgetTitleComponent, TranslateModule]
 })
 export class WidgetNOSmallComponent implements OnInit, OnDestroy {
     meetingId?: string;

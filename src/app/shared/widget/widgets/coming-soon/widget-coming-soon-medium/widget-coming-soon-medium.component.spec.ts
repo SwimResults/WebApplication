@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WidgetComingSoonMediumComponent } from './widget-coming-soon-medium.component';
+import {WidgetComingSoonMediumComponent} from './widget-coming-soon-medium.component';
 import {TranslateModule} from "@ngx-translate/core";
 
 describe('WidgetComingSoonMediumComponent', () => {
@@ -9,10 +9,10 @@ describe('WidgetComingSoonMediumComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetComingSoonMediumComponent ],
-      imports: [
-        TranslateModule.forRoot()
-      ]
+        imports: [
+            TranslateModule.forRoot(),
+            WidgetComingSoonMediumComponent
+        ]
     })
     .compileComponents();
 

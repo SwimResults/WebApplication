@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PageFilesComponent } from './page-files.component';
+import {PageFilesComponent} from './page-files.component';
 import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {FilesModule} from "../../files.module";
 import {RouterTestingModule} from "@angular/router/testing";
@@ -12,13 +12,13 @@ describe('PageFilesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageFilesComponent ],
-      imports: [
+        imports: [
         ElementsModule,
         FilesModule,
         RouterTestingModule,
-        TranslateModule.forRoot()
-      ]
+            TranslateModule.forRoot(),
+            PageFilesComponent
+        ]
     })
     .compileComponents();
 

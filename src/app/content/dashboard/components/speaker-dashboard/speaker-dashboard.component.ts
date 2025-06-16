@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Widget} from "../../../../core/model/user/widget.model";
 import {WidgetContainer} from "../../../../core/model/user/widget-container.model";
+import {WidgetContainerComponent} from '../../../../shared/widget/widget-container/widget-container.component';
+import {LivetimingComponent} from '../../../live/components/livetiming/livetiming.component';
 
 @Component({
     selector: 'sr-speaker-dashboard',
     templateUrl: './speaker-dashboard.component.html',
     styleUrl: './speaker-dashboard.component.scss',
-    standalone: false
+    imports: [WidgetContainerComponent, LivetimingComponent]
 })
 export class SpeakerDashboardComponent {
     widgetContainers: WidgetContainer[] = [];

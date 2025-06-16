@@ -4,12 +4,15 @@ import {ReplaySubject, Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 import {Heat} from "../../../../core/model/start/heat.model";
 import {ViewportScroller} from "@angular/common";
+import {AdminHeatToolComponent} from '../admin-heat-tool/admin-heat-tool.component';
+import {AdminImportToolComponent} from '../admin-import-tool/admin-import-tool.component';
+import {AdminReportViewComponent} from '../admin-report-view/admin-report-view.component';
 
 @Component({
     selector: 'sr-admin-main-view',
     templateUrl: './admin-main-view.component.html',
     styleUrls: ['./admin-main-view.component.scss'],
-    standalone: false
+    imports: [AdminHeatToolComponent, AdminImportToolComponent, AdminReportViewComponent]
 })
 export class AdminMainViewComponent implements OnDestroy {
   meeting?: MeetingImpl;

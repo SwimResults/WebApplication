@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WidgetMeetingMediumComponent } from './widget-meeting-medium.component';
+import {WidgetMeetingMediumComponent} from './widget-meeting-medium.component';
 import {MatIconModule} from "@angular/material/icon";
 import {RouterTestingModule} from "@angular/router/testing";
-import { provideHttpClientTesting } from "@angular/common/http/testing";
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('WidgetMeetingMediumComponent', () => {
   let component: WidgetMeetingMediumComponent;
@@ -12,9 +12,8 @@ describe('WidgetMeetingMediumComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [WidgetMeetingMediumComponent],
     imports: [RouterTestingModule,
-        MatIconModule],
+        MatIconModule, WidgetMeetingMediumComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FileListViewComponent } from './file-list-view.component';
+import {FileListViewComponent} from './file-list-view.component';
 import {RouterTestingModule} from "@angular/router/testing";
 import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {TranslateModule} from "@ngx-translate/core";
@@ -12,13 +12,13 @@ describe('FileListViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FileListViewComponent ],
-      imports: [
+        imports: [
         RouterTestingModule,
         ElementsModule,
         TranslateModule.forRoot(),
-        FilesModule
-      ]
+            FilesModule,
+            FileListViewComponent
+        ]
     })
     .compileComponents();
 

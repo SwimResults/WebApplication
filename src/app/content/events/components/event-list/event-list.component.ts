@@ -6,12 +6,16 @@ import {RouteService} from "../../../../core/service/route.service";
 import {EventService, MeetingService} from "../../../../core/service/api";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {IncidentImpl} from "../../../../core/model/meeting/incident.model";
+import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
+import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
+import {EventListPartComponent} from '../event-list-part/event-list-part.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-event-list',
     templateUrl: './event-list.component.html',
     styleUrls: ['./event-list.component.scss'],
-    standalone: false
+    imports: [SpinnerComponent, NoContentComponent, EventListPartComponent, TranslateModule]
 })
 export class EventListComponent implements OnDestroy {
     meeting?: MeetingImpl;

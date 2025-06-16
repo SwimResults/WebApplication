@@ -1,11 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FileType, fileTypes} from "../../../core/constant/file-types.constant";
+import {IconPanelComponent} from '../icon-panel/icon-panel.component';
 
 @Component({
     selector: 'sr-file-icon',
     templateUrl: './file-icon.component.html',
     styleUrls: ['./file-icon.component.scss'],
-    standalone: false
+    imports: [IconPanelComponent]
 })
 export class FileIconComponent implements OnInit {
 

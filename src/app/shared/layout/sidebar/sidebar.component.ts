@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {NavComponent} from '../nav/nav.component';
 
 @Component({
     selector: 'sr-sidebar',
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.scss'],
-    standalone: false
+    imports: [NavComponent]
 })
 export class SidebarComponent {
 

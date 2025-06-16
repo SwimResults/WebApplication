@@ -7,7 +7,7 @@ import {WidgetDirective} from "../../../core/directive/widget.directive";
     selector: 'sr-widget-tile',
     templateUrl: './widget-tile.component.html',
     styleUrls: ['./widget-tile.component.scss'],
-    standalone: false
+    imports: [WidgetDirective]
 })
 export class WidgetTileComponent implements OnInit {
 

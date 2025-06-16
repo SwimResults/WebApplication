@@ -4,12 +4,16 @@ import {HeatService} from "../../../../../core/service/api";
 import {HeatImpl} from "../../../../../core/model/start/heat.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
+import {SpinnerComponent} from '../../../../elements/spinner/spinner.component';
+import {WidgetTitleComponent} from '../../../widget-title/widget-title.component';
+import {WidgetInfoTextComponent} from '../../../widget-info-text/widget-info-text.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-widget-delay-small',
     templateUrl: './widget-delay-small.component.html',
     styleUrls: ['./widget-delay-small.component.scss'],
-    standalone: false
+    imports: [SpinnerComponent, WidgetTitleComponent, WidgetInfoTextComponent, TranslateModule]
 })
 export class WidgetDelaySmallComponent implements OnInit, OnDestroy {
     meetingId?: string;

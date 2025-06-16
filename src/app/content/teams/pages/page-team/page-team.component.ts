@@ -8,12 +8,19 @@ import {TeamAthleteListTile} from "../../../../core/model/list/team-athlete-list
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
+import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
+import {TeamProfileIntroComponent} from '../../components/team-profile-intro/team-profile-intro.component';
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {MatIcon} from '@angular/material/icon';
+import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
+import {ListViewComponent} from '../../../../shared/elements/list/list-view/list-view.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-page-team',
     templateUrl: './page-team.component.html',
     styleUrls: ['./page-team.component.scss'],
-    standalone: false
+    imports: [SpinnerComponent, TeamProfileIntroComponent, PanelComponent, MatIcon, BtnComponent, ListViewComponent, TranslateModule]
 })
 export class PageTeamComponent implements OnInit, OnDestroy {
   meetingId: string | undefined;

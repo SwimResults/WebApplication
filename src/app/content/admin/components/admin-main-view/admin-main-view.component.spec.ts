@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AdminMainViewComponent } from './admin-main-view.component';
+import {AdminMainViewComponent} from './admin-main-view.component';
 import {AdminModule} from "../../admin.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
@@ -11,12 +11,12 @@ describe('AdminMainViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminMainViewComponent ],
-      imports: [
+        imports: [
         AdminModule,
         RouterTestingModule,
-        TranslateModule.forRoot()
-      ]
+            TranslateModule.forRoot(),
+            AdminMainViewComponent
+        ]
     })
     .compileComponents();
 

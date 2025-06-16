@@ -6,12 +6,15 @@ import {IListTile} from "../../../../core/model/list/list-tile.model";
 import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
 import {AthleteListTile} from "../../../../core/model/list/athlete-list-tile.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
+import {IsAuthedDirective} from '../../../../core/directive/is-authed.directive';
+import {ListViewComponent} from '../../../../shared/elements/list/list-view/list-view.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-athlete-list-view',
     templateUrl: './athlete-list-view.component.html',
     styleUrls: ['./athlete-list-view.component.scss'],
-    standalone: false
+    imports: [IsAuthedDirective, ListViewComponent, TranslateModule]
 })
 export class AthleteListViewComponent {
   @Input() meeting?: Meeting;

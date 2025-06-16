@@ -3,12 +3,13 @@ import {StartService} from "../../../../core/service/api";
 import {Start} from "../../../../core/model/start/start.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
+import {StartListComponent} from '../../../starts/components/start-list/start-list.component';
 
 @Component({
     selector: 'sr-athlete-starts',
     templateUrl: './athlete-starts.component.html',
     styleUrls: ['./athlete-starts.component.scss'],
-    standalone: false
+    imports: [StartListComponent]
 })
 export class AthleteStartsComponent implements OnInit{
   @Input() athleteId!: string;

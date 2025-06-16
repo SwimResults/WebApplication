@@ -66,7 +66,20 @@ import {
 
 
 @NgModule({
-    declarations: [
+    exports: [
+        WidgetViewerComponent,
+        WidgetDelaySmallComponent,
+        WidgetTileComponent,
+        WidgetContainerComponent
+    ],
+    imports: [
+        CommonModule,
+        CoreModule,
+        ElementsModule,
+        MatIconModule,
+        RouterLink,
+        SafePipeModule,
+        StartsModule,
         WidgetViewerComponent,
         WidgetContainerComponent,
         WidgetTileComponent,
@@ -102,21 +115,6 @@ import {
         WidgetFavoritesComponent,
         WidgetWeblinksSmallComponent,
         WidgetSponsorsMediumComponent
-    ],
-    exports: [
-        WidgetViewerComponent,
-        WidgetDelaySmallComponent,
-        WidgetTileComponent,
-        WidgetContainerComponent
-    ],
-    imports: [
-        CommonModule,
-        CoreModule,
-        ElementsModule,
-        MatIconModule,
-        RouterLink,
-        SafePipeModule,
-        StartsModule
     ]
 })
 export class WidgetModule {

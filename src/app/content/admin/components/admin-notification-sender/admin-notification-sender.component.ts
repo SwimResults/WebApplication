@@ -1,13 +1,14 @@
 import {Component, Input} from '@angular/core';
 import {NotificationService} from "../../../../core/service/api/user/notification.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {MeetingNotification} from "../../../../core/model/user/notification.model";
+import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
 
 @Component({
     selector: 'sr-admin-notification-sender',
     templateUrl: './admin-notification-sender.component.html',
     styleUrl: './admin-notification-sender.component.scss',
-    standalone: false
+    imports: [ReactiveFormsModule, BtnComponent]
 })
 export class AdminNotificationSenderComponent {
     @Input() meetingId?: string;

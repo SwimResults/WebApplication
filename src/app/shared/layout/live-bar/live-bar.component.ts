@@ -2,12 +2,16 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {HeatImpl} from "../../../core/model/start/heat.model";
 import {EventService, HeatService} from "../../../core/service/api";
 import {MeetingEventImpl} from "../../../core/model/meeting/meeting-event.model";
+import {RouterLink} from '@angular/router';
+import {HeatTimesComponent} from '../../elements/heat-times/heat-times.component';
+import {IconPanelComponent} from '../../elements/icon-panel/icon-panel.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-live-bar',
     templateUrl: './live-bar.component.html',
     styleUrls: ['./live-bar.component.scss'],
-    standalone: false
+    imports: [RouterLink, HeatTimesComponent, IconPanelComponent, TranslateModule]
 })
 export class LiveBarComponent implements OnInit, OnDestroy {
     @Input() meetingId?: string;

@@ -1,29 +1,27 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { StartListTileComponent, StartListComponent } from './components';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {StartListComponent, StartListTileComponent} from './components';
 import {ElementsModule} from "../../shared/elements/elements.module";
 import {RouterLink} from "@angular/router";
-import { PageStartComponent } from './pages';
+import {PageStartComponent} from './pages';
 import {CoreModule} from "../../core/core.module";
 import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
-    declarations: [
-        StartListTileComponent,
-        StartListComponent,
-        PageStartComponent
-    ],
     exports: [
         StartListTileComponent,
         StartListComponent
     ],
-  imports: [
-    CommonModule,
-    ElementsModule,
-    RouterLink,
-    CoreModule,
-    MatIconModule
-  ]
+    imports: [
+        CommonModule,
+        ElementsModule,
+        RouterLink,
+        CoreModule,
+        MatIconModule,
+        StartListTileComponent,
+        StartListComponent,
+        PageStartComponent
+    ]
 })
 export class StartsModule { }

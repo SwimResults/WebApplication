@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PageStartComponent } from './page-start.component';
+import {PageStartComponent} from './page-start.component';
 
 describe('PageStartComponent', () => {
   let component: PageStartComponent;
@@ -8,7 +8,7 @@ describe('PageStartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageStartComponent ]
+        imports: [PageStartComponent]
     })
     .compileComponents();
 

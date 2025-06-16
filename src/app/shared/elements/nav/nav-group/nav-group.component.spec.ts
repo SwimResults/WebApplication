@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NavGroupComponent } from './nav-group.component';
+import {NavGroupComponent} from './nav-group.component';
 
 describe('NavGroupComponent', () => {
   let component: NavGroupComponent;
@@ -8,7 +8,7 @@ describe('NavGroupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavGroupComponent ]
+        imports: [NavGroupComponent]
     })
     .compileComponents();
 

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListFilterRowComponent } from './list-filter-row.component';
+import {ListFilterRowComponent} from './list-filter-row.component';
 import {ElementsModule} from "../../../elements.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {RouterTestingModule} from "@angular/router/testing";
@@ -11,12 +11,12 @@ describe('ListFilterRowComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListFilterRowComponent ],
-      imports: [
+        imports: [
         ElementsModule,
         TranslateModule.forRoot(),
-        RouterTestingModule
-      ]
+            RouterTestingModule,
+            ListFilterRowComponent
+        ]
     })
     .compileComponents();
 

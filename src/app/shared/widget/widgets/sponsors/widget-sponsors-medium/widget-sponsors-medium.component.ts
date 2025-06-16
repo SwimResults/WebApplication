@@ -3,12 +3,15 @@ import {MeetingImpl} from "../../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
 import {Sponsor} from "../../../../../core/model/meeting/sponsor.model";
+import {WidgetTitleComponent} from '../../../widget-title/widget-title.component';
+import {WidgetInfoTextComponent} from '../../../widget-info-text/widget-info-text.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-widget-coming-soon-medium',
     templateUrl: './widget-sponsors-medium.component.html',
     styleUrls: ['./widget-sponsors-medium.component.scss'],
-    standalone: false
+    imports: [WidgetTitleComponent, WidgetInfoTextComponent, TranslateModule]
 })
 export class WidgetSponsorsMediumComponent implements OnDestroy {
     meeting?: MeetingImpl;

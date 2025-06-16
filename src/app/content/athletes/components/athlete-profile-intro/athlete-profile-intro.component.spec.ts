@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AthleteProfileIntroComponent } from './athlete-profile-intro.component';
-import { provideHttpClientTesting } from "@angular/common/http/testing";
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {AthleteProfileIntroComponent} from './athlete-profile-intro.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('AthleteProfileIntroComponent', () => {
   let component: AthleteProfileIntroComponent;
@@ -10,8 +10,7 @@ describe('AthleteProfileIntroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [AthleteProfileIntroComponent],
-    imports: [],
+        imports: [AthleteProfileIntroComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

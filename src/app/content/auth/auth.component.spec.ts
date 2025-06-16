@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AuthComponent } from './auth.component';
+import {AuthComponent} from './auth.component';
 import {OAuthModule} from "angular-oauth2-oidc";
-import { provideHttpClientTesting } from "@angular/common/http/testing";
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {ElementsModule} from "../../shared/elements/elements.module";
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('AuthComponent', () => {
   let component: AuthComponent;
@@ -12,9 +12,8 @@ describe('AuthComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [AuthComponent],
     imports: [OAuthModule.forRoot(),
-        ElementsModule],
+        ElementsModule, AuthComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

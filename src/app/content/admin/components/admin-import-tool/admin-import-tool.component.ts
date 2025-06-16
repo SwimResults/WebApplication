@@ -2,10 +2,15 @@ import {Component, Input, OnInit} from '@angular/core';
 import {EventService, FileService} from "../../../../core/service/api";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {ImportFileRequest, ImportFileService} from "../../../../core/service/api/import/import-file.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AdminImportTextDialogComponent} from "./admin-import-text-dialog.component";
+import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
+import {MatIcon} from '@angular/material/icon';
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {MatRadioButton, MatRadioGroup} from '@angular/material/radio';
+import {TranslateModule} from '@ngx-translate/core';
 
 interface FileList {
     name: string,
@@ -18,7 +23,7 @@ interface FileList {
     selector: 'sr-admin-import-tool',
     templateUrl: './admin-import-tool.component.html',
     styleUrls: ['./admin-import-tool.component.scss'],
-    standalone: false
+    imports: [BtnComponent, MatIcon, PanelComponent, ReactiveFormsModule, MatRadioGroup, MatRadioButton, TranslateModule]
 })
 export class AdminImportToolComponent implements OnInit {
     @Input() meetingId?: string;

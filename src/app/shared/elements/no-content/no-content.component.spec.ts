@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NoContentComponent } from './no-content.component';
+import {NoContentComponent} from './no-content.component';
 import {TranslateModule} from "@ngx-translate/core";
 
 describe('NoContentComponent', () => {
@@ -9,10 +9,10 @@ describe('NoContentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NoContentComponent ],
-      imports: [
-        TranslateModule.forRoot()
-      ]
+        imports: [
+            TranslateModule.forRoot(),
+            NoContentComponent
+        ]
     })
     .compileComponents();
 

@@ -3,13 +3,15 @@ import {StorageFile} from "../../../../core/model/meeting/storage-file.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 import {Component, OnDestroy} from "@angular/core";
-import {TranslateService} from "@ngx-translate/core";
+import {TranslateModule, TranslateService} from "@ngx-translate/core";
+import {FileIconComponent} from "../../../elements/file-icon/file-icon.component";
+import {WidgetInfoTextComponent} from "../../widget-info-text/widget-info-text.component";
 
 @Component({
     selector: 'sr-widget-file-small',
     templateUrl: './widget-file-small.component.html',
     styleUrls: ['./widget-file-small.component.scss'],
-    standalone: false
+    imports: [FileIconComponent, WidgetInfoTextComponent, TranslateModule]
 })
 export class WidgetFileSmallComponent implements OnDestroy {
     meetingId?: string;

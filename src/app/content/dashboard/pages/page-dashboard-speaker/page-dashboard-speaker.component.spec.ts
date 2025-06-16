@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PageDashboardSpeakerComponent } from './page-dashboard-speaker.component';
+import {PageDashboardSpeakerComponent} from './page-dashboard-speaker.component';
 import {DashboardModule} from "../../dashboard.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
@@ -11,11 +11,11 @@ describe('PageDashboardSpeakerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PageDashboardSpeakerComponent],
         imports: [
             DashboardModule,
             RouterTestingModule,
-            TranslateModule.forRoot()
+            TranslateModule.forRoot(),
+            PageDashboardSpeakerComponent
         ]
     })
     .compileComponents();

@@ -5,12 +5,17 @@ import {EventService, MeetingService, StartService} from "../../../../core/servi
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
+import {HeatTimesComponent} from '../../../../shared/elements/heat-times/heat-times.component';
+import {IconPanelComponent} from '../../../../shared/elements/icon-panel/icon-panel.component';
+import {RouterLink} from '@angular/router';
+import {MatIcon} from '@angular/material/icon';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-start-list-tile',
     templateUrl: './start-list-tile.component.html',
     styleUrls: ['./start-list-tile.component.scss'],
-    standalone: false
+    imports: [HeatTimesComponent, IconPanelComponent, RouterLink, MatIcon, TranslateModule]
 })
 export class StartListTileComponent implements OnInit {
     @Input() config!: StartListTileConfig;

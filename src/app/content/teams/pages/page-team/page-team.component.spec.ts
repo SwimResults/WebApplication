@@ -13,10 +13,9 @@ describe('PageTeamComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [PageTeamComponent],
     imports: [RouterTestingModule,
         TeamsModule,
-        TranslateModule.forRoot()],
+        TranslateModule.forRoot(), PageTeamComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

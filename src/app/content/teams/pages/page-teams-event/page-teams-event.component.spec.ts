@@ -14,11 +14,10 @@ describe('PageTeamsEventComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [PageTeamsEventComponent],
     imports: [ElementsModule,
         RouterTestingModule,
         TeamsModule,
-        TranslateModule.forRoot()],
+        TranslateModule.forRoot(), PageTeamsEventComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

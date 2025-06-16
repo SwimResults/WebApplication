@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListViewComponent } from './list-view.component';
+import {ListViewComponent} from './list-view.component';
 import {ElementsModule} from "../../elements.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {RouterTestingModule} from "@angular/router/testing";
@@ -11,12 +11,12 @@ describe('ListViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListViewComponent ],
-      imports: [
+        imports: [
         ElementsModule,
         TranslateModule.forRoot(),
-        RouterTestingModule
-      ]
+            RouterTestingModule,
+            ListViewComponent
+        ]
     })
     .compileComponents();
 

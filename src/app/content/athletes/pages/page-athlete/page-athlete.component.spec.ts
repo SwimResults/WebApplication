@@ -1,11 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PageAthleteComponent } from './page-athlete.component';
-import { provideHttpClientTesting } from "@angular/common/http/testing";
+import {PageAthleteComponent} from './page-athlete.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {AthletesModule} from "../../athletes.module";
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('PageAthleteComponent', () => {
   let component: PageAthleteComponent;
@@ -13,10 +13,9 @@ describe('PageAthleteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [PageAthleteComponent],
     imports: [RouterTestingModule,
         ElementsModule,
-        AthletesModule],
+        AthletesModule, PageAthleteComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

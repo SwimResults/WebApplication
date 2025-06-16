@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { PageDashboardEventComponent, PageDashboardGeneralComponent, PageDashboardSpeakerComponent } from './pages';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {PageDashboardEventComponent, PageDashboardGeneralComponent, PageDashboardSpeakerComponent} from './pages';
 import {ElementsModule} from "../../shared/elements/elements.module";
 import {CoreModule} from "../../core/core.module";
 import {WidgetModule} from "../../shared/widget/widget.module";
@@ -10,20 +10,18 @@ import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
-    declarations: [
+    imports: [
+        CommonModule,
+        ElementsModule,
+        CoreModule,
+        WidgetModule,
+        LiveModule,
+        MatIconModule,
         PageDashboardEventComponent,
         PageDashboardGeneralComponent,
         PageDashboardSpeakerComponent,
         DashboardViewComponent,
         SpeakerDashboardComponent
-    ],
-  imports: [
-    CommonModule,
-    ElementsModule,
-    CoreModule,
-    WidgetModule,
-    LiveModule,
-    MatIconModule
-  ]
+    ]
 })
 export class DashboardModule { }

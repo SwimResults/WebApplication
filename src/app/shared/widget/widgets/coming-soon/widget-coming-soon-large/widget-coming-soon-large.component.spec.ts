@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WidgetComingSoonLargeComponent } from './widget-coming-soon-large.component';
+import {WidgetComingSoonLargeComponent} from './widget-coming-soon-large.component';
 
 describe('WidgetComingSoonLargeComponent', () => {
   let component: WidgetComingSoonLargeComponent;
@@ -8,7 +8,7 @@ describe('WidgetComingSoonLargeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetComingSoonLargeComponent ]
+        imports: [WidgetComingSoonLargeComponent]
     })
     .compileComponents();
 

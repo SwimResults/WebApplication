@@ -7,8 +7,7 @@ import {RouteService} from "../../../../../core/service/route.service";
 @Component({
     selector: 'sr-widget-map-medium',
     templateUrl: './widget-map-medium.component.html',
-    styleUrls: ['./widget-map-medium.component.scss'],
-    standalone: false
+    styleUrls: ['./widget-map-medium.component.scss']
 })
 export class WidgetMapMediumComponent implements OnDestroy {
 

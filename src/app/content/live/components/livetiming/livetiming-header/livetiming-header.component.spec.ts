@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LivetimingHeaderComponent } from './livetiming-header.component';
+import {LivetimingHeaderComponent} from './livetiming-header.component';
 import {MatSliderModule} from "@angular/material/slider";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
@@ -10,11 +10,11 @@ describe('LivetimingHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LivetimingHeaderComponent ],
-      imports: [
+        imports: [
         MatSliderModule,
-        MatSlideToggleModule
-      ]
+            MatSlideToggleModule,
+            LivetimingHeaderComponent
+        ]
     })
     .compileComponents();
 

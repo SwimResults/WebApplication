@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LiveBarComponent } from './live-bar.component';
-import { provideHttpClientTesting } from "@angular/common/http/testing";
+import {LiveBarComponent} from './live-bar.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatIconModule} from "@angular/material/icon";
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('LiveBarComponent', () => {
   let component: LiveBarComponent;
@@ -12,9 +12,8 @@ describe('LiveBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [LiveBarComponent],
     imports: [TranslateModule.forRoot(),
-        MatIconModule],
+        MatIconModule, LiveBarComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

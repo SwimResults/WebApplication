@@ -1,10 +1,11 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {SpinnerComponent} from '../../spinner/spinner.component';
 
 @Component({
     selector: 'sr-btn',
     templateUrl: './btn.component.html',
     styleUrls: ['./btn.component.scss'],
-    standalone: false
+    imports: [SpinnerComponent]
 })
 export class BtnComponent {
   @Input() color: "pdf" | "info" | "stream" | undefined;

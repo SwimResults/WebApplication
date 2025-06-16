@@ -7,12 +7,14 @@ import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {ListConfig} from "../../../../core/model/list/list-config.model";
 import {User} from "../../../../core/model/user/user.model";
 import {UserAthleteListTile} from "../../../../core/model/list/user-athlete-list-tile.model";
+import {ListViewComponent} from '../../../../shared/elements/list/list-view/list-view.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-settings-user-athlete',
     templateUrl: './settings-user-athlete.component.html',
     styleUrls: ['./settings-user-athlete.component.scss'],
-    standalone: false
+    imports: [ListViewComponent, TranslateModule]
 })
 export class SettingsUserAthleteComponent implements OnInit {
     user?: User;

@@ -6,12 +6,16 @@ import {RouteService} from "../../../../core/service/route.service";
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
+import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
+import {AthleteProfileIntroComponent} from '../../components/athlete-profile-intro/athlete-profile-intro.component';
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {AthleteStartsComponent} from '../../components/athlete-starts/athlete-starts.component';
 
 @Component({
     selector: 'sr-page-athlete',
     templateUrl: './page-athlete.component.html',
     styleUrls: ['./page-athlete.component.scss'],
-    standalone: false
+    imports: [SpinnerComponent, AthleteProfileIntroComponent, PanelComponent, AthleteStartsComponent]
 })
 export class PageAthleteComponent implements OnInit, OnDestroy {
   meeting: Meeting = {} as Meeting;
