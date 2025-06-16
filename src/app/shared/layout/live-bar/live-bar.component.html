@@ -16,8 +16,8 @@
             <sr-icon-panel [textContent]="event.number + ''"></sr-icon-panel>
             <div class="bar-content">
                 <span class="bar-event">{{ 'COMMON.EVENT.SINGULAR' | translate }} {{ event.number }}
-                    - {{ event.relay_distance ? event.relay_distance : event.distance }}
-                    m {{ 'COMMON.STYLE.' + event.style.name + '.NAME' | translate }} {{ event.name_extension }} {{ 'COMMON.GENDER.' + event.gender + '.NAME' | translate }}</span>
+                    - {{ event.relay_distance ? event.relay_distance : event.distance }}m
+                    {{ 'COMMON.STYLE.' + event.style.name + '.NAME' | translate }} {{ event.name_extension }} {{ 'COMMON.GENDER.' + event.gender + '.NAME' | translate }}</span>
                 <span>{{ 'COMMON.HEAT.SINGULAR' | translate }} {{ currentHeat.number }} / {{ maxHeat }}</span>
             </div>
         }

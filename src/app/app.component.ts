@@ -1,16 +1,21 @@
 import {Component, OnDestroy} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
-import { environment } from 'src/environments/environment';
+import {environment} from 'src/environments/environment';
 import {SidebarMenuService} from "./core/service/sidebar-menu.service";
 import {MeetingImpl, MeetingStates} from "./core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "./core/service/route.service";
+import {SidebarComponent} from './shared/layout/sidebar/sidebar.component';
+import {HeaderComponent} from './shared/layout/header/header.component';
+import {RouterOutlet} from '@angular/router';
+import {LiveBarComponent} from './shared/layout/live-bar/live-bar.component';
+import {UpperCasePipe} from '@angular/common';
 
 @Component({
     selector: 'sr-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: false
+    imports: [SidebarComponent, HeaderComponent, RouterOutlet, LiveBarComponent, UpperCasePipe]
 })
 export class AppComponent implements OnDestroy {
   meeting?: MeetingImpl;
