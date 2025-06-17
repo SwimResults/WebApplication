@@ -14,11 +14,16 @@ import {IsAdminDirective} from './directive/is-admin.directive';
         WidgetDirective,
         IsAuthedDirective,
         IsAdminDirective
-    ], imports: [CommonModule,
-        TranslateModule, IsVisibleDirective,
+    ],
+    imports: [
+        CommonModule,
+        TranslateModule,
+        IsVisibleDirective,
         WidgetDirective,
         IsAuthedDirective,
-        IsAdminDirective], providers: [provideHttpClient(withInterceptorsFromDi())]
+        IsAdminDirective
+    ],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() core:CoreModule ){
