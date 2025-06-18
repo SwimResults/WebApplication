@@ -3,7 +3,6 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {SettingsViewComponent} from './settings-view.component';
 import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
-import {AccountModule} from "../../account.module";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('SettingsViewComponent', () => {
@@ -13,7 +12,7 @@ describe('SettingsViewComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
     imports: [TranslateModule.forRoot(),
-        AccountModule, SettingsViewComponent],
+        SettingsViewComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

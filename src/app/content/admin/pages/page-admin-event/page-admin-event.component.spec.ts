@@ -1,31 +1,33 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {PageAdminEventComponent} from './page-admin-event.component';
-import {AdminModule} from "../../admin.module";
-import {RouterTestingModule} from "@angular/router/testing";
+
 import {TranslateModule} from "@ngx-translate/core";
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../app.routes";
+import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 
 describe('PageAdminEventComponent', () => {
-  let component: PageAdminEventComponent;
-  let fixture: ComponentFixture<PageAdminEventComponent>;
+    let component: PageAdminEventComponent;
+    let fixture: ComponentFixture<PageAdminEventComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-        imports: [
-        AdminModule,
-        RouterTestingModule,
-            TranslateModule.forRoot(),
-            PageAdminEventComponent
-        ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [
+                TranslateModule.forRoot(),
+                PageAdminEventComponent
+            ],
+            providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(PageAdminEventComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(PageAdminEventComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

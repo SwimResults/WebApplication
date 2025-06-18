@@ -1,11 +1,13 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {WidgetMeetingLargeComponent} from './widget-meeting-large.component';
-import {RouterTestingModule} from "@angular/router/testing";
+
 import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {MatIconModule} from "@angular/material/icon";
 import {TranslateModule} from "@ngx-translate/core";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../../app.routes";
 
 describe('WidgetMeetingLargeComponent', () => {
   let component: WidgetMeetingLargeComponent;
@@ -13,10 +15,10 @@ describe('WidgetMeetingLargeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [RouterTestingModule,
+        imports: [
         MatIconModule,
         TranslateModule.forRoot(), WidgetMeetingLargeComponent],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+        providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
 })
     .compileComponents();
 

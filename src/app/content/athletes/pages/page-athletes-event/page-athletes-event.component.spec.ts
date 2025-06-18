@@ -2,12 +2,12 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {PageAthletesEventComponent} from './page-athletes-event.component';
 import {provideHttpClientTesting} from "@angular/common/http/testing";
-import {ElementsModule} from "../../../../shared/elements/elements.module";
-import {RouterTestingModule} from "@angular/router/testing";
-import {AthletesModule} from "../../athletes.module";
+
 import {TranslateModule} from "@ngx-translate/core";
 import {OAuthModule} from "angular-oauth2-oidc";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../app.routes";
 
 describe('PageAthletesEventComponent', () => {
     let component: PageAthletesEventComponent;
@@ -15,13 +15,11 @@ describe('PageAthletesEventComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-    imports: [ElementsModule,
-        RouterTestingModule,
-        AthletesModule,
-        TranslateModule.forRoot(),
-        OAuthModule.forRoot(), PageAthletesEventComponent],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
-})
+            imports: [
+                TranslateModule.forRoot(),
+                OAuthModule.forRoot(), PageAthletesEventComponent],
+            providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+        })
             .compileComponents();
 
         fixture = TestBed.createComponent(PageAthletesEventComponent);

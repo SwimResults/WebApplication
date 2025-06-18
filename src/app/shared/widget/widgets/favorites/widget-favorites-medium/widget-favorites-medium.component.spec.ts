@@ -2,11 +2,11 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {WidgetFavoritesMediumComponent} from './widget-favorites-medium.component';
 import {provideHttpClientTesting} from "@angular/common/http/testing";
-import {RouterTestingModule} from "@angular/router/testing";
-import {WidgetModule} from "../../../widget.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {OAuthModule} from "angular-oauth2-oidc";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../../app.routes";
 
 describe('WidgetFavoritesMediumComponent', () => {
     let component: WidgetFavoritesMediumComponent;
@@ -14,12 +14,11 @@ describe('WidgetFavoritesMediumComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-    imports: [RouterTestingModule,
-        WidgetModule,
-        TranslateModule.forRoot(),
-        OAuthModule.forRoot(), WidgetFavoritesMediumComponent],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
-})
+            imports: [
+                TranslateModule.forRoot(),
+                OAuthModule.forRoot(), WidgetFavoritesMediumComponent],
+            providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+        })
             .compileComponents();
 
         fixture = TestBed.createComponent(WidgetFavoritesMediumComponent);

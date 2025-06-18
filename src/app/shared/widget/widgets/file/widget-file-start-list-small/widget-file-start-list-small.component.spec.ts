@@ -2,10 +2,11 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {WidgetFileStartListSmallComponent} from './widget-file-start-list-small.component';
 import {provideHttpClientTesting} from "@angular/common/http/testing";
-import {RouterTestingModule} from "@angular/router/testing";
+
 import {TranslateModule} from "@ngx-translate/core";
-import {WidgetModule} from "../../../widget.module";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../../app.routes";
 
 describe('WidgetFileStartListSmallComponent', () => {
   let component: WidgetFileStartListSmallComponent;
@@ -13,10 +14,10 @@ describe('WidgetFileStartListSmallComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [RouterTestingModule,
+        imports: [
         TranslateModule.forRoot(),
-        WidgetModule, WidgetFileStartListSmallComponent],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+            WidgetFileStartListSmallComponent],
+        providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
 })
     .compileComponents();
 

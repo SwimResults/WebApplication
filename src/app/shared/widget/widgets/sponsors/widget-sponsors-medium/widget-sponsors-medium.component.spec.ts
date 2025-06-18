@@ -2,12 +2,12 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {WidgetSponsorsMediumComponent} from './widget-sponsors-medium.component';
 import {TranslateModule} from "@ngx-translate/core";
-import {RouterTestingModule} from "@angular/router/testing";
+
 import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {MatIconModule} from "@angular/material/icon";
-import {ElementsModule} from "../../../../elements/elements.module";
-import {WidgetModule} from "../../../widget.module";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../../app.routes";
 
 describe('WidgetSponsorsMediumComponent', () => {
   let component: WidgetSponsorsMediumComponent;
@@ -15,12 +15,11 @@ describe('WidgetSponsorsMediumComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [RouterTestingModule,
+        imports: [
         TranslateModule.forRoot(),
-        ElementsModule,
         MatIconModule,
-        WidgetModule, WidgetSponsorsMediumComponent],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+            WidgetSponsorsMediumComponent],
+        providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
 })
     .compileComponents();
 

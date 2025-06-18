@@ -2,7 +2,6 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {StartListTileComponent} from './start-list-tile.component';
 import {provideHttpClientTesting} from "@angular/common/http/testing";
-import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('StartListTileComponent', () => {
@@ -11,7 +10,7 @@ describe('StartListTileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-        imports: [ElementsModule, StartListTileComponent],
+        imports: [StartListTileComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

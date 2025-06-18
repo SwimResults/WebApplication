@@ -1,31 +1,33 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {PageLiveComponent} from './page-live.component';
-import {LiveModule} from "../../live.module";
-import {RouterTestingModule} from "@angular/router/testing";
+
 import {TranslateModule} from "@ngx-translate/core";
+import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
+import {provideHttpClientTesting} from "@angular/common/http/testing";
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../app.routes";
 
 describe('PageLiveComponent', () => {
-  let component: PageLiveComponent;
-  let fixture: ComponentFixture<PageLiveComponent>;
+    let component: PageLiveComponent;
+    let fixture: ComponentFixture<PageLiveComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-        imports: [
-        LiveModule,
-        RouterTestingModule,
-            TranslateModule.forRoot(),
-            PageLiveComponent
-        ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [
+                TranslateModule.forRoot(),
+                PageLiveComponent
+            ],
+            providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(PageLiveComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(PageLiveComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

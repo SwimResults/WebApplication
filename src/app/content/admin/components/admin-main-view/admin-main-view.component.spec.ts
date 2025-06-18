@@ -1,9 +1,11 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {AdminMainViewComponent} from './admin-main-view.component';
-import {AdminModule} from "../../admin.module";
-import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateModule} from "@ngx-translate/core";
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../app.routes";
+import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 
 describe('AdminMainViewComponent', () => {
   let component: AdminMainViewComponent;
@@ -12,11 +14,10 @@ describe('AdminMainViewComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
         imports: [
-        AdminModule,
-        RouterTestingModule,
             TranslateModule.forRoot(),
             AdminMainViewComponent
-        ]
+        ],
+        providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
     })
     .compileComponents();
 

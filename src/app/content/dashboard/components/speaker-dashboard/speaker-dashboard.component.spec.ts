@@ -1,10 +1,12 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {SpeakerDashboardComponent} from './speaker-dashboard.component';
-import {DashboardModule} from "../../dashboard.module";
-import {WidgetModule} from "../../../../shared/widget/widget.module";
-import {RouterTestingModule} from "@angular/router/testing";
+
 import {TranslateModule} from "@ngx-translate/core";
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../app.routes";
+import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 
 describe('SpeakerDashboardComponent', () => {
   let component: SpeakerDashboardComponent;
@@ -13,12 +15,10 @@ describe('SpeakerDashboardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
         imports: [
-            DashboardModule,
-            WidgetModule,
-            RouterTestingModule,
             TranslateModule.forRoot(),
             SpeakerDashboardComponent
-        ]
+        ],
+        providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
     })
     .compileComponents();
 

@@ -4,10 +4,11 @@ import {WidgetStartsLargeComponent} from './widget-starts-large.component';
 import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatIconModule} from "@angular/material/icon";
-import {WidgetModule} from "../../../widget.module";
-import {RouterTestingModule} from "@angular/router/testing";
+
 import {OAuthModule} from "angular-oauth2-oidc";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../../app.routes";
 
 describe('WidgetStartsLargeComponent', () => {
     let component: WidgetStartsLargeComponent;
@@ -17,10 +18,8 @@ describe('WidgetStartsLargeComponent', () => {
         await TestBed.configureTestingModule({
     imports: [TranslateModule.forRoot(),
         MatIconModule,
-        WidgetModule,
-        RouterTestingModule,
         OAuthModule.forRoot(), WidgetStartsLargeComponent],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+            providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
 })
             .compileComponents();
 

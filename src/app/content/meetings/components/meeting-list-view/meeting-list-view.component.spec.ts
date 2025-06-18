@@ -2,7 +2,8 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {MeetingListViewComponent} from './meeting-list-view.component';
 import {TranslateModule} from "@ngx-translate/core";
-import {MeetingsModule} from "../../meetings.module";
+import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 
 describe('MeetingListViewComponent', () => {
   let component: MeetingListViewComponent;
@@ -12,9 +13,9 @@ describe('MeetingListViewComponent', () => {
     await TestBed.configureTestingModule({
         imports: [
         TranslateModule.forRoot(),
-            MeetingsModule,
             MeetingListViewComponent
-        ]
+        ],
+        providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
     })
     .compileComponents();
 

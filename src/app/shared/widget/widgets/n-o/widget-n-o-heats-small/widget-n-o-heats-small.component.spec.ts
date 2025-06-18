@@ -2,10 +2,11 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {WidgetNOHeatsSmallComponent} from './widget-n-o-heats-small.component';
 import {provideHttpClientTesting} from "@angular/common/http/testing";
-import {RouterTestingModule} from "@angular/router/testing";
+
 import {TranslateModule} from "@ngx-translate/core";
-import {ElementsModule} from "../../../../elements/elements.module";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../../app.routes";
 
 describe('WidgetNOHeatsSmallComponent', () => {
   let component: WidgetNOHeatsSmallComponent;
@@ -13,10 +14,10 @@ describe('WidgetNOHeatsSmallComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [RouterTestingModule,
+        imports: [
         TranslateModule.forRoot(),
-        ElementsModule, WidgetNOHeatsSmallComponent],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+            WidgetNOHeatsSmallComponent],
+        providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
 })
     .compileComponents();
 

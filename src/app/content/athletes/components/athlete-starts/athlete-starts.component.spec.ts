@@ -2,7 +2,6 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {AthleteStartsComponent} from './athlete-starts.component';
 import {provideHttpClientTesting} from "@angular/common/http/testing";
-import {StartsModule} from "../../../starts";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('AthleteStartsComponent', () => {
@@ -11,7 +10,7 @@ describe('AthleteStartsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-        imports: [StartsModule, AthleteStartsComponent],
+        imports: [AthleteStartsComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

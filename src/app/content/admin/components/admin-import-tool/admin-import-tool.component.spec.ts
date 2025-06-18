@@ -2,7 +2,6 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {AdminImportToolComponent} from './admin-import-tool.component';
 import {provideHttpClientTesting} from "@angular/common/http/testing";
-import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatIconModule} from "@angular/material/icon";
 import {ReactiveFormsModule} from "@angular/forms";
@@ -14,7 +13,7 @@ describe('AdminImportToolComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [ElementsModule,
+        imports: [
         MatRadioModule,
         MatIconModule,
         ReactiveFormsModule, AdminImportToolComponent],

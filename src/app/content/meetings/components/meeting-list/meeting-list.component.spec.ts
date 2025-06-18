@@ -2,7 +2,6 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {MeetingListComponent} from './meeting-list.component';
 import {provideHttpClientTesting} from "@angular/common/http/testing";
-import {ElementsModule} from "../../../../shared/elements/elements.module";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('MeetingListComponent', () => {
@@ -11,7 +10,7 @@ describe('MeetingListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-        imports: [ElementsModule, MeetingListComponent],
+        imports: [MeetingListComponent],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

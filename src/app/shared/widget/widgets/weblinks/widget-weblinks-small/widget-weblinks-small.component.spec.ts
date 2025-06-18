@@ -1,31 +1,31 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {WidgetWeblinksSmallComponent} from './widget-weblinks-small.component';
-import {RouterTestingModule} from "@angular/router/testing";
+
 import {provideHttpClientTesting} from "@angular/common/http/testing";
-import {WidgetModule} from "../../../widget.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../../app.routes";
 
 describe('WidgetWeblinksSmallComponent', () => {
-  let component: WidgetWeblinksSmallComponent;
-  let fixture: ComponentFixture<WidgetWeblinksSmallComponent>;
+    let component: WidgetWeblinksSmallComponent;
+    let fixture: ComponentFixture<WidgetWeblinksSmallComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-    imports: [RouterTestingModule,
-        WidgetModule,
-        TranslateModule.forRoot(), WidgetWeblinksSmallComponent],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
-})
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [
+                TranslateModule.forRoot(), WidgetWeblinksSmallComponent],
+            providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(WidgetWeblinksSmallComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(WidgetWeblinksSmallComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
