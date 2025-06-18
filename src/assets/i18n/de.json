@@ -346,7 +346,8 @@
     },
     "REPORT": {
         "DIALOG": {
-            "TITLE": "Fehler melden",
+            "TITLE": "Problem melden",
+            "TITLE_WITH_NAME": "Problem melden mit '{{subjectName}}'",
             "DESCRIPTION": "Dir ist ein Fehler aufgefallen? Hier kannst du diesen schnell und einfach melden.",
             "MESSAGE_LABEL": "Beschreibung des Fehlers",
             "SUBMIT": {

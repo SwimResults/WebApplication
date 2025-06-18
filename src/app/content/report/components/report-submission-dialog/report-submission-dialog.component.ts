@@ -18,6 +18,7 @@ import {SnackBarService} from "../../../../core/service/ui/snack-bar.service";
 
 export interface ReportSubmissionDialogData {
     report: UserReport;
+    subjectName: string;
 }
 
 @Component({

@@ -3,16 +3,13 @@ import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {SidebarMenuService} from "../../../../core/service/sidebar-menu.service";
 import {AuthService} from "../../../../core/service/auth.service";
 import {OAuthService} from "angular-oauth2-oidc";
-import {MatDialog} from "@angular/material/dialog";
-import {
-    ReportSubmissionDialogComponent
-} from "../../../../content/report/components/report-submission-dialog/report-submission-dialog.component";
 import {MatMenu, MatMenuTrigger} from '@angular/material/menu';
 import {MatIcon} from '@angular/material/icon';
 import {MatDivider} from '@angular/material/divider';
 import {IsAdminDirective} from '../../../../core/directive/is-admin.directive';
 import {RouterLink} from '@angular/router';
 import {IsAuthedDirective} from '../../../../core/directive/is-authed.directive';
+import {ReportDialogService} from "../../../../core/service/report-dialog.service";
 
 @Component({
     selector: 'sr-header-buttons',
@@ -28,7 +25,7 @@ export class HeaderButtonsComponent {
     private menuService: SidebarMenuService,
     private authService: AuthService,
     private oAuthService: OAuthService,
-    private matDialog: MatDialog
+    private reportDialogService: ReportDialogService
   ) {
     this.authService.isAuthenticated.subscribe(isAuthed => {
       if (isAuthed) {
@@ -63,9 +60,6 @@ export class HeaderButtonsComponent {
     }
 
     openReportDialog() {
-        this.matDialog.open(ReportSubmissionDialogComponent, {
-            width: '95%',
-            maxWidth: '950px'
-        })
+        this.reportDialogService.openReportDialog();
     }
 }

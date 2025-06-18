@@ -1,4 +1,8 @@
-<span mat-dialog-title>{{'REPORT.DIALOG.TITLE' | translate}}</span>
+@if (data.subjectName) {
+    <span mat-dialog-title>{{ 'REPORT.DIALOG.TITLE_WITH_NAME' | translate:data }}</span>
+} @else {
+    <span mat-dialog-title>{{ 'REPORT.DIALOG.TITLE' | translate }}</span>
+}
 <mat-dialog-content>
     <p>{{'REPORT.DIALOG.DESCRIPTION' | translate}}</p>
     @if (data && data.report) {

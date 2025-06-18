@@ -347,6 +347,7 @@
     "REPORT": {
         "DIALOG": {
             "TITLE": "Report a Problem",
+            "TITLE_WITH_NAME": "Report a Problem with '{{subjectName}}'",
             "DESCRIPTION": "Did you find an error or a problem? Here you can easily submit a report.",
             "MESSAGE_LABEL": "Problem Description",
             "SUBMIT": {
