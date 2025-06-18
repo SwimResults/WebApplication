@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BaseService} from "../base.service";
 import {ApiService} from "../api.service";
 import {environment} from "../../../../../environments/environment";
@@ -22,5 +22,13 @@ export class ReportService extends BaseService {
 
     public submitReport(report: UserReport): Observable<UserReport> {
         return this.apiService.post(this.API_URL, "report/submit", report);
+    }
+
+    public toggleAcknowledgeReport(reportId: string): Observable<UserReport> {
+        return this.apiService.post(this.API_URL, `report/${reportId}/acknowledge`, null);
+    }
+
+    public toggleCompleteReport(reportId: string): Observable<UserReport> {
+        return this.apiService.post(this.API_URL, `report/${reportId}/complete`, null);
     }
 }

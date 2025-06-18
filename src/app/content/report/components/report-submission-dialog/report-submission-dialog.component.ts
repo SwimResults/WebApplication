@@ -15,6 +15,7 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {ReportService} from "../../../../core/service/api/user/report.service";
 import {SnackBarService} from "../../../../core/service/ui/snack-bar.service";
+import {AuthService} from "../../../../core/service/auth.service";
 
 export interface ReportSubmissionDialogData {
     report: UserReport;
@@ -28,18 +29,20 @@ export interface ReportSubmissionDialogData {
     styleUrl: './report-submission-dialog.component.scss'
 })
 export class ReportSubmissionDialogComponent {
-
     constructor(
         public dialogRef: MatDialogRef<ReportSubmissionDialogComponent>,
         @Inject(MAT_DIALOG_DATA) public data: ReportSubmissionDialogData,
         private reportService: ReportService,
-        private snackBarService: SnackBarService
+        private snackBarService: SnackBarService,
+        private authService: AuthService
     ) {
         if (!data) {
             this.data = {
                 report: {message: ""} as UserReport
             } as ReportSubmissionDialogData;
         }
+
+        this.authService.isAuthenticated.subscribe(isAuthed => this.data.report.anonymous = !isAuthed);
     }
 
     submitReport() {
