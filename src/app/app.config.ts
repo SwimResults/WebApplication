@@ -10,6 +10,7 @@ import {ServiceWorkerModule} from "@angular/service-worker";
 import {JwtInterceptor} from "./core/interceptor/jwt.interceptor";
 import {provideAnimations} from "@angular/platform-browser/animations";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {MAT_SNACK_BAR_DEFAULT_OPTIONS} from "@angular/material/snack-bar";
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -49,6 +50,7 @@ export const appConfig = {
         ),
         {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
         {provide: OAuthStorage, useFactory: storageFactory},
+        {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}},
         provideAnimations()
     ]
 }

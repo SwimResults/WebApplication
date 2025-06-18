@@ -126,6 +126,12 @@
     --mat-menu-container-shape: 12px;
 }
 
+.mat-mdc-snack-bar-container .mat-mdc-snackbar-surface {
+    background-color: colors.$color-bg-popup !important;
+    color: colors.$color-text-main !important;
+    border-radius: 12px !important;
+}
+
 body {
     .material-icons {
         font-family: 'Material Icons Round', 'Material Icons', serif !important;
