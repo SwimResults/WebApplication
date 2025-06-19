@@ -1,4 +1,4 @@
-import { Component, OnDestroy, inject } from '@angular/core';
+import {Component, OnDestroy, inject} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {environment} from 'src/environments/environment';
 import {SidebarMenuService} from "./core/service/sidebar-menu.service";
@@ -132,8 +132,8 @@ export class AppComponent implements OnDestroy {
     setGradientColors(color1: string, color2: string) {
         if (this.windowRef.nativeWindow) {
             const body = document.getElementsByTagName("body").item(0);
-            body?.style.setProperty("--bg-gradient-1", "#a3ffff");
-            body?.style.setProperty("--bg-gradient-2", "#ffa3ed");
+            body?.style.setProperty("--bg-gradient-1", color1);
+            body?.style.setProperty("--bg-gradient-2", color2);
         }
     }
 

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import {Component, OnDestroy, OnInit, inject} from '@angular/core';
 import {EventService, HeatService, StartService} from "../../../../core/service/api";
 import {Start, StartImpl} from "../../../../core/model/start/start.model";
 import {MeetingEventLivetiming} from "../../../../core/model/meeting/meeting-event-livetiming.model";
