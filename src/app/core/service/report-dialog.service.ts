@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {
     ReportSubmissionDialogComponent,
@@ -10,11 +10,8 @@ import {UserReport, UserReportSubjectType} from "../model/user/user-report.model
     providedIn: 'root'
 })
 export class ReportDialogService {
+    private matDialog = inject(MatDialog);
 
-    constructor(
-        private matDialog: MatDialog
-    ) {
-    }
 
     openReportDialog(subject?: string, subjectType?: UserReportSubjectType, subjectName?: string) {
         this.matDialog.open(ReportSubmissionDialogComponent, {

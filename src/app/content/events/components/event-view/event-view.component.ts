@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {Subscription} from "rxjs";
 import {Start, StartImpl} from "../../../../core/model/start/start.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
@@ -16,7 +16,7 @@ import {MatButtonToggle, MatButtonToggleGroup} from '@angular/material/button-to
 import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
 import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
 import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
-import {StartListComponent} from '../../../starts/components/start-list/start-list.component';
+import {StartListComponent} from '../../../starts';
 import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
@@ -26,6 +26,12 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [BtnComponent, MatIcon, MatButtonToggleGroup, MatButtonToggle, SpinnerComponent, NoContentComponent, PanelComponent, StartListComponent, TranslateModule]
 })
 export class EventViewComponent implements OnInit, OnDestroy {
+    private activatedRoute = inject(ActivatedRoute);
+    private startService = inject(StartService);
+    private routeService = inject(RouteService);
+    private eventService = inject(EventService);
+    private fileService = inject(FileService);
+
     meeting?: MeetingImpl;
     meetingId?: string;
     meetingSubscription: Subscription;
@@ -58,13 +64,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
 
     fetchingStarts: FetchingModel = {fetching: false};
 
-    constructor(
-        private activatedRoute: ActivatedRoute,
-        private startService: StartService,
-        private routeService: RouteService,
-        private eventService: EventService,
-        private fileService: FileService
-    ) {
+    constructor() {
         this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
             this.meeting = new MeetingImpl(data.meeting);
         })

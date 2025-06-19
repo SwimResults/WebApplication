@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {ApiService} from "../api.service";
 import {Observable, shareReplay} from "rxjs";
 import {Meeting} from "../../../model/meeting/meeting.model";
@@ -10,12 +10,12 @@ import {Incident} from "../../../model/meeting/incident.model";
   providedIn: 'root'
 })
 export class MeetingService extends BaseService {
+  private apiService = inject(ApiService);
+
 
   private meetingCache: Map<string, Observable<Meeting>> = new Map<string, Observable<Meeting>>();
 
-  constructor(
-    private apiService: ApiService
-  ) {
+  constructor() {
     super("MeetingService", environment.api_urls.meeting_service);
   }
 

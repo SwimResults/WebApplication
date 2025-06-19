@@ -1,8 +1,8 @@
-import {Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
-import {TeamListViewComponent} from '../../components/team-list-view/team-list-view.component';
+import {TeamListViewComponent} from '../../components';
 
 @Component({
     selector: 'sr-page-teams-event',
@@ -11,14 +11,14 @@ import {TeamListViewComponent} from '../../components/team-list-view/team-list-v
     imports: [TeamListViewComponent]
 })
 export class PageTeamsEventComponent implements OnDestroy {
+  private routeService = inject(RouteService);
+
   meeting: Meeting = {} as Meeting;
   meetingId: string | undefined;
   private meetingSubscription: Subscription;
   private meetingIdSubscription: Subscription;
 
-  constructor(
-    private routeService: RouteService
-  ) {
+  constructor() {
     this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
       this.meetingId = data;
     })

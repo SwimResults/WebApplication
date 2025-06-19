@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {Subscription} from "rxjs";
 import {FetchingModel} from "../../../../../core/model/common/fetching.model";
 import {Athlete} from "../../../../../core/model";
@@ -17,6 +17,10 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [WidgetTitleComponent, WidgetLoginRequiredComponent, WidgetInfoTextComponent, RouterLink, TranslateModule]
 })
 export class WidgetFavoritesComponent implements OnInit, OnDestroy {
+    private userService = inject(UserService);
+    private athleteService = inject(AthleteService);
+    private routeService = inject(RouteService);
+
     meetingId?: string;
     meetingIdSubscription: Subscription;
 
@@ -24,11 +28,7 @@ export class WidgetFavoritesComponent implements OnInit, OnDestroy {
 
     following: Athlete[] = [];
 
-    constructor(
-        private userService: UserService,
-        private athleteService: AthleteService,
-        private routeService: RouteService
-    ) {
+    constructor() {
         this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
             this.meetingId = data;
         })

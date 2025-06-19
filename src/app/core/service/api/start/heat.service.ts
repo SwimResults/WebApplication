@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {BaseService} from "../base.service";
 import {environment} from "../../../../../environments/environment";
 import {Observable} from "rxjs";
@@ -12,10 +12,10 @@ import {CurrentNextHeat} from "../../../model/start/current-next-heat.model";
   providedIn: 'root'
 })
 export class HeatService extends BaseService{
+    private apiService = inject(ApiService);
 
-    constructor(
-        private apiService: ApiService
-    ) {
+
+    constructor() {
         super("HeatService", environment.api_urls.start_service);
     }
 

@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {ReplaySubject, Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
@@ -15,6 +15,9 @@ import {AdminReportViewComponent} from '../admin-report-view/admin-report-view.c
     imports: [AdminHeatToolComponent, AdminImportToolComponent, AdminReportViewComponent]
 })
 export class AdminMainViewComponent implements OnDestroy {
+  private routeService = inject(RouteService);
+  private scroller = inject(ViewportScroller);
+
   meeting?: MeetingImpl;
   meetingId?: string;
   meetingSubscription: Subscription;
@@ -22,10 +25,7 @@ export class AdminMainViewComponent implements OnDestroy {
 
   showHeat: ReplaySubject<Heat> = new ReplaySubject<Heat>();
 
-  constructor(
-    private routeService: RouteService,
-    private scroller: ViewportScroller
-  ) {
+  constructor() {
     this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
       console.log("fetched meeting:")

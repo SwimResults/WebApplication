@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {ResultTypes, Start, StartImpl} from "../../../../core/model/start/start.model";
 import {StartId} from "../../../../core/model/start/start-id.model";
 import {EventService, MeetingService, StartService} from "../../../../core/service/api";
@@ -18,6 +18,10 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [HeatTimesComponent, IconPanelComponent, RouterLink, MatIcon, TranslateModule]
 })
 export class StartListTileComponent implements OnInit {
+    private startService = inject(StartService);
+    private meetingService = inject(MeetingService);
+    private eventService = inject(EventService);
+
     @Input() config!: StartListTileConfig;
     @Input() start?: Start;
     @Input() startId?: StartId;
@@ -30,14 +34,6 @@ export class StartListTileComponent implements OnInit {
     resultTypes = ResultTypes
 
     laneParam = {lane: ""}
-
-    constructor(
-        private startService: StartService,
-        private meetingService: MeetingService,
-        //private athleteService: AthleteService,
-        private eventService: EventService
-    ) {
-    }
 
     ngOnInit() {
         this.fetchStart();

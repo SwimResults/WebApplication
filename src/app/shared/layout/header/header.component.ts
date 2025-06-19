@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {RouteService} from "../../../core/service/route.service";
 import {MeetingImpl} from "../../../core/model/meeting/meeting.model";
 import {SidebarMenuService} from "../../../core/service/sidebar-menu.service";
@@ -13,14 +13,14 @@ import {HeaderButtonsComponent} from './header-buttons/header-buttons.component'
     imports: [PanelComponent, IconPanelComponent, HeaderButtonsComponent]
 })
 export class HeaderComponent {
+  private routeService = inject(RouteService);
+  private menuService = inject(SidebarMenuService);
+
 
   meeting?: MeetingImpl;
   has_meeting: boolean = false;
 
-  constructor(
-    private routeService: RouteService,
-    private menuService: SidebarMenuService
-  ) {
+  constructor() {
     this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
       this.has_meeting = data.has_meeting;

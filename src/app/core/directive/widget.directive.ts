@@ -1,8 +1,6 @@
-import {Directive, ViewContainerRef} from '@angular/core';
+import {Directive, ViewContainerRef, inject} from '@angular/core';
 
 @Directive({selector: '[srWidget]'})
 export class WidgetDirective {
-
-  constructor(public viewContainerRef: ViewContainerRef) { }
-
+    viewContainerRef = inject(ViewContainerRef);
 }

@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import {StorageFile} from "../../../../core/model/meeting/storage-file.model";
 import {FileService} from "../../../../core/service/api";
 import {Subscription} from "rxjs";
@@ -17,16 +17,16 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [SpinnerComponent, PanelComponent, FileListTileComponent, NoContentComponent, TranslateModule]
 })
 export class FileListComponent implements OnDestroy {
+  private routeService = inject(RouteService);
+  private fileService = inject(FileService);
+
   meetingId?: string;
   meetingIdSubscription: Subscription;
   files: StorageFile[] = []
 
   fetchingFiles: FetchingModel = {fetching: false};
 
-  constructor(
-    private routeService: RouteService,
-    private fileService: FileService
-  ) {
+  constructor() {
     this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
       this.meetingId = data;
       this.fetchFiles();

@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import {OAuthService} from "angular-oauth2-oidc";
 import {filter, Subscription} from "rxjs";
 import {AuthService} from "../../core/service/auth.service";
@@ -12,15 +12,15 @@ import {SpinnerComponent} from '../../shared/elements/spinner/spinner.component'
     imports: [SpinnerComponent]
 })
 export class AuthComponent implements OnDestroy {
+  private oAuthService = inject(OAuthService);
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
   user: any;
 
   private eventSubscription: Subscription
 
-  constructor(
-    private oAuthService: OAuthService,
-    private authService: AuthService,
-    private router: Router
-  ) {
+  constructor() {
     this.eventSubscription = this.oAuthService.events
       .pipe(filter((e) => e.type === 'token_received'))
       .subscribe((e) => {

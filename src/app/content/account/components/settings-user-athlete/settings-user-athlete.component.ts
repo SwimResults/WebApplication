@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {IListTile} from "../../../../core/model/list/list-tile.model";
 import {Athlete} from "../../../../core/model";
 import {AthleteService, UserService} from "../../../../core/service/api";
@@ -17,6 +17,9 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [ListViewComponent, TranslateModule]
 })
 export class SettingsUserAthleteComponent implements OnInit {
+    private athleteService = inject(AthleteService);
+    private userService = inject(UserService);
+
     user?: User;
 
     userAthlete?: Athlete;
@@ -28,12 +31,6 @@ export class SettingsUserAthleteComponent implements OnInit {
 
     config: ListConfig = {showSetUserAthleteButton: true, showUnsetUserAthleteButton: false, showMoreButton: false};
     configUserAthlete: ListConfig = {showUnsetUserAthleteButton: true, showMoreButton: false, showSetUserAthleteButton: false};
-
-    constructor(
-        private athleteService: AthleteService,
-        private userService: UserService
-    ) {
-    }
 
     ngOnInit() {
         this.fetchUser();

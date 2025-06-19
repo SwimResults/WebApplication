@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import {Athlete} from "../../../../core/model";
 import {AthleteService, UserService} from "../../../../core/service/api";
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
@@ -17,6 +17,9 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [IsAuthedDirective, ListViewComponent, TranslateModule]
 })
 export class AthleteListViewComponent {
+  private athleteService = inject(AthleteService);
+  private userService = inject(UserService);
+
   @Input() meeting?: Meeting;
   @Input() meetingId: string | undefined;
   athletes: Athlete[] = [];
@@ -26,12 +29,6 @@ export class AthleteListViewComponent {
 
   fetchingAthletes: FetchingModel = {fetching: false};
   fetchingFollowing: FetchingModel = {fetching: false};
-
-  constructor(
-    private athleteService: AthleteService,
-    private userService: UserService
-  ) {
-  }
 
   fetchFollowing(request?: RefreshListRequest) {
     if (request && request.paging.offset != 0) return;

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {EventService, FileService} from "../../../../core/service/api";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
@@ -26,6 +26,12 @@ interface FileList {
     imports: [BtnComponent, MatIcon, PanelComponent, ReactiveFormsModule, MatRadioGroup, MatRadioButton, TranslateModule]
 })
 export class AdminImportToolComponent implements OnInit {
+    private eventService = inject(EventService);
+    private fileService = inject(FileService);
+    private importService = inject(ImportFileService);
+    private fb = inject(FormBuilder);
+    private dialog = inject(MatDialog);
+
     @Input() meetingId?: string;
     @Input() meeting?: MeetingImpl;
 
@@ -46,13 +52,7 @@ export class AdminImportToolComponent implements OnInit {
     runningImport: boolean = false;
     runningCertificationToggle: boolean = false;
 
-    constructor(
-        private eventService: EventService,
-        private fileService: FileService,
-        private importService: ImportFileService,
-        private fb: FormBuilder,
-        private dialog: MatDialog
-    ) {
+    constructor() {
         this.importForm = this.fb.group({
             url: [],
             fileType: [],

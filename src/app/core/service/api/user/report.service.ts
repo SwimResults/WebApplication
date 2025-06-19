@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {BaseService} from "../base.service";
 import {ApiService} from "../api.service";
 import {environment} from "../../../../../environments/environment";
@@ -9,10 +9,10 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ReportService extends BaseService {
+    private apiService = inject(ApiService);
 
-    constructor(
-        private apiService: ApiService
-    ) {
+
+    constructor() {
         super("ReportService", environment.api_urls.user_service);
     }
 

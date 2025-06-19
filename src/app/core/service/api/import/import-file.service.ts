@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {BaseService} from "../base.service";
 import {environment} from "../../../../../environments/environment";
 import {Observable} from "rxjs";
@@ -18,10 +18,10 @@ export interface ImportFileRequest {
     providedIn: 'root'
 })
 export class ImportFileService extends BaseService {
+    private apiService = inject(ApiService);
 
-    constructor(
-        private apiService: ApiService
-    ) {
+
+    constructor() {
         super("ImportFileService", environment.api_urls.import_service)
     }
 

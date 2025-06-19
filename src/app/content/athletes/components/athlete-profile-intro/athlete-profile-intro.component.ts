@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {Athlete} from "../../../../core/model";
 import {UserService} from "../../../../core/service/api";
 import {User} from "../../../../core/model/user/user.model";
@@ -25,16 +25,12 @@ import {MatIcon} from "@angular/material/icon";
     ]
 })
 export class AthleteProfileIntroComponent implements OnInit {
+    private userService = inject(UserService);
+    private reportDialog = inject(ReportDialogService);
+
     @Input() athlete!: Athlete;
     isFollowed: boolean = false;
     updatingFollowing: boolean = false;
-
-    constructor(
-        private userService: UserService,
-        private reportDialog: ReportDialogService,
-    ) {
-
-    }
 
     ngOnInit(): void {
         this.userService.getUser().subscribe(data => {

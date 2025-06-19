@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {User} from "../../../../core/model/user/user.model";
 import {UserService} from "../../../../core/service/api";
 import {SettingsUserAthleteComponent} from '../settings-user-athlete/settings-user-athlete.component';
@@ -10,12 +10,9 @@ import {SettingsUserAthleteComponent} from '../settings-user-athlete/settings-us
     imports: [SettingsUserAthleteComponent]
 })
 export class SettingsViewComponent implements OnInit {
-    user?: User;
+    private userService = inject(UserService);
 
-    constructor(
-        private userService: UserService
-    ) {
-    }
+    user?: User;
 
     ngOnInit() {
         this.fetchUser();

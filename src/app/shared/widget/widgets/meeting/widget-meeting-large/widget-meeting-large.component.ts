@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import {MeetingImpl} from "../../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
@@ -15,6 +15,9 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [MatIcon, RouterLink, TranslateModule]
 })
 export class WidgetMeetingLargeComponent implements OnDestroy {
+  private routeService = inject(RouteService);
+  private teamService = inject(TeamService);
+
   meeting?: MeetingImpl;
   meetingId?: string;
   meetingSubscription: Subscription;
@@ -22,10 +25,7 @@ export class WidgetMeetingLargeComponent implements OnDestroy {
 
   organizer?: Team;
 
-  constructor(
-    private routeService: RouteService,
-    private teamService: TeamService
-  ) {
+  constructor() {
     this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
       console.log("fetched meeting:")

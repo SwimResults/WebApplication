@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {WidgetNOSmallComponent} from "../widget-n-o-small.component";
 import {RouteService} from "../../../../../core/service/route.service";
 import {AthleteService} from "../../../../../core/service/api";
@@ -13,11 +13,15 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [SpinnerComponent, WidgetTitleComponent, TranslateModule]
 })
 export class WidgetNOAthletesSmallComponent extends WidgetNOSmallComponent {
-    constructor(
-        private athleteService: AthleteService,
-        protected override routeService: RouteService
-    ) {
+    private athleteService = inject(AthleteService);
+    protected override routeService: RouteService;
+
+    constructor() {
+        const routeService = inject(RouteService);
+
         super(routeService)
+        this.routeService = routeService;
+
         this.countName = "Athletes";
     }
 

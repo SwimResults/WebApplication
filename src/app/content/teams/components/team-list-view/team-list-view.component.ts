@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import {Team} from "../../../../core/model";
 import {TeamService} from "../../../../core/service/api";
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
@@ -15,17 +15,14 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [ListViewComponent, TranslateModule]
 })
 export class TeamListViewComponent {
+  private teamService = inject(TeamService);
+
   @Input() meeting?: Meeting;
   @Input() meetingId: string | undefined;
   teams: Team[] = [];
   listTeams: TeamListTile[] = [];
 
   fetchingTeams: FetchingModel = {fetching: false};
-
-  constructor(
-    private teamService: TeamService
-  ) {
-  }
 
   fetchTeams(request: RefreshListRequest) {
     this.fetchingTeams.fetching = true;

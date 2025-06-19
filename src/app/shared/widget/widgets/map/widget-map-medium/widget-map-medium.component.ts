@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewChild, inject } from '@angular/core';
 import {MeetingImpl} from "../../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {Team} from "../../../../../core/model";
@@ -10,6 +10,8 @@ import {RouteService} from "../../../../../core/service/route.service";
     styleUrls: ['./widget-map-medium.component.scss']
 })
 export class WidgetMapMediumComponent implements OnDestroy {
+  private routeService = inject(RouteService);
+
 
   @ViewChild('mapIframe') mapIframe?: ElementRef;
 
@@ -18,9 +20,7 @@ export class WidgetMapMediumComponent implements OnDestroy {
 
   organizer?: Team;
 
-  constructor(
-    private routeService: RouteService
-  ) {
+  constructor() {
     this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
       this.fetchMap();

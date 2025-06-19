@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {MeetingPart} from "../../../../core/model/meeting/meeting-part.model";
@@ -18,6 +18,10 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [SpinnerComponent, NoContentComponent, EventListPartComponent, TranslateModule]
 })
 export class EventListComponent implements OnDestroy {
+    private routeService = inject(RouteService);
+    private eventService = inject(EventService);
+    private meetingService = inject(MeetingService);
+
     meeting?: MeetingImpl;
     meetingId?: string;
     meetingSubscription: Subscription;
@@ -27,11 +31,7 @@ export class EventListComponent implements OnDestroy {
 
     incidents: Map<number, IncidentImpl[]> = new Map<number, IncidentImpl[]>()
 
-    constructor(
-        private routeService: RouteService,
-        private eventService: EventService,
-        private meetingService: MeetingService
-    ) {
+    constructor() {
         this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
             this.meeting = new MeetingImpl(data.meeting);
         })

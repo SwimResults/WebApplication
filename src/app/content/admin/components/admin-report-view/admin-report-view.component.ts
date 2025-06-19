@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ReportService} from "../../../../core/service/api/user/report.service";
 import {UserReport, UserReportSubjectType} from "../../../../core/model/user/user-report.model";
@@ -15,6 +15,9 @@ import {MatIcon} from "@angular/material/icon";
     styleUrl: './admin-report-view.component.scss'
 })
 export class AdminReportViewComponent implements OnInit, OnDestroy {
+    private reportService = inject(ReportService);
+    private routeService = inject(RouteService);
+
     reports: UserReport[] = [];
 
     meetingIdSubscription: Subscription;
@@ -22,10 +25,7 @@ export class AdminReportViewComponent implements OnInit, OnDestroy {
 
     protected readonly UserReportSubjectType = UserReportSubjectType;
 
-    constructor(
-        private reportService: ReportService,
-        private routeService: RouteService
-    ) {
+    constructor() {
         this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
             this.meetingId = data;
         })

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {TranslateService} from "@ngx-translate/core";
 import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
@@ -13,14 +13,11 @@ import {IconBtnComponent} from '../../../../shared/elements/buttons/icon-btn/ico
     imports: [PanelComponent, MatIcon, RouterLink, IconBtnComponent]
 })
 export class MeetingListTileComponent implements OnInit{
+  private translateService = inject(TranslateService);
+
   @Input() meeting!: MeetingImpl;
 
   dateString?: string;
-
-  constructor(
-    private translateService: TranslateService
-  ) {
-  }
 
   ngOnInit() {
     this.fetchTranslations()

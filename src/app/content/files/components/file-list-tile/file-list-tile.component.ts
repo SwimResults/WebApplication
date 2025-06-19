@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {StorageFile} from "../../../../core/model/meeting/storage-file.model";
 import {TranslateService} from "@ngx-translate/core";
 import {fileTypes} from "../../../../core/constant/file-types.constant";
@@ -13,6 +13,8 @@ import {MatIcon} from '@angular/material/icon';
     imports: [FileIconComponent, BadgeComponent, MatIcon]
 })
 export class FileListTileComponent implements OnInit {
+    private translateService = inject(TranslateService);
+
 
     @Input() file!: StorageFile
 
@@ -23,11 +25,6 @@ export class FileListTileComponent implements OnInit {
         let url = this.file.url;
         if (!this.file.url) url = "https://download.swimresults.de" + this.file.path;
         return url;
-    }
-
-    constructor(
-        private translateService: TranslateService
-    ) {
     }
 
     ngOnInit() {

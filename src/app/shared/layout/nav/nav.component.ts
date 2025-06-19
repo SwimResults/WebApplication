@@ -1,5 +1,5 @@
-import {Component, OnDestroy} from '@angular/core';
-import {ActivatedRoute, Router, RouterLink} from "@angular/router";
+import { Component, OnDestroy, inject } from '@angular/core';
+import {RouterLink} from "@angular/router";
 import {RouteService} from "../../../core/service/route.service";
 import {Meeting} from "../../../core/model/meeting/meeting.model";
 import {SidebarMenuService} from "../../../core/service/sidebar-menu.service";
@@ -16,6 +16,9 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [RouterLink, MatIcon, NavDefaultComponent, NavEventComponent, TranslateModule]
 })
 export class NavComponent implements OnDestroy {
+  private routeService = inject(RouteService);
+  private menuService = inject(SidebarMenuService);
+
   meeting: Meeting = {} as Meeting;
   meetingId: string | undefined;
   private meetingSubscription: Subscription;
@@ -23,12 +26,7 @@ export class NavComponent implements OnDestroy {
 
   meetingParam = {short: ""}
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private routeService: RouteService,
-    private menuService: SidebarMenuService
-  ) {
+  constructor() {
     this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
       this.meetingId = data;
     })

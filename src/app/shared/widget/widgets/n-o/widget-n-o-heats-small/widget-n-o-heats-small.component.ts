@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {WidgetNOSmallComponent} from "../widget-n-o-small.component";
 import {HeatService} from "../../../../../core/service/api";
 import {RouteService} from "../../../../../core/service/route.service";
@@ -13,11 +13,15 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [SpinnerComponent, WidgetTitleComponent, TranslateModule]
 })
 export class WidgetNOHeatsSmallComponent extends WidgetNOSmallComponent {
-    constructor(
-        private heatService: HeatService,
-        protected override routeService: RouteService
-    ) {
+    private heatService = inject(HeatService);
+    protected override routeService: RouteService;
+
+    constructor() {
+        const routeService = inject(RouteService);
+
         super(routeService)
+        this.routeService = routeService;
+
         this.countName = "Heats";
     }
 

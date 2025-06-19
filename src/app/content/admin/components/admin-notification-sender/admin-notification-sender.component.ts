@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import {NotificationService} from "../../../../core/service/api/user/notification.service";
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {MeetingNotification} from "../../../../core/model/user/notification.model";
@@ -11,15 +11,15 @@ import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.componen
     imports: [ReactiveFormsModule, BtnComponent]
 })
 export class AdminNotificationSenderComponent {
+    private notificationService = inject(NotificationService);
+    private fb = inject(FormBuilder);
+
     @Input() meetingId?: string;
 
     notificationForm: FormGroup;
     log: string[] = []
 
-    constructor(
-        private notificationService: NotificationService,
-        private fb: FormBuilder
-    ) {
+    constructor() {
         this.notificationForm = this.fb.group({
             subtitle: [],
             message: [],

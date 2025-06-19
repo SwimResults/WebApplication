@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {Start} from "../../../../core/model/start/start.model";
 import {Heat, HeatImpl} from "../../../../core/model/start/heat.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
@@ -12,7 +12,7 @@ import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.componen
 import {MatIcon} from '@angular/material/icon';
 import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
 import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
-import {StartListComponent} from '../../../starts/components/start-list/start-list.component';
+import {StartListComponent} from '../../../starts';
 import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
 import {TranslateModule} from '@ngx-translate/core';
 
@@ -23,6 +23,12 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [ReactiveFormsModule, BtnComponent, MatIcon, PanelComponent, SpinnerComponent, StartListComponent, NoContentComponent, TranslateModule]
 })
 export class AdminHeatToolComponent implements OnInit {
+  private startService = inject(StartService);
+  private heatService = inject(HeatService);
+  private eventService = inject(EventService);
+  private easyWkService = inject(EasyWkService);
+  private fb = inject(FormBuilder);
+
   @Input() meetingId?: string;
 
   @Input() showHeat?: Observable<Heat>;
@@ -63,13 +69,7 @@ export class AdminHeatToolComponent implements OnInit {
 
   password: string | null = null;
 
-  constructor(
-    private startService: StartService,
-    private heatService: HeatService,
-    private eventService: EventService,
-    private easyWkService: EasyWkService,
-    private fb: FormBuilder,
-  ) {
+  constructor() {
     this.heatForm = this.fb.group({
       event: [],
       heat: []

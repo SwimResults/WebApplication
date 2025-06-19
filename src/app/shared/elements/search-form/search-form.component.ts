@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {MatIcon} from '@angular/material/icon';
@@ -12,19 +12,19 @@ import {WindowRef} from "../../../core/service/window-ref.service";
     imports: [ReactiveFormsModule, MatIcon, TranslateModule]
 })
 export class SearchFormComponent implements OnInit {
-    @Output() querySearch: EventEmitter<string> = new EventEmitter<string>(true);
+  private fb = inject(FormBuilder);
+  private route = inject(ActivatedRoute);
+  private windowRef = inject(WindowRef)
+
+  @Output() querySearch: EventEmitter<string> = new EventEmitter<string>(true);
 
     searchForm: FormGroup;
 
-    constructor(
-        private fb: FormBuilder,
-        private route: ActivatedRoute,
-        private windowRef: WindowRef
-    ) {
-        this.searchForm = this.fb.group({
-            query: [""]
-        })
-    }
+  constructor() {
+    this.searchForm = this.fb.group({
+      query: [""]
+    })
+  }
 
     ngOnInit() {
         this.route.queryParams

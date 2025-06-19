@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import {MeetingImpl} from "../../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
@@ -11,14 +11,14 @@ import {MatIcon} from '@angular/material/icon';
     imports: [MatIcon]
 })
 export class WidgetMeetingMediumComponent implements OnDestroy {
+  private routeService = inject(RouteService);
+
   meeting?: MeetingImpl;
   meetingId?: string;
   meetingSubscription: Subscription;
   meetingIdSubscription: Subscription;
 
-  constructor(
-    private routeService: RouteService
-) {
+  constructor() {
     this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
       console.log("fetched meeting:")

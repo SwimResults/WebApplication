@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import {MeetingPart} from "../../../../core/model/meeting/meeting-part.model";
 import {EventService, HeatService} from "../../../../core/service/api";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
@@ -17,6 +17,9 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [BtnComponent, MatIcon, NoContentComponent, PanelComponent, IconBtnComponent, TranslateModule]
 })
 export class AdminEventListComponent implements OnInit {
+    private eventService = inject(EventService);
+    private heatService = inject(HeatService);
+
     @Input() meetingId?: string;
     @Input() meeting?: MeetingImpl;
 
@@ -24,12 +27,6 @@ export class AdminEventListComponent implements OnInit {
 
     parts: MeetingPart[] = [];
     heats: Map<number, HeatImpl[]> = new Map<number, HeatImpl[]>()
-
-    constructor(
-        private eventService: EventService,
-        private heatService: HeatService
-    ) {
-    }
 
     ngOnInit() {
         this.fetchLists();

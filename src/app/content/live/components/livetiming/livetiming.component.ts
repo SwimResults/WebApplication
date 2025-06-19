@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {EventService, HeatService, StartService} from "../../../../core/service/api";
 import {Start, StartImpl} from "../../../../core/model/start/start.model";
 import {MeetingEventLivetiming} from "../../../../core/model/meeting/meeting-event-livetiming.model";
@@ -34,6 +34,13 @@ export interface LiveSettingsData {
     imports: [SpinnerComponent, LivetimingHeaderComponent, PanelComponent, LivetimingTableComponent, NoContentComponent, LivetimingControlsComponent, TranslateModule]
 })
 export class LivetimingComponent implements OnInit, OnDestroy {
+    private routeService = inject(RouteService);
+    private startService = inject(StartService);
+    private heatService = inject(HeatService);
+    private eventService = inject(EventService);
+    private route = inject(ActivatedRoute);
+    private windowRef = inject(WindowRef);
+
 
     liveTimingUpdateInterval: number = 3000;
 
@@ -75,14 +82,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     } as StartListTileConfig;
     private interval: any;
 
-    constructor(
-        private routeService: RouteService,
-        private startService: StartService,
-        private heatService: HeatService,
-        private eventService: EventService,
-        private route: ActivatedRoute,
-        private windowRef: WindowRef
-    ) {
+    constructor() {
 
         const win = this.windowRef.nativeWindow;
         // get heat and event from session storage
