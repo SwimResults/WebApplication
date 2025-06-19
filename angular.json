@@ -17,35 +17,39 @@
                 "build": {
                     "builder": "@angular/build:application",
                     "options": {
-                        "outputPath": {
-                            "base": "dist/swimresults"
-                        },
-                        "index": "src/index.html",
-                        "polyfills": [
-                            "zone.js"
-                        ],
-                        "tsConfig": "tsconfig.app.json",
-                        "inlineStyleLanguage": "scss",
-                        "assets": [
-                            "src/favicon.ico",
-                            "src/assets",
-                            "src/manifest.webmanifest"
-                        ],
-                        "styles": [
-                            "@angular/material/prebuilt-themes/indigo-pink.css",
-                            "src/colors.scss",
-                            "src/styles.scss",
-                            "src/material.scss"
-                        ],
-                        "scripts": [],
-                        "serviceWorker": "ngsw-config.json",
-                        "browser": "src/main.ts",
-                        "stylePreprocessorOptions": {
-                            "includePaths": [
-                                "."
-                            ]
-                        }
-
+                      "outputPath": {
+                        "base": "dist/swimresults"
+                      },
+                      "index": "src/index.html",
+                      "polyfills": [
+                        "zone.js"
+                      ],
+                      "tsConfig": "tsconfig.app.json",
+                      "inlineStyleLanguage": "scss",
+                      "assets": [
+                        "src/favicon.ico",
+                        "src/assets",
+                        "src/manifest.webmanifest"
+                      ],
+                      "styles": [
+                        "@angular/material/prebuilt-themes/indigo-pink.css",
+                        "src/colors.scss",
+                        "src/styles.scss",
+                        "src/material.scss"
+                      ],
+                      "scripts": [],
+                      "serviceWorker": "ngsw-config.json",
+                      "browser": "src/main.ts",
+                      "stylePreprocessorOptions": {
+                        "includePaths": [
+                          "."
+                        ]
+                      },
+                      "server": "src/main.server.ts",
+                      "outputMode": "server",
+                      "ssr": {
+                        "entry": "src/server.ts"
+                      }
                     },
                     "configurations": {
                         "production": {

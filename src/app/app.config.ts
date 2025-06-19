@@ -1,5 +1,5 @@
 import {importProvidersFrom, isDevMode} from "@angular/core";
-import {BrowserModule} from "@angular/platform-browser";
+import {BrowserModule, provideClientHydration, withEventReplay} from "@angular/platform-browser";
 import {CoreModule} from "./core/core.module";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {HTTP_INTERCEPTORS, HttpClient} from "@angular/common/http";
@@ -52,6 +52,6 @@ export const appConfig = {
         {provide: OAuthStorage, useFactory: storageFactory},
         {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}},
         provideAnimations(),
-        provideRouter(routes)
+        provideRouter(routes), provideClientHydration(withEventReplay())
     ]
 }

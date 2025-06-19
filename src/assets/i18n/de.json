@@ -355,5 +355,8 @@
                 "FAILURE_MESSAGE": "Senden fehlgeschlagen!"
             }
         }
+    },
+    "META": {
+        "DESCRIPTION": "Meldungen, Ergebnisse und Livetiming für '{{meetingTitle}}' bei SwimResults"
     }
 }

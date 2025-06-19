@@ -16,6 +16,7 @@ import {LivetimingTableComponent} from './livetiming-table/livetiming-table.comp
 import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
 import {LivetimingControlsComponent} from './livetiming-controls/livetiming-controls.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {WindowRef} from "../../../../core/service/window-ref.service";
 
 export interface ChangeHeatEvent {
     name: "event" | "heat" | "all" | "nothing";
@@ -79,12 +80,18 @@ export class LivetimingComponent implements OnInit, OnDestroy {
         private startService: StartService,
         private heatService: HeatService,
         private eventService: EventService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private windowRef: WindowRef
     ) {
 
+        const win = this.windowRef.nativeWindow;
         // get heat and event from session storage
-        const heat = window.sessionStorage.getItem("livetiming_heat");
-        const event = window.sessionStorage.getItem("livetiming_event");
+        let heat: string | null = null;
+        let event: string | null = null;
+        if (win) {
+            heat = win.sessionStorage.getItem("livetiming_heat");
+            event = win.sessionStorage.getItem("livetiming_event");
+        }
         if (heat) {
             this.currentHeat = Number(heat);
         }
@@ -92,8 +99,8 @@ export class LivetimingComponent implements OnInit, OnDestroy {
             this.currentEvent = Number(event);
         }
 
-        const isLive = window.sessionStorage.getItem("livetiming_live") == "1";
-        console.log(isLive);
+        let isLive = true;
+        if (win) isLive = win.sessionStorage.getItem("livetiming_live") == "1";
         this.liveSettingsData.isLive = isLive;
 
         this.route.queryParams
@@ -101,7 +108,8 @@ export class LivetimingComponent implements OnInit, OnDestroy {
                     console.log(params['live'])
                     if (params && params['live']) {
                         this.liveSettingsData.isLive = true;
-                        window.sessionStorage.setItem("livetiming_live", "1");
+                        if (win)
+                            win.sessionStorage.setItem("livetiming_live", "1");
                     }
                 }
             );
@@ -356,9 +364,13 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     }
 
     storeCurrentHeat() {
-        window.sessionStorage.setItem("livetiming_heat", "" + this.currentHeat);
-        window.sessionStorage.setItem("livetiming_event", "" + this.currentEvent);
-        window.sessionStorage.setItem("livetiming_live", this.liveSettingsData.isLive ? "1" : "0");
+        const win = this.windowRef.nativeWindow;
+
+        if (win) {
+            win.sessionStorage.setItem("livetiming_heat", "" + this.currentHeat);
+            win.sessionStorage.setItem("livetiming_event", "" + this.currentEvent);
+            win.sessionStorage.setItem("livetiming_live", this.liveSettingsData.isLive ? "1" : "0");
+        }
     }
 
     nextEvent() {

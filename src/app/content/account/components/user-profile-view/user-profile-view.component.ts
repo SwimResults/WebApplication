@@ -8,6 +8,7 @@ import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.componen
 import {MatIcon} from '@angular/material/icon';
 import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {WindowRef} from "../../../../core/service/window-ref.service";
 
 @Component({
     selector: 'sr-user-profile-view',
@@ -17,35 +18,40 @@ import {TranslateModule} from '@ngx-translate/core';
 })
 export class UserProfileViewComponent implements OnInit {
 
-  kcUser: any;
-  user: User = {} as User;
-  isAuthed: boolean = false;
+    kcUser: any;
+    user: User = {} as User;
+    isAuthed: boolean = false;
 
-  constructor(
-    private authService: AuthService,
-    private oAuthService: OAuthService,
-    private userService: UserService
-  ) {
-    this.authService.isAuthenticated.subscribe(isAuthed => {
-      this.isAuthed = isAuthed;
-    })
-  }
+    constructor(
+        private authService: AuthService,
+        private oAuthService: OAuthService,
+        private userService: UserService,
+        private windowRef: WindowRef
+    ) {
+        this.authService.isAuthenticated.subscribe(isAuthed => {
+            this.isAuthed = isAuthed;
+        })
+    }
 
-  ngOnInit() {
-    this.kcUser = this.oAuthService.getIdentityClaims();
-    console.log(this.kcUser);
+    ngOnInit() {
+        this.kcUser = this.oAuthService.getIdentityClaims();
+        console.log(this.kcUser);
 
-    this.userService.getUser().subscribe(data => {
-      this.user = data
-    })
-  }
+        this.userService.getUser().subscribe(data => {
+            this.user = data
+        })
+    }
 
-  deleteAccount() {
-    window.location.href = "mailto:kontakt@swimresults.de?subject=Antrag zur Löschung des SwimResults Accounts";
-  }
+    deleteAccount() {
+        const win = this.windowRef.nativeWindow;
+        if (win)
+            win.location.href = "mailto:kontakt@swimresults.de?subject=Antrag zur Löschung des SwimResults Accounts";
+    }
 
-  changeData() {
-    window.location.href = "mailto:kontakt@swimresults.de?subject=Antrag zur Änderung des SwimResults Accounts";
-  }
+    changeData() {
+        const win = this.windowRef.nativeWindow;
+        if (win)
+            win.location.href = "mailto:kontakt@swimresults.de?subject=Antrag zur Änderung des SwimResults Accounts";
+    }
 
 }
