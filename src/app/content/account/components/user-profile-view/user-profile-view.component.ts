@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {AuthService} from "../../../../core/service/auth.service";
 import {OAuthService} from "angular-oauth2-oidc";
 import {User} from "../../../../core/model/user/user.model";
@@ -16,16 +16,16 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [PanelComponent, BtnComponent, MatIcon, NoContentComponent, TranslateModule]
 })
 export class UserProfileViewComponent implements OnInit {
+  private authService = inject(AuthService);
+  private oAuthService = inject(OAuthService);
+  private userService = inject(UserService);
+
 
   kcUser: any;
   user: User = {} as User;
   isAuthed: boolean = false;
 
-  constructor(
-    private authService: AuthService,
-    private oAuthService: OAuthService,
-    private userService: UserService
-  ) {
+  constructor() {
     this.authService.isAuthenticated.subscribe(isAuthed => {
       this.isAuthed = isAuthed;
     })

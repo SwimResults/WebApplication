@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {SidebarMenuService} from "../../../../core/service/sidebar-menu.service";
 import {AuthService} from "../../../../core/service/auth.service";
@@ -18,15 +18,15 @@ import {ReportDialogService} from "../../../../core/service/report-dialog.servic
     imports: [MatMenuTrigger, MatIcon, MatMenu, MatDivider, IsAdminDirective, RouterLink, IsAuthedDirective, TranslateModule]
 })
 export class HeaderButtonsComponent {
+  private translateService = inject(TranslateService);
+  private menuService = inject(SidebarMenuService);
+  private authService = inject(AuthService);
+  private oAuthService = inject(OAuthService);
+  private reportDialogService = inject(ReportDialogService);
+
   kcUser: any;
 
-  constructor(
-    private translateService: TranslateService,
-    private menuService: SidebarMenuService,
-    private authService: AuthService,
-    private oAuthService: OAuthService,
-    private reportDialogService: ReportDialogService
-  ) {
+  constructor() {
     this.authService.isAuthenticated.subscribe(isAuthed => {
       if (isAuthed) {
         this.kcUser = this.oAuthService.getIdentityClaims();

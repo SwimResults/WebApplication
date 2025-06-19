@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {count, Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
@@ -22,7 +22,7 @@ export class WidgetNOSmallComponent implements OnInit, OnDestroy {
     n: number = 0;
 
     constructor(
-        protected routeService?: RouteService
+        protected routeService?: RouteService // eslint-disable-line @angular-eslint/prefer-inject
     ) {
         if (this.routeService)
             this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {

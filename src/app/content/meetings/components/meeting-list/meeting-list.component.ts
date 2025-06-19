@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
 import {MeetingService} from "../../../../core/service/api";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
@@ -12,13 +12,11 @@ import {MeetingListTileComponent} from '../meeting-list-tile/meeting-list-tile.c
     imports: [SpinnerComponent, MeetingListTileComponent]
 })
 export class MeetingListComponent implements OnInit{
+  private meetingService = inject(MeetingService);
+
 
   meetingYears: Map<number, MeetingImpl[]> = new Map<number, MeetingImpl[]>()
   fetching: FetchingModel = {fetching: false};
-
-  constructor(
-    private meetingService: MeetingService
-  ) {}
 
 
   ngOnInit(): void {

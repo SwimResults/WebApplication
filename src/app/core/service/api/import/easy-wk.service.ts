@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {BaseService} from "../base.service";
 import {environment} from "../../../../../environments/environment";
 import {ApiService} from "../api.service";
@@ -8,10 +8,10 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class EasyWkService extends BaseService {
+  private apiService = inject(ApiService);
 
-  constructor(
-    private apiService: ApiService
-  ) {
+
+  constructor() {
     super("EasyWkService", environment.api_urls.import_service);
   }
 

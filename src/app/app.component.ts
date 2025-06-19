@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {environment} from 'src/environments/environment';
 import {SidebarMenuService} from "./core/service/sidebar-menu.service";
@@ -19,6 +19,12 @@ import {Meta, Title} from "@angular/platform-browser";
     imports: [SidebarComponent, HeaderComponent, RouterOutlet, LiveBarComponent, UpperCasePipe]
 })
 export class AppComponent implements OnDestroy {
+    private translateService = inject(TranslateService);
+    private menuService = inject(SidebarMenuService);
+    private routeService = inject(RouteService);
+    private headerTitle = inject(Title);
+    private headerMeta = inject(Meta);
+
     meeting?: MeetingImpl;
     meetingId?: string;
     meetingSubscription: Subscription;
@@ -34,13 +40,7 @@ export class AppComponent implements OnDestroy {
     environment = environment.environment;
     env_color = environment.env_color;
 
-    constructor(
-        private translateService: TranslateService,
-        private menuService: SidebarMenuService,
-        private routeService: RouteService,
-        private headerTitle: Title,
-        private headerMeta: Meta
-    ) {
+    constructor() {
         this.showBuild = this.environment != 'productive'
         this.showEnv = this.environment != 'productive'
 

@@ -1,8 +1,8 @@
-import {Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewChild, inject } from '@angular/core';
 import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
 import {RouteService} from "../../../../core/service/route.service";
 import {Subscription} from "rxjs";
-import {LivetimingComponent} from '../../components/livetiming/livetiming.component';
+import {LivetimingComponent} from '../../components';
 import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
 import {MatIcon} from '@angular/material/icon';
 import {TranslateModule} from '@ngx-translate/core';
@@ -14,6 +14,8 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [LivetimingComponent, BtnComponent, MatIcon, TranslateModule]
 })
 export class PageLiveComponent implements OnDestroy {
+    private routeService = inject(RouteService);
+
     @ViewChild('streamIframe') streamIframe?: ElementRef;
 
     meeting?: MeetingImpl;
@@ -22,9 +24,7 @@ export class PageLiveComponent implements OnDestroy {
 
     streamButtonData = {platform: ""};
 
-    constructor(
-        private routeService: RouteService
-    ) {
+    constructor() {
         this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
             this.meeting = new MeetingImpl(data.meeting);
             this.fetchStream();

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {BaseService} from "../base.service";
 import {ApiService} from "../api.service";
 import {environment} from "../../../../../environments/environment";
@@ -11,10 +11,10 @@ import { HttpParams } from "@angular/common/http";
   providedIn: 'root'
 })
 export class TeamService extends BaseService{
+  private apiService = inject(ApiService);
 
-  constructor(
-    private apiService: ApiService
-  ) {
+
+  constructor() {
     super('TeamService', environment.api_urls.athlete_service);
   }
 

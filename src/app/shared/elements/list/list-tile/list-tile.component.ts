@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild, inject } from '@angular/core';
 import {IListTile} from "../../../../core/model/list/list-tile.model";
 import {MatMenu, MatMenuTrigger} from "@angular/material/menu";
 import {countryFlags} from "../../../../core/constant/countryflags.constant";
@@ -19,6 +19,8 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [IconPanelComponent, RouterLink, BadgeComponent, MatMenuTrigger, MatIcon, SpinnerComponent, MatMenu, TranslateModule]
 })
 export class ListTileComponent {
+  private userService = inject(UserService);
+
   @Input() entry!: IListTile;
   @Input() config!: ListConfig;
   @Output() refreshRequired: EventEmitter<any> = new EventEmitter<any>();
@@ -31,11 +33,6 @@ export class ListTileComponent {
 
   // reference to the MatMenuTrigger in the DOM
   @ViewChild("contextMenuTrigger") contextMenuTrigger: MatMenuTrigger = {} as MatMenuTrigger;
-
-  constructor(
-      private userService: UserService
-  ) {
-  }
 
   onRightClick(event: MouseEvent) {
     event.preventDefault();

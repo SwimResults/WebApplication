@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {Athlete} from "../../../../core/model";
 import {AthleteService} from "../../../../core/service/api";
 import {ActivatedRoute} from "@angular/router";
@@ -7,9 +7,9 @@ import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
-import {AthleteProfileIntroComponent} from '../../components/athlete-profile-intro/athlete-profile-intro.component';
+import {AthleteProfileIntroComponent} from '../../components';
 import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
-import {AthleteStartsComponent} from '../../components/athlete-starts/athlete-starts.component';
+import {AthleteStartsComponent} from '../../components';
 
 @Component({
     selector: 'sr-page-athlete',
@@ -18,6 +18,10 @@ import {AthleteStartsComponent} from '../../components/athlete-starts/athlete-st
     imports: [SpinnerComponent, AthleteProfileIntroComponent, PanelComponent, AthleteStartsComponent]
 })
 export class PageAthleteComponent implements OnInit, OnDestroy {
+  private athleteService = inject(AthleteService);
+  private activatedRoute = inject(ActivatedRoute);
+  private routeService = inject(RouteService);
+
   meeting: Meeting = {} as Meeting;
   meetingId: string | undefined;
   private meetingSubscription: Subscription;
@@ -31,11 +35,7 @@ export class PageAthleteComponent implements OnInit, OnDestroy {
   fetchingAthlete: FetchingModel = {fetching: false}
 
 
-  constructor(
-    private athleteService: AthleteService,
-    private activatedRoute: ActivatedRoute,
-    private routeService: RouteService
-  ) {
+  constructor() {
     this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
       this.meetingId = data;
     })

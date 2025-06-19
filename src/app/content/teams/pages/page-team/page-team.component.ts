@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Athlete, Team} from "../../../../core/model";
 import {IListTile} from "../../../../core/model/list/list-tile.model";
@@ -31,6 +31,11 @@ import {TranslateModule} from '@ngx-translate/core';
     ]
 })
 export class PageTeamComponent implements OnInit, OnDestroy {
+    private teamService = inject(TeamService);
+    private athleteService = inject(AthleteService);
+    private activatedRoute = inject(ActivatedRoute);
+    private routeService = inject(RouteService);
+
     meetingId: string | undefined;
     private meetingIdSubscription: Subscription;
     team: Team = {} as Team;
@@ -43,12 +48,7 @@ export class PageTeamComponent implements OnInit, OnDestroy {
     fetchingAthletes: FetchingModel = {fetching: false}
 
 
-    constructor(
-        private teamService: TeamService,
-        private athleteService: AthleteService,
-        private activatedRoute: ActivatedRoute,
-        private routeService: RouteService
-    ) {
+    constructor() {
         this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
             this.meetingId = data;
         })

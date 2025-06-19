@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import {Team} from "../../../../core/model";
 import {countryFlags} from "../../../../core/constant/countryflags.constant";
 import {BtnComponent} from "../../../../shared/elements/buttons/btn/btn.component";
@@ -18,12 +18,11 @@ import {UserReportSubjectType} from "../../../../core/model/user/user-report.mod
     styleUrls: ['./team-profile-intro.component.scss']
 })
 export class TeamProfileIntroComponent {
+    private reportDialogService = inject(ReportDialogService);
+
     @Input() team!: Team;
 
     flags: Map<string, string> = countryFlags;
-
-    constructor(private reportDialogService: ReportDialogService) {
-    }
 
     reportIssue() {
         this.reportDialogService.openReportDialog(this.team._id, UserReportSubjectType.TEAM, this.team.name);

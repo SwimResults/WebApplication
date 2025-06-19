@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {Meeting} from "../../core/model/meeting/meeting.model";
 import {MeetingService} from "../../core/service/api";
 import {PageTitleComponent} from '../../shared/elements/page-title/page-title.component';
@@ -12,12 +12,10 @@ import {RouterLink} from '@angular/router';
     imports: [PageTitleComponent, PanelComponent, RouterLink]
 })
 export class CalendarComponent implements OnInit{
+  private meetingService = inject(MeetingService);
+
 
   meetings: Meeting[] = [];
-
-  constructor(
-    private meetingService: MeetingService
-  ) {}
 
 
   ngOnInit(): void {

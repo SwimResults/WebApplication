@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
@@ -7,10 +7,8 @@ import {catchError} from "rxjs/operators";
   providedIn: 'root'
 })
 export class ApiService {
+  private http = inject(HttpClient);
 
-  constructor(
-    private http: HttpClient
-  ) { }
 
 
   private static formatErrors(error: any) {

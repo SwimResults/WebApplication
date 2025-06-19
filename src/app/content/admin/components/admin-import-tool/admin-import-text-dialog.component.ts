@@ -1,4 +1,4 @@
-import {Component, Inject} from "@angular/core";
+import { Component, inject } from "@angular/core";
 import {
     MAT_DIALOG_DATA,
     MatDialogRef,
@@ -8,7 +8,6 @@ import {
     MatDialogClose
 } from "@angular/material/dialog";
 import {ImportFileRequest} from "../../../../core/service/api/import/import-file.service";
-import {CdkScrollable} from "@angular/cdk/scrolling";
 import {MatFormField, MatLabel} from "@angular/material/select";
 import {MatInput} from "@angular/material/input";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
@@ -18,14 +17,12 @@ import {MatButton} from "@angular/material/button";
     selector: 'sr-admin-import-text-dialog',
     templateUrl: './admin-import-text-dialog.component.html',
     styleUrls: ['./admin-import-text-dialog.component.scss'],
-    imports: [MatDialogTitle, CdkScrollable, MatDialogContent, MatFormField, MatLabel, MatInput, ReactiveFormsModule, FormsModule, MatDialogActions, MatButton, MatDialogClose]
+    imports: [MatDialogTitle, MatDialogContent, MatFormField, MatLabel, MatInput, ReactiveFormsModule, FormsModule, MatDialogActions, MatButton, MatDialogClose]
 })
 export class AdminImportTextDialogComponent {
-    constructor(
-        public dialogRef: MatDialogRef<AdminImportTextDialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: ImportFileRequest,
-    ) {
-    }
+    dialogRef = inject<MatDialogRef<AdminImportTextDialogComponent>>(MatDialogRef);
+    data = inject<ImportFileRequest>(MAT_DIALOG_DATA);
+
 
     onNoClick(): void {
         this.dialogRef.close();

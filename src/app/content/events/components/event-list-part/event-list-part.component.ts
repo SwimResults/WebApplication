@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {MeetingPart} from "../../../../core/model/meeting/meeting-part.model";
 import {EventListHeatImpl} from "../../../../core/model/start/event-list-heat.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
@@ -18,6 +18,8 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [PanelComponent, EventIncidentComponent, EventListEventComponent, SpinnerComponent, TranslateModule]
 })
 export class EventListPartComponent implements OnInit {
+    private heatService = inject(HeatService);
+
     @Input() part!: MeetingPart
     @Input() meetingId!: string;
     @Input() meeting!: MeetingImpl;
@@ -25,11 +27,6 @@ export class EventListPartComponent implements OnInit {
 
     fetchingHeats: FetchingModel = {fetching: false}
     heats: Map<number, EventListHeatImpl> = new Map<number, EventListHeatImpl>()
-
-    constructor(
-        private heatService: HeatService
-    ) {
-    }
 
     ngOnInit() {
         this.fetchHeats();

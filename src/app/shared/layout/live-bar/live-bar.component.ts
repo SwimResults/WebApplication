@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
 import {HeatImpl} from "../../../core/model/start/heat.model";
 import {EventService, HeatService} from "../../../core/service/api";
 import {MeetingEventImpl} from "../../../core/model/meeting/meeting-event.model";
@@ -14,6 +14,9 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [RouterLink, HeatTimesComponent, IconPanelComponent, TranslateModule]
 })
 export class LiveBarComponent implements OnInit, OnDestroy {
+    private heatService = inject(HeatService);
+    private eventService = inject(EventService);
+
     @Input() meetingId?: string;
 
     liveUpdateInterval: number = 15000;
@@ -26,12 +29,6 @@ export class LiveBarComponent implements OnInit, OnDestroy {
     statusText?: string;
 
     private interval: any;
-
-    constructor(
-        private heatService: HeatService,
-        private eventService: EventService
-    ) {
-    }
 
     ngOnInit() {
         this.fetchCurrentHeat();
@@ -75,7 +72,7 @@ export class LiveBarComponent implements OnInit, OnDestroy {
             if (finish.getUTCFullYear() > 2010) { // current heat is over
                 const d = now.getTime() - finish.getTime();
 
-                if (d > 1 * 60 * 1000) { // current heat is over for more than 1 minute
+                if (d > 60 * 1000) { // current heat is over for more than 1 minute
 
                     if (!this.nextHeat) { // no next heat
                         this.statusText = "Ende der Veranstaltung. Kommt gut nach Hause!";

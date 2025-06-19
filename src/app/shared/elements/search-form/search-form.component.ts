@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {MatIcon} from '@angular/material/icon';
@@ -11,14 +11,14 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [ReactiveFormsModule, MatIcon, TranslateModule]
 })
 export class SearchFormComponent implements OnInit {
+  private fb = inject(FormBuilder);
+  private route = inject(ActivatedRoute);
+
   @Output() querySearch: EventEmitter<string> = new EventEmitter<string>(true);
 
   searchForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private route: ActivatedRoute
-  ) {
+  constructor() {
     this.searchForm = this.fb.group({
       query: [""]
     })

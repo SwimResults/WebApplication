@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import {
     MAT_DIALOG_DATA,
@@ -29,13 +29,15 @@ export interface ReportSubmissionDialogData {
     styleUrl: './report-submission-dialog.component.scss'
 })
 export class ReportSubmissionDialogComponent {
-    constructor(
-        public dialogRef: MatDialogRef<ReportSubmissionDialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: ReportSubmissionDialogData,
-        private reportService: ReportService,
-        private snackBarService: SnackBarService,
-        private authService: AuthService
-    ) {
+    dialogRef = inject<MatDialogRef<ReportSubmissionDialogComponent>>(MatDialogRef);
+    data = inject<ReportSubmissionDialogData>(MAT_DIALOG_DATA);
+    private reportService = inject(ReportService);
+    private snackBarService = inject(SnackBarService);
+    private authService = inject(AuthService);
+
+    constructor() {
+        const data = this.data;
+
         if (!data) {
             this.data = {
                 report: {message: ""} as UserReport

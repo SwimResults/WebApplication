@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {StartService} from "../../../../core/service/api";
 import {Start} from "../../../../core/model/start/start.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
-import {StartListComponent} from '../../../starts/components/start-list/start-list.component';
+import {StartListComponent} from '../../../starts';
 
 @Component({
     selector: 'sr-athlete-starts',
@@ -12,6 +12,8 @@ import {StartListComponent} from '../../../starts/components/start-list/start-li
     imports: [StartListComponent]
 })
 export class AthleteStartsComponent implements OnInit{
+  private startService = inject(StartService);
+
   @Input() athleteId!: string;
   @Input() meetingId?: string;
   starts: Start[] = [];
@@ -19,11 +21,6 @@ export class AthleteStartsComponent implements OnInit{
   fetchingStarts: FetchingModel = {fetching: false};
 
   config: StartListTileConfig = {} as StartListTileConfig;
-
-  constructor(
-    private startService: StartService
-  ) {
-  }
 
   ngOnInit() {
     this.fetchStarts();

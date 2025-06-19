@@ -1,4 +1,4 @@
-import {NgModule, Optional, SkipSelf} from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {TranslateModule} from "@ngx-translate/core";
@@ -26,7 +26,9 @@ import {IsAdminDirective} from './directive/is-admin.directive';
     providers: [provideHttpClient(withInterceptorsFromDi())]
 })
 export class CoreModule {
-  constructor(@Optional() @SkipSelf() core:CoreModule ){
+  constructor(){
+    const core = inject(CoreModule, { optional: true, skipSelf: true });
+
     if (core) {
       throw new Error("You should import core module only in the root module")
     }

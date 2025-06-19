@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {DashboardService} from "../../../../core/service/api/user/dashboard.service";
 import {Dashboard} from "../../../../core/model/user/dashboard.model";
 import {AuthService} from "../../../../core/service/auth.service";
@@ -20,6 +20,12 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [MatIcon, SpinnerComponent, WidgetViewerComponent, TranslateModule]
 })
 export class DashboardViewComponent implements OnInit, OnDestroy {
+    private dashboardService = inject(DashboardService);
+    private authService = inject(AuthService);
+    private routeService = inject(RouteService);
+    private oAuthService = inject(OAuthService);
+    private meetingService = inject(MeetingService);
+
 
     kcUser: any;
 
@@ -41,13 +47,7 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
 
     fetchingDashboard: boolean = false;
 
-    constructor(
-        private dashboardService: DashboardService,
-        private authService: AuthService,
-        private routeService: RouteService,
-        private oAuthService: OAuthService,
-        private meetingService: MeetingService
-    ) {
+    constructor() {
         this.fetchingDashboard = true;
         this.isAuthedSubscription = this.authService.isAuthenticated.subscribe({
             next: data => {

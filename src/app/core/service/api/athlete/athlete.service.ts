@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {BaseService} from "../base.service";
 import {ApiService} from "../api.service";
 import {Observable, shareReplay} from "rxjs";
@@ -11,13 +11,13 @@ import { HttpParams } from "@angular/common/http";
   providedIn: 'root'
 })
 export class AthleteService extends BaseService{
+  private apiService = inject(ApiService);
+
 
   private athleteCache: Map<string, Observable<Athlete>> = new Map<string, Observable<Athlete>>();
 
 
-  constructor(
-    private apiService: ApiService
-  ) {
+  constructor() {
     super('AthleteService', environment.api_urls.athlete_service);
   }
 
