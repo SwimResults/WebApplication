@@ -1,16 +1,24 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {FetchingModel} from "../../../../../core/model/common/fetching.model";
 import {HeatService} from "../../../../../core/service/api";
 import {HeatImpl} from "../../../../../core/model/start/heat.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
+import {SpinnerComponent} from '../../../../elements/spinner/spinner.component';
+import {WidgetTitleComponent} from '../../../widget-title/widget-title.component';
+import {WidgetInfoTextComponent} from '../../../widget-info-text/widget-info-text.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
-  selector: 'sr-widget-delay-small',
-  templateUrl: './widget-delay-small.component.html',
-  styleUrls: ['./widget-delay-small.component.scss']
+    selector: 'sr-widget-delay-small',
+    templateUrl: './widget-delay-small.component.html',
+    styleUrls: ['./widget-delay-small.component.scss'],
+    imports: [SpinnerComponent, WidgetTitleComponent, WidgetInfoTextComponent, TranslateModule]
 })
 export class WidgetDelaySmallComponent implements OnInit, OnDestroy {
+    private heatService = inject(HeatService);
+    private routeService = inject(RouteService);
+
     meetingId?: string;
     meetingIdSubscription: Subscription;
 
@@ -25,10 +33,7 @@ export class WidgetDelaySmallComponent implements OnInit, OnDestroy {
 
     delayInterval: number = 60000;
 
-    constructor(
-        private heatService: HeatService,
-        private routeService: RouteService
-    ) {
+    constructor() {
         this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
             this.meetingId = data;
         })

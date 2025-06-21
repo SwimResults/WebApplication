@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WidgetSwimresultsSmallComponent } from './widget-swimresults-small.component';
+import {WidgetSwimresultsSmallComponent} from './widget-swimresults-small.component';
 
 describe('WidgetSwimresultsSmallComponent', () => {
   let component: WidgetSwimresultsSmallComponent;
@@ -8,7 +8,7 @@ describe('WidgetSwimresultsSmallComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetSwimresultsSmallComponent ]
+        imports: [WidgetSwimresultsSmallComponent]
     })
     .compileComponents();
 

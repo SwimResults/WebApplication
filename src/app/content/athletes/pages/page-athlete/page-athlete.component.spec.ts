@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PageAthleteComponent } from './page-athlete.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {RouterTestingModule} from "@angular/router/testing";
-import {ElementsModule} from "../../../../shared/elements/elements.module";
-import {AthletesModule} from "../../athletes.module";
+import {PageAthleteComponent} from './page-athlete.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../app.routes";
 
 describe('PageAthleteComponent', () => {
   let component: PageAthleteComponent;
@@ -12,14 +12,10 @@ describe('PageAthleteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageAthleteComponent ],
-      imports: [
-        HttpClientTestingModule,
-        RouterTestingModule,
-        ElementsModule,
-        AthletesModule
-      ]
-    })
+        imports: [
+            PageAthleteComponent],
+        providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(PageAthleteComponent);

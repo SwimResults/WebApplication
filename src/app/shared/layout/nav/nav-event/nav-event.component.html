@@ -1,4 +1,4 @@
-<ng-container *ngIf="meetingId">
+@if (meetingId) {
   <sr-nav-group>
     <sr-nav-link
       icon="dashboard"
@@ -40,22 +40,22 @@
           link="/m/{{meetingId}}/speaker"
           link_title="{{'NAV.LINK.TITLE.SPEAKER' | translate}}"
       ></sr-nav-link>
-  <!--  <sr-nav-link-->
-  <!--    icon="bar_chart"-->
-  <!--    link="/m/{{meetingId}}/stats"-->
-  <!--    link_title="{{'NAV.LINK.TITLE.STATS' | translate}}"-->
+      <!--  <sr-nav-link-->
+      <!--    icon="bar_chart"-->
+      <!--    link="/m/{{meetingId}}/stats"-->
+      <!--    link_title="{{'NAV.LINK.TITLE.STATS' | translate}}"-->
   <!--  ></sr-nav-link>-->
   </sr-nav-group>
-  <sr-nav-group *srIsAdmin>
-    <sr-nav-link
-      icon="terminal"
-      link="/m/{{meetingId}}/admin/event"
-      link_title="{{'NAV.LINK.TITLE.ADMIN' | translate}}"
-    ></sr-nav-link>
-      <sr-nav-link
-          icon="notifications"
-          link="/m/{{meetingId}}/admin/notification"
-          link_title="Notifications"
-      ></sr-nav-link>
-  </sr-nav-group>
-</ng-container>
+    <sr-nav-group *srIsAdmin>
+        <sr-nav-link
+            icon="terminal"
+            link="/m/{{meetingId}}/admin/event"
+            link_title="{{'NAV.LINK.TITLE.ADMIN' | translate}}"
+        ></sr-nav-link>
+        <sr-nav-link
+            icon="notifications"
+            link="/m/{{meetingId}}/admin/notification"
+            link_title="Notifications"
+        ></sr-nav-link>
+    </sr-nav-group>
+}

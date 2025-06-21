@@ -1,3 +1,5 @@
-<sr-widget-info-text *ngIf="!isAuthed">
+@if (!isAuthed) {
+    <sr-widget-info-text>
     {{"WIDGET.LOGIN_REQUIRED" | translate}}
-</sr-widget-info-text>
+    </sr-widget-info-text>
+}

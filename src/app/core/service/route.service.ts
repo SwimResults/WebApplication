@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject, distinctUntilChanged, filter, map, mergeMap} from "rxjs";
 import {RouteEvent} from "../model";
@@ -9,16 +9,16 @@ import {Meeting} from "../model/meeting/meeting.model";
   providedIn: 'root'
 })
 export class RouteService {
+  private activatedRoute = inject(ActivatedRoute);
+  private router = inject(Router);
+  private meetingService = inject(MeetingService);
+
   private currentMeetingSubject = new BehaviorSubject<RouteEvent>({} as RouteEvent);
   public currentMeeting = this.currentMeetingSubject.asObservable().pipe(distinctUntilChanged());
   private currentMeetingIdSubject= new BehaviorSubject<string | undefined>("");
   public currentMeetingId = this.currentMeetingIdSubject.asObservable().pipe(distinctUntilChanged());
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private meetingService: MeetingService
-  ) {
+  constructor() {
     this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
       map(() => this.activatedRoute),
@@ -28,7 +28,6 @@ export class RouteService {
           route = route.firstChild;
           if (route.snapshot.paramMap.has('event')) {
             ev = route.snapshot.paramMap.get('event');
-            console.log("new event: " + ev);
             break;
           }
         }
@@ -36,7 +35,7 @@ export class RouteService {
         if (ev) this.currentMeetingIdSubject.next(ev);
         else this.currentMeetingIdSubject.next(undefined);
 
-        let meeting: RouteEvent = new class implements RouteEvent {
+        const meeting: RouteEvent = new class implements RouteEvent {
             meeting: Meeting = {} as Meeting;
             has_meeting: boolean = false;
         }

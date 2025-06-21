@@ -1,4 +1,4 @@
-export let months = new Map<number, string>([
+export const months = new Map<number, string>([
   [1, "JAN"],
   [2, "FEB"],
   [3, "MAR"],

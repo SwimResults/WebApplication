@@ -1,4 +1,8 @@
 <div class="icon-panel style-{{style}}">
-  <mat-icon *ngIf="icon && !textContent">{{icon}}</mat-icon>
-  <span *ngIf="textContent">{{textContent}}</span>
+    @if (icon && !textContent) {
+        <mat-icon>{{ icon }}</mat-icon>
+    }
+    @if (textContent) {
+        <span>{{ textContent }}</span>
+    }
 </div>

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EventIncidentComponent } from './event-incident.component';
+import {EventIncidentComponent} from './event-incident.component';
 
 describe('EventIncidentComponent', () => {
   let component: EventIncidentComponent;
@@ -8,7 +8,7 @@ describe('EventIncidentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [EventIncidentComponent]
+        imports: [EventIncidentComponent]
     })
     .compileComponents();
 

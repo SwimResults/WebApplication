@@ -1,11 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TeamListViewComponent } from './team-list-view.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {TeamsModule} from "../../teams.module";
+import {TeamListViewComponent} from './team-list-view.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
-import {ElementsModule} from "../../../../shared/elements/elements.module";
-import {RouterTestingModule} from "@angular/router/testing";
+
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../app.routes";
 
 describe('TeamListViewComponent', () => {
   let component: TeamListViewComponent;
@@ -13,15 +14,12 @@ describe('TeamListViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TeamListViewComponent ],
-      imports: [
-        HttpClientTestingModule,
-        TeamsModule,
-        ElementsModule,
+        imports: [
         TranslateModule.forRoot(),
-        RouterTestingModule
-      ]
-    })
+            TeamListViewComponent
+        ],
+        providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(TeamListViewComponent);

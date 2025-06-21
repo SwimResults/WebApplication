@@ -1,4 +1,4 @@
-<ng-container *ngIf="meeting && meeting.location">
+@if (meeting && meeting.location) {
   <iframe
     width="300"
     height="140"
@@ -10,7 +10,9 @@
   >
     Failed to Load Map
   </iframe>
-</ng-container>
-<p *ngIf="meeting">
-  {{meeting.location.name + ' ' + meeting.location.street + ' ' + meeting.location.number + ' ' + meeting.location.city + ' ' + meeting.location.postal_code}}
-</p>
+}
+@if (meeting) {
+    <p>
+        {{ meeting.location.name + ' ' + meeting.location.street + ' ' + meeting.location.number + ' ' + meeting.location.city + ' ' + meeting.location.postal_code }}
+    </p>
+}

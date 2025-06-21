@@ -1,23 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {BaseService} from "../base.service";
 import {ApiService} from "../api.service";
 import {Observable, shareReplay} from "rxjs";
 import {Athlete} from "../../../model";
 import {environment} from "../../../../../environments/environment";
 import {PagingRequest} from "../../../model/common/paging-request.model";
-import {HttpParams} from "@angular/common/http";
+import { HttpParams } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AthleteService extends BaseService{
+  private apiService = inject(ApiService);
+
 
   private athleteCache: Map<string, Observable<Athlete>> = new Map<string, Observable<Athlete>>();
 
 
-  constructor(
-    private apiService: ApiService
-  ) {
+  constructor() {
     super('AthleteService', environment.api_urls.athlete_service);
   }
 

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {BaseService} from "../base.service";
 import {ApiService} from "../api.service";
 import {environment} from "../../../../../environments/environment";
@@ -9,10 +9,10 @@ import {MeetingNotification, NotificationResponse} from "../../../model/user/not
   providedIn: 'root'
 })
 export class NotificationService extends BaseService {
+    private apiService = inject(ApiService);
 
-    constructor(
-        private apiService: ApiService
-    ) {
+
+    constructor() {
         super("NotificationService", environment.api_urls.user_service);
     }
 

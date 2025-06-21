@@ -1,21 +1,34 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {ResultTypes, Start, StartImpl} from "../../../../core/model/start/start.model";
 import {StartId} from "../../../../core/model/start/start-id.model";
 import {EventService, MeetingService, StartService} from "../../../../core/service/api";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
+import {HeatTimesComponent} from '../../../../shared/elements/heat-times/heat-times.component';
+import {IconPanelComponent} from '../../../../shared/elements/icon-panel/icon-panel.component';
+import {RouterLink} from '@angular/router';
+import {MatIcon} from '@angular/material/icon';
+import {TranslateModule} from '@ngx-translate/core';
+import {AthleteRelation, AthleteRelationType} from "../../../../core/model/user/follower.model";
 
 @Component({
     selector: 'sr-start-list-tile',
     templateUrl: './start-list-tile.component.html',
-    styleUrls: ['./start-list-tile.component.scss']
+    styleUrls: ['./start-list-tile.component.scss'],
+    imports: [HeatTimesComponent, IconPanelComponent, RouterLink, MatIcon, TranslateModule]
 })
 export class StartListTileComponent implements OnInit {
+    private startService = inject(StartService);
+    private meetingService = inject(MeetingService);
+    private eventService = inject(EventService);
+
     @Input() config!: StartListTileConfig;
     @Input() start?: Start;
     @Input() startId?: StartId;
     @Input() startIdentifier?: string;
+    @Input() athletes: AthleteRelation[] = [];
+
     data: StartImpl = {} as StartImpl;
     meeting?: MeetingImpl
     //athlete?: Athlete;
@@ -24,14 +37,6 @@ export class StartListTileComponent implements OnInit {
     resultTypes = ResultTypes
 
     laneParam = {lane: ""}
-
-    constructor(
-        private startService: StartService,
-        private meetingService: MeetingService,
-        //private athleteService: AthleteService,
-        private eventService: EventService
-    ) {
-    }
 
     ngOnInit() {
         this.fetchStart();
@@ -111,6 +116,25 @@ export class StartListTileComponent implements OnInit {
         return undefined;
     }
 
+    getAthleteNameClass(): string {
+        const relation = this.athletes.find(
+            (r: AthleteRelation) => r.athleteId === this.data.athlete
+        );
+
+        if (!relation) {
+            return '';
+        }
+
+        switch (relation.type) {
+            case AthleteRelationType.SELF:
+                return 'self';
+            case AthleteRelationType.FOLLOW:
+                return 'following';
+            default:
+                return '';
+        }
+    }
+
     getStyleType(): string {
         if (this.config && this.config.flatStyle) return "flat";
         return "default";
@@ -118,16 +142,16 @@ export class StartListTileComponent implements OnInit {
 
     getTimeString(time: number): string {
         if (!time) return "-";
-        let d = new Date((time / 1000) / 1000)
-        let minutes = "0" + d.getMinutes()
-        let seconds = "0" + d.getSeconds()
-        let millis = "0" + Math.floor(d.getMilliseconds() / 10)
+        const d = new Date((time / 1000) / 1000)
+        const minutes = "0" + d.getMinutes()
+        const seconds = "0" + d.getSeconds()
+        const millis = "0" + Math.floor(d.getMilliseconds() / 10)
         return minutes.substr(-2) + ":" + seconds.substr(-2) + "," + millis.substr(-2)
     }
 
     getReactionString(time: number): string {
-        let d = new Date((time / 1000) / 1000)
-        let millis = "0" + (d.getMilliseconds() / 10)
+        const d = new Date((time / 1000) / 1000)
+        const millis = "0" + (d.getMilliseconds() / 10)
         return d.getSeconds() + "," + millis.substr(-2)
     }
 

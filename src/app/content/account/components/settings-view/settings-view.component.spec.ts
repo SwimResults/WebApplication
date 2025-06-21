@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SettingsViewComponent } from './settings-view.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {SettingsViewComponent} from './settings-view.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
-import {AccountModule} from "../../account.module";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('SettingsViewComponent', () => {
   let component: SettingsViewComponent;
@@ -11,13 +11,10 @@ describe('SettingsViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SettingsViewComponent ],
-        imports: [
-            HttpClientTestingModule,
-            TranslateModule.forRoot(),
-            AccountModule
-        ]
-    })
+    imports: [TranslateModule.forRoot(),
+        SettingsViewComponent],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(SettingsViewComponent);

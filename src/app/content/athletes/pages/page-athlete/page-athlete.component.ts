@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {Athlete} from "../../../../core/model";
 import {AthleteService} from "../../../../core/service/api";
 import {ActivatedRoute} from "@angular/router";
@@ -6,13 +6,21 @@ import {RouteService} from "../../../../core/service/route.service";
 import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
+import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
+import {AthleteProfileIntroComponent} from '../../components';
+import {AthleteStartsComponent} from '../../components';
 
 @Component({
-  selector: 'sr-page-athlete',
-  templateUrl: './page-athlete.component.html',
-  styleUrls: ['./page-athlete.component.scss']
+    selector: 'sr-page-athlete',
+    templateUrl: './page-athlete.component.html',
+    styleUrls: ['./page-athlete.component.scss'],
+    imports: [SpinnerComponent, AthleteProfileIntroComponent, AthleteStartsComponent]
 })
 export class PageAthleteComponent implements OnInit, OnDestroy {
+  private athleteService = inject(AthleteService);
+  private activatedRoute = inject(ActivatedRoute);
+  private routeService = inject(RouteService);
+
   meeting: Meeting = {} as Meeting;
   meetingId: string | undefined;
   private meetingSubscription: Subscription;
@@ -26,11 +34,7 @@ export class PageAthleteComponent implements OnInit, OnDestroy {
   fetchingAthlete: FetchingModel = {fetching: false}
 
 
-  constructor(
-    private athleteService: AthleteService,
-    private activatedRoute: ActivatedRoute,
-    private routeService: RouteService
-  ) {
+  constructor() {
     this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
       this.meetingId = data;
     })
@@ -46,9 +50,9 @@ export class PageAthleteComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(s => {
-      let s0: string = s["entity_id"];
+      const s0: string = s["entity_id"];
       if (s0.includes("-")) {
-        let s2s = s0.split("-", 2)
+        const s2s = s0.split("-", 2)
         this.athleteAlias = s2s[0];
         this.athleteYear = +s2s[1];
         console.log("extracted alias: '" + this.athleteAlias + "' and year: '" + this.athleteYear + "'");

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WidgetTitleComponent } from './widget-title.component';
+import {WidgetTitleComponent} from './widget-title.component';
 import {MatIconModule} from "@angular/material/icon";
 
 describe('WidgetTitleComponent', () => {
@@ -9,9 +9,9 @@ describe('WidgetTitleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetTitleComponent ],
         imports: [
-            MatIconModule
+            MatIconModule,
+            WidgetTitleComponent
         ]
     })
     .compileComponents();

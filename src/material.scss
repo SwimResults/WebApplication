@@ -1,90 +1,104 @@
-@import "colors";
+@use "colors";
 
 @font-face {
-  font-family: 'SwimResults';
-  src: url("/assets/fonts/SwimResults.ttf");
+    font-family: 'SwimResults';
+    src: url("/assets/fonts/SwimResults.ttf");
 }
 
-.mat-body, .mat-body-2, .mat-typography .mat-body, .mat-typography .mat-body-2, .mat-typography {
-  //font: 560 14px/20px SwimResults, Roboto, sans-serif !important;
-  font-family: SwimResults, Roboto, sans-serif;
-  font-weight: 560;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0 !important;
+.mat-body,
+.mat-body-2,
+.mat-typography .mat-body,
+.mat-typography .mat-body-2,
+.mat-typography,
+.mat-mdc-dialog-container .mdc-dialog__content,
+.mdc-text-field--filled .mdc-floating-label,
+.mdc-button {
+    //font: 560 14px/20px SwimResults, Roboto, sans-serif !important;
+    font-family: SwimResults, Roboto, sans-serif !important;
+    font-weight: 560 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    letter-spacing: 0 !important;
 }
 
 .mat-mdc-menu-content, .mat-mdc-menu-content .mat-mdc-menu-item .mdc-list-item__primary-text {
-  font-family: SwimResults, Roboto, sans-serif !important;
-  font-weight: 560 !important;
-  font-size: 14px !important;
-  line-height: 20px !important;
-  letter-spacing: 0 !important;
+    font-family: SwimResults, Roboto, sans-serif !important;
+    font-weight: 560 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    letter-spacing: 0 !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__title {
+    font-family: SwimResults, Roboto, sans-serif !important;
+    font-weight: 800 !important;
+    letter-spacing: 0 !important;
 }
 
 .mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
-  border: none !important;
+    border: none !important;
 }
 
 .mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
-  border-radius: 12px !important;
+    border-radius: 12px !important;
 }
 
 .mdc-switch {
-  width: 50px !important;
-  margin-right: 12px !important;
-  margin-left: 6px !important;
+    width: 50px !important;
+    margin-right: 12px !important;
+    margin-left: 6px !important;
 }
 
 .mdc-switch__track {
-  height: 28px !important;
-  border-radius: 10px !important;
-  transform: scaleX(1.2) !important;
+    height: 28px !important;
+    border-radius: 10px !important;
+    transform: scaleX(1.2) !important;
 }
 
 .mat-mdc-slide-toggle .mdc-switch:enabled .mdc-switch__track {
-  &::after {
-    background: $color-bg-first !important;
-  }
+    &::after {
+        background: colors.$color-bg-first !important;
+    }
 
-  &::before {
-    background: $color-bg-first !important;
-  }
+    &::before {
+        background: colors.$color-bg-first !important;
+    }
 }
+
 .mat-mdc-slide-toggle .mdc-switch:enabled .mdc-switch__handle::after {
-  background: $color-sr-first !important;
+    background: colors.$color-sr-first !important;
 }
 
 .mat-mdc-slide-toggle .mdc-switch:enabled .mdc-switch__shadow {
-  box-shadow: none !important;
+    box-shadow: none !important;
 }
 
 .mdc-switch__handle::after {
-  border-radius: 8px !important;
+    border-radius: 8px !important;
 }
 
 .mat-mdc-slide-toggle .mdc-switch .mdc-switch__ripple {
-  display: none;
+    display: none;
 }
 
 .mat-spinner-size-btn.mat-mdc-progress-spinner.mat-spinner-color-first .mdc-circular-progress__determinate-circle,
 .mat-spinner-size-btn.mat-mdc-progress-spinner.mat-spinner-color-first .mdc-circular-progress__indeterminate-circle-graphic {
-    stroke: $color-sr-first !important;
+    stroke: colors.$color-sr-first !important;
 }
 
 .mat-spinner-size-btn.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle,
 .mat-spinner-size-btn.mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
-  stroke: white !important;
+    stroke: white !important;
 }
 
 .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled:checked + .mdc-radio__background .mdc-radio__outer-circle,
 .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled + .mdc-radio__background .mdc-radio__inner-circle {
-  border-color: $color-sr-first !important;
+    border-color: colors.$color-sr-first !important;
 }
 
 .mat-mdc-radio-button.mat-mdc-radio-checked .mdc-radio__background::before,
 .mat-mdc-radio-button.mat-mdc-radio-checked .mat-ripple-element {
-  background-color: $color-sr-first !important;
+    background-color: colors.$color-sr-first !important;
 }
 
 .mat-button-toggle {
@@ -93,7 +107,7 @@
 
 .mat-button-toggle-checked.mat-button-toggle-appearance-standard {
     color: white !important;
-    background-color: $color-sr-first !important;
+    background-color: colors.$color-sr-first !important;
 }
 
 .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
@@ -101,22 +115,36 @@
 }
 
 .mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
-    border: 2px solid $color-sr-first !important;
+    border: 2px solid colors.$color-sr-first !important;
 }
 
+.mat-mdc-dialog-container {
+    --mat-dialog-container-shape: 12px;
+}
+
+.mat-mdc-menu-panel {
+    --mat-menu-container-shape: 12px;
+}
+
+.mat-mdc-snack-bar-container .mat-mdc-snackbar-surface {
+    background-color: colors.$color-bg-popup !important;
+    color: colors.$color-text-main !important;
+    border-radius: 12px !important;
+}
 
 body {
-  .material-icons {
-    font-family: 'Material Icons Round', 'Material Icons', serif !important;
-  }
+    .material-icons {
+        font-family: 'Material Icons Round', 'Material Icons', serif !important;
+    }
 
-  .mdc-menu-surface {
-    border-radius: 8px;
-    background-color: $color-bg-popup;
-    box-shadow: 0 0 22px -16px black !important;
-  }
-  .mat-mdc-menu-content {
-    padding: 4px 8px;
-  }
+    .mdc-menu-surface {
+        border-radius: 8px;
+        background-color: colors.$color-bg-popup;
+        box-shadow: 0 0 22px -16px black !important;
+    }
+
+    .mat-mdc-menu-content {
+        padding: 4px 8px;
+    }
 }
 

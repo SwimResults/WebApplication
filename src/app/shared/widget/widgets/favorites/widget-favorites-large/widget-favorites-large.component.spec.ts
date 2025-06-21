@@ -1,11 +1,13 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {WidgetFavoritesLargeComponent} from './widget-favorites-large.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {RouterTestingModule} from "@angular/router/testing";
-import {WidgetModule} from "../../../widget.module";
+import {provideHttpClientTesting} from "@angular/common/http/testing";
+
 import {TranslateModule} from "@ngx-translate/core";
 import {OAuthModule} from "angular-oauth2-oidc";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../../app.routes";
 
 describe('WidgetFavoritesLargeComponent', () => {
     let component: WidgetFavoritesLargeComponent;
@@ -13,15 +15,10 @@ describe('WidgetFavoritesLargeComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [WidgetFavoritesLargeComponent],
             imports: [
-                HttpClientTestingModule,
-                RouterTestingModule,
-                WidgetModule,
                 TranslateModule.forRoot(),
-
-                OAuthModule.forRoot()
-            ]
+                OAuthModule.forRoot(), WidgetFavoritesLargeComponent],
+            providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
         })
             .compileComponents();
 

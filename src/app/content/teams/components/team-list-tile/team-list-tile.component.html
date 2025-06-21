@@ -1,6 +1,8 @@
-<sr-panel *ngIf="team">
-  <span>{{team.name}} </span>
-  <span>({{team.alias}})</span>
-</sr-panel>
+@if (team) {
+    <sr-panel>
+        <span>{{ team.name }} </span>
+        <span>({{ team.alias }})</span>
+    </sr-panel>
+}
 <br>
 <br>

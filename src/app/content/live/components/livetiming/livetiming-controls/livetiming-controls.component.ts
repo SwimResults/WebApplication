@@ -1,10 +1,14 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ChangeHeatEvent} from "../livetiming.component";
+import {IconBtnComponent} from '../../../../../shared/elements/buttons/icon-btn/icon-btn.component';
+import {MatIcon} from '@angular/material/icon';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
-  selector: 'sr-livetiming-controls',
-  templateUrl: './livetiming-controls.component.html',
-  styleUrls: ['./livetiming-controls.component.scss']
+    selector: 'sr-livetiming-controls',
+    templateUrl: './livetiming-controls.component.html',
+    styleUrls: ['./livetiming-controls.component.scss'],
+    imports: [IconBtnComponent, MatIcon, TranslateModule]
 })
 export class LivetimingControlsComponent {
 

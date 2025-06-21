@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
-import {WidgetContainer} from "../../../../core/model/user/widget-container.model";
+import {Component} from '@angular/core';
+import {DashboardViewComponent} from '../../components/dashboard-view/dashboard-view.component';
 
 @Component({
-  selector: 'sr-page-dashboard-event',
-  templateUrl: './page-dashboard-event.component.html',
-  styleUrls: ['./page-dashboard-event.component.scss']
+    selector: 'sr-page-dashboard-event',
+    templateUrl: './page-dashboard-event.component.html',
+    styleUrls: ['./page-dashboard-event.component.scss'],
+    imports: [DashboardViewComponent]
 })
 export class PageDashboardEventComponent {
   //

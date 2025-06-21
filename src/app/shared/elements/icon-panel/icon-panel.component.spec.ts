@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { IconPanelComponent } from './icon-panel.component';
+import {IconPanelComponent} from './icon-panel.component';
 import {MatIconModule} from "@angular/material/icon";
 
 describe('IconPanelComponent', () => {
@@ -9,10 +9,10 @@ describe('IconPanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IconPanelComponent ],
-      imports: [
-        MatIconModule
-      ]
+        imports: [
+            MatIconModule,
+            IconPanelComponent
+        ]
     })
     .compileComponents();
 

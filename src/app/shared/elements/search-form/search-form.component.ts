@@ -1,33 +1,32 @@
-import {AfterViewChecked, Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
+import {MatIcon} from '@angular/material/icon';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
-  selector: 'sr-search-form',
-  templateUrl: './search-form.component.html',
-  styleUrls: ['./search-form.component.scss']
+    selector: 'sr-search-form',
+    templateUrl: './search-form.component.html',
+    styleUrls: ['./search-form.component.scss'],
+    imports: [ReactiveFormsModule, MatIcon, TranslateModule]
 })
-export class SearchFormComponent implements OnInit, AfterViewChecked {
+export class SearchFormComponent implements OnInit {
+  private fb = inject(FormBuilder);
+  private route = inject(ActivatedRoute);
+
   @Output() querySearch: EventEmitter<string> = new EventEmitter<string>(true);
 
   searchForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private route: ActivatedRoute
-  ) {
+  constructor() {
     this.searchForm = this.fb.group({
       query: [""]
     })
   }
 
-  ngAfterViewChecked() {
-  }
-
   ngOnInit() {
     this.route.queryParams
       .subscribe(params => {
-          console.log(params['query'])
           if (params && params['query'] != undefined) {
             this.searchForm.setValue({"query": params['query']})
             this.searchForm.value.query = params['query'];

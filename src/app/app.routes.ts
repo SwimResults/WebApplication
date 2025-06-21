@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import {CalendarComponent} from "./content/calendar/calendar.component";
 import {PageLiveComponent} from "./content/live";
 import {PageFilesComponent} from "./content/files";
@@ -22,7 +21,7 @@ import {
 } from "./content/admin/pages/page-admin-notification/page-admin-notification.component";
 
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '',                         component: PageMeetingsComponent, pathMatch: "full" },
   { path: 'auth',                     component: AuthComponent },
   { path: 'auth/logout',              component: LogoutComponent },
@@ -55,11 +54,4 @@ const routes: Routes = [
       { path: "admin/notification",   component: PageAdminNotificationComponent },
     ]
   }
-
 ]
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

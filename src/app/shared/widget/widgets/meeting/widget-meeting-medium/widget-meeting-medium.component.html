@@ -1,4 +1,4 @@
-<ng-container *ngIf="meeting">
+@if (meeting) {
   <span class="title">{{meeting.getFullSeriesName()}}</span>
   <div class="info">
     <mat-icon>place</mat-icon>
@@ -12,4 +12,4 @@
     <mat-icon>calendar_month</mat-icon>
     <span class="info-content date">{{meeting.getDateStringWithYear()}}</span>
   </div>
-</ng-container>
+}

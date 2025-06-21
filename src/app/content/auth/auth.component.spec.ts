@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AuthComponent } from './auth.component';
+import {AuthComponent} from './auth.component';
 import {OAuthModule} from "angular-oauth2-oidc";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {ElementsModule} from "../../shared/elements/elements.module";
+import {provideHttpClientTesting} from "@angular/common/http/testing";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('AuthComponent', () => {
   let component: AuthComponent;
@@ -11,13 +11,10 @@ describe('AuthComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthComponent ],
-      imports: [
-        OAuthModule.forRoot(),
-        HttpClientTestingModule,
-        ElementsModule
-      ]
-    })
+    imports: [OAuthModule.forRoot(),
+        AuthComponent],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(AuthComponent);

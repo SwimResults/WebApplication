@@ -1,15 +1,25 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import {MeetingPart} from "../../../../core/model/meeting/meeting-part.model";
 import {EventService, HeatService} from "../../../../core/service/api";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {Heat, HeatImpl} from "../../../../core/model/start/heat.model";
+import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
+import {MatIcon} from '@angular/material/icon';
+import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {IconBtnComponent} from '../../../../shared/elements/buttons/icon-btn/icon-btn.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
-  selector: 'sr-admin-event-list',
-  templateUrl: './admin-event-list.component.html',
-  styleUrls: ['./admin-event-list.component.scss']
+    selector: 'sr-admin-event-list',
+    templateUrl: './admin-event-list.component.html',
+    styleUrls: ['./admin-event-list.component.scss'],
+    imports: [BtnComponent, MatIcon, NoContentComponent, PanelComponent, IconBtnComponent, TranslateModule]
 })
 export class AdminEventListComponent implements OnInit {
+    private eventService = inject(EventService);
+    private heatService = inject(HeatService);
+
     @Input() meetingId?: string;
     @Input() meeting?: MeetingImpl;
 
@@ -17,12 +27,6 @@ export class AdminEventListComponent implements OnInit {
 
     parts: MeetingPart[] = [];
     heats: Map<number, HeatImpl[]> = new Map<number, HeatImpl[]>()
-
-    constructor(
-        private eventService: EventService,
-        private heatService: HeatService
-    ) {
-    }
 
     ngOnInit() {
         this.fetchLists();
@@ -42,7 +46,7 @@ export class AdminEventListComponent implements OnInit {
         this.heatService.getHeatsByMeeting(this.meetingId).subscribe(data => {
             if (data) {
                 this.heats = new Map<number, HeatImpl[]>();
-                for (let heat of data) {
+                for (const heat of data) {
                     let heats = this.heats.get(heat.event);
                     if (!heats) {
                         heats = [];

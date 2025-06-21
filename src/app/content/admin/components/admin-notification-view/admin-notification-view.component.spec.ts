@@ -1,39 +1,35 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AdminNotificationViewComponent } from './admin-notification-view.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {ElementsModule} from "../../../../shared/elements/elements.module";
+import {AdminNotificationViewComponent} from './admin-notification-view.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {MatIconModule} from "@angular/material/icon";
 import {TranslateModule} from "@ngx-translate/core";
 import {ReactiveFormsModule} from "@angular/forms";
-import {RouterTestingModule} from "@angular/router/testing";
-import {AdminModule} from "../../admin.module";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../app.routes";
 
 describe('AdminNotificationViewComponent', () => {
-  let component: AdminNotificationViewComponent;
-  let fixture: ComponentFixture<AdminNotificationViewComponent>;
+    let component: AdminNotificationViewComponent;
+    let fixture: ComponentFixture<AdminNotificationViewComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [AdminNotificationViewComponent],
-        imports: [
-            AdminModule,
-            HttpClientTestingModule,
-            ElementsModule,
-            MatIconModule,
-            TranslateModule.forRoot(),
-            ReactiveFormsModule,
-            RouterTestingModule
-        ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [
+                MatIconModule,
+                TranslateModule.forRoot(),
+                ReactiveFormsModule,
+                AdminNotificationViewComponent],
+            providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(AdminNotificationViewComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(AdminNotificationViewComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

@@ -1,8 +1,12 @@
-<sr-spinner *ngIf="fetching.fetching"></sr-spinner>
-<ng-container *ngIf="!fetching.fetching">
-  <sr-start-list-tile
-    *ngFor="let start of starts"
-    [start]="start"
-    [config]="config"
-  ></sr-start-list-tile>
-</ng-container>
+@if (fetching.fetching) {
+    <sr-spinner></sr-spinner>
+}
+@if (!fetching.fetching) {
+    @for (start of starts; track start) {
+        <sr-start-list-tile
+            [start]="start"
+            [config]="config"
+            [athletes]="athletes"
+        ></sr-start-list-tile>
+    }
+}

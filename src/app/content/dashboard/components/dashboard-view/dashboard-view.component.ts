@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {DashboardService} from "../../../../core/service/api/user/dashboard.service";
 import {Dashboard} from "../../../../core/model/user/dashboard.model";
 import {AuthService} from "../../../../core/service/auth.service";
@@ -8,13 +8,24 @@ import {RouteService} from "../../../../core/service/route.service";
 import {User} from "../../../../core/model/user/user.model";
 import {OAuthService} from "angular-oauth2-oidc";
 import {MeetingService} from "../../../../core/service/api";
+import {MatIcon} from '@angular/material/icon';
+import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
+import {WidgetViewerComponent} from '../../../../shared/widget/widget-viewer/widget-viewer.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
     selector: 'sr-dashboard-view',
     templateUrl: './dashboard-view.component.html',
-    styleUrls: ['./dashboard-view.component.scss']
+    styleUrls: ['./dashboard-view.component.scss'],
+    imports: [MatIcon, SpinnerComponent, WidgetViewerComponent, TranslateModule]
 })
 export class DashboardViewComponent implements OnInit, OnDestroy {
+    private dashboardService = inject(DashboardService);
+    private authService = inject(AuthService);
+    private routeService = inject(RouteService);
+    private oAuthService = inject(OAuthService);
+    private meetingService = inject(MeetingService);
+
 
     kcUser: any;
 
@@ -36,13 +47,7 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
 
     fetchingDashboard: boolean = false;
 
-    constructor(
-        private dashboardService: DashboardService,
-        private authService: AuthService,
-        private routeService: RouteService,
-        private oAuthService: OAuthService,
-        private meetingService: MeetingService
-    ) {
+    constructor() {
         this.fetchingDashboard = true;
         this.isAuthedSubscription = this.authService.isAuthenticated.subscribe({
             next: data => {

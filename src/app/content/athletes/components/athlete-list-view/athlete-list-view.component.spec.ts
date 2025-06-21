@@ -1,11 +1,12 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {AthleteListViewComponent} from './athlete-list-view.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {AthletesModule} from "../../athletes.module";
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
-import {RouterTestingModule} from "@angular/router/testing";
 import {OAuthModule} from "angular-oauth2-oidc";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../app.routes";
 
 describe('AthleteListViewComponent', () => {
     let component: AthleteListViewComponent;
@@ -13,15 +14,11 @@ describe('AthleteListViewComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [AthleteListViewComponent],
             imports: [
-                HttpClientTestingModule,
-                AthletesModule,
-                TranslateModule.forRoot(),
-                RouterTestingModule,
-                OAuthModule.forRoot()
-            ]
-        })
+        TranslateModule.forRoot(),
+        OAuthModule.forRoot(), AthleteListViewComponent],
+            providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+})
             .compileComponents();
 
         fixture = TestBed.createComponent(AthleteListViewComponent);

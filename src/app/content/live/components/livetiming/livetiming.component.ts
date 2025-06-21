@@ -1,9 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {StartService} from "../../../../core/service/api";
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import {EventService, HeatService, StartService} from "../../../../core/service/api";
 import {Start, StartImpl} from "../../../../core/model/start/start.model";
-import {EventService} from "../../../../core/service/api";
 import {MeetingEventLivetiming} from "../../../../core/model/meeting/meeting-event-livetiming.model";
-import {HeatService} from "../../../../core/service/api";
 import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
@@ -11,6 +9,15 @@ import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-
 import {HeatImpl} from "../../../../core/model/start/heat.model";
 import {ActivatedRoute} from "@angular/router";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
+import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
+import {LivetimingHeaderComponent} from './livetiming-header/livetiming-header.component';
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {LivetimingTableComponent} from './livetiming-table/livetiming-table.component';
+import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
+import {LivetimingControlsComponent} from './livetiming-controls/livetiming-controls.component';
+import {TranslateModule} from '@ngx-translate/core';
+import {UserDataService} from "../../../../core/service/user-data.service";
+import {AthleteRelation} from "../../../../core/model/user/follower.model";
 
 export interface ChangeHeatEvent {
     name: "event" | "heat" | "all" | "nothing";
@@ -24,9 +31,17 @@ export interface LiveSettingsData {
 @Component({
     selector: 'sr-livetiming',
     templateUrl: './livetiming.component.html',
-    styleUrls: ['./livetiming.component.scss']
+    styleUrls: ['./livetiming.component.scss'],
+    imports: [SpinnerComponent, LivetimingHeaderComponent, PanelComponent, LivetimingTableComponent, NoContentComponent, LivetimingControlsComponent, TranslateModule]
 })
 export class LivetimingComponent implements OnInit, OnDestroy {
+    private routeService = inject(RouteService);
+    private startService = inject(StartService);
+    private heatService = inject(HeatService);
+    private eventService = inject(EventService);
+    private route = inject(ActivatedRoute);
+    private userDataService = inject(UserDataService);
+
 
     liveTimingUpdateInterval: number = 3000;
 
@@ -36,6 +51,9 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     meetingId?: string;
     meetingSubscription: Subscription;
     meetingIdSubscription: Subscription;
+    followingSubscription: Subscription;
+
+    following: AthleteRelation[] = [];
 
     currentEvent: number = 1;
     currentHeat: number = 1;
@@ -68,17 +86,11 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     } as StartListTileConfig;
     private interval: any;
 
-    constructor(
-        private routeService: RouteService,
-        private startService: StartService,
-        private heatService: HeatService,
-        private eventService: EventService,
-        private route: ActivatedRoute
-    ) {
+    constructor() {
 
         // get heat and event from session storage
-        let heat = window.sessionStorage.getItem("livetiming_heat");
-        let event = window.sessionStorage.getItem("livetiming_event");
+        const heat = window.sessionStorage.getItem("livetiming_heat");
+        const event = window.sessionStorage.getItem("livetiming_event");
         if (heat) {
             this.currentHeat = Number(heat);
         }
@@ -86,7 +98,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
             this.currentEvent = Number(event);
         }
 
-        let isLive = window.sessionStorage.getItem("livetiming_live") == "1";
+        const isLive = window.sessionStorage.getItem("livetiming_live") == "1";
         console.log(isLive);
         this.liveSettingsData.isLive = isLive;
 
@@ -112,6 +124,9 @@ export class LivetimingComponent implements OnInit, OnDestroy {
         })
         this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
             this.meetingId = data;
+        })
+        this.followingSubscription = this.userDataService.following.subscribe(data => {
+            this.following = data;
         })
     }
 
@@ -146,6 +161,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.meetingSubscription.unsubscribe();
         this.meetingIdSubscription.unsubscribe();
+        this.followingSubscription.unsubscribe();
         this.stopLiveCycle()
     }
 
@@ -201,11 +217,11 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     processStarts(starts: Start[]) {
         this.heatFinished = false;
         this.starts = [];
-        let st: StartImpl[] = []
-        let ls: StartImpl[] = [];
+        const st: StartImpl[] = []
+        const ls: StartImpl[] = [];
 
-        for (let start of starts) {
-            let s = new StartImpl(start)
+        for (const start of starts) {
+            const s = new StartImpl(start)
             if (!this.heatFinished && s.hasResult()) {
                 this.heatFinished = true;
             }
@@ -243,7 +259,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
             ls.push({lane: i, emptyLane: true} as StartImpl)
         }
 
-        for (let start of st) {
+        for (const start of st) {
             ls[start.lane - this.firstLane] = start
             ls[start.lane - this.firstLane].emptyLane = false;
         }
@@ -251,7 +267,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
         if (this.heatFinished) {
             ls.sort((a, b) => (a.emptyLane ? 1 : (b.emptyLane ? -1 : (a.getResultMilliseconds() <= 0 ? 1 : (b.getResultMilliseconds() <= 0 ? -1 : a.getResultMilliseconds() - b.getResultMilliseconds())))))
             let j = 1;
-            for (let start of ls) {
+            for (const start of ls) {
                 start.rank = j++;
             }
         }

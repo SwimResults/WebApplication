@@ -1,20 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {BaseService} from "../base.service";
 import {ApiService} from "../api.service";
 import {environment} from "../../../../../environments/environment";
 import {Observable} from "rxjs";
 import {Team} from "../../../model";
 import {PagingRequest} from "../../../model/common/paging-request.model";
-import {HttpParams} from "@angular/common/http";
+import { HttpParams } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamService extends BaseService{
+  private apiService = inject(ApiService);
 
-  constructor(
-    private apiService: ApiService
-  ) {
+
+  constructor() {
     super('TeamService', environment.api_urls.athlete_service);
   }
 

@@ -1,33 +1,35 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PageEventComponent } from './page-event.component';
-import {RouterTestingModule} from "@angular/router/testing";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {EventsModule} from "../../events.module";
+import {PageEventComponent} from './page-event.component';
+
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../app.routes";
+import {OAuthModule} from "angular-oauth2-oidc";
 
 describe('PageEventComponent', () => {
-  let component: PageEventComponent;
-  let fixture: ComponentFixture<PageEventComponent>;
+    let component: PageEventComponent;
+    let fixture: ComponentFixture<PageEventComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ PageEventComponent ],
-      imports: [
-        RouterTestingModule,
-        HttpClientTestingModule,
-        EventsModule,
-        TranslateModule.forRoot()
-      ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [
+                TranslateModule.forRoot(),
+                PageEventComponent,
+                OAuthModule.forRoot()
+            ],
+            providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(PageEventComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(PageEventComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

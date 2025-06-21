@@ -1,16 +1,23 @@
-import {Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {ReplaySubject, Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 import {Heat} from "../../../../core/model/start/heat.model";
 import {ViewportScroller} from "@angular/common";
+import {AdminHeatToolComponent} from '../admin-heat-tool/admin-heat-tool.component';
+import {AdminImportToolComponent} from '../admin-import-tool/admin-import-tool.component';
+import {AdminReportViewComponent} from '../admin-report-view/admin-report-view.component';
 
 @Component({
-  selector: 'sr-admin-main-view',
-  templateUrl: './admin-main-view.component.html',
-  styleUrls: ['./admin-main-view.component.scss']
+    selector: 'sr-admin-main-view',
+    templateUrl: './admin-main-view.component.html',
+    styleUrls: ['./admin-main-view.component.scss'],
+    imports: [AdminHeatToolComponent, AdminImportToolComponent, AdminReportViewComponent]
 })
 export class AdminMainViewComponent implements OnDestroy {
+  private routeService = inject(RouteService);
+  private scroller = inject(ViewportScroller);
+
   meeting?: MeetingImpl;
   meetingId?: string;
   meetingSubscription: Subscription;
@@ -18,10 +25,7 @@ export class AdminMainViewComponent implements OnDestroy {
 
   showHeat: ReplaySubject<Heat> = new ReplaySubject<Heat>();
 
-  constructor(
-    private routeService: RouteService,
-    private scroller: ViewportScroller
-  ) {
+  constructor() {
     this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
       console.log("fetched meeting:")

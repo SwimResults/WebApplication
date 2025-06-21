@@ -1,9 +1,12 @@
-<sr-spinner *ngIf="fetchingAthlete.fetching"></sr-spinner>
-<ng-container *ngIf="!fetchingAthlete.fetching">
-  <sr-athlete-profile-intro *ngIf="athlete._id" [athlete]="athlete"></sr-athlete-profile-intro>
-
+@if (fetchingAthlete.fetching) {
+    <sr-spinner></sr-spinner>
+}
+@if (!fetchingAthlete.fetching) {
+    @if (athlete._id) {
+        <sr-athlete-profile-intro [athlete]="athlete"></sr-athlete-profile-intro>
+    }
   <h2>Starts</h2>
-  <sr-panel *ngIf="athleteId">
-    <sr-athlete-starts [athleteId]="athleteId" [meetingId]="meetingId"></sr-athlete-starts>
-  </sr-panel>
-</ng-container>
+    @if (athleteId) {
+        <sr-athlete-starts [athleteId]="athleteId" [meetingId]="meetingId"></sr-athlete-starts>
+    }
+}

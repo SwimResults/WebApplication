@@ -32,5 +32,7 @@
 </form>
 
 <ul>
-    <li *ngFor="let logEntry of log">{{logEntry}}</li>
+    @for (logEntry of log; track logEntry) {
+        <li>{{ logEntry }}</li>
+    }
 </ul>

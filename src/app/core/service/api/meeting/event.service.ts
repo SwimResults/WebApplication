@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {BaseService} from "../base.service";
 import {environment} from "../../../../../environments/environment";
 import {ApiService} from "../api.service";
@@ -11,14 +11,14 @@ import {MeetingEventLivetiming} from "../../../model/meeting/meeting-event-livet
   providedIn: 'root'
 })
 export class EventService extends BaseService {
+    private apiService = inject(ApiService);
+
 
     private eventCache: Map<string, Observable<MeetingEvent>> = new Map<string, Observable<MeetingEvent>>();
     private eventPartCache: Map<string, Observable<MeetingPart[]>> = new Map<string, Observable<MeetingPart[]>>();
     private eventLivetimingCache: Map<string, Observable<MeetingEventLivetiming>> = new Map<string, Observable<MeetingEventLivetiming>>();
 
-    constructor(
-        private apiService: ApiService
-    ) {
+    constructor() {
         super("EventService", environment.api_urls.meeting_service);
     }
 

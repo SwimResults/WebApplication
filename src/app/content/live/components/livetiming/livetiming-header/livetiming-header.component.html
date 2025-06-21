@@ -1,6 +1,10 @@
-<sr-heat-times *ngIf="heat" [heat]="heat" orientation="horizontal"></sr-heat-times>
-<ng-container *ngIf="liveSettingsData && meeting.hasStates([meetingStates.RUNNING, meetingStates.FINAL, meetingStates.BREAK])">
-  <div class="live-indicator" *ngIf="liveSettingsData.isLive"></div>
+@if (heat) {
+    <sr-heat-times [heat]="heat" orientation="horizontal"></sr-heat-times>
+}
+@if (liveSettingsData && meeting.hasStates([meetingStates.RUNNING, meetingStates.FINAL, meetingStates.BREAK])) {
+    @if (liveSettingsData.isLive) {
+        <div class="live-indicator"></div>
+    }
   <span class="live-text">Live</span>
   <mat-slide-toggle [checked]="liveSettingsData.isLive" (click)="onLiveButtonClick()"></mat-slide-toggle>
-</ng-container>
+}

@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AthleteStartsComponent } from './athlete-starts.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {StartsModule} from "../../../starts";
+import {AthleteStartsComponent} from './athlete-starts.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('AthleteStartsComponent', () => {
   let component: AthleteStartsComponent;
@@ -10,12 +10,9 @@ describe('AthleteStartsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AthleteStartsComponent ],
-      imports: [
-        HttpClientTestingModule,
-        StartsModule
-      ]
-    })
+        imports: [AthleteStartsComponent],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(AthleteStartsComponent);

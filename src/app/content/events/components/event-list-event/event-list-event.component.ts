@@ -1,15 +1,22 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {ActivatedRoute, Router} from "@angular/router";
-import {TranslateService} from "@ngx-translate/core";
+import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {EventListHeatImpl} from "../../../../core/model/start/event-list-heat.model";
+import {HeatTimesComponent} from '../../../../shared/elements/heat-times/heat-times.component';
+import {IconPanelComponent} from '../../../../shared/elements/icon-panel/icon-panel.component';
 
 @Component({
-  selector: 'sr-event-list-event',
-  templateUrl: './event-list-event.component.html',
-  styleUrls: ['./event-list-event.component.scss']
+    selector: 'sr-event-list-event',
+    templateUrl: './event-list-event.component.html',
+    styleUrls: ['./event-list-event.component.scss'],
+    imports: [HeatTimesComponent, IconPanelComponent, TranslateModule]
 })
 export class EventListEventComponent implements OnInit {
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+  private translate = inject(TranslateService);
+
   @Input() event!: MeetingEvent;
   @Input() heatInfo?: EventListHeatImpl;
 
@@ -17,13 +24,6 @@ export class EventListEventComponent implements OnInit {
 
   heatString: string = "";
   heatsString: string = "";
-
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private translate: TranslateService
-  ) {
-  }
 
   ngOnInit() {
     this.translate.get("COMMON.HEAT.PLURAL").subscribe(data => this.heatsString = data);

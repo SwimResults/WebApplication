@@ -1,21 +1,23 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {TranslateService} from "@ngx-translate/core";
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {MatIcon} from '@angular/material/icon';
+import {RouterLink} from '@angular/router';
+import {IconBtnComponent} from '../../../../shared/elements/buttons/icon-btn/icon-btn.component';
 
 @Component({
-  selector: 'sr-meeting-list-tile',
-  templateUrl: './meeting-list-tile.component.html',
-  styleUrls: ['./meeting-list-tile.component.scss']
+    selector: 'sr-meeting-list-tile',
+    templateUrl: './meeting-list-tile.component.html',
+    styleUrls: ['./meeting-list-tile.component.scss'],
+    imports: [PanelComponent, MatIcon, RouterLink, IconBtnComponent]
 })
 export class MeetingListTileComponent implements OnInit{
+  private translateService = inject(TranslateService);
+
   @Input() meeting!: MeetingImpl;
 
   dateString?: string;
-
-  constructor(
-    private translateService: TranslateService
-  ) {
-  }
 
   ngOnInit() {
     this.fetchTranslations()
@@ -24,7 +26,7 @@ export class MeetingListTileComponent implements OnInit{
   fetchTranslations() {
     if (!this.meeting) return;
     let sf = this.meeting.getDateString(true);
-    let s1 = sf.split("#");
+    const s1 = sf.split("#");
     console.log(sf);
     console.log(s1);
 

@@ -1,4 +1,4 @@
-@import "../../../../../colors";
+@use "/src/colors";
 
 sr-event-incident {
     display: block;
@@ -6,7 +6,7 @@ sr-event-incident {
 
 .timeline {
     position: absolute;
-    border-left: solid 4px $color-hr-border;
+    border-left: solid 4px colors.$color-hr-border;
     height: 14px;
     margin-left: 63px;
 

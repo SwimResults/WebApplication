@@ -1,11 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EventListPartComponent } from './event-list-part.component';
-import {RouterTestingModule} from "@angular/router/testing";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {ElementsModule} from "../../../../shared/elements/elements.module";
-import {StartsModule} from "../../../starts";
+import {EventListPartComponent} from './event-list-part.component';
+
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../app.routes";
 
 describe('EventListPartComponent', () => {
   let component: EventListPartComponent;
@@ -13,16 +14,10 @@ describe('EventListPartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [EventListPartComponent],
         imports: [
-
-            RouterTestingModule,
-            HttpClientTestingModule,
-            ElementsModule,
-            StartsModule,
-            TranslateModule.forRoot()
-        ]
-    })
+        TranslateModule.forRoot(), EventListPartComponent],
+        providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(EventListPartComponent);

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TeamListTileComponent } from './team-list-tile.component';
+import {TeamListTileComponent} from './team-list-tile.component';
 
 describe('TeamListTileComponent', () => {
   let component: TeamListTileComponent;
@@ -8,7 +8,7 @@ describe('TeamListTileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TeamListTileComponent ]
+        imports: [TeamListTileComponent]
     })
     .compileComponents();
 

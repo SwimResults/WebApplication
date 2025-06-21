@@ -49,9 +49,31 @@
         }
     },
     "COMMON": {
+        "ERROR": {
+            "SERVICE_OFFLINE": {
+                "MESSAGE": "The {{system}} is currently not available!",
+                "MEETING": "meeting service",
+                "START": "start service",
+                "ATHLETE": "athlete and team service",
+                "USER": "user service",
+                "IMPORT": "import service"
+            }
+        },
         "FORM": {
             "SEARCH": {
                 "SEARCH_INPUT_LABEL": "Search…"
+            },
+            "BUTTON": {
+                "SEARCH": "Search",
+                "CANCEL": "Cancel",
+                "SAVE": "Save",
+                "DELETE": "Delete",
+                "EDIT": "Edit",
+                "ADD": "Add",
+                "BACK": "Back",
+                "SHOW_MORE": "Show more",
+                "SHOW_LESS": "Show less",
+                "SUBMIT": "Submit"
             }
         },
         "LIST": {
@@ -149,16 +171,15 @@
                 "OCT": "Oct",
                 "NOV": "Nov",
                 "DEC": "Dec"
-            }
-        },
-        "ERROR": {
-            "SERVICE_OFFLINE": {
-                "MESSAGE": "The {{system}} is currently not available!",
-                "MEETING": "meeting service",
-                "START": "start service",
-                "ATHLETE": "athlete and team service",
-                "USER": "user service",
-                "IMPORT": "import service"
+            },
+            "DAY": {
+                "0": "Sunday",
+                "1": "Monday",
+                "2": "Tuesday",
+                "3": "Wednesday",
+                "4": "Thursday",
+                "5": "Friday",
+                "6": "Saturday"
             }
         }
     },
@@ -185,6 +206,11 @@
     },
     "HEADER": {
         "MENU": {
+            "FEEDBACK": {
+                "ADMIN_REPORTS_BUTTON": "Reports",
+                "FEEDBACK_BUTTON": "Feedback",
+                "REPORT_BUTTON": "Report Problem"
+            },
             "ACCOUNT": {
                 "SETTINGS_BUTTON_TEXT": "Settings",
                 "PROFILE_BUTTON_TEXT": "Show Profile",
@@ -326,5 +352,17 @@
     "DASHBOARD": {
         "WELCOME_MESSAGE": "Welcome back, {{username}}!",
         "FIND_MORE_MESSAGE": "The Dashboard displays most important information. Livetiming, athlete and team search and events can be found in the menu."
+    },
+    "REPORT": {
+        "DIALOG": {
+            "TITLE": "Report a Problem",
+            "TITLE_WITH_NAME": "Report a Problem with '{{subjectName}}'",
+            "DESCRIPTION": "Did you find an error or a problem? Here you can easily submit a report.",
+            "MESSAGE_LABEL": "Problem Description",
+            "SUBMIT": {
+                "SUCCESS_MESSAGE": "Sent Report!",
+                "FAILURE_MESSAGE": "Sending failed!"
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { StartListComponent } from './start-list.component';
+import {StartListComponent} from './start-list.component';
 
 describe('StartListComponent', () => {
   let component: StartListComponent;
@@ -8,7 +8,9 @@ describe('StartListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StartListComponent ]
+        imports: [
+            StartListComponent
+        ]
     })
     .compileComponents();
 

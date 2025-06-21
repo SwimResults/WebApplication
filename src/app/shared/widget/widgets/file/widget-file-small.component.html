@@ -1,9 +1,11 @@
-<ng-container *ngIf="file">
+@if (file) {
     <a [href]="file.url" target="_blank" class="{{file.existing ? '' : 'file-inactive'}}">
         <sr-file-icon [extension]="file.extension" [existing]="file.existing"></sr-file-icon>
-        <span class="file-name">{{name}}</span>
+        <span class="file-name">{{ name }}</span>
     </a>
-</ng-container>
-<sr-widget-info-text *ngIf="!file">
+}
+@if (!file) {
+    <sr-widget-info-text>
     {{'WIDGET.FILE.NOT_FOUND_MESSAGE' | translate:notFoundMessage }}
-</sr-widget-info-text>
+    </sr-widget-info-text>
+}

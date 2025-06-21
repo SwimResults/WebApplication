@@ -1,3 +1,5 @@
-<span *ngIf="serviceOffline">{{'COMMON.ERROR.SERVICE_OFFLINE.MESSAGE' | translate:systemParam}}</span>
+@if (serviceOffline) {
+    <span>{{ 'COMMON.ERROR.SERVICE_OFFLINE.MESSAGE' | translate:systemParam }}</span>
+}
 <ng-content>
 </ng-content>

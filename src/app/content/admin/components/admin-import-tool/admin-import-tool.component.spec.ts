@@ -1,11 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AdminImportToolComponent } from './admin-import-tool.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {ElementsModule} from "../../../../shared/elements/elements.module";
+import {AdminImportToolComponent} from './admin-import-tool.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatIconModule} from "@angular/material/icon";
 import {ReactiveFormsModule} from "@angular/forms";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('AdminImportToolComponent', () => {
   let component: AdminImportToolComponent;
@@ -13,15 +13,12 @@ describe('AdminImportToolComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminImportToolComponent ],
-      imports: [
-        HttpClientTestingModule,
-        ElementsModule,
+        imports: [
         MatRadioModule,
         MatIconModule,
-        ReactiveFormsModule
-      ]
-    })
+        ReactiveFormsModule, AdminImportToolComponent],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(AdminImportToolComponent);

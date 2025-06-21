@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WidgetTimeInfoMediumComponent } from './widget-time-info-medium.component';
+import {WidgetTimeInfoMediumComponent} from './widget-time-info-medium.component';
 
 describe('WidgetTimeInfoMediumComponent', () => {
   let component: WidgetTimeInfoMediumComponent;
@@ -8,7 +8,7 @@ describe('WidgetTimeInfoMediumComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetTimeInfoMediumComponent ]
+        imports: [WidgetTimeInfoMediumComponent]
     })
     .compileComponents();
 

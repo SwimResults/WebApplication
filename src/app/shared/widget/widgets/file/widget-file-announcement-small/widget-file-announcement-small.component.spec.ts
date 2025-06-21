@@ -1,10 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WidgetFileAnnouncementSmallComponent } from './widget-file-announcement-small.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {RouterTestingModule} from "@angular/router/testing";
+import {WidgetFileAnnouncementSmallComponent} from './widget-file-announcement-small.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
+
 import {TranslateModule} from "@ngx-translate/core";
-import {WidgetModule} from "../../../widget.module";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../../app.routes";
 
 describe('WidgetFileAnnouncementSmallComponent', () => {
   let component: WidgetFileAnnouncementSmallComponent;
@@ -12,14 +14,11 @@ describe('WidgetFileAnnouncementSmallComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetFileAnnouncementSmallComponent ],
         imports: [
-            HttpClientTestingModule,
-            RouterTestingModule,
-            TranslateModule.forRoot(),
-            WidgetModule
-        ]
-    })
+        TranslateModule.forRoot(),
+            WidgetFileAnnouncementSmallComponent],
+        providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(WidgetFileAnnouncementSmallComponent);

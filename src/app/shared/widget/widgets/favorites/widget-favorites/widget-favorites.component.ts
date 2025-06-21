@@ -1,16 +1,26 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {Subscription} from "rxjs";
 import {FetchingModel} from "../../../../../core/model/common/fetching.model";
 import {Athlete} from "../../../../../core/model";
 import {AthleteService, UserService} from "../../../../../core/service/api";
 import {RouteService} from "../../../../../core/service/route.service";
+import {WidgetTitleComponent} from '../../../widget-title/widget-title.component';
+import {WidgetLoginRequiredComponent} from '../../../widget-login-required/widget-login-required.component';
+import {WidgetInfoTextComponent} from '../../../widget-info-text/widget-info-text.component';
+import {RouterLink} from '@angular/router';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
-  selector: 'sr-widget-favorites',
-  templateUrl: './widget-favorites.component.html',
-  styleUrls: ['./widget-favorites.component.scss']
+    selector: 'sr-widget-favorites',
+    templateUrl: './widget-favorites.component.html',
+    styleUrls: ['./widget-favorites.component.scss'],
+    imports: [WidgetTitleComponent, WidgetLoginRequiredComponent, WidgetInfoTextComponent, RouterLink, TranslateModule]
 })
 export class WidgetFavoritesComponent implements OnInit, OnDestroy {
+    private userService = inject(UserService);
+    private athleteService = inject(AthleteService);
+    private routeService = inject(RouteService);
+
     meetingId?: string;
     meetingIdSubscription: Subscription;
 
@@ -18,11 +28,7 @@ export class WidgetFavoritesComponent implements OnInit, OnDestroy {
 
     following: Athlete[] = [];
 
-    constructor(
-        private userService: UserService,
-        private athleteService: AthleteService,
-        private routeService: RouteService
-    ) {
+    constructor() {
         this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
             this.meetingId = data;
         })
@@ -40,7 +46,7 @@ export class WidgetFavoritesComponent implements OnInit, OnDestroy {
         this.fetching.fetching = true;
         this.userService.getUser().subscribe(data => {
             if (data.following) {
-                for (let follower of data.following) {
+                for (const follower of data.following) {
                     this.athleteService.getAthleteById(follower.athlete_id).subscribe(ath => {
                         if (!this.meetingId || ath.participation && ath.participation.includes(this.meetingId)) {
                             this.following.push(ath);

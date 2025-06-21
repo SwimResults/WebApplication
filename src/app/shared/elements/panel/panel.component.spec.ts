@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PanelComponent } from './panel.component';
+import {PanelComponent} from './panel.component';
 
 describe('PanelComponent', () => {
   let component: PanelComponent;
@@ -8,7 +8,7 @@ describe('PanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PanelComponent ]
+        imports: [PanelComponent]
     })
     .compileComponents();
 

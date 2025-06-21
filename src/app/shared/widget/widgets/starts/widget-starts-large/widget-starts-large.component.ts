@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {User} from "../../../../../core/model/user/user.model";
 import {StartService, UserService} from "../../../../../core/service/api";
 import {Start} from "../../../../../core/model/start/start.model";
@@ -6,13 +6,25 @@ import {StartListTileConfig} from "../../../../../core/model/start/start-list-ti
 import {HeatImpl} from "../../../../../core/model/start/heat.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
+import {WidgetTitleComponent} from '../../../widget-title/widget-title.component';
+import {WidgetLoginRequiredComponent} from '../../../widget-login-required/widget-login-required.component';
+import {WidgetInfoTextComponent} from '../../../widget-info-text/widget-info-text.component';
+import {BtnComponent} from '../../../../elements/buttons/btn/btn.component';
+import {RouterLink} from '@angular/router';
+import {StartListComponent} from '../../../../../content/starts';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
-  selector: 'sr-widget-starts-large',
-  templateUrl: './widget-starts-large.component.html',
-  styleUrls: ['./widget-starts-large.component.scss']
+    selector: 'sr-widget-starts-large',
+    templateUrl: './widget-starts-large.component.html',
+    styleUrls: ['./widget-starts-large.component.scss'],
+    imports: [WidgetTitleComponent, WidgetLoginRequiredComponent, WidgetInfoTextComponent, BtnComponent, RouterLink, StartListComponent, TranslateModule]
 })
 export class WidgetStartsLargeComponent implements OnInit, OnDestroy {
+    private userService = inject(UserService);
+    private startService = inject(StartService);
+    private routeService = inject(RouteService);
+
     meetingId?: string;
     meetingIdSubscription: Subscription;
 
@@ -29,11 +41,7 @@ export class WidgetStartsLargeComponent implements OnInit, OnDestroy {
         widgetSize: true,
     } as StartListTileConfig
 
-    constructor(
-        private userService: UserService,
-        private startService: StartService,
-        private routeService: RouteService
-    ) {
+    constructor() {
         this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
             this.meetingId = data;
         })

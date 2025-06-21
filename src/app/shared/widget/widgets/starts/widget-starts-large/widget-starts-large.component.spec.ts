@@ -1,12 +1,14 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {WidgetStartsLargeComponent} from './widget-starts-large.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatIconModule} from "@angular/material/icon";
-import {WidgetModule} from "../../../widget.module";
-import {RouterTestingModule} from "@angular/router/testing";
+
 import {OAuthModule} from "angular-oauth2-oidc";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../../app.routes";
 
 describe('WidgetStartsLargeComponent', () => {
     let component: WidgetStartsLargeComponent;
@@ -14,16 +16,11 @@ describe('WidgetStartsLargeComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [WidgetStartsLargeComponent],
-            imports: [
-                HttpClientTestingModule,
-                TranslateModule.forRoot(),
-                MatIconModule,
-                WidgetModule,
-                RouterTestingModule,
-                OAuthModule.forRoot()
-            ]
-        })
+    imports: [TranslateModule.forRoot(),
+        MatIconModule,
+        OAuthModule.forRoot(), WidgetStartsLargeComponent],
+            providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+})
             .compileComponents();
 
         fixture = TestBed.createComponent(WidgetStartsLargeComponent);

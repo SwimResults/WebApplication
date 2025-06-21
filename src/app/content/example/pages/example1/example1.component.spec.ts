@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { Example1Component } from './example1.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {ElementsModule} from "../../../../shared/elements/elements.module";
+import {Example1Component} from './example1.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatIconModule} from "@angular/material/icon";
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('Example1Component', () => {
   let component: Example1Component;
@@ -12,14 +12,11 @@ describe('Example1Component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Example1Component ],
-      imports: [
-        HttpClientTestingModule,
-        ElementsModule,
+        imports: [
         MatIconModule,
-        TranslateModule.forRoot()
-      ]
-    })
+        TranslateModule.forRoot(), Example1Component],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(Example1Component);

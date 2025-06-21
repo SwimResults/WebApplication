@@ -1,4 +1,4 @@
-@import "../../../../../colors";
+@use "/src/colors";
 
 .logo-container,
 .info {
@@ -25,11 +25,16 @@
 }
 
 .country-container {
-  color: $color-text-gray;
+  color: colors.$color-text-gray;
   display: block;
   margin-top: 4px;
 }
 .flag,
 .country {
   vertical-align: middle;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 6px;
 }

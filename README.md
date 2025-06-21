@@ -1,6 +1,6 @@
 # SwimResults
 
-© Copyright 2022-2024 - SwimResults & Konrad Weiß
+© Copyright 2022-2025 - SwimResults & Konrad Weiß
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 

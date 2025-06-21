@@ -1,11 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {EventService, FileService} from "../../../../core/service/api";
 import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {ImportFileRequest, ImportFileService} from "../../../../core/service/api/import/import-file.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AdminImportTextDialogComponent} from "./admin-import-text-dialog.component";
+import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
+import {MatIcon} from '@angular/material/icon';
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {MatRadioButton, MatRadioGroup} from '@angular/material/radio';
+import {TranslateModule} from '@ngx-translate/core';
 
 interface FileList {
     name: string,
@@ -17,9 +22,16 @@ interface FileList {
 @Component({
     selector: 'sr-admin-import-tool',
     templateUrl: './admin-import-tool.component.html',
-    styleUrls: ['./admin-import-tool.component.scss']
+    styleUrls: ['./admin-import-tool.component.scss'],
+    imports: [BtnComponent, MatIcon, PanelComponent, ReactiveFormsModule, MatRadioGroup, MatRadioButton, TranslateModule]
 })
 export class AdminImportToolComponent implements OnInit {
+    private eventService = inject(EventService);
+    private fileService = inject(FileService);
+    private importService = inject(ImportFileService);
+    private fb = inject(FormBuilder);
+    private dialog = inject(MatDialog);
+
     @Input() meetingId?: string;
     @Input() meeting?: MeetingImpl;
 
@@ -40,13 +52,7 @@ export class AdminImportToolComponent implements OnInit {
     runningImport: boolean = false;
     runningCertificationToggle: boolean = false;
 
-    constructor(
-        private eventService: EventService,
-        private fileService: FileService,
-        private importService: ImportFileService,
-        private fb: FormBuilder,
-        private dialog: MatDialog
-    ) {
+    constructor() {
         this.importForm = this.fb.group({
             url: [],
             fileType: [],
@@ -73,7 +79,7 @@ export class AdminImportToolComponent implements OnInit {
         if (!this.meeting) return;
         this.files = [];
         for (const event of this.events) {
-            let file = {
+            const file = {
                 url: this.fileService.getUrlFromMask(this.meeting.data.ftp_result_list_mask, event.number),
                 name: "WK " + event.number,
                 event: event,
@@ -99,7 +105,7 @@ export class AdminImportToolComponent implements OnInit {
 
         console.log("starting import...");
 
-        let excludes: number[] = [];
+        const excludes: number[] = [];
         if (this.importForm.value.exclude) {
             const exs = this.importForm.value.exclude.split(",");
             for (const ex of exs) {
@@ -108,7 +114,7 @@ export class AdminImportToolComponent implements OnInit {
         }
 
 
-        let includes: number[] = [];
+        const includes: number[] = [];
         if (this.importForm.value.include) {
             const incs = this.importForm.value.include.split(",");
             for (const inc of incs) {
@@ -116,7 +122,7 @@ export class AdminImportToolComponent implements OnInit {
             }
         }
 
-        let data: ImportFileRequest = {
+        const data: ImportFileRequest = {
             url: this.importForm.value.url,
             text: "",
             file_extension: this.importForm.value.fileType.toUpperCase(),

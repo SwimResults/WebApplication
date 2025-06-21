@@ -1,4 +1,4 @@
-@import "../../../../../colors";
+@use "/src/colors";
 
 .logo-container,
 .info {
@@ -25,18 +25,18 @@
 }
 
 .sub-info {
-  color: $color-text-gray;
+  color: colors.$color-text-gray;
   display: block;
   margin-top: 4px;
 }
 
 .team a {
-  color: $color-text-gray;
+  color: colors.$color-text-gray;
   text-decoration: none;
 }
 
 .team a:hover {
-  color: $color-text-main;
+  color: colors.$color-text-main;
   text-decoration: underline;
 }
 
@@ -44,4 +44,9 @@
 sr-spinner {
   width: 70px;
   display: inline-block;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 6px;
 }

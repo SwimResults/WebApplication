@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WidgetClockSmallComponent } from './widget-clock-small.component';
+import {WidgetClockSmallComponent} from './widget-clock-small.component';
 
 describe('WidgetClockSmallComponent', () => {
   let component: WidgetClockSmallComponent;
@@ -8,7 +8,7 @@ describe('WidgetClockSmallComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetClockSmallComponent ]
+        imports: [WidgetClockSmallComponent]
     })
     .compileComponents();
 

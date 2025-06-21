@@ -13,66 +13,101 @@
   </form>
 </div>
 
-<h2>{{'EVENT.PAGE.EVENT_TITLE_EVENT' | translate}} {{currentEvent}}<ng-container *ngIf="event && event.style"> - {{event.relay_distance ? event.relay_distance : event.distance}}m {{'COMMON.STYLE.' + event.style.name + '.NAME' | translate}} {{event.name_extension}} {{'COMMON.GENDER.' + event.gender + '.NAME' | translate}}</ng-container></h2>
+<h2>{{ 'EVENT.PAGE.EVENT_TITLE_EVENT' | translate }} {{ currentEvent }}@if (event && event.style) {
+    - {{ event.relay_distance ? event.relay_distance : event.distance }}m {{ 'COMMON.STYLE.' + event.style.name + '.NAME' | translate }} {{ event.name_extension }} {{ 'COMMON.GENDER.' + event.gender + '.NAME' | translate }}
+}</h2>
 
 
-<sr-panel class="heat-starts"
-          *ngIf="heat"
-          panelTitle="{{'EVENT.PAGE.HEAT' | translate}}{{' ' + heat.number + '/' + maxHeats}}"
-          [heatForTimes]="heat"
->
-  <sr-spinner *ngIf="false"></sr-spinner>
-  <sr-start-list *ngIf="starts.length > 0 && !fetchingStarts.fetching"
-                 [starts]="starts"
-                 [config]="config"
-  ></sr-start-list>
-</sr-panel>
-<sr-no-content *ngIf="!password">
-  Kein Passwort gesetzt!
-</sr-no-content>
-<div class="heat-buttons" *ngIf="password">
-  <sr-panel class="heat-button-box">
-    <sr-btn (btnClick)="startHeat()"><mat-icon>start</mat-icon> <span>Lauf setzen</span></sr-btn>
-    <br>
-    <sr-btn (btnClick)="finishHeat()"><mat-icon>flag</mat-icon> <span>Lauf beenden</span></sr-btn>
-    <br>
-    <sr-btn [active]="false"><mat-icon>delete</mat-icon> <span>Ergebnisse löschen</span></sr-btn>
-    <br>
-    <sr-btn [active]="false"><mat-icon>check</mat-icon> <span>Ergeb. bestätigen</span></sr-btn>
-  </sr-panel>
-  <sr-panel class="heat-button-box" *ngIf="heat">
-    <form [formGroup]="timesForm">
-      <input type="time" formControlName="estimation">
-      <sr-btn (btnClick)="modifyTimes('estimation')" [loading]="runningUpdateTime === 'estimation'"><mat-icon>schedule</mat-icon> <span>vorl. Start setzen</span></sr-btn>
-      <br>
-      <input type="time" formControlName="start">
-      <sr-btn (btnClick)="modifyTimes('start')" [loading]="runningUpdateTime === 'start'"><mat-icon>schedule</mat-icon> <span>Startzeit setzen</span></sr-btn>
-      <br>
-      <input type="time" formControlName="finished">
-      <sr-btn (btnClick)="modifyTimes('finished')" [loading]="runningUpdateTime === 'finished'"><mat-icon>schedule</mat-icon> <span>Endzeit setzen</span></sr-btn>
-      <br>
-      <sr-btn [active]="false"><mat-icon>delete</mat-icon> <span>Zeiten löschen</span></sr-btn>
-    </form>
-  </sr-panel>
-  <sr-panel class="heat-button-box">
-    <form [formGroup]="resultForm" (ngSubmit)="addResult()">
-      <label for="lane_number">Bahn:</label>
-      <select id="lane_number" formControlName="lane">
-        <option *ngFor="let m of availableLanes" [value]="m">{{m}}</option>
-      </select>
-      <br>
-      <label for="result_time">Ergebnis:</label>
-      <input type="text" id="result_time" formControlName="result">
-      <br>
-      <label for="meters">Distanz:</label>
-      <select id="meters" formControlName="meters">
-        <option value="RT">Reaktion</option>
-        <option *ngFor="let m of availableMeters" [value]="m + 'm'">{{m + "m"}}</option>
-      </select>
-      <br>
-      <label for="has_finished">beendet:</label>
-      <input type="checkbox" id="has_finished" formControlName="finished">
-      <sr-btn><mat-icon>start</mat-icon> <span>Ergebnis eintragen</span></sr-btn>
-    </form>
-  </sr-panel>
-</div>
+@if (heat) {
+    <sr-panel class="heat-starts"
+              panelTitle="{{'EVENT.PAGE.HEAT' | translate}}{{' ' + heat.number + '/' + maxHeats}}"
+              [heatForTimes]="heat"
+    >
+        @if (false) {
+            <sr-spinner></sr-spinner>
+        }
+        @if (starts.length > 0 && !fetchingStarts.fetching) {
+            <sr-start-list
+                [starts]="starts"
+                [config]="config"
+            ></sr-start-list>
+        }
+    </sr-panel>
+}
+@if (!password) {
+    <sr-no-content>
+        Kein Passwort gesetzt!
+    </sr-no-content>
+}
+@if (password) {
+    <div class="heat-buttons">
+        <sr-panel class="heat-button-box">
+            <sr-btn (btnClick)="startHeat()">
+                <mat-icon>start</mat-icon>
+                <span>Lauf setzen</span></sr-btn>
+            <br>
+            <sr-btn (btnClick)="finishHeat()">
+                <mat-icon>flag</mat-icon>
+                <span>Lauf beenden</span></sr-btn>
+            <br>
+            <sr-btn [active]="false">
+                <mat-icon>delete</mat-icon>
+                <span>Ergebnisse löschen</span></sr-btn>
+            <br>
+            <sr-btn [active]="false">
+                <mat-icon>check</mat-icon>
+                <span>Ergeb. bestätigen</span></sr-btn>
+        </sr-panel>
+        @if (heat) {
+            <sr-panel class="heat-button-box">
+                <form [formGroup]="timesForm">
+                    <input type="time" formControlName="estimation">
+                    <sr-btn (btnClick)="modifyTimes('estimation')" [loading]="runningUpdateTime === 'estimation'">
+                        <mat-icon>schedule</mat-icon>
+                        <span>vorl. Start setzen</span></sr-btn>
+                    <br>
+                    <input type="time" formControlName="start">
+                    <sr-btn (btnClick)="modifyTimes('start')" [loading]="runningUpdateTime === 'start'">
+                        <mat-icon>schedule</mat-icon>
+                        <span>Startzeit setzen</span></sr-btn>
+                    <br>
+                    <input type="time" formControlName="finished">
+                    <sr-btn (btnClick)="modifyTimes('finished')" [loading]="runningUpdateTime === 'finished'">
+                        <mat-icon>schedule</mat-icon>
+                        <span>Endzeit setzen</span></sr-btn>
+                    <br>
+                    <sr-btn [active]="false">
+                        <mat-icon>delete</mat-icon>
+                        <span>Zeiten löschen</span></sr-btn>
+                </form>
+            </sr-panel>
+        }
+        <sr-panel class="heat-button-box">
+            <form [formGroup]="resultForm" (ngSubmit)="addResult()">
+                <label for="lane_number">Bahn:</label>
+                <select id="lane_number" formControlName="lane">
+                    @for (m of availableLanes; track m) {
+                        <option [value]="m">{{ m }}</option>
+                    }
+                </select>
+                <br>
+                <label for="result_time">Ergebnis:</label>
+                <input type="text" id="result_time" formControlName="result">
+                <br>
+                <label for="meters">Distanz:</label>
+                <select id="meters" formControlName="meters">
+                    <option value="RT">Reaktion</option>
+                    @for (m of availableMeters; track m) {
+                        <option [value]="m + 'm'">{{ m + "m" }}</option>
+                    }
+                </select>
+                <br>
+                <label for="has_finished">beendet:</label>
+                <input type="checkbox" id="has_finished" formControlName="finished">
+                <sr-btn>
+                    <mat-icon>start</mat-icon>
+                    <span>Ergebnis eintragen</span></sr-btn>
+            </form>
+        </sr-panel>
+    </div>
+}

@@ -1,19 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {ApiService} from "../api.service";
 import {environment} from "../../../../../environments/environment";
 import {BaseService} from "../base.service";
 import {Observable} from "rxjs";
 import {Dashboard} from "../../../model/user/dashboard.model";
-import {HttpParams} from "@angular/common/http";
+import { HttpParams } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService extends BaseService {
+    private apiService = inject(ApiService);
 
-    constructor(
-        private apiService: ApiService
-    ) {
+
+    constructor() {
         super("DashboardService", environment.api_urls.user_service);
     }
 

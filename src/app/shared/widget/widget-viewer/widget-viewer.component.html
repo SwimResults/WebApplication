@@ -1,6 +1,7 @@
 <div class="widget-containers">
-  <sr-widget-container
-    *ngFor="let widget of widgets"
-    [container]="widget"
-  ></sr-widget-container>
+    @for (widget of widgets; track widget) {
+        <sr-widget-container
+            [container]="widget"
+        ></sr-widget-container>
+    }
 </div>

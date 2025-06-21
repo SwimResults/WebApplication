@@ -1,4 +1,4 @@
-@import "../../../../colors";
+@use "/src/colors";
 
 :host {
     margin: 22px 0;
@@ -23,7 +23,7 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         display: inline-block;
-        width: calc(100% - 190px);
+        width: calc(100% - 40px - 42px - 42px - 42px - 80px);
         overflow-x: hidden;
         margin: 0 18px;
     }

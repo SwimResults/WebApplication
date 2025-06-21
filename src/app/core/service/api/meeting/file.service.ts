@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {ApiService} from "../api.service";
 import {environment} from "../../../../../environments/environment";
 import {BaseService} from "../base.service";
@@ -9,9 +9,9 @@ import {StorageFile} from "../../../model/meeting/storage-file.model";
   providedIn: 'root'
 })
 export class FileService extends BaseService{
-    constructor(
-        private apiService: ApiService
-    ) {
+    private apiService = inject(ApiService);
+
+    constructor() {
         super("FileService", environment.api_urls.meeting_service);
     }
 
@@ -43,7 +43,7 @@ export class FileService extends BaseService{
 
     public getUrlFromMask(mask: string, event: number): string {
         if (mask === undefined) return "";
-        let n = (mask.match(/#/g) || []).length;
+        const n = (mask.match(/#/g) || []).length;
         mask = mask.replace("#", "$");
         mask = mask.replaceAll("#", "");
 

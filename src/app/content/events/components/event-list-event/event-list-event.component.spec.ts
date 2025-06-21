@@ -1,8 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EventListEventComponent } from './event-list-event.component';
-import {RouterTestingModule} from "@angular/router/testing";
+import {EventListEventComponent} from './event-list-event.component';
 import {TranslateModule} from "@ngx-translate/core";
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../app.routes";
 
 describe('EventListEventComponent', () => {
   let component: EventListEventComponent;
@@ -10,11 +11,11 @@ describe('EventListEventComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EventListEventComponent ],
-      imports: [
-        RouterTestingModule,
-        TranslateModule.forRoot()
-      ]
+        imports: [
+            TranslateModule.forRoot(),
+            EventListEventComponent
+        ],
+        providers: [provideRouter(routes)]
     })
     .compileComponents();
 

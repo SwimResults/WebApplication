@@ -1,5 +1,5 @@
 FROM nginx
-COPY dist/swimresults /usr/share/nginx/html
+COPY dist/swimresults/browser /usr/share/nginx/html
 COPY /nginx.conf  /etc/nginx/conf.d/default.conf
 
 COPY src/assets/favicon /usr/share/nginx/html/

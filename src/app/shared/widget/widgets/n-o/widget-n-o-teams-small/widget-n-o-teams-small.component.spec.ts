@@ -1,10 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WidgetNOTeamsSmallComponent } from './widget-n-o-teams-small.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {WidgetNOTeamsSmallComponent} from './widget-n-o-teams-small.component';
+import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {TranslateModule} from "@ngx-translate/core";
-import {RouterTestingModule} from "@angular/router/testing";
-import {ElementsModule} from "../../../../elements/elements.module";
+
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../../app.routes";
 
 describe('WidgetNOTeamsSmallComponent', () => {
   let component: WidgetNOTeamsSmallComponent;
@@ -12,14 +14,10 @@ describe('WidgetNOTeamsSmallComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetNOTeamsSmallComponent ],
         imports: [
-            HttpClientTestingModule,
-            RouterTestingModule,
-            TranslateModule.forRoot(),
-            ElementsModule
-        ]
-    })
+            TranslateModule.forRoot(), WidgetNOTeamsSmallComponent],
+        providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(WidgetNOTeamsSmallComponent);

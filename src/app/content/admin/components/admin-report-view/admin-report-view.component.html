@@ -1,0 +1,41 @@
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Message</th>
+        <th>Reporter</th>
+        <th>Type</th>
+        <th>Subject</th>
+        <th>Action</th>
+    </tr>
+    @for (report of reports; track report._id) {
+        <tr class="{{report.completed ? 'completed' : ''}} {{report.acknowledged ? '' : 'new'}}">
+            <td>{{ report.added_at }}</td>
+            <td>{{ report.message }}</td>
+            <td>{{ report.user_id }}</td>
+            <td>{{ report.subject_type }}</td>
+            <td>
+                @switch (report.subject_type) {
+                    @case (UserReportSubjectType.ATHLETE) {
+                        <a [routerLink]="'/m/' + meetingId + '/athlete/' + report.subject_id">Athlete</a>
+                    }
+                    @case (UserReportSubjectType.TEAM) {
+                        <a [routerLink]="'/m/' + meetingId + '/team/' + report.subject_id">Team</a>
+                    }
+                    @default {
+                        {{ report.subject_id }}
+                    }
+                }
+            </td>
+            <td>
+                <sr-btn (btnClick)="acknowledgeReport(report)">
+                    <mat-icon>{{ report.acknowledged ? 'close' : 'check' }}</mat-icon>
+                </sr-btn>
+            </td>
+            <td>
+                <sr-btn (btnClick)="completeReport(report)">
+                    <mat-icon>{{ report.completed ? 'check_box' : 'check_box_outline_blank' }}</mat-icon>
+                </sr-btn>
+            </td>
+        </tr>
+    }
+</table>

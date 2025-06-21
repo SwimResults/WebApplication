@@ -1,4 +1,4 @@
-@import "../../../../../../colors";
+@use "/src/colors";
 
 sr-start-list {
     margin: 4px 0;
@@ -12,7 +12,7 @@ sr-start-list {
     .link {
         display: inline-block;
         vertical-align: middle;
-        color: $color-sr-first;
+        color: colors.$color-sr-first;
     }
     mat-icon {
         margin-right: 6px;

@@ -1,20 +1,34 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {Start} from "../../../../core/model/start/start.model";
 import {Heat, HeatImpl} from "../../../../core/model/start/heat.model";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {EventService, HeatService, StartService} from "../../../../core/service/api";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {EasyWkService} from "../../../../core/service/api/import/easy-wk.service";
 import {Observable} from "rxjs";
+import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
+import {MatIcon} from '@angular/material/icon';
+import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
+import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
+import {StartListComponent} from '../../../starts';
+import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
-  selector: 'sr-admin-heat-tool',
-  templateUrl: './admin-heat-tool.component.html',
-  styleUrls: ['./admin-heat-tool.component.scss']
+    selector: 'sr-admin-heat-tool',
+    templateUrl: './admin-heat-tool.component.html',
+    styleUrls: ['./admin-heat-tool.component.scss'],
+    imports: [ReactiveFormsModule, BtnComponent, MatIcon, PanelComponent, SpinnerComponent, StartListComponent, NoContentComponent, TranslateModule]
 })
 export class AdminHeatToolComponent implements OnInit {
+  private startService = inject(StartService);
+  private heatService = inject(HeatService);
+  private eventService = inject(EventService);
+  private easyWkService = inject(EasyWkService);
+  private fb = inject(FormBuilder);
+
   @Input() meetingId?: string;
 
   @Input() showHeat?: Observable<Heat>;
@@ -55,13 +69,7 @@ export class AdminHeatToolComponent implements OnInit {
 
   password: string | null = null;
 
-  constructor(
-    private startService: StartService,
-    private heatService: HeatService,
-    private eventService: EventService,
-    private easyWkService: EasyWkService,
-    private fb: FormBuilder,
-  ) {
+  constructor() {
     this.heatForm = this.fb.group({
       event: [],
       heat: []
@@ -191,19 +199,11 @@ export class AdminHeatToolComponent implements OnInit {
       this.easyWkService.raceResult(this.password).subscribe(data => data == "OK" ? this.fetchStarts() : null);
   }
 
-  deleteResults() {
-
-  }
-
-  verifyResults() {
-
-  }
-
   modifyTimes(time_type: string) {
     if (this.heat) {
       this.runningUpdateTime = time_type;
 
-      let time_input = this.timesForm.value[time_type];
+      const time_input = this.timesForm.value[time_type];
 
       const t: string[] = time_input.split(":");
 
@@ -220,7 +220,7 @@ export class AdminHeatToolComponent implements OnInit {
           break;
       }
 
-      let d = new Date();
+      const d = new Date();
 
       // 2023-11-07T05:30:00.000Z
       const zero = "" + ("0" + t[0]).substr(-2) + ":" + ("0" + t[1]).substr(-2);

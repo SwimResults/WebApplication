@@ -8,7 +8,7 @@ describe('PageStatsGeneralComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageStatsGeneralComponent ]
+        imports: [PageStatsGeneralComponent]
     })
     .compileComponents();
 

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EventListTileComponent } from './event-list-tile.component';
+import {EventListTileComponent} from './event-list-tile.component';
 
 describe('EventListTileComponent', () => {
   let component: EventListTileComponent;
@@ -8,7 +8,7 @@ describe('EventListTileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EventListTileComponent ]
+        imports: [EventListTileComponent]
     })
     .compileComponents();
 

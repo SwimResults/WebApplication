@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {OAuthService, TokenResponse} from "angular-oauth2-oidc";
 import {authConfig} from "../../config/auth.config";
 import {ReplaySubject} from "rxjs";
@@ -8,25 +8,23 @@ import {Router} from "@angular/router";
     providedIn: 'root'
 })
 export class AuthService {
+    private oAuthService = inject(OAuthService);
+    private router = inject(Router);
+
     private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
     public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
     private scopesSubject = new ReplaySubject<string[]>(1);
     public scopes = this.scopesSubject.asObservable();
 
-    constructor(
-        private oAuthService: OAuthService,
-        private router: Router
-    ) {
+    constructor() {
         this.scopesSubject.next([]);
         this.setup();
     }
 
     setup() {
-        console.log("setup oauth service");
         this.oAuthService.configure(authConfig);
         this.oAuthService.loadDiscoveryDocumentAndTryLogin().then(_ => {
-            console.log("finished load discovery");
             this.refreshToken().then(_ => {
                 this.oAuthService.setupAutomaticSilentRefresh();
             }).catch(_ => {
@@ -72,9 +70,6 @@ export class AuthService {
     }
 
     setScopes(scopes: object) {
-        console.log("scopes set!");
-        let s: string[];
-        s = scopes as string[];
-        this.scopesSubject.next(s);
+        this.scopesSubject.next(scopes as string[]);
     }
 }

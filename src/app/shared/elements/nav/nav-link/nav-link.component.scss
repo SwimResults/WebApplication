@@ -1,4 +1,4 @@
-@import "../../../../../colors";
+@use "/src/colors";
 
 .link {
   cursor: pointer;
@@ -25,11 +25,11 @@
   }
 
   &.active {
-    color: $color-nav-link-active;
-    background-color: $color-nav-bg-active;
+    color: colors.$color-nav-link-active;
+    background-color: colors.$color-nav-bg-active;
   }
 
   &:hover {
-    color: $color-nav-link-hover;
+    color: colors.$color-nav-link-hover;
   }
 }
