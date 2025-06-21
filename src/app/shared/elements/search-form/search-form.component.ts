@@ -27,7 +27,6 @@ export class SearchFormComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams
       .subscribe(params => {
-          console.log(params['query'])
           if (params && params['query'] != undefined) {
             this.searchForm.setValue({"query": params['query']})
             this.searchForm.value.query = params['query'];

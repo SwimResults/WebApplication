@@ -21,8 +21,6 @@ export class WidgetMeetingMediumComponent implements OnDestroy {
   constructor() {
     this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
-      console.log("fetched meeting:")
-      console.log(this.meeting)
     })
     this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
       this.meetingId = data;

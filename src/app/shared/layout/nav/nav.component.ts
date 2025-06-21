@@ -1,4 +1,4 @@
-import { Component, OnDestroy, inject } from '@angular/core';
+import {Component, OnDestroy, inject} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {RouteService} from "../../../core/service/route.service";
 import {Meeting} from "../../../core/model/meeting/meeting.model";
@@ -16,32 +16,35 @@ import {TranslateModule} from '@ngx-translate/core';
     imports: [RouterLink, MatIcon, NavDefaultComponent, NavEventComponent, TranslateModule]
 })
 export class NavComponent implements OnDestroy {
-  private routeService = inject(RouteService);
-  private menuService = inject(SidebarMenuService);
+    private routeService = inject(RouteService);
+    private menuService = inject(SidebarMenuService);
 
-  meeting: Meeting = {} as Meeting;
-  meetingId: string | undefined;
-  private meetingSubscription: Subscription;
-  private meetingIdSubscription: Subscription;
+    meeting?: Meeting;
+    meetingId?: string;
+    private meetingSubscription: Subscription;
+    private meetingIdSubscription: Subscription;
 
-  meetingParam = {short: ""}
+    meetingParam = {short: ""}
 
-  constructor() {
-    this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
-      this.meetingId = data;
-    })
-    this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
-      this.meeting = data.meeting;
-      this.meetingParam.short = data.meeting.series.name_short;
-    })
-  }
+    constructor() {
+        this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
+            this.meetingId = data;
+        })
+        this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
+            this.meeting = data.meeting;
+            if (data.has_meeting) {
+                console.log("meeting update: set short in nav to:", data.meeting.series.name_short);
+                this.meetingParam = {short: data.meeting.series.name_short};
+            }
+        })
+    }
 
-  ngOnDestroy() {
-    this.meetingIdSubscription.unsubscribe();
-    this.meetingSubscription.unsubscribe();
-  }
+    ngOnDestroy() {
+        this.meetingIdSubscription.unsubscribe();
+        this.meetingSubscription.unsubscribe();
+    }
 
-  hideSidebar() {
-    this.menuService.setViewType("hidden");
-  }
+    hideSidebar() {
+        this.menuService.setViewType("hidden");
+    }
 }

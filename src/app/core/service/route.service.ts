@@ -28,7 +28,6 @@ export class RouteService {
           route = route.firstChild;
           if (route.snapshot.paramMap.has('event')) {
             ev = route.snapshot.paramMap.get('event');
-            console.log("new event: " + ev);
             break;
           }
         }

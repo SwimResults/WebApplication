@@ -26,8 +26,6 @@ export class WidgetSponsorsMediumComponent implements OnDestroy {
     constructor() {
         this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
             this.meeting = new MeetingImpl(data.meeting);
-            console.log("fetched meeting:")
-            console.log(this.meeting)
 
             if (this.meeting && this.meeting.data && this.meeting.data.sponsors && this.meeting.data.sponsors.length > 0) {
                 this.sponsor = this.meeting.data.sponsors.at(Math.random() * 100 % this.meeting.data.sponsors.length)

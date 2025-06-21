@@ -26,8 +26,6 @@ export class AuthComponent implements OnDestroy {
       .subscribe((e) => {
         this.user = this.oAuthService.getIdentityClaims();
 
-        console.log(e);
-
         if (this.oAuthService.state) {
           let stateUrl = this.oAuthService.state;
           if (!stateUrl.startsWith('/')) {

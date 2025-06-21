@@ -23,10 +23,8 @@ export class AuthService {
     }
 
     setup() {
-        console.log("setup oauth service");
         this.oAuthService.configure(authConfig);
         this.oAuthService.loadDiscoveryDocumentAndTryLogin().then(_ => {
-            console.log("finished load discovery");
             this.refreshToken().then(_ => {
                 this.oAuthService.setupAutomaticSilentRefresh();
             }).catch(_ => {
@@ -72,7 +70,6 @@ export class AuthService {
     }
 
     setScopes(scopes: object) {
-        console.log("scopes set!");
         this.scopesSubject.next(scopes as string[]);
     }
 }

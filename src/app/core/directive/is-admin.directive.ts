@@ -10,9 +10,7 @@ export class IsAdminDirective implements OnInit {
     prevState?: boolean;
 
     ngOnInit() {
-        console.log("Check ADMIN DIRECTIVE: started");
         this.authService.scopes.subscribe(scopes => {
-            console.log("SHOW AUTH DIRECTIVE:" + scopes);
             if (scopes && scopes.includes("root")) {
                 this.viewContainer.clear();
                 this.viewContainer.createEmbeddedView(this.templateRef);

@@ -28,8 +28,6 @@ export class WidgetMeetingLargeComponent implements OnDestroy {
   constructor() {
     this.meetingSubscription = this.routeService.currentMeeting.subscribe(data => {
       this.meeting = new MeetingImpl(data.meeting);
-      console.log("fetched meeting:")
-      console.log(this.meeting)
 
       if (Number(this.meeting.organizer_id) != 0) {
         this.teamService.getTeamById(this.meeting.organizer_id).subscribe(data => {

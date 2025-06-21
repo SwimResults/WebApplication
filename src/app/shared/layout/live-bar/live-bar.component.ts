@@ -67,8 +67,6 @@ export class LiveBarComponent implements OnInit, OnDestroy {
             const finish = this.currentHeat.getFinishedAt();  // to check how long it is over and how much time until next
             const current = this.currentHeat.getStartDelayEstimation();  // to compare dates of current and next
 
-            console.log(finish.getTime())
-            console.log(finish.getUTCFullYear())
             if (finish.getUTCFullYear() > 2010) { // current heat is over
                 const d = now.getTime() - finish.getTime();
 

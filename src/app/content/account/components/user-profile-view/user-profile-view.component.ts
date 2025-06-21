@@ -33,7 +33,6 @@ export class UserProfileViewComponent implements OnInit {
 
   ngOnInit() {
     this.kcUser = this.oAuthService.getIdentityClaims();
-    console.log(this.kcUser);
 
     this.userService.getUser().subscribe(data => {
       this.user = data
