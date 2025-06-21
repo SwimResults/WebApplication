@@ -4,6 +4,7 @@ import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
 import {StartListTileComponent} from '../start-list-tile/start-list-tile.component';
+import {AthleteRelation} from "../../../../core/model/user/follower.model";
 
 @Component({
     selector: 'sr-start-list',
@@ -12,8 +13,9 @@ import {StartListTileComponent} from '../start-list-tile/start-list-tile.compone
     imports: [SpinnerComponent, StartListTileComponent]
 })
 export class StartListComponent {
-  @Input() starts!: Start[] | undefined;
-  @Input() config!: StartListTileConfig;
+    @Input() starts!: Start[] | undefined;
+    @Input() config!: StartListTileConfig;
+    @Input() athletes: AthleteRelation[] = [];
 
-  @Input() fetching: FetchingModel = {fetching: false};
+    @Input() fetching: FetchingModel = {fetching: false};
 }

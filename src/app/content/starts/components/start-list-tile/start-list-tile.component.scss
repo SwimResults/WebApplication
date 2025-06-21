@@ -1,170 +1,179 @@
 @use "/src/colors";
 
 .left-container {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 14px;
-  width: 40px;
-
-  &.left-container-with-times {
-    width: 85px;
-  }
-
-  &.icon-style-flat {
-    vertical-align: top;
-  }
-
-  .time {
     display: inline-block;
-    width: 45px;
-    text-align: left;
-    vertical-align: top;
-  }
+    vertical-align: middle;
+    margin-right: 14px;
+    width: 40px;
+
+    &.left-container-with-times {
+        width: 85px;
+    }
+
+    &.icon-style-flat {
+        vertical-align: top;
+    }
+
+    .time {
+        display: inline-block;
+        width: 45px;
+        text-align: left;
+        vertical-align: top;
+    }
 }
 
 .right-container {
-  display: inline-block;
-  vertical-align: middle;
-  width: calc(100% - 54px);
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 54px);
 
-  &.right-container-with-times {
-    width: calc(100% - 99px);
-  }
-
-  .header-row {
-    font-weight: bold;
-    display: block;
-  }
-
-  .content-row {
-    span {
-      display: inline-block;
-      vertical-align: middle;
+    &.right-container-with-times {
+        width: calc(100% - 99px);
     }
 
-    .meeting {
-      width: 180px;
+    .header-row {
+        font-weight: bold;
+        display: block;
     }
 
-    .meeting-date {
-      width: 70px
+    .content-row {
+        span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .meeting {
+            width: 180px;
+        }
+
+        .meeting-date {
+            width: 70px
+        }
+
+        .meeting-city {
+            width: 80px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow-x: hidden;
+        }
+
+        .event, .style {
+            font-weight: 700;
+        }
+
+        .event {
+            width: 70px;
+        }
+
+        .style {
+            width: 220px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .style.style-widget {
+            width: 146px;
+        }
+
+
+        .heat,
+        .lane {
+            width: 40px;
+        }
+
+        .athlete {
+            span {
+                display: inline-block;
+            }
+
+            .athlete-name {
+                width: 180px;
+                font-weight: 700;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow-x: hidden;
+            }
+
+            .athlete-year {
+                width: 40px;
+                margin-right: 12px;
+            }
+
+            .athlete-team {
+                width: 180px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow-x: hidden;
+            }
+
+            &.self {
+                color: #0e8d00;
+            }
+
+            &.following {
+                color: #2083c8;
+            }
+        }
+
+        .duration {
+            width: 90px;
+        }
+
+        .registration-time {
+            width: calc(90px - 24px);
+            padding-left: 24px;
+            color: colors.$color-text-gray;
+        }
+
+        .result-time {
+            font-weight: bold;
+            width: 100px;
+
+            .mat-icon {
+                vertical-align: middle;
+                font-weight: 700;
+                font-size: 20px;
+            }
+
+            &.result-better .mat-icon {
+                color: colors.$color-green;
+            }
+
+            &.result-worse .mat-icon {
+                color: colors.$color-red;
+            }
+        }
+
+        .lap-time-list {
+            display: block;
+        }
+
+        .lap-time {
+            .lap-meters {
+                background-color: colors.$color-sr-first;
+                color: white;
+                border-radius: 4px;
+                padding: 0;
+                font-size: 9px;
+                display: inline-block;
+                width: 20px;
+                text-align: center;
+            }
+
+            .result-time-string {
+                display: inline-block;
+                margin-left: 4px;
+            }
+        }
+
+        .reaction {
+            font-style: italic;
+        }
+
+        .reason {
+            color: colors.$color-disqualification;
+        }
     }
-
-    .meeting-city {
-      width: 80px;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow-x: hidden;
-    }
-
-    .event, .style {
-      font-weight: 700;
-    }
-
-    .event {
-      width: 70px;
-    }
-
-    .style {
-      width: 220px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .style.style-widget {
-      width: 146px;
-    }
-
-
-    .heat,
-    .lane {
-      width: 40px;
-    }
-
-    .athlete {
-      span {
-        display: inline-block;
-      }
-
-      .athlete-name {
-        width: 180px;
-        font-weight: 700;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow-x: hidden;
-      }
-
-      .athlete-year {
-        width: 40px;
-        margin-right: 12px;
-      }
-
-      .athlete-team {
-        width: 180px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow-x: hidden;
-      }
-    }
-
-    .duration {
-      width: 90px;
-    }
-
-    .registration-time {
-      width: calc(90px - 24px);
-      padding-left: 24px;
-      color: colors.$color-text-gray;
-    }
-
-    .result-time {
-      font-weight: bold;
-      width: 100px;
-
-      .mat-icon {
-        vertical-align: middle;
-        font-weight: 700;
-        font-size: 20px;
-      }
-
-      &.result-better .mat-icon {
-        color: colors.$color-green;
-      }
-      &.result-worse .mat-icon {
-        color: colors.$color-red;
-      }
-    }
-
-    .lap-time-list {
-      display: block;
-    }
-
-    .lap-time {
-      .lap-meters {
-        background-color: colors.$color-sr-first;
-        color: white;
-        border-radius: 4px;
-        padding: 0;
-        font-size: 9px;
-        display: inline-block;
-        width: 20px;
-        text-align: center;
-      }
-
-      .result-time-string {
-        display: inline-block;
-        margin-left: 4px;
-      }
-    }
-
-    .reaction {
-      font-style: italic;
-    }
-
-    .reason {
-      color: colors.$color-disqualification;
-    }
-  }
 }
 

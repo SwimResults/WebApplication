@@ -7,6 +7,7 @@ import {TranslateModule} from "@ngx-translate/core";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {provideRouter} from "@angular/router";
 import {routes} from "../../../../app.routes";
+import {OAuthModule} from "angular-oauth2-oidc";
 
 describe('LivetimingComponent', () => {
     let component: LivetimingComponent;
@@ -15,7 +16,10 @@ describe('LivetimingComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [
-                TranslateModule.forRoot(), LivetimingComponent],
+                TranslateModule.forRoot(),
+                LivetimingComponent,
+                OAuthModule.forRoot()
+            ],
             providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
         })
             .compileComponents();

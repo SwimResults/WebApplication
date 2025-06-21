@@ -7,6 +7,7 @@ import {TranslateModule} from "@ngx-translate/core";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {provideRouter} from "@angular/router";
 import {routes} from "../../../../app.routes";
+import {OAuthModule} from "angular-oauth2-oidc";
 
 describe('PageEventComponent', () => {
     let component: PageEventComponent;
@@ -16,7 +17,8 @@ describe('PageEventComponent', () => {
         await TestBed.configureTestingModule({
             imports: [
                 TranslateModule.forRoot(),
-                PageEventComponent
+                PageEventComponent,
+                OAuthModule.forRoot()
             ],
             providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
         })

@@ -18,6 +18,8 @@ import {NoContentComponent} from '../../../../shared/elements/no-content/no-cont
 import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
 import {StartListComponent} from '../../../starts';
 import {TranslateModule} from '@ngx-translate/core';
+import {UserDataService} from "../../../../core/service/user-data.service";
+import {AthleteRelation} from "../../../../core/model/user/follower.model";
 
 @Component({
     selector: 'sr-event-view',
@@ -31,14 +33,18 @@ export class EventViewComponent implements OnInit, OnDestroy {
     private routeService = inject(RouteService);
     private eventService = inject(EventService);
     private fileService = inject(FileService);
+    private userDataService = inject(UserDataService);
 
     meeting?: MeetingImpl;
     meetingId?: string;
     meetingSubscription: Subscription;
     meetingIdSubscription: Subscription;
+    followingSubscription: Subscription;
     eventNumber: number = 1;
 
     event: MeetingEvent = {} as MeetingEvent;
+
+    following: AthleteRelation[] = [];
 
     fileButtonData = {event_number: this.eventNumber};
 
@@ -71,11 +77,15 @@ export class EventViewComponent implements OnInit, OnDestroy {
         this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
             this.meetingId = data;
         })
+        this.followingSubscription = this.userDataService.following.subscribe(data => {
+            this.following = data;
+        })
     }
 
     ngOnDestroy() {
         this.meetingSubscription.unsubscribe();
         this.meetingIdSubscription.unsubscribe();
+        this.followingSubscription.unsubscribe();
     }
 
     ngOnInit(): void {

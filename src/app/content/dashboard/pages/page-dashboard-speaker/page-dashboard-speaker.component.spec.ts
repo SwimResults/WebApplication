@@ -7,6 +7,7 @@ import {provideRouter} from "@angular/router";
 import {routes} from "../../../../app.routes";
 import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {provideHttpClientTesting} from "@angular/common/http/testing";
+import {OAuthModule} from "angular-oauth2-oidc";
 
 describe('PageDashboardSpeakerComponent', () => {
     let component: PageDashboardSpeakerComponent;
@@ -16,7 +17,8 @@ describe('PageDashboardSpeakerComponent', () => {
         await TestBed.configureTestingModule({
             imports: [
                 TranslateModule.forRoot(),
-                PageDashboardSpeakerComponent
+                PageDashboardSpeakerComponent,
+                OAuthModule.forRoot()
             ],
             providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
         })

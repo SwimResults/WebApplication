@@ -8,7 +8,9 @@ describe('StartListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-        imports: [StartListComponent]
+        imports: [
+            StartListComponent
+        ]
     })
     .compileComponents();
 

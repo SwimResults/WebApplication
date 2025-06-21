@@ -43,23 +43,24 @@
         ||
         (listMode === 'results' && (!resultStarts || resultStarts.length <= 0))) {
             <sr-no-content>
-        {{'EVENT.PAGE.NO_STARTS_MESSAGE' | translate}}
+                {{ 'EVENT.PAGE.NO_STARTS_MESSAGE' | translate }}
             </sr-no-content>
         }
         @if (starts.length > 0 && (listMode === 'lanes' || listMode === 'finish')) {
             @for (heat of heats.keys(); track heat) {
-        <sr-panel class="heat-starts"
-                  panelTitle="{{heatData.get(heat)?.is_pre_list ? ('EVENT.PAGE.START_LIST' | translate) : (('EVENT.PAGE.HEAT' | translate) + ' ' + heat + '/' + heats.size)}}"
-                  [heatForTimes]="heatData.get(heat)"
-        >
-            @if (starts.length > 0) {
-                <sr-start-list
-                    [starts]="heats.get(heat)"
-                    [config]="config"
-                    [fetching]="fetchingStarts"
-            ></sr-start-list>
-            }
-        </sr-panel>
+                <sr-panel class="heat-starts"
+                          panelTitle="{{heatData.get(heat)?.is_pre_list ? ('EVENT.PAGE.START_LIST' | translate) : (('EVENT.PAGE.HEAT' | translate) + ' ' + heat + '/' + heats.size)}}"
+                          [heatForTimes]="heatData.get(heat)"
+                >
+                    @if (starts.length > 0) {
+                        <sr-start-list
+                            [starts]="heats.get(heat)"
+                            [config]="config"
+                            [athletes]="following"
+                            [fetching]="fetchingStarts"
+                        ></sr-start-list>
+                    }
+                </sr-panel>
             }
         }
         @if (listMode === 'results' && resultStarts && resultStarts.length > 0) {
@@ -68,16 +69,17 @@
                     @if (age && ((age.starts && age.starts.length <= 0) || !age.starts)) {
                         <sr-no-content>
                             {{ 'EVENT.PAGE.NO_STARTS_MESSAGE' | translate }}
-            </sr-no-content>
+                        </sr-no-content>
                     }
                     @if (age.starts) {
-            <sr-start-list
-                [starts]="age.starts"
-                [config]="config"
-                [fetching]="fetchingStarts"
-            ></sr-start-list>
+                        <sr-start-list
+                            [starts]="age.starts"
+                            [config]="config"
+                            [athletes]="following"
+                            [fetching]="fetchingStarts"
+                        ></sr-start-list>
                     }
-        </sr-panel>
+                </sr-panel>
             }
         }
     </div>

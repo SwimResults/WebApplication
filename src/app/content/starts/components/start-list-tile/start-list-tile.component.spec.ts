@@ -10,7 +10,9 @@ describe('StartListTileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-        imports: [StartListTileComponent],
+        imports: [
+            StartListTileComponent
+        ],
     providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

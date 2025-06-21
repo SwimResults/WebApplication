@@ -16,6 +16,8 @@ import {LivetimingTableComponent} from './livetiming-table/livetiming-table.comp
 import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
 import {LivetimingControlsComponent} from './livetiming-controls/livetiming-controls.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {UserDataService} from "../../../../core/service/user-data.service";
+import {AthleteRelation} from "../../../../core/model/user/follower.model";
 
 export interface ChangeHeatEvent {
     name: "event" | "heat" | "all" | "nothing";
@@ -38,6 +40,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     private heatService = inject(HeatService);
     private eventService = inject(EventService);
     private route = inject(ActivatedRoute);
+    private userDataService = inject(UserDataService);
 
 
     liveTimingUpdateInterval: number = 3000;
@@ -48,6 +51,9 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     meetingId?: string;
     meetingSubscription: Subscription;
     meetingIdSubscription: Subscription;
+    followingSubscription: Subscription;
+
+    following: AthleteRelation[] = [];
 
     currentEvent: number = 1;
     currentHeat: number = 1;
@@ -119,6 +125,9 @@ export class LivetimingComponent implements OnInit, OnDestroy {
         this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
             this.meetingId = data;
         })
+        this.followingSubscription = this.userDataService.following.subscribe(data => {
+            this.following = data;
+        })
     }
 
     startLiveCycle() {
@@ -152,6 +161,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.meetingSubscription.unsubscribe();
         this.meetingIdSubscription.unsubscribe();
+        this.followingSubscription.unsubscribe();
         this.stopLiveCycle()
     }
 

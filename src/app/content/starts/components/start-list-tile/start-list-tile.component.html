@@ -1,7 +1,8 @@
 @if (data) {
     <div>
         <div
-            class="left-container icon-style-{{getStyleType()}} {{config && config.showTimes && config.showIcon && data.heat ? 'left-container-with-times' : ''}}">
+            class="left-container icon-style-{{getStyleType()}} {{config && config.showTimes && config.showIcon && data.heat ? 'left-container-with-times' : ''}}"
+        >
             @if (config && config.showTimes && data.heat) {
                 <div class="time">
                     <sr-heat-times [heat]="data.heat"></sr-heat-times>
@@ -16,138 +17,126 @@
                     [textContent]="getIconTextContent()"
                 ></sr-icon-panel>
             }
-  </div>
-  <div class="right-container {{config && config.showTimes && config.showIcon && data.heat ? 'right-container-with-times' : ''}}">
-      <!--    <div class="header-row">-->
-      <!--      <span class="athlete" *ngIf="config.showAthlete && athlete">-->
-      <!--        <span class="link athlete-name"  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{athlete.name}}</span>-->
-      <!--        <span class="athlete-year">{{athlete.year}}</span>-->
-      <!--        <span class="link athlete-team"  [routerLink]="'/m/' + data.meeting + '/team/' + athlete.team._id">{{athlete.team.name}}</span>-->
-      <!--      </span>-->
-      <!--      <span class="event link" *ngIf="config.showEvent" [routerLink]="'/m/' + data.meeting + '/'">Wettkampf {{data.event}} - 50m Schmetterling weiblich</span>-->
-      <!--      <span class="meeting row-right link" *ngIf="config.showMeeting && meeting" [routerLink]="'/m/' + data.meeting + '/'">{{meeting.getShortSeriesName()}} <span *ngIf="meeting.location?.city">({{meeting.location.city}})</span></span>-->
-<!--    </div>-->
-      <div class="content-row">
-          @if (config && !data.emptyLane) {
-              @if (config.showEvent) {
-                  <span class="event link"
-                        [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'">{{ 'START.EVENT_SHORT' | translate }} {{ data.event }}</span>
-              }
-              @if (config.showStyle && event && event.style) {
-                  <span
-                      class="style link {{config && config.widgetSize ? 'style-widget' : ''}}"
-                      [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'"
-                  >
-                      {{ event.relay_distance ? event.relay_distance : event.distance }}
-                      m {{ 'COMMON.STYLE.' + event.style.name + '.NAME' | translate }}
-                  </span>
-              }
-              @if (config.showStyle && (!event || !event.style)) {
-                  <span class="style"></span>
-              }
-              @if (config.showMeeting && meeting) {
-                  <span class="meeting link" [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">
-        <span class="meeting-date">{{ meeting.getStartDate().getMonth() }}
-            /{{ meeting.getStartDate().getFullYear() }}</span>
-                      @if (meeting.location.city) {
-                          <span class="meeting-city">{{ meeting.location.city }}</span>
-                      }
-      </span>
-              }
-              @if (config.showHeat) {
-                  <span
-                      class="heat">{{ 'COMMON.HEAT.SHORT' | translate }} {{ data.isPreList() ? '?' : data.heat_number }}</span>
-              }
-              @if (config.showLane) {
-                  <span
-                      class="lane">{{ 'COMMON.LANE.SHORT' | translate }} {{ data.isPreList() ? '?' : data.lane }}</span>
-              }
-              @if (config.showAthlete) {
-                  <span class="athlete">
-        @if (!data.is_relay) {
-            <span class="link athlete-name"
-                  [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">{{ data.athlete_name }}</span>
-        }
-                      @if (data.is_relay) {
-                          <span class="athlete-name">{{ data.athlete_name }}</span>
-                      }
-                      <span class="athlete-year">{{ data.athlete_year }}</span>
-        <span class="link athlete-team"
-              [routerLink]="'/m/' + data.meeting + '/team/' + data.athlete_team">{{ data.athlete_team_name }}</span>
-      </span>
-              }
-              @if (config && (
-                  (!config.showMostSignificantTime && config.showRegistrationTime && data.hasResultType(resultTypes.REGISTRATION))
-                  ||
-                  (config.showMostSignificantTime && !data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP) && data.hasResultType(resultTypes.REGISTRATION))
-              )) {
-                  <span
-                      class="duration registration-time"
-                  >{{ getTimeString(data.getTimeMilliseconds(resultTypes.REGISTRATION)) }}</span>
-              }
-              @if (config && config.showResults) {
-                  @if (config && (
-                      (!config.showMostSignificantTime && config.showResultTime && data.hasResult())
-                      ||
-                      (config.showMostSignificantTime && data.hasResult())
-                  )) {
-                      <span
-                          class="duration result-time {{getGotBetter() ? 'result-better' : 'result-worse'}}"
-          >
-          <mat-icon>{{ getGotBetter() ? 'north_east' : 'south_east' }}</mat-icon>
-          <span class="result-time-string">{{ getTimeString(data.getResultMilliseconds()) }}</span>
-        </span>
-                  }
-                  @if (config && config.showMostSignificantTime && !data.hasResult() && data.hasResultType(resultTypes.LAP)) {
-                      <span
-                          class="duration lap-time"
-          >
-          <span class="lap-meters">{{ data.getMostRecentLap().lap_meters }}</span>
-          <span class="result-time-string">{{ getTimeString(data.getMostRecentLap().time) }}</span>
-        </span>
-                  }
-                  @if (config && (
-                      (!config.showMostSignificantTime && config.showReactionTime && data.hasResultType(resultTypes.REACTION))
-                      ||
-                      (config.showMostSignificantTime && data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP))
-                  )) {
-                      <span
-                          class="reaction duration"
-          >
-          <span
-              class="result-time-string">+{{ getReactionString(data.getTimeMilliseconds(resultTypes.REACTION)) }}</span>
-        </span>
-                  }
-                  <div class="lap-time-list">
-                      @if (config && config.showLapTimes && data.hasResultType(resultTypes.LAP)) {
-                          @for (lap of data.getLapTimes(); track lap) {
-                              <span
-                                  class="duration lap-time"
-              >
-              <span class="lap-meters">{{ lap.lap_meters }}</span>
-              <span class="result-time-string">{{ getTimeString(lap.time) }}</span>
-            </span>
-                          }
-                      }
-                  </div>
-                  @if (config && config.showDisqualification && data.disqualification.type && config && !config.laneAsIcon) {
-                      <div class="disqualification">
-                          <span class="reason">{{ getReason() }}</span>
-                      </div>
-                  }
-                  @if (config && config.showLapTimesPopup && data.hasResultType(resultTypes.LAP)) {
-                      <button
-                          class="sr-btn-bar sr-btn-icon sr-btn sr-right"
-                      >
-                          <mat-icon>clock</mat-icon>
-                      </button>
-                  }
-              }
-          }
-          @if (data.emptyLane) {
-              <i>{{ "START.LANE_STAYS_EMPTY" | translate:laneParam }}</i>
-          }
-      </div>
-  </div>
-</div>
+        </div>
+        <div class="right-container {{config && config.showTimes && config.showIcon && data.heat ? 'right-container-with-times' : ''}}">
+            <div class="content-row">
+                @if (config && !data.emptyLane) {
+                    @if (config.showEvent) {
+                        <span
+                            class="event link"
+                            [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'"
+                        >
+                            {{ 'START.EVENT_SHORT' | translate }} {{ data.event }}
+                        </span>
+                    }
+                    @if (config.showStyle && event && event.style) {
+                        <span
+                            class="style link {{config && config.widgetSize ? 'style-widget' : ''}}"
+                            [routerLink]="'/m/' + data.meeting + '/event/' + data.event + '/'"
+                        >
+                            {{ event.relay_distance ? event.relay_distance : event.distance }}
+                            m {{ 'COMMON.STYLE.' + event.style.name + '.NAME' | translate }}
+                        </span>
+                    }
+                    @if (config.showStyle && (!event || !event.style)) {
+                        <span class="style"></span>
+                    }
+                    @if (config.showMeeting && meeting) {
+                        <span class="meeting link" [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete">
+                            <span class="meeting-date">
+                                {{ meeting.getStartDate().getMonth() }}/{{ meeting.getStartDate().getFullYear() }}
+                            </span>
+                            @if (meeting.location.city) {
+                                <span class="meeting-city">{{ meeting.location.city }}</span>
+                            }
+                        </span>
+                    }
+                    @if (config.showHeat) {
+                        <span class="heat">{{ 'COMMON.HEAT.SHORT' | translate }} {{ data.isPreList() ? '?' : data.heat_number }}</span>
+                    }
+                    @if (config.showLane) {
+                        <span class="lane">{{ 'COMMON.LANE.SHORT' | translate }} {{ data.isPreList() ? '?' : data.lane }}</span>
+                    }
+                    @if (config.showAthlete) {
+                        <span class="athlete {{getAthleteNameClass()}}">
+                            @if (!data.is_relay) {
+                                <span
+                                    class="link athlete-name"
+                                    [routerLink]="'/m/' + data.meeting + '/athlete/' + data.athlete"
+                                >{{ data.athlete_name }}</span>
+                            }
+                            @if (data.is_relay) {
+                                <span class="athlete-name">{{ data.athlete_name }}</span>
+                            }
+                            <span class="athlete-year">{{ data.athlete_year }}</span>
+                            <span class="link athlete-team"
+                                [routerLink]="'/m/' + data.meeting + '/team/' + data.athlete_team">{{ data.athlete_team_name }}
+                            </span>
+                        </span>
+                    }
+                    @if (config && (
+                        (!config.showMostSignificantTime && config.showRegistrationTime && data.hasResultType(resultTypes.REGISTRATION))
+                        ||
+                        (config.showMostSignificantTime && !data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP) && data.hasResultType(resultTypes.REGISTRATION))
+                    )) {
+                        <span class="duration registration-time">
+                            {{ getTimeString(data.getTimeMilliseconds(resultTypes.REGISTRATION)) }}
+                        </span>
+                    }
+                    @if (config && config.showResults) {
+                        @if (config && (
+                            (!config.showMostSignificantTime && config.showResultTime && data.hasResult())
+                            ||
+                            (config.showMostSignificantTime && data.hasResult())
+                        )) {
+                            <span class="duration result-time {{getGotBetter() ? 'result-better' : 'result-worse'}}">
+                                <mat-icon>{{ getGotBetter() ? 'north_east' : 'south_east' }}</mat-icon>
+                                <span class="result-time-string">{{ getTimeString(data.getResultMilliseconds()) }}</span>
+                            </span>
+                        }
+                        @if (config && config.showMostSignificantTime && !data.hasResult() && data.hasResultType(resultTypes.LAP)) {
+                            <span class="duration lap-time">
+                                <span class="lap-meters">{{ data.getMostRecentLap().lap_meters }}</span>
+                                <span class="result-time-string">{{ getTimeString(data.getMostRecentLap().time) }}</span>
+                            </span>
+                        }
+                        @if (config && (
+                            (!config.showMostSignificantTime && config.showReactionTime && data.hasResultType(resultTypes.REACTION))
+                            ||
+                            (config.showMostSignificantTime && data.hasResultType(resultTypes.REACTION) && !data.hasResult() && !data.hasResultType(resultTypes.LAP))
+                        )) {
+                            <span class="reaction duration">
+                                <span class="result-time-string">
+                                    +{{ getReactionString(data.getTimeMilliseconds(resultTypes.REACTION)) }}
+                                </span>
+                            </span>
+                        }
+                        <div class="lap-time-list">
+                            @if (config && config.showLapTimes && data.hasResultType(resultTypes.LAP)) {
+                                @for (lap of data.getLapTimes(); track lap) {
+                                    <span class="duration lap-time">
+                                        <span class="lap-meters">{{ lap.lap_meters }}</span>
+                                        <span class="result-time-string">{{ getTimeString(lap.time) }}</span>
+                                    </span>
+                                }
+                            }
+                        </div>
+                        @if (config && config.showDisqualification && data.disqualification.type && config && !config.laneAsIcon) {
+                            <div class="disqualification">
+                                <span class="reason">{{ getReason() }}</span>
+                            </div>
+                        }
+                        @if (config && config.showLapTimesPopup && data.hasResultType(resultTypes.LAP)) {
+                            <button class="sr-btn-bar sr-btn-icon sr-btn sr-right">
+                                <mat-icon>clock</mat-icon>
+                            </button>
+                        }
+                    }
+                }
+                @if (data.emptyLane) {
+                    <i>{{ "START.LANE_STAYS_EMPTY" | translate:laneParam }}</i>
+                }
+            </div>
+        </div>
+    </div>
 }

@@ -9,6 +9,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {provideRouter} from "@angular/router";
 import {routes} from "../../../../app.routes";
+import {OAuthModule} from "angular-oauth2-oidc";
 
 describe('EventViewComponent', () => {
     let component: EventViewComponent;
@@ -19,7 +20,10 @@ describe('EventViewComponent', () => {
             imports: [
                 MatButtonToggleModule,
                 TranslateModule.forRoot(),
-                MatIconModule, EventViewComponent],
+                MatIconModule,
+                EventViewComponent,
+                OAuthModule.forRoot()
+            ],
             providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
         })
             .compileComponents();

@@ -13,7 +13,7 @@
     @if (!user.own_athlete_id) {
         <div>
             <i>{{ 'USER.SETTINGS.USER_ATHLETE.NO_USER_SET' | translate }}</i>
-    </div>
+        </div>
     }
     <br><br>
     @if (listAthletes) {
@@ -22,6 +22,6 @@
             [fetching]="fetchingAthletes"
             [config]="config"
             (refreshData)="fetchAthletes($event)"
-    ></sr-list-view>
+        ></sr-list-view>
     }
 }

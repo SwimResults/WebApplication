@@ -10,6 +10,7 @@ import {IconPanelComponent} from '../../../../shared/elements/icon-panel/icon-pa
 import {RouterLink} from '@angular/router';
 import {MatIcon} from '@angular/material/icon';
 import {TranslateModule} from '@ngx-translate/core';
+import {AthleteRelation, AthleteRelationType} from "../../../../core/model/user/follower.model";
 
 @Component({
     selector: 'sr-start-list-tile',
@@ -26,6 +27,8 @@ export class StartListTileComponent implements OnInit {
     @Input() start?: Start;
     @Input() startId?: StartId;
     @Input() startIdentifier?: string;
+    @Input() athletes: AthleteRelation[] = [];
+
     data: StartImpl = {} as StartImpl;
     meeting?: MeetingImpl
     //athlete?: Athlete;
@@ -111,6 +114,25 @@ export class StartListTileComponent implements OnInit {
         //if (this.data.certified && this.data.rank) return this.data.rank + ".";
         if (this.data.rank) return this.data.rank + ".";
         return undefined;
+    }
+
+    getAthleteNameClass(): string {
+        const relation = this.athletes.find(
+            (r: AthleteRelation) => r.athleteId === this.data.athlete
+        );
+
+        if (!relation) {
+            return '';
+        }
+
+        switch (relation.type) {
+            case AthleteRelationType.SELF:
+                return 'self';
+            case AthleteRelationType.FOLLOW:
+                return 'following';
+            default:
+                return '';
+        }
     }
 
     getStyleType(): string {

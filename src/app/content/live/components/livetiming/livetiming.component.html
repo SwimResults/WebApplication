@@ -1,16 +1,15 @@
 @if (meeting && meeting.data && meeting.data.has_livetiming && meeting.hasData()) {
     <div class="livetiming-grid">
         @if (fetchingHeat.fetching || fetchingEvent.fetching || fetchingStarts.fetching) {
-            <sr-spinner [style]="'material'" spinnerSize="text"
-            ></sr-spinner>
+            <sr-spinner [style]="'material'" spinnerSize="text"></sr-spinner>
         }
-    <sr-livetiming-header
-        class="livetiming-grid-element"
-        [liveSettingsData]="liveSettingsData"
-        [heat]="heat"
-        [meeting]="meeting"
-        (changeHeat)="onChangeHeat($event)"
-    ></sr-livetiming-header>
+        <sr-livetiming-header
+            class="livetiming-grid-element"
+            [liveSettingsData]="liveSettingsData"
+            [heat]="heat"
+            [meeting]="meeting"
+            (changeHeat)="onChangeHeat($event)"
+        ></sr-livetiming-header>
         @if (event && event.event) {
             <sr-panel
                 class="livetiming-grid-element"
@@ -18,41 +17,42 @@
             >
                 @if (meeting) {
                     <sr-livetiming-table
-            [starts]="starts"
-            [meeting]="meeting"
-            [config]="config"
+                        [starts]="starts"
+                        [athletes]="following"
+                        [meeting]="meeting"
+                        [config]="config"
                     ></sr-livetiming-table>
                 }
             </sr-panel>
         }
         @if (starts.length < 1) {
             <sr-no-content>
-        {{ 'LIVE.NO_STARTS_MESSAGE' | translate }}
+                {{ 'LIVE.NO_STARTS_MESSAGE' | translate }}
             </sr-no-content>
         }
-    <sr-livetiming-controls
-        class="livetiming-grid-element"
-        (changeHeat)="onChangeHeat($event)"
-        [currentEvent]="currentEvent"
-        [currentHeat]="currentHeat"
-        [hasPrevEvent]="event.prev_event && event.prev_event.number !== undefined"
-        [hasNextEvent]="event.next_event && event.next_event.number !== undefined"
-        [heatAmount]="heatAmount"
-    ></sr-livetiming-controls>
+        <sr-livetiming-controls
+            class="livetiming-grid-element"
+            (changeHeat)="onChangeHeat($event)"
+            [currentEvent]="currentEvent"
+            [currentHeat]="currentHeat"
+            [hasPrevEvent]="event.prev_event && event.prev_event.number !== undefined"
+            [hasNextEvent]="event.next_event && event.next_event.number !== undefined"
+            [heatAmount]="heatAmount"
+        ></sr-livetiming-controls>
     </div>
 }
 @if (meeting && (meeting.data && !meeting.data.has_livetiming || !meeting.data)) {
     <sr-no-content>
-    {{ 'LIVE.NO_LIVETIMING_MESSAGE' | translate }}
+        {{ 'LIVE.NO_LIVETIMING_MESSAGE' | translate }}
     </sr-no-content>
 }
 @if (meeting && !meeting.hasData()) {
     <sr-no-content>
-    {{ 'LIVE.NO_LIVETIMING_YET_MESSAGE' | translate }}
+        {{ 'LIVE.NO_LIVETIMING_YET_MESSAGE' | translate }}
     </sr-no-content>
 }
 @if (!meeting) {
     <sr-no-content>
-    {{ 'LIVE.NO_CONTENT_MESSAGE' | translate }}
+        {{ 'LIVE.NO_CONTENT_MESSAGE' | translate }}
     </sr-no-content>
 }

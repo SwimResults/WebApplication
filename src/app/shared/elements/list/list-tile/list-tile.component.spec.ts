@@ -6,6 +6,7 @@ import {provideHttpClientTesting} from "@angular/common/http/testing";
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {provideRouter} from "@angular/router";
 import {routes} from "../../../../app.routes";
+import {OAuthModule} from "angular-oauth2-oidc";
 
 describe('ListTileComponent', () => {
   let component: ListTileComponent;
@@ -13,7 +14,10 @@ describe('ListTileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-        imports: [ListTileComponent],
+        imports: [
+            ListTileComponent,
+            OAuthModule.forRoot()
+        ],
         providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
 })
     .compileComponents();
