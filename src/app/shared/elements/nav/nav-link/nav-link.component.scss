@@ -1,35 +1,37 @@
 @use "/src/colors";
 
 .link {
-  cursor: pointer;
-  margin: 12px 8px;
-  border-radius: 8px;
-  padding: 8px;
-  transition: 0.2s;
+    cursor: pointer;
+    margin: 12px 8px;
+    border-radius: 8px;
+    padding: 8px;
+    transition: 0.2s;
+    display: block;
+    color: colors.$color-nav-link;
 
-  .link-name {
-    margin-left: 26px;
-    display: inline-block;
-    margin-top: 3px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width: 150px;
-    vertical-align: middle;
-  }
+    .link-name {
+        margin-left: 26px;
+        display: inline-block;
+        margin-top: 3px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 150px;
+        vertical-align: middle;
+    }
 
-  .mat-icon {
-    border-radius: 4px;
-    padding: 4px;
-    vertical-align: middle;
-  }
+    .mat-icon {
+        border-radius: 4px;
+        padding: 4px;
+        vertical-align: middle;
+    }
 
-  &.active {
-    color: colors.$color-nav-link-active;
-    background-color: colors.$color-nav-bg-active;
-  }
+    &.active {
+        color: colors.$color-nav-link-active;
+        background-color: colors.$color-nav-bg-active;
+    }
 
-  &:hover {
-    color: colors.$color-nav-link-hover;
-  }
+    &:hover {
+        color: colors.$color-nav-link-hover;
+    }
 }
