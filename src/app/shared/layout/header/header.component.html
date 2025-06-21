@@ -3,20 +3,20 @@
     <sr-icon-panel class="icon-btn-menu" icon="menu" (click)="showMenu()"></sr-icon-panel>
     @if (has_meeting && meeting) {
         <div class="title-box">
-      <span class="title">
-        {{ meeting.getFullSeriesNameWithYear() }}
-      </span>
+            <span class="title">
+                {{ meeting.getFullSeriesNameWithYear() }}
+            </span>
             @for (subtitle of meeting.subtitles; track subtitle) {
                 <span class="subtitle">
-          {{ subtitle }}
-        </span>
+                    {{ subtitle }}
+                </span>
             }
-    </div>
+        </div>
     }
     @if (!has_meeting) {
         <div class="title-box">
             <span class="title">SwimResults</span>
-    </div>
+        </div>
     }
     <sr-header-buttons class="buttons"></sr-header-buttons>
 </sr-panel>
@@ -24,20 +24,20 @@
 <sr-panel class="title-mobile">
     @if (has_meeting && meeting) {
         <div class="title-box">
-      <span class="title">
-        {{ meeting.getFullSeriesNameWithYear() }}
-      </span>
+            <span class="title">
+                {{ meeting.getFullSeriesNameWithYear() }}
+            </span>
             @for (subtitle of meeting.subtitles; track subtitle) {
                 <span class="subtitle">
-          {{ subtitle }}
-        </span>
+                    {{ subtitle }}
+                </span>
             }
-    </div>
+        </div>
     }
     @if (!has_meeting) {
         <div class="title-box">
             <span class="title">SwimResults</span>
-    </div>
+        </div>
     }
 </sr-panel>
 
