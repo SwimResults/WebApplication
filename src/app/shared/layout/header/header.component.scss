@@ -25,6 +25,7 @@
         display: inline-block;
         width: calc(100% - 40px - 42px - 42px - 42px - 80px);
         overflow-x: hidden;
+        overflow-y: hidden;
         margin: 0 18px;
     }
 }
@@ -58,7 +59,7 @@
     }
 
     sr-header-buttons {
-        margin-left: calc(100% - 154px);
+        margin-left: calc(100% - 205px);
     }
 
     .title-mobile {
