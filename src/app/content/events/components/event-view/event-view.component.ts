@@ -186,12 +186,47 @@ export class EventViewComponent implements OnInit, OnDestroy {
                                 age.starts = age.starts.sort((a, b) => {
                                     const aS = new StartImpl(a);
                                     const bS = new StartImpl(b);
+
                                     if (aS.disqualification.reason) return 1;
                                     if (bS.disqualification.reason) return -1;
                                     if (!aS.getResultMilliseconds()) return 1;
                                     if (!bS.getResultMilliseconds()) return -1;
+
                                     return aS.getResultMilliseconds() - bS.getResultMilliseconds();
                                 })
+
+                                // TODO: reassign ranks for all age groups, not working because of starters being not in the ranking:
+                                // https://bsv-sws.de/images/ergebnisdienst/bm2025/proto_wk002.pdf
+                                // Assign ranks
+                                // let currentRank = 1;
+                                // let lastTime: number | null = null;
+                                // let skippedRanks = 0;
+                                //
+                                // for (let i = 0; i < age.starts.length; i++) {
+                                //     const start = age.starts[i];
+                                //     const startImpl = new StartImpl(start);
+                                //
+                                //     if (startImpl.disqualification.reason || !startImpl.getResultMilliseconds()) {
+                                //         start.rank = 0;
+                                //         skippedRanks++;
+                                //         continue;
+                                //     }
+                                //
+                                //     const time = startImpl.getResultMilliseconds();
+                                //
+                                //     if (lastTime === null) {
+                                //         start.rank = currentRank;
+                                //     } else if (time === lastTime) {
+                                //         start.rank = currentRank;
+                                //         skippedRanks++;
+                                //     } else {
+                                //         currentRank += skippedRanks + 1;
+                                //         start.rank = currentRank;
+                                //         skippedRanks = 0;
+                                //     }
+                                //
+                                //     lastTime = time;
+                                // }
                             }
                             this.resultStarts.push(age)
                         }
