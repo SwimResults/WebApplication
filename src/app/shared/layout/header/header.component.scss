@@ -11,7 +11,6 @@
 .title {
     font-weight: 700;
     font-size: 22px;
-    height: 24px;
 }
 
 .subtitle {
@@ -20,11 +19,8 @@
 
 .header {
     .title-box {
-        white-space: nowrap;
-        text-overflow: ellipsis;
         display: inline-block;
         width: calc(100% - 40px - 42px - 42px - 42px - 80px);
-        overflow-x: hidden;
         margin: 0 18px;
     }
 }
@@ -58,7 +54,7 @@
     }
 
     sr-header-buttons {
-        margin-left: calc(100% - 154px);
+        margin-left: calc(100% - 205px);
     }
 
     .title-mobile {
