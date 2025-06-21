@@ -8,14 +8,13 @@ import {Subscription} from "rxjs";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
 import {AthleteProfileIntroComponent} from '../../components';
-import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
 import {AthleteStartsComponent} from '../../components';
 
 @Component({
     selector: 'sr-page-athlete',
     templateUrl: './page-athlete.component.html',
     styleUrls: ['./page-athlete.component.scss'],
-    imports: [SpinnerComponent, AthleteProfileIntroComponent, PanelComponent, AthleteStartsComponent]
+    imports: [SpinnerComponent, AthleteProfileIntroComponent, AthleteStartsComponent]
 })
 export class PageAthleteComponent implements OnInit, OnDestroy {
   private athleteService = inject(AthleteService);

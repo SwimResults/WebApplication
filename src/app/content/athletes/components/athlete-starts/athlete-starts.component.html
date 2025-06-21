@@ -1,5 +1,25 @@
-<sr-start-list
-  [starts]="starts"
-  [config]="config"
-  [fetching]="fetchingStarts"
-></sr-start-list>
+@if (meetingId === undefined && startByMeeting) {
+    @for (entry of startByMeeting; track entry) {
+        <sr-panel class="heat-starts" [panelTitle]="entry[0]">
+            <sr-start-list
+                [starts]="entry[1]"
+                [config]="config"
+                [fetching]="fetchingStarts"
+            ></sr-start-list>
+        </sr-panel>
+    }
+} @else {
+    @if (fetchingStarts.fetching) {
+        <sr-spinner></sr-spinner>
+    } @else {
+        @for (startsDay of startsByDay.values(); track startsDay.startDateString) {
+            <sr-panel class="heat-starts" panelTitle="{{('COMMON.DATE.DAY.' + startsDay.startDate.getDay() | translate) + ' - ' + startsDay.startDateString}}">
+                <sr-start-list
+                    [starts]="startsDay.starts"
+                    [config]="config"
+                    [fetching]="fetchingStarts"
+                ></sr-start-list>
+            </sr-panel>
+        }
+    }
+}
