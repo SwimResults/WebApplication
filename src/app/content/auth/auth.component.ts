@@ -23,7 +23,7 @@ export class AuthComponent implements OnDestroy {
   constructor() {
     this.eventSubscription = this.oAuthService.events
       .pipe(filter((e) => e.type === 'token_received'))
-      .subscribe((e) => {
+      .subscribe((_) => {
         this.user = this.oAuthService.getIdentityClaims();
 
         if (this.oAuthService.state) {
