@@ -6,12 +6,7 @@
         @if (heat) {
             <sr-widget-title icon="more_time">{{ 'WIDGET.DELAY.TITLE' | translate }}</sr-widget-title>
             <span class="number {{heat.isDelayed() ? 'delayed' : ''}}">
-                @if (delayedHours) {
-                    {{ delayedHours }}<span class="unit">h</span>
-                }
-                @if (!delayedHours || (delayedHours && delayedMinutes)) {
-                    {{ delayedMinutes }}<span class="unit">min</span>
-                }
+                @if (delayedHours) {{{ delayedHours }}<span class="unit">h</span>}@if (!delayedHours || (delayedHours && delayedMinutes)) {{{ delayedMinutes }}<span class="unit">min</span>}
             </span>
             @if (heat.isDelayed()) {
                 <span class="subtitle">{{ 'WIDGET.DELAY.BEHIND_SCHEDULE' | translate }}</span>
