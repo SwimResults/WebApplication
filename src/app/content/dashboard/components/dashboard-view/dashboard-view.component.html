@@ -1,6 +1,13 @@
 @if (isAuthed && kcUser && welcomeMessageParam.username) {
     <h1>{{ 'DASHBOARD.WELCOME_MESSAGE' | translate:welcomeMessageParam }}</h1>
 }
+<p class="dashboard-info">{{
+        "DASHBOARD.MEETING_INFO_MESSAGE" | translate:{
+            meetingTitle: meeting?.getFullSeriesNameWithYear(),
+            place: meeting?.location?.city,
+            date: meeting?.getDateStringWithYear()
+        }
+    }}</p>
 <p class="dashboard-info">{{"DASHBOARD.FIND_MORE_MESSAGE" | translate}} <span style="white-space: nowrap;">(<mat-icon>menu</mat-icon>)</span></p>
 @if (fetchingDashboard) {
     <sr-spinner></sr-spinner>

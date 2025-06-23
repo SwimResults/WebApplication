@@ -351,6 +351,7 @@
     },
     "DASHBOARD": {
         "WELCOME_MESSAGE": "Willkommen zurück, {{username}}!",
+        "MEETING_INFO_MESSAGE": "Hier findest du Meldungen, Ergebnisse, Livetiming und mehr für '{{meetingTitle}}' am {{date}} in {{place}}.",
         "FIND_MORE_MESSAGE": "Das Dashboard zeigt die wichtigsten Informationen an. Livetiming, Sportler- und Vereinssuche und Wettkämpfe findest du über das Menü."
     },
     "REPORT": {
