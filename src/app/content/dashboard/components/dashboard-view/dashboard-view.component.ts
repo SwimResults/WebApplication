@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {DashboardService} from "../../../../core/service/api/user/dashboard.service";
 import {Dashboard} from "../../../../core/model/user/dashboard.model";
 import {AuthService} from "../../../../core/service/auth.service";
