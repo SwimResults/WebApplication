@@ -67,7 +67,7 @@ export class AppComponent implements OnDestroy {
 
                 const title = this.meeting.getFullSeriesNameWithYear();
                 const place = this.meeting.location.city;
-                const date = this.meeting.getDateString();
+                const date = this.meeting.getDateStringWithYear();
 
                 this.headerTitle.setTitle(`${title} | SwimResults`);
 
