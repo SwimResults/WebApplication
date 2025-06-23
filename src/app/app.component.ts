@@ -1,4 +1,4 @@
-import { Component, OnDestroy, inject } from '@angular/core';
+import {Component, inject, OnDestroy} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {environment} from 'src/environments/environment';
 import {SidebarMenuService} from "./core/service/sidebar-menu.service";
@@ -66,10 +66,16 @@ export class AppComponent implements OnDestroy {
             if (this.meeting && this.meeting.meet_id) {
 
                 const title = this.meeting.getFullSeriesNameWithYear();
+                const place = this.meeting.location.city;
+                const date = this.meeting.getDateString();
 
                 this.headerTitle.setTitle(`${title} | SwimResults`);
 
-                this.translateService.get("META.DESCRIPTION", {meetingTitle: title}).subscribe({
+                this.translateService.get("META.DESCRIPTION", {
+                    meetingTitle: title,
+                    place: place,
+                    date: date
+                }).subscribe({
                     next: text => {
                         this.headerMeta.updateTag({
                             name: 'description', content: text
