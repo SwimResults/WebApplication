@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, inject} from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
 import {StartService} from "../../../../core/service/api";
 import {Start, StartImpl} from "../../../../core/model/start/start.model";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
@@ -74,7 +74,7 @@ export class AthleteStartsComponent implements OnInit {
         this.startsByDay = new Map<string, AthleteStartsDay>();
 
         for (const start of this.starts) {
-            const startAtDate = new StartImpl(start).heat.getStartAt();
+            const startAtDate = new StartImpl(start).heat.getEstimatedStart();
             startAtDate.setHours(0, 0, 0, 0);
             const dateString = startAtDate.getDate() + "." + (startAtDate.getMonth() + 1) + "." + startAtDate.getFullYear();
             if (!this.startsByDay.has(dateString)) {
