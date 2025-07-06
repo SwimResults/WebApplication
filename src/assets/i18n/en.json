@@ -202,7 +202,8 @@
         "PROFILE": {
             "FOLLOW_BUTTON_TEXT": "Follow",
             "UNFOLLOW_BUTTON_TEXT": "Unfollow"
-        }
+        },
+        "CERTIFICATES": "Certificates"
     },
     "HEADER": {
         "MENU": {
