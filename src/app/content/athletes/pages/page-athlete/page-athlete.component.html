@@ -5,7 +5,19 @@
     @if (athlete._id) {
         <sr-athlete-profile-intro [athlete]="athlete"></sr-athlete-profile-intro>
     }
-  <h2>Starts</h2>
+
+    @if (meeting && meeting.data && meeting.data.has_certificates && certificates && certificates.length > 0) {
+        <sr-panel panelTitle="{{'ATHLETE.CERTIFICATES' | translate}}">
+            @for (cert of certificates; track cert._id) {
+                <div class="certificate">
+                    <mat-icon>workspace_premium</mat-icon>
+                    <a target="_blank" href="{{getCertificateUrl(cert)}}">{{cert.name}}</a>
+                </div>
+            }
+        </sr-panel>
+    }
+
+    <h2>Starts</h2>
     @if (athleteId) {
         <sr-athlete-starts [athleteId]="athleteId" [meetingId]="meetingId"></sr-athlete-starts>
     }

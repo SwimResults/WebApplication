@@ -202,7 +202,8 @@
         "PROFILE": {
             "FOLLOW_BUTTON_TEXT": "Folgen",
             "UNFOLLOW_BUTTON_TEXT": "Entfolgen"
-        }
+        },
+        "CERTIFICATES": "Urkunden"
     },
     "HEADER": {
         "MENU": {

@@ -6,6 +6,7 @@ import {Athlete} from "../../../model";
 import {environment} from "../../../../../environments/environment";
 import {PagingRequest} from "../../../model/common/paging-request.model";
 import { HttpParams } from "@angular/common/http";
+import {Certificate} from "../../../model/athlete/certificate.model";
 
 @Injectable({
   providedIn: 'root'
@@ -59,5 +60,9 @@ export class AthleteService extends BaseService{
 
   public getAthletesByTeamAndMeeting(team: string, meeting: string, paging: PagingRequest): Observable<Athlete[]> {
     return this.apiService.get(this.API_URL, "athlete/team/" + team + "/meet/" + meeting, paging.toParams());
+  }
+
+  public getCertificatesByAthleteAndMeeting(athleteId: string, meeting: string): Observable<Certificate[]> {
+      return this.apiService.get(this.API_URL, `certificate/athlete/${athleteId}/meet/${meeting}`)
   }
 }

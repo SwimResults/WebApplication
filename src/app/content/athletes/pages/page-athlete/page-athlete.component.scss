@@ -1,5 +1,14 @@
 sr-athlete-profile-intro {
-  display: block;
-  margin: 44px auto;
-  text-align: center;
+    display: block;
+    margin: 44px auto;
+    text-align: center;
+}
+
+.certificate {
+    mat-icon {
+        margin-right: 8px;
+    }
+    a, mat-icon {
+        vertical-align: middle;
+    }
 }
