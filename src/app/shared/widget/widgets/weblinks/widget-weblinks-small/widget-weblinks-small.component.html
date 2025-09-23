@@ -15,5 +15,19 @@
                    [href]="meeting.data.website_url">{{ 'WIDGET.WEBLINKS.WEBSITE_LINK_TEXT' | translate }}</a>
             </div>
         }
+        @if (meeting.data.instagram_url) {
+            <div class="link-tile">
+                <mat-icon>image</mat-icon>
+                <a class="link"
+                   [href]="meeting.data.instagram_url">{{ 'WIDGET.WEBLINKS.INSTAGRAM_LINK_TEXT' | translate }}</a>
+            </div>
+        }
+        @if (meeting.data.facebook_url) {
+            <div class="link-tile">
+                <mat-icon>post_add</mat-icon>
+                <a class="link"
+                   [href]="meeting.data.facebook_url">{{ 'WIDGET.WEBLINKS.FACEBOOK_LINK_TEXT' | translate }}</a>
+            </div>
+        }
     </div>
 }
