@@ -339,7 +339,9 @@
         "WEBLINKS": {
             "TITLE": "Weblinks",
             "LIVESTREAM_LINK_TEXT": "Livestream",
-            "WEBSITE_LINK_TEXT": "Website"
+            "WEBSITE_LINK_TEXT": "Website",
+            "INSTAGRAM_LINK_TEXT": "Instagram",
+            "FACEBOOK_LINK_TEXT": "Facebook"
         },
         "SPONSORS": {
             "TITLE": "Sponsors",

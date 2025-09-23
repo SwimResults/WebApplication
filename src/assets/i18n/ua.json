@@ -266,6 +266,13 @@
         },
         "FILE": {
             "NOT_FOUND_MESSAGE": "{{filename}} не знайдено."
+        },
+        "WEBLINKS": {
+            "TITLE": "Посилання",
+            "LIVESTREAM_LINK_TEXT": "Трансляція",
+            "WEBSITE_LINK_TEXT": "Вебсайт",
+            "INSTAGRAM_LINK_TEXT": "Instagram",
+            "FACEBOOK_LINK_TEXT": "Facebook"
         }
     },
     "ENTRY_PAGE": {
