@@ -54,12 +54,12 @@
     margin-top: 12px;
 
     .header-warning {
-        .mat-icon, span {
-            vertical-align: middle;
-        }
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        grid-gap: 4px;
 
-        .mat-icon {
-            margin-right: 4px;
+        span {
+            margin-top: 2px;
         }
     }
 }
