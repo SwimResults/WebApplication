@@ -41,3 +41,13 @@
     }
 </sr-panel>
 
+@if (meeting && meeting.warnings && meeting.warnings.length > 0) {
+    <sr-panel class="header-warnings">
+        @for (warning of meeting.warnings; track warning) {
+            <div class="header-warning">
+                <mat-icon>info</mat-icon> <span>{{warning}}</span>
+            </div>
+        }
+    </sr-panel>
+}
+

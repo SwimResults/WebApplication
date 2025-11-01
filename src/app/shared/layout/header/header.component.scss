@@ -48,6 +48,22 @@
     }
 }
 
+.header-warnings {
+    color: red;
+    font-weight: bold;
+    margin-top: 12px;
+
+    .header-warning {
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        grid-gap: 4px;
+
+        span {
+            margin-top: 2px;
+        }
+    }
+}
+
 @media only screen and (max-width: 1050px) {
     .header .title-box {
         display: none;

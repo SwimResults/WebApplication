@@ -26,6 +26,7 @@ export interface Meeting {
     series: MeetingSeries;
     iteration: number;
     subtitles: string[];
+    warnings: string[];
     meet_id: string;
     state: MeetingStates;
     unpublished: boolean;
@@ -43,6 +44,7 @@ export class MeetingImpl implements Meeting {
     series: MeetingSeries = {} as MeetingSeries;
     iteration: number = 1;
     subtitles: string[] = [];
+    warnings: string[] = [];
     meet_id: string = "";
     state: MeetingStates = MeetingStates.HIDDEN;
     data: MeetingData = {} as MeetingData;
@@ -60,6 +62,7 @@ export class MeetingImpl implements Meeting {
             this.series = meeting.series;
             this.iteration = meeting.iteration;
             this.subtitles = meeting.subtitles;
+            this.warnings = meeting.warnings;
             this.meet_id = meeting.meet_id;
             this.data = meeting.data;
             this.layout = meeting.layout;
