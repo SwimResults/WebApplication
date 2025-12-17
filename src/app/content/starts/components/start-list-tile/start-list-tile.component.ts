@@ -84,7 +84,7 @@ export class StartListTileComponent implements OnInit {
     getIcon(): string {
         if (!this.data.certified) return "water";
         if (this.data.rank) return "leaderboard";
-        if (this.data.disqualification) return "close";
+        if (this.data.disqualification && this.data.disqualification.type) return "close";
         return "water";
     }
 
