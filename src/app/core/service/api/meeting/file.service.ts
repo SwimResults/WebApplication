@@ -43,22 +43,32 @@ export class FileService extends BaseService{
 
     public getUrlFromMask(mask: string, event: number): string {
         if (mask === undefined) return "";
-        const n = (mask.match(/#/g) || []).length;
-        mask = mask.replace("#", "$");
-        mask = mask.replaceAll("#", "");
 
-        let s = "";
-        for (let i = 0; i < n; i++) {
-            s += "0";
+        // Replace plain-number placeholder
+        mask = mask.replaceAll("@@@", event.toString());
+
+        // Handle zero-padded placeholder (#)
+        const n = (mask.match(/#/g) || []).length;
+
+        if (n > 0) {
+            mask = mask.replace("#", "$");
+            mask = mask.replaceAll("#", "");
+
+            let s = "";
+            for (let i = 0; i < n; i++) {
+                s += "0";
+            }
+            s += event;
+
+            mask = mask.replace("$", s.slice(-n));
         }
-        s += event;
-        mask = mask.replace("$", s.slice(-n));
 
         if (mask.startsWith("http")) {
             return mask;
         }
         return "https://download.swimresults.de" + mask;
     }
+
 
     public getUrl(file: StorageFile): string {
         if (!file.existing) return "";
