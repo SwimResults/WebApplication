@@ -37,6 +37,7 @@ export class AdminImportToolComponent implements OnInit {
 
     fileTypeList = [
         {name: 'DSV', value: "dsv"},
+        {name: 'LEF', value: "lef"},
         {name: 'PDF', value: "pdf"},
         {name: 'TXT', value: "pdf_txt"},
     ];

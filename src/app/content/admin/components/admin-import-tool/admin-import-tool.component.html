@@ -7,20 +7,28 @@
     <div class="file-import">
       <mat-radio-group aria-label="Dateityp" formControlName="fileType">
           @for (entry of fileTypeList; track entry) {
-              <mat-radio-button (change)="onFileTypeChange(entry.value)" [value]="entry.value">{{ entry.name }}
+              <mat-radio-button
+                  (change)="onFileTypeChange(entry.value)"
+                  [value]="entry.value"
+              >
+                  {{ entry.name }}
               </mat-radio-button>
           }
       </mat-radio-group>
 
       <mat-radio-group aria-label="Listentyp" formControlName="listType">
-          @if (currentFileType === 'dsv') {
-              <mat-radio-button value="definition">Definitionsliste</mat-radio-button>
-          }
-          @if (currentFileType !== 'dsv' && currentFileType !== '') {
-              <mat-radio-button value="start_list">Startliste</mat-radio-button>
-          }
-          @if (currentFileType !== '') {
-              <mat-radio-button value="result_list">Ergebnis</mat-radio-button>
+          @if (currentFileType === 'lef') {
+              <mat-radio-button value="lef">LENEX File</mat-radio-button>
+          } @else {
+              @if (currentFileType === 'dsv') {
+                  <mat-radio-button value="definition">Definitionsliste</mat-radio-button>
+              }
+              @if (currentFileType !== 'dsv' && currentFileType !== '') {
+                  <mat-radio-button value="start_list">Startliste</mat-radio-button>
+              }
+              @if (currentFileType !== '') {
+                  <mat-radio-button value="result_list">Ergebnis</mat-radio-button>
+              }
           }
       </mat-radio-group>
 
