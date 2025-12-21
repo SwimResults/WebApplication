@@ -169,6 +169,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
                     this.heats = new Map([...this.heats.entries()].sort((a, b) => a[0] - b[0]));
 
                     this.fetchingStarts.fetching = false;
+                    window.scrollTo(0, 0);
                 }
 
             })
@@ -231,6 +232,7 @@ export class EventViewComponent implements OnInit, OnDestroy {
                             this.resultStarts.push(age)
                         }
                         this.fetchingStarts.fetching = false;
+                        window.scrollTo(0, 0);
                     }),
                     error: (_ => {
                         this.fetchingStarts.fetching = false;
