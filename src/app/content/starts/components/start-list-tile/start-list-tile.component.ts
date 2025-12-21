@@ -160,8 +160,13 @@ export class StartListTileComponent implements OnInit {
         if (this.data.disqualification.type == "dns") {
             return "Nicht am Start!"
         }
+
         if (this.data.disqualification.type == "dnf") {
             return "Schwimmstrecke nicht beendet"
+        }
+
+        if (this.data.disqualification.type == "withdrawn") {
+            return "Abgemeldet"
         }
 
         if (this.data.disqualification.reason) {
