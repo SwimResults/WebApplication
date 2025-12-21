@@ -10,6 +10,15 @@
             [meeting]="meeting"
             (changeHeat)="onChangeHeat($event)"
         ></sr-livetiming-header>
+        <sr-livetiming-controls
+            class="livetiming-grid-element"
+            (changeHeat)="onChangeHeat($event)"
+            [currentEvent]="currentEvent"
+            [currentHeat]="currentHeat"
+            [hasPrevEvent]="event.prev_event && event.prev_event.number !== undefined"
+            [hasNextEvent]="event.next_event && event.next_event.number !== undefined"
+            [heatAmount]="heatAmount"
+        ></sr-livetiming-controls>
         @if (event && event.event) {
             <sr-panel
                 class="livetiming-grid-element"
@@ -30,15 +39,6 @@
                 {{ 'LIVE.NO_STARTS_MESSAGE' | translate }}
             </sr-no-content>
         }
-        <sr-livetiming-controls
-            class="livetiming-grid-element"
-            (changeHeat)="onChangeHeat($event)"
-            [currentEvent]="currentEvent"
-            [currentHeat]="currentHeat"
-            [hasPrevEvent]="event.prev_event && event.prev_event.number !== undefined"
-            [hasNextEvent]="event.next_event && event.next_event.number !== undefined"
-            [heatAmount]="heatAmount"
-        ></sr-livetiming-controls>
     </div>
 }
 @if (meeting && (meeting.data && !meeting.data.has_livetiming || !meeting.data)) {
