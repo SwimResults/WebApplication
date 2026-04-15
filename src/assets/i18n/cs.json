@@ -211,7 +211,12 @@
     },
     "MEETINGS": {
         "LIST": {
-            "PAGE_TITLE": "Události"
+            "PAGE_TITLE": "Události",
+            "FILTER_BY_TAG": "Filtrovat podle značek",
+            "CLEAR_FILTER": "Vymazat filtr",
+            "CURRENT_MEETINGS": "Aktuální meetingy",
+            "NEXT_UPCOMING_MEETINGS": "Nejbližší následující meetingy",
+            "NO_MEETINGS_FOR_FILTER": "Pro vybrané značky nebyly nalezeny žádné meetingy."
         }
     },
     "NAV": {

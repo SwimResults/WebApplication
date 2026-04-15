@@ -1,5 +1,5 @@
 @if (meeting && dateString) {
-    <sr-panel [panelTitle]="dateString">
+    <sr-panel [panelTitle]="dateString" [routerLink]="'/m/' + meeting.meet_id + '/dashboard'">
         <div class="meeting">
             <div class="meeting-logo">
                 @if ((meeting.layout && !meeting.layout.logo_url) || !meeting.layout) {
@@ -11,12 +11,16 @@
             </div>
             <span class="title link"
                   [routerLink]="'/m/' + meeting.meet_id + '/dashboard'">{{ meeting.getFullSeriesName() }}</span>
-            @if (meeting.location && meeting.location.city) {
-                <span class="location"><mat-icon>place</mat-icon><span>{{ meeting.location.city }}</span></span>
+            @if (meeting.tags && meeting.tags.length > 0 || meeting.location && meeting.location.city) {
+                <div class="tags">
+                    @if (meeting.location && meeting.location.city) {
+                        <span class="location tag"><mat-icon>place</mat-icon><span>{{ meeting.location.city }}</span></span>
+                    }
+                    @for (tag of meeting.tags; track tag) {
+                        <span class="tag">{{ tag }}</span>
+                    }
+                </div>
             }
-            <sr-icon-btn [routerLink]="'/m/' + meeting.meet_id + '/dashboard'">
-                <mat-icon>arrow_forward</mat-icon>
-            </sr-icon-btn>
         </div>
     </sr-panel>
 }

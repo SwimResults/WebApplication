@@ -4,6 +4,16 @@
   margin: 12px 0 56px;
 }
 
+.featured-section {
+  margin-bottom: 32px;
+}
+
+.no-meetings-message {
+  font-size: 15px;
+  color: colors.$color-text-gray;
+  margin-bottom: 20px;
+}
+
 .meetings {
   display: flex;
   flex-wrap: wrap;

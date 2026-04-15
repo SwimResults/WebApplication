@@ -2,6 +2,60 @@
     <sr-spinner></sr-spinner>
 }
 @if (!fetching.fetching) {
+    <!-- @if (availableTags.length > 0) {
+        <div class="meeting-filters">
+            <span class="filter-title">{{ 'MEETINGS.LIST.FILTER_BY_TAG' | translate }}</span>
+            <div class="filter-tags">
+                @for (tag of availableTags; track tag) {
+                    <button
+                        type="button"
+                        class="tag-filter-btn"
+                        [class.active]="hasTagSelected(tag)"
+                        (click)="toggleTag(tag)">
+                        {{ tag }}
+                    </button>
+                }
+                @if (selectedTags.length > 0) {
+                    <button type="button" class="reset-filter-btn" (click)="clearTagFilter()">
+                        {{ 'MEETINGS.LIST.CLEAR_FILTER' | translate }}
+                    </button>
+                }
+            </div>
+        </div>
+    } -->
+
+    @if (currentMeetings.length > 0) {
+        <div class="meeting-year featured-section">
+            <h2>{{ 'MEETINGS.LIST.CURRENT_MEETINGS' | translate }}</h2>
+            <div class="meetings">
+                @for (meeting of currentMeetings; track meeting) {
+                    <sr-meeting-list-tile
+                        [meeting]="meeting"
+                    >
+                    </sr-meeting-list-tile>
+                }
+            </div>
+        </div>
+    }
+
+    @if (nextUpcomingMeetings.length > 0) {
+        <div class="meeting-year featured-section">
+            <h2>{{ 'MEETINGS.LIST.NEXT_UPCOMING_MEETINGS' | translate }}</h2>
+            <div class="meetings">
+                @for (meeting of nextUpcomingMeetings; track meeting) {
+                    <sr-meeting-list-tile
+                        [meeting]="meeting"
+                    >
+                    </sr-meeting-list-tile>
+                }
+            </div>
+        </div>
+    }
+
+    @if (filteredMeetings.length === 0) {
+        <p class="no-meetings-message">{{ 'MEETINGS.LIST.NO_MEETINGS_FOR_FILTER' | translate }}</p>
+    }
+
     @for (year of meetingYears.keys(); track year) {
         <div class="meeting-year">
             <h2>{{ year }}</h2>
