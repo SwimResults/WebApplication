@@ -266,7 +266,12 @@
     },
     "MEETINGS": {
         "LIST": {
-            "PAGE_TITLE": "Meetings"
+            "PAGE_TITLE": "Meetings",
+            "FILTER_BY_TAG": "Filter by tags",
+            "CLEAR_FILTER": "Clear filter",
+            "CURRENT_MEETINGS": "Current meetings",
+            "NEXT_UPCOMING_MEETINGS": "Next upcoming meetings",
+            "NO_MEETINGS_FOR_FILTER": "No meetings found for the selected tags."
         }
     },
     "LIVE": {

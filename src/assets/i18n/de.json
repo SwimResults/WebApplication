@@ -266,7 +266,12 @@
     },
     "MEETINGS": {
         "LIST": {
-            "PAGE_TITLE": "Veranstaltungen"
+            "PAGE_TITLE": "Veranstaltungen",
+            "FILTER_BY_TAG": "Nach Tags filtern",
+            "CLEAR_FILTER": "Filter zuruecksetzen",
+            "CURRENT_MEETINGS": "Aktuell",
+            "NEXT_UPCOMING_MEETINGS": "Als Nächstes",
+            "NO_MEETINGS_FOR_FILTER": "Keine Veranstaltungen fuer die ausgewaehlten Tags gefunden."
         }
     },
     "ENTRY_PAGE": {

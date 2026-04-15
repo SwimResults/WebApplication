@@ -198,7 +198,12 @@
     },
     "MEETINGS": {
         "LIST": {
-            "PAGE_TITLE": "Змагання"
+            "PAGE_TITLE": "Змагання",
+            "FILTER_BY_TAG": "Фільтр за тегами",
+            "CLEAR_FILTER": "Скинути фільтр",
+            "CURRENT_MEETINGS": "Поточні змагання",
+            "NEXT_UPCOMING_MEETINGS": "Найближчі наступні змагання",
+            "NO_MEETINGS_FOR_FILTER": "Для вибраних тегів змагань не знайдено."
         }
     },
     "LIVE": {

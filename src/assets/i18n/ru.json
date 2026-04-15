@@ -1,7 +1,12 @@
 {
   "MEETINGS": {
     "LIST": {
-      "PAGE_TITLE": "События"
+      "PAGE_TITLE": "События",
+      "FILTER_BY_TAG": "Фильтр по тегам",
+      "CLEAR_FILTER": "Сбросить фильтр",
+      "CURRENT_MEETINGS": "Текущие события",
+      "NEXT_UPCOMING_MEETINGS": "Ближайшие события",
+      "NO_MEETINGS_FOR_FILTER": "По выбранным тегам события не найдены."
     }
   }
 }
