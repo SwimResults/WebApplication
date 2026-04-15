@@ -9,10 +9,8 @@ sr-widget-container {
   width: auto;
 }
 
-//@media only screen and (max-width: 662px) {
-//  .widget-containers {
-//    display: block;
-//    width: 100%;
-//    text-align: center;
-//  }
-//}
+@media only screen and (max-width: 350px) {
+  .widget-containers {
+      grid-template-columns: 100%;
+  }
+}

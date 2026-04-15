@@ -29,6 +29,9 @@ sr-file-icon,
 
 .file-name {
     margin-top: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 sr-file-icon {
