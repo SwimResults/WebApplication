@@ -207,7 +207,9 @@
         "NO_LIVETIMING_MESSAGE": "Pro tento závod není k dispozici časomíra",
         "NO_LIVETIMING_YET_MESSAGE": "Časomíra je k dispozici až po zveřejnění startovní listiny",
         "NO_STARTS_MESSAGE": "Momentálně nejsou k dispozici žádné starty pro časomíru",
-        "STREAM_BUTTON_TEXT": "Livestream na {{platform}}"
+        "STREAM_BUTTON_TEXT": "Livestream na {{platform}}",
+        "PRE_LIST_WARNING": "Pro tento závod je momentálně k dispozici pouze startovní listina. Správné rozdělení do rozplaveb bude zveřejněno bezprostředně po jejím zveřejnění.",
+        "OPEN_EVENT_BUTTON": "Zobrazit závod"
     },
     "MEETINGS": {
         "LIST": {
