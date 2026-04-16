@@ -24,13 +24,20 @@
                 class="livetiming-grid-element"
                 panelTitle="{{'COMMON.EVENT.SINGULAR' | translate}} {{event.event.number}} - {{event.event.relay_distance ? event.event.relay_distance : event.event.distance}}m {{'COMMON.STYLE.' + event.event.style.name + '.NAME' | translate}} {{event.event.name_extension}} {{'COMMON.GENDER.' + event.event.gender + '.NAME' | translate}}"
             >
-                @if (meeting) {
-                    <sr-livetiming-table
-                        [starts]="starts"
-                        [athletes]="following"
-                        [meeting]="meeting"
-                        [config]="config"
-                    ></sr-livetiming-table>
+                @if (heat?.is_pre_list) {
+                    <sr-no-content>
+                        <p>{{ 'LIVE.PRE_LIST_WARNING' | translate }}</p>
+                        <sr-btn [routerLink]="'/m/' + meetingId + '/event/' + event.event.number + '/'"><mat-icon>flag</mat-icon> {{ 'LIVE.OPEN_EVENT_BUTTON' | translate }}</sr-btn>
+                    </sr-no-content>
+                } @else {
+                    @if (meeting) {
+                        <sr-livetiming-table
+                            [starts]="starts"
+                            [athletes]="following"
+                            [meeting]="meeting"
+                            [config]="config"
+                        ></sr-livetiming-table>
+                    }
                 }
             </sr-panel>
         }

@@ -7,7 +7,7 @@ import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {HeatImpl} from "../../../../core/model/start/heat.model";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
 import {LivetimingHeaderComponent} from './livetiming-header/livetiming-header.component';
@@ -18,6 +18,8 @@ import {LivetimingControlsComponent} from './livetiming-controls/livetiming-cont
 import {TranslateModule} from '@ngx-translate/core';
 import {UserDataService} from "../../../../core/service/user-data.service";
 import {AthleteRelation} from "../../../../core/model/user/follower.model";
+import {MatIcon} from "@angular/material/icon";
+import {BtnComponent} from "../../../../shared/elements/buttons/btn/btn.component";
 
 export interface ChangeHeatEvent {
     name: "event" | "heat" | "all" | "nothing";
@@ -32,7 +34,7 @@ export interface LiveSettingsData {
     selector: 'sr-livetiming',
     templateUrl: './livetiming.component.html',
     styleUrls: ['./livetiming.component.scss'],
-    imports: [SpinnerComponent, LivetimingHeaderComponent, PanelComponent, LivetimingTableComponent, NoContentComponent, LivetimingControlsComponent, TranslateModule]
+    imports: [SpinnerComponent, LivetimingHeaderComponent, PanelComponent, LivetimingTableComponent, NoContentComponent, LivetimingControlsComponent, TranslateModule, RouterLink, MatIcon, BtnComponent]
 })
 export class LivetimingComponent implements OnInit, OnDestroy {
     private routeService = inject(RouteService);
@@ -219,6 +221,10 @@ export class LivetimingComponent implements OnInit, OnDestroy {
         this.starts = [];
         const st: StartImpl[] = []
         const ls: StartImpl[] = [];
+
+        if (this.meeting && this.meeting.location && this.meeting.location.lanes) {
+            this.lanes = this.meeting.location.lanes;
+        }
 
         for (const start of starts) {
             const s = new StartImpl(start)

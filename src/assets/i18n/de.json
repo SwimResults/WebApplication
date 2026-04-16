@@ -283,7 +283,9 @@
         "NO_LIVETIMING_MESSAGE": "Für diese Veranstaltung gibt es leider kein Livetiming.",
         "NO_LIVETIMING_YET_MESSAGE": "Das Livetiming ist erst nach Veröffentlichung des Meldeergebnisses verfügbar.",
         "NO_CONTENT_MESSAGE": "Inhalt konnte nicht geladen werden.",
-        "STREAM_BUTTON_TEXT": "Livestream auf {{platform}}"
+        "STREAM_BUTTON_TEXT": "Livestream auf {{platform}}",
+        "PRE_LIST_WARNING": "Für diesen Lauf gibt es aktuell nur eine Startliste. Die korrekte Laufeinteilung wird unmittelbar nach dem Setzen veröffentlicht.",
+        "OPEN_EVENT_BUTTON": "Wettkampf anzeigen"
     },
     "AUTH": {
         "LOGOUT": {

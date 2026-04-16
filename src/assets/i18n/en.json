@@ -279,7 +279,9 @@
         "NO_LIVETIMING_MESSAGE": "This meeting does not support the livetiming feature.",
         "NO_LIVETIMING_YET_MESSAGE": "The livetiming will be available after the start list has been published.",
         "NO_CONTENT_MESSAGE": "Unable to load content.",
-        "STREAM_BUTTON_TEXT": "Livestream on {{platform}}"
+        "STREAM_BUTTON_TEXT": "Livestream on {{platform}}",
+        "PRE_LIST_WARNING": "For this heat there is currently only a start list available. The correct heat assignment will be published shortly after the set has been made.",
+        "OPEN_EVENT_BUTTON": "Show Event"
     },
     "AUTH": {
         "LOGOUT": {
