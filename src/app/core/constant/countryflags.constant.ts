@@ -6,4 +6,5 @@ export const countryFlags = new Map<string, string>([
     ["ESP", "ES"],
     ["SUI", "CH"],
     ["AUT", "AT"],
+    ["JPN", "JP"]
 ]);
