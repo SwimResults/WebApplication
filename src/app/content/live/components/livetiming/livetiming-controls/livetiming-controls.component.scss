@@ -8,6 +8,10 @@ sr-icon-btn {
 }
 
 @media only screen and (max-width: 600px) {
+    :host {
+        height: 66px;
+    }
+
     .info-text {
         position: absolute;
         display: block;
