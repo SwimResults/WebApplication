@@ -1,6 +1,11 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {PageStatsEventComponent} from './page-stats-event.component';
+import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
+import {provideHttpClientTesting} from "@angular/common/http/testing";
+import {provideRouter} from "@angular/router";
+import {routes} from "../../../../app.routes";
+import {TranslateModule} from "@ngx-translate/core";
 
 describe('PageStatsEventComponent', () => {
   let component: PageStatsEventComponent;
@@ -8,7 +13,11 @@ describe('PageStatsEventComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-        imports: [PageStatsEventComponent]
+        imports: [
+            PageStatsEventComponent,
+            TranslateModule.forRoot(),
+        ],
+        providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
     })
     .compileComponents();
 

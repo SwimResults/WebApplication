@@ -1,0 +1,40 @@
+<h1>{{ 'STATS.PARTICIPANTS_AGES.TITLE' | translate }}</h1>
+
+@if (fetchingStarts) {
+    <div class="loading-state">
+        <div class="loading-percentage">{{ loadingProgress }}%</div>
+        <mat-progress-bar class="loading-progress" mode="determinate" [value]="loadingProgress" color="primary"></mat-progress-bar>
+    </div>
+} @else if (yearStats.length > 0) {
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>{{ 'STATS.PARTICIPANTS_AGES.YEAR' | translate }}</th>
+                @for (gender of allGenders; track gender) {
+                    <th>{{ 'COMMON.GENDER.' + gender + '.NAME' | translate }}</th>
+                }
+                <th>{{ 'STATS.PARTICIPANTS_AGES.TOTAL' | translate }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (yearStat of yearStats; track yearStat.year) {
+                <tr>
+                    <td class="year-cell">{{yearStat.year}}</td>
+                    @for (gender of allGenders; track gender) {
+                        <td class="amount-cell">{{getGenderAmount(yearStat.genders, gender)}}</td>
+                    }
+                    <td class="total-cell">{{getYearTotal(yearStat.genders)}}</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr class="summary-row">
+                <td>{{ 'STATS.PARTICIPANTS_AGES.TOTAL' | translate }}</td>
+                @for (gender of allGenders; track gender) {
+                    <td class="total-cell">{{getGenderColumnTotal(gender)}}</td>
+                }
+                <td class="total-cell">{{summary.totalStarts}}</td>
+            </tr>
+        </tfoot>
+    </table>
+}

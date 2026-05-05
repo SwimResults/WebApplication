@@ -48,6 +48,15 @@
         },
         "NO_MEETING_INFO": "Wähle eine Veranstaltung aus, um nach Wettkämpfen, Sportlern und Vereinen suchen zu können."
     },
+    "STATS": {
+        "PARTICIPANTS_AGES": {
+            "TITLE": "Teilnehmer nach Jahrgang",
+            "YEAR": "Jahrgang",
+            "PARTICIPANTS": "Teilnehmer",
+            "STARTS": "Starts",
+            "TOTAL": "Summe"
+        }
+    },
     "COMMON": {
         "ERROR": {
             "SERVICE_OFFLINE": {
