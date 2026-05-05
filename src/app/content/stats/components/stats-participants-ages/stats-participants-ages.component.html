@@ -2,7 +2,7 @@
 
 @if (fetchingStarts) {
     <div class="loading-state">
-        <div class="loading-percentage">{{ loadingProgress }}%</div>
+        <div class="loading-percentage">Berechne Statistik: {{ loadingProgress }}%</div>
         <mat-progress-bar class="loading-progress" mode="determinate" [value]="loadingProgress" color="primary"></mat-progress-bar>
     </div>
 } @else if (yearStats.length > 0) {

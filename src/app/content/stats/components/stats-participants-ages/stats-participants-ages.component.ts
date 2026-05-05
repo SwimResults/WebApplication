@@ -110,8 +110,8 @@ export class StatsParticipantsAgesComponent implements OnDestroy {
                 return;
             }
 
-            this.loadingProgress = Math.min(this.loadingProgress + 10, 90);
-        }, 150);
+            this.loadingProgress = Math.min(this.loadingProgress + 5, 90);
+        }, 400);
     }
 
     private stopLoadingProgress(): void {
