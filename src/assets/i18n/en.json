@@ -17,6 +17,15 @@
         },
         "NO_MEETING_INFO": "Select a meeting in order to search events, athletes and teams."
     },
+    "STATS": {
+        "PARTICIPANTS_AGES": {
+            "TITLE": "Participants by Year",
+            "YEAR": "Year",
+            "PARTICIPANTS": "Participants",
+            "STARTS": "Starts",
+            "TOTAL": "Total"
+        }
+    },
     "TEST": {
         "EXAMPLE": "This is an example text that has been translated."
     },

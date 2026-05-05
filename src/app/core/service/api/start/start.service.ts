@@ -6,6 +6,7 @@ import {Start} from "../../../model/start/start.model";
 import {ApiService} from "../api.service";
 import {StartId} from "../../../model/start/start-id.model";
 import {StartResults} from "../../../model/start/start-results.model";
+import {StartStatsResponse} from "../../../model/start/start-stats.model";
 
 @Injectable({
   providedIn: 'root'
@@ -64,5 +65,9 @@ export class StartService extends BaseService {
 
     getStartsByMeetingAndEventAsResults(meeting: string, event: number): Observable<StartResults[]> {
         return this.apiService.get(this.API_URL, "start/meet/" + meeting + "/event/" + event + "/results");
+    }
+
+    getStartStatsByMeeting(meeting: string): Observable<StartStatsResponse> {
+        return this.apiService.get(this.API_URL, "start/meet/" + meeting + "/stats");
     }
 }

@@ -15,6 +15,15 @@
             "UNFOLLOW_BUTTON_TEXT": "Přestat sledovat"
         }
     },
+    "STATS": {
+        "PARTICIPANTS_AGES": {
+            "TITLE": "Účastníci podle ročníku",
+            "YEAR": "Ročník",
+            "PARTICIPANTS": "Účastníci",
+            "STARTS": "Starty",
+            "TOTAL": "Celkem"
+        }
+    },
     "AUTH": {
         "LOGOUT": {
             "INFO_TEXT": "Byl jsi úspěšně odhlášen",

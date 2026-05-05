@@ -1,0 +1,49 @@
+.stats-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 8px;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.65);
+}
+
+.stats-table th,
+.stats-table td {
+	padding: 0.85rem 1rem;
+	text-align: left;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.stats-table th {
+	background: rgba(255, 255, 255, 0.5);
+	font-weight: 700;
+}
+
+.stats-table tbody tr:nth-child(even) td {
+	background: rgba(255, 255, 255, 0.28);
+}
+
+
+.stats-table tfoot td {
+	background: rgba(255, 255, 255, 0.5);
+	font-weight: 700;
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+	border-bottom: none;
+}
+
+.loading-state {
+	margin: 12px 0 20px;
+}
+
+.loading-percentage {
+	margin-bottom: 8px;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 1;
+	color: rgba(0, 0, 0, 0.72);
+}
+
+.loading-progress {
+	display: block;
+	width: 100%;
+}
