@@ -9,8 +9,8 @@
                     <img [src]="meeting.layout.logo_url" alt="Logo {{meeting.getFullSeriesName()}}">
                 }
             </div>
-            <span class="title link"
-                  [routerLink]="'/m/' + meeting.meet_id + '/dashboard'">{{ meeting.getFullSeriesName() }}</span>
+            <a class="title link"
+                  [routerLink]="'/m/' + meeting.meet_id + '/dashboard'">{{ meeting.getFullSeriesName() }}</a>
             @if (meeting.tags && meeting.tags.length > 0 || meeting.location && meeting.location.city) {
                 <div class="tags">
                     @if (meeting.location && meeting.location.city) {
