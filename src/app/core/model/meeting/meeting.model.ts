@@ -80,14 +80,14 @@ export class MeetingImpl implements Meeting {
 
     public getFullSeriesName(): string {
         let out: string = "";
-        if (this.iteration > 1) out += this.iteration + ". ";
+        if (this.iteration >= 1) out += this.iteration + ". ";
         out += this.series.name_full;
         return out;
     }
 
     public getShortSeriesName(): string {
         let out: string = "";
-        if (this.iteration > 1) out += this.iteration + ". ";
+        if (this.iteration >= 1) out += this.iteration + ". ";
         out += this.series.name_short;
         out += " "
         out += this.getStartDate().getFullYear()
