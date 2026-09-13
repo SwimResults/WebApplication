@@ -20,6 +20,16 @@ export const fileTypes = new Map<string, FileType>([
         color: "dsv",
         download: true
     }],
+    ["dsv8", {
+        icon: "article",
+        color: "dsv",
+        download: true
+    }],
+    ["dsv8z", {
+        icon: "folder_zip",
+        color: "dsv",
+        download: true
+    }],
     ["zip", {
         icon: "folder_zip",
         color: "zip",
