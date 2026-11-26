@@ -1,13 +1,11 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import {FetchingModel} from "../../../../../core/model/common/fetching.model";
-import {HeatService} from "../../../../../core/service/api";
-import {HeatImpl} from "../../../../../core/model/start/heat.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
 import {SpinnerComponent} from '../../../../elements/spinner/spinner.component';
 import {WidgetTitleComponent} from '../../../widget-title/widget-title.component';
 import {WidgetInfoTextComponent} from '../../../widget-info-text/widget-info-text.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {FetchingModel, HeatService, HeatImpl} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-widget-delay-small',

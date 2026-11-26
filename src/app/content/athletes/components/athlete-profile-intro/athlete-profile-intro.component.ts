@@ -1,15 +1,12 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import {Athlete} from "../../../../core/model";
-import {UserService} from "../../../../core/service/api";
-import {User} from "../../../../core/model/user/user.model";
 import {RouterLink} from '@angular/router';
 import {IsAuthedDirective} from '../../../../core/directive/is-authed.directive';
 import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
 import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {ReportDialogService} from "../../../../core/service/report-dialog.service";
-import {UserReportSubjectType} from "../../../../core/model/user/user-report.model";
 import {MatIcon} from "@angular/material/icon";
+import {Athlete, UserService, User, UserReportSubjectType} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-athlete-profile-intro',

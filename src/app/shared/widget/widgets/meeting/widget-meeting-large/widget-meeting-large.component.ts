@@ -1,12 +1,10 @@
 import { Component, OnDestroy, inject } from '@angular/core';
-import {MeetingImpl} from "../../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
-import {Team} from "../../../../../core/model";
-import {TeamService} from "../../../../../core/service/api";
 import {MatIcon} from '@angular/material/icon';
 import {RouterLink} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
+import {MeetingImpl, Team, TeamService} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-widget-meeting-large',

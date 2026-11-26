@@ -1,12 +1,5 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import {Start} from "../../../../core/model/start/start.model";
-import {Heat, HeatImpl} from "../../../../core/model/start/heat.model";
-import {FetchingModel} from "../../../../core/model/common/fetching.model";
-import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
-import {EventService, HeatService, StartService} from "../../../../core/service/api";
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
-import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
-import {EasyWkService} from "../../../../core/service/api/import/easy-wk.service";
 import {Observable} from "rxjs";
 import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
 import {MatIcon} from '@angular/material/icon';
@@ -15,6 +8,7 @@ import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.comp
 import {StartListComponent} from '../../../starts';
 import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {Start, Heat, HeatImpl, FetchingModel, StartListTileConfig, EventService, HeatService, StartService, MeetingEvent, EasyWkService} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-admin-heat-tool',

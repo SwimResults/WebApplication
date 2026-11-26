@@ -1,14 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
-import {MeetingPart} from "../../../../core/model/meeting/meeting-part.model";
-import {EventService, HeatService} from "../../../../core/service/api";
-import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
-import {Heat, HeatImpl} from "../../../../core/model/start/heat.model";
 import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
 import {MatIcon} from '@angular/material/icon';
 import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
 import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
 import {IconBtnComponent} from '../../../../shared/elements/buttons/icon-btn/icon-btn.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {MeetingPart, EventService, HeatService, MeetingImpl, Heat, HeatImpl} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-admin-event-list',

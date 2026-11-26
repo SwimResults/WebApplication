@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {Widget} from "../../../core/model/user/widget.model";
 import {ComponentClass, widgetComponents} from "../widgets/widgets";
 import {WidgetDirective} from "../../../core/directive/widget.directive";
+import {Widget} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-widget-tile',

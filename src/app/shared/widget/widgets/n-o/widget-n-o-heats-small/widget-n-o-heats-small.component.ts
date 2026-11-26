@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import {WidgetNOSmallComponent} from "../widget-n-o-small.component";
-import {HeatService} from "../../../../../core/service/api";
 import {RouteService} from "../../../../../core/service/route.service";
 import {SpinnerComponent} from '../../../../elements/spinner/spinner.component';
 import {WidgetTitleComponent} from '../../../widget-title/widget-title.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {HeatService} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-widget-n-o-heats-small',

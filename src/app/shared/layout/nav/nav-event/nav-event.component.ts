@@ -1,10 +1,10 @@
 import {Component, Input} from '@angular/core';
-import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {NavGroupComponent} from '../../../elements/nav/nav-group/nav-group.component';
 import {NavLinkComponent} from '../../../elements/nav/nav-link/nav-link.component';
 import {HasScopeDirective} from '../../../../core/directive/has-scope.directive';
 import {IsAdminDirective} from '../../../../core/directive/is-admin.directive';
 import {TranslateModule} from '@ngx-translate/core';
+import {Meeting} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-nav-event',

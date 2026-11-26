@@ -1,9 +1,5 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import {EventService, FileService} from "../../../../core/service/api";
-import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
-import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
-import {ImportFileRequest, ImportFileService} from "../../../../core/service/api/import/import-file.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AdminImportTextDialogComponent} from "./admin-import-text-dialog.component";
 import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
@@ -11,6 +7,7 @@ import {MatIcon} from '@angular/material/icon';
 import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
 import {MatRadioButton, MatRadioGroup} from '@angular/material/radio';
 import {TranslateModule} from '@ngx-translate/core';
+import {EventService, FileService, MeetingImpl, MeetingEvent, ImportFileRequest, ImportFileService} from '@swimresults/angular';
 
 interface FileList {
     name: string,

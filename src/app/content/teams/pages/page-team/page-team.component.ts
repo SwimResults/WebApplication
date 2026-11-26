@@ -1,13 +1,7 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Athlete, Team} from "../../../../core/model";
-import {IListTile} from "../../../../core/model/list/list-tile.model";
-import {AthleteService, TeamService} from "../../../../core/service/api";
-import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
-import {TeamAthleteListTile} from "../../../../core/model/list/team-athlete-list-tile.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
-import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
 import {TeamProfileIntroComponent} from '../../components';
 import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
@@ -15,6 +9,7 @@ import {MatIcon} from '@angular/material/icon';
 import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
 import {ListViewComponent} from '../../../../shared/elements/list/list-view/list-view.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {Athlete, Team, IListTile, AthleteService, TeamService, RefreshListRequest, TeamAthleteListTile, FetchingModel} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-page-team',

@@ -1,11 +1,11 @@
 import { Component, ElementRef, OnDestroy, ViewChild, inject } from '@angular/core';
-import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
 import {RouteService} from "../../../../core/service/route.service";
 import {Subscription} from "rxjs";
 import {LivetimingComponent} from '../../components';
 import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
 import {MatIcon} from '@angular/material/icon';
 import {TranslateModule} from '@ngx-translate/core';
+import {MeetingImpl, MeetingStates} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-page-live',

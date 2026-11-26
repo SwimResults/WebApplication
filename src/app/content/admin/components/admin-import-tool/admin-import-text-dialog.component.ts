@@ -7,11 +7,11 @@ import {
     MatDialogActions,
     MatDialogClose
 } from "@angular/material/dialog";
-import {ImportFileRequest} from "../../../../core/service/api/import/import-file.service";
 import {MatFormField, MatLabel} from "@angular/material/select";
 import {MatInput} from "@angular/material/input";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {MatButton} from "@angular/material/button";
+import {ImportFileRequest} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-admin-import-text-dialog',

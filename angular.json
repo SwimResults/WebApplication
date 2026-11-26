@@ -45,7 +45,6 @@
                                 "."
                             ]
                         }
-
                     },
                     "configurations": {
                         "production": {
@@ -145,7 +144,8 @@
                             "includePaths": [
                                 "."
                             ]
-                        }
+                        },
+                        "main": "src/test.ts"
                     }
                 },
                 "lint": {

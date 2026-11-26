@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {Team} from "../../../../core/model";
 import {TeamListTileComponent} from '../team-list-tile/team-list-tile.component';
+import {Team} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-team-list',

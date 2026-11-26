@@ -1,14 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
-import {IListTile} from "../../../../core/model/list/list-tile.model";
-import {Athlete} from "../../../../core/model";
-import {AthleteService, UserService} from "../../../../core/service/api";
-import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
-import {FetchingModel} from "../../../../core/model/common/fetching.model";
-import {ListConfig} from "../../../../core/model/list/list-config.model";
-import {User} from "../../../../core/model/user/user.model";
-import {UserAthleteListTile} from "../../../../core/model/list/user-athlete-list-tile.model";
 import {ListViewComponent} from '../../../../shared/elements/list/list-view/list-view.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {IListTile, Athlete, AthleteService, UserService, RefreshListRequest, FetchingModel, ListConfig, User, UserAthleteListTile} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-settings-user-athlete',

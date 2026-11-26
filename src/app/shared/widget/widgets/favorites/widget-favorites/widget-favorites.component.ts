@@ -1,14 +1,12 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {Subscription} from "rxjs";
-import {FetchingModel} from "../../../../../core/model/common/fetching.model";
-import {Athlete} from "../../../../../core/model";
-import {AthleteService, UserService} from "../../../../../core/service/api";
 import {RouteService} from "../../../../../core/service/route.service";
 import {WidgetTitleComponent} from '../../../widget-title/widget-title.component';
 import {WidgetLoginRequiredComponent} from '../../../widget-login-required/widget-login-required.component';
 import {WidgetInfoTextComponent} from '../../../widget-info-text/widget-info-text.component';
 import {RouterLink} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
+import {FetchingModel, Athlete, AthleteService, UserService} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-widget-favorites',

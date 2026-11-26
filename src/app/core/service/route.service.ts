@@ -1,9 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject, distinctUntilChanged, filter, map, mergeMap} from "rxjs";
-import {RouteEvent} from "../model";
-import {MeetingService} from "./api";
-import {Meeting} from "../model/meeting/meeting.model";
+import {RouteEvent, MeetingService, Meeting} from '@swimresults/angular';
 
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {WidgetContainer} from "../../../core/model/user/widget-container.model";
 import {PanelComponent} from '../../elements/panel/panel.component';
 import {WidgetTileComponent} from '../widget-tile/widget-tile.component';
+import {WidgetContainer} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-widget-container',

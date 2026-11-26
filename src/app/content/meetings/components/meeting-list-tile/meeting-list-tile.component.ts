@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
 import {TranslateService} from "@ngx-translate/core";
 import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
 import {MatIcon} from '@angular/material/icon';
 import {RouterLink} from '@angular/router';
+import {MeetingImpl} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-meeting-list-tile',

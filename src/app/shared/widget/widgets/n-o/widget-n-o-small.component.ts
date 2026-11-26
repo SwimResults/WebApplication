@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {count, Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 import {SpinnerComponent} from '../../../elements/spinner/spinner.component';
 import {WidgetTitleComponent} from '../../widget-title/widget-title.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {FetchingModel} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-widget-n-o-small',

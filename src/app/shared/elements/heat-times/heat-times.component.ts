@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {HeatImpl} from "../../../core/model/start/heat.model";
+import {HeatImpl} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-heat-times',

@@ -1,14 +1,8 @@
 import {Component, Input, inject} from '@angular/core';
-import {Athlete} from "../../../../core/model";
-import {AthleteService, UserService} from "../../../../core/service/api";
-import {Meeting} from "../../../../core/model/meeting/meeting.model";
-import {IListTile} from "../../../../core/model/list/list-tile.model";
-import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
-import {AthleteListTile} from "../../../../core/model/list/athlete-list-tile.model";
-import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {IsAuthedDirective} from '../../../../core/directive/is-authed.directive';
 import {ListViewComponent} from '../../../../shared/elements/list/list-view/list-view.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {Athlete, AthleteService, UserService, Meeting, IListTile, RefreshListRequest, AthleteListTile, FetchingModel} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-athlete-list-view',

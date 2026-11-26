@@ -1,12 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
-import {Team} from "../../../../core/model";
-import {TeamService} from "../../../../core/service/api";
-import {Meeting} from "../../../../core/model/meeting/meeting.model";
-import {TeamListTile} from "../../../../core/model/list/team-list-tile.model";
-import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
-import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {ListViewComponent} from '../../../../shared/elements/list/list-view/list-view.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {Team, TeamService, Meeting, TeamListTile, RefreshListRequest, FetchingModel} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-team-list-view',

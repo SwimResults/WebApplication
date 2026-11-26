@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {IconPanelComponent} from '../../../../shared/elements/icon-panel/icon-panel.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {MeetingEvent} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-event-list-tile',

@@ -2,7 +2,6 @@ import {Component, inject, OnDestroy} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {environment} from 'src/environments/environment';
 import {SidebarMenuService} from "./core/service/sidebar-menu.service";
-import {MeetingImpl, MeetingStates} from "./core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "./core/service/route.service";
 import {SidebarComponent} from './shared/layout/sidebar/sidebar.component';
@@ -11,6 +10,7 @@ import {RouterOutlet} from '@angular/router';
 import {LiveBarComponent} from './shared/layout/live-bar/live-bar.component';
 import {UpperCasePipe} from '@angular/common';
 import {Meta, Title} from "@angular/platform-browser";
+import {MeetingImpl, MeetingStates} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-root',

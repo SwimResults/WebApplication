@@ -1,10 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
-import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
-import {MeetingService} from "../../../../core/service/api";
-import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
 import {MeetingListTileComponent} from '../meeting-list-tile/meeting-list-tile.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {MeetingImpl, MeetingStates, MeetingService, FetchingModel} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-meeting-list',

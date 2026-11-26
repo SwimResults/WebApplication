@@ -8,14 +8,13 @@ import {
     MatDialogRef,
     MatDialogTitle
 } from "@angular/material/dialog";
-import {UserReport} from "../../../../core/model/user/user-report.model";
 import {MatButtonModule} from "@angular/material/button";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
-import {ReportService} from "../../../../core/service/api/user/report.service";
 import {SnackBarService} from "../../../../core/service/ui/snack-bar.service";
 import {AuthService} from "../../../../core/service/auth.service";
+import {UserReport, ReportService} from '@swimresults/angular';
 
 export interface ReportSubmissionDialogData {
     report: UserReport;

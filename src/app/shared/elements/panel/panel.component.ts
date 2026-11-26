@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {HeatImpl} from "../../../core/model/start/heat.model";
 import {HeatTimesComponent} from '../heat-times/heat-times.component';
+import {HeatImpl} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-panel',

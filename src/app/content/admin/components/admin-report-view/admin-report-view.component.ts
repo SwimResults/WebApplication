@@ -1,12 +1,11 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ReportService} from "../../../../core/service/api/user/report.service";
-import {UserReport, UserReportSubjectType} from "../../../../core/model/user/user-report.model";
 import {RouterLink} from "@angular/router";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 import {BtnComponent} from "../../../../shared/elements/buttons/btn/btn.component";
 import {MatIcon} from "@angular/material/icon";
+import {ReportService, UserReport, UserReportSubjectType} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-admin-report-view',

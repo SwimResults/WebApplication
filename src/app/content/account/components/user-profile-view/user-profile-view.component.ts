@@ -1,13 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
 import {AuthService} from "../../../../core/service/auth.service";
 import {OAuthService} from "angular-oauth2-oidc";
-import {User} from "../../../../core/model/user/user.model";
-import {UserService} from "../../../../core/service/api";
 import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
 import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
 import {MatIcon} from '@angular/material/icon';
 import {NoContentComponent} from '../../../../shared/elements/no-content/no-content.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {User, UserService} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-user-profile-view',
