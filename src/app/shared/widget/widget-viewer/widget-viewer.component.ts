@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {WidgetContainer} from "../../../core/model/user/widget-container.model";
 import {WidgetContainerComponent} from '../widget-container/widget-container.component';
+import {WidgetContainer} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-widget-viewer',

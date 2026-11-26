@@ -1,8 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
-import {NotificationService} from "../../../../core/service/api/user/notification.service";
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
-import {MeetingNotification} from "../../../../core/model/user/notification.model";
 import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
+import {NotificationService, MeetingNotification} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-admin-notification-sender',

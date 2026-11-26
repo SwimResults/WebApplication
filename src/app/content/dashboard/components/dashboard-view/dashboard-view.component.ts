@@ -1,17 +1,13 @@
 import {Component, inject, OnDestroy, OnInit} from '@angular/core';
-import {DashboardService} from "../../../../core/service/api/user/dashboard.service";
-import {Dashboard} from "../../../../core/model/user/dashboard.model";
 import {AuthService} from "../../../../core/service/auth.service";
 import {Subscription} from "rxjs";
-import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
 import {RouteService} from "../../../../core/service/route.service";
-import {User} from "../../../../core/model/user/user.model";
 import {OAuthService} from "angular-oauth2-oidc";
-import {MeetingService} from "../../../../core/service/api";
 import {MatIcon} from '@angular/material/icon';
 import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
 import {WidgetViewerComponent} from '../../../../shared/widget/widget-viewer/widget-viewer.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {DashboardService, Dashboard, MeetingImpl, MeetingStates, User, MeetingService} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-dashboard-view',

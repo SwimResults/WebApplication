@@ -1,9 +1,4 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import {User} from "../../../../../core/model/user/user.model";
-import {StartService, UserService} from "../../../../../core/service/api";
-import {Start} from "../../../../../core/model/start/start.model";
-import {StartListTileConfig} from "../../../../../core/model/start/start-list-tile-config.model";
-import {HeatImpl} from "../../../../../core/model/start/heat.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
 import {WidgetTitleComponent} from '../../../widget-title/widget-title.component';
@@ -13,6 +8,7 @@ import {BtnComponent} from '../../../../elements/buttons/btn/btn.component';
 import {RouterLink} from '@angular/router';
 import {StartListComponent} from '../../../../../content/starts';
 import {TranslateModule} from '@ngx-translate/core';
+import {User, StartService, UserService, Start, StartListTileConfig, HeatImpl} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-widget-starts-large',

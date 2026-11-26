@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {ListFilterRequest} from "../../../../../core/model/list/list-filter-request.model";
 import {SearchFormComponent} from '../../../search-form/search-form.component';
+import {ListFilterRequest} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-list-filter-row',

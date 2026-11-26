@@ -1,12 +1,9 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
-import {StartService} from "../../../../core/service/api";
-import {Start, StartImpl} from "../../../../core/model/start/start.model";
-import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
-import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {StartListComponent} from '../../../starts';
 import {PanelComponent} from "../../../../shared/elements/panel/panel.component";
 import {TranslateModule} from "@ngx-translate/core";
 import {SpinnerComponent} from "../../../../shared/elements/spinner/spinner.component";
+import {StartService, Start, StartImpl, StartListTileConfig, FetchingModel} from '@swimresults/angular';
 
 export interface AthleteStartsDay {
     startDate: Date;

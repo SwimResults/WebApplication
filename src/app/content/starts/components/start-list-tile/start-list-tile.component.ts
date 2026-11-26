@@ -1,16 +1,10 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import {ResultTypes, Start, StartImpl} from "../../../../core/model/start/start.model";
-import {StartId} from "../../../../core/model/start/start-id.model";
-import {EventService, MeetingService, StartService} from "../../../../core/service/api";
-import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
-import {MeetingImpl} from "../../../../core/model/meeting/meeting.model";
-import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {HeatTimesComponent} from '../../../../shared/elements/heat-times/heat-times.component';
 import {IconPanelComponent} from '../../../../shared/elements/icon-panel/icon-panel.component';
 import {RouterLink} from '@angular/router';
 import {MatIcon} from '@angular/material/icon';
 import {TranslateModule} from '@ngx-translate/core';
-import {AthleteRelation, AthleteRelationType} from "../../../../core/model/user/follower.model";
+import {ResultTypes, Start, StartImpl, StartId, EventService, MeetingService, StartService, StartListTileConfig, MeetingImpl, MeetingEvent, AthleteRelation, AthleteRelationType} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-start-list-tile',

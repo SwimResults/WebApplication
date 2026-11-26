@@ -1,8 +1,8 @@
 import { Component, OnDestroy, inject } from '@angular/core';
-import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 import {TeamListViewComponent} from '../../components';
+import {Meeting} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-page-teams-event',

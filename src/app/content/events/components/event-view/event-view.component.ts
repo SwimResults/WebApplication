@@ -1,15 +1,7 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {Subscription} from "rxjs";
-import {Start, StartImpl} from "../../../../core/model/start/start.model";
-import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
 import {ActivatedRoute} from "@angular/router";
-import {EventService, FileService, StartService} from "../../../../core/service/api";
 import {RouteService} from "../../../../core/service/route.service";
-import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
-import {HeatImpl} from "../../../../core/model/start/heat.model";
-import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
-import {FetchingModel} from "../../../../core/model/common/fetching.model";
-import {StartResults} from "../../../../core/model/start/start-results.model";
 import {BtnComponent} from '../../../../shared/elements/buttons/btn/btn.component';
 import {MatIcon} from '@angular/material/icon';
 import {MatButtonToggle, MatButtonToggleGroup} from '@angular/material/button-toggle';
@@ -19,7 +11,7 @@ import {PanelComponent} from '../../../../shared/elements/panel/panel.component'
 import {StartListComponent} from '../../../starts';
 import {TranslateModule} from '@ngx-translate/core';
 import {UserDataService} from "../../../../core/service/user-data.service";
-import {AthleteRelation} from "../../../../core/model/user/follower.model";
+import {Start, StartImpl, StartListTileConfig, EventService, FileService, StartService, MeetingEvent, HeatImpl, MeetingImpl, MeetingStates, FetchingModel, StartResults, AthleteRelation} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-event-view',

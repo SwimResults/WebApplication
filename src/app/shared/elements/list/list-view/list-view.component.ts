@@ -1,16 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {IListTile} from "../../../../core/model/list/list-tile.model";
-import {RefreshListRequest} from "../../../../core/model/list/refresh-list-request.model";
-import {PagingRequest} from "../../../../core/model/common/paging-request.model";
-import {FetchingModel} from "../../../../core/model/common/fetching.model";
-import {ListFilterRequest} from "../../../../core/model/list/list-filter-request.model";
-import {ListConfig} from "../../../../core/model/list/list-config.model";
 import {PanelComponent} from '../../panel/panel.component';
 import {ListFilterRowComponent} from '../filter/list-filter-row/list-filter-row.component';
 import {ListTileComponent} from '../list-tile/list-tile.component';
 import {IsVisibleDirective} from '../../../../core/directive/is-visible.directive';
 import {SpinnerComponent} from '../../spinner/spinner.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {IListTile, RefreshListRequest, PagingRequest, FetchingModel, ListFilterRequest, ListConfig} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-list-view',

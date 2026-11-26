@@ -3,8 +3,7 @@ import {Subscription} from "rxjs";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {RouteService} from "../../../../core/service/route.service";
-import {StartService} from "../../../../core/service/api";
-import {YearStats, GenderStats} from "../../../../core/model/start/start-stats.model";
+import {StartService, YearStats, GenderStats} from '@swimresults/angular';
 
 @Component({
   selector: 'sr-stats-participants-ages',

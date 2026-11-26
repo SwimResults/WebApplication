@@ -1,18 +1,14 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import {Athlete} from "../../../../core/model";
-import {AthleteService} from "../../../../core/service/api";
 import {ActivatedRoute} from "@angular/router";
 import {RouteService} from "../../../../core/service/route.service";
-import {Meeting} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
-import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
 import {AthleteProfileIntroComponent} from '../../components';
 import {AthleteStartsComponent} from '../../components';
-import {Certificate} from "../../../../core/model/athlete/certificate.model";
 import {TranslateModule} from "@ngx-translate/core";
 import {PanelComponent} from "../../../../shared/elements/panel/panel.component";
 import {MatIcon} from "@angular/material/icon";
+import {Athlete, AthleteService, Meeting, FetchingModel, Certificate} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-page-athlete',

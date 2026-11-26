@@ -1,8 +1,8 @@
 import { Component, OnDestroy, inject } from '@angular/core';
-import {MeetingImpl} from "../../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../../core/service/route.service";
 import {MatIcon} from '@angular/material/icon';
+import {MeetingImpl} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-widget-meeting-medium',

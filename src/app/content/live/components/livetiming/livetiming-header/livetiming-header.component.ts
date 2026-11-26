@@ -1,9 +1,8 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ChangeHeatEvent, LiveSettingsData} from "../livetiming.component";
-import {HeatImpl} from "../../../../../core/model/start/heat.model";
-import {MeetingImpl, MeetingStates} from "../../../../../core/model/meeting/meeting.model";
 import {HeatTimesComponent} from '../../../../../shared/elements/heat-times/heat-times.component';
 import {MatSlideToggle} from '@angular/material/slide-toggle';
+import {HeatImpl, MeetingImpl, MeetingStates} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-livetiming-header',

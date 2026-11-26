@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import {WidgetNOSmallComponent} from "../widget-n-o-small.component";
 import {RouteService} from "../../../../../core/service/route.service";
-import {AthleteService} from "../../../../../core/service/api";
 import {SpinnerComponent} from '../../../../elements/spinner/spinner.component';
 import {WidgetTitleComponent} from '../../../widget-title/widget-title.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {AthleteService} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-widget-n-o-athletes-small',

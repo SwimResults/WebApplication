@@ -1,9 +1,7 @@
 import {inject, Injectable, OnDestroy} from '@angular/core';
 import {ReplaySubject, Subscription} from "rxjs";
-import {User} from "../model/user/user.model";
-import {UserService} from "./api";
 import {AuthService} from "./auth.service";
-import {AthleteRelation, AthleteRelationType} from "../model/user/follower.model";
+import {User, UserService, AthleteRelation, AthleteRelationType} from '@swimresults/angular';
 
 @Injectable({
   providedIn: 'root'

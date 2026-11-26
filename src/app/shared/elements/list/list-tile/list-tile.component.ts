@@ -1,10 +1,6 @@
 import {Component, EventEmitter, Input, Output, ViewChild, inject} from '@angular/core';
-import {IListTile} from "../../../../core/model/list/list-tile.model";
 import {MatMenu, MatMenuTrigger} from "@angular/material/menu";
 import {countryFlags} from "../../../../core/constant/countryflags.constant";
-import {ListConfig} from "../../../../core/model/list/list-config.model";
-import {UserService} from "../../../../core/service/api";
-import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {IconPanelComponent} from '../../icon-panel/icon-panel.component';
 import {RouterLink} from '@angular/router';
 import {BadgeComponent} from '../../badge/badge.component';
@@ -12,6 +8,7 @@ import {MatIcon} from '@angular/material/icon';
 import {SpinnerComponent} from '../../spinner/spinner.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {UserDataService} from "../../../../core/service/user-data.service";
+import {IListTile, ListConfig, UserService, FetchingModel} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-list-tile',

@@ -1,13 +1,13 @@
 import {Component, OnDestroy, inject} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {RouteService} from "../../../core/service/route.service";
-import {Meeting} from "../../../core/model/meeting/meeting.model";
 import {SidebarMenuService} from "../../../core/service/sidebar-menu.service";
 import {Subscription} from "rxjs";
 import {MatIcon} from '@angular/material/icon';
 import {NavDefaultComponent} from './nav-default/nav-default.component';
 import {NavEventComponent} from './nav-event/nav-event.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {Meeting} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-nav',

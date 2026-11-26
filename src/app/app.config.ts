@@ -12,6 +12,8 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS} from "@angular/material/snack-bar";
 import {provideRouter} from "@angular/router";
 import {routes} from "./app.routes";
+import {provideSwimResultsApi} from "@swimresults/angular";
+import {environment} from "../environments/environment";
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -52,6 +54,8 @@ export const appConfig = {
         {provide: OAuthStorage, useFactory: storageFactory},
         {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}},
         provideAnimations(),
-        provideRouter(routes)
+        provideRouter(routes),
+        // API clients from @swimresults/angular; requests go through HttpClient, so the JwtInterceptor adds the token
+        provideSwimResultsApi({apiUrls: environment.api_urls})
     ]
 }

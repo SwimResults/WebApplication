@@ -1,11 +1,9 @@
 import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
-import {HeatImpl} from "../../../core/model/start/heat.model";
-import {EventService, HeatService} from "../../../core/service/api";
-import {MeetingEventImpl} from "../../../core/model/meeting/meeting-event.model";
 import {RouterLink} from '@angular/router';
 import {HeatTimesComponent} from '../../elements/heat-times/heat-times.component';
 import {IconPanelComponent} from '../../elements/icon-panel/icon-panel.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {HeatImpl, EventService, HeatService, MeetingEventImpl} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-live-bar',

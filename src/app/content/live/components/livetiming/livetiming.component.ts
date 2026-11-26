@@ -1,14 +1,7 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import {EventService, HeatService, StartService} from "../../../../core/service/api";
-import {Start, StartImpl} from "../../../../core/model/start/start.model";
-import {MeetingEventLivetiming} from "../../../../core/model/meeting/meeting-event-livetiming.model";
-import {MeetingImpl, MeetingStates} from "../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
-import {StartListTileConfig} from "../../../../core/model/start/start-list-tile-config.model";
-import {HeatImpl} from "../../../../core/model/start/heat.model";
 import {ActivatedRoute, RouterLink} from "@angular/router";
-import {FetchingModel} from "../../../../core/model/common/fetching.model";
 import {SpinnerComponent} from '../../../../shared/elements/spinner/spinner.component';
 import {LivetimingHeaderComponent} from './livetiming-header/livetiming-header.component';
 import {PanelComponent} from '../../../../shared/elements/panel/panel.component';
@@ -17,9 +10,9 @@ import {NoContentComponent} from '../../../../shared/elements/no-content/no-cont
 import {LivetimingControlsComponent} from './livetiming-controls/livetiming-controls.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {UserDataService} from "../../../../core/service/user-data.service";
-import {AthleteRelation} from "../../../../core/model/user/follower.model";
 import {MatIcon} from "@angular/material/icon";
 import {BtnComponent} from "../../../../shared/elements/buttons/btn/btn.component";
+import {EventService, HeatService, StartService, Start, StartImpl, MeetingEventLivetiming, MeetingImpl, MeetingStates, StartListTileConfig, HeatImpl, FetchingModel, AthleteRelation} from '@swimresults/angular';
 
 export interface ChangeHeatEvent {
     name: "event" | "heat" | "all" | "nothing";

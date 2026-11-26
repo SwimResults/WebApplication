@@ -1,9 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
-import {Meeting} from "../../core/model/meeting/meeting.model";
-import {MeetingService} from "../../core/service/api";
 import {PageTitleComponent} from '../../shared/elements/page-title/page-title.component';
 import {PanelComponent} from '../../shared/elements/panel/panel.component';
 import {RouterLink} from '@angular/router';
+import {Meeting, MeetingService} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-calendar',

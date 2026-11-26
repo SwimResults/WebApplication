@@ -1,8 +1,7 @@
 import { Component, ElementRef, OnDestroy, ViewChild, inject } from '@angular/core';
-import {MeetingImpl} from "../../../../../core/model/meeting/meeting.model";
 import {Subscription} from "rxjs";
-import {Team} from "../../../../../core/model";
 import {RouteService} from "../../../../../core/service/route.service";
+import {MeetingImpl, Team} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-widget-map-medium',

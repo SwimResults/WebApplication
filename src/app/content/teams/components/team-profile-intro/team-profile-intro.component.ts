@@ -1,11 +1,10 @@
 import { Component, Input, inject } from '@angular/core';
-import {Team} from "../../../../core/model";
 import {countryFlags} from "../../../../core/constant/countryflags.constant";
 import {BtnComponent} from "../../../../shared/elements/buttons/btn/btn.component";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatIcon} from "@angular/material/icon";
 import {ReportDialogService} from "../../../../core/service/report-dialog.service";
-import {UserReportSubjectType} from "../../../../core/model/user/user-report.model";
+import {Team, UserReportSubjectType} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-team-profile-intro',

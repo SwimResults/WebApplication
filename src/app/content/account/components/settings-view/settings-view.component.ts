@@ -1,7 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import {User} from "../../../../core/model/user/user.model";
-import {UserService} from "../../../../core/service/api";
 import {SettingsUserAthleteComponent} from '../settings-user-athlete/settings-user-athlete.component';
+import {User, UserService} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-settings-view',

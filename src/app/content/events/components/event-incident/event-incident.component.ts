@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {IncidentImpl} from "../../../../core/model/meeting/incident.model";
 import {TranslateModule} from '@ngx-translate/core';
+import {IncidentImpl} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-event-incident',

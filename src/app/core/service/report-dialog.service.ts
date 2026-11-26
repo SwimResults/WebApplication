@@ -4,7 +4,7 @@ import {
     ReportSubmissionDialogComponent,
     ReportSubmissionDialogData
 } from "../../content/report/components/report-submission-dialog/report-submission-dialog.component";
-import {UserReport, UserReportSubjectType} from "../model/user/user-report.model";
+import {UserReport, UserReportSubjectType} from '@swimresults/angular';
 
 @Injectable({
     providedIn: 'root'

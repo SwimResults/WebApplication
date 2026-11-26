@@ -5,7 +5,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { StatsParticipantsAgesComponent } from './stats-participants-ages.component';
 import { RouteService } from '../../../../core/service/route.service';
-import { StartService } from '../../../../core/service/api';
+import {StartService} from '@swimresults/angular';
 
 describe('StatsParticipantsAgesComponent', () => {
   let component: StatsParticipantsAgesComponent;

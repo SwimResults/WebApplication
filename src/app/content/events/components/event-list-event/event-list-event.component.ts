@@ -1,10 +1,9 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import {MeetingEvent} from "../../../../core/model/meeting/meeting-event.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TranslateModule, TranslateService} from "@ngx-translate/core";
-import {EventListHeatImpl} from "../../../../core/model/start/event-list-heat.model";
 import {HeatTimesComponent} from '../../../../shared/elements/heat-times/heat-times.component';
 import {IconPanelComponent} from '../../../../shared/elements/icon-panel/icon-panel.component';
+import {MeetingEvent, EventListHeatImpl} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-event-list-event',

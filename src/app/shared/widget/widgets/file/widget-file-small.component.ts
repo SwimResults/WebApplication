@@ -1,11 +1,10 @@
-import {FileService} from "../../../../core/service/api";
-import {StorageFile} from "../../../../core/model/meeting/storage-file.model";
 import {Subscription} from "rxjs";
 import {RouteService} from "../../../../core/service/route.service";
 import { Component, OnDestroy, inject } from "@angular/core";
 import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {FileIconComponent} from "../../../elements/file-icon/file-icon.component";
 import {WidgetInfoTextComponent} from "../../widget-info-text/widget-info-text.component";
+import {FileService, StorageFile} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-widget-file-small',
