@@ -1,10 +1,2 @@
-export interface Location {
-  street: string;
-  number: string;
-  city: string;
-  postal_code: string;
-  name: string;
-  first_lane: number;
-  lanes: number;
-  _id: string;
-}
+import type * as ApiMeeting from '@swimresults/api/meeting';
+export type Location = ApiMeeting.Location;

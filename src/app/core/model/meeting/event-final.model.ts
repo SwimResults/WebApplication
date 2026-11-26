@@ -1,5 +1,2 @@
-export interface EventFinal {
-  is_prelim: boolean;
-  is_final: boolean;
-  name: string;
-}
+import type * as ApiMeeting from '@swimresults/api/meeting';
+export type EventFinal = ApiMeeting.EventFinal;

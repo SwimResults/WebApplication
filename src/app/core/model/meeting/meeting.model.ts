@@ -1,3 +1,4 @@
+import type * as ApiMeeting from '@swimresults/api/meeting';
 import {Location} from "./location.model";
 import {MeetingSeries} from "./meeting-series.model";
 import {MeetingData} from "./meeting-data.model";
@@ -17,26 +18,13 @@ export enum MeetingStates {
     ARCHIVED = "ARCHIVED"
 }
 
-export interface Meeting {
-    _id: string;
-    date_start: string;
-    date_end: string;
-    location: Location;
-    organizer_id: string;
-    series: MeetingSeries;
-    iteration: number;
-    subtitles: string[];
-    warnings: string[];
-    tags: string[];
-    meet_id: string;
-    state: MeetingStates;
-    unpublished: boolean;
-
-    data: MeetingData;
-    layout: MeetingLayout;
-}
+export type Meeting = Omit<ApiMeeting.Meeting, 'state'> & {
+  state: MeetingStates;
+};
 
 export class MeetingImpl implements Meeting {
+    added_at: string = "";
+    updated_at: string = "";
     _id: string = "";
     date_start: string = "";
     date_end: string = "";
@@ -55,6 +43,8 @@ export class MeetingImpl implements Meeting {
 
 
     constructor(meeting: Meeting) {
+        this.added_at = meeting.added_at;
+        this.updated_at = meeting.updated_at;
         if (meeting !== undefined) {
             this._id = meeting._id;
             this.date_start = meeting.date_start;
@@ -62,15 +52,15 @@ export class MeetingImpl implements Meeting {
             this.location = meeting.location;
             this.organizer_id = meeting.organizer_id;
             this.series = meeting.series;
-            this.iteration = meeting.iteration;
-            this.subtitles = meeting.subtitles;
-            this.warnings = meeting.warnings;
-            this.tags = meeting.tags;
-            this.meet_id = meeting.meet_id;
+            this.iteration = meeting.iteration ?? 0;
+            this.subtitles = meeting.subtitles ?? [];
+            this.warnings = meeting.warnings ?? [];
+            this.tags = meeting.tags ?? [];
+            this.meet_id = meeting.meet_id ?? '';
             this.data = meeting.data;
             this.layout = meeting.layout;
             this.state = meeting.state;
-            this.unpublished = meeting.unpublished;
+            this.unpublished = meeting.unpublished ?? false;
         }
     }
 

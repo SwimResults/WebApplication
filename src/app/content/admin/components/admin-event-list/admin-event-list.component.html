@@ -26,12 +26,12 @@
                         </h2>
                         <div class="event-list-info">
                         </div>
-                        @if (heats.get(event.number)) {
+                        @if (heats.get(event.number ?? 0)) {
                             <div class="event-list-heats">
-                                @for (heat of heats.get(event.number); track heat) {
+                                @for (heat of heats.get(event.number ?? 0); track heat) {
                                     <div class="event-list-heat">
                                         <span class="heat-name">Lauf {{ heat.number }}
-                                            /{{ heats.get(event.number)?.length }}</span>
+                                            /{{ heats.get(event.number ?? 0)?.length }}</span>
                                         <!--sr-heat-times [heat]="heat" orientation="horizontal" fixedTimeWidth="80"></sr-heat-times>
                                         <span class="heat-time">{{heat.getStartAtTime()}}</span>
                                         <span class="heat-time">{{heat.getFinishedAtTime()}}</span>

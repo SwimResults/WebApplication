@@ -1,12 +1,2 @@
-export interface AgeGroup {
-    _id: string;
-    meeting: string;
-    event: number;
-    default: boolean;
-    gender: string;
-    min_age: string;
-    max_age: string;
-    ages: number[];
-    is_year: boolean;
-    name: string;
-}
+import type * as ApiMeeting from '@swimresults/api/meeting';
+export type AgeGroup = ApiMeeting.AgeGroup;

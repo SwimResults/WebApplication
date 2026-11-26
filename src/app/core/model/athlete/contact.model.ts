@@ -1,6 +1,2 @@
-export interface Contact {
-  name: string;
-  email: string;
-  phone: string;
-  fax: string;
-}
+import type * as ApiAthlete from '@swimresults/api/athlete';
+export type Contact = ApiAthlete.Contact;

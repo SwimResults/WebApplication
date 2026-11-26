@@ -34,7 +34,7 @@ export class NavComponent implements OnDestroy {
             this.meeting = data.meeting;
             if (data.has_meeting) {
                 console.log("meeting update: set short in nav to:", data.meeting.series.name_short);
-                this.meetingParam = {short: data.meeting.series.name_short};
+                this.meetingParam = {short: data.meeting.series.name_short ?? ''};
             }
         })
     }

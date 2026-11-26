@@ -1,10 +1,7 @@
-import {Heat, HeatImpl} from "./heat.model";
+import type * as ApiStart from '@swimresults/api/start';
+import {HeatImpl} from "./heat.model";
 
-export interface EventListHeat {
-  event_number: number;
-  first_heat: Heat;
-  amount: number;
-}
+export type EventListHeat = ApiStart.MeetingHeatEventListDto;
 
 export class EventListHeatImpl implements EventListHeat{
   event_number: number;
@@ -12,8 +9,8 @@ export class EventListHeatImpl implements EventListHeat{
   amount: number;
 
   constructor(eventListHeat: EventListHeat) {
-    this.event_number = eventListHeat.event_number;
+    this.event_number = eventListHeat.event_number ?? 0;
     this.first_heat = new HeatImpl(eventListHeat.first_heat);
-    this.amount = eventListHeat.amount;
+    this.amount = eventListHeat.amount ?? 0;
   }
 }

@@ -1,10 +1,3 @@
-import {Location} from "./location.model";
+import type * as ApiMeeting from '@swimresults/api/meeting';
 
-export interface MeetingSeries {
-  _id: string;
-  name_full: string;
-  name_medium: string;
-  name_short: string;
-  location: Location;
-  organizer_id: string;
-}
+export type MeetingSeries = ApiMeeting.MeetingSeries;

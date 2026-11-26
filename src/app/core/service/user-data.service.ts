@@ -35,7 +35,7 @@ export class UserDataService implements OnDestroy {
 
             const athletes: AthleteRelation[] = [];
             if (user.own_athlete_id) athletes.push({athleteId: user.own_athlete_id, type: AthleteRelationType.SELF} as AthleteRelation);
-            for (const follower of user.following) {
+            for (const follower of user.following ?? []) {
                 athletes.push({athleteId: follower.athlete_id, type: AthleteRelationType.FOLLOW} as AthleteRelation);
             }
 

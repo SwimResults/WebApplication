@@ -1,5 +1,6 @@
-import {Heat, HeatImpl} from "./heat.model";
-import {Disqualification, DisqualificationImpl} from "./disqualification.model";
+import type * as ApiStart from '@swimresults/api/start';
+import {HeatImpl} from "./heat.model";
+import {DisqualificationImpl} from "./disqualification.model";
 import {Result, ResultImpl} from "./result.model";
 
 export enum ResultTypes {
@@ -10,29 +11,13 @@ export enum ResultTypes {
     LAP = "lap"
 }
 
-export interface Start {
-    _id: string;
-    meeting: string;
-    event: number;
-    heat_number: number;
-    heat: Heat;
-    lane: number;
-    is_relay: boolean;
-    is_pre_list: boolean;
-    athlete: string;
-    athlete_name: string;
-    athlete_year: number;
-    athlete_team: string;
-    athlete_team_name: string;
-    rank: number;
-    certified: boolean;
-    results: Result[];
-    disqualification: Disqualification;
-    emptyLane: boolean;
-
-}
+export type Start = Omit<ApiStart.Start, 'emptyLane'> & {
+  emptyLane: boolean;
+};
 
 export class StartImpl implements Start {
+    added_at: string = "";
+    updated_at: string = "";
     _id: string;
     athlete: string;
     athlete_name: string;
@@ -54,25 +39,27 @@ export class StartImpl implements Start {
 
 
     constructor(start: Start) {
+        this.added_at = start.added_at;
+        this.updated_at = start.updated_at;
         this._id = start._id;
         this.athlete = start.athlete;
-        this.athlete_name = start.athlete_name;
-        this.athlete_year = start.athlete_year
+        this.athlete_name = start.athlete_name ?? '';
+        this.athlete_year = start.athlete_year ?? 0
         this.athlete_team = start.athlete_team;
-        this.athlete_team_name = start.athlete_team_name;
-        this.certified = start.certified;
+        this.athlete_team_name = start.athlete_team_name ?? '';
+        this.certified = start.certified ?? false;
         if (start.disqualification)
             this.disqualification = new DisqualificationImpl(start.disqualification);
-        this.event = start.event;
+        this.event = start.event ?? 0;
         if (start.heat)
             this.heat = new HeatImpl(start.heat);
         this.heat_number = start.heat_number;
-        this.lane = start.lane;
-        this.meeting = start.meeting;
-        this.rank = start.rank;
+        this.lane = start.lane ?? 0;
+        this.meeting = start.meeting ?? '';
+        this.rank = start.rank ?? 0;
         this.emptyLane = start.emptyLane;
-        this.is_relay = start.is_relay;
-        this.is_pre_list = start.is_pre_list;
+        this.is_relay = start.is_relay ?? false;
+        this.is_pre_list = start.is_pre_list ?? false;
 
         this.results = []
         if (start.results) {
@@ -137,8 +124,9 @@ export class StartImpl implements Start {
     getLapTimes(): IterableIterator<ResultImpl> {
         const res: Map<number, ResultImpl> = new Map<number, ResultImpl>();
         const results = this.results.sort((a, b) => {
-            if (a.lap_meters === undefined) return 1;
-            if (b.lap_meters === undefined) return -1;
+            // no lap_meters (absent in the API, 0 here) = final result: sort after the laps
+            if (!a.lap_meters) return 1;
+            if (!b.lap_meters) return -1;
             if (a.lap_meters === b.lap_meters) {
                 return a.addedAtTime.getTime() - b.addedAtTime.getTime();
             }

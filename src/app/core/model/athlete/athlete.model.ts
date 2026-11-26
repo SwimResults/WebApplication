@@ -1,11 +1,3 @@
-import {Team} from "./team.model";
+import type * as ApiAthlete from '@swimresults/api/athlete';
 
-export interface Athlete {
-  _id: string;
-  name: string;
-  year: string;
-  team: Team;
-  dsv_id: number;
-  alias: string[];
-  participation: string[];
-}
+export type Athlete = ApiAthlete.Athlete;

@@ -1,6 +1,3 @@
-import {Heat} from "./heat.model";
+import type * as ApiStart from '@swimresults/api/start';
 
-export interface CurrentNextHeat {
-    current?: Heat;
-    next?: Heat;
-}
+export type CurrentNextHeat = ApiStart.CurrentNextHeatDto;

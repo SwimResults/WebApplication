@@ -1,7 +1,5 @@
-export interface Follower {
-  athlete_id: string;
-  added_at: string;
-}
+import type * as ApiUser from '@swimresults/api/user';
+export type Follower = ApiUser.FollowingAthlete;
 
 export interface AthleteRelation {
     athleteId: string;

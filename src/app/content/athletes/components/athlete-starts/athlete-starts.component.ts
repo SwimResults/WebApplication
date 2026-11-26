@@ -89,7 +89,7 @@ export class AthleteStartsComponent implements OnInit {
         this.startByMeeting = new Map<string, Start[]>();
 
         for (const start of this.starts) {
-            const meeting = start.meeting;
+            const meeting = start.meeting ?? '';
             if (!this.startByMeeting.has(meeting)) {
                 this.startByMeeting.set(meeting, []);
             }

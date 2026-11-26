@@ -1,7 +1,7 @@
+import type * as ApiUser from '@swimresults/api/user';
 import {WidgetTile} from "./widget-tile.model";
 
 
-export interface WidgetContainer {
-  order_position: number;
+export type WidgetContainer = Omit<ApiUser.WidgetContainer, 'widgets'> & {
   widgets: WidgetTile[];
-}
+};

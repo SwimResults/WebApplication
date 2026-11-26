@@ -1,14 +1,8 @@
-export interface UserReport {
-    _id: string;
-    anonymous: boolean; // only for submission request in dto
-    message: string;
-    user_id?: string; // not part of the submission request dto
-    subject_id?: string;
-    subject_type?: UserReportSubjectType;
-    acknowledged: boolean;
-    completed: boolean;
-    added_at: string;
-}
+import type * as ApiUser from '@swimresults/api/user';
+export type UserReport = Omit<ApiUser.UserReport, 'anonymous' | 'subject_type'> & {
+  anonymous: boolean;
+  subject_type?: UserReportSubjectType;
+};
 
 export enum UserReportSubjectType {
     START = "START",

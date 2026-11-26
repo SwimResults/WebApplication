@@ -81,7 +81,7 @@ export class AdminImportToolComponent implements OnInit {
         this.files = [];
         for (const event of this.events) {
             const file = {
-                url: this.fileService.getUrlFromMask(this.meeting.data.ftp_result_list_mask, event.number),
+                url: this.fileService.getUrlFromMask(this.meeting.data.ftp_result_list_mask ?? '', event.number ?? 0),
                 name: "WK " + event.number,
                 event: event,
                 exists: false
@@ -201,7 +201,7 @@ export class AdminImportToolComponent implements OnInit {
     toggleCurrentFileEventCertification() {
         if (this.currentFile && this.meetingId) {
             this.runningCertificationToggle = true;
-            this.eventService.updateEventCertification(this.meetingId, this.currentFile?.event.number).subscribe({
+            this.eventService.updateEventCertification(this.meetingId, this.currentFile.event.number ?? 0).subscribe({
                 next: (_ => {
                     this.runningCertificationToggle = false;
                     this.fetchEvents();

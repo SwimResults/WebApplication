@@ -5,7 +5,7 @@
         class="file-tile file-tile-{{file.existing ? 'existing' : 'missing'}}"
         (click)="clickDownload()"
     >
-        <sr-file-icon [extension]="file.extension" [existing]="file.existing"></sr-file-icon>
+        <sr-file-icon [extension]="file.extension ?? ''" [existing]="!!file.existing"></sr-file-icon>
         <span class="file-name">
       {{ name }}
     </span>

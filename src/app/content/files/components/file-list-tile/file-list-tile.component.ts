@@ -31,7 +31,7 @@ export class FileListTileComponent implements OnInit {
         if (this.file && this.file.name) {
             this.translateService.get("FILES.FILE_NAMES." + this.file.name.toUpperCase()).subscribe(results => {
                 if (results.includes("FILES.FILE_NAMES.")) {
-                    this.name = this.file.name;
+                    this.name = this.file.name ?? '';
                 } else {
                     this.name = results;
                 }
@@ -41,7 +41,7 @@ export class FileListTileComponent implements OnInit {
 
     clickDownload() {
         if (this.file.url) return;
-        this.file.downloads++;
+        this.file.downloads = (this.file.downloads ?? 0) + 1;
     }
 
     protected readonly fileTypes = fileTypes;

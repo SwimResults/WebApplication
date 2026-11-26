@@ -42,7 +42,7 @@ export class FileService extends BaseService{
     }
 
     public getUrlFromMask(mask: string, event: number): string {
-        if (mask === undefined) return "";
+        if (!mask) return ""; // mask is absent in the API when not configured
 
         // Replace plain-number placeholder
         mask = mask.replaceAll("@@@", event.toString());
@@ -72,7 +72,7 @@ export class FileService extends BaseService{
 
     public getUrl(file: StorageFile): string {
         if (!file.existing) return "";
-        let url = file.url;
+        let url = file.url ?? '';
         if (!file.url) url = "https://download.swimresults.de" + file.path;
         return url;
     }

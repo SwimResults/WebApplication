@@ -1,10 +1,6 @@
+import type * as ApiUser from '@swimresults/api/user';
 import {WidgetContainer} from "./widget-container.model";
 
-export interface Dashboard {
-    _id: string;
-    widget_container: WidgetContainer[];
-    user: string;
-    official: boolean;
-    default: boolean;
-    meeting_states: string[];
-}
+export type Dashboard = Omit<ApiUser.Dashboard, 'widget_container'> & {
+  widget_container: WidgetContainer[];
+};

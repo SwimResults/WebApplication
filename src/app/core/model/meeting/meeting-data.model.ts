@@ -1,17 +1,3 @@
-import {Sponsor} from "./sponsor.model";
+import type * as ApiMeeting from '@swimresults/api/meeting';
 
-export interface MeetingData {
-  livetiming_url: string;
-  website_url: string;
-  stream_url: string;
-  stream_embed_url: string;
-  instagram_url: string;
-  facebook_url: string;
-  has_livetiming: boolean;
-  has_certificates: boolean;
-  has_ftp_start_list: boolean;
-  has_ftp_result_list: boolean;
-  ftp_start_list_mask: string;
-  ftp_result_list_mask: string;
-  sponsors: Sponsor[];
-}
+export type MeetingData = ApiMeeting.MeetingData;
