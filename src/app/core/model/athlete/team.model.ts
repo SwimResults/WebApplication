@@ -1,15 +1,3 @@
-import {Address} from "./address.model";
-import {Contact} from "./contact.model";
-import {ColorSet} from "../common/color-set.model";
+import type * as ApiAthlete from '@swimresults/api/athlete';
 
-export interface Team {
-  _id: string;
-  name: string;
-  alias: string[];
-  address: Address;
-  country: string;
-  contact: Contact;
-  website: string;
-  logo_url: string;
-  color_set: ColorSet;
-}
+export type Team = ApiAthlete.Team;

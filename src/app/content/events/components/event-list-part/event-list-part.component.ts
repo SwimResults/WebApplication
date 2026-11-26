@@ -37,13 +37,13 @@ export class EventListPartComponent implements OnInit {
         this.fetchingHeats.fetching = true;
         const events: number[] = [];
         for (const event of this.part.events) {
-            events.push(event.number);
+            events.push(event.number ?? 0);
         }
         this.heatService.getHeatsByMeetingForEventListEvents(this.meetingId, events).subscribe({
             next: data => {
                 if (data && data.events && data.events.length > 0) {
                     for (const heatInfo of data.events) {
-                        this.heats.set(heatInfo.event_number, new EventListHeatImpl(heatInfo));
+                        this.heats.set(heatInfo.event_number ?? 0, new EventListHeatImpl(heatInfo));
                     }
                 }
                 this.fetchingHeats.fetching = false;

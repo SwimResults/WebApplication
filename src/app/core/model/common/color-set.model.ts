@@ -1,5 +1,2 @@
-export interface ColorSet {
-  primary: string;
-  secondary: string;
-  contrast: string;
-}
+import type * as ApiAthlete from '@swimresults/api/athlete';
+export type ColorSet = ApiAthlete.ColorSet;

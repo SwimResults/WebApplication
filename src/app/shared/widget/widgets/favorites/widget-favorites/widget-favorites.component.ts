@@ -59,7 +59,8 @@ export class WidgetFavoritesComponent implements OnInit, OnDestroy {
     }
 
     getInitials(follow: Athlete) {
-        const i = follow.name.lastIndexOf(" ")
-        return follow.name.charAt(0) + follow.name.charAt(i+1);
+        const name = follow.name ?? '';
+        const i = name.lastIndexOf(" ")
+        return name.charAt(0) + name.charAt(i+1);
     }
 }

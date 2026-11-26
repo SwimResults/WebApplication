@@ -120,7 +120,7 @@ export class AdminHeatToolComponent implements OnInit {
         this.starts = data;
         this.availableLanes = []
         for (const start of this.starts) {
-          this.availableLanes.push(start.lane);
+          this.availableLanes.push(start.lane ?? 0);
         }
       }
       this.fetchingStarts.fetching = false;
@@ -136,7 +136,7 @@ export class AdminHeatToolComponent implements OnInit {
           heat: this.currentHeat
         });
         this.availableMeters = [];
-        for (let i = 25; i <= this.event.distance; i += 25) {
+        for (let i = 25; i <= (this.event.distance ?? 0); i += 25) {
           this.availableMeters.push(i)
         }
       })

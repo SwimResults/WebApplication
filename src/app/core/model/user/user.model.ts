@@ -1,8 +1,3 @@
-import {Follower} from "./follower.model";
+import type * as ApiUser from '@swimresults/api/user';
 
-export interface User {
-    _id: string;
-    keycloak_id: string;
-    following: Follower[];
-    own_athlete_id: string;
-}
+export type User = ApiUser.User;

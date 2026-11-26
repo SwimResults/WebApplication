@@ -1,18 +1,6 @@
-export interface Notification {
-    title: string,
-    subtitle: string
-    message: string
-}
+import type * as ApiUser from '@swimresults/api/user';
+export type Notification = ApiUser.NotificationRequestDto;
 
-export interface MeetingNotification {
-    subtitle: string
-    message: string
-    message_type: string,
-    interruption_level: string
-}
+export type MeetingNotification = ApiUser.MeetingNotificationRequestDto;
 
-export interface NotificationResponse {
-    user_count: number
-    notification_user_count: number
-    success_count: number
-}
+export type NotificationResponse = ApiUser.NotificationsResponseDto;

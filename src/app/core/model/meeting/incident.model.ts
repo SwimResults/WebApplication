@@ -1,16 +1,9 @@
+import type * as ApiMeeting from '@swimresults/api/meeting';
 import {createDateForBerlin} from "../../function/date.functions";
 
-export interface Incident {
-    _id: string;
-    meeting: string;
-    type: "EVENT" | "DURATION" | "TIMELESS";
-    name: string;
-    name_extension: string;
-    start: string;
-    end: string;
-    prev_event: number;
-    next_event: number;
-}
+export type Incident = Omit<ApiMeeting.Incident, 'type'> & {
+  type: "EVENT" | "DURATION" | "TIMELESS";
+};
 
 export class IncidentImpl {
     _id: string;
@@ -25,14 +18,14 @@ export class IncidentImpl {
 
     constructor(data: Incident) {
         this._id = data._id;
-        this.meeting = data.meeting;
+        this.meeting = data.meeting ?? '';
         this.type = data.type;
-        this.name = data.name;
-        this.name_extension = data.name_extension;
+        this.name = data.name ?? '';
+        this.name_extension = data.name_extension ?? '';
         this.start = data.start;
         this.end = data.end;
-        this.prev_event = data.prev_event;
-        this.next_event = data.next_event;
+        this.prev_event = data.prev_event ?? 0;
+        this.next_event = data.next_event ?? 0;
     }
 
     public getStartDate(): Date {

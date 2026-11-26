@@ -1,5 +1,6 @@
+import type * as ApiStart from '@swimresults/api/start';
 import {EventListHeat} from "./event-list-heat.model";
 
-export interface EventListHeats {
+export type EventListHeats = Omit<ApiStart.MeetingHeatsEventListDto, 'events'> & {
   events: EventListHeat[];
-}
+};

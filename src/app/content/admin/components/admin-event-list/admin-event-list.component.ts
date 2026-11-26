@@ -47,12 +47,12 @@ export class AdminEventListComponent implements OnInit {
             if (data) {
                 this.heats = new Map<number, HeatImpl[]>();
                 for (const heat of data) {
-                    let heats = this.heats.get(heat.event);
+                    let heats = this.heats.get(heat.event ?? 0);
                     if (!heats) {
                         heats = [];
                     }
                     heats.push(new HeatImpl(heat));
-                    this.heats.set(heat.event, heats);
+                    this.heats.set(heat.event ?? 0, heats);
                 }
             }
         })

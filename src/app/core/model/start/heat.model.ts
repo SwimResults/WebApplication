@@ -1,16 +1,7 @@
+import type * as ApiStart from '@swimresults/api/start';
 import {createDateForBerlin} from "../../function/date.functions";
 
-export interface Heat {
-    _id: string;
-    meeting: string;
-    event: number;
-    number: number;
-    is_pre_list: boolean;
-    start_estimation: string;
-    start_delay_estimation: string;
-    start_at: string;
-    finished_at: string;
-}
+export type Heat = ApiStart.Heat;
 
 export class HeatImpl implements Heat {
     _id: string;
@@ -28,11 +19,11 @@ export class HeatImpl implements Heat {
 
     constructor(heat: Heat) {
         this._id = heat._id;
-        this.event = heat.event;
+        this.event = heat.event ?? 0;
         this.finished_at = heat.finished_at;
-        this.meeting = heat.meeting;
-        this.number = heat.number;
-        this.is_pre_list = heat.is_pre_list;
+        this.meeting = heat.meeting ?? '';
+        this.number = heat.number ?? 0;
+        this.is_pre_list = heat.is_pre_list ?? false;
         this.start_at = heat.start_at;
         this.start_estimation = heat.start_estimation;
         this.start_delay_estimation = heat.start_delay_estimation;

@@ -10,7 +10,7 @@
           <span class="year"> {{ athlete.year }}</span>
           •
           <span class="team">@if (athlete.team) {
-              <a [routerLink]="'../../team/@' + athlete.team.alias[0]">{{ athlete.team.name }}</a>
+              <a [routerLink]="'../../team/@' + (athlete.team.alias?.[0] ?? '')">{{ athlete.team.name }}</a>
           }
               @if (!athlete.team) {
                   <span>-</span>

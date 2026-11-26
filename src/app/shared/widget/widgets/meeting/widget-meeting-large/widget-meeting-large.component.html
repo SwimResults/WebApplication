@@ -22,7 +22,7 @@
     <mat-icon>calendar_month</mat-icon>
     <span class="info-content date">{{meeting.getDateStringWithYear()}}</span>
   </div>
-    @if (meeting.location && meeting.location.lanes > 0) {
+    @if (meeting.location && (meeting.location.lanes ?? 0) > 0) {
         <div class="info">
             <mat-icon>numbers</mat-icon>
             <span class="info-content">{{ meeting.location.lanes }} {{ "COMMON.LANE.PLURAL" | translate }}</span>
@@ -31,7 +31,7 @@
     @if (organizer) {
         <div class="info">
             <mat-icon>group</mat-icon>
-            <span class="info-content link" [routerLink]="'../team/@' + organizer.alias[0]">{{ organizer.name }}</span>
+            <span class="info-content link" [routerLink]="'../team/@' + (organizer.alias?.[0] ?? '')">{{ organizer.name }}</span>
         </div>
     }
 }

@@ -1,6 +1,2 @@
-export interface Address {
-  street: string;
-  number: string;
-  city: string;
-  postal_code: string;
-}
+import type * as ApiAthlete from '@swimresults/api/athlete';
+export type Address = ApiAthlete.Address;

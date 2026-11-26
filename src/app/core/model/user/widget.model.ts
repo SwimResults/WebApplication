@@ -1,5 +1,4 @@
-export interface Widget {
-  _id: string,
-  size: "SMALL" | "MEDIUM" | "LARGE",
-  content: string,
-}
+import type * as ApiUser from '@swimresults/api/user';
+export type Widget = Omit<ApiUser.Widget, 'size'> & {
+  size: "SMALL" | "MEDIUM" | "LARGE";
+};

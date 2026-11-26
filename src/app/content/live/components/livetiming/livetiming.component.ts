@@ -340,7 +340,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
             if (this.meetingId) {
                 this.heatService.getEventHeatInfo(this.meetingId, this.currentEvent).subscribe(data => {
                     if (data)
-                        this.currentHeat = data.amount;
+                        this.currentHeat = data.amount ?? 0;
                     this.storeCurrentHeat();
                     this.fetchData()
                 })
@@ -379,13 +379,13 @@ export class LivetimingComponent implements OnInit, OnDestroy {
 
     nextEvent() {
         //console.log("current event: " + this.currentEvent);
-        if (this.event.next_event.number != undefined)
+        if (this.event.next_event.number) // absent (0) = no next event
             this.currentEvent = this.event.next_event.number;
         //console.log("switch event to: " + this.currentEvent);
     }
 
     prevEvent() {
-        if (this.event.prev_event.number != undefined)
+        if (this.event.prev_event.number) // absent (0) = no previous event
             this.currentEvent = this.event.prev_event.number;
     }
 

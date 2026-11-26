@@ -1,8 +1,3 @@
-import {ColorSet} from "../common/color-set.model";
+import type * as ApiMeeting from '@swimresults/api/meeting';
 
-export interface MeetingLayout {
-  logo_url: string;
-  logo_small_url: string;
-  banner_url: string;
-  color_set: ColorSet
-}
+export type MeetingLayout = ApiMeeting.MeetingLayout;

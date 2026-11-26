@@ -6,7 +6,7 @@
 @if (following && following.length > 0) {
     <div class="athlete-list">
         @for (follow of following; track follow) {
-            <div class="athlete" [routerLink]="'../athlete/' + follow.alias[0] + '-' + follow.year">
+            <div class="athlete" [routerLink]="'../athlete/' + (follow.alias?.[0] ?? '') + '-' + follow.year">
                 <div class="athlete-icon">
                     <span class="athlete-initials">{{ getInitials(follow) }}</span>
                 </div>

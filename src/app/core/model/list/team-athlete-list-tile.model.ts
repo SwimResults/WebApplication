@@ -12,9 +12,9 @@ export class TeamAthleteListTile implements IListTile {
 
   constructor(athlete: Athlete) {
     this.id = athlete._id;
-    this.name = athlete.name;
-    this.badge = athlete.year;
-    this.nameLink = "../../athlete/" + athlete.alias[0] + "-" + athlete.year;
+    this.name = athlete.name ?? '';
+    this.badge = athlete.year?.toString();
+    this.nameLink = "../../athlete/" + (athlete.alias?.[0] ?? '') + "-" + athlete.year;
   }
 
 

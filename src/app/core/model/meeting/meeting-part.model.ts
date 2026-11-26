@@ -1,7 +1,6 @@
+import type * as ApiMeeting from '@swimresults/api/meeting';
 import {MeetingEvent} from "./meeting-event.model";
 
-export interface MeetingPart {
-  number: number;
-  name: string;
-  events: MeetingEvent[]
-}
+export type MeetingPart = Omit<ApiMeeting.MeetingPart, 'events'> & {
+  events: MeetingEvent[];
+};

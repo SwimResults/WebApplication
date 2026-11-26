@@ -1,5 +1,2 @@
-export interface Style {
-  _id: string;
-  name: string;
-  aliases: string[];
-}
+import type * as ApiMeeting from '@swimresults/api/meeting';
+export type Style = ApiMeeting.Style;

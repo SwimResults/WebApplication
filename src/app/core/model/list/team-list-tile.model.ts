@@ -10,8 +10,8 @@ export class TeamListTile implements IListTile {
 
   constructor(team: Team) {
     this.id = team._id;
-    this.name = team.name;
-    this.nameLink = "@" + team.alias[0];
+    this.name = team.name ?? '';
+    this.nameLink = "@" + (team.alias?.[0] ?? '');
     this.country = team.country;
   }
 
