@@ -10,6 +10,12 @@
             [meeting]="meeting"
             (changeHeat)="onChangeHeat($event)"
         ></sr-livetiming-header>
+        @if (liveStatus) {
+            <sr-live-status-banner
+                class="livetiming-grid-element live-status-element"
+                [status]="liveStatus"
+            ></sr-live-status-banner>
+        }
         <sr-livetiming-controls
             class="livetiming-grid-element"
             (changeHeat)="onChangeHeat($event)"

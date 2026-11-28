@@ -1,25 +1,48 @@
 @if (meetingId) {
     <div class="live-bar" [routerLink]="'/m/' + meetingId + '/live'" [queryParams]="{live: '1'}">
     <div class="bar-live">
+        @if (status?.hasWarnings()) {
+            <mat-icon class="bar-warning-icon" [title]="'LIVE.WARNINGS' | translate">warning</mat-icon>
+        }
         <div class="blink">
             <div class="live-indicator"></div>
             <span class="live-text">Live</span>
         </div>
     </div>
-        @if (statusText) {
-            <div class="bar-status">
-                <span class="bar-status-text">{{ statusText }}</span>
-            </div>
-        }
-        @if (!statusText && currentHeat && event) {
-            <sr-heat-times [heat]="currentHeat"></sr-heat-times>
-            <sr-icon-panel [textContent]="event.number + ''"></sr-icon-panel>
-            <div class="bar-content">
-                <span class="bar-event">{{ 'COMMON.EVENT.SINGULAR' | translate }} {{ event.number }}
-                    - {{ event.relay_distance ? event.relay_distance : event.distance }}m
-                    {{ 'COMMON.STYLE.' + event.style.name + '.NAME' | translate }} {{ event.name_extension }} {{ 'COMMON.GENDER.' + event.gender + '.NAME' | translate }}</span>
-                <span>{{ 'COMMON.HEAT.SINGULAR' | translate }} {{ currentHeat.number }} / {{ maxHeat }}</span>
-            </div>
+        @if (status) {
+            @switch (status.getBarMode()) {
+                @case ('MESSAGE') {
+                    <div class="bar-status">
+                        <span class="bar-status-text">{{ status.message?.text }}</span>
+                    </div>
+                }
+                @case ('STATUS') {
+                    @if (statusText) {
+                        <div class="bar-status">
+                            <span class="bar-status-text">{{ statusText.key | translate: statusText.params }}</span>
+                        </div>
+                    }
+                }
+                @case ('HEAT') {
+                    @if (status.current; as heat) {
+                        <sr-heat-times [heat]="heat"></sr-heat-times>
+                        @if (status.event; as event) {
+                            <sr-icon-panel [textContent]="event.number + ''"></sr-icon-panel>
+                            <div class="bar-content">
+                                <span class="bar-event">{{ 'COMMON.EVENT.SINGULAR' | translate }} {{ event.number }}
+                                    - {{ event.relay_distance ? event.relay_distance : event.distance }}m
+                                    {{ 'COMMON.STYLE.' + event.style.name + '.NAME' | translate }} {{ event.name_extension }} {{ 'COMMON.GENDER.' + event.gender + '.NAME' | translate }}</span>
+                                <span>{{ 'COMMON.HEAT.SINGULAR' | translate }} {{ heat.number }} / {{ status.heatCount || 1 }}
+                                    @if (status.dataDelayed) {
+                                        <mat-icon class="bar-delayed-icon" inline
+                                                  [title]="'LIVE.DATA_DELAYED_SHORT' | translate: {minutes: status.getDataAgeMinutes()}">schedule</mat-icon>
+                                    }
+                                </span>
+                            </div>
+                        }
+                    }
+                }
+            }
         }
     </div>
 }

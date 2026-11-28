@@ -1,0 +1,28 @@
+@if (status) {
+    <div class="live-status-banner">
+        @if (status.getBarMode() === 'MESSAGE') {
+            <sr-panel class="live-status-main">{{ status.message?.text }}</sr-panel>
+        } @else if (status.getBarMode() === 'STATUS' && statusText) {
+            <sr-panel class="live-status-main">{{ statusText.key | translate: statusText.params }}</sr-panel>
+        }
+        @if (status.hasInfoMessage()) {
+            <sr-panel class="live-status-info">
+                <div class="live-status-line"><mat-icon>campaign</mat-icon> <span>{{ status.message?.text }}</span></div>
+            </sr-panel>
+        }
+        @if (status.hasWarnings()) {
+            <sr-panel class="live-status-warnings">
+                @for (warning of status.warnings; track $index) {
+                    <div class="live-status-line"><mat-icon>warning</mat-icon> <span>{{ warning }}</span></div>
+                }
+            </sr-panel>
+        }
+        @if (status.dataDelayed) {
+            <div class="live-status-line live-status-delayed">
+                <mat-icon>schedule</mat-icon>
+                <span>{{ 'LIVE.DATA_DELAYED' | translate: {minutes: status.getDataAgeMinutes()} }}</span>
+            </div>
+        }
+        <span class="live-status-updated">{{ 'LIVE.UPDATED_AT' | translate: {time: status.getUpdatedAtTime()} }}</span>
+    </div>
+}

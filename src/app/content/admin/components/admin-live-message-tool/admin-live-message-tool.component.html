@@ -1,0 +1,33 @@
+<p class="live-message-current">
+    Aktuell:
+    @if (status?.message; as message) {
+        <strong>{{ message.text }}</strong>
+        ({{ message.mode === 'REPLACE' ? 'ersetzt die Live-Bar' : 'zusätzlicher Hinweis' }})
+    } @else {
+        <em>keine Nachricht</em>
+    }
+    @if (status) {
+        · Status: {{ status.type }}
+    }
+</p>
+
+<form [formGroup]="form" (ngSubmit)="save()">
+    <label for="live_message_text">Nachricht</label>
+    <textarea formControlName="text" id="live_message_text" rows="2" [maxLength]="maxLength"></textarea>
+    <br>
+
+    <label for="live_message_mode">Anzeige</label>
+    <select formControlName="mode" id="live_message_mode">
+        <option value="REPLACE">Ersetzt die Live-Bar</option>
+        <option value="INFO">Zusätzlicher Hinweis (Live-Seite)</option>
+    </select>
+    <br>
+
+    <sr-btn [loading]="saving" [active]="form.valid"><mat-icon>campaign</mat-icon> <span>Nachricht setzen</span></sr-btn>
+</form>
+<!-- outside the form: sr-btn is a submit button -->
+<sr-btn (btnClick)="clear()" [active]="!!status?.message"><mat-icon>delete</mat-icon> <span>Nachricht löschen</span></sr-btn>
+
+@if (error) {
+    <p class="live-message-error">{{ error }}</p>
+}
