@@ -5,13 +5,14 @@ import {ViewportScroller} from "@angular/common";
 import {AdminHeatToolComponent} from '../admin-heat-tool/admin-heat-tool.component';
 import {AdminImportToolComponent} from '../admin-import-tool/admin-import-tool.component';
 import {AdminReportViewComponent} from '../admin-report-view/admin-report-view.component';
+import {AdminLiveMessageToolComponent} from '../admin-live-message-tool/admin-live-message-tool.component';
 import {MeetingImpl, Heat} from '@swimresults/angular';
 
 @Component({
     selector: 'sr-admin-main-view',
     templateUrl: './admin-main-view.component.html',
     styleUrls: ['./admin-main-view.component.scss'],
-    imports: [AdminHeatToolComponent, AdminImportToolComponent, AdminReportViewComponent]
+    imports: [AdminHeatToolComponent, AdminLiveMessageToolComponent, AdminImportToolComponent, AdminReportViewComponent]
 })
 export class AdminMainViewComponent implements OnDestroy {
   private routeService = inject(RouteService);

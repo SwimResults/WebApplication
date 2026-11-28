@@ -75,3 +75,15 @@ sr-heat-times {
         opacity: 0;
     }
 }
+
+.bar-warning-icon {
+    color: colors.$color-warning;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.bar-delayed-icon {
+    color: colors.$color-warning;
+    vertical-align: middle;
+    margin-left: 4px;
+}

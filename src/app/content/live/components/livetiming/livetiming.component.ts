@@ -12,7 +12,9 @@ import {TranslateModule} from '@ngx-translate/core';
 import {UserDataService} from "../../../../core/service/user-data.service";
 import {MatIcon} from "@angular/material/icon";
 import {BtnComponent} from "../../../../shared/elements/buttons/btn/btn.component";
-import {EventService, HeatService, StartService, Start, StartImpl, MeetingEventLivetiming, MeetingImpl, MeetingStates, StartListTileConfig, HeatImpl, FetchingModel, AthleteRelation} from '@swimresults/angular';
+import {EventService, HeatService, StartService, Start, StartImpl, MeetingEventLivetiming, MeetingImpl, MeetingStates, StartListTileConfig, HeatImpl, FetchingModel, AthleteRelation, LiveStatusImpl} from '@swimresults/angular';
+import {LiveStatusService} from "../../../../core/service/live-status.service";
+import {LiveStatusBannerComponent} from "./live-status-banner/live-status-banner.component";
 
 export interface ChangeHeatEvent {
     name: "event" | "heat" | "all" | "nothing";
@@ -27,7 +29,7 @@ export interface LiveSettingsData {
     selector: 'sr-livetiming',
     templateUrl: './livetiming.component.html',
     styleUrls: ['./livetiming.component.scss'],
-    imports: [SpinnerComponent, LivetimingHeaderComponent, PanelComponent, LivetimingTableComponent, NoContentComponent, LivetimingControlsComponent, TranslateModule, RouterLink, MatIcon, BtnComponent]
+    imports: [SpinnerComponent, LiveStatusBannerComponent, LivetimingHeaderComponent, PanelComponent, LivetimingTableComponent, NoContentComponent, LivetimingControlsComponent, TranslateModule, RouterLink, MatIcon, BtnComponent]
 })
 export class LivetimingComponent implements OnInit, OnDestroy {
     private routeService = inject(RouteService);
@@ -36,6 +38,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     private eventService = inject(EventService);
     private route = inject(ActivatedRoute);
     private userDataService = inject(UserDataService);
+    private liveStatusService = inject(LiveStatusService);
 
 
     liveTimingUpdateInterval: number = 3000;
@@ -47,6 +50,9 @@ export class LivetimingComponent implements OnInit, OnDestroy {
     meetingSubscription: Subscription;
     meetingIdSubscription: Subscription;
     followingSubscription: Subscription;
+    liveStatusSubscription?: Subscription;
+
+    liveStatus?: LiveStatusImpl;
 
     following: AthleteRelation[] = [];
 
@@ -118,6 +124,13 @@ export class LivetimingComponent implements OnInit, OnDestroy {
             }
         })
         this.meetingIdSubscription = this.routeService.currentMeetingId.subscribe(data => {
+            if (data !== this.meetingId) {
+                this.liveStatusSubscription?.unsubscribe();
+                this.liveStatus = undefined;
+                if (data) {
+                    this.liveStatusSubscription = this.liveStatusService.watch(data).subscribe(s => this.liveStatus = s);
+                }
+            }
             this.meetingId = data;
         })
         this.followingSubscription = this.userDataService.following.subscribe(data => {
@@ -157,6 +170,7 @@ export class LivetimingComponent implements OnInit, OnDestroy {
         this.meetingSubscription.unsubscribe();
         this.meetingIdSubscription.unsubscribe();
         this.followingSubscription.unsubscribe();
+        this.liveStatusSubscription?.unsubscribe();
         this.stopLiveCycle()
     }
 

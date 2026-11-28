@@ -290,7 +290,23 @@
         "NO_CONTENT_MESSAGE": "Unable to load content.",
         "STREAM_BUTTON_TEXT": "Livestream on {{platform}}",
         "PRE_LIST_WARNING": "For this heat there is currently only a start list available. The correct heat assignment will be published shortly after the set has been made.",
-        "OPEN_EVENT_BUTTON": "Show Event"
+        "OPEN_EVENT_BUTTON": "Show Event",
+        "STATUS": {
+            "BEFORE_START": "The competition starts at {{time}}",
+            "BEFORE_START_TOMORROW": "The competition starts tomorrow at {{time}}",
+            "BEFORE_START_WEEKDAY": "The competition starts on {{weekday}} at {{time}}",
+            "BEFORE_START_NO_TIME": "The competition starts soon",
+            "BREAK": "Break. We continue at {{time}}",
+            "BREAK_NO_TIME": "Break",
+            "DAY_END": "See you tomorrow. First start at {{time}}",
+            "DAY_END_WEEKDAY": "See you on {{weekday}}. First start at {{time}}",
+            "DAY_END_NO_TIME": "That's it for today",
+            "END": "End of the competition. Have a safe trip home!"
+        },
+        "DATA_DELAYED": "No new live data for {{minutes}} min. The data comes directly from the competition's timing system.",
+        "DATA_DELAYED_SHORT": "No new live data for {{minutes}} min.",
+        "UPDATED_AT": "Updated {{time}}",
+        "WARNINGS": "Notices for this competition"
     },
     "AUTH": {
         "LOGOUT": {
